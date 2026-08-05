@@ -5,8 +5,19 @@ Android app that pairs an interactive **damage chart** — a port of
 with a **hero wiki** covering portraits, abilities, release dates and the full balance
 history of every hero.
 
-Status: **early development.** The app shell builds and runs; the simulation engine is
-being ported and validated against the original implementation.
+Status: **in development.** The simulation engine is ported and validated against the
+original implementation, the damage chart and the max-damage ranking are working, and the
+hero wiki is next. The dataset shipping today is still the 2020 reference set.
+
+## Screens
+
+- **Damage chart** — every weapon's firing sequence over time, driven by distance, aim point
+  and modifiers.
+- **Max damage** — the ten highest damage-per-second figures reachable, found by sweeping
+  each weapon across the full range and every sensible aim point, with the conditions that
+  produce them.
+- **Heroes** — the wiki: portraits, abilities, release dates and balance history. Not built
+  yet.
 
 ## What the damage chart does
 

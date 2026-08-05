@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BarChart
+import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -27,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.bellizia.owcompanion.ui.chart.ChartScreen
+import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
 import com.bellizia.owcompanion.ui.theme.OwCompanionTheme
 
 class MainActivity : ComponentActivity() {
@@ -43,6 +45,7 @@ class MainActivity : ComponentActivity() {
 
 private enum class Section(val labelRes: Int) {
     Chart(R.string.tab_chart),
+    Leaderboard(R.string.tab_leaderboard),
     Wiki(R.string.tab_wiki),
 }
 
@@ -61,6 +64,7 @@ private fun AppRoot() {
                             Icon(
                                 imageVector = when (entry) {
                                     Section.Chart -> Icons.Filled.BarChart
+                                    Section.Leaderboard -> Icons.Filled.EmojiEvents
                                     Section.Wiki -> Icons.Filled.Groups
                                 },
                                 contentDescription = null,
@@ -75,6 +79,7 @@ private fun AppRoot() {
         Box(modifier = Modifier.fillMaxSize().padding(innerPadding)) {
             when (section) {
                 Section.Chart -> ChartScreen()
+                Section.Leaderboard -> LeaderboardScreen()
                 Section.Wiki -> Column(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.Center,

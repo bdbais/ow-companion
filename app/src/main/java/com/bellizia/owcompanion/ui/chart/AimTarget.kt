@@ -12,20 +12,33 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.sim.CircleHitBox
 import com.bellizia.owcompanion.sim.Enemy
 import com.bellizia.owcompanion.sim.RectHitBox
+import kotlin.math.roundToInt
 
-/** Metres of target space shown horizontally and vertically. */
-private const val ViewWidthMetres = 2.6f
-private const val ViewHeightMetres = 2.8f
+// Where the figure sits in target space, taken from the original chart: 3.3 m tall, its
+// left edge 1.55 m left of the target's centreline, its feet 0.6 m below the hitbox floor.
+private const val FigureHeightMetres = 3.3f
+private const val FigureLeftMetres = -1.55f
+private const val FigureBottomMetres = -0.6f
 
-private val TargetWidth = 120.dp
-private val TargetHeight = 130.dp
+// View bounds, chosen to frame the whole figure with a little air around it.
+private const val ViewMinX = -1.8f
+private const val ViewMaxX = 1.9f
+private const val ViewMinZ = -0.7f
+private const val ViewMaxZ = 2.9f
+
+private val TargetWidth = 124.dp
+private val TargetHeight = 128.dp
 
 /**
  * The target being shot at, with a draggable crosshair.
@@ -43,74 +56,85 @@ fun AimTarget(
     enemy: Enemy = Enemy.roadhog(),
 ) {
     val currentOnAimChange by rememberUpdatedState(onAimChange)
-    val bodyColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.18f)
-    val headColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.30f)
+    val figure = ImageBitmap.imageResource(R.drawable.roadhog_figure)
+    val hitboxColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.55f)
     val crosshairColor = MaterialTheme.colorScheme.primary
+    val groundColor = MaterialTheme.colorScheme.outline
+
+    fun reportAim(position: Offset, size: IntSize) {
+        val x = ViewMinX + position.x / size.width * (ViewMaxX - ViewMinX)
+        val z = ViewMaxZ - position.y / size.height * (ViewMaxZ - ViewMinZ)
+        currentOnAimChange(x.coerceIn(ViewMinX, ViewMaxX), z.coerceIn(ViewMinZ, ViewMaxZ))
+    }
 
     Canvas(
         modifier = modifier
             .width(TargetWidth)
             .height(TargetHeight)
             .pointerInput(Unit) {
-                fun report(position: Offset) {
-                    val metresPerPxX = ViewWidthMetres / size.width
-                    val metresPerPxY = ViewHeightMetres / size.height
-                    val x = (position.x - size.width / 2f) * metresPerPxX
-                    val z = (size.height - position.y) * metresPerPxY
-                    currentOnAimChange(
-                        x.coerceIn(-ViewWidthMetres / 2, ViewWidthMetres / 2),
-                        z.coerceIn(0f, ViewHeightMetres),
-                    )
-                }
                 detectDragGestures { change, _ ->
                     change.consume()
-                    report(change.position)
+                    reportAim(change.position, size)
                 }
             }
             .pointerInput(Unit) {
-                detectTapGestures { position ->
-                    val metresPerPxX = ViewWidthMetres / size.width
-                    val metresPerPxY = ViewHeightMetres / size.height
-                    currentOnAimChange(
-                        ((position.x - size.width / 2f) * metresPerPxX)
-                            .coerceIn(-ViewWidthMetres / 2, ViewWidthMetres / 2),
-                        ((size.height - position.y) * metresPerPxY)
-                            .coerceIn(0f, ViewHeightMetres),
-                    )
-                }
+                detectTapGestures { position -> reportAim(position, size) }
             },
     ) {
-        val pxPerMetreX = size.width / ViewWidthMetres
-        val pxPerMetreY = size.height / ViewHeightMetres
+        fun toX(metres: Float) = (metres - ViewMinX) / (ViewMaxX - ViewMinX) * size.width
+        fun toY(metres: Float) = (ViewMaxZ - metres) / (ViewMaxZ - ViewMinZ) * size.height
 
-        fun toX(metres: Float) = size.width / 2f + metres * pxPerMetreX
-        fun toY(metres: Float) = size.height - metres * pxPerMetreY
+        val figureWidthMetres = FigureHeightMetres * figure.width / figure.height
+        val figureLeft = toX(FigureLeftMetres)
+        val figureTop = toY(FigureBottomMetres + FigureHeightMetres)
+        drawImage(
+            image = figure,
+            srcOffset = IntOffset.Zero,
+            srcSize = IntSize(figure.width, figure.height),
+            dstOffset = IntOffset(figureLeft.roundToInt(), figureTop.roundToInt()),
+            dstSize = IntSize(
+                width = (toX(FigureLeftMetres + figureWidthMetres) - figureLeft).roundToInt(),
+                height = (toY(FigureBottomMetres) - figureTop).roundToInt(),
+            ),
+        )
 
+        // The hitboxes the simulation actually tests against, outlined over the figure so
+        // it is obvious that the head is a small circle and the body a generous rectangle.
         (enemy.body as? RectHitBox)?.let { body ->
+            val left = toX((body.centerX - body.width / 2).toFloat())
+            val top = toY((body.centerZ + body.height / 2).toFloat())
             drawRect(
-                color = bodyColor,
-                topLeft = Offset(
-                    x = toX((body.centerX - body.width / 2).toFloat()),
-                    y = toY((body.centerZ + body.height / 2).toFloat()),
-                ),
+                color = hitboxColor,
+                topLeft = Offset(left, top),
                 size = Size(
-                    width = body.width.toFloat() * pxPerMetreX,
-                    height = body.height.toFloat() * pxPerMetreY,
+                    width = toX((body.centerX + body.width / 2).toFloat()) - left,
+                    height = toY((body.centerZ - body.height / 2).toFloat()) - top,
                 ),
+                style = Stroke(width = 1.dp.toPx()),
             )
         }
 
         (enemy.head as? CircleHitBox)?.let { head ->
+            val centre = Offset(toX(head.centerX.toFloat()), toY(head.centerZ.toFloat()))
+            val radius = toX(head.radius.toFloat()) - toX(0f)
             drawCircle(
-                color = headColor,
-                radius = head.radius.toFloat() * pxPerMetreX,
-                center = Offset(toX(head.centerX.toFloat()), toY(head.centerZ.toFloat())),
+                color = hitboxColor,
+                radius = radius,
+                center = centre,
+                style = Stroke(width = 1.dp.toPx()),
             )
         }
 
+        drawLine(
+            color = groundColor,
+            start = Offset(0f, toY(0f)),
+            end = Offset(size.width, toY(0f)),
+            strokeWidth = 1.dp.toPx(),
+        )
+
         val cx = toX(aimX)
         val cy = toY(aimZ)
-        val arm = 7.dp.toPx()
+        val arm = 8.dp.toPx()
         drawCircle(
             color = crosshairColor,
             radius = 4.dp.toPx(),
@@ -119,11 +143,5 @@ fun AimTarget(
         )
         drawLine(crosshairColor, Offset(cx - arm, cy), Offset(cx + arm, cy), 1.5.dp.toPx())
         drawLine(crosshairColor, Offset(cx, cy - arm), Offset(cx, cy + arm), 1.5.dp.toPx())
-        drawLine(
-            color = Color.Gray.copy(alpha = 0.4f),
-            start = Offset(0f, size.height),
-            end = Offset(size.width, size.height),
-            strokeWidth = 1.dp.toPx(),
-        )
     }
 }

@@ -100,13 +100,14 @@ class Simulator(
         maxTrials: Int = 64,
         seed: Int = DEFAULT_SEED,
         energy: Double = model.spec.energy ?: 0.0,
+        targetSamples: Int = TARGET_SAMPLES,
     ): ShotTrain {
         val random = Random(seed)
         val first = simulate(model, crosshair, modifiers, random, energy)
         if (isDeterministic(model)) return first
 
         val samplesPerTrial = (first.shots.size * first.pellets).toInt().coerceAtLeast(1)
-        val trials = (TARGET_SAMPLES / samplesPerTrial).coerceIn(1, maxTrials)
+        val trials = (targetSamples / samplesPerTrial).coerceIn(1, maxTrials)
         if (trials == 1) return first
 
         var dps = first.dps

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="tab_chart">Grafico danni</string>
+    <string name="tab_leaderboard">Danno massimo</string>
     <string name="tab_wiki">Eroi</string>
     <string name="scaffold_placeholder">Motore di simulazione e dataset non ancora collegati.</string>
 </resources>
