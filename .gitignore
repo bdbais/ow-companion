@@ -1,0 +1,15 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+build/
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Data pipeline working files (raw wiki/API caches are re-fetchable)
+/tools/__pycache__/
+/tools/.cache/
+/dataset/raw/

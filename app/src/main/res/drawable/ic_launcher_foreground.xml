@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Stylised shot train: bars of increasing damage, the signature of the chart. -->
+    <path
+        android:fillColor="#F58A2E"
+        android:pathData="M32,62h6v10h-6z" />
+    <path
+        android:fillColor="#F5B02E"
+        android:pathData="M42,54h6v18h-6z" />
+    <path
+        android:fillColor="#8FD14F"
+        android:pathData="M52,44h6v28h-6z" />
+    <path
+        android:fillColor="#4CC4E8"
+        android:pathData="M62,36h6v36h-6z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,76h48v2h-48z" />
+</vector>

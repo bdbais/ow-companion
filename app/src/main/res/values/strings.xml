@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">OW Companion</string>
+    <string name="tab_chart">Damage chart</string>
+    <string name="tab_wiki">Heroes</string>
+    <string name="scaffold_placeholder">Simulation engine and dataset are not wired up yet.</string>
+</resources>
