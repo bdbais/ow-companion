@@ -27,11 +27,14 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.UnfoldLess
+import androidx.compose.material.icons.filled.UnfoldMore
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
@@ -41,6 +44,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -85,18 +89,30 @@ fun ChartScreen(
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val timelineScroll = rememberScrollState()
-    var controlsExpanded by rememberSaveable { mutableStateOf(false) }
+    var sections by rememberSaveable(stateSaver = OpenSectionsSaver) {
+        mutableStateOf(OpenSections())
+    }
+    var controlsCollapsed by rememberSaveable { mutableStateOf(false) }
     val transformState = rememberTransformableState { zoomChange, _, _ ->
         viewModel.setZoom(state.zoom * zoomChange)
     }
 
     Column(modifier = modifier.fillMaxSize()) {
-        ControlPanel(
-            state = state,
-            viewModel = viewModel,
-            expanded = controlsExpanded,
-            onExpandedChange = { controlsExpanded = it },
-        )
+        if (controlsCollapsed) {
+            CollapsedControlBar(
+                state = state,
+                viewModel = viewModel,
+                onExpand = { controlsCollapsed = false },
+            )
+        } else {
+            ControlPanel(
+                state = state,
+                viewModel = viewModel,
+                sections = sections,
+                onSectionsChange = { sections = it },
+                onCollapse = { controlsCollapsed = true },
+            )
+        }
         HorizontalDivider()
 
         if (state.loading) {
@@ -130,12 +146,26 @@ fun ChartScreen(
     }
 }
 
+/** Which control sections are open. Filters start closed; the rest start open. */
+private data class OpenSections(
+    val sort: Boolean = true,
+    val modifiers: Boolean = true,
+    val roles: Boolean = false,
+    val categories: Boolean = false,
+)
+
+private val OpenSectionsSaver = listSaver<OpenSections, Boolean>(
+    save = { listOf(it.sort, it.modifiers, it.roles, it.categories) },
+    restore = { OpenSections(it[0], it[1], it[2], it[3]) },
+)
+
 @Composable
 private fun ControlPanel(
     state: ChartUiState,
     viewModel: ChartViewModel,
-    expanded: Boolean,
-    onExpandedChange: (Boolean) -> Unit,
+    sections: OpenSections,
+    onSectionsChange: (OpenSections) -> Unit,
+    onCollapse: () -> Unit,
 ) {
     Surface(tonalElevation = 2.dp) {
         Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
@@ -147,10 +177,19 @@ private fun ControlPanel(
                 )
                 Spacer(Modifier.width(12.dp))
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(
-                        text = "Distance ${state.distance.roundToInt()} m",
-                        style = MaterialTheme.typography.labelLarge,
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(
+                            text = "Distance ${state.distance.roundToInt()} m",
+                            style = MaterialTheme.typography.labelLarge,
+                            modifier = Modifier.weight(1f),
+                        )
+                        IconButton(onClick = onCollapse) {
+                            Icon(
+                                imageVector = Icons.Filled.UnfoldLess,
+                                contentDescription = "Collapse the controls",
+                            )
+                        }
+                    }
                     Slider(
                         value = state.distance,
                         onValueChange = viewModel::setDistance,
@@ -167,7 +206,14 @@ private fun ControlPanel(
                 }
             }
 
-            ChipSection(title = "Sort by") {
+            // Every section folds independently: a chart is worth more screen than the
+            // controls that produced it, and which control you still need varies.
+            CollapsibleSection(
+                title = "Sort by",
+                summary = state.sortOrder.label,
+                expanded = sections.sort,
+                onExpandedChange = { onSectionsChange(sections.copy(sort = it)) },
+            ) {
                 SortOrder.entries.forEach { order ->
                     Chip(
                         label = order.label,
@@ -177,9 +223,13 @@ private fun ControlPanel(
                 }
             }
 
-            // Modifiers stay on screen: they are what the chart is for, and burying them
-            // behind a fold makes it easy to forget one is on and misread every bar.
-            ChipSection(title = "Modifiers") {
+            val activeModifiers = ModifierToggles.count { it.isOn(state.modifiers) }
+            CollapsibleSection(
+                title = "Modifiers",
+                summary = if (activeModifiers > 0) "$activeModifiers on" else null,
+                expanded = sections.modifiers,
+                onExpandedChange = { onSectionsChange(sections.copy(modifiers = it)) },
+            ) {
                 ModifierToggles.forEach { toggle ->
                     Chip(
                         label = toggle.label,
@@ -193,67 +243,139 @@ private fun ControlPanel(
                 }
             }
 
-            // Role and weapon-type filters are set once and left alone, so they can fold.
-            val hiddenFilters = (HeroRole.entries.size - state.roles.size) +
-                (WeaponCategory.entries.size - state.categories.size)
-            TextButton(
-                onClick = { onExpandedChange(!expanded) },
-                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
+            // Role and weapon type are two independent axes. Run together in one row they
+            // read as a single list of eight related options, which is how a filter gets
+            // misread - so they get a heading each.
+            val hiddenRoles = HeroRole.entries.size - state.roles.size
+            CollapsibleSection(
+                title = "Role",
+                summary = if (hiddenRoles > 0) "$hiddenRoles hidden" else null,
+                expanded = sections.roles,
+                onExpandedChange = { onSectionsChange(sections.copy(roles = it)) },
             ) {
-                Icon(
-                    imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
-                    contentDescription = null,
-                )
-                Text(
-                    text = buildString {
-                        append("Filters")
-                        if (hiddenFilters > 0) append("  ·  $hiddenFilters hidden")
-                    },
-                    style = MaterialTheme.typography.labelMedium,
-                    modifier = Modifier.padding(start = 4.dp),
-                )
+                HeroRole.entries.forEach { role ->
+                    Chip(
+                        label = role.label,
+                        selected = role in state.roles,
+                        onClick = { viewModel.toggleRole(role) },
+                    )
+                }
             }
 
-            // Two independent axes. Run together in one row they read as a single list of
-            // eight related options, which is exactly how a filter gets misread.
-            if (expanded) {
-                ChipSection(title = "Role") {
-                    HeroRole.entries.forEach { role ->
-                        Chip(
-                            label = role.label,
-                            selected = role in state.roles,
-                            onClick = { viewModel.toggleRole(role) },
-                        )
-                    }
-                }
-
-                ChipSection(title = "Weapon type") {
-                    WeaponCategory.entries.forEach { category ->
-                        Chip(
-                            label = category.label,
-                            selected = category in state.categories,
-                            onClick = { viewModel.toggleCategory(category) },
-                        )
-                    }
+            val hiddenTypes = WeaponCategory.entries.size - state.categories.size
+            CollapsibleSection(
+                title = "Weapon type",
+                summary = if (hiddenTypes > 0) "$hiddenTypes hidden" else null,
+                expanded = sections.categories,
+                onExpandedChange = { onSectionsChange(sections.copy(categories = it)) },
+            ) {
+                WeaponCategory.entries.forEach { category ->
+                    Chip(
+                        label = category.label,
+                        selected = category in state.categories,
+                        onClick = { viewModel.toggleCategory(category) },
+                    )
                 }
             }
         }
     }
 }
 
+/**
+ * What is left of the controls when they are folded away, so the chart gets the screen.
+ *
+ * The distance slider stays: sweeping it is the one thing worth doing *while* watching the
+ * rows reorder, and losing it would make the collapsed state useless rather than compact.
+ */
 @Composable
-private fun ChipSection(title: String, content: @Composable FlowRowScope.() -> Unit) {
-    Text(
-        text = title,
-        style = MaterialTheme.typography.labelSmall,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.padding(top = 6.dp),
-    )
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
-        verticalArrangement = Arrangement.spacedBy((-4).dp),
-        content = content,
-    )
+private fun CollapsedControlBar(
+    state: ChartUiState,
+    viewModel: ChartViewModel,
+    onExpand: () -> Unit,
+) {
+    val activeModifiers = ModifierToggles.count { it.isOn(state.modifiers) }
+
+    Surface(tonalElevation = 2.dp) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 12.dp, end = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = "${state.distance.roundToInt()} m",
+                style = MaterialTheme.typography.labelLarge,
+                modifier = Modifier.width(44.dp),
+            )
+            Slider(
+                value = state.distance,
+                onValueChange = viewModel::setDistance,
+                valueRange = 0f..60f,
+                modifier = Modifier.weight(1f),
+            )
+            Text(
+                text = buildString {
+                    append(state.sortOrder.label)
+                    if (activeModifiers > 0) append(" · $activeModifiers mod")
+                },
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(start = 8.dp),
+            )
+            IconButton(onClick = onExpand) {
+                Icon(
+                    imageVector = Icons.Filled.UnfoldMore,
+                    contentDescription = "Show the controls",
+                )
+            }
+        }
+    }
+}
+
+/**
+ * A group of chips under a heading that folds away.
+ *
+ * The heading carries a summary of what is set inside, so a folded section never hides
+ * something that is quietly changing the numbers.
+ */
+@Composable
+private fun CollapsibleSection(
+    title: String,
+    summary: String?,
+    expanded: Boolean,
+    onExpandedChange: (Boolean) -> Unit,
+    content: @Composable FlowRowScope.() -> Unit,
+) {
+    TextButton(
+        onClick = { onExpandedChange(!expanded) },
+        contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
+    ) {
+        Icon(
+            imageVector = if (expanded) Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+            contentDescription = null,
+        )
+        Text(
+            text = title,
+            style = MaterialTheme.typography.labelMedium,
+            modifier = Modifier.padding(start = 4.dp),
+        )
+        if (summary != null) {
+            Text(
+                text = "  ·  $summary",
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+    if (expanded) {
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            verticalArrangement = Arrangement.spacedBy((-4).dp),
+            content = content,
+        )
+    }
 }
 
 @Composable
