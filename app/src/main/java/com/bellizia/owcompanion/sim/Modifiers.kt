@@ -19,6 +19,9 @@ data class Modifiers(
     val nanoboostOffence: Boolean = false,
     val amplificationMatrix: Boolean = false,
     val discord: Boolean = false,
+    // Rate of fire. Unlike the others this raises damage by compressing the firing cycle
+    // rather than by scaling each hit, so it is applied to the weapon's timing.
+    val kitsuneRush: Boolean = false,
 ) {
     /**
      * Multiplier for weapons that fire discrete shots. Amplification Matrix doubles a
@@ -56,6 +59,12 @@ data class Modifiers(
      * else loses 3 points, or half the damage when that would be more forgiving. Small,
      * fast-hitting weapons suffer disproportionately, which is the whole point of armour.
      */
+    /**
+     * How much faster the weapon cycles. Kitsune Rush speeds up attacks, reloads and
+     * cooldowns by half, which is why a weapon can climb the ranking on timing alone.
+     */
+    val attackSpeedFactor: Double get() = if (kitsuneRush) 1.5 else 1.0
+
     fun applyArmor(damage: Double, isBeam: Boolean): Double = when {
         !armor -> damage
         isBeam -> damage * 0.8

@@ -45,7 +45,16 @@ private const val GRAVITY = 9.0 // m/s^2
  * Construct once per weapon and reuse across distances — nothing here depends on the shot
  * being simulated, so a model is safe to share and cheap to keep around.
  */
-class WeaponModel(val spec: WeaponSpec) {
+class WeaponModel(
+    val spec: WeaponSpec,
+    /**
+     * Multiplier on how fast the weapon cycles, from effects like Kitsune Rush. Everything
+     * on the attack clock scales - shots, bursts, reloads and windup - while a shot's own
+     * effect duration does not, since speeding up the shooter does not make a burning
+     * grenade burn faster.
+     */
+    val speedFactor: Double = 1.0,
+) {
 
     val isBeam: Boolean = spec.type == "beam"
     val isMelee: Boolean = spec.type == "melee"
@@ -54,22 +63,35 @@ class WeaponModel(val spec: WeaponSpec) {
 
     /** Magazine size; infinite for weapons that never reload. */
     val magazine: Double = spec.ammo ?: Double.POSITIVE_INFINITY
-    val fireRate: Double = spec.fireRate ?: 0.0
-    val shotTime: Double = spec.shotTime ?: (1.0 / fireRate)
-    val reloadTime: Double = spec.reloadTime ?: 0.0
-    val chargeDelay: Double = spec.chargeDelay ?: 0.0
+
+    // Unscaled values first, so each derived timing is divided by the speed factor exactly
+    // once rather than inheriting a division from whatever it was derived from.
+    private val baseShotTime: Double = spec.shotTime ?: (1.0 / (spec.fireRate ?: 1.0))
+    private val baseReloadTime: Double = spec.reloadTime ?: 0.0
+
+    val fireRate: Double = (spec.fireRate ?: 0.0) * speedFactor
+    val shotTime: Double = baseShotTime / speedFactor
+    val reloadTime: Double = baseReloadTime / speedFactor
+    val chargeDelay: Double = (spec.chargeDelay ?: 0.0) / speedFactor
     val critFactor: Double = spec.critFactor ?: if (isBeamOrMelee) 1.0 else 2.0
+
+    /** Seconds between rounds inside a burst. */
+    internal val burstDelay: Double = (spec.burst?.delay ?: 0.0) / speedFactor
 
     /** Damage-over-time weapons apply their per-shot damage this many times. */
     val segmentsFactor: Double = spec.damage.segments ?: 1.0
 
     /** Seconds of the firing cycle one shot accounts for, ignoring reload. */
-    val dpsPeriodBase: Double = spec.dpsPeriodBase
-        ?: (if (spec.burst != null) shotTime / spec.burst.ammo else shotTime)
+    val dpsPeriodBase: Double = (
+        spec.dpsPeriodBase
+            ?: (if (spec.burst != null) baseShotTime / spec.burst.ammo else baseShotTime)
+        ) / speedFactor
 
     /** Reload time amortised over the magazine. */
-    val dpsPeriodAdd: Double = spec.dpsPeriodAdd
-        ?: (if (magazine.isInfinite()) 0.0 else reloadTime / magazine)
+    val dpsPeriodAdd: Double = (
+        spec.dpsPeriodAdd
+            ?: (if (magazine.isInfinite()) 0.0 else baseReloadTime / magazine)
+        ) / speedFactor
 
     internal val accounting: DamageAccounting = when {
         spec.behavior == WeaponBehavior.PhotonProjector -> DamageAccounting.PhotonProjector
@@ -84,7 +106,8 @@ class WeaponModel(val spec: WeaponSpec) {
     // so neighbouring shots never overlap.
 
     private val filling: Double = spec.filling ?: 0.5
-    private val shotSpacing: Double = Simulator.TIMESCALE * (spec.burst?.delay ?: shotTime)
+    private val shotSpacing: Double =
+        Simulator.TIMESCALE * (if (spec.burst != null) burstDelay else shotTime)
     internal val maxShotWidth: Double = if (isBeam) 0.0 else shotSpacing * filling
     internal val maxSquareDamage: Double =
         if (isBeam) 0.0 else maxShotWidth * maxShotWidth / Simulator.AREASCALE
@@ -240,9 +263,9 @@ class WeaponModel(val spec: WeaponSpec) {
             var remaining = ammo - 1
             // The gap after the last round of a burst absorbs the whole burst's recovery.
             var delay = if ((magazine - remaining) % burst.ammo == 0.0) {
-                shotTime - burst.delay * (burst.ammo - 1)
+                shotTime - burstDelay * (burst.ammo - 1)
             } else {
-                burst.delay
+                burstDelay
             }
             if (remaining == 0.0) {
                 delay += reloadTime

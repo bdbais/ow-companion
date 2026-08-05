@@ -73,6 +73,7 @@ private val ModifierToggles = listOf(
     ModifierToggle("Ampl. matrix", { it.amplificationMatrix }, { m, v -> m.copy(amplificationMatrix = v) }),
     ModifierToggle("Fortify", { it.fortify }, { m, v -> m.copy(fortify = v) }),
     ModifierToggle("Breather", { it.takeABreather }, { m, v -> m.copy(takeABreather = v) }),
+    ModifierToggle("Kitsune Rush", { it.kitsuneRush }, { m, v -> m.copy(kitsuneRush = v) }),
 )
 
 @Composable
@@ -165,9 +166,25 @@ private fun ControlPanel(
                 }
             }
 
-            // Filters and modifiers are set once and then left alone, so they fold away to
-            // leave the chart itself the room it needs.
-            val activeModifiers = ModifierToggles.count { it.isOn(state.modifiers) }
+            // Modifiers stay on screen: they are what the chart is for, and burying them
+            // behind a fold makes it easy to forget one is on and misread every bar.
+            ChipSection(title = "Modifiers") {
+                ModifierToggles.forEach { toggle ->
+                    Chip(
+                        label = toggle.label,
+                        selected = toggle.isOn(state.modifiers),
+                        onClick = {
+                            viewModel.setModifiers(
+                                toggle.set(state.modifiers, !toggle.isOn(state.modifiers)),
+                            )
+                        },
+                    )
+                }
+            }
+
+            // Role and weapon-type filters are set once and left alone, so they can fold.
+            val hiddenFilters = (HeroRole.entries.size - state.roles.size) +
+                (WeaponCategory.entries.size - state.categories.size)
             TextButton(
                 onClick = { onExpandedChange(!expanded) },
                 contentPadding = PaddingValues(horizontal = 4.dp, vertical = 0.dp),
@@ -178,8 +195,8 @@ private fun ControlPanel(
                 )
                 Text(
                     text = buildString {
-                        append("Filters & modifiers")
-                        if (activeModifiers > 0) append("  ·  $activeModifiers on")
+                        append("Filters")
+                        if (hiddenFilters > 0) append("  ·  $hiddenFilters hidden")
                     },
                     style = MaterialTheme.typography.labelMedium,
                     modifier = Modifier.padding(start = 4.dp),
@@ -200,20 +217,6 @@ private fun ControlPanel(
                             label = category.label,
                             selected = category in state.categories,
                             onClick = { viewModel.toggleCategory(category) },
-                        )
-                    }
-                }
-
-                ChipSection(title = "Modifiers") {
-                    ModifierToggles.forEach { toggle ->
-                        Chip(
-                            label = toggle.label,
-                            selected = toggle.isOn(state.modifiers),
-                            onClick = {
-                                viewModel.setModifiers(
-                                    toggle.set(state.modifiers, !toggle.isOn(state.modifiers)),
-                                )
-                            },
                         )
                     }
                 }
@@ -243,7 +246,12 @@ private fun Chip(label: String, selected: Boolean, onClick: () -> Unit) {
         selected = selected,
         onClick = onClick,
         label = { Text(label, style = MaterialTheme.typography.labelSmall) },
-        colors = FilterChipDefaults.filterChipColors(),
+        // The default selected container barely reads against a dark surface, and these
+        // change every number on screen.
+        colors = FilterChipDefaults.filterChipColors(
+            selectedContainerColor = MaterialTheme.colorScheme.primary,
+            selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+        ),
     )
 }
 

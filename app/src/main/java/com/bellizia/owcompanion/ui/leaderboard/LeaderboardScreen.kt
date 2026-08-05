@@ -58,6 +58,7 @@ private val BuffToggles = listOf(
     BuffToggle("Nano Boost", { it.nanoboost }, { b, v -> b.copy(nanoboost = v) }),
     BuffToggle("Supercharger", { it.supercharger }, { b, v -> b.copy(supercharger = v) }),
     BuffToggle("Ampl. Matrix", { it.amplificationMatrix }, { b, v -> b.copy(amplificationMatrix = v) }),
+    BuffToggle("Kitsune Rush", { it.kitsuneRush }, { b, v -> b.copy(kitsuneRush = v) }),
 )
 
 /**

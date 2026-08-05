@@ -35,6 +35,7 @@ data class BuffSelection(
     val nanoboost: Boolean = true,
     val supercharger: Boolean = true,
     val amplificationMatrix: Boolean = true,
+    val kitsuneRush: Boolean = true,
 ) {
     fun toModifiers() = Modifiers(
         damageBoost = damageBoost,
@@ -42,10 +43,8 @@ data class BuffSelection(
         nanoboostOffence = nanoboost,
         supercharger = supercharger,
         amplificationMatrix = amplificationMatrix,
+        kitsuneRush = kitsuneRush,
     )
-
-    val anyActive: Boolean
-        get() = damageBoost || discord || nanoboost || supercharger || amplificationMatrix
 }
 
 data class LeaderboardUiState(
@@ -61,17 +60,25 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
     private val optimizer = DamageOptimizer()
 
     private var weaponSet: WeaponSet? = null
-    private var models: Map<String, WeaponModel> = emptyMap()
     private var job: Job? = null
+
+    // Rebuilt whenever a rate-of-fire buff changes, since those live in the weapon's timing.
+    private var modelCache: Pair<Double, Map<String, WeaponModel>>? = null
+
+    private fun modelsFor(speedFactor: Double): Map<String, WeaponModel> {
+        modelCache?.let { (cachedFactor, cached) -> if (cachedFactor == speedFactor) return cached }
+        val set = weaponSet ?: return emptyMap()
+        val built = set.weapons.associate { it.id to WeaponModel(it, speedFactor) }
+        modelCache = speedFactor to built
+        return built
+    }
 
     private val _state = MutableStateFlow(LeaderboardUiState())
     val state: StateFlow<LeaderboardUiState> = _state.asStateFlow()
 
     init {
         viewModelScope.launch {
-            val set = repository.weapons()
-            weaponSet = set
-            models = set.weapons.associate { it.id to WeaponModel(it) }
+            weaponSet = repository.weapons()
             recompute()
         }
     }
@@ -100,6 +107,7 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
     private suspend fun search(buffs: BuffSelection): List<LeaderboardEntry> = coroutineScope {
         val set = weaponSet ?: return@coroutineScope emptyList()
         val modifiers = buffs.toModifiers()
+        val models = modelsFor(modifiers.attackSpeedFactor)
 
         set.weapons
             .mapNotNull { spec -> models[spec.id] }
