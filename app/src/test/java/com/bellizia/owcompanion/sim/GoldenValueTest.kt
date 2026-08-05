@@ -124,6 +124,43 @@ class GoldenValueTest {
         )
     }
 
+    /** Runs exactly [trials] simulations and averages the sampled quantities. */
+    private fun meanOf(
+        simulator: Simulator,
+        model: WeaponModel,
+        crosshair: Crosshair,
+        modifiers: Modifiers,
+        trials: Int,
+    ): ShotTrain {
+        val random = kotlin.random.Random(Simulator.DEFAULT_SEED)
+        var first: ShotTrain? = null
+        var dps = 0.0
+        var accuracy = 0.0
+        var critAccuracy = 0.0
+        var timeToKill = 0.0
+        var finiteKills = 0
+
+        repeat(trials) {
+            val train = simulator.simulate(model, crosshair, modifiers, random)
+            if (first == null) first = train
+            dps += train.dps
+            accuracy += train.accuracy
+            critAccuracy += train.critAccuracy
+            if (train.timeToKill.isFinite()) {
+                timeToKill += train.timeToKill
+                finiteKills++
+            }
+        }
+
+        val n = trials.toDouble()
+        return first!!.copy(
+            dps = dps / n,
+            accuracy = accuracy / n,
+            critAccuracy = critAccuracy / n,
+            timeToKill = if (finiteKills > 0) timeToKill / finiteKills else Double.POSITIVE_INFINITY,
+        )
+    }
+
     @Test
     fun `every weapon in the golden file is present in the dataset`() {
         val datasetIds = weaponSet.weapons.map { it.id }.toSet()
@@ -159,12 +196,10 @@ class GoldenValueTest {
                     simulator.isDeterministic(model),
                 )
 
-                val train = simulator.simulateMean(
-                    model = model,
-                    crosshair = crosshair,
-                    modifiers = modifiers,
-                    trials = case.trials,
-                )
+                // Averaged here rather than through Simulator.simulateMean, which scales
+                // its trial count to the weapon: the recorded standard errors assume
+                // exactly `case.trials` samples on both sides.
+                val train = meanOf(simulator, model, crosshair, modifiers, case.trials)
 
                 // RNG-independent: must match exactly.
                 assertClose("$label basicDamage", case.basicDmg, train.basicDamage)

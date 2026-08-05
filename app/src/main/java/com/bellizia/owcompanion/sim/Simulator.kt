@@ -84,31 +84,41 @@ class Simulator(
     }
 
     /**
-     * Averages [trials] runs. Only worth doing for weapons with spread; for everything else
-     * every run is identical and one trial says all there is to say.
+     * Averages repeated runs to settle the sampling noise of weapons with spread.
+     *
+     * [maxTrials] is a ceiling, not a target. What actually stabilises the mean is the
+     * number of *pellets* sampled, and a minigun that fires six hundred times already
+     * averages six hundred samples in a single run — repeating it thirty more times buys
+     * nothing and costs everything. So the trial count is scaled down for weapons that
+     * sample heavily on their own, which is the difference between a chart that redraws in
+     * a blink and one that takes eight seconds.
      */
     fun simulateMean(
         model: WeaponModel,
         crosshair: Crosshair,
         modifiers: Modifiers = Modifiers.NONE,
-        trials: Int = 64,
+        maxTrials: Int = 64,
         seed: Int = DEFAULT_SEED,
         energy: Double = model.spec.energy ?: 0.0,
     ): ShotTrain {
-        val effectiveTrials = if (isDeterministic(model)) 1 else trials
         val random = Random(seed)
-        var first: ShotTrain? = null
-        var dps = 0.0
-        var dpsWithoutReload = 0.0
-        var dpsRaw = 0.0
-        var accuracy = 0.0
-        var critAccuracy = 0.0
-        var timeToKill = 0.0
-        var finiteKills = 0
+        val first = simulate(model, crosshair, modifiers, random, energy)
+        if (isDeterministic(model)) return first
 
-        repeat(effectiveTrials) {
+        val samplesPerTrial = (first.shots.size * first.pellets).toInt().coerceAtLeast(1)
+        val trials = (TARGET_SAMPLES / samplesPerTrial).coerceIn(1, maxTrials)
+        if (trials == 1) return first
+
+        var dps = first.dps
+        var dpsWithoutReload = first.dpsWithoutReload
+        var dpsRaw = first.dpsRaw
+        var accuracy = first.accuracy
+        var critAccuracy = first.critAccuracy
+        var timeToKill = if (first.timeToKill.isFinite()) first.timeToKill else 0.0
+        var finiteKills = if (first.timeToKill.isFinite()) 1 else 0
+
+        repeat(trials - 1) {
             val train = simulate(model, crosshair, modifiers, random, energy)
-            if (first == null) first = train
             dps += train.dps
             dpsWithoutReload += train.dpsWithoutReload
             dpsRaw += train.dpsRaw
@@ -120,8 +130,8 @@ class Simulator(
             }
         }
 
-        val n = effectiveTrials.toDouble()
-        return first!!.copy(
+        val n = trials.toDouble()
+        return first.copy(
             dps = dps / n,
             dpsWithoutReload = dpsWithoutReload / n,
             dpsRaw = dpsRaw / n,
@@ -194,22 +204,32 @@ class Simulator(
         var totalHit = 0
         var totalCrit = 0
 
+        // Without a fixed pellet pattern every pellet starts on the crosshair, so there is
+        // no offset to rotate and none to look up per pellet.
+        val hasPattern = model.hasPelletPattern
+
         for (shot in shots) {
             var rotationSin = 0.0
             var rotationCos = 1.0
-            if (model.spec.spread?.randomlyRotated == true) {
+            if (hasPattern && model.spec.spread?.randomlyRotated == true) {
                 val angle = 2 * PI * random.nextDouble()
                 rotationSin = sin(angle)
                 rotationCos = cos(angle)
             }
 
             for (pellet in 1..pellets) {
-                val (shiftX, shiftZ) = model.pelletShift(distance, pellet)
+                var shiftX = 0.0
+                var shiftZ = 0.0
+                if (hasPattern) {
+                    val (patternX, patternZ) = model.pelletShift(distance, pellet)
+                    shiftX = rotationCos * patternX - rotationSin * patternZ
+                    shiftZ = rotationCos * patternZ + rotationSin * patternX
+                }
                 val outcome = enemy.shoot(
                     crosshair = crosshair,
                     radius = shot.radius,
-                    shiftX = rotationCos * shiftX - rotationSin * shiftZ,
-                    shiftZ = rotationCos * shiftZ + rotationSin * shiftX,
+                    shiftX = shiftX,
+                    shiftZ = shiftZ,
                     random = random,
                 )
                 when (outcome) {
@@ -435,6 +455,13 @@ class Simulator(
 
         /** Guards against a malformed spec producing an unbounded firing sequence. */
         const val MAX_SHOTS = 4096
+
+        /**
+         * Pellet samples aimed for per weapon when averaging trials. At this many, the
+         * standard error of a hit fraction is under 0.3% - far below what is visible in a
+         * bar or a dps figure rounded to one decimal.
+         */
+        const val TARGET_SAMPLES = 12_000
 
         const val DEFAULT_SEED = 20200929
     }

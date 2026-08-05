@@ -175,11 +175,19 @@ class WeaponModel(val spec: WeaponSpec) {
             (sinDeg(angles[0]) * cosDeg(angles[1]) / uy) to (sinDeg(angles[1]) / uy)
         }
 
+    /** True when pellets leave the barrel on the crosshair rather than on a set pattern. */
+    val hasPelletPattern: Boolean = unitShifts.isNotEmpty()
+
     /** [pellet] is 1-based, matching how the pattern is authored. */
     fun pelletShift(distance: Double, pellet: Int): Pair<Double, Double> {
-        if (unitShifts.isEmpty()) return 0.0 to 0.0
+        if (unitShifts.isEmpty()) return NO_SHIFT
         val (ux, uz) = unitShifts[pellet - 1]
         return (ux * distance) to (uz * distance)
+    }
+
+    private companion object {
+        /** Shared so the common no-pattern case does not allocate per pellet. */
+        val NO_SHIFT = 0.0 to 0.0
     }
 
     // --- timing -----------------------------------------------------------------------
