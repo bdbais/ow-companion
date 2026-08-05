@@ -110,6 +110,8 @@ def apply_overrides(weapons: list[dict], overrides: dict) -> tuple[list[dict], l
             stale.append(key)
             continue
         for field, value in patch.items():
+            if field.startswith("_"):  # notes explaining the correction, not data
+                continue
             if isinstance(value, dict) and isinstance(target.get(field), dict):
                 target[field].update(value)
             else:
@@ -226,6 +228,14 @@ def main() -> int:
     }
 
     write_json(DATASET / "dataset-v1.json", dataset)
+
+    # The app reads these as two files: the chart only needs the weapons, and making it
+    # parse the whole patch history at startup would cost a second for nothing.
+    write_json(
+        APP_ASSETS / "weapons.json",
+        {k: v for k, v in dataset.items() if k != "wiki"},
+    )
+    write_json(APP_ASSETS / "wiki.json", {"heroes": dataset["wiki"]})
 
     write_review(
         DATASET / "review.md",

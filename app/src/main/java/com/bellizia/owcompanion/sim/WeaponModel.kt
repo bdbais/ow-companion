@@ -185,6 +185,9 @@ class WeaponModel(
         val spread = spec.spread ?: return 0.0
         spread.angle?.let { return distance * tanDeg(it / 2) }
         bloomRamp?.let { return distance * tan(it.at(ammo) / 2) }
+        // A weapon that blooms but never says over how many rounds: hold the cone at its
+        // widest rather than at nothing, which would hand it perfect accuracy it never has.
+        spread.maxAngle?.let { return distance * tanDeg(it / 2) }
         return 0.0
     }
 
