@@ -214,8 +214,10 @@ private fun ControlPanel(
                 )
             }
 
+            // Two independent axes. Run together in one row they read as a single list of
+            // eight related options, which is exactly how a filter gets misread.
             if (expanded) {
-                ChipSection(title = "Roles and weapon types") {
+                ChipSection(title = "Role") {
                     HeroRole.entries.forEach { role ->
                         Chip(
                             label = role.label,
@@ -223,6 +225,9 @@ private fun ControlPanel(
                             onClick = { viewModel.toggleRole(role) },
                         )
                     }
+                }
+
+                ChipSection(title = "Weapon type") {
                     WeaponCategory.entries.forEach { category ->
                         Chip(
                             label = category.label,
