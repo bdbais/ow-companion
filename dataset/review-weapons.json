@@ -1,0 +1,312 @@
+{
+ "items": [
+  {
+   "hero": "Anran",
+   "weapon": "Fan the Flames",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Baptiste",
+   "weapon": "Biotic Launcher Alt Fire",
+   "field": "required",
+   "reason": "missing damage",
+   "raw": ""
+  },
+  {
+   "hero": "Domina",
+   "weapon": "Photon Magnum",
+   "field": "damage",
+   "reason": "damage is stated as a rate, not per shot",
+   "raw": "60 (over time)"
+  },
+  {
+   "hero": "Domina",
+   "weapon": "Photon Magnum",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Domina",
+   "weapon": "Photon Magnum",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Freja",
+   "weapon": "Take Aim",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Hazard",
+   "weapon": "Bonespur",
+   "field": "spread",
+   "reason": "several spread values, took the first",
+   "raw": "0 degrees (center shot) / 1.8 degrees (5 central shots) / 3.5 degrees (4 corner shots)"
+  },
+  {
+   "hero": "Illari",
+   "weapon": "Solar Rifle Alt Fire",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Illari",
+   "weapon": "Solar Rifle Alt Fire",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Jetpack Cat",
+   "weapon": "Biotic Pawjectiles",
+   "field": "spread",
+   "reason": "several spread values, took the first",
+   "raw": "0 degrees (center shot) / 0.3 degrees (close paw shots) / 0.9 degrees (far paw shows)"
+  },
+  {
+   "hero": "Kiriko",
+   "weapon": "Healing Ofuda",
+   "field": "required",
+   "reason": "missing damage",
+   "raw": ""
+  },
+  {
+   "hero": "Lifeweaver",
+   "weapon": "Healing Blossom",
+   "field": "required",
+   "reason": "missing damage",
+   "raw": ""
+  },
+  {
+   "hero": "Mauga",
+   "weapon": "Incendiary Chaingun",
+   "field": "falloff",
+   "reason": "falloff differs by condition, took the first",
+   "raw": "30 - 40 meters / 15 - 20 meters (simultaneous fire)"
+  },
+  {
+   "hero": "Mauga",
+   "weapon": "Incendiary Chaingun",
+   "field": "spread",
+   "reason": "blooming spread needs a spreadingAmmoRange",
+   "raw": "1 degree (base) / 1.5 degrees (max) / 4 degrees (simultaneous fire)"
+  },
+  {
+   "hero": "Mauga",
+   "weapon": "Volatile Chaingun",
+   "field": "falloff",
+   "reason": "falloff differs by condition, took the first",
+   "raw": "30 - 40 meters / 15 - 20 meters (simultaneous fire)"
+  },
+  {
+   "hero": "Mauga",
+   "weapon": "Volatile Chaingun",
+   "field": "spread",
+   "reason": "blooming spread needs a spreadingAmmoRange",
+   "raw": "1 degree (base) / 1.5 degrees (max) / 4 degrees (simultaneous fire)"
+  },
+  {
+   "hero": "Mei",
+   "weapon": "Endothermic Blaster",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Mercy",
+   "weapon": "Caduceus Staff",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Mercy",
+   "weapon": "Caduceus Staff",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Mercy",
+   "weapon": "Caduceus Staff Alt Fire",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Mercy",
+   "weapon": "Caduceus Staff Alt Fire",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Moira",
+   "weapon": "Biotic Grasp",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Moira",
+   "weapon": "Biotic Grasp",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Moira",
+   "weapon": "Biotic Grasp Alt Fire",
+   "field": "damage",
+   "reason": "damage is stated as a rate, not per shot",
+   "raw": "65 per second"
+  },
+  {
+   "hero": "Moira",
+   "weapon": "Biotic Grasp Alt Fire",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Moira",
+   "weapon": "Biotic Grasp Alt Fire",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Roadhog",
+   "weapon": "Scrap Gun Alt Fire",
+   "field": "falloff",
+   "reason": "falloff differs by condition, took the first",
+   "raw": "None (pre-detonation) / 24 - 39 meters (post-detonation)"
+  },
+  {
+   "hero": "Roadhog",
+   "weapon": "Scrap Gun Alt Fire",
+   "field": "falloff",
+   "reason": "damage is a near/far pair but no falloff range was found",
+   "raw": "None (pre-detonation)\n24 - 39 meters (post-detonation)"
+  },
+  {
+   "hero": "Sierra",
+   "weapon": "Helix Rifle",
+   "field": "spread",
+   "reason": "blooming spread needs a spreadingAmmoRange",
+   "raw": "3 degrees (max) / 0.5 degrees (min)"
+  },
+  {
+   "hero": "Sojourn",
+   "weapon": "Railgun",
+   "field": "spread",
+   "reason": "several spread values, took the first",
+   "raw": "1.6 degrees (vertical, max) / 0.64 degrees (horizontal, max)"
+  },
+  {
+   "hero": "Sojourn",
+   "weapon": "Charged Shot",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Symmetra",
+   "weapon": "Photon Projector",
+   "field": "damage",
+   "reason": "damage is stated as a rate, not per shot",
+   "raw": "60/120/180 per second (level 1/2/3)"
+  },
+  {
+   "hero": "Symmetra",
+   "weapon": "Photon Projector",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Symmetra",
+   "weapon": "Photon Projector",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Symmetra",
+   "weapon": "Photon Projector Alt Fire",
+   "field": "falloff",
+   "reason": "damage is a near/far pair but no falloff range was found",
+   "raw": ""
+  },
+  {
+   "hero": "Winston",
+   "weapon": "Tesla Cannon",
+   "field": "damage",
+   "reason": "damage is stated as a rate, not per shot",
+   "raw": "70 per second"
+  },
+  {
+   "hero": "Winston",
+   "weapon": "Tesla Cannon",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Winston",
+   "weapon": "Tesla Cannon",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Winston",
+   "weapon": "Tesla Cannon Alt Fire",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Wuyang",
+   "weapon": "Xuanwu Staff",
+   "field": "falloff",
+   "reason": "falloff differs by condition, took the first",
+   "raw": "0.8 - 1.3 meters (splash, uncharged) / 0.8 - 2.7 meters (splash, charged)"
+  },
+  {
+   "hero": "Zarya",
+   "weapon": "Particle Cannon",
+   "field": "damage",
+   "reason": "damage is stated as a rate, not per shot",
+   "raw": "95 per second (at 0%)"
+  },
+  {
+   "hero": "Zarya",
+   "weapon": "Particle Cannon",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Zarya",
+   "weapon": "Particle Cannon",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "Zarya",
+   "weapon": "Particle Cannon Alt Fire",
+   "field": "falloff",
+   "reason": "damage is a near/far pair but no falloff range was found",
+   "raw": ""
+  }
+ ]
+}

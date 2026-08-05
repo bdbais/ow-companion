@@ -1,0 +1,2177 @@
+{
+ "weapons": [
+  {
+   "name": "Biotic Rifle",
+   "hero": "Ana",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 125.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.1,
+   "complete": true
+  },
+  {
+   "name": "Zoom (ADS)",
+   "hero": "Ana",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.1,
+   "complete": true
+  },
+  {
+   "name": "Zhuque Fans",
+   "hero": "Anran",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     22.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 1.667,
+   "shotTime": 0.5998800239952009,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5998800239952009,
+   "dpsPeriodAdd": 0.15,
+   "complete": true
+  },
+  {
+   "name": "Fan the Flames",
+   "hero": "Anran",
+   "mousebutton": "M2",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    6.0
+   ],
+   "damage": {
+    "dpshot": [
+     6.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 1.66667,
+   "shotTime": 0.5999988000023999,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.5999988000023999,
+   "dpsPeriodAdd": 0.15,
+   "complete": false
+  },
+  {
+   "name": "The Viper",
+   "hero": "Ashe",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     35.0,
+     10.5
+    ],
+    "falloff": [
+     20.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 1.85
+   },
+   "velocity": null,
+   "fireRate": 3.9,
+   "shotTime": 0.25641025641025644,
+   "ammo": 12.0,
+   "reloadTime": 0.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.25641025641025644,
+   "dpsPeriodAdd": 0.041666666666666664,
+   "complete": true
+  },
+  {
+   "name": "Take Aim (ADS)",
+   "hero": "Ashe",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0,
+     22.5
+    ],
+    "falloff": [
+     35.0,
+     55.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.52,
+   "shotTime": 0.6578947368421053,
+   "ammo": 12.0,
+   "reloadTime": 0.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6578947368421053,
+   "dpsPeriodAdd": 0.041666666666666664,
+   "complete": true
+  },
+  {
+   "name": "Biotic Launcher",
+   "hero": "Baptiste",
+   "mousebutton": "M1",
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     25.0,
+     7.2
+    ],
+    "falloff": [
+     25.0,
+     45.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.7,
+   "shotTime": 0.5882352941176471,
+   "ammo": 12.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5882352941176471,
+   "dpsPeriodAdd": 0.125,
+   "complete": true
+  },
+  {
+   "name": "Biotic Launcher Alt Fire",
+   "hero": "Baptiste",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 60.0,
+   "fireRate": 1.11,
+   "shotTime": 0.9009009009009008,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.9009009009009008,
+   "dpsPeriodAdd": 0.15,
+   "complete": false
+  },
+  {
+   "name": "Configuration: Recon",
+   "hero": "Bastion",
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     23.0,
+     7.5
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 6.0,
+   "shotTime": 0.16666666666666666,
+   "ammo": 25.0,
+   "reloadTime": 1.2,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.16666666666666666,
+   "dpsPeriodAdd": 0.048,
+   "complete": true
+  },
+  {
+   "name": "Rocket Flail",
+   "hero": "Brigitte",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     45.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Peacekeeper",
+   "hero": "Cassidy",
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     70.0,
+     21.0
+    ],
+    "falloff": [
+     25.0,
+     35.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 2.0,
+   "shotTime": 0.5,
+   "ammo": 6.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5,
+   "dpsPeriodAdd": 0.25,
+   "complete": true
+  },
+  {
+   "name": "Fan the Hammer",
+   "hero": "Cassidy",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     50.0,
+     15.0
+    ],
+    "falloff": [
+     20.0,
+     30.0
+    ]
+   },
+   "spread": {
+    "angle": 6.0
+   },
+   "velocity": null,
+   "fireRate": 8.33,
+   "shotTime": 0.12004801920768307,
+   "ammo": 6.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.12004801920768307,
+   "dpsPeriodAdd": 0.25,
+   "complete": true
+  },
+  {
+   "name": "Photon Magnum",
+   "hero": "Domina",
+   "mousebutton": null,
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.15,
+   "complete": false
+  },
+  {
+   "name": "Hand Cannon",
+   "hero": "Doomfist",
+   "mousebutton": null,
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    11.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.0,
+     1.5
+    ],
+    "falloff": [
+     15.0,
+     30.0
+    ]
+   },
+   "spread": {
+    "angle": 2.5
+   },
+   "velocity": 80.0,
+   "fireRate": 3.0,
+   "shotTime": 0.3333333333333333,
+   "ammo": 4.0,
+   "reloadTime": 0.4,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.3333333333333333,
+   "dpsPeriodAdd": 0.1,
+   "complete": true
+  },
+  {
+   "name": "Fusion Cannons",
+   "hero": "D.Va",
+   "mousebutton": null,
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    11.0
+   ],
+   "damage": {
+    "dpshot": [
+     2.0,
+     0.6
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 3.375
+   },
+   "velocity": null,
+   "fireRate": 6.67,
+   "shotTime": 0.14992503748125938,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.14992503748125938,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Light Gun",
+   "hero": "D.Va",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     14.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 7.0,
+   "shotTime": 0.14285714285714285,
+   "ammo": 20.0,
+   "reloadTime": 1.4,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.14285714285714285,
+   "dpsPeriodAdd": 0.06999999999999999,
+   "complete": true
+  },
+  {
+   "name": "Tri-Shot",
+   "hero": "Echo",
+   "mousebutton": null,
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     17.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.1
+   },
+   "velocity": 75.0,
+   "fireRate": 2.97,
+   "shotTime": 0.33670033670033667,
+   "ammo": 12.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.33670033670033667,
+   "dpsPeriodAdd": 0.125,
+   "complete": true
+  },
+  {
+   "name": "Synthetic Burst Rifle",
+   "hero": "Emre",
+   "mousebutton": "M1",
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     22.0,
+     6.67
+    ],
+    "falloff": [
+     25.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 0.45
+   },
+   "velocity": null,
+   "fireRate": 2.08,
+   "shotTime": 0.4807692307692307,
+   "ammo": 12.0,
+   "reloadTime": 1.8,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4807692307692307,
+   "dpsPeriodAdd": 0.15,
+   "complete": true
+  },
+  {
+   "name": "Synthetic Burst Rifle (ADS)",
+   "hero": "Emre",
+   "mousebutton": "M2",
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     22.0,
+     6.67
+    ],
+    "falloff": [
+     35.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 2.08,
+   "shotTime": 0.4807692307692307,
+   "ammo": 12.0,
+   "reloadTime": 1.8,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4807692307692307,
+   "dpsPeriodAdd": 0.15,
+   "complete": true
+  },
+  {
+   "name": "Revdraw Crossbow",
+   "hero": "Freja",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     30.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.5
+   },
+   "velocity": 125.0,
+   "fireRate": 5.5,
+   "shotTime": 0.18181818181818182,
+   "ammo": 15.0,
+   "reloadTime": 1.6,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.18181818181818182,
+   "dpsPeriodAdd": 0.10666666666666667,
+   "complete": true
+  },
+  {
+   "name": "Take Aim",
+   "hero": "Freja",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     35.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 125.0,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": 1.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 1.5,
+   "complete": false
+  },
+  {
+   "name": "Shuriken",
+   "hero": "Genji",
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 75.0,
+   "fireRate": 1.14,
+   "shotTime": 0.8771929824561404,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8771929824561404,
+   "dpsPeriodAdd": 0.15,
+   "complete": true
+  },
+  {
+   "name": "Shuriken Alt Fire",
+   "hero": "Genji",
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 4.5
+   },
+   "velocity": 75.0,
+   "fireRate": 1.47,
+   "shotTime": 0.6802721088435374,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6802721088435374,
+   "dpsPeriodAdd": 0.15,
+   "complete": true
+  },
+  {
+   "name": "Storm Bow",
+   "hero": "Hanzo",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     125.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 110.0,
+   "fireRate": 0.82,
+   "shotTime": 1.2195121951219512,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.2195121951219512,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Bonespur",
+   "hero": "Hazard",
+   "mousebutton": null,
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    10.0
+   ],
+   "damage": {
+    "dpshot": [
+     7.5,
+     2.25
+    ],
+    "falloff": [
+     15.0,
+     35.0
+    ]
+   },
+   "spread": {
+    "angle": 0.0
+   },
+   "velocity": 140.0,
+   "fireRate": 1.75,
+   "shotTime": 0.5714285714285714,
+   "ammo": 8.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5714285714285714,
+   "dpsPeriodAdd": 0.21875,
+   "complete": true
+  },
+  {
+   "name": "Solar Rifle",
+   "hero": "Illari",
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0,
+     22.5
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.11,
+   "shotTime": 0.9009009009009008,
+   "ammo": 14.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.9009009009009008,
+   "dpsPeriodAdd": 0.10714285714285714,
+   "complete": true
+  },
+  {
+   "name": "Solar Rifle Alt Fire",
+   "hero": "Illari",
+   "mousebutton": "M2",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
+   "name": "Biotic Pawjectiles",
+   "hero": "Jetpack Cat",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 0.0
+   },
+   "velocity": 60.0,
+   "fireRate": 4.48,
+   "shotTime": 0.2232142857142857,
+   "ammo": 24.0,
+   "reloadTime": 1.25,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.2232142857142857,
+   "dpsPeriodAdd": 0.052083333333333336,
+   "complete": true
+  },
+  {
+   "name": "Scattergun",
+   "hero": "Junker Queen",
+   "mousebutton": null,
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    10.0
+   ],
+   "damage": {
+    "dpshot": [
+     8.0,
+     2.4
+    ],
+    "falloff": [
+     15.0,
+     25.0
+    ]
+   },
+   "spread": {
+    "angle": 2.75
+   },
+   "velocity": null,
+   "fireRate": 1.33,
+   "shotTime": 0.7518796992481203,
+   "ammo": 8.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.7518796992481203,
+   "dpsPeriodAdd": 0.1875,
+   "complete": true
+  },
+  {
+   "name": "Frag Launcher",
+   "hero": "Junkrat",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     45.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 30.0,
+   "fireRate": 1.5,
+   "shotTime": 0.6666666666666666,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodAdd": 0.3,
+   "complete": true
+  },
+  {
+   "name": "Mediblaster",
+   "hero": "Juno",
+   "mousebutton": null,
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    12.0
+   ],
+   "damage": {
+    "dpshot": [
+     7.5,
+     2.25
+    ],
+    "falloff": [
+     25.0,
+     35.0
+    ]
+   },
+   "spread": {
+    "angle": 0.85
+   },
+   "velocity": null,
+   "fireRate": 1.29,
+   "shotTime": 0.7751937984496123,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.7751937984496123,
+   "dpsPeriodAdd": 0.1,
+   "complete": true
+  },
+  {
+   "name": "Healing Ofuda",
+   "hero": "Kiriko",
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 30.0,
+   "fireRate": 6.67,
+   "shotTime": 0.14992503748125938,
+   "ammo": 5.0,
+   "reloadTime": 0.9,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.14992503748125938,
+   "dpsPeriodAdd": 0.18,
+   "complete": false
+  },
+  {
+   "name": "Kunai",
+   "hero": "Kiriko",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 2.0,
+   "shotTime": 0.5,
+   "ammo": 15.0,
+   "reloadTime": 1.3,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5,
+   "dpsPeriodAdd": 0.08666666666666667,
+   "complete": true
+  },
+  {
+   "name": "Healing Blossom",
+   "hero": "Lifeweaver",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 60.0,
+   "fireRate": 0.67,
+   "shotTime": 1.4925373134328357,
+   "ammo": 16.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.4925373134328357,
+   "dpsPeriodAdd": 0.109375,
+   "complete": false
+  },
+  {
+   "name": "Thorn Volley",
+   "hero": "Lifeweaver",
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     6.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.2
+   },
+   "velocity": 100.0,
+   "fireRate": 11.0,
+   "shotTime": 0.09090909090909091,
+   "ammo": 50.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.09090909090909091,
+   "dpsPeriodAdd": 0.03,
+   "complete": true
+  },
+  {
+   "name": "Sonic Amplifier",
+   "hero": "Lúcio",
+   "mousebutton": null,
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    4.0
+   ],
+   "damage": {
+    "dpshot": [
+     22.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 1.07,
+   "shotTime": 0.9345794392523364,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.9345794392523364,
+   "dpsPeriodAdd": 0.3,
+   "complete": true
+  },
+  {
+   "name": "Incendiary Chaingun",
+   "hero": "Mauga",
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     4.0,
+     1.2
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "maxAngle": 1.5,
+    "minAngle": 1.0
+   },
+   "velocity": null,
+   "fireRate": 17.36,
+   "shotTime": 0.0576036866359447,
+   "ammo": 300.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.0576036866359447,
+   "dpsPeriodAdd": 0.006666666666666667,
+   "complete": true
+  },
+  {
+   "name": "Volatile Chaingun",
+   "hero": "Mauga",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     4.0,
+     1.2
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "maxAngle": 1.5,
+    "minAngle": 1.0
+   },
+   "velocity": null,
+   "fireRate": 17.36,
+   "shotTime": 0.0576036866359447,
+   "ammo": 300.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.0576036866359447,
+   "dpsPeriodAdd": 0.006666666666666667,
+   "complete": true
+  },
+  {
+   "name": "Endothermic Blaster",
+   "hero": "Mei",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.5
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 40.0,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 140.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.010714285714285714,
+   "complete": false
+  },
+  {
+   "name": "Icicle",
+   "hero": "Mei",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     85.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 115.0,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": 14.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.10714285714285714,
+   "complete": true
+  },
+  {
+   "name": "Caduceus Staff",
+   "hero": "Mercy",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
+   "name": "Caduceus Staff Alt Fire",
+   "hero": "Mercy",
+   "mousebutton": "M2",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
+   "name": "Caduceus Blaster",
+   "hero": "Mercy",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     20.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 5.0,
+   "shotTime": 0.2,
+   "ammo": 25.0,
+   "reloadTime": 1.4,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.2,
+   "dpsPeriodAdd": 0.055999999999999994,
+   "complete": true
+  },
+  {
+   "name": "Spirit Glaive",
+   "hero": "Mizuki",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     30.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 60.0,
+   "fireRate": 1.43,
+   "shotTime": 0.6993006993006994,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6993006993006994,
+   "dpsPeriodAdd": 0.1,
+   "complete": true
+  },
+  {
+   "name": "Biotic Grasp",
+   "hero": "Moira",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 40.0,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
+   "name": "Biotic Grasp Alt Fire",
+   "hero": "Moira",
+   "mousebutton": "M2",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
+   "name": "Augmented Fusion Driver",
+   "hero": "Orisa",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     14.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 0.75
+   },
+   "velocity": 100.0,
+   "fireRate": 10.0,
+   "shotTime": 0.1,
+   "ammo": null,
+   "reloadTime": 3.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.1,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Rocket Launcher",
+   "hero": "Pharah",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 40.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.25,
+   "complete": true
+  },
+  {
+   "name": "Void Accelerator",
+   "hero": "Ramattra",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 80.0,
+   "fireRate": 25.0,
+   "shotTime": 0.04,
+   "ammo": 100.0,
+   "reloadTime": 1.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.04,
+   "dpsPeriodAdd": 0.01,
+   "complete": true
+  },
+  {
+   "name": "Hellfire Shotguns",
+   "hero": "Reaper",
+   "mousebutton": null,
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    20.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.75,
+     1.725
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 6.0
+   },
+   "velocity": null,
+   "fireRate": 2.0,
+   "shotTime": 0.5,
+   "ammo": 8.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5,
+   "dpsPeriodAdd": 0.1875,
+   "complete": true
+  },
+  {
+   "name": "Rocket Hammer",
+   "hero": "Reinhardt",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     100.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.04,
+   "shotTime": 0.9615384615384615,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.9615384615384615,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Scrap Gun",
+   "hero": "Roadhog",
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    25.0
+   ],
+   "damage": {
+    "dpshot": [
+     7.0,
+     2.1
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": {
+    "angle": 8.0
+   },
+   "velocity": 80.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.2916666666666667,
+   "complete": true
+  },
+  {
+   "name": "Scrap Gun Alt Fire",
+   "hero": "Roadhog",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     7.0,
+     2.1
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 8.0
+   },
+   "velocity": 60.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.2916666666666667,
+   "complete": true
+  },
+  {
+   "name": "Kira Pistols",
+   "hero": "Shion",
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     35.0,
+     10.5
+    ],
+    "falloff": [
+     20.0,
+     30.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": 18.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.25,
+   "dpsPeriodAdd": 0.08333333333333333,
+   "complete": true
+  },
+  {
+   "name": "Helix Rifle",
+   "hero": "Sierra",
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     9.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "maxAngle": 3.0,
+    "minAngle": 0.5
+   },
+   "velocity": 85.0,
+   "fireRate": 10.89,
+   "shotTime": 0.09182736455463728,
+   "ammo": 40.0,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.09182736455463728,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Hyperspheres",
+   "hero": "Sigma",
+   "mousebutton": null,
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     20.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 48.0,
+   "fireRate": 0.67,
+   "shotTime": 1.4925373134328357,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.4925373134328357,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Railgun",
+   "hero": "Sojourn",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     9.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.6
+   },
+   "velocity": 150.0,
+   "fireRate": 16.0,
+   "shotTime": 0.0625,
+   "ammo": 45.0,
+   "reloadTime": 1.2,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.0625,
+   "dpsPeriodAdd": 0.026666666666666665,
+   "complete": true
+  },
+  {
+   "name": "Charged Shot",
+   "hero": "Sojourn",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     120.0,
+     60.0
+    ],
+    "falloff": [
+     40.0,
+     60.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
+   "name": "Heavy Pulse Rifle",
+   "hero": "Soldier: 76",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     19.0,
+     5.7
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 9.0,
+   "shotTime": 0.1111111111111111,
+   "ammo": 30.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.1111111111111111,
+   "dpsPeriodAdd": 0.05,
+   "complete": true
+  },
+  {
+   "name": "Machine Pistol",
+   "hero": "Sombra",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     8.0,
+     2.4
+    ],
+    "falloff": [
+     15.0,
+     35.0
+    ]
+   },
+   "spread": {
+    "angle": 2.3
+   },
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 60.0,
+   "reloadTime": 1.2,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.02,
+   "complete": true
+  },
+  {
+   "name": "Photon Projector",
+   "hero": "Symmetra",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.15,
+   "complete": false
+  },
+  {
+   "name": "Photon Projector Alt Fire",
+   "hero": "Symmetra",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.0,
+     100.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 3.9,
+   "shotTime": 0.25641025641025644,
+   "ammo": 100.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.25641025641025644,
+   "dpsPeriodAdd": 0.015,
+   "complete": true
+  },
+  {
+   "name": "Rivet Gun",
+   "hero": "Torbjörn",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     70.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 70.0,
+   "fireRate": 1.96,
+   "shotTime": 0.5102040816326531,
+   "ammo": 18.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5102040816326531,
+   "dpsPeriodAdd": 0.1111111111111111,
+   "complete": true
+  },
+  {
+   "name": "Rivet Gun Alt Fire",
+   "hero": "Torbjörn",
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    10.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.5,
+     3.75
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 4.5
+   },
+   "velocity": 120.0,
+   "fireRate": 1.43,
+   "shotTime": 0.6993006993006994,
+   "ammo": 9.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6993006993006994,
+   "dpsPeriodAdd": 0.2222222222222222,
+   "complete": true
+  },
+  {
+   "name": "Forge Hammer",
+   "hero": "Torbjörn",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     70.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Pulse Pistols",
+   "hero": "Tracer",
+   "mousebutton": null,
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.75,
+     1.725
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 3.5
+   },
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 20.0,
+   "reloadTime": 1.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.05,
+   "complete": true
+  },
+  {
+   "name": "Palatine Fang",
+   "hero": "Vendetta",
+   "mousebutton": "M1",
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     45.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.18,
+   "shotTime": 0.8474576271186441,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8474576271186441,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Smart Excavator",
+   "hero": "Venture",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     35.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 1.67,
+   "shotTime": 0.5988023952095809,
+   "ammo": 8.0,
+   "reloadTime": 1.75,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.5988023952095809,
+   "dpsPeriodAdd": 0.21875,
+   "complete": true
+  },
+  {
+   "name": "Widow's Kiss",
+   "hero": "Widowmaker",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     14.0,
+     4.2
+    ],
+    "falloff": [
+     20.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 3.0
+   },
+   "velocity": null,
+   "fireRate": 10.0,
+   "shotTime": 0.1,
+   "ammo": 35.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.1,
+   "dpsPeriodAdd": 0.04285714285714286,
+   "complete": true
+  },
+  {
+   "name": "Widow's Kiss (ADS)",
+   "hero": "Widowmaker",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0,
+     6.0
+    ],
+    "falloff": [
+     50.0,
+     70.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.5,
+   "shotTime": 2.0,
+   "ammo": 7.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 2.0,
+   "dpsPeriodAdd": 0.21428571428571427,
+   "complete": true
+  },
+  {
+   "name": "Tesla Cannon",
+   "hero": "Winston",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": 6.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.25,
+   "complete": false
+  },
+  {
+   "name": "Tesla Cannon Alt Fire",
+   "hero": "Winston",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     15.93
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
+   "name": "Quad Cannons",
+   "hero": "Wrecking Ball",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.0,
+     1.5
+    ],
+    "falloff": [
+     15.0,
+     25.0
+    ]
+   },
+   "spread": {
+    "angle": 2.0
+   },
+   "velocity": null,
+   "fireRate": 25.0,
+   "shotTime": 0.04,
+   "ammo": 80.0,
+   "reloadTime": 1.6,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.04,
+   "dpsPeriodAdd": 0.02,
+   "complete": true
+  },
+  {
+   "name": "Xuanwu Staff",
+   "hero": "Wuyang",
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     10.0
+    ],
+    "falloff": [
+     0.8,
+     1.3
+    ]
+   },
+   "spread": null,
+   "velocity": 25.0,
+   "fireRate": 3.0,
+   "shotTime": 0.3333333333333333,
+   "ammo": 20.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.3333333333333333,
+   "dpsPeriodAdd": 0.075,
+   "complete": true
+  },
+  {
+   "name": "Particle Cannon",
+   "hero": "Zarya",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.3,
+   "complete": false
+  },
+  {
+   "name": "Particle Cannon Alt Fire",
+   "hero": "Zarya",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     55.0,
+     11.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 25.0,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": 4.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.375,
+   "complete": true
+  },
+  {
+   "name": "Orb of Destruction",
+   "hero": "Zenyatta",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     50.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 2.5,
+   "shotTime": 0.4,
+   "ammo": 25.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4,
+   "dpsPeriodAdd": 0.06,
+   "complete": true
+  },
+  {
+   "name": "Orb of Destruction Alt Fire",
+   "hero": "Zenyatta",
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     50.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.3,
+   "complete": true
+  }
+ ]
+}

@@ -25,13 +25,15 @@ enum class WeaponCategory(val label: String) {
     }
 }
 
-enum class HeroRole(val key: String, val label: String) {
-    Tank("tank", "Tank"),
-    Damage("damage", "Damage"),
-    Healer("healer", "Support");
+enum class HeroRole(val label: String, vararg val keys: String) {
+    Tank("Tank", "tank"),
+    Damage("Damage", "damage"),
+    // The reference dataset says "healer"; Blizzard's own roster says "support".
+    Support("Support", "support", "healer");
 
     companion object {
-        fun of(role: String): HeroRole? = entries.firstOrNull { it.key == role }
+        fun of(role: String): HeroRole? =
+            entries.firstOrNull { hero -> hero.keys.any { it.equals(role, ignoreCase = true) } }
     }
 }
 

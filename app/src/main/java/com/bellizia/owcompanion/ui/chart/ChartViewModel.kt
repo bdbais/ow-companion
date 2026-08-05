@@ -65,19 +65,34 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun toggleRole(role: HeroRole) = edit { current ->
-        current.copy(roles = current.roles.toggle(role))
+        current.copy(roles = current.roles.narrowOrToggle(role, HeroRole.entries.toSet()))
     }
 
     fun toggleCategory(category: WeaponCategory) = edit { current ->
-        current.copy(categories = current.categories.toggle(category))
+        current.copy(
+            categories = current.categories.narrowOrToggle(
+                category,
+                WeaponCategory.entries.toSet(),
+            ),
+        )
     }
 
     fun setRoles(roles: Set<HeroRole>) = edit { it.copy(roles = roles) }
 
     fun setCategories(categories: Set<WeaponCategory>) = edit { it.copy(categories = categories) }
 
-    private fun <T> Set<T>.toggle(value: T): Set<T> =
-        if (value in this) this - value else this + value
+    /**
+     * These filters start with everything selected, which is really "no filter at all". A
+     * plain toggle then does the opposite of what tapping "Tank" looks like it should do:
+     * it hides tanks. So from the unfiltered state a tap narrows to just that one, and
+     * turning the last one back off returns to showing everything.
+     */
+    private fun <T> Set<T>.narrowOrToggle(value: T, all: Set<T>): Set<T> = when {
+        this == all -> setOf(value)
+        value in this && size == 1 -> all
+        value in this -> this - value
+        else -> this + value
+    }
 
     private fun edit(transform: (ChartUiState) -> ChartUiState) {
         _state.update(transform)

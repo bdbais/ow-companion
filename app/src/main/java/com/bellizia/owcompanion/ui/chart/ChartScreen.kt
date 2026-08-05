@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
@@ -37,6 +38,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -106,7 +108,16 @@ fun ChartScreen(
 
         TimeAxis(zoom = state.zoom, scrollState = timelineScroll)
 
+        // Changing the sort or the filters rebuilds the list under a scroll position that
+        // no longer means anything - leaving the reader looking at the tail of a shorter
+        // list and concluding the filter did not work.
+        val listState = rememberLazyListState()
+        LaunchedEffect(state.sortOrder, state.roles, state.categories) {
+            listState.scrollToItem(0)
+        }
+
         LazyColumn(
+            state = listState,
             modifier = Modifier
                 .fillMaxSize()
                 .transformable(transformState),
