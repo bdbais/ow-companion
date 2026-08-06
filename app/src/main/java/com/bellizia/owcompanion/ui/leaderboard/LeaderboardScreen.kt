@@ -46,6 +46,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.sim.DamagePeak
+import com.bellizia.owcompanion.ui.chart.HeroRole
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
 import com.bellizia.owcompanion.ui.theme.StatNumber
 
@@ -104,8 +105,42 @@ fun LeaderboardScreen(
                     }
                 }
 
+                Text(
+                    text = stringResource(R.string.chart_section_role),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 6.dp),
+                )
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    HeroRole.entries.forEach { role ->
+                        FilterChip(
+                            selected = role in state.roles,
+                            onClick = { viewModel.toggleRole(role) },
+                            label = {
+                                Text(
+                                    stringResource(role.labelRes),
+                                    style = MaterialTheme.typography.labelSmall,
+                                )
+                            },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = MaterialTheme.colorScheme.primary,
+                                selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                            ),
+                        )
+                    }
+                }
+
                 // Buffs only mean something for weapons: an ultimate's damage is what it
-                // is, and healing output is not what damage boost multiplies.
+                // is, and healing output is not what damage boost multiplies. Saying so
+                // beats having the row silently vanish between tabs.
+                if (state.mode != RankingMode.Weapons) {
+                    Text(
+                        text = stringResource(R.string.rank_buffs_weapons_only),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 8.dp),
+                    )
+                }
                 if (state.mode == RankingMode.Weapons) {
                     Text(
                         text = stringResource(R.string.leaderboard_buffs),
@@ -179,7 +214,7 @@ fun LeaderboardScreen(
             contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            items(state.entries, key = { it.peak.spec.id }) { entry ->
+            items(state.visible(state.entries) { it.hero }, key = { it.peak.spec.id }) { entry ->
                 LeaderboardCard(entry)
             }
             item {
@@ -201,7 +236,7 @@ private fun UltimateList(state: LeaderboardUiState) {
         contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        items(state.ultimates, key = { "${it.ultimate.hero}|${it.ultimate.name}" }) { entry ->
+        items(state.visible(state.ultimates) { it.hero }, key = { "${it.ultimate.hero}|${it.ultimate.name}" }) { entry ->
             val color = parseHeroColor(entry.hero?.color, MaterialTheme.colorScheme.primary)
             RankRow(
                 rank = entry.rank,
@@ -240,7 +275,7 @@ private fun HealingList(state: LeaderboardUiState) {
         contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        items(state.healing, key = { "${it.source.hero}|${it.source.name}" }) { entry ->
+        items(state.visible(state.healing) { it.hero }, key = { "${it.source.hero}|${it.source.name}" }) { entry ->
             val color = parseHeroColor(entry.hero?.color, MaterialTheme.colorScheme.primary)
             RankRow(
                 rank = entry.rank,

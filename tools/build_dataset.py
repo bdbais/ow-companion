@@ -251,6 +251,12 @@ def main() -> int:
                 "name": h["name"],
                 "color": h["color"],
                 "role": h["role"],
+                # Carried here as well as in the wiki file: a Stadium build changes these,
+                # and the chart data should not need the whole patch history to show them.
+                "health": h["health"],
+                "shields": h["shields"],
+                "armor": h["armor"],
+                "abilities": [a["name"] for a in h.get("abilities", []) if a.get("name")],
             }
             for h in heroes
         ],

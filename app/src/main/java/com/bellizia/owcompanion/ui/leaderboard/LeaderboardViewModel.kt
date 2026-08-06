@@ -10,6 +10,7 @@ import com.bellizia.owcompanion.sim.Hero
 import com.bellizia.owcompanion.sim.Modifiers
 import com.bellizia.owcompanion.sim.WeaponModel
 import com.bellizia.owcompanion.sim.WeaponSet
+import com.bellizia.owcompanion.ui.chart.HeroRole
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
@@ -76,8 +77,15 @@ data class LeaderboardUiState(
     /** Ultimates that deal no damage, and so are left out rather than ranked at zero. */
     val ultimatesWithoutDamage: Int = 0,
     val buffs: BuffSelection = BuffSelection(),
+    val roles: Set<HeroRole> = HeroRole.entries.toSet(),
     val computeMillis: Long = 0,
-)
+) {
+    /** Applies the role filter to whichever ranking is on screen. */
+    fun <T> visible(items: List<T>, heroOf: (T) -> Hero?): List<T> = items.filter {
+        val role = heroOf(it)?.role?.let(HeroRole::of)
+        role == null || role in roles
+    }
+}
 
 class LeaderboardViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -129,6 +137,17 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
     }
 
     fun setMode(mode: RankingMode) = _state.update { it.copy(mode = mode) }
+
+    fun toggleRole(role: HeroRole) = _state.update { current ->
+        val all = HeroRole.entries.toSet()
+        val roles = when {
+            current.roles == all -> setOf(role)
+            role in current.roles && current.roles.size == 1 -> all
+            role in current.roles -> current.roles - role
+            else -> current.roles + role
+        }
+        current.copy(roles = roles)
+    }
 
     fun setBuffs(buffs: BuffSelection) {
         _state.update { it.copy(buffs = buffs, loading = true) }

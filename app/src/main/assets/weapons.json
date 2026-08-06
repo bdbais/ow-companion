@@ -11,313 +11,834 @@
    "key": "ana",
    "name": "Ana",
    "color": "#718ab3",
-   "role": "support"
+   "role": "support",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Rifle",
+    "Sleep Dart",
+    "Biotic Grenade",
+    "Nano Boost"
+   ]
   },
   {
    "key": "anran",
    "name": "Anran",
    "color": "#d19a83",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Zhuque Fans",
+    "Fan the Flames",
+    "Dancing Blaze",
+    "Inferno Rush",
+    "Vermillion Ascent",
+    "Vermillion Revival",
+    "Ignition"
+   ]
   },
   {
    "key": "ashe",
    "name": "Ashe",
    "color": "#982020",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "The Viper",
+    "Coach Gun",
+    "Dynamite",
+    "B.O.B."
+   ]
   },
   {
    "key": "baptiste",
    "name": "Baptiste",
    "color": "#5f9985",
-   "role": "support"
+   "role": "support",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Launcher",
+    "Regenerative Burst",
+    "Immortality Field",
+    "Amplification Matrix",
+    "Exo Boots"
+   ]
   },
   {
    "key": "bastion",
    "name": "Bastion",
    "color": "#7c8f7b",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 100,
+   "abilities": [
+    "Configuration: Assault",
+    "Configuration: Recon",
+    "A-36 Tactical Grenade",
+    "Reconfigure",
+    "Configuration: Artillery"
+   ]
   },
   {
    "key": "brigitte",
    "name": "Brigitte",
    "color": "#be736e",
-   "role": "support"
+   "role": "support",
+   "health": 200,
+   "shields": 0,
+   "armor": 50,
+   "abilities": [
+    "Rocket Flail",
+    "Repair Pack",
+    "Whip Shot",
+    "Barrier Shield",
+    "Shield Bash",
+    "Rally",
+    "Inspire"
+   ]
   },
   {
    "key": "cassidy",
    "name": "Cassidy",
    "color": "#ae595c",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Peacekeeper",
+    "Combat Roll",
+    "Deadeye"
+   ]
   },
   {
    "key": "domina",
    "name": "Domina",
    "color": "#b88361",
-   "role": "tank"
+   "role": "tank",
+   "health": 250,
+   "shields": 400,
+   "armor": 0,
+   "abilities": [
+    "Photon Magnum",
+    "Barrier Array",
+    "Sonic Repulsors",
+    "Crystal Charge",
+    "Panopticon"
+   ]
   },
   {
    "key": "doomfist",
    "name": "Doomfist",
    "color": "#815049",
-   "role": "tank"
+   "role": "tank",
+   "health": 525,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Hand Cannon",
+    "Rocket Punch",
+    "Seismic Slam",
+    "Power Block",
+    "Meteor Strike"
+   ]
   },
   {
    "key": "dva",
    "name": "D.Va",
    "color": "#ed93c7",
-   "role": "tank"
+   "role": "tank",
+   "health": 325,
+   "shields": 0,
+   "armor": 325,
+   "abilities": [
+    "Fusion Cannons",
+    "Light Gun",
+    "Boosters",
+    "Defense Matrix",
+    "Micro Missiles",
+    "Self-Destruct",
+    "Call Mech",
+    "Eject!"
+   ]
   },
   {
    "key": "echo",
    "name": "Echo",
    "color": "#4cc4e8",
-   "role": "damage"
+   "role": "damage",
+   "health": 150,
+   "shields": 75,
+   "armor": 0,
+   "abilities": [
+    "Tri-Shot",
+    "Sticky Bombs",
+    "Flight",
+    "Focusing Beam",
+    "Duplicate",
+    "Glide"
+   ]
   },
   {
    "key": "emre",
    "name": "Emre",
    "color": "#b47f64",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Synthetic Burst Rifle",
+    "Cyber Frag",
+    "Override Protocol",
+    "Altered Vitals"
+   ]
   },
   {
    "key": "freja",
    "name": "Freja",
    "color": "#b8846c",
-   "role": "damage"
+   "role": "damage",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Bola Shot",
+    "Quick Dash",
+    "Take Aim",
+    "Updraft"
+   ]
   },
   {
    "key": "genji",
    "name": "Genji",
    "color": "#97ef43",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Shuriken",
+    "Deflect",
+    "Swift Strike",
+    "Dragonblade",
+    "Cyber-Agility"
+   ]
   },
   {
    "key": "hanzo",
    "name": "Hanzo",
    "color": "#b9b48a",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Storm Bow",
+    "Storm Arrows",
+    "Sonic Arrow",
+    "Lunge",
+    "Dragonstrike",
+    "Wall Climb"
+   ]
   },
   {
    "key": "hazard",
    "name": "Hazard",
    "color": "#b46d64",
-   "role": "tank"
+   "role": "tank",
+   "health": 425,
+   "shields": 0,
+   "armor": 225,
+   "abilities": [
+    "Bonespur",
+    "Spike Guard",
+    "Violent Leap",
+    "Jagged Wall",
+    "Downpour",
+    "Vault"
+   ]
   },
   {
    "key": "illari",
    "name": "Illari",
    "color": "#b48364",
-   "role": "support"
+   "role": "support",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Solar Rifle",
+    "Captive Sun",
+    "Healing Pylon",
+    "Outburst"
+   ]
   },
   {
    "key": "jetpack-cat",
    "name": "Jetpack Cat",
    "color": "#be966c",
-   "role": "support"
+   "role": "support",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Pawjectiles",
+    "Frenetic Flight",
+    "Lifeline",
+    "Purr",
+    "Catnapper"
+   ]
   },
   {
    "key": "junker-queen",
    "name": "Junker Queen",
    "color": "#db9d7e",
-   "role": "tank"
+   "role": "tank",
+   "health": 525,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Scattergun",
+    "Commanding Shout",
+    "Carnage",
+    "Rampage",
+    "Adrenaline Rush"
+   ]
   },
   {
    "key": "junkrat",
    "name": "Junkrat",
    "color": "#ecbd53",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Frag Launcher",
+    "Concussion Mine",
+    "Steel Trap",
+    "RIP-Tire",
+    "Total Mayhem"
+   ]
   },
   {
    "key": "juno",
    "name": "Juno",
    "color": "#6664b4",
-   "role": "support"
+   "role": "support",
+   "health": 75,
+   "shields": 150,
+   "armor": 0,
+   "abilities": [
+    "Mediblaster",
+    "Pulsar Torpedoes",
+    "Orbital Ray",
+    "Hyper Ring",
+    "Glide Boost",
+    "Martian Overboots"
+   ]
   },
   {
    "key": "kiriko",
    "name": "Kiriko",
    "color": "#cc8278",
-   "role": "support"
+   "role": "support",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Healing Ofuda",
+    "Kunai",
+    "Swift Step",
+    "Protection Suzu",
+    "Kitsune Rush"
+   ]
   },
   {
    "key": "lifeweaver",
    "name": "Lifeweaver",
    "color": "#b98869",
-   "role": "support"
+   "role": "support",
+   "health": 200,
+   "shields": 50,
+   "armor": 0,
+   "abilities": [
+    "Healing Blossom",
+    "Thorn Volley",
+    "Petal Platform",
+    "Rejuvenating Dash",
+    "Life Grip",
+    "Tree of Life"
+   ]
   },
   {
    "key": "lucio",
    "name": "Lúcio",
    "color": "#85c952",
-   "role": "support"
+   "role": "support",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Sonic Amplifier",
+    "Crossfade",
+    "Amp It Up",
+    "Soundwave",
+    "Sound Barrier",
+    "Wall Ride"
+   ]
   },
   {
    "key": "mauga",
    "name": "Mauga",
    "color": "#c78c6f",
-   "role": "tank"
+   "role": "tank",
+   "health": 575,
+   "shields": 0,
+   "armor": 150,
+   "abilities": [
+    "Overrun",
+    "Cardiac Overdrive",
+    "Berserker",
+    "Cage Fight"
+   ]
   },
   {
    "key": "mei",
    "name": "Mei",
    "color": "#6faced",
-   "role": "damage"
+   "role": "damage",
+   "health": 300,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Endothermic Blaster",
+    "Cryo-Freeze",
+    "Ice Wall",
+    "Blizzard"
+   ]
   },
   {
    "key": "mercy",
    "name": "Mercy",
    "color": "#ebe8bb",
-   "role": "support"
+   "role": "support",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Caduceus Staff",
+    "Caduceus Blaster",
+    "Guardian Angel",
+    "Resurrect",
+    "Angelic Descent",
+    "Valkyrie"
+   ]
   },
   {
    "key": "mizuki",
    "name": "Mizuki",
    "color": "#64b48a",
-   "role": "support"
+   "role": "support",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Spirit Glaive",
+    "Healing Kasa",
+    "Binding Chain",
+    "Katashiro Return",
+    "Kekkai Sanctuary",
+    "Remedy Aura"
+   ]
   },
   {
    "key": "moira",
    "name": "Moira",
    "color": "#803c51",
-   "role": "support"
+   "role": "support",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Grasp",
+    "Biotic Orb",
+    "Fade",
+    "Coalescence"
+   ]
   },
   {
    "key": "orisa",
    "name": "Orisa",
    "color": "#468c43",
-   "role": "tank"
+   "role": "tank",
+   "health": 300,
+   "shields": 0,
+   "armor": 300,
+   "abilities": [
+    "Augmented Fusion Driver",
+    "Energy Javelin",
+    "Fortify",
+    "Javelin Spin",
+    "Terra Surge"
+   ]
   },
   {
    "key": "pharah",
    "name": "Pharah",
    "color": "#3e7dca",
-   "role": "damage"
+   "role": "damage",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Rocket Launcher",
+    "Jet Dash",
+    "Jump Jet",
+    "Concussive Blast",
+    "Barrage",
+    "Hover Jets"
+   ]
   },
   {
    "key": "ramattra",
    "name": "Ramattra",
    "color": "#b46487",
-   "role": "tank"
+   "role": "tank",
+   "health": 425,
+   "shields": 0,
+   "armor": 100,
+   "abilities": [
+    "Void Accelerator (Omnic Form)",
+    "Void Barrier (Omnic Form)",
+    "Pummel (Nemesis Form)",
+    "Ravenous Vortex",
+    "Annihilation"
+   ]
   },
   {
    "key": "reaper",
    "name": "Reaper",
    "color": "#7d3e51",
-   "role": "damage"
+   "role": "damage",
+   "health": 300,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Hellfire Shotguns",
+    "Shadow Step",
+    "Wraith Form",
+    "Death Blossom",
+    "The Reaping"
+   ]
   },
   {
    "key": "reinhardt",
    "name": "Reinhardt",
    "color": "#929da3",
-   "role": "tank"
+   "role": "tank",
+   "health": 400,
+   "shields": 0,
+   "armor": 300,
+   "abilities": [
+    "Rocket Hammer",
+    "Charge",
+    "Fire Strike",
+    "Barrier Field",
+    "Earthshatter"
+   ]
   },
   {
    "key": "roadhog",
    "name": "Roadhog",
    "color": "#b68c52",
-   "role": "tank"
+   "role": "tank",
+   "health": 750,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Scrap Gun",
+    "Chain Hook",
+    "Take a Breather",
+    "Whole Hog"
+   ]
   },
   {
    "key": "shion",
    "name": "Shion",
    "color": "#b86360",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Kira Pistols",
+    "Execution",
+    "Joyride",
+    "Evade",
+    "Satsuriku Spree"
+   ]
   },
   {
    "key": "sierra",
    "name": "Sierra",
    "color": "#bb5e5d",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Helix Rifle",
+    "Tracking Shot",
+    "Tremor Charge",
+    "Anchor Drone",
+    "Trailblazer"
+   ]
   },
   {
    "key": "sigma",
    "name": "Sigma",
    "color": "#929a9d",
-   "role": "tank"
+   "role": "tank",
+   "health": 350,
+   "shields": 275,
+   "armor": 0,
+   "abilities": [
+    "Hyperspheres",
+    "Kinetic Grasp",
+    "Accretion",
+    "Experimental Barrier",
+    "Gravitic Flux"
+   ]
   },
   {
    "key": "sojourn",
    "name": "Sojourn",
    "color": "#b47b64",
-   "role": "damage"
+   "role": "damage",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Railgun",
+    "Power Slide",
+    "Disruptor Shot",
+    "Overclock"
+   ]
   },
   {
    "key": "soldier-76",
    "name": "Soldier: 76",
    "color": "#697794",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Heavy Pulse Rifle",
+    "Sprint",
+    "Biotic Field",
+    "Helix Rockets",
+    "Tactical Visor"
+   ]
   },
   {
    "key": "sombra",
    "name": "Sombra",
    "color": "#7359ba",
-   "role": "damage"
+   "role": "damage",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Machine Pistol",
+    "Hack",
+    "Translocator",
+    "Virus",
+    "EMP"
+   ]
   },
   {
    "key": "symmetra",
    "name": "Symmetra",
    "color": "#8ebccc",
-   "role": "damage"
+   "role": "damage",
+   "health": 125,
+   "shields": 150,
+   "armor": 0,
+   "abilities": [
+    "Photon Projector",
+    "Sentry Turret",
+    "Teleporter",
+    "Photon Barrier"
+   ]
   },
   {
    "key": "torbjorn",
    "name": "Torbjörn",
    "color": "#c0726e",
-   "role": "damage"
+   "role": "damage",
+   "health": 225,
+   "shields": 0,
+   "armor": 75,
+   "abilities": [
+    "Rivet Gun",
+    "Forge Hammer",
+    "Deploy Turret",
+    "Overload",
+    "Molten Core"
+   ]
   },
   {
    "key": "tracer",
    "name": "Tracer",
    "color": "#d79342",
-   "role": "damage"
+   "role": "damage",
+   "health": 175,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Pulse Pistols",
+    "Blink",
+    "Recall",
+    "Pulse Bomb"
+   ]
   },
   {
    "key": "vendetta",
    "name": "Vendetta",
    "color": "#b97b5f",
-   "role": "damage"
+   "role": "damage",
+   "health": 175,
+   "shields": 0,
+   "armor": 100,
+   "abilities": [
+    "Palatine Fang",
+    "Warding Stance",
+    "Whirlwind Dash",
+    "Soaring Slice",
+    "Projected Edge",
+    "Sundering Blade"
+   ]
   },
   {
    "key": "venture",
    "name": "Venture",
    "color": "#bd8a60",
-   "role": "damage"
+   "role": "damage",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "SMART Excavator",
+    "Drill Dash",
+    "Burrow",
+    "Tectonic Shock"
+   ]
   },
   {
    "key": "widowmaker",
    "name": "Widowmaker",
    "color": "#9e6aa8",
-   "role": "damage"
+   "role": "damage",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Widow's Kiss",
+    "Grappling Hook",
+    "Venom Mine",
+    "Infra-Sight"
+   ]
   },
   {
    "key": "winston",
    "name": "Winston",
    "color": "#a2a6bf",
-   "role": "tank"
+   "role": "tank",
+   "health": 425,
+   "shields": 0,
+   "armor": 200,
+   "abilities": [
+    "Tesla Cannon",
+    "Jump Pack",
+    "Barrier Projector",
+    "Primal Rage"
+   ]
   },
   {
    "key": "wrecking-ball",
    "name": "Wrecking Ball",
    "color": "#e6a027",
-   "role": "tank"
+   "role": "tank",
+   "health": 450,
+   "shields": 150,
+   "armor": 125,
+   "abilities": [
+    "Quad Cannons",
+    "Grappling Claw",
+    "Roll",
+    "Piledriver",
+    "Adaptive Shield",
+    "Minefield"
+   ]
   },
   {
    "key": "wuyang",
    "name": "Wuyang",
    "color": "#dea68c",
-   "role": "support"
+   "role": "support",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Xuanwu Staff",
+    "Restorative Stream",
+    "Rushing Torrent",
+    "Tidal Blast",
+    "Guardian Wave"
+   ]
   },
   {
    "key": "zarya",
    "name": "Zarya",
    "color": "#e77eb6",
-   "role": "tank"
+   "role": "tank",
+   "health": 325,
+   "shields": 225,
+   "armor": 0,
+   "abilities": [
+    "Particle Cannon",
+    "Particle Barrier",
+    "Projected Barrier",
+    "Graviton Surge",
+    "Energy"
+   ]
   },
   {
    "key": "zenyatta",
    "name": "Zenyatta",
    "color": "#ede582",
-   "role": "support"
+   "role": "support",
+   "health": 75,
+   "shields": 175,
+   "armor": 0,
+   "abilities": [
+    "Orb of Destruction",
+    "Orb of Discord",
+    "Orb of Harmony",
+    "Transcendence",
+    "Snap Kick"
+   ]
   }
  ],
  "weapons": [

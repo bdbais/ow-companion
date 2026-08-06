@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Navigazione -->
-    <string name="tab_chart">Grafico danni</string>
+    <string name="tab_chart">Grafico</string>
     <string name="tab_leaderboard">Danno massimo</string>
     <string name="tab_wiki">Eroi</string>
     <string name="tab_about">Info</string>
@@ -107,7 +107,7 @@
     <string name="about_update_failed">Server di aggiornamento non raggiungibile. L\'app funziona comunque offline.</string>
     <string name="about_updates_unconfigured">Nessun server di aggiornamento configurato per questa build.</string>
     <!-- Eroe personalizzato -->
-    <string name="tab_custom">Laboratorio</string>
+    <string name="tab_custom">Lab</string>
     <string name="custom_pick_hero">Eroe</string>
     <string name="custom_pick_weapon">Arma</string>
     <string name="custom_stat_damage">Danno per pallino</string>
@@ -153,4 +153,20 @@
     <string name="build_cancel">Annulla</string>
     <string name="build_confirm">Salva</string>
     <string name="build_edit_items">Tocca un oggetto per aggiungerlo o toglierlo</string>
+    <string name="rank_buffs_weapons_only">I potenziamenti valgono solo per le armi: un\'ultimate fa quello che fa, e il potenziamento danno non moltiplica la cura.</string>
+    <string name="stadium_spent">%1$d di %2$d spesi</string>
+    <string name="stadium_suggest">Proponi una build</string>
+    <string name="stadium_clear">Azzera</string>
+    <string name="stadium_armory">Armeria</string>
+    <string name="stadium_boosted">Abilita potenziate</string>
+    <string name="stat_weapon_power">Potenza arma</string>
+    <string name="stat_attack_speed">Velocita di attacco</string>
+    <string name="stat_ability_power">Potenza abilita</string>
+    <string name="stat_cooldown">Riduzione cooldown</string>
+    <string name="stat_move_speed">Velocita di movimento</string>
+    <string name="stat_weapon_lifesteal">Furto vita arma</string>
+    <string name="stat_ability_lifesteal">Furto vita abilita</string>
+    <string name="stat_max_ammo">Munizioni max</string>
+    <string name="build_item_count">%1$d oggetti</string>
+    <string name="stadium_footer_v2">Le statistiche sono esatte per ogni oggetto. Il valore di danno viene da una simulazione completa, ma ci entrano solo Weapon Power e Attack Speed: il modello non sa calcolare quanto valgano potenza delle abilita o cooldown, quindi una build costruita su quelli qui viene sottostimata.</string>
 </resources>

@@ -95,6 +95,11 @@ data class Hero(
     /** Hex string, e.g. `#718ab3`; the chart colours each weapon by its hero. */
     val color: String,
     val role: String,
+    val health: Int? = null,
+    val shields: Int? = null,
+    val armor: Int? = null,
+    /** Ability names, so a build can show which of them an item touches. */
+    val abilities: List<String> = emptyList(),
 )
 
 /**

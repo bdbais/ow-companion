@@ -30,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import com.bellizia.owcompanion.ui.about.AboutScreen
 import com.bellizia.owcompanion.ui.chart.ChartScreen
 import com.bellizia.owcompanion.ui.custom.CustomScreen
@@ -83,7 +84,14 @@ private fun AppRoot() {
                                 contentDescription = null,
                             )
                         },
-                        label = { Text(stringResource(entry.labelRes)) },
+                        label = {
+                            Text(
+                                text = stringResource(entry.labelRes),
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                style = MaterialTheme.typography.labelSmall,
+                            )
+                        },
                     )
                 }
             }

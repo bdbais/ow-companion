@@ -3,7 +3,7 @@
     <string name="app_name">OW Companion</string>
 
     <!-- Navigation -->
-    <string name="tab_chart">Damage chart</string>
+    <string name="tab_chart">Chart</string>
     <string name="tab_leaderboard">Max damage</string>
     <string name="tab_wiki">Heroes</string>
     <string name="tab_about">About</string>
@@ -125,7 +125,7 @@
     <string name="custom_unchanged">Nothing changed yet - move a slider.</string>
     <string name="custom_neighbours">Around it in the ranking</string>
     <!-- Ultimates -->
-    <string name="tab_rankings">Rankings</string>
+    <string name="tab_rankings">Ranks</string>
     <string name="rank_weapons">Weapons</string>
     <string name="rank_ultimates">Ultimates</string>
     <string name="ultimate_damage">%1$s damage</string>
@@ -155,4 +155,20 @@
     <string name="build_cancel">Cancel</string>
     <string name="build_confirm">Save</string>
     <string name="build_edit_items">Tap an item to add or remove it</string>
+    <string name="rank_buffs_weapons_only">Buffs apply to weapons only: an ultimate deals what it deals, and damage boost is not what multiplies healing.</string>
+    <string name="stadium_spent">%1$d of %2$d spent</string>
+    <string name="stadium_suggest">Suggest a build</string>
+    <string name="stadium_clear">Clear</string>
+    <string name="stadium_armory">Armory</string>
+    <string name="stadium_boosted">Boosted abilities</string>
+    <string name="stat_weapon_power">Weapon power</string>
+    <string name="stat_attack_speed">Attack speed</string>
+    <string name="stat_ability_power">Ability power</string>
+    <string name="stat_cooldown">Cooldown reduction</string>
+    <string name="stat_move_speed">Move speed</string>
+    <string name="stat_weapon_lifesteal">Weapon lifesteal</string>
+    <string name="stat_ability_lifesteal">Ability lifesteal</string>
+    <string name="stat_max_ammo">Max ammo</string>
+    <string name="build_item_count">%1$d items</string>
+    <string name="stadium_footer_v2">Stats are exact for every item. The damage figure is a full simulation, but only Weapon Power and Attack Speed feed into it - the model cannot compute what ability power or cooldowns are worth, so a build that leans on those will be undersold here.</string>
 </resources>
