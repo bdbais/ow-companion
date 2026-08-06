@@ -20,8 +20,20 @@ class DatasetRepository(private val context: Context) {
     private var cached: WeaponSet? = null
 
     suspend fun weapons(): WeaponSet = cached ?: withContext(Dispatchers.IO) {
-        val text = context.assets.open(ASSET_NAME).bufferedReader().use { it.readText() }
-        json.decodeFromString(WeaponSet.serializer(), text).also { cached = it }
+        // A downloaded dataset wins over the bundled one; if it fails to parse for any
+        // reason, fall back rather than leaving the app with no data at all.
+        val downloaded = DatasetUpdater.downloadedFile(context, DatasetUpdater.DOWNLOADED_WEAPONS)
+        val parsed = downloaded
+            ?.let { file ->
+                runCatching {
+                    json.decodeFromString(WeaponSet.serializer(), file.readText())
+                }.getOrNull()
+            }
+            ?: json.decodeFromString(
+                WeaponSet.serializer(),
+                context.assets.open(ASSET_NAME).bufferedReader().use { it.readText() },
+            )
+        parsed.also { cached = it }
     }
 
     private companion object {

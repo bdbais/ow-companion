@@ -157,5 +157,18 @@ data class WeaponSpec(
     /** Fraction of the inter-shot gap a drawn shot may occupy. */
     val filling: Double? = null,
 ) {
-    val id: String get() = if (mousebutton == null) name else "$name ($mousebutton)"
+    /**
+     * Unique across the whole set. The hero has to be part of it: every hero carries a
+     * weapon called "Quick Melee", so the name alone is not an identity.
+     */
+    val id: String get() = buildString {
+        append(hero)
+        append('|')
+        append(name)
+        if (mousebutton != null) {
+            append(" (")
+            append(mousebutton)
+            append(')')
+        }
+    }
 }

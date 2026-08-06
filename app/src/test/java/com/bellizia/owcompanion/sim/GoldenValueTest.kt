@@ -165,7 +165,8 @@ class GoldenValueTest {
     fun `every weapon in the golden file is present in the dataset`() {
         val datasetIds = weaponSet.weapons.map { it.id }.toSet()
         val goldenIds = golden.weapons.map {
-            if (it.mousebutton == null) it.name else "${it.name} (${it.mousebutton})"
+            val suffix = it.mousebutton?.let { button -> " ($button)" } ?: ""
+            "${it.hero}|${it.name}$suffix"
         }.toSet()
         assertEquals(goldenIds, datasetIds)
         assertEquals(46, weaponSet.weapons.size)

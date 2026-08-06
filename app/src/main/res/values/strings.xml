@@ -108,4 +108,27 @@
     <string name="about_updated">Updated to version %1$d. Restart the app to load it.</string>
     <string name="about_update_failed">Could not reach the update server. The app works offline regardless.</string>
     <string name="about_updates_unconfigured">No update server is configured for this build.</string>
+    <!-- Custom hero -->
+    <string name="tab_custom">Lab</string>
+    <string name="custom_pick_hero">Hero</string>
+    <string name="custom_pick_weapon">Weapon</string>
+    <string name="custom_stat_damage">Damage per pellet</string>
+    <string name="custom_stat_fire_rate">Shots per second</string>
+    <string name="custom_stat_ammo">Magazine</string>
+    <string name="custom_stat_reload">Reload seconds</string>
+    <string name="custom_stat_pellets">Pellets per shot</string>
+    <string name="custom_reset">Reset to the real values</string>
+    <string name="custom_result">%1$s dps at its best</string>
+    <string name="custom_rank">Rank %1$d of %2$d</string>
+    <string name="custom_rank_was">was %1$d</string>
+    <string name="custom_delta">%1$s%% vs the real hero</string>
+    <string name="custom_unchanged">Nothing changed yet - move a slider.</string>
+    <string name="custom_neighbours">Around it in the ranking</string>
+    <!-- Ultimates -->
+    <string name="tab_rankings">Rankings</string>
+    <string name="rank_weapons">Weapons</string>
+    <string name="rank_ultimates">Ultimates</string>
+    <string name="ultimate_damage">%1$s damage</string>
+    <string name="ultimate_no_damage">%1$d ultimates deal no damage and are left out.</string>
+    <string name="ultimate_footer">Ranked by the damage one cast can deal. An ultimate is burst, not sustained fire, so this is not a damage-per-second figure.</string>
 </resources>

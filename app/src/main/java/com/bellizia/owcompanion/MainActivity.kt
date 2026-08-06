@@ -13,6 +13,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Groups
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Science
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -27,7 +29,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import com.bellizia.owcompanion.ui.about.AboutScreen
 import com.bellizia.owcompanion.ui.chart.ChartScreen
+import com.bellizia.owcompanion.ui.custom.CustomScreen
 import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
 import com.bellizia.owcompanion.ui.wiki.WikiScreen
 import com.bellizia.owcompanion.ui.theme.OwCompanionTheme
@@ -46,8 +50,10 @@ class MainActivity : ComponentActivity() {
 
 private enum class Section(val labelRes: Int) {
     Chart(R.string.tab_chart),
-    Leaderboard(R.string.tab_leaderboard),
+    Leaderboard(R.string.tab_rankings),
     Wiki(R.string.tab_wiki),
+    Custom(R.string.tab_custom),
+    About(R.string.tab_about),
 }
 
 @Composable
@@ -67,6 +73,8 @@ private fun AppRoot() {
                                     Section.Chart -> Icons.Filled.BarChart
                                     Section.Leaderboard -> Icons.Filled.EmojiEvents
                                     Section.Wiki -> Icons.Filled.Groups
+                                    Section.Custom -> Icons.Filled.Science
+                                    Section.About -> Icons.Filled.Info
                                 },
                                 contentDescription = null,
                             )
@@ -82,6 +90,8 @@ private fun AppRoot() {
                 Section.Chart -> ChartScreen()
                 Section.Leaderboard -> LeaderboardScreen()
                 Section.Wiki -> WikiScreen()
+                Section.Custom -> CustomScreen()
+                Section.About -> AboutScreen()
             }
         }
     }

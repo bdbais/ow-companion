@@ -20,8 +20,17 @@ class WikiRepository(private val context: Context) {
     private var cached: WikiData? = null
 
     suspend fun wiki(): WikiData = cached ?: withContext(Dispatchers.IO) {
-        val text = context.assets.open(ASSET_NAME).bufferedReader().use { it.readText() }
-        json.decodeFromString(WikiData.serializer(), text).also { cached = it }
+        val downloaded = DatasetUpdater.downloadedFile(context, DatasetUpdater.DOWNLOADED_WIKI)
+        val parsed = downloaded
+            ?.let { file ->
+                runCatching { json.decodeFromString(WikiData.serializer(), file.readText()) }
+                    .getOrNull()
+            }
+            ?: json.decodeFromString(
+                WikiData.serializer(),
+                context.assets.open(ASSET_NAME).bufferedReader().use { it.readText() },
+            )
+        parsed.also { cached = it }
     }
 
     companion object {

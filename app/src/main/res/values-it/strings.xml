@@ -106,4 +106,27 @@
     <string name="about_updated">Aggiornato alla versione %1$d. Riavvia l\'app per caricarlo.</string>
     <string name="about_update_failed">Server di aggiornamento non raggiungibile. L\'app funziona comunque offline.</string>
     <string name="about_updates_unconfigured">Nessun server di aggiornamento configurato per questa build.</string>
+    <!-- Eroe personalizzato -->
+    <string name="tab_custom">Laboratorio</string>
+    <string name="custom_pick_hero">Eroe</string>
+    <string name="custom_pick_weapon">Arma</string>
+    <string name="custom_stat_damage">Danno per pallino</string>
+    <string name="custom_stat_fire_rate">Colpi al secondo</string>
+    <string name="custom_stat_ammo">Caricatore</string>
+    <string name="custom_stat_reload">Secondi di ricarica</string>
+    <string name="custom_stat_pellets">Pallini per colpo</string>
+    <string name="custom_reset">Ripristina i valori reali</string>
+    <string name="custom_result">%1$s dps al massimo</string>
+    <string name="custom_rank">Posizione %1$d su %2$d</string>
+    <string name="custom_rank_was">era %1$d</string>
+    <string name="custom_delta">%1$s%% rispetto all\'eroe reale</string>
+    <string name="custom_unchanged">Non hai ancora cambiato nulla: muovi uno slider.</string>
+    <string name="custom_neighbours">Chi ha intorno in classifica</string>
+    <!-- Ultimate -->
+    <string name="tab_rankings">Classifiche</string>
+    <string name="rank_weapons">Armi</string>
+    <string name="rank_ultimates">Ultimate</string>
+    <string name="ultimate_damage">%1$s danni</string>
+    <string name="ultimate_no_damage">%1$d ultimate non fanno danno e restano fuori.</string>
+    <string name="ultimate_footer">Ordinate per il danno di una singola attivazione. Un\'ultimate è un colpo secco, non fuoco sostenuto, quindi non è un valore di danno al secondo.</string>
 </resources>
