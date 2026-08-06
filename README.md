@@ -5,19 +5,38 @@ Android app that pairs an interactive **damage chart** — a port of
 with a **hero wiki** covering portraits, abilities, release dates and the full balance
 history of every hero.
 
-Status: **in development.** The simulation engine is ported and validated against the
-original implementation, the damage chart and the max-damage ranking are working, and the
-hero wiki is next. The dataset shipping today is still the 2020 reference set.
+Status: **working, and looking for opinions.** All 52 heroes, 123 weapons, ten years of
+balance history. If you play Overwatch and something here looks wrong, please
+[open an issue](../../issues) — see [CONTRIBUTING.md](CONTRIBUTING.md) for the parts we
+already know are weak.
 
 ## Screens
 
-- **Damage chart** — every weapon's firing sequence over time, driven by distance, aim point
-  and modifiers.
-- **Max damage** — the ten highest damage-per-second figures reachable, found by sweeping
-  each weapon across the full range and every sensible aim point, with the conditions that
-  produce them.
-- **Heroes** — the wiki: portraits, abilities, release dates and balance history. Not built
-  yet.
+- **Chart** — every weapon's firing sequence over time, driven by distance, aim point and
+  modifiers.
+- **Ranks** — three rankings, because they are three different questions: sustained damage
+  per second for weapons, damage per cast for ultimates, healing per second for healers.
+- **Heroes** — portraits, abilities, perks, release dates, and every balance change since
+  2016 with a chart of how a hero's damage moved over the years.
+- **Lab** — what if Roadhog reloaded a third of a second faster? Move a real weapon's
+  numbers and see where the hero lands in the real ranking.
+- **Stadium** — the Armory: pick items by hand and watch the hero's stats move, or let the
+  optimiser propose a build for a budget and show what each item was worth.
+
+## Why the numbers should be believed
+
+The simulation is an independent Kotlin port of
+[owdmgchart](https://github.com/yfp/owdmgchart). It is held to the original by running that
+JavaScript headlessly and asserting agreement across 46 weapons and 11 distance, aim and
+modifier configurations — exactly, for everything the random number generator does not
+touch, and within six standard errors for what it does.
+
+The weapon data is parsed from the Overwatch Wiki. Anything the parser could not read with
+confidence is **held out of the app entirely** and listed in `dataset/review.md` rather than
+guessed at. Healing weapons are excluded from the damage chart for dealing no damage;
+ultimates that deal no damage are named as excluded rather than ranked at zero.
+
+Where a figure is uncertain, the app says so on the screen showing it.
 
 ## What the damage chart does
 
