@@ -144,4 +144,15 @@
     <string name="stadium_budget">Budget %1$d</string>
     <string name="stadium_gain">From %1$s dps, %2$s%% for %3$d cash</string>
     <string name="stadium_footer">Built greedily: at each slot, whichever affordable item adds the most. Only %1$d of the %2$d items change what the damage model computes - Weapon Power and Attack Speed. Survival and ability items are real and often the better buy; they are simply not what this ranks.</string>
+    <string name="build_saved">Saved builds</string>
+    <string name="build_save">Save this build</string>
+    <string name="build_name">Build name</string>
+    <string name="build_rename">Rename</string>
+    <string name="build_clone">Duplicate</string>
+    <string name="build_delete">Delete</string>
+    <string name="build_none">No saved builds for this hero yet.</string>
+    <string name="build_items">%1$d items · %2$s dps</string>
+    <string name="build_cancel">Cancel</string>
+    <string name="build_confirm">Save</string>
+    <string name="build_edit_items">Tap an item to add or remove it</string>
 </resources>
