@@ -136,4 +136,8 @@
     <string name="healing_footer">Healing per second, reload included. An ally being healed is not dodging, so this is arithmetic rather than simulated.</string>
     <string name="ultimate_duration">over %1$s s</string>
     <string name="ultimate_radius">%1$s m radius</string>
+    <string name="wiki_perks">Perks</string>
+    <string name="wiki_perk_minor">MINOR</string>
+    <string name="wiki_perk_major">MAJOR</string>
+    <string name="wiki_pick_a_hero">Pick a hero to see their details.</string>
 </resources>

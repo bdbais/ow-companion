@@ -179,6 +179,12 @@ def main() -> int:
     parsed = read_json(DATASET / "weapons-parsed.json")["weapons"]
     ultimates = read_json(DATASET / "ultimates-parsed.json")["ultimates"]
     healing = read_json(DATASET / "healing-parsed.json")["healing"]
+    perks = read_json(DATASET / "perks-parsed.json")["perks"]
+    perks_by_hero: dict[str, list[dict]] = {}
+    for perk in perks:
+        perks_by_hero.setdefault(perk["hero"], []).append(
+            {k: v for k, v in perk.items() if k != "hero"}
+        )
     history = {h["hero"]: h for h in read_json(DATASET / "patch-history.json")["heroes"]}
     review_notes = read_json(DATASET / "review-weapons.json")["items"]
 
@@ -221,6 +227,7 @@ def main() -> int:
                 "abilities": detail.get("abilities", []),
                 "releaseDate": released,
                 "heroNumber": order,
+                "perks": perks_by_hero.get(name, []),
                 "patches": history.get(name, {}).get("patches", []),
             }
         )

@@ -25,6 +25,11 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.VerticalDivider
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -100,6 +105,34 @@ fun ChartScreen(
         viewModel.setZoom(state.zoom * zoomChange)
     }
 
+    // On a wide screen the controls sit beside the chart instead of stacking above it: a
+    // landscape phone has almost no vertical room, and stacking leaves two visible rows.
+    val wide = LocalConfiguration.current.screenWidthDp >= WIDE_LAYOUT_DP
+
+    if (wide) {
+        Row(modifier = modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .width(SIDE_PANEL_WIDTH)
+                    .fillMaxHeight()
+                    .verticalScroll(rememberScrollState()),
+            ) {
+                ControlPanel(
+                    state = state,
+                    viewModel = viewModel,
+                    sections = sections,
+                    onSectionsChange = { sections = it },
+                    onCollapse = null,
+                )
+            }
+            VerticalDivider()
+            Column(modifier = Modifier.weight(1f)) {
+                ChartBody(state, timelineScroll, transformState)
+            }
+        }
+        return
+    }
+
     Column(modifier = modifier.fillMaxSize()) {
         if (controlsCollapsed) {
             CollapsedControlBar(
@@ -117,37 +150,49 @@ fun ChartScreen(
             )
         }
         HorizontalDivider()
+        ChartBody(state, timelineScroll, transformState)
+    }
+}
 
-        if (state.loading) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
-            return@Column
+@Composable
+private fun ColumnScope.ChartBody(
+    state: ChartUiState,
+    timelineScroll: androidx.compose.foundation.ScrollState,
+    transformState: androidx.compose.foundation.gestures.TransformableState,
+) {
+    if (state.loading) {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            CircularProgressIndicator()
         }
+        return
+    }
 
-        TimeAxis(zoom = state.zoom, scrollState = timelineScroll)
+    TimeAxis(zoom = state.zoom, scrollState = timelineScroll)
 
-        // Changing the sort or the filters rebuilds the list under a scroll position that
-        // no longer means anything - leaving the reader looking at the tail of a shorter
-        // list and concluding the filter did not work.
-        val listState = rememberLazyListState()
-        LaunchedEffect(state.sortOrder, state.roles, state.categories) {
-            listState.scrollToItem(0)
-        }
+    // Changing the sort or the filters rebuilds the list under a scroll position that
+    // no longer means anything - leaving the reader looking at the tail of a shorter
+    // list and concluding the filter did not work.
+    val listState = rememberLazyListState()
+    LaunchedEffect(state.sortOrder, state.roles, state.categories) {
+        listState.scrollToItem(0)
+    }
 
-        LazyColumn(
-            state = listState,
-            modifier = Modifier
-                .fillMaxSize()
-                .transformable(transformState),
-        ) {
-            items(state.rows, key = { it.spec.id }) { row ->
-                ChartRowView(row = row, zoom = state.zoom, scrollState = timelineScroll)
-                HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
-            }
+    LazyColumn(
+        state = listState,
+        modifier = Modifier
+            .fillMaxSize()
+            .transformable(transformState),
+    ) {
+        items(state.rows, key = { it.spec.id }) { row ->
+            ChartRowView(row = row, zoom = state.zoom, scrollState = timelineScroll)
+            HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
         }
     }
 }
+
+/** Below this the controls stack above the chart; at or above it they sit beside it. */
+private const val WIDE_LAYOUT_DP = 600
+private val SIDE_PANEL_WIDTH = 320.dp
 
 /** Which control sections are open. Filters start closed; the rest start open. */
 private data class OpenSections(
@@ -168,7 +213,8 @@ private fun ControlPanel(
     viewModel: ChartViewModel,
     sections: OpenSections,
     onSectionsChange: (OpenSections) -> Unit,
-    onCollapse: () -> Unit,
+    /** Null on a wide screen, where the panel has its own column and nothing to yield. */
+    onCollapse: (() -> Unit)?,
 ) {
     Surface(tonalElevation = 2.dp) {
         Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
@@ -186,11 +232,13 @@ private fun ControlPanel(
                             style = MaterialTheme.typography.labelLarge,
                             modifier = Modifier.weight(1f),
                         )
-                        IconButton(onClick = onCollapse) {
-                            Icon(
-                                imageVector = Icons.Filled.UnfoldLess,
-                                contentDescription = stringResource(R.string.chart_collapse),
-                            )
+                        if (onCollapse != null) {
+                            IconButton(onClick = onCollapse) {
+                                Icon(
+                                    imageVector = Icons.Filled.UnfoldLess,
+                                    contentDescription = stringResource(R.string.chart_collapse),
+                                )
+                            }
                         }
                     }
                     Slider(

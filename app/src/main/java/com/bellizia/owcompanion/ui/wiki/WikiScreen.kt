@@ -40,6 +40,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -52,6 +53,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -81,6 +83,32 @@ fun WikiScreen(
     }
 
     val selected = state.selected
+
+    // Wide enough to hold both: the grid keeps its place while a hero is open, so moving
+    // between heroes does not mean going back and hunting for the next one.
+    if (LocalConfiguration.current.screenWidthDp >= WIDE_LAYOUT_DP) {
+        Row(modifier = modifier.fillMaxSize()) {
+            Box(modifier = Modifier.weight(1f)) {
+                HeroGrid(state = state, viewModel = viewModel)
+            }
+            VerticalDivider()
+            Box(modifier = Modifier.weight(1.2f)) {
+                if (selected != null) {
+                    HeroDetail(hero = selected, onBack = { viewModel.select(null) })
+                } else {
+                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Text(
+                            text = stringResource(R.string.wiki_pick_a_hero),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
+            }
+        }
+        return
+    }
+
     if (selected != null) {
         BackHandler { viewModel.select(null) }
         HeroDetail(hero = selected, onBack = { viewModel.select(null) }, modifier = modifier)
@@ -88,6 +116,9 @@ fun WikiScreen(
         HeroGrid(state = state, viewModel = viewModel, modifier = modifier)
     }
 }
+
+/** Below this the grid and the detail take turns; at or above it they share the screen. */
+private const val WIDE_LAYOUT_DP = 600
 
 @Composable
 private fun HeroGrid(
@@ -317,6 +348,51 @@ private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = 
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
+                }
+            }
+        }
+
+        if (hero.perks.isNotEmpty()) {
+            item {
+                Text(
+                    text = stringResource(R.string.wiki_perks),
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier.padding(start = 12.dp, top = 12.dp, bottom = 4.dp),
+                )
+            }
+            items(hero.perks) { perk ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp, vertical = 4.dp),
+                ) {
+                    Text(
+                        text = stringResource(
+                            if (perk.tier == "major") R.string.wiki_perk_major
+                            else R.string.wiki_perk_minor,
+                        ),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.surface,
+                        modifier = Modifier
+                            .padding(top = 2.dp, end = 8.dp)
+                            .clip(RoundedCornerShape(4.dp))
+                            .background(
+                                if (perk.tier == "major") color else color.copy(alpha = 0.45f),
+                            )
+                            .padding(horizontal = 5.dp, vertical = 1.dp),
+                    )
+                    Column {
+                        Text(
+                            text = perk.name,
+                            style = MaterialTheme.typography.titleSmall,
+                            fontWeight = FontWeight.SemiBold,
+                        )
+                        Text(
+                            text = perk.description,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
         }

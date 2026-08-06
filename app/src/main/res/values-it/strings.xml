@@ -134,4 +134,8 @@
     <string name="healing_footer">Cura al secondo, ricarica inclusa. Un alleato che viene curato non schiva, quindi qui il calcolo e aritmetico, non simulato.</string>
     <string name="ultimate_duration">in %1$s s</string>
     <string name="ultimate_radius">raggio %1$s m</string>
+    <string name="wiki_perks">Perk</string>
+    <string name="wiki_perk_minor">MINORE</string>
+    <string name="wiki_perk_major">MAGGIORE</string>
+    <string name="wiki_pick_a_hero">Scegli un eroe per vederne i dettagli.</string>
 </resources>

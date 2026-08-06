@@ -263,6 +263,46 @@ def mousebutton_of(params: dict) -> str | None:
     return None
 
 
+PERK_SECTION = re.compile(r"^==\s*Perks\s*==\s*$", re.MULTILINE)
+
+
+def parse_perks(hero_name: str, text: str) -> list[dict]:
+    """Minor and major perks, as the wiki records them.
+
+    A few change what the simulation does - Ana's Headhunter lets her rifle crit - but most
+    change abilities the simulation never models. Rather than guess which is which, the
+    effect on a weapon is left for `overrides.json` to state explicitly; what is captured
+    here is the perk itself.
+    """
+    text = resolve_vars(strip_comments(text))
+    match = PERK_SECTION.search(text)
+    if not match:
+        return []
+    rest = text[match.end() :]
+    following = re.search(r"^==[^=]", rest, re.MULTILINE)
+    section = rest[: following.start()] if following else rest
+
+    perks = []
+    for template in find_templates(section, TEMPLATE_NAMES):
+        params = template["params"]
+        name = clean_value(params.get("ability_name", "")).strip()
+        if not name:
+            continue
+        kind = clean_value(params.get("ability_type", "")).lower()
+        perks.append(
+            {
+                "hero": hero_name,
+                "name": name,
+                "tier": "major" if "major" in kind else "minor",
+                "description": (
+                    clean_value(params.get("official_description", ""))
+                    or clean_value(params.get("ability_details", ""))
+                ).strip()[:400],
+            }
+        )
+    return perks
+
+
 ULTIMATE_SECTION = re.compile(r"^===\s*Ultimate Ability\s*===\s*$", re.MULTILINE)
 
 
@@ -367,6 +407,7 @@ def main() -> int:
 
     ultimates = []
     healing = []
+    perks = []
 
     for hero in roster:
         path = RAW / "wiki" / f"{hero['key']}.wiki"
@@ -378,11 +419,14 @@ def main() -> int:
         if ultimate:
             ultimates.append(ultimate)
         healing.extend(parse_healing(hero["name"], text))
+        perks.extend(parse_perks(hero["name"], text))
 
     complete = [w for w in all_weapons if w["complete"]]
     write_json(DATASET / "weapons-parsed.json", {"weapons": all_weapons})
     write_json(DATASET / "ultimates-parsed.json", {"ultimates": ultimates})
     write_json(DATASET / "healing-parsed.json", {"healing": healing})
+    write_json(DATASET / "perks-parsed.json", {"perks": perks})
+    print(f"parsed {len(perks)} perks")
     write_json(DATASET / "review-weapons.json", {"items": review.items})
 
     with_damage = sum(1 for u in ultimates if u.get("damage"))

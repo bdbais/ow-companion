@@ -28,7 +28,23 @@ data class HeroWiki(
     val releaseDate: String? = null,
     /** Position in the roster's arrival order; absent for the launch heroes. */
     val heroNumber: Int? = null,
+    val perks: List<PerkWiki> = emptyList(),
     val patches: List<PatchEntry> = emptyList(),
+)
+
+/**
+ * A perk a player picks mid-match. Two minor and two major per hero.
+ *
+ * These are documented here but not simulated: most change abilities the damage model never
+ * covers, and the few that do change a weapon - Ana's Headhunter letting her rifle crit -
+ * are stated explicitly in the dataset rather than inferred from the wording.
+ */
+@Serializable
+data class PerkWiki(
+    val name: String,
+    /** `minor` or `major`. */
+    val tier: String = "minor",
+    val description: String = "",
 )
 
 @Serializable
