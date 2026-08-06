@@ -58,12 +58,6 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Zarya — Particle Cannon** `required`: missing damage, fireRate
 - **Zarya — Particle Cannon Alt Fire** `falloff`: damage is a near/far pair but no falloff range was found
 
-## Release date not found on the wiki page (3)
-
-- Junker Queen
-- Juno
-- Sojourn
-
 ## Hero colours derived from a portrait (faces skew these towards skin tone) (20)
 
 - Anran

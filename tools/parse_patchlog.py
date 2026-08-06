@@ -81,6 +81,23 @@ def tabs_of(section: str) -> dict[str, str]:
     return tabs or {"owpvp": section}
 
 
+def normalise_date(raw: str) -> str:
+    """Force a patch date to ISO so chronological sorting is string sorting.
+
+    Editors write these by hand, so a handful are `11-11-2025` or `2016-7-19`.
+    """
+    text = raw.strip()
+    match = re.fullmatch(r"(\d{4})-(\d{1,2})-(\d{1,2})", text)
+    if match:
+        year, month, day = match.groups()
+        return f"{year}-{int(month):02d}-{int(day):02d}"
+    match = re.fullmatch(r"(\d{1,2})-(\d{1,2})-(\d{4})", text)
+    if match:
+        day, month, year = match.groups()
+        return f"{year}-{int(month):02d}-{int(day):02d}"
+    return text
+
+
 def patch_entries(tab: str) -> list[tuple[str, str]]:
     """Every `{{PatchTableElement|date|body}}` in a tab, as (date, body)."""
     entries = []
@@ -92,8 +109,7 @@ def patch_entries(tab: str) -> list[tuple[str, str]]:
         parts = split_params(body)
         if len(parts) < 3:
             continue
-        date = parts[1].strip()
-        entries.append((date, "|".join(parts[2:])))
+        entries.append((normalise_date(parts[1]), "|".join(parts[2:])))
     return entries
 
 

@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.bellizia.owcompanion.ui.chart.ChartScreen
 import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
+import com.bellizia.owcompanion.ui.wiki.WikiScreen
 import com.bellizia.owcompanion.ui.theme.OwCompanionTheme
 
 class MainActivity : ComponentActivity() {
@@ -80,20 +81,7 @@ private fun AppRoot() {
             when (section) {
                 Section.Chart -> ChartScreen()
                 Section.Leaderboard -> LeaderboardScreen()
-                Section.Wiki -> Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Center,
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Text(
-                        text = stringResource(section.labelRes),
-                        style = MaterialTheme.typography.headlineMedium,
-                    )
-                    Text(
-                        text = stringResource(R.string.scaffold_placeholder),
-                        style = MaterialTheme.typography.bodyMedium,
-                    )
-                }
+                Section.Wiki -> WikiScreen()
             }
         }
     }

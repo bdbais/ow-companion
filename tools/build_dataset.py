@@ -25,8 +25,20 @@ APP_ASSETS = ROOT / "app" / "src" / "main" / "assets"
 APP_IMAGES = ROOT / "app" / "src" / "main" / "assets" / "heroes"
 
 DATE = r"(\d{1,2}\s+[A-Z][a-z]+\s+\d{4}|[A-Z][a-z]+\s+\d{1,2},?\s+\d{4})"
-RELEASE = re.compile(r"releas\w*[^.]{0,240}?on\s+" + DATE, re.IGNORECASE | re.DOTALL)
+# The sentence runs from "released" to the end of the paragraph. Citations and wiki links
+# are stripped first: they are full of full stops and dates of their own, and either will
+# derail the search.
+# The release date always lives in the article's opening paragraph, but the wording does
+# not: heroes are variously "released on", "included in the game's release on" or
+# "initially playable during ... on". Anchoring on the paragraph rather than on a verb is
+# the only thing that covers all of them.
+INTRO = re.compile(r"\{\{HeroTabs\}\}(.*?)(?:\n\s*\n|\n==)", re.DOTALL)
+DATE_RE = re.compile(DATE)
 HERO_ORDER = re.compile(r"(\d+)(?:st|nd|rd|th)\s+hero")
+
+# Heroes who arrived in a beta before the game they belong to shipped. The date that counts
+# is when they became permanently playable, which is always the later one.
+BETA_FIRST = re.compile(r"permanently available|full game launched", re.IGNORECASE)
 
 MONTHS = {
     m: i
@@ -54,8 +66,19 @@ def iso_date(text: str) -> str | None:
 
 def release_info(wiki_text: str) -> tuple[str | None, int | None]:
     head = wiki_text[:9000]
-    match = RELEASE.search(head)
-    date = iso_date(match.group(1)) if match else None
+    # Self-closing refs first: `<ref[^>]*>` also matches `<ref name="x"/>`, so stripping
+    # paired refs first would treat one as an opening tag and swallow everything up to the
+    # next `</ref>` - including the sentence with the release date in it.
+    head = re.sub(r"<ref[^>]*/>", "", head)
+    head = re.sub(r"<ref[^>]*>.*?</ref>", "", head, flags=re.DOTALL)
+    head = re.sub(r"\[\[[^\]|]*\|([^\]]*)\]\]", r"\1", head)
+    head = re.sub(r"\[\[([^\]]*)\]\]", r"\1", head)
+
+    intro_match = INTRO.search(head)
+    intro = intro_match.group(1) if intro_match else head[:1500]
+    dates = DATE_RE.findall(intro)
+    date = iso_date(dates[-1] if BETA_FIRST.search(intro) else dates[0]) if dates else None
+
     order_match = HERO_ORDER.search(head)
     order = int(order_match.group(1)) if order_match else None
     return date, order

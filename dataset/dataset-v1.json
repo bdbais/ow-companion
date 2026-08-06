@@ -5193,6 +5193,20 @@
      ]
     },
     {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "The Viper",
+       "text": "Secondary Fire falloff range rescaled from 30–50 meters to 40–60 meters"
+      }
+     ],
+     "stats": [],
+     "comments": [
+      "Increasing Ashe’s falloff range allows her to perform more consistently at her intended mid- to long-range distances."
+     ]
+    },
+    {
      "date": "2025-08-26",
      "mode": "owpvp",
      "changes": [
@@ -5820,20 +5834,6 @@
      ],
      "stats": [],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "The Viper",
-       "text": "Secondary Fire falloff range rescaled from 30–50 meters to 40–60 meters"
-      }
-     ],
-     "stats": [],
-     "comments": [
-      "Increasing Ashe’s falloff range allows her to perform more consistently at her intended mid- to long-range distances."
-     ]
     }
    ]
   },
@@ -9486,6 +9486,29 @@
      ]
     },
     {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Flashbang",
+       "text": "Hinder duration increased from 0.9 to 1.2 seconds"
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Flashbang",
+       "stat": "Hinder duration",
+       "from": 0.9,
+       "to": 1.2,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": [
+      "Flashbang’s short hinder duration could feel difficult to capitalize on. This slight increase gives Cassidy players a more reliable window to follow up when landing a Flashbang."
+     ]
+    },
+    {
      "date": "2025-10-14",
      "mode": "owpvp",
      "changes": [
@@ -10768,29 +10791,6 @@
       }
      ],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "Flashbang",
-       "text": "Hinder duration increased from 0.9 to 1.2 seconds"
-      }
-     ],
-     "stats": [
-      {
-       "ability": "Flashbang",
-       "stat": "Hinder duration",
-       "from": 0.9,
-       "to": 1.2,
-       "unit": null,
-       "direction": "buff"
-      }
-     ],
-     "comments": [
-      "Flashbang’s short hinder duration could feel difficult to capitalize on. This slight increase gives Cassidy players a more reliable window to follow up when landing a Flashbang."
-     ]
     }
    ]
   },
@@ -11038,6 +11038,39 @@
      "comments": [
       "Empowered Punch can be held indefinitely, creating situations with limited counterplay. Adding a duration sets clearer expectations while maintaining its intended impact. The Power Matrix adjustment aligns its effective area more closely with Doomfist’s model for gameplay clarity."
      ]
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "The Best Defense...",
+       "text": "Overhealth gained per target reduced from 35 to 25 HP."
+      },
+      {
+       "ability": "Power Block",
+       "text": "Amount of damage to gain Empowered Punch increased from 100 to 120."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "The Best Defense...",
+       "stat": "Overhealth gained per target",
+       "from": 35.0,
+       "to": 25.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Power Block",
+       "stat": "Amount of damage to gain Empowered Punch",
+       "from": 100.0,
+       "to": 120.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
     },
     {
      "date": "2025-10-14",
@@ -12343,39 +12376,6 @@
       }
      ],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "The Best Defense...",
-       "text": "Overhealth gained per target reduced from 35 to 25 HP."
-      },
-      {
-       "ability": "Power Block",
-       "text": "Amount of damage to gain Empowered Punch increased from 100 to 120."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "The Best Defense...",
-       "stat": "Overhealth gained per target",
-       "from": 35.0,
-       "to": 25.0,
-       "unit": null,
-       "direction": "nerf"
-      },
-      {
-       "ability": "Power Block",
-       "stat": "Amount of damage to gain Empowered Punch",
-       "from": 100.0,
-       "to": 120.0,
-       "unit": null,
-       "direction": "buff"
-      }
-     ],
-     "comments": []
     }
    ]
   },
@@ -12574,6 +12574,43 @@
      "comments": [
       "Extended Boosters successfully encouraged more aggressive Booster usage, but the damage bonus was too high for a minor perk. Reducing the value maintains its purpose while lowering overall lethality."
      ]
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Extended Boosters",
+       "text": "Boosters now deal 100% additional damage."
+      }
+     ],
+     "stats": [],
+     "comments": []
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "6v6 Hero Changes",
+       "text": "Health reduced from 350 to 300."
+      },
+      {
+       "ability": "Defense Matrix",
+       "text": "Recharge rate reduced by 15%."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "6v6 Hero Changes",
+       "stat": "Health",
+       "from": 350.0,
+       "to": 300.0,
+       "unit": null,
+       "direction": "nerf"
+      }
+     ],
+     "comments": []
     },
     {
      "date": "2025-08-26",
@@ -13926,43 +13963,6 @@
        "to": 3.0,
        "unit": null,
        "direction": "buff"
-      }
-     ],
-     "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "Extended Boosters",
-       "text": "Boosters now deal 100% additional damage."
-      }
-     ],
-     "stats": [],
-     "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "6v6 Hero Changes",
-       "text": "Health reduced from 350 to 300."
-      },
-      {
-       "ability": "Defense Matrix",
-       "text": "Recharge rate reduced by 15%."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "6v6 Hero Changes",
-       "stat": "Health",
-       "from": 350.0,
-       "to": 300.0,
-       "unit": null,
-       "direction": "nerf"
       }
      ],
      "comments": []
@@ -17493,6 +17493,33 @@
      ]
     },
     {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Spike Guard",
+       "text": "No longer prevents critical damage."
+      },
+      {
+       "ability": "Violent Leap",
+       "text": "Cooldown reduced from 6 to 5.5 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Violent Leap",
+       "stat": "Cooldown",
+       "from": 6.0,
+       "to": 5.5,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": [
+      "With Hazard’s block now less reliable against burst damage, this change increases his mobility, allowing him to reposition and engage more effectively."
+     ]
+    },
+    {
      "date": "2025-10-14",
      "mode": "owpvp",
      "changes": [
@@ -18000,33 +18027,6 @@
      ],
      "stats": [],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "Spike Guard",
-       "text": "No longer prevents critical damage."
-      },
-      {
-       "ability": "Violent Leap",
-       "text": "Cooldown reduced from 6 to 5.5 seconds."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "Violent Leap",
-       "stat": "Cooldown",
-       "from": 6.0,
-       "to": 5.5,
-       "unit": null,
-       "direction": "buff"
-      }
-     ],
-     "comments": [
-      "With Hazard’s block now less reliable against burst damage, this change increases his mobility, allowing him to reposition and engage more effectively."
-     ]
     }
    ]
   },
@@ -19380,7 +19380,7 @@
      "icon": "ability_junker-queen_4.png"
     }
    ],
-   "releaseDate": null,
+   "releaseDate": "2022-10-04",
    "heroNumber": 34,
    "patches": [
     {
@@ -19474,6 +19474,39 @@
      "comments": [
       "Carnage’s uptime is high due to its cooldown refund on individual or multiple hits. Increasing the base cooldown reduces this while preserving its rewarding potential."
      ]
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "6v6 Hero Changes",
+       "text": "Base health increased from 425 to 450."
+      },
+      {
+       "ability": "Adrenaline Rush",
+       "text": "Self-healing from wounds damage scalar increased from 1.5x to 1.75x."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "6v6 Hero Changes",
+       "stat": "Base health",
+       "from": 425.0,
+       "to": 450.0,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Adrenaline Rush",
+       "stat": "Self-healing from wounds damage scalar",
+       "from": 1.5,
+       "to": 1.75,
+       "unit": "x",
+       "direction": "buff"
+      }
+     ],
+     "comments": []
     },
     {
      "date": "2025-10-14",
@@ -20326,39 +20359,6 @@
       }
      ],
      "stats": [],
-     "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "6v6 Hero Changes",
-       "text": "Base health increased from 425 to 450."
-      },
-      {
-       "ability": "Adrenaline Rush",
-       "text": "Self-healing from wounds damage scalar increased from 1.5x to 1.75x."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "6v6 Hero Changes",
-       "stat": "Base health",
-       "from": 425.0,
-       "to": 450.0,
-       "unit": null,
-       "direction": "buff"
-      },
-      {
-       "ability": "Adrenaline Rush",
-       "stat": "Self-healing from wounds damage scalar",
-       "from": 1.5,
-       "to": 1.75,
-       "unit": "x",
-       "direction": "buff"
-      }
-     ],
      "comments": []
     }
    ]
@@ -21297,7 +21297,7 @@
      "icon": "ability_juno_5.png"
     }
    ],
-   "releaseDate": null,
+   "releaseDate": "2024-08-20",
    "heroNumber": 41,
    "patches": [
     {
@@ -25153,6 +25153,27 @@
      ]
     },
     {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "Cardiac Overdrive",
+       "text": "Cooldown reduced from 17 to 15 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Cardiac Overdrive",
+       "stat": "Cooldown",
+       "from": 17.0,
+       "to": 15.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
      "date": "2025-10-14",
      "mode": "owpvp",
      "changes": [
@@ -26174,27 +26195,6 @@
      "comments": [
       "Developer Comments: We got a lot of constructive feedback from players when Mauga was available to try during his free preview weekend, so we’ve adjusted his kit for his official launch to give him the ability to last longer in a fight."
      ]
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "Cardiac Overdrive",
-       "text": "Cooldown reduced from 17 to 15 seconds."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "Cardiac Overdrive",
-       "stat": "Cooldown",
-       "from": 17.0,
-       "to": 15.0,
-       "unit": null,
-       "direction": "buff"
-      }
-     ],
-     "comments": []
     }
    ]
   },
@@ -29855,6 +29855,20 @@
      "comments": []
     },
     {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Fortify",
+       "text": "Fortify and Terra Surge now only prevent headshot critical damage and not forced crits"
+      }
+     ],
+     "stats": [],
+     "comments": [
+      "Alongside Hazard’s updates, these adjustments address specific interactions that were previously mitigated by these defensive abilities, such as Mauga’s Ignited critical damage and Reinhardt’s Earthshatter."
+     ]
+    },
+    {
      "date": "2025-08-26",
      "mode": "owpvp",
      "changes": [
@@ -30391,7 +30405,7 @@
      "comments": []
     },
     {
-     "date": "2024-01-9",
+     "date": "2024-01-09",
      "mode": "owpvp",
      "changes": [
       {
@@ -31433,20 +31447,6 @@
       }
      ],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "Fortify",
-       "text": "Fortify and Terra Surge now only prevent headshot critical damage and not forced crits"
-      }
-     ],
-     "stats": [],
-     "comments": [
-      "Alongside Hazard’s updates, these adjustments address specific interactions that were previously mitigated by these defensive abilities, such as Mauga’s Ignited critical damage and Reinhardt’s Earthshatter."
-     ]
     }
    ]
   },
@@ -32605,6 +32605,33 @@
      ]
     },
     {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "General",
+       "text": "Base health increased from 250 to 275"
+      },
+      {
+       "ability": "Relentless Form",
+       "text": "No longer has half effectiveness while in Annihilation"
+      }
+     ],
+     "stats": [
+      {
+       "ability": "General",
+       "stat": "Base health",
+       "from": 250.0,
+       "to": 275.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": [
+      "Previous changes led to a healthier overall playstyle for Ramattra, but he could feel too fragile in certain matchups. Increasing his base health improves survivability in both forms."
+     ]
+    },
+    {
      "date": "2025-09-16",
      "mode": "owpvp",
      "changes": [
@@ -33352,33 +33379,6 @@
      ],
      "stats": [],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "General",
-       "text": "Base health increased from 250 to 275"
-      },
-      {
-       "ability": "Relentless Form",
-       "text": "No longer has half effectiveness while in Annihilation"
-      }
-     ],
-     "stats": [
-      {
-       "ability": "General",
-       "stat": "Base health",
-       "from": 250.0,
-       "to": 275.0,
-       "unit": null,
-       "direction": "buff"
-      }
-     ],
-     "comments": [
-      "Previous changes led to a healthier overall playstyle for Ramattra, but he could feel too fragile in certain matchups. Increasing his base health improves survivability in both forms."
-     ]
     }
    ]
   },
@@ -34470,6 +34470,27 @@
      "comments": [
       "Earthshatter has the potential to swing fights and is often generated quickly in close-range engagements. Increasing the ultimate cost better aligns its charge rate with its overall impact."
      ]
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "Barrier Field",
+       "text": "Shield health increased from 1500 to 1800."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Barrier Field",
+       "stat": "Shield health",
+       "from": 1500.0,
+       "to": 1800.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
     },
     {
      "date": "2025-10-14",
@@ -35654,27 +35675,6 @@
        "to": 2.0,
        "unit": null,
        "direction": "nerf"
-      }
-     ],
-     "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "Barrier Field",
-       "text": "Shield health increased from 1500 to 1800."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "Barrier Field",
-       "stat": "Shield health",
-       "from": 1500.0,
-       "to": 1800.0,
-       "unit": null,
-       "direction": "buff"
       }
      ],
      "comments": []
@@ -38891,7 +38891,7 @@
      "icon": "ability_sojourn_3.png"
     }
    ],
-   "releaseDate": null,
+   "releaseDate": "2022-10-04",
    "heroNumber": 33,
    "patches": [
     {
@@ -47452,6 +47452,27 @@
      "comments": []
     },
     {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "Jump Pack",
+       "text": "Cooldown reduced from 6 to 5 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Jump Pack",
+       "stat": "Cooldown",
+       "from": 6.0,
+       "to": 5.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
      "date": "2025-08-26",
      "mode": "owpvp",
      "changes": [
@@ -48326,27 +48347,6 @@
      ],
      "stats": [],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "Jump Pack",
-       "text": "Cooldown reduced from 6 to 5 seconds."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "Jump Pack",
-       "stat": "Cooldown",
-       "from": 6.0,
-       "to": 5.0,
-       "unit": null,
-       "direction": "buff"
-      }
-     ],
-     "comments": []
     }
    ]
   },
@@ -48444,6 +48444,88 @@
      ],
      "stats": [],
      "comments": []
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "6v6 Hero Changes",
+       "text": "Base armor reduced from 175 to 125"
+      },
+      {
+       "ability": "6v6 Hero Changes",
+       "text": "Base health reduced from 500 to 475."
+      },
+      {
+       "ability": "Adaptive Shield",
+       "text": "Overhealth gain per target reduced from 75 to 50."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "6v6 Hero Changes",
+       "stat": "Base armor",
+       "from": 175.0,
+       "to": 125.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "6v6 Hero Changes",
+       "stat": "Base health",
+       "from": 500.0,
+       "to": 475.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Adaptive Shield",
+       "stat": "Overhealth gain per target",
+       "from": 75.0,
+       "to": 50.0,
+       "unit": null,
+       "direction": "nerf"
+      }
+     ],
+     "comments": [
+      "Wrecking Ball can be extremely difficult to punish due to his high health pool and mobility, especially without strong crowd control. Reducing his base armor lowers overall survivability while rewarding effective Adaptive Shield usage."
+     ]
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "6v6 Hero Changes",
+       "text": "Base health reduced from 500 to 475."
+      },
+      {
+       "ability": "Adaptive Shield",
+       "text": "Overhealth gain per target reduced from 75 to 50."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "6v6 Hero Changes",
+       "stat": "Base health",
+       "from": 500.0,
+       "to": 475.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Adaptive Shield",
+       "stat": "Overhealth gain per target",
+       "from": 75.0,
+       "to": 50.0,
+       "unit": null,
+       "direction": "nerf"
+      }
+     ],
+     "comments": [
+      "Wrecking Ball can be extremely difficult to punish due to his high health pool and mobility, especially without strong crowd control. Reducing his base armor lowers overall survivability while rewarding effective Adaptive Shield usage."
+     ]
     },
     {
      "date": "2025-10-14",
@@ -49398,88 +49480,6 @@
      ],
      "stats": [],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "6v6 Hero Changes",
-       "text": "Base armor reduced from 175 to 125"
-      },
-      {
-       "ability": "6v6 Hero Changes",
-       "text": "Base health reduced from 500 to 475."
-      },
-      {
-       "ability": "Adaptive Shield",
-       "text": "Overhealth gain per target reduced from 75 to 50."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "6v6 Hero Changes",
-       "stat": "Base armor",
-       "from": 175.0,
-       "to": 125.0,
-       "unit": null,
-       "direction": "nerf"
-      },
-      {
-       "ability": "6v6 Hero Changes",
-       "stat": "Base health",
-       "from": 500.0,
-       "to": 475.0,
-       "unit": null,
-       "direction": "nerf"
-      },
-      {
-       "ability": "Adaptive Shield",
-       "stat": "Overhealth gain per target",
-       "from": 75.0,
-       "to": 50.0,
-       "unit": null,
-       "direction": "nerf"
-      }
-     ],
-     "comments": [
-      "Wrecking Ball can be extremely difficult to punish due to his high health pool and mobility, especially without strong crowd control. Reducing his base armor lowers overall survivability while rewarding effective Adaptive Shield usage."
-     ]
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "6v6 Hero Changes",
-       "text": "Base health reduced from 500 to 475."
-      },
-      {
-       "ability": "Adaptive Shield",
-       "text": "Overhealth gain per target reduced from 75 to 50."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "6v6 Hero Changes",
-       "stat": "Base health",
-       "from": 500.0,
-       "to": 475.0,
-       "unit": null,
-       "direction": "nerf"
-      },
-      {
-       "ability": "Adaptive Shield",
-       "stat": "Overhealth gain per target",
-       "from": 75.0,
-       "to": 50.0,
-       "unit": null,
-       "direction": "nerf"
-      }
-     ],
-     "comments": [
-      "Wrecking Ball can be extremely difficult to punish due to his high health pool and mobility, especially without strong crowd control. Reducing his base armor lowers overall survivability while rewarding effective Adaptive Shield usage."
-     ]
     }
    ]
   },
@@ -49973,6 +49973,27 @@
      "comments": [
       "Zarya’s damage at high energy can be extremely high. Reducing her maximum primary fire damage lowers her effectiveness in these situations, while adjusting her perks helps balance her overall power."
      ]
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Energy Converter",
+       "text": "Energy gain reduced from 3 to 2."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Energy Converter",
+       "stat": "Energy gain",
+       "from": 3.0,
+       "to": 2.0,
+       "unit": null,
+       "direction": "nerf"
+      }
+     ],
+     "comments": []
     },
     {
      "date": "2025-08-26",
@@ -51083,27 +51104,6 @@
      ],
      "stats": [],
      "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "owpvp",
-     "changes": [
-      {
-       "ability": "Energy Converter",
-       "text": "Energy gain reduced from 3 to 2."
-      }
-     ],
-     "stats": [
-      {
-       "ability": "Energy Converter",
-       "stat": "Energy gain",
-       "from": 3.0,
-       "to": 2.0,
-       "unit": null,
-       "direction": "nerf"
-      }
-     ],
-     "comments": []
     }
    ]
   },
@@ -51208,6 +51208,18 @@
        "direction": "buff"
       }
      ],
+     "comments": []
+    },
+    {
+     "date": "2025-11-11",
+     "mode": "ow6v6",
+     "changes": [
+      {
+       "ability": "Orb of Discord",
+       "text": "Now has a cooldown per target."
+      }
+     ],
+     "stats": [],
      "comments": []
     },
     {
@@ -51996,7 +52008,44 @@
      "comments": []
     },
     {
-     "date": "2016-7-19",
+     "date": "2016-09-01",
+     "mode": "ow1",
+     "changes": [
+      {
+       "ability": "General",
+       "text": "When activating the \"Needs healing\" communication while targeting a teammate, Ana, Lúcio, Mercy, and Zenyatta will now tell allies to group up to receive healing. A marker will also appear above the player's head, allowing teammates to locate the healer more quickly."
+      },
+      {
+       "ability": "General",
+       "text": "The amount of damage amplified by a target with Orb of Discord has been decreased from 50% to 30%"
+      },
+      {
+       "ability": "General",
+       "text": "Damage has been increased from 40 to 46"
+      }
+     ],
+     "stats": [
+      {
+       "ability": "General",
+       "stat": "of damage amplified by a target with Orb of Discord has been",
+       "from": 50.0,
+       "to": 30.0,
+       "unit": "%",
+       "direction": "nerf"
+      },
+      {
+       "ability": "General",
+       "stat": "Damage has been",
+       "from": 40.0,
+       "to": 46.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
+     "date": "2016-07-19",
      "mode": "ow1",
      "changes": [
       {
@@ -52058,55 +52107,6 @@
        "direction": "buff"
       }
      ],
-     "comments": []
-    },
-    {
-     "date": "2016-09-01",
-     "mode": "ow1",
-     "changes": [
-      {
-       "ability": "General",
-       "text": "When activating the \"Needs healing\" communication while targeting a teammate, Ana, Lúcio, Mercy, and Zenyatta will now tell allies to group up to receive healing. A marker will also appear above the player's head, allowing teammates to locate the healer more quickly."
-      },
-      {
-       "ability": "General",
-       "text": "The amount of damage amplified by a target with Orb of Discord has been decreased from 50% to 30%"
-      },
-      {
-       "ability": "General",
-       "text": "Damage has been increased from 40 to 46"
-      }
-     ],
-     "stats": [
-      {
-       "ability": "General",
-       "stat": "of damage amplified by a target with Orb of Discord has been",
-       "from": 50.0,
-       "to": 30.0,
-       "unit": "%",
-       "direction": "nerf"
-      },
-      {
-       "ability": "General",
-       "stat": "Damage has been",
-       "from": 40.0,
-       "to": 46.0,
-       "unit": null,
-       "direction": "buff"
-      }
-     ],
-     "comments": []
-    },
-    {
-     "date": "11-11-2025",
-     "mode": "ow6v6",
-     "changes": [
-      {
-       "ability": "Orb of Discord",
-       "text": "Now has a cooldown per target."
-      }
-     ],
-     "stats": [],
      "comments": []
     }
    ]
