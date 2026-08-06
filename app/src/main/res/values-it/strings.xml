@@ -1,7 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Navigazione -->
     <string name="tab_chart">Grafico danni</string>
     <string name="tab_leaderboard">Danno massimo</string>
     <string name="tab_wiki">Eroi</string>
-    <string name="scaffold_placeholder">Motore di simulazione e dataset non ancora collegati.</string>
+    <string name="tab_about">Info</string>
+
+    <!-- Grafico danni -->
+    <string name="chart_distance">Distanza %1$d m</string>
+    <string name="chart_summary">Mira %1$s, %2$s m  ·  %3$d armi  ·  %4$d ms</string>
+    <string name="chart_time_axis">tempo (s)</string>
+    <string name="chart_dps">%1$s dps</string>
+    <string name="chart_collapse">Comprimi i controlli</string>
+    <string name="chart_expand">Mostra i controlli</string>
+    <string name="chart_energy">Energia Zarya %1$d%%</string>
+    <string name="chart_section_sort">Ordina per</string>
+    <string name="chart_section_modifiers">Modificatori</string>
+    <string name="chart_section_role">Ruolo</string>
+    <string name="chart_section_weapon_type">Tipo di arma</string>
+    <string name="chart_summary_active">%1$d attivi</string>
+    <string name="chart_summary_hidden">%1$d nascosti</string>
+
+    <!-- Ordinamenti -->
+    <string name="sort_dps">DPS</string>
+    <string name="sort_dps_no_reload">DPS, senza ricarica</string>
+    <string name="sort_accuracy">Precisione</string>
+    <string name="sort_crit_accuracy">Precisione critici</string>
+    <string name="sort_time_to_kill">Tempo di uccisione</string>
+    <string name="sort_hero">Eroe</string>
+
+    <!-- Ruoli e tipi di arma -->
+    <string name="role_tank">Tank</string>
+    <string name="role_damage">Danno</string>
+    <string name="role_support">Supporto</string>
+    <string name="weapon_hitscan">Hitscan</string>
+    <string name="weapon_projectile">Proiettile</string>
+    <string name="weapon_shotgun">Fucile a pompa</string>
+    <string name="weapon_beam">Raggio</string>
+    <string name="weapon_melee">Corpo a corpo</string>
+
+    <!-- Modificatori -->
+    <string name="modifier_armor">Armatura</string>
+    <string name="modifier_damage_boost">Potenziamento danno</string>
+    <string name="modifier_discord">Discordia</string>
+    <string name="modifier_nano_damage">Nano (danno)</string>
+    <string name="modifier_nano_defence">Nano (difesa)</string>
+    <string name="modifier_supercharger">Supercaricatore</string>
+    <string name="modifier_amplification_matrix">Matrice ampl.</string>
+    <string name="modifier_fortify">Fortificazione</string>
+    <string name="modifier_breather">Boccata d\'aria</string>
+    <string name="modifier_kitsune_rush">Corsa della Kitsune</string>
+
+    <!-- Danno massimo -->
+    <string name="leaderboard_buffs">Potenziamenti ammessi</string>
+    <string name="leaderboard_searching">Sto provando ogni arma a ogni distanza</string>
+    <string name="leaderboard_footer">Ricerca in %1$d ms. Ordinato per danno al secondo sostenuto, ricarica inclusa.</string>
+    <string name="leaderboard_at_distance">a %1$s m</string>
+    <string name="leaderboard_head">mirando alla testa</string>
+    <string name="leaderboard_body">al centro del corpo</string>
+    <string name="leaderboard_crits">%1$s%% critici</string>
+    <string name="leaderboard_kill_instant">uccide un bersaglio da 600 hp all\'istante</string>
+    <string name="leaderboard_kill_in">uccide un bersaglio da 600 hp in %1$s s</string>
+    <string name="buff_nano">Potenziamento Nano</string>
+
+    <!-- Wiki eroi -->
+    <string name="wiki_search">Cerca eroi e abilità</string>
+    <string name="wiki_sort_name">Nome</string>
+    <string name="wiki_sort_release">Uscita</string>
+    <string name="wiki_sort_health">Vita</string>
+    <string name="wiki_sort_changes">Più modificati</string>
+    <string name="wiki_health">Vita</string>
+    <string name="wiki_armor">Armatura</string>
+    <string name="wiki_shields">Scudi</string>
+    <string name="wiki_released">Uscita</string>
+    <string name="wiki_hero_number">Eroe n. %1$d</string>
+    <string name="wiki_abilities">Abilità</string>
+    <string name="wiki_close">Chiudi i dettagli</string>
+    <string name="wiki_history_summary">%1$d modifiche di bilanciamento in %2$d patch, dal %3$s al %4$s</string>
+    <string name="wiki_damage_over_time">Danno nel tempo</string>
+    <string name="wiki_no_series">Le note di patch non hanno mai ripetuto un valore di danno per questo eroe, quindi non c\'è nulla da tracciare.</string>
+    <string name="wiki_balance_history">Cronologia bilanciamento</string>
+    <string name="wiki_filter_all">Tutte</string>
+    <string name="wiki_no_changes_for_ability">Nessuna modifica registrata per questa abilità.</string>
+    <string name="wiki_more_changes">+%1$d altre</string>
+    <string name="wiki_buffs">%1$d buff</string>
+    <string name="wiki_nerfs">%1$d nerf</string>
+    <string name="wiki_series_legend">%1$s: %2$s → %3$s  (%4$d modifiche)</string>
+
+    <!-- Info -->
+    <string name="about_title">OW Companion</string>
+    <string name="about_intro">Progetto amatoriale non commerciale. Non affiliato né approvato da Blizzard Entertainment.</string>
+    <string name="about_data_title">Da dove vengono i dati</string>
+    <string name="about_data_wiki">Statistiche, abilità, date di rilascio e cronologia di bilanciamento vengono dalla Overwatch Wiki, licenza CC BY-SA.</string>
+    <string name="about_data_overfast">Ritratti, icone delle abilità e l\'elenco degli eroi vengono dal sito ufficiale Blizzard tramite l\'API OverFast.</string>
+    <string name="about_data_owdmgchart">La simulazione dei danni e il dataset di riferimento 2020 derivano da owdmgchart di yfp, licenza MIT.</string>
+    <string name="about_art_title">Immagini e nomi</string>
+    <string name="about_art">Ritratti, icone, nomi e artwork degli eroi sono proprietà di Blizzard Entertainment, usati secondo la Fan Content Policy di Blizzard. Questa app è gratuita, non contiene pubblicità e non vende nulla.</string>
+    <string name="about_fonts_title">Caratteri</string>
+    <string name="about_fonts">Barlow e Barlow Condensed di Jeremy Tribby, licenza Open Font.</string>
+    <string name="about_dataset_title">Dataset</string>
+    <string name="about_dataset_version">Versione %1$d · %2$d eroi · %3$d armi</string>
+    <string name="about_check_updates">Cerca un dataset più recente</string>
+    <string name="about_checking">Controllo in corso…</string>
+    <string name="about_up_to_date">Il dataset incluso è il più recente disponibile.</string>
+    <string name="about_updated">Aggiornato alla versione %1$d. Riavvia l\'app per caricarlo.</string>
+    <string name="about_update_failed">Server di aggiornamento non raggiungibile. L\'app funziona comunque offline.</string>
+    <string name="about_updates_unconfigured">Nessun server di aggiornamento configurato per questa build.</string>
 </resources>

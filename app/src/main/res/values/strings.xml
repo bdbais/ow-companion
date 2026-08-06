@@ -1,8 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OW Companion</string>
+
+    <!-- Navigation -->
     <string name="tab_chart">Damage chart</string>
     <string name="tab_leaderboard">Max damage</string>
     <string name="tab_wiki">Heroes</string>
-    <string name="scaffold_placeholder">Simulation engine and dataset are not wired up yet.</string>
+    <string name="tab_about">About</string>
+
+    <!-- Damage chart -->
+    <string name="chart_distance">Distance %1$d m</string>
+    <string name="chart_summary">Aim %1$s, %2$s m  ·  %3$d weapons  ·  %4$d ms</string>
+    <string name="chart_time_axis">time (s)</string>
+    <string name="chart_dps">%1$s dps</string>
+    <string name="chart_collapse">Collapse the controls</string>
+    <string name="chart_expand">Show the controls</string>
+    <string name="chart_energy">Zarya energy %1$d%%</string>
+    <string name="chart_section_sort">Sort by</string>
+    <string name="chart_section_modifiers">Modifiers</string>
+    <string name="chart_section_role">Role</string>
+    <string name="chart_section_weapon_type">Weapon type</string>
+    <string name="chart_summary_active">%1$d on</string>
+    <string name="chart_summary_hidden">%1$d hidden</string>
+
+    <!-- Sort orders -->
+    <string name="sort_dps">DPS</string>
+    <string name="sort_dps_no_reload">DPS, no reload</string>
+    <string name="sort_accuracy">Accuracy</string>
+    <string name="sort_crit_accuracy">Crit accuracy</string>
+    <string name="sort_time_to_kill">Time to kill</string>
+    <string name="sort_hero">Hero</string>
+
+    <!-- Roles and weapon types -->
+    <string name="role_tank">Tank</string>
+    <string name="role_damage">Damage</string>
+    <string name="role_support">Support</string>
+    <string name="weapon_hitscan">Hitscan</string>
+    <string name="weapon_projectile">Projectile</string>
+    <string name="weapon_shotgun">Shotgun</string>
+    <string name="weapon_beam">Beam</string>
+    <string name="weapon_melee">Melee</string>
+
+    <!-- Modifiers -->
+    <string name="modifier_armor">Armor</string>
+    <string name="modifier_damage_boost">Damage boost</string>
+    <string name="modifier_discord">Discord</string>
+    <string name="modifier_nano_damage">Nano (dmg)</string>
+    <string name="modifier_nano_defence">Nano (def)</string>
+    <string name="modifier_supercharger">Supercharger</string>
+    <string name="modifier_amplification_matrix">Ampl. matrix</string>
+    <string name="modifier_fortify">Fortify</string>
+    <string name="modifier_breather">Breather</string>
+    <string name="modifier_kitsune_rush">Kitsune Rush</string>
+
+    <!-- Max damage -->
+    <string name="leaderboard_buffs">Buffs allowed</string>
+    <string name="leaderboard_searching">Sweeping every weapon across every range</string>
+    <string name="leaderboard_footer">Searched in %1$d ms. Ranked by sustained damage per second, reload included.</string>
+    <string name="leaderboard_at_distance">at %1$s m</string>
+    <string name="leaderboard_head">aimed at the head</string>
+    <string name="leaderboard_body">centre mass</string>
+    <string name="leaderboard_crits">%1$s%% crits</string>
+    <string name="leaderboard_kill_instant">kills a 600 hp target instantly</string>
+    <string name="leaderboard_kill_in">kills a 600 hp target in %1$s s</string>
+    <string name="buff_nano">Nano Boost</string>
+
+    <!-- Hero wiki -->
+    <string name="wiki_search">Search heroes and abilities</string>
+    <string name="wiki_sort_name">Name</string>
+    <string name="wiki_sort_release">Release</string>
+    <string name="wiki_sort_health">Health</string>
+    <string name="wiki_sort_changes">Most changed</string>
+    <string name="wiki_health">Health</string>
+    <string name="wiki_armor">Armor</string>
+    <string name="wiki_shields">Shields</string>
+    <string name="wiki_released">Released</string>
+    <string name="wiki_hero_number">Hero #%1$d</string>
+    <string name="wiki_abilities">Abilities</string>
+    <string name="wiki_close">Close hero details</string>
+    <string name="wiki_history_summary">%1$d balance changes across %2$d patches, from %3$s to %4$s</string>
+    <string name="wiki_damage_over_time">Damage over time</string>
+    <string name="wiki_no_series">The patch notes never restated a damage value for this hero more than once, so there is nothing to plot.</string>
+    <string name="wiki_balance_history">Balance history</string>
+    <string name="wiki_filter_all">All</string>
+    <string name="wiki_no_changes_for_ability">No recorded changes for this ability.</string>
+    <string name="wiki_more_changes">+%1$d more</string>
+    <string name="wiki_buffs">%1$d buff</string>
+    <string name="wiki_nerfs">%1$d nerf</string>
+    <string name="wiki_series_legend">%1$s: %2$s → %3$s  (%4$d changes)</string>
+
+    <!-- About -->
+    <string name="about_title">OW Companion</string>
+    <string name="about_intro">A non-commercial fan project. Not affiliated with or endorsed by Blizzard Entertainment.</string>
+    <string name="about_data_title">Where the data comes from</string>
+    <string name="about_data_wiki">Hero statistics, abilities, release dates and the full balance history come from the Overwatch Wiki, licensed CC BY-SA.</string>
+    <string name="about_data_overfast">Portraits, ability icons and the hero roster come from Blizzard\'s own site through the OverFast API.</string>
+    <string name="about_data_owdmgchart">The damage simulation and its 2020 reference dataset derive from owdmgchart by yfp, MIT licensed.</string>
+    <string name="about_art_title">Artwork and names</string>
+    <string name="about_art">Hero portraits, ability icons, names and artwork are the property of Blizzard Entertainment, used under Blizzard\'s Fan Content Policy. This app is free, carries no advertising and sells nothing.</string>
+    <string name="about_fonts_title">Typefaces</string>
+    <string name="about_fonts">Barlow and Barlow Condensed by Jeremy Tribby, Open Font License.</string>
+    <string name="about_dataset_title">Dataset</string>
+    <string name="about_dataset_version">Version %1$d · %2$d heroes · %3$d weapons</string>
+    <string name="about_check_updates">Check for a newer dataset</string>
+    <string name="about_checking">Checking…</string>
+    <string name="about_up_to_date">The bundled dataset is the newest available.</string>
+    <string name="about_updated">Updated to version %1$d. Restart the app to load it.</string>
+    <string name="about_update_failed">Could not reach the update server. The app works offline regardless.</string>
+    <string name="about_updates_unconfigured">No update server is configured for this build.</string>
 </resources>

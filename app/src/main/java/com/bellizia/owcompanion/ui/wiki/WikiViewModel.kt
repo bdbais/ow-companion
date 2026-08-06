@@ -1,7 +1,9 @@
 package com.bellizia.owcompanion.ui.wiki
 
 import android.app.Application
+import androidx.annotation.StringRes
 import androidx.lifecycle.AndroidViewModel
+import com.bellizia.owcompanion.R
 import androidx.lifecycle.viewModelScope
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
@@ -12,11 +14,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-enum class HeroSort(val label: String) {
-    Name("Name"),
-    Release("Release"),
-    Health("Health"),
-    Changes("Most changed"),
+enum class HeroSort(@StringRes val labelRes: Int) {
+    Name(R.string.wiki_sort_name),
+    Release(R.string.wiki_sort_release),
+    Health(R.string.wiki_sort_health),
+    Changes(R.string.wiki_sort_changes),
 }
 
 data class WikiUiState(

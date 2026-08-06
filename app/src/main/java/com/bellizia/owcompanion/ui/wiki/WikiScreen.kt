@@ -43,18 +43,23 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
+import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.ui.chart.HeroRole
@@ -99,23 +104,23 @@ private fun HeroGrid(
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
                     leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
-                    placeholder = { Text("Search heroes and abilities") },
+                    placeholder = { Text(stringResource(R.string.wiki_search)) },
                 )
                 // Filtering by role and ordering the grid are different questions, and a
                 // single run of chips makes them look like one.
-                ChipRow(title = "Role") {
+                ChipRow(title = stringResource(R.string.chart_section_role)) {
                     HeroRole.entries.forEach { role ->
                         WikiChip(
-                            label = role.label,
+                            label = stringResource(role.labelRes),
                             selected = role in state.roles,
                             onClick = { viewModel.toggleRole(role) },
                         )
                     }
                 }
-                ChipRow(title = "Sort by") {
+                ChipRow(title = stringResource(R.string.chart_section_sort)) {
                     HeroSort.entries.forEach { sort ->
                         WikiChip(
-                            label = sort.label,
+                            label = stringResource(sort.labelRes),
                             selected = state.sort == sort,
                             onClick = { viewModel.setSort(sort) },
                         )
@@ -187,6 +192,9 @@ private fun HeroCard(hero: HeroWiki, onClick: () -> Unit) {
 @Composable
 private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = Modifier) {
     val color = parseHeroColor(hero.color, MaterialTheme.colorScheme.primary)
+    // Reset when moving to another hero: an ability name means nothing on a different one.
+    var abilityFilter by remember(hero.key) { mutableStateOf<String?>(null) }
+    val onAbilityFilterChange: (String?) -> Unit = { abilityFilter = it }
 
     LazyColumn(modifier = modifier.fillMaxSize()) {
         item {
@@ -242,7 +250,7 @@ private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = 
                     onClick = onBack,
                     modifier = Modifier.align(Alignment.TopEnd),
                 ) {
-                    Icon(Icons.Filled.Close, contentDescription = "Close hero details")
+                    Icon(Icons.Filled.Close, contentDescription = stringResource(R.string.wiki_close))
                 }
             }
         }
@@ -254,11 +262,12 @@ private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = 
                     .padding(horizontal = 12.dp),
                 horizontalArrangement = Arrangement.spacedBy(20.dp),
             ) {
-                Stat("Health", hero.totalHitpoints?.toString() ?: "-", color)
-                hero.armor?.takeIf { it > 0 }?.let { Stat("Armor", it.toString(), color) }
-                hero.shields?.takeIf { it > 0 }?.let { Stat("Shields", it.toString(), color) }
+                Stat(stringResource(R.string.wiki_health), hero.totalHitpoints?.toString() ?: "-", color)
+                hero.armor?.takeIf { it > 0 }?.let { Stat(stringResource(R.string.wiki_armor), it.toString(), color) }
+                hero.shields?.takeIf { it > 0 }?.let { Stat(stringResource(R.string.wiki_shields), it.toString(), color) }
                 Stat(
-                    label = if (hero.heroNumber != null) "Hero #${hero.heroNumber}" else "Released",
+                    label = hero.heroNumber?.let { stringResource(R.string.wiki_hero_number, it) }
+                        ?: stringResource(R.string.wiki_released),
                     value = hero.releaseDate ?: "-",
                     color = color,
                 )
@@ -277,7 +286,7 @@ private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = 
 
         item {
             Text(
-                text = "Abilities",
+                text = stringResource(R.string.wiki_abilities),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(start = 12.dp, top = 4.dp, bottom = 4.dp),
             )
@@ -315,16 +324,25 @@ private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = 
         item {
             val changes = hero.patches.sumOf { it.changes.size }
             Text(
-                text = "$changes balance changes across ${hero.patches.size} patches, " +
-                    "from ${hero.patches.lastOrNull()?.date ?: "-"} " +
-                    "to ${hero.patches.firstOrNull()?.date ?: "-"}",
+                text = stringResource(
+                    R.string.wiki_history_summary,
+                    changes,
+                    hero.patches.size,
+                    hero.patches.lastOrNull()?.date ?: "-",
+                    hero.patches.firstOrNull()?.date ?: "-",
+                ),
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
             )
         }
 
-        patchTimeline(hero = hero, color = color)
+        patchTimeline(
+            hero = hero,
+            color = color,
+            abilityFilter = abilityFilter,
+            onAbilityFilterChange = onAbilityFilterChange,
+        )
     }
 }
 

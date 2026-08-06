@@ -1,17 +1,20 @@
 package com.bellizia.owcompanion.ui.chart
 
+import androidx.annotation.StringRes
+import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.sim.Hero
 import com.bellizia.owcompanion.sim.Modifiers
 import com.bellizia.owcompanion.sim.ShotTrain
+import com.bellizia.owcompanion.sim.WeaponBehavior
 import com.bellizia.owcompanion.sim.WeaponSpec
 
 /** Broad weapon families, used for filtering. A weapon can belong to more than one. */
-enum class WeaponCategory(val label: String) {
-    Hitscan("Hitscan"),
-    Projectile("Projectile"),
-    Shotgun("Shotgun"),
-    Beam("Beam"),
-    Melee("Melee");
+enum class WeaponCategory(@StringRes val labelRes: Int) {
+    Hitscan(R.string.weapon_hitscan),
+    Projectile(R.string.weapon_projectile),
+    Shotgun(R.string.weapon_shotgun),
+    Beam(R.string.weapon_beam),
+    Melee(R.string.weapon_melee);
 
     companion object {
         fun of(spec: WeaponSpec): Set<WeaponCategory> = buildSet {
@@ -25,11 +28,11 @@ enum class WeaponCategory(val label: String) {
     }
 }
 
-enum class HeroRole(val label: String, vararg val keys: String) {
-    Tank("Tank", "tank"),
-    Damage("Damage", "damage"),
+enum class HeroRole(@StringRes val labelRes: Int, vararg val keys: String) {
+    Tank(R.string.role_tank, "tank"),
+    Damage(R.string.role_damage, "damage"),
     // The reference dataset says "healer"; Blizzard's own roster says "support".
-    Support("Support", "support", "healer");
+    Support(R.string.role_support, "support", "healer");
 
     companion object {
         fun of(role: String): HeroRole? =
@@ -37,14 +40,18 @@ enum class HeroRole(val label: String, vararg val keys: String) {
     }
 }
 
-enum class SortOrder(val label: String) {
-    Dps("DPS"),
-    DpsWithoutReload("DPS, no reload"),
-    Accuracy("Accuracy"),
-    CritAccuracy("Crit accuracy"),
-    TimeToKill("Time to kill"),
-    Hero("Hero"),
+enum class SortOrder(@StringRes val labelRes: Int) {
+    Dps(R.string.sort_dps),
+    DpsWithoutReload(R.string.sort_dps_no_reload),
+    Accuracy(R.string.sort_accuracy),
+    CritAccuracy(R.string.sort_crit_accuracy),
+    TimeToKill(R.string.sort_time_to_kill),
+    Hero(R.string.sort_hero),
 }
+
+/** Whether anything on screen actually cares about the energy setting. */
+fun List<ChartRow>.anyChargeScaled(): Boolean =
+    any { it.spec.behavior == WeaponBehavior.ParticleCannon }
 
 /** A weapon paired with its simulated result and the hero it belongs to. */
 data class ChartRow(
@@ -63,6 +70,8 @@ data class ChartUiState(
     val roles: Set<HeroRole> = HeroRole.entries.toSet(),
     val categories: Set<WeaponCategory> = WeaponCategory.entries.toSet(),
     val sortOrder: SortOrder = SortOrder.Dps,
+    /** Zarya's charge, 0-100. Only her Particle Cannon reads it. */
+    val energy: Float = 0f,
     val zoom: Float = 1f,
     /** Milliseconds the last full recompute took; surfaced so slow devices are noticeable. */
     val lastComputeMillis: Long = 0,

@@ -2,6 +2,7 @@
 
 package com.bellizia.owcompanion.ui.leaderboard
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -36,29 +37,31 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.sim.DamagePeak
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
 import com.bellizia.owcompanion.ui.theme.StatNumber
 
 private data class BuffToggle(
-    val label: String,
+    @StringRes val labelRes: Int,
     val isOn: (BuffSelection) -> Boolean,
     val set: (BuffSelection, Boolean) -> BuffSelection,
 )
 
 private val BuffToggles = listOf(
-    BuffToggle("Damage boost", { it.damageBoost }, { b, v -> b.copy(damageBoost = v) }),
-    BuffToggle("Discord", { it.discord }, { b, v -> b.copy(discord = v) }),
-    BuffToggle("Nano Boost", { it.nanoboost }, { b, v -> b.copy(nanoboost = v) }),
-    BuffToggle("Supercharger", { it.supercharger }, { b, v -> b.copy(supercharger = v) }),
-    BuffToggle("Ampl. Matrix", { it.amplificationMatrix }, { b, v -> b.copy(amplificationMatrix = v) }),
-    BuffToggle("Kitsune Rush", { it.kitsuneRush }, { b, v -> b.copy(kitsuneRush = v) }),
+    BuffToggle(R.string.modifier_damage_boost, { it.damageBoost }, { b, v -> b.copy(damageBoost = v) }),
+    BuffToggle(R.string.modifier_discord, { it.discord }, { b, v -> b.copy(discord = v) }),
+    BuffToggle(R.string.buff_nano, { it.nanoboost }, { b, v -> b.copy(nanoboost = v) }),
+    BuffToggle(R.string.modifier_supercharger, { it.supercharger }, { b, v -> b.copy(supercharger = v) }),
+    BuffToggle(R.string.modifier_amplification_matrix, { it.amplificationMatrix }, { b, v -> b.copy(amplificationMatrix = v) }),
+    BuffToggle(R.string.modifier_kitsune_rush, { it.kitsuneRush }, { b, v -> b.copy(kitsuneRush = v) }),
 )
 
 /**
@@ -81,7 +84,7 @@ fun LeaderboardScreen(
         Surface(tonalElevation = 2.dp) {
             Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
                 Text(
-                    text = "Buffs allowed",
+                    text = stringResource(R.string.leaderboard_buffs),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -92,7 +95,7 @@ fun LeaderboardScreen(
                             selected = on,
                             onClick = { viewModel.setBuffs(toggle.set(state.buffs, !on)) },
                             label = {
-                                Text(toggle.label, style = MaterialTheme.typography.labelSmall)
+                                Text(stringResource(toggle.labelRes), style = MaterialTheme.typography.labelSmall)
                             },
                             leadingIcon = if (on) {
                                 { Icon(Icons.Filled.Check, contentDescription = null) }
@@ -118,7 +121,7 @@ fun LeaderboardScreen(
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     CircularProgressIndicator()
                     Text(
-                        text = "Sweeping every weapon across every range",
+                        text = stringResource(R.string.leaderboard_searching),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.padding(top = 12.dp),
@@ -138,8 +141,7 @@ fun LeaderboardScreen(
             }
             item {
                 Text(
-                    text = "Searched in ${state.computeMillis} ms. Ranked by sustained damage " +
-                        "per second, reload included.",
+                    text = stringResource(R.string.leaderboard_footer, state.computeMillis),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(top = 8.dp),

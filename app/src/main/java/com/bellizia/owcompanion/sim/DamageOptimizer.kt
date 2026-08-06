@@ -45,6 +45,8 @@ class DamageOptimizer(
                     crosshair = crosshair,
                     modifiers = modifiers,
                     targetSamples = SEARCH_SAMPLES,
+                    // This is a hunt for the maximum, and Zarya at full charge is part of it.
+                    energy = FULL_CHARGE,
                 )
                 if (best == null || train.dps > best!!.second.dps) {
                     best = crosshair to train
@@ -72,8 +74,10 @@ class DamageOptimizer(
         val (crosshair, train) = best!!
         // Re-measure the winner properly: the search runs at reduced precision, which is
         // fine for ranking but not for a number shown to the reader.
-        val finalTrain = simulator.simulateMean(model, crosshair, modifiers)
-        val baseline = simulator.simulateMean(model, crosshair, Modifiers.NONE)
+        val finalTrain =
+            simulator.simulateMean(model, crosshair, modifiers, energy = FULL_CHARGE)
+        val baseline =
+            simulator.simulateMean(model, crosshair, Modifiers.NONE, energy = FULL_CHARGE)
         val headTop = (enemy.head as? CircleHitBox)?.let { it.centerZ + it.radius } ?: 0.0
         val headBottom = (enemy.head as? CircleHitBox)?.let { it.centerZ - it.radius } ?: 0.0
 
@@ -121,5 +125,7 @@ class DamageOptimizer(
 
         /** Lower precision than the chart: enough to rank, cheap enough to sweep. */
         const val SEARCH_SAMPLES = 3_000
+
+        const val FULL_CHARGE = 100.0
     }
 }

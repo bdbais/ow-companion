@@ -12,7 +12,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -106,9 +109,36 @@ fun damageSeries(hero: HeroWiki): List<StatSeries> {
 
 /**
  * How a hero's damage numbers moved over the years, and every balance note behind them.
+ *
+ * [abilityFilter] narrows the history to one ability. Ten years of notes for a hero like
+ * Roadhog runs to nearly two hundred lines, and usually the question is about one gun or
+ * one cooldown rather than about all of them.
  */
-fun LazyListScope.patchTimeline(hero: HeroWiki, color: Color) {
+fun LazyListScope.patchTimeline(
+    hero: HeroWiki,
+    color: Color,
+    abilityFilter: String?,
+    onAbilityFilterChange: (String?) -> Unit,
+) {
     val series = damageSeries(hero)
+    val abilities = hero.patches
+        .flatMap { patch -> patch.changes.map { it.ability } }
+        .filter { it.isNotBlank() }
+        .groupingBy { it }
+        .eachCount()
+        .entries
+        .sortedByDescending { it.value }
+        .map { it.key }
+
+    val patches = if (abilityFilter == null) {
+        hero.patches
+    } else {
+        hero.patches
+            .map { patch ->
+                patch.copy(changes = patch.changes.filter { it.ability == abilityFilter })
+            }
+            .filter { it.changes.isNotEmpty() }
+    }
 
     item {
         Text(
@@ -133,18 +163,80 @@ fun LazyListScope.patchTimeline(hero: HeroWiki, color: Color) {
     }
 
     item {
-        Text(
-            text = "Balance history",
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(start = 12.dp, top = 16.dp, bottom = 4.dp),
-        )
+        Column {
+            Text(
+                text = "Balance history",
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.padding(start = 12.dp, top = 16.dp, bottom = 4.dp),
+            )
+            AbilityFilterRow(
+                abilities = abilities,
+                selected = abilityFilter,
+                color = color,
+                onSelect = onAbilityFilterChange,
+            )
+        }
     }
 
     // Keyed by position: a hero can have two entries on the same date, one per game mode.
-    itemsIndexed(hero.patches, key = { index, patch -> "${patch.date}-${patch.mode}-$index" }) {
+    itemsIndexed(patches, key = { index, patch -> "${patch.date}-${patch.mode}-$index" }) {
         _, patch ->
         PatchCard(patch = patch, color = color)
     }
+
+    if (patches.isEmpty()) {
+        item {
+            Text(
+                text = "No recorded changes for this ability.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(12.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun AbilityFilterRow(
+    abilities: List<String>,
+    selected: String?,
+    color: Color,
+    onSelect: (String?) -> Unit,
+) {
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 12.dp),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        item {
+            AbilityChip("All", selected == null, color) { onSelect(null) }
+        }
+        items(abilities) { ability ->
+            AbilityChip(ability, selected == ability, color) {
+                onSelect(if (selected == ability) null else ability)
+            }
+        }
+    }
+}
+
+@Composable
+private fun AbilityChip(
+    label: String,
+    selected: Boolean,
+    color: Color,
+    onClick: () -> Unit,
+) {
+    Text(
+        text = label,
+        style = MaterialTheme.typography.labelSmall,
+        color = if (selected) MaterialTheme.colorScheme.onPrimary else color,
+        modifier = Modifier
+            .clip(RoundedCornerShape(14.dp))
+            .background(
+                if (selected) MaterialTheme.colorScheme.primary else color.copy(alpha = 0.14f),
+            )
+            .clickable(onClick = onClick)
+            .padding(horizontal = 10.dp, vertical = 5.dp),
+    )
 }
 
 @Composable

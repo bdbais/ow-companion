@@ -2,6 +2,7 @@
 
 package com.bellizia.owcompanion.ui.chart
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.rememberTransformableState
 import androidx.compose.foundation.gestures.transformable
@@ -51,6 +52,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
@@ -59,27 +61,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.sim.Modifiers
 import com.bellizia.owcompanion.sim.Simulator
 import kotlin.math.roundToInt
 
 private data class ModifierToggle(
-    val label: String,
+    @StringRes val labelRes: Int,
     val isOn: (Modifiers) -> Boolean,
     val set: (Modifiers, Boolean) -> Modifiers,
 )
 
 private val ModifierToggles = listOf(
-    ModifierToggle("Armor", { it.armor }, { m, v -> m.copy(armor = v) }),
-    ModifierToggle("Damage boost", { it.damageBoost }, { m, v -> m.copy(damageBoost = v) }),
-    ModifierToggle("Discord", { it.discord }, { m, v -> m.copy(discord = v) }),
-    ModifierToggle("Nano (dmg)", { it.nanoboostOffence }, { m, v -> m.copy(nanoboostOffence = v) }),
-    ModifierToggle("Nano (def)", { it.nanoboostDefence }, { m, v -> m.copy(nanoboostDefence = v) }),
-    ModifierToggle("Supercharger", { it.supercharger }, { m, v -> m.copy(supercharger = v) }),
-    ModifierToggle("Ampl. matrix", { it.amplificationMatrix }, { m, v -> m.copy(amplificationMatrix = v) }),
-    ModifierToggle("Fortify", { it.fortify }, { m, v -> m.copy(fortify = v) }),
-    ModifierToggle("Breather", { it.takeABreather }, { m, v -> m.copy(takeABreather = v) }),
-    ModifierToggle("Kitsune Rush", { it.kitsuneRush }, { m, v -> m.copy(kitsuneRush = v) }),
+    ModifierToggle(R.string.modifier_armor, { it.armor }, { m, v -> m.copy(armor = v) }),
+    ModifierToggle(R.string.modifier_damage_boost, { it.damageBoost }, { m, v -> m.copy(damageBoost = v) }),
+    ModifierToggle(R.string.modifier_discord, { it.discord }, { m, v -> m.copy(discord = v) }),
+    ModifierToggle(R.string.modifier_nano_damage, { it.nanoboostOffence }, { m, v -> m.copy(nanoboostOffence = v) }),
+    ModifierToggle(R.string.modifier_nano_defence, { it.nanoboostDefence }, { m, v -> m.copy(nanoboostDefence = v) }),
+    ModifierToggle(R.string.modifier_supercharger, { it.supercharger }, { m, v -> m.copy(supercharger = v) }),
+    ModifierToggle(R.string.modifier_amplification_matrix, { it.amplificationMatrix }, { m, v -> m.copy(amplificationMatrix = v) }),
+    ModifierToggle(R.string.modifier_fortify, { it.fortify }, { m, v -> m.copy(fortify = v) }),
+    ModifierToggle(R.string.modifier_breather, { it.takeABreather }, { m, v -> m.copy(takeABreather = v) }),
+    ModifierToggle(R.string.modifier_kitsune_rush, { it.kitsuneRush }, { m, v -> m.copy(kitsuneRush = v) }),
 )
 
 @Composable
@@ -179,14 +182,14 @@ private fun ControlPanel(
                 Column(modifier = Modifier.weight(1f)) {
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Text(
-                            text = "Distance ${state.distance.roundToInt()} m",
+                            text = stringResource(R.string.chart_distance, state.distance.roundToInt()),
                             style = MaterialTheme.typography.labelLarge,
                             modifier = Modifier.weight(1f),
                         )
                         IconButton(onClick = onCollapse) {
                             Icon(
                                 imageVector = Icons.Filled.UnfoldLess,
-                                contentDescription = "Collapse the controls",
+                                contentDescription = stringResource(R.string.chart_collapse),
                             )
                         }
                     }
@@ -206,17 +209,36 @@ private fun ControlPanel(
                 }
             }
 
+            // Zarya's damage scales with her charge, and no other weapon reads it - so the
+            // slider only appears when one of hers is actually on screen.
+            if (state.rows.anyChargeScaled()) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = stringResource(R.string.chart_energy, state.energy.roundToInt()),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.width(130.dp),
+                    )
+                    Slider(
+                        value = state.energy,
+                        onValueChange = viewModel::setEnergy,
+                        valueRange = 0f..100f,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+            }
+
             // Every section folds independently: a chart is worth more screen than the
             // controls that produced it, and which control you still need varies.
             CollapsibleSection(
-                title = "Sort by",
-                summary = state.sortOrder.label,
+                title = stringResource(R.string.chart_section_sort),
+                summary = stringResource(state.sortOrder.labelRes),
                 expanded = sections.sort,
                 onExpandedChange = { onSectionsChange(sections.copy(sort = it)) },
             ) {
                 SortOrder.entries.forEach { order ->
                     Chip(
-                        label = order.label,
+                        label = stringResource(order.labelRes),
                         selected = state.sortOrder == order,
                         onClick = { viewModel.setSortOrder(order) },
                     )
@@ -225,14 +247,14 @@ private fun ControlPanel(
 
             val activeModifiers = ModifierToggles.count { it.isOn(state.modifiers) }
             CollapsibleSection(
-                title = "Modifiers",
-                summary = if (activeModifiers > 0) "$activeModifiers on" else null,
+                title = stringResource(R.string.chart_section_modifiers),
+                summary = if (activeModifiers > 0) stringResource(R.string.chart_summary_active, activeModifiers) else null,
                 expanded = sections.modifiers,
                 onExpandedChange = { onSectionsChange(sections.copy(modifiers = it)) },
             ) {
                 ModifierToggles.forEach { toggle ->
                     Chip(
-                        label = toggle.label,
+                        label = stringResource(toggle.labelRes),
                         selected = toggle.isOn(state.modifiers),
                         onClick = {
                             viewModel.setModifiers(
@@ -248,14 +270,14 @@ private fun ControlPanel(
             // misread - so they get a heading each.
             val hiddenRoles = HeroRole.entries.size - state.roles.size
             CollapsibleSection(
-                title = "Role",
-                summary = if (hiddenRoles > 0) "$hiddenRoles hidden" else null,
+                title = stringResource(R.string.chart_section_role),
+                summary = if (hiddenRoles > 0) stringResource(R.string.chart_summary_hidden, hiddenRoles) else null,
                 expanded = sections.roles,
                 onExpandedChange = { onSectionsChange(sections.copy(roles = it)) },
             ) {
                 HeroRole.entries.forEach { role ->
                     Chip(
-                        label = role.label,
+                        label = stringResource(role.labelRes),
                         selected = role in state.roles,
                         onClick = { viewModel.toggleRole(role) },
                     )
@@ -264,14 +286,14 @@ private fun ControlPanel(
 
             val hiddenTypes = WeaponCategory.entries.size - state.categories.size
             CollapsibleSection(
-                title = "Weapon type",
-                summary = if (hiddenTypes > 0) "$hiddenTypes hidden" else null,
+                title = stringResource(R.string.chart_section_weapon_type),
+                summary = if (hiddenTypes > 0) stringResource(R.string.chart_summary_hidden, hiddenTypes) else null,
                 expanded = sections.categories,
                 onExpandedChange = { onSectionsChange(sections.copy(categories = it)) },
             ) {
                 WeaponCategory.entries.forEach { category ->
                     Chip(
-                        label = category.label,
+                        label = stringResource(category.labelRes),
                         selected = category in state.categories,
                         onClick = { viewModel.toggleCategory(category) },
                     )
@@ -314,10 +336,8 @@ private fun CollapsedControlBar(
                 modifier = Modifier.weight(1f),
             )
             Text(
-                text = buildString {
-                    append(state.sortOrder.label)
-                    if (activeModifiers > 0) append(" · $activeModifiers mod")
-                },
+                text = stringResource(state.sortOrder.labelRes) +
+                    if (activeModifiers > 0) " · $activeModifiers" else "",
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,
@@ -327,7 +347,7 @@ private fun CollapsedControlBar(
             IconButton(onClick = onExpand) {
                 Icon(
                     imageVector = Icons.Filled.UnfoldMore,
-                    contentDescription = "Show the controls",
+                    contentDescription = stringResource(R.string.chart_expand),
                 )
             }
         }
@@ -402,7 +422,7 @@ private fun TimeAxis(zoom: Float, scrollState: androidx.compose.foundation.Scrol
 
     Row(verticalAlignment = Alignment.Bottom) {
         Text(
-            text = "time (s)",
+            text = stringResource(R.string.chart_time_axis),
             style = MaterialTheme.typography.labelSmall,
             color = tickColor,
             modifier = Modifier

@@ -59,6 +59,8 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
 
     fun setSortOrder(order: SortOrder) = edit { it.copy(sortOrder = order) }
 
+    fun setEnergy(energy: Float) = edit { it.copy(energy = energy.coerceIn(0f, 100f)) }
+
     fun setZoom(zoom: Float) {
         // Zoom is a pure drawing concern, so it never triggers a recompute.
         _state.update { it.copy(zoom = zoom.coerceIn(MIN_ZOOM, MAX_ZOOM)) }
@@ -147,6 +149,7 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
                             crosshair = crosshair,
                             modifiers = state.modifiers,
                             maxTrials = MAX_TRIALS,
+                            energy = state.energy.toDouble(),
                         ),
                     )
                 }

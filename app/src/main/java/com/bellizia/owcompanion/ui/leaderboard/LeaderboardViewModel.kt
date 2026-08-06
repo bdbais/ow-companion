@@ -113,8 +113,12 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
             .mapNotNull { spec -> models[spec.id] }
             .map { model -> async(Dispatchers.Default) { optimizer.bestFor(model, modifiers) } }
             .awaitAll()
+            // One entry per hero, not per weapon: a hero's ranking is what their best gun
+            // can do, and listing Roadhog twice for two barrels of the same shotgun buries
+            // the heroes further down.
+            .groupBy { it.spec.hero }
+            .mapNotNull { (_, peaks) -> peaks.maxByOrNull { it.dps } }
             .sortedByDescending { it.dps }
-            .take(TOP_N)
             .mapIndexed { index, peak ->
                 LeaderboardEntry(
                     rank = index + 1,
@@ -122,9 +126,5 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
                     hero = set.hero(peak.spec.hero),
                 )
             }
-    }
-
-    private companion object {
-        const val TOP_N = 10
     }
 }
