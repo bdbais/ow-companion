@@ -11,11 +11,68 @@ import kotlinx.serialization.Serializable
  * on. Normalisation is a build-time concern so the engine never has to guess whether a
  * value has been through it already — see `tools/js_oracle/export_weapons.js`.
  */
+/**
+ * An ultimate's headline damage.
+ *
+ * Ranked on its own because it is burst, not sustained fire: a figure for one cast, with
+ * the wiki's full wording kept alongside so a reader can see what a single number leaves
+ * out - a centre and an outer radius, a rate over a duration.
+ */
+@Serializable
+data class UltimateSpec(
+    val hero: String,
+    val name: String,
+    /** Damage one cast can deal, or null when the ultimate deals none. */
+    val damage: Double? = null,
+    /** Every damage figure the wiki lists, verbatim. */
+    val detail: String? = null,
+    val duration: Double? = null,
+    val radius: Double? = null,
+    val description: String = "",
+)
+
+/**
+ * A healing source.
+ *
+ * Healing needs no hitbox simulation: an ally being healed is not dodging, so the rate is
+ * arithmetic rather than sampled.
+ */
+@Serializable
+data class HealingSpec(
+    val hero: String,
+    val name: String,
+    val healPerShot: Double? = null,
+    val healPerSecond: Double? = null,
+    val fireRate: Double? = null,
+    val ammo: Double? = null,
+    val reloadTime: Double? = null,
+    val detail: String? = null,
+) {
+    /** Healing per second including reload, or null when there is not enough to say. */
+    val healingPerSecond: Double?
+        get() {
+            healPerSecond?.let { return it }
+            val perShot = healPerShot ?: return null
+            val rate = fireRate ?: return null
+            if (rate <= 0) return null
+            val cycle = 1.0 / rate + reloadAmortised()
+            return if (cycle > 0) perShot / cycle else null
+        }
+
+    private fun reloadAmortised(): Double {
+        val reload = reloadTime ?: return 0.0
+        val magazine = ammo ?: return 0.0
+        return if (magazine > 0) reload / magazine else 0.0
+    }
+}
+
 @Serializable
 data class WeaponSet(
     val meta: DatasetMeta = DatasetMeta(),
     val heroes: List<Hero> = emptyList(),
     val weapons: List<WeaponSpec> = emptyList(),
+    val ultimates: List<UltimateSpec> = emptyList(),
+    val healing: List<HealingSpec> = emptyList(),
 ) {
     private val heroesByName: Map<String, Hero> = heroes.associateBy { it.name }
 

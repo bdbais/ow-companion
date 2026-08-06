@@ -81,40 +81,83 @@ fun LeaderboardScreen(
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     Column(modifier = modifier.fillMaxSize()) {
-        Surface(tonalElevation = 2.dp) {
+        Surface(tonalElevation = 2.dp, modifier = Modifier.fillMaxWidth()) {
             Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
-                Text(
-                    text = stringResource(R.string.leaderboard_buffs),
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+                // Three different questions with three different metrics, so they get
+                // separate rankings rather than one list sorted three ways.
                 FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    BuffToggles.forEach { toggle ->
-                        val on = toggle.isOn(state.buffs)
+                    RankingMode.entries.forEach { mode ->
                         FilterChip(
-                            selected = on,
-                            onClick = { viewModel.setBuffs(toggle.set(state.buffs, !on)) },
+                            selected = state.mode == mode,
+                            onClick = { viewModel.setMode(mode) },
                             label = {
-                                Text(stringResource(toggle.labelRes), style = MaterialTheme.typography.labelSmall)
+                                Text(
+                                    stringResource(mode.labelRes),
+                                    style = MaterialTheme.typography.labelSmall,
+                                )
                             },
-                            leadingIcon = if (on) {
-                                { Icon(Icons.Filled.Check, contentDescription = null) }
-                            } else {
-                                null
-                            },
-                            // The default selected container is nearly invisible against a
-                            // dark surface, and these toggles change every number on screen.
                             colors = FilterChipDefaults.filterChipColors(
                                 selectedContainerColor = MaterialTheme.colorScheme.primary,
                                 selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
-                                selectedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
                             ),
                         )
+                    }
+                }
+
+                // Buffs only mean something for weapons: an ultimate's damage is what it
+                // is, and healing output is not what damage boost multiplies.
+                if (state.mode == RankingMode.Weapons) {
+                    Text(
+                        text = stringResource(R.string.leaderboard_buffs),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 6.dp),
+                    )
+                    FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        BuffToggles.forEach { toggle ->
+                            val on = toggle.isOn(state.buffs)
+                            FilterChip(
+                                selected = on,
+                                onClick = { viewModel.setBuffs(toggle.set(state.buffs, !on)) },
+                                label = {
+                                    Text(
+                                        stringResource(toggle.labelRes),
+                                        style = MaterialTheme.typography.labelSmall,
+                                    )
+                                },
+                                leadingIcon = if (on) {
+                                    { Icon(Icons.Filled.Check, contentDescription = null) }
+                                } else {
+                                    null
+                                },
+                                // The default selected container is nearly invisible on a
+                                // dark surface, and these change every number on screen.
+                                colors = FilterChipDefaults.filterChipColors(
+                                    selectedContainerColor = MaterialTheme.colorScheme.primary,
+                                    selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                                    selectedLeadingIconColor = MaterialTheme.colorScheme.onPrimary,
+                                ),
+                            )
+                        }
                     }
                 }
             }
         }
         HorizontalDivider()
+
+        when (state.mode) {
+            RankingMode.Ultimates -> {
+                UltimateList(state)
+                return@Column
+            }
+
+            RankingMode.Healing -> {
+                HealingList(state)
+                return@Column
+            }
+
+            RankingMode.Weapons -> Unit
+        }
 
         if (state.loading) {
             Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -150,6 +193,147 @@ fun LeaderboardScreen(
         }
     }
 }
+
+@Composable
+private fun UltimateList(state: LeaderboardUiState) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        items(state.ultimates, key = { "${it.ultimate.hero}|${it.ultimate.name}" }) { entry ->
+            val color = parseHeroColor(entry.hero?.color, MaterialTheme.colorScheme.primary)
+            RankRow(
+                rank = entry.rank,
+                hero = entry.ultimate.hero,
+                subtitle = entry.ultimate.name,
+                detail = buildString {
+                    entry.ultimate.detail?.let { append(it) }
+                    entry.ultimate.duration?.let {
+                        append("  ·  ")
+                        append(stringResource(R.string.ultimate_duration, trim(it)))
+                    }
+                },
+                value = "%.0f".format(entry.ultimate.damage ?: 0.0),
+                unit = stringResource(R.string.ultimate_damage, "").trim(),
+                color = color,
+            )
+        }
+        item {
+            Text(
+                text = stringResource(
+                    R.string.ultimate_no_damage,
+                    state.ultimatesWithoutDamage,
+                ) + "\n" + stringResource(R.string.ultimate_footer),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+        }
+    }
+}
+
+@Composable
+private fun HealingList(state: LeaderboardUiState) {
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        items(state.healing, key = { "${it.source.hero}|${it.source.name}" }) { entry ->
+            val color = parseHeroColor(entry.hero?.color, MaterialTheme.colorScheme.primary)
+            RankRow(
+                rank = entry.rank,
+                hero = entry.source.hero,
+                subtitle = entry.source.name,
+                detail = entry.source.detail.orEmpty(),
+                value = "%.0f".format(entry.healingPerSecond),
+                unit = "hps",
+                color = color,
+            )
+        }
+        item {
+            Text(
+                text = stringResource(R.string.healing_footer),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+        }
+    }
+}
+
+/** Shared row shape so the three rankings read as the same kind of thing. */
+@Composable
+private fun RankRow(
+    rank: Int,
+    hero: String,
+    subtitle: String,
+    detail: String,
+    value: String,
+    unit: String,
+    color: androidx.compose.ui.graphics.Color,
+) {
+    Card(
+        shape = RoundedCornerShape(10.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f),
+        ),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(38.dp)
+                    .clip(CircleShape)
+                    .background(color),
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    text = rank.toString(),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.surface,
+                )
+            }
+            Spacer(Modifier.width(12.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(hero, style = MaterialTheme.typography.titleMedium, maxLines = 1)
+                Text(
+                    text = subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                if (detail.isNotBlank()) {
+                    Text(
+                        text = detail,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+            Column(horizontalAlignment = Alignment.End) {
+                Text(value, style = StatNumber, color = color, textAlign = TextAlign.End)
+                Text(
+                    text = unit,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+    }
+}
+
+private fun trim(value: Double): String =
+    if (value == value.toLong().toDouble()) value.toLong().toString() else "%.1f".format(value)
 
 @Composable
 private fun LeaderboardCard(entry: LeaderboardEntry) {

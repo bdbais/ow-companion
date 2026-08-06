@@ -47,9 +47,34 @@ data class BuffSelection(
     )
 }
 
+/** Three different questions, three different metrics. */
+enum class RankingMode(@androidx.annotation.StringRes val labelRes: Int) {
+    Weapons(com.bellizia.owcompanion.R.string.rank_weapons),
+    Ultimates(com.bellizia.owcompanion.R.string.rank_ultimates),
+    Healing(com.bellizia.owcompanion.R.string.rank_healing),
+}
+
+data class UltimateEntry(
+    val rank: Int,
+    val ultimate: com.bellizia.owcompanion.sim.UltimateSpec,
+    val hero: Hero?,
+)
+
+data class HealingEntry(
+    val rank: Int,
+    val source: com.bellizia.owcompanion.sim.HealingSpec,
+    val healingPerSecond: Double,
+    val hero: Hero?,
+)
+
 data class LeaderboardUiState(
     val loading: Boolean = true,
+    val mode: RankingMode = RankingMode.Weapons,
     val entries: List<LeaderboardEntry> = emptyList(),
+    val ultimates: List<UltimateEntry> = emptyList(),
+    val healing: List<HealingEntry> = emptyList(),
+    /** Ultimates that deal no damage, and so are left out rather than ranked at zero. */
+    val ultimatesWithoutDamage: Int = 0,
     val buffs: BuffSelection = BuffSelection(),
     val computeMillis: Long = 0,
 )
@@ -78,10 +103,32 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
 
     init {
         viewModelScope.launch {
-            weaponSet = repository.weapons()
+            val set = repository.weapons()
+            weaponSet = set
+            _state.update { current ->
+                current.copy(
+                    ultimates = set.ultimates
+                        .filter { (it.damage ?: 0.0) > 0 }
+                        .sortedByDescending { it.damage }
+                        .mapIndexed { index, ultimate ->
+                            UltimateEntry(index + 1, ultimate, set.hero(ultimate.hero))
+                        },
+                    ultimatesWithoutDamage = set.ultimates.count { (it.damage ?: 0.0) <= 0 },
+                    healing = set.healing
+                        .mapNotNull { source ->
+                            source.healingPerSecond?.let { source to it }
+                        }
+                        .sortedByDescending { it.second }
+                        .mapIndexed { index, (source, hps) ->
+                            HealingEntry(index + 1, source, hps, set.hero(source.hero))
+                        },
+                )
+            }
             recompute()
         }
     }
+
+    fun setMode(mode: RankingMode) = _state.update { it.copy(mode = mode) }
 
     fun setBuffs(buffs: BuffSelection) {
         _state.update { it.copy(buffs = buffs, loading = true) }

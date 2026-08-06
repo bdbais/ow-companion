@@ -1,0 +1,244 @@
+{
+ "healing": [
+  {
+   "hero": "Ana",
+   "name": "Biotic Rifle",
+   "healPerShot": 75.0,
+   "healPerSecond": null,
+   "fireRate": 1.25,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "detail": "75 over 0.59 seconds"
+  },
+  {
+   "hero": "Ana",
+   "name": "Zoom (ADS)",
+   "healPerShot": 75.0,
+   "healPerSecond": null,
+   "fireRate": 1.25,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "detail": "75 over 0.59 seconds"
+  },
+  {
+   "hero": "Ana",
+   "name": "Nano Boost",
+   "healPerShot": 250.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "250"
+  },
+  {
+   "hero": "Baptiste",
+   "name": "Biotic Launcher Alt Fire",
+   "healPerShot": 30.0,
+   "healPerSecond": null,
+   "fireRate": 1.11,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "detail": "30 (direct hit) / 60 (splash, ally)"
+  },
+  {
+   "hero": "Doomfist",
+   "name": "Meteor Strike",
+   "healPerShot": null,
+   "healPerSecond": 90.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "90 per second (while targeting)"
+  },
+  {
+   "hero": "Illari",
+   "name": "Solar Rifle Alt Fire",
+   "healPerShot": null,
+   "healPerSecond": 115.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "115 per second"
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Biotic Pawjectiles",
+   "healPerShot": 27.0,
+   "healPerSecond": null,
+   "fireRate": 4.48,
+   "ammo": 24.0,
+   "reloadTime": 1.25,
+   "detail": "27 (per volley)"
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Catnapper",
+   "healPerShot": null,
+   "healPerSecond": 30.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "30 per second (self)"
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Rampage",
+   "healPerShot": 225.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "225 over 4.5 seconds"
+  },
+  {
+   "hero": "Juno",
+   "name": "Mediblaster",
+   "healPerShot": 6.0,
+   "healPerSecond": null,
+   "fireRate": 1.29,
+   "ammo": 180.0,
+   "reloadTime": 1.5,
+   "detail": "6 - 1.8 (per round) / 72 - 21.6 (per burst)"
+  },
+  {
+   "hero": "Juno",
+   "name": "Orbital Ray",
+   "healPerShot": null,
+   "healPerSecond": 85.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "85 per second"
+  },
+  {
+   "hero": "Kiriko",
+   "name": "Healing Ofuda",
+   "healPerShot": 12.0,
+   "healPerSecond": null,
+   "fireRate": 6.67,
+   "ammo": 10.0,
+   "reloadTime": 0.9,
+   "detail": "12 (per talisman) / 24 (per burst)"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Healing Blossom",
+   "healPerShot": 90.0,
+   "healPerSecond": null,
+   "fireRate": 0.67,
+   "ammo": 16.0,
+   "reloadTime": 1.75,
+   "detail": "90 over 0.3 seconds (max charge) / 10 over 0.3 seconds (min charge)"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Tree of Life",
+   "healPerShot": 150.0,
+   "healPerSecond": null,
+   "fireRate": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "150 (instant) / 90 per pulse"
+  },
+  {
+   "hero": "Mercy",
+   "name": "Caduceus Staff",
+   "healPerShot": null,
+   "healPerSecond": 55.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "55 per second"
+  },
+  {
+   "hero": "Mercy",
+   "name": "Valkyrie",
+   "healPerShot": null,
+   "healPerSecond": 65.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "65 per second per target"
+  },
+  {
+   "hero": "Mizuki",
+   "name": "Kekkai Sanctuary",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "100 (instant) / 40 per second"
+  },
+  {
+   "hero": "Moira",
+   "name": "Biotic Grasp",
+   "healPerShot": null,
+   "healPerSecond": 80.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "80 per second (impact) / 17 per second (over time)"
+  },
+  {
+   "hero": "Moira",
+   "name": "Biotic Grasp Alt Fire",
+   "healPerShot": null,
+   "healPerSecond": 30.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "30 per second (self)"
+  },
+  {
+   "hero": "Moira",
+   "name": "Coalescence",
+   "healPerShot": null,
+   "healPerSecond": 140.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "140 per second (allies) / 55 per second (self)"
+  },
+  {
+   "hero": "Torbjörn",
+   "name": "Forge Hammer",
+   "healPerShot": 50.0,
+   "healPerSecond": null,
+   "fireRate": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "50 (to Torbjörn's turret)"
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Restorative Stream",
+   "healPerShot": null,
+   "healPerSecond": 20.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "20 per second (passive) / 55 per second (bonus manual healing)"
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Tidal Blast",
+   "healPerShot": 250.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "250"
+  },
+  {
+   "hero": "Zenyatta",
+   "name": "Transcendence",
+   "healPerShot": null,
+   "healPerSecond": 400.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "detail": "400 health per second"
+  }
+ ]
+}

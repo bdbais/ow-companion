@@ -263,20 +263,131 @@ def mousebutton_of(params: dict) -> str | None:
     return None
 
 
+ULTIMATE_SECTION = re.compile(r"^===\s*Ultimate Ability\s*===\s*$", re.MULTILINE)
+
+
+def ultimate_section(text: str) -> str:
+    match = ULTIMATE_SECTION.search(text)
+    if not match:
+        return ""
+    rest = text[match.end() :]
+    following = re.search(r"^==[^=]|^===[^=]", rest, re.MULTILINE)
+    return rest[: following.start()] if following else rest
+
+
+def parse_ultimate(hero_name: str, text: str) -> dict | None:
+    """An ultimate's headline damage, for a ranking of its own.
+
+    Ultimates are burst rather than sustained fire, so what is worth recording is what one
+    cast can do, not a rate. Where the wiki lists several figures - a centre and an area of
+    effect, a per-second figure over a duration - the largest single number is taken and the
+    rest are kept as text so a reader can see what was left out.
+    """
+    text = resolve_vars(strip_comments(text))
+    section = ultimate_section(text)
+    if not section:
+        return None
+
+    for template in find_templates(section, TEMPLATE_NAMES):
+        params = template["params"]
+        name = clean_value(params.get("ability_name", "")).strip()
+        if not name:
+            continue
+
+        lines = lines_of(params.get("damage", ""))
+        best = None
+        for line in lines:
+            value = first_number(line)
+            if value is None:
+                continue
+            # "150 per second (during warning)" over a stated duration is a total, not a rate.
+            if "per second" in line.lower():
+                duration = first_number(clean_value(params.get("duration", "")))
+                if duration:
+                    value *= duration
+            if best is None or value > best:
+                best = value
+
+        return {
+            "hero": hero_name,
+            "name": name,
+            "damage": best,
+            "detail": " / ".join(lines) if lines else None,
+            "duration": first_number(clean_value(params.get("duration", ""))),
+            "radius": first_number(clean_value(params.get("radius", ""))),
+            "description": clean_value(params.get("official_description", "")).strip(),
+        }
+    return None
+
+
+def parse_healing(hero_name: str, text: str) -> list[dict]:
+    """Healing output, from the same ability boxes as the weapons.
+
+    Healing does not need the hitbox simulation: a heal lands on an ally who is not dodging,
+    so its rate is arithmetic - per shot, times pellets, over the firing cycle.
+    """
+    text = resolve_vars(strip_comments(text))
+    results = []
+    for section in (weapon_section(text), ultimate_section(text)):
+        if not section:
+            continue
+        for template in find_templates(section, TEMPLATE_NAMES):
+            params = template["params"]
+            raw = params.get("heal") or params.get("healing")
+            if not raw:
+                continue
+            lines = lines_of(raw)
+            value = first_number(lines[0]) if lines else None
+            if value is None:
+                continue
+
+            per_second = "per second" in lines[0].lower()
+            fire_rate = first_number(clean_value(params.get("fire_rate", "")))
+            ammo = first_number(clean_value(params.get("ammo", "")))
+            reload_time = first_number(clean_value(params.get("reload_time", "")))
+            results.append(
+                {
+                    "hero": hero_name,
+                    "name": clean_value(params.get("ability_name", "")).strip(),
+                    "healPerShot": None if per_second else value,
+                    "healPerSecond": value if per_second else None,
+                    "fireRate": fire_rate,
+                    "ammo": ammo,
+                    "reloadTime": reload_time,
+                    "detail": " / ".join(lines),
+                }
+            )
+    return results
+
+
 def main() -> int:
     roster = read_json(DATASET / "roster.json")["heroes"]
     review = Review()
     all_weapons = []
 
+    ultimates = []
+    healing = []
+
     for hero in roster:
         path = RAW / "wiki" / f"{hero['key']}.wiki"
-        weapons = parse_hero(hero["key"], hero["name"], path.read_text(encoding="utf-8"), review)
+        text = path.read_text(encoding="utf-8")
+        weapons = parse_hero(hero["key"], hero["name"], text, review)
         all_weapons.extend(weapons)
+
+        ultimate = parse_ultimate(hero["name"], text)
+        if ultimate:
+            ultimates.append(ultimate)
+        healing.extend(parse_healing(hero["name"], text))
 
     complete = [w for w in all_weapons if w["complete"]]
     write_json(DATASET / "weapons-parsed.json", {"weapons": all_weapons})
+    write_json(DATASET / "ultimates-parsed.json", {"ultimates": ultimates})
+    write_json(DATASET / "healing-parsed.json", {"healing": healing})
     write_json(DATASET / "review-weapons.json", {"items": review.items})
 
+    with_damage = sum(1 for u in ultimates if u.get("damage"))
+    print(f"parsed {len(ultimates)} ultimates ({with_damage} deal damage)")
+    print(f"parsed {len(healing)} healing sources")
     print(f"parsed {len(all_weapons)} weapons across {len(roster)} heroes")
     print(f"  {len(complete)} complete, {len(all_weapons) - len(complete)} need review")
     print(f"  {len(review.items)} review notes")

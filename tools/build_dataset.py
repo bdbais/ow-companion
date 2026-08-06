@@ -177,6 +177,8 @@ def main() -> int:
     roster = read_json(DATASET / "roster.json")["heroes"]
     media = {h["name"]: h for h in read_json(DATASET / "heroes-media.json")["heroes"]}
     parsed = read_json(DATASET / "weapons-parsed.json")["weapons"]
+    ultimates = read_json(DATASET / "ultimates-parsed.json")["ultimates"]
+    healing = read_json(DATASET / "healing-parsed.json")["healing"]
     history = {h["hero"]: h for h in read_json(DATASET / "patch-history.json")["heroes"]}
     review_notes = read_json(DATASET / "review-weapons.json")["items"]
 
@@ -247,6 +249,8 @@ def main() -> int:
             {k: v for k, v in w.items() if k not in ("complete", "reviewed", "generated")}
             for w in playable
         ],
+        "ultimates": ultimates,
+        "healing": healing,
         "wiki": heroes,
     }
 

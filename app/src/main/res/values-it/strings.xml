@@ -129,4 +129,9 @@
     <string name="ultimate_damage">%1$s danni</string>
     <string name="ultimate_no_damage">%1$d ultimate non fanno danno e restano fuori.</string>
     <string name="ultimate_footer">Ordinate per il danno di una singola attivazione. Un\'ultimate è un colpo secco, non fuoco sostenuto, quindi non è un valore di danno al secondo.</string>
+    <string name="rank_healing">Cura</string>
+    <string name="healing_per_second">%1$s cps</string>
+    <string name="healing_footer">Cura al secondo, ricarica inclusa. Un alleato che viene curato non schiva, quindi qui il calcolo e aritmetico, non simulato.</string>
+    <string name="ultimate_duration">in %1$s s</string>
+    <string name="ultimate_radius">raggio %1$s m</string>
 </resources>

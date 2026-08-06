@@ -131,4 +131,9 @@
     <string name="ultimate_damage">%1$s damage</string>
     <string name="ultimate_no_damage">%1$d ultimates deal no damage and are left out.</string>
     <string name="ultimate_footer">Ranked by the damage one cast can deal. An ultimate is burst, not sustained fire, so this is not a damage-per-second figure.</string>
+    <string name="rank_healing">Healing</string>
+    <string name="healing_per_second">%1$s hps</string>
+    <string name="healing_footer">Healing per second, reload included. An ally being healed is not dodging, so this is arithmetic rather than simulated.</string>
+    <string name="ultimate_duration">over %1$s s</string>
+    <string name="ultimate_radius">%1$s m radius</string>
 </resources>
