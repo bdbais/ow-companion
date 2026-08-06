@@ -138,4 +138,8 @@
     <string name="wiki_perk_minor">MINORE</string>
     <string name="wiki_perk_major">MAGGIORE</string>
     <string name="wiki_pick_a_hero">Scegli un eroe per vederne i dettagli.</string>
+    <string name="tab_stadium">Stadium</string>
+    <string name="stadium_budget">Budget %1$d</string>
+    <string name="stadium_gain">Da %1$s dps, %2$s%% per %3$d di cash</string>
+    <string name="stadium_footer">Costruita per passi: a ogni slot si prende l\'oggetto acquistabile che rende di più. Solo %1$d dei %2$d oggetti cambiano cio che il modello dei danni calcola, cioe Weapon Power e Attack Speed. Gli oggetti di sopravvivenza e abilita sono reali e spesso convengono di piu: semplicemente non sono cio che questa scheda ordina.</string>
 </resources>

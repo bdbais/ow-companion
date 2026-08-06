@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Science
+import androidx.compose.material.icons.filled.Stadium
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -32,6 +33,7 @@ import androidx.compose.ui.res.stringResource
 import com.bellizia.owcompanion.ui.about.AboutScreen
 import com.bellizia.owcompanion.ui.chart.ChartScreen
 import com.bellizia.owcompanion.ui.custom.CustomScreen
+import com.bellizia.owcompanion.ui.stadium.StadiumScreen
 import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
 import com.bellizia.owcompanion.ui.wiki.WikiScreen
 import com.bellizia.owcompanion.ui.theme.OwCompanionTheme
@@ -53,6 +55,7 @@ private enum class Section(val labelRes: Int) {
     Leaderboard(R.string.tab_rankings),
     Wiki(R.string.tab_wiki),
     Custom(R.string.tab_custom),
+    Stadium(R.string.tab_stadium),
     About(R.string.tab_about),
 }
 
@@ -74,6 +77,7 @@ private fun AppRoot() {
                                     Section.Leaderboard -> Icons.Filled.EmojiEvents
                                     Section.Wiki -> Icons.Filled.Groups
                                     Section.Custom -> Icons.Filled.Science
+                                    Section.Stadium -> Icons.Filled.Stadium
                                     Section.About -> Icons.Filled.Info
                                 },
                                 contentDescription = null,
@@ -91,6 +95,7 @@ private fun AppRoot() {
                 Section.Leaderboard -> LeaderboardScreen()
                 Section.Wiki -> WikiScreen()
                 Section.Custom -> CustomScreen()
+                Section.Stadium -> StadiumScreen()
                 Section.About -> AboutScreen()
             }
         }

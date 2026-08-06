@@ -1,0 +1,1565 @@
+{
+ "items": [
+  {
+   "name": "Compensator",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Plasma Converter",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Lifesteal",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Weapon Grease",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Ammo Reserves",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Max Ammo",
+     "value": 20.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Frenzy Amplifier",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [],
+   "description": "Eliminations grant 10% Attack Speed and 15% Move Speed for 3s."
+  },
+  {
+   "name": "Stratosphere Beacon",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Damage to airborne targets above 3m deals 10 bonus damage and slows the enemy by 25% for 3s (15s Cooldown)"
+  },
+  {
+   "name": "Aftermarket Firing Pin",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Advanced Nanobiotics",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "After healing an ally, gain 10% Attack Speed for 3s."
+  },
+  {
+   "name": "Emergency Chip",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Once per life, when you are below 150 Life, gain 15% Weapon Lifesteal and 50 Overhealth for 5s"
+  },
+  {
+   "name": "Shieldbuster",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "After dealing damage to Shields or Armor, gain 15% Attack Speed for 1s."
+  },
+  {
+   "name": "Stockpile",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Technoleech",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Icy Coolant",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 5500.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Talon Modification Module",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 6500.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Aerial Distresser",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Weapon damage to airborne enemies deal 30% bonus damage over 3s."
+  },
+  {
+   "name": "Salvaged Slugs",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "Dealing Weapon Damage to Barriers or Deployables has a 60% chance to restore 1 ammo. If ammo cannot be restored, instead restore Life equal to 20% of damage dealt."
+  },
+  {
+   "name": "Volskaya Ordnance",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "Deal 6% increase Weapon Damage for every 100 Bonus Max Life the target has, up to 30%."
+  },
+  {
+   "name": "Codebreaker",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Ignore 50% of Armor's damage reduction."
+  },
+  {
+   "name": "Commander's Clip",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "When you use an ability or Gadget, restore 10% of your Max Ammo."
+  },
+  {
+   "name": "Weapon Jammer",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Dealing Weapon Damage negates 10% of the target's bonus Attack Speed and increases your Attack Speed by 10% for 2s."
+  },
+  {
+   "name": "Amari's Antidote",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While healing an ally below 50% Life with your weapon, deal 15% increased Weapon Healing."
+  },
+  {
+   "name": "Booster Jets",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 20.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "When you use an ability or Gadget, gain 10% Move Speed for 2s."
+  },
+  {
+   "name": "El-Sa'ka Suppressor",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Critical Hits apply 35% Healing Reduction to the target for 2s."
+  },
+  {
+   "name": "Hardlight Accelerator",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "When you use an ability or Gadget, gain 5% Weapon Power for 3s, stacking up to 3 times."
+  },
+  {
+   "name": "The Closer",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 13000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 20.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Deal 10% increased damage to enemies below 30% Life."
+  },
+  {
+   "name": "Eye of the Spider",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 14500.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 20.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Critical Hits reveal the target for 3s."
+  },
+  {
+   "name": "Charged Plating",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "After you spend your Ultimate Charge, gain 25 Armor and 10% Ability Power for the rest of the round."
+  },
+  {
+   "name": "Power Playbook",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Shady Spectacles",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Ability Lifesteal",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Winning Attitude",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you die, gain 15% Ultimate Charge."
+  },
+  {
+   "name": "Custom Stock",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Biolight Overflow",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you spend your Ultimate Charge, cleanse yourself and grant nearby allies 75 Overhealth for 3s."
+  },
+  {
+   "name": "Energized Bracers",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Junker Whatchamajig",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Skyline Nanites",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Ability Lifesteal",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Ability damage to airborne enemies deal 25% bonus damage over 2s"
+  },
+  {
+   "name": "Wrist Wraps",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Multi-Tool",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Vitality Amplifier",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 5000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While above 50% Life gain 10% Ability Power.\nOtherwise, gain 15% Ability Lifesteal and abilities refresh 10% faster."
+  },
+  {
+   "name": "Nano Cola",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 5500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Sonic Recharger",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Passive Life Regeneration can overheal up to 100."
+  },
+  {
+   "name": "Gadget Maximizer",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Catalytic Crystal",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Ability Damage and Healing grants 20% more Ultimate Charge."
+  },
+  {
+   "name": "Superflexor",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you deal Weapon Damage or Healing, gain 5% Ability Power for 3s, stacking up to 5 times."
+  },
+  {
+   "name": "Three-Tap Tommygun",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "After using an ability or Gadget, your next 3 instances of Weapon Damage deals additional damage equal to 3% of the target's current Life over 3s.\n(0.5s Cooldown)."
+  },
+  {
+   "name": "Cybervenom",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Dealing Ability damage applies 35% healing reduction for 2s."
+  },
+  {
+   "name": "Liquid Nitrogen",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Dealing Ability Damage slows the target's Move Speed by 10% and their bonus Move Speed by 15% for 3s."
+  },
+  {
+   "name": "Lumérico Fusion Drive",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability or Gadget, restore 50 Armor or Shields over 3s."
+  },
+  {
+   "name": "Mark of the Kitsune",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability or Gadget, your next instance of Weapon Damage or Healing deals {{Ability_Power|25}} bonus damage or healing."
+  },
+  {
+   "name": "Iridescent Iris",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 20.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "After spending your Ultimate Charge, gain 100 Overhealth for 3s."
+  },
+  {
+   "name": "Champion's Kit",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 14500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 35.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Electrolytes",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "At the start of the round and every time you respawn, gain 30% Move Speed for 10s while out of combat and 100 Overhealth."
+  },
+  {
+   "name": "Field Rations",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While on the Objective, restore 8 Life every 1s."
+  },
+  {
+   "name": "Adrenaline Shot",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Health Packs grant 20% Move Speed for 5s and 50 Overhealth."
+  },
+  {
+   "name": "Armored Vest",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Exo Springs",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Holding [Crouch] for up to 0.75 seconds increases the height of your next jump by up to 250%.\n(15s cooldown)"
+  },
+  {
+   "name": "First Aid Kit",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Reduce the time before your Life begins regenerating by 33%."
+  },
+  {
+   "name": "Reflex Coating",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you are stunned, slept, hindered or anti-healed, gain 50 Overhealth for 2s."
+  },
+  {
+   "name": "Siphon Gloves",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "[Quick Melee] damage heals for 25 Life."
+  },
+  {
+   "name": "Ballistic Buffer",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "After taking damage from an Airborne target above 5m, gain 75 overhealth for 3s (8s cooldown)"
+  },
+  {
+   "name": "Cushioned Padding",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When affected by Stun, Sleep, or Hinder, restore 10% of your max Life over 3s."
+  },
+  {
+   "name": "Iron Eyes",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Vishkar Condensor",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Convert 150 Health into Shields."
+  },
+  {
+   "name": "Bloodbound",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "The last enemy to deal a final blow to you is Revealed to you when nearby. Deal 15% more damage to them and take 15% reduced damage from them."
+  },
+  {
+   "name": "Ironclad Exhaust Ports",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability or Gadget, gain 25 Overhealth for 3s."
+  },
+  {
+   "name": "Repulsion Greaves",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "After taking damage from an enemy within 5m, knockback all enemies within 6m and gain 75 Overhealth for 3s. (15s Cooldown)."
+  },
+  {
+   "name": "Vital-E-Tee",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Convert 100 Health into Armor."
+  },
+  {
+   "name": "Meka Z-Series",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 5000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Divine Intervention",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you are Stunned or take more than 125 pre-mitigation damage at once, gain Overhealth equal to 25% of damage taken for 3s and start regenerating your Shields."
+  },
+  {
+   "name": "Sundering Vial",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Damage reduces the enemy's existing Overhealth by 35% and applies 35% Overhealth reduction for 5s. (3s Cooldown)."
+  },
+  {
+   "name": "Overdrive Core",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Once per life, if you take damage that would reduce you below 30% Max Life, first gain 150 decaying Overhealth."
+  },
+  {
+   "name": "Reinforced Titanium",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While you have Shields, gain 5% Ability Damage Reduction. Reduce the time before your Shields begins regenerating by 33%."
+  },
+  {
+   "name": "Gloomgauntlet",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "[Melee] damage grants 10% Move Speed and restores 5% of Max Life over 2s."
+  },
+  {
+   "name": "Martian Mender",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Restore 3% of your Life every 1s."
+  },
+  {
+   "name": "Phantasmic Flux",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "While at full Life, Lifesteal grants up to 50 Overhealth."
+  },
+  {
+   "name": "Rüstung von Wilhelm",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While below 30% Life, gain 10% Damage Reduction."
+  },
+  {
+   "name": "Ogundimu Reduction Field",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10500.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you take damage, gain 0.5% damage reduction for 1s, stacking up to 20 times."
+  },
+  {
+   "name": "Crusader Hydraulics",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When an enemy deals Weapon Damage to your Armor, reduce their Attack Speed by 10% for 3s."
+  },
+  {
+   "name": "Nebula Conduit",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Prevent 15% of incoming damage and instead take that prevented damage over 3s."
+  },
+  {
+   "name": "Vanadium Injection",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While at 100% Ultimate Charge, gain:\n:{{Life}} 50 Health\n:{{Weapon_Power}} 10% Weapon Power\n:{{Ability_Power}} 10% Ability Power\n:{{Attack_Speed}} 10% Attack Speed\n:{{Cooldown_Reduction}} 10% Cooldown Reduction\n:{{Move_Speed}} 10% Move Speed"
+  },
+  {
+   "name": "Aura Repellant",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Knockback all enemies within 8m."
+  },
+  {
+   "name": "Barrier Snippet",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain 50 Overhealth for 3s."
+  },
+  {
+   "name": "Feathered Soles",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain 25% Move Speed for 5s. Dealing damage removes this bonus."
+  },
+  {
+   "name": "Med Kit",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Restore 20 Life every 1s for 10s. Taking damage removes this bonus."
+  },
+  {
+   "name": "Dashing Skates",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Dash a short distance."
+  },
+  {
+   "name": "Field Support",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Place a Biotic Field at your location that restores 40 Life every 1s for 5s."
+  },
+  {
+   "name": "Siphon Snippet",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Knockback and apply 35% Healing Reduction for 5s to all enemies within 8m. Gain 25 Overhealth for each enemy hit."
+  },
+  {
+   "name": "Necrotic Repellant",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Knockback, Hinder and slow all enemies within 8m for 1s."
+  },
+  {
+   "name": "Vortex Vial",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Place a slowing Vortex that pulls enemies downward at your location for 2.5s."
+  },
+  {
+   "name": "Kitsune Charm",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Cleanse yourself of most negative effects, restore 75 Life, and gain Invulnerability and 75% Move Speed for 0.65s."
+  },
+  {
+   "name": "Colossus Core",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain Unstoppable, 10% Damage Reduction, 25% Max Life, and grow in size, but deal 25% reduced damage and healing for 3s."
+  },
+  {
+   "name": "Jet Skates",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Dash a short distance."
+  },
+  {
+   "name": "Super Serum",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Increase your total Attack Speed by 50% but deal 15% reduced Weapon Damage and Healing for 5s. Reload all your Ammo."
+  },
+  {
+   "name": "Refresher",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Reduce all Ability cooldowns by 8s."
+  },
+  {
+   "name": "Heartbeat Sensor",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Move Speed",
+     "value": 5.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Enemies below 30% Life are Revealed to you."
+  },
+  {
+   "name": "Running Shoes",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "At the start of the round and when you respawn while not in Overtime, gain 30% Move Speed for 10s while out of combat."
+  },
+  {
+   "name": "Geneticist's Vial",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "The first time you would die each round, revive instead with 250 Life after 3s."
+  },
+  {
+   "name": "Biotech Maximizer",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability that heals, reduce its cooldown by 5% for each unique ally it heals."
+  },
+  {
+   "name": "Kitsune Snippet",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain 50 Overhealth and 25% Move Speed for 3s. If you are debuffed, gain an additional 100 Overhealth."
+  }
+ ]
+}

@@ -180,6 +180,8 @@ def main() -> int:
     ultimates = read_json(DATASET / "ultimates-parsed.json")["ultimates"]
     healing = read_json(DATASET / "healing-parsed.json")["healing"]
     perks = read_json(DATASET / "perks-parsed.json")["perks"]
+    stadium_path = DATASET / "stadium-parsed.json"
+    stadium = read_json(stadium_path)["items"] if stadium_path.exists() else []
     perks_by_hero: dict[str, list[dict]] = {}
     for perk in perks:
         perks_by_hero.setdefault(perk["hero"], []).append(
@@ -258,6 +260,7 @@ def main() -> int:
         ],
         "ultimates": ultimates,
         "healing": healing,
+        "stadiumItems": stadium,
         "wiki": heroes,
     }
 

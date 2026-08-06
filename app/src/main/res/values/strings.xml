@@ -140,4 +140,8 @@
     <string name="wiki_perk_minor">MINOR</string>
     <string name="wiki_perk_major">MAJOR</string>
     <string name="wiki_pick_a_hero">Pick a hero to see their details.</string>
+    <string name="tab_stadium">Stadium</string>
+    <string name="stadium_budget">Budget %1$d</string>
+    <string name="stadium_gain">From %1$s dps, %2$s%% for %3$d cash</string>
+    <string name="stadium_footer">Built greedily: at each slot, whichever affordable item adds the most. Only %1$d of the %2$d items change what the damage model computes - Weapon Power and Attack Speed. Survival and ability items are real and often the better buy; they are simply not what this ranks.</string>
 </resources>

@@ -73,6 +73,7 @@ data class WeaponSet(
     val weapons: List<WeaponSpec> = emptyList(),
     val ultimates: List<UltimateSpec> = emptyList(),
     val healing: List<HealingSpec> = emptyList(),
+    val stadiumItems: List<StadiumItem> = emptyList(),
 ) {
     private val heroesByName: Map<String, Hero> = heroes.associateBy { it.name }
 
