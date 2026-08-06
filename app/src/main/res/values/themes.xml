@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.OwCompanion" parent="android:Theme.Material.NoActionBar" />
+    <!-- An AppCompat parent is required by AppCompatActivity, which in turn is what makes
+         the in-app language picker able to apply and remember a choice below Android 13. -->
+    <style name="Theme.OwCompanion" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

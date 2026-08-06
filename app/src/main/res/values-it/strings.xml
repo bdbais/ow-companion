@@ -123,7 +123,7 @@
     <string name="custom_unchanged">Non hai ancora cambiato nulla: muovi uno slider.</string>
     <string name="custom_neighbours">Chi ha intorno in classifica</string>
     <!-- Ultimate -->
-    <string name="tab_rankings">Classifiche</string>
+    <string name="tab_rankings">Ranking</string>
     <string name="rank_weapons">Armi</string>
     <string name="rank_ultimates">Ultimate</string>
     <string name="ultimate_damage">%1$s danni</string>
@@ -169,4 +169,6 @@
     <string name="stat_max_ammo">Munizioni max</string>
     <string name="build_item_count">%1$d oggetti</string>
     <string name="stadium_footer_v2">Le statistiche sono esatte per ogni oggetto. Il valore di danno viene da una simulazione completa, ma ci entrano solo Weapon Power e Attack Speed: il modello non sa calcolare quanto valgano potenza delle abilita o cooldown, quindi una build costruita su quelli qui viene sottostimata.</string>
+    <string name="language_title">Lingua</string>
+    <string name="language_system">Segui il telefono</string>
 </resources>

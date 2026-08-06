@@ -171,4 +171,6 @@
     <string name="stat_max_ammo">Max ammo</string>
     <string name="build_item_count">%1$d items</string>
     <string name="stadium_footer_v2">Stats are exact for every item. The damage figure is a full simulation, but only Weapon Power and Attack Speed feed into it - the model cannot compute what ability power or cooldowns are worth, so a build that leans on those will be undersold here.</string>
+    <string name="language_title">Language</string>
+    <string name="language_system">Follow the phone</string>
 </resources>

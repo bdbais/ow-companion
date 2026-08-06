@@ -6,9 +6,29 @@ with a **hero wiki** covering portraits, abilities, release dates and the full b
 history of every hero.
 
 Status: **working, and looking for opinions.** All 52 heroes, 123 weapons, ten years of
-balance history. If you play Overwatch and something here looks wrong, please
-[open an issue](../../issues) — see [CONTRIBUTING.md](CONTRIBUTING.md) for the parts we
-already know are weak.
+balance history, in 16 languages. If you play Overwatch and something here looks wrong,
+please [open an issue](../../issues) — see [CONTRIBUTING.md](CONTRIBUTING.md) for the parts
+we already know are weak.
+
+### Download
+
+**[Download the latest APK](../../releases/latest)** — Android 8.0 or newer, about 29 MB.
+
+It is a debug build signed with the standard Android debug key, so your phone will warn you
+that it comes from an unknown source; that is expected for an app that does not go through
+the Play Store. Nothing is collected, and everything works offline.
+
+### What it looks like
+
+| Damage chart | Rankings | Hero |
+|---|---|---|
+| ![Damage chart](docs/screenshots/01-chart.png) | ![Rankings](docs/screenshots/02-ranks.png) | ![Hero page](docs/screenshots/03-hero.png) |
+| Every shot drawn as a rectangle whose **area** is its damage | Weapons, ultimates and healing ranked separately | Abilities, perks, and how a hero's damage moved over ten years |
+
+| Lab | Stadium |
+|---|---|
+| ![Lab](docs/screenshots/04-lab.png) | ![Stadium](docs/screenshots/05-stadium.png) |
+| Change a weapon's numbers and see where the hero lands | Pick items and watch the hero's stats move |
 
 ## Screens
 
@@ -37,6 +57,17 @@ guessed at. Healing weapons are excluded from the damage chart for dealing no da
 ultimates that deal no damage are named as excluded rather than ranked at zero.
 
 Where a figure is uncertain, the app says so on the screen showing it.
+
+## Languages
+
+The interface is in English, Italian, Spanish, Portuguese, French, German, Polish, Swedish,
+Turkish, Russian, Ukrainian, Arabic, Japanese, Korean and Chinese (simplified and
+traditional). It follows the phone's language by default; there is a picker with flags under
+**About** to override it.
+
+Two honest caveats: the translations are not native-reviewed, so corrections are very
+welcome — and **hero, weapon and ability names stay in English**, because they come from the
+English wiki that the dataset is built from. A Korean interface still says "Biotic Rifle".
 
 ## What the damage chart does
 

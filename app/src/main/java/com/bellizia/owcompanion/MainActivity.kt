@@ -1,8 +1,8 @@
 package com.bellizia.owcompanion
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -39,7 +39,7 @@ import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
 import com.bellizia.owcompanion.ui.wiki.WikiScreen
 import com.bellizia.owcompanion.ui.theme.OwCompanionTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

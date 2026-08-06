@@ -96,8 +96,10 @@ fun AboutScreen(
         Text(
             text = stringResource(R.string.about_intro),
             style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(top = 4.dp, bottom = 16.dp),
+            modifier = Modifier.padding(top = 4.dp, bottom = 8.dp),
         )
+
+        LanguagePicker()
 
         Section(R.string.about_data_title) {
             Paragraph(R.string.about_data_wiki)
