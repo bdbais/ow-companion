@@ -1831,26 +1831,30 @@
    "hero": "Symmetra",
    "mousebutton": "M2",
    "type": "linear projectile",
-   "behavior": "standard",
+   "behavior": "chargeScaled",
    "pellets": [
     1.0
    ],
    "damage": {
     "dpshot": [
+     5.0
+    ],
+    "falloff": null,
+    "chargeDamage": [
      5.0,
      100.0
     ],
-    "falloff": null
+    "chargeTime": 1.0
    },
    "spread": null,
-   "velocity": 50.0,
-   "fireRate": 3.9,
-   "shotTime": 0.25641025641025644,
-   "ammo": 100.0,
+   "velocity": 25.0,
+   "fireRate": 0.8,
+   "shotTime": 1.25,
+   "ammo": 10.0,
    "reloadTime": 1.5,
-   "critFactor": 1.0,
-   "dpsPeriodBase": 0.25641025641025644,
-   "dpsPeriodAdd": 0.015
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.25,
+   "dpsPeriodAdd": 0.15
   },
   {
    "name": "Rivet Gun",

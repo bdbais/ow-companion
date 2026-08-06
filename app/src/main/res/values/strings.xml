@@ -15,7 +15,7 @@
     <string name="chart_dps">%1$s dps</string>
     <string name="chart_collapse">Collapse the controls</string>
     <string name="chart_expand">Show the controls</string>
-    <string name="chart_energy">Zarya energy %1$d%%</string>
+    <string name="chart_energy">Weapon charge %1$d%%</string>
     <string name="chart_section_sort">Sort by</string>
     <string name="chart_section_modifiers">Modifiers</string>
     <string name="chart_section_role">Role</string>

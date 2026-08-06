@@ -149,7 +149,7 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
                             crosshair = crosshair,
                             modifiers = state.modifiers,
                             maxTrials = MAX_TRIALS,
-                            energy = state.energy.toDouble(),
+                            charge = state.energy.toDouble() / 100.0,
                         ),
                     )
                 }

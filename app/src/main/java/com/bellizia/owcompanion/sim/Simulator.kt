@@ -73,11 +73,11 @@ class Simulator(
         crosshair: Crosshair,
         modifiers: Modifiers = Modifiers.NONE,
         random: Random = Random(DEFAULT_SEED),
-        energy: Double = model.spec.energy ?: 0.0,
+        charge: Double = 0.0,
     ): ShotTrain {
         val distance = crosshair.distance
         val pellets = model.pelletsAt(distance)
-        val basicDamage = model.basicDamage(distance, energy)
+        val basicDamage = model.basicDamage(distance, charge)
         val shots = initShots(model, distance)
         val outcomes = simulateOutcomes(model, shots, crosshair, distance, pellets.toInt(), random)
         return accountDamage(model, shots, outcomes, basicDamage, pellets, modifiers)
@@ -99,11 +99,11 @@ class Simulator(
         modifiers: Modifiers = Modifiers.NONE,
         maxTrials: Int = 64,
         seed: Int = DEFAULT_SEED,
-        energy: Double = model.spec.energy ?: 0.0,
+        charge: Double = 0.0,
         targetSamples: Int = TARGET_SAMPLES,
     ): ShotTrain {
         val random = Random(seed)
-        val first = simulate(model, crosshair, modifiers, random, energy)
+        val first = simulate(model, crosshair, modifiers, random, charge)
         if (isDeterministic(model)) return first
 
         val samplesPerTrial = (first.shots.size * first.pellets).toInt().coerceAtLeast(1)
@@ -119,7 +119,7 @@ class Simulator(
         var finiteKills = if (first.timeToKill.isFinite()) 1 else 0
 
         repeat(trials - 1) {
-            val train = simulate(model, crosshair, modifiers, random, energy)
+            val train = simulate(model, crosshair, modifiers, random, charge)
             dps += train.dps
             dpsWithoutReload += train.dpsWithoutReload
             dpsRaw += train.dpsRaw

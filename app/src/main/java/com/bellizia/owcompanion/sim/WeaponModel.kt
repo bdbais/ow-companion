@@ -121,9 +121,24 @@ class WeaponModel(
         if (damage.size < 2 || falloff.size < 2) null else Ramp(damage, falloff)
     }
 
-    /** Damage a single pellet deals at [distance], before modifiers. */
-    fun basicDamage(distance: Double, energy: Double = spec.energy ?: 0.0): Double =
-        when (spec.behavior) {
+    /**
+     * Damage a single pellet deals at [distance], before modifiers.
+     *
+     * [charge] runs 0 to 1 and means different things to different weapons - Zarya's
+     * accumulated energy, how long Symmetra held her alt fire - but always the same thing
+     * to a reader: how wound up the weapon is.
+     */
+    fun basicDamage(distance: Double, charge: Double = 0.0): Double {
+        if (spec.behavior == WeaponBehavior.ChargeScaled) {
+            val range = spec.damage.chargeDamage
+            if (range != null && range.size >= 2) {
+                val scaled = range[0] + (range[1] - range[0]) * charge.coerceIn(0.0, 1.0)
+                val maxRange = spec.damage.maxRange
+                return if (maxRange != null && distance > maxRange) 0.0 else scaled
+            }
+        }
+        val energy = charge.coerceIn(0.0, 1.0) * 100.0
+        return when (spec.behavior) {
             WeaponBehavior.ScrapGunSecondary -> {
                 val rangeBall = spec.damage.rangeBall ?: 0.0
                 if (distance < rangeBall) {
@@ -150,6 +165,7 @@ class WeaponModel(
                 else -> spec.damage.dpshot.first()
             }
         }
+    }
 
     /** Pellets fired per shot; shotguns that fire a slug up close vary this with range. */
     fun pelletsAt(distance: Double): Double = when (spec.behavior) {

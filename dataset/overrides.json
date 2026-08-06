@@ -170,6 +170,27 @@
       "dpsPeriodAdd": 1.5
     },
 
+    "Symmetra|Photon Projector Alt Fire": {
+      "_note": "5 to 100 direct damage between minimum and maximum charge, one second to full. The parser read that pair as falloff, which it is not - it is the charge range.",
+      "type": "linear projectile",
+      "behavior": "chargeScaled",
+      "damage": {
+        "dpshot": [5.0],
+        "falloff": null,
+        "chargeDamage": [5.0, 100.0],
+        "chargeTime": 1.0
+      },
+      "spread": null,
+      "velocity": 25.0,
+      "fireRate": 0.8,
+      "shotTime": 1.25,
+      "ammo": 10.0,
+      "reloadTime": 1.5,
+      "critFactor": 2.0,
+      "dpsPeriodBase": 1.25,
+      "dpsPeriodAdd": 0.15
+    },
+
     "Sojourn|Charged Shot": {
       "_note": "Fully charged railgun shot: 120 falling to 60 between 40 and 60 m, one every 0.64 s. Charge comes from her primary fire, which this model does not track.",
       "type": "hitscan",

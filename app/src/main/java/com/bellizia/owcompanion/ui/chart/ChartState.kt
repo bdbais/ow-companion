@@ -5,8 +5,8 @@ import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.sim.Hero
 import com.bellizia.owcompanion.sim.Modifiers
 import com.bellizia.owcompanion.sim.ShotTrain
-import com.bellizia.owcompanion.sim.WeaponBehavior
 import com.bellizia.owcompanion.sim.WeaponSpec
+import com.bellizia.owcompanion.sim.isChargeScaled
 
 /** Broad weapon families, used for filtering. A weapon can belong to more than one. */
 enum class WeaponCategory(@StringRes val labelRes: Int) {
@@ -49,9 +49,8 @@ enum class SortOrder(@StringRes val labelRes: Int) {
     Hero(R.string.sort_hero),
 }
 
-/** Whether anything on screen actually cares about the energy setting. */
-fun List<ChartRow>.anyChargeScaled(): Boolean =
-    any { it.spec.behavior == WeaponBehavior.ParticleCannon }
+/** Whether anything on screen actually cares about the charge setting. */
+fun List<ChartRow>.anyChargeScaled(): Boolean = any { it.spec.behavior.isChargeScaled }
 
 /** A weapon paired with its simulated result and the hero it belongs to. */
 data class ChartRow(

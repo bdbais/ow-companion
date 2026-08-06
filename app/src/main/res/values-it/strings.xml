@@ -13,7 +13,7 @@
     <string name="chart_dps">%1$s dps</string>
     <string name="chart_collapse">Comprimi i controlli</string>
     <string name="chart_expand">Mostra i controlli</string>
-    <string name="chart_energy">Energia Zarya %1$d%%</string>
+    <string name="chart_energy">Carica dell\'arma %1$d%%</string>
     <string name="chart_section_sort">Ordina per</string>
     <string name="chart_section_modifiers">Modificatori</string>
     <string name="chart_section_role">Ruolo</string>

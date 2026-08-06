@@ -65,7 +65,20 @@ enum class WeaponBehavior {
     /** Doomfist: ammo regenerates one round at a time instead of reloading in full. */
     @SerialName("handCannon")
     HandCannon,
+
+    /**
+     * Damage rises with how long the trigger was held, between a minimum and a maximum.
+     * Symmetra's alt fire and Mizuki's glaive both work this way.
+     */
+    @SerialName("chargeScaled")
+    ChargeScaled,
 }
+
+/** Which weapons respond to the charge control, and what to call it. */
+val WeaponBehavior.isChargeScaled: Boolean
+    get() = this == WeaponBehavior.ParticleCannon ||
+        this == WeaponBehavior.PhotonProjector ||
+        this == WeaponBehavior.ChargeScaled
 
 @Serializable
 data class DamageSpec(
@@ -89,6 +102,10 @@ data class DamageSpec(
     val dpshotBall: Double? = null,
     /** Distance in metres within which the slug, rather than the spread, applies. */
     val rangeBall: Double? = null,
+    /** `[atMinimumCharge, atFullCharge]` for [WeaponBehavior.ChargeScaled]. */
+    val chargeDamage: List<Double>? = null,
+    /** Seconds of holding the trigger to reach full charge. */
+    val chargeTime: Double? = null,
 )
 
 @Serializable
