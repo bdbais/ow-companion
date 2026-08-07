@@ -30,6 +30,11 @@ from wikitext import (
 
 TEMPLATE_NAMES = {"ability_details"}
 
+# How far a weapon's implied damage per second may sit from the figure the wiki states
+# for itself before it is worth a person looking. Rounding, recovery frames and reload
+# accounting differ enough that a tight bound would cry wolf constantly.
+DPS_TOLERANCE = 1.35
+
 # Section the weapons live in. Abilities and ultimates are parsed separately for the wiki
 # screen; only what a hero holds down the trigger on belongs in the damage chart.
 WEAPON_SECTION = re.compile(r"^===\s*Weapons\s*===\s*$", re.MULTILINE)
@@ -65,6 +70,44 @@ def weapon_section(text: str) -> str:
 
 def lines_of(value: str) -> list[str]:
     return [line.strip() for line in clean_value(value).split("\n") if line.strip()]
+
+
+CALC_DPS = re.compile(r"\{\{\s*CalcDPS\s*\|([^{}]*)\}\}", re.IGNORECASE)
+
+
+def stated_dps_of(raw: str) -> float | None:
+    """The damage per second the wiki claims for a weapon, while firing.
+
+    Half the pages state it as a plain number and half as an unevaluated `{{CalcDPS|d=4|
+    f=17.36}}`. Reading the first number out of the template form yields `4` - the damage
+    per shot - which is not a rate at all, and using it as one is worse than having no
+    cross-check. So the template is evaluated the way the wiki would render it.
+    """
+    if not raw:
+        return None
+
+    match = CALC_DPS.search(raw)
+    if match:
+        args: dict[str, float] = {}
+        for part in match.group(1).split("|"):
+            key, _, value = part.partition("=")
+            number = first_number(value)
+            if number is not None:
+                args[key.strip().lower()] = number
+        damage = args.get("d")
+        if damage is None:
+            return None
+        # `f` is shots per second, `t` is seconds between shots; `a` and `r` add reload,
+        # which would not be comparable with a while-firing figure.
+        if "a" in args or "r" in args:
+            return None
+        if "f" in args and args["f"] > 0:
+            return damage * args["f"]
+        if "t" in args and args["t"] > 0:
+            return damage / args["t"]
+        return None
+
+    return first_number(clean_value(raw))
 
 
 def parse_damage(raw: str, review_add) -> tuple[list[float] | None, bool]:
@@ -218,6 +261,32 @@ def parse_hero(key: str, name: str, text: str, review: Review) -> list[dict]:
         if missing:
             review_add("required", f"missing {', '.join(missing)}", "")
 
+        # Cross-check against the damage per second the wiki states for itself.
+        #
+        # Picking the first damage line is right most of the time and quietly wrong when
+        # that line is only part of the story - Sigma's "20 (direct hit bonus)" is a bonus
+        # on top of 40 splash, so reading it alone loses two thirds of his damage. Nothing
+        # about that parses badly, so without this check it ships silently.
+        stated_dps = stated_dps_of(params.get("dps", ""))
+        if stated_dps and damage and fire_rate and not is_beam:
+            computed = damage[0] * pellets * fire_rate
+            if computed > 0 and stated_dps > 0:
+                ratio = computed / stated_dps
+                if ratio < 1 / DPS_TOLERANCE or ratio > DPS_TOLERANCE:
+                    # The wiki's own damage-per-second figure is the more trustworthy of
+                    # the two: it is a single unambiguous number, while the damage field is
+                    # prose that may list a bonus, a splash and a falloff in one breath.
+                    # Rescaling by it keeps any near/far ratio intact.
+                    scale = stated_dps / computed
+                    before = list(damage)
+                    damage = [value * scale for value in damage]
+                    review_add(
+                        "damage",
+                        f"derived from the wiki's stated {stated_dps:.0f} dps: "
+                        f"{before[0]:.1f} -> {damage[0]:.1f} per pellet",
+                        lines_of(params.get("damage", ""))[0] if params.get("damage") else "",
+                    )
+
         shot_time = (1.0 / fire_rate) if fire_rate else None
         weapons.append(
             {
@@ -319,9 +388,15 @@ def parse_ultimate(hero_name: str, text: str) -> dict | None:
     """An ultimate's headline damage, for a ranking of its own.
 
     Ultimates are burst rather than sustained fire, so what is worth recording is what one
-    cast can do, not a rate. Where the wiki lists several figures - a centre and an area of
-    effect, a per-second figure over a duration - the largest single number is taken and the
-    rest are kept as text so a reader can see what was left out.
+    cast can do. Two shapes cannot honestly be reduced to that:
+
+      - a per-pellet figure, like Roadhog's "7 - 2.1", which needs a pellet count and a
+        channel length nobody states; and
+      - a rate, like Moira's "85 per second", which only becomes a total if you assume the
+        entire channel lands on one target.
+
+    The first is left unranked. The second is ranked but marked sustained, so eight seconds
+    of channelling is not silently presented as the equal of one 600-damage burst.
     """
     text = resolve_vars(strip_comments(text))
     section = ultimate_section(text)
@@ -335,25 +410,44 @@ def parse_ultimate(hero_name: str, text: str) -> dict | None:
             continue
 
         lines = lines_of(params.get("damage", ""))
+        duration = first_number(clean_value(params.get("duration", "")))
         best = None
+        sustained = False
+        per_pellet = False
+
         for line in lines:
+            lowered = line.lower()
+            if "per pellet" in lowered or "per bullet" in lowered or "per shot" in lowered:
+                per_pellet = True
+                continue
             value = first_number(line)
             if value is None:
                 continue
-            # "150 per second (during warning)" over a stated duration is a total, not a rate.
-            if "per second" in line.lower():
-                duration = first_number(clean_value(params.get("duration", "")))
-                if duration:
-                    value *= duration
+            if "per second" in lowered:
+                if not duration:
+                    continue
+                value *= duration
+                sustained = True
             if best is None or value > best:
                 best = value
+
+        # Roadhog's "7 - 2.1" carries no wording to give it away, but no ultimate in the
+        # game deals seven damage over seven seconds: a figure that small next to a long
+        # channel is a per-pellet or per-tick rate that the page never totals.
+        implausible = (
+            best is not None and duration is not None and best < 20 and duration >= 2 and not sustained
+        )
+        if implausible:
+            per_pellet = True
 
         return {
             "hero": hero_name,
             "name": name,
-            "damage": best,
+            "damage": None if per_pellet else best,
+            "sustained": sustained,
+            "unrankable": per_pellet,
             "detail": " / ".join(lines) if lines else None,
-            "duration": first_number(clean_value(params.get("duration", ""))),
+            "duration": duration,
             "radius": first_number(clean_value(params.get("radius", ""))),
             "description": clean_value(params.get("official_description", "")).strip(),
         }
@@ -363,12 +457,19 @@ def parse_ultimate(hero_name: str, text: str) -> dict | None:
 def parse_healing(hero_name: str, text: str) -> list[dict]:
     """Healing output, from the same ability boxes as the weapons.
 
-    Healing does not need the hitbox simulation: a heal lands on an ally who is not dodging,
-    so its rate is arithmetic - per shot, times pellets, over the firing cycle.
+    Healing needs no hitbox simulation: an ally being healed is not dodging, so the rate is
+    arithmetic rather than sampled. Where the wiki states a healing-per-second of its own it
+    is preferred over anything derived, for the same reason as for damage - it is one
+    unambiguous number, while the heal field is prose listing a direct hit, a splash and a
+    charge level in one line.
+
+    Each source records the section it came from, because a weapon and an ultimate are not
+    comparable and ranking them in one list says they are.
     """
     text = resolve_vars(strip_comments(text))
     results = []
-    for section in (weapon_section(text), ultimate_section(text)):
+    sections = (("weapon", weapon_section(text)), ("ultimate", ultimate_section(text)))
+    for kind, section in sections:
         if not section:
             continue
         for template in find_templates(section, TEMPLATE_NAMES):
@@ -377,23 +478,33 @@ def parse_healing(hero_name: str, text: str) -> list[dict]:
             if not raw:
                 continue
             lines = lines_of(raw)
-            value = first_number(lines[0]) if lines else None
+            if not lines:
+                continue
+
+            # "30 (direct hit) / 60 (splash, ally)" is Baptiste healing an ally for 60; the
+            # first line is what he does to the ground under them.
+            chosen = next((line for line in lines if "ally" in line.lower()), lines[0])
+            value = first_number(chosen)
             if value is None:
                 continue
 
-            per_second = "per second" in lines[0].lower()
+            per_second = "per second" in chosen.lower()
             fire_rate = first_number(clean_value(params.get("fire_rate", "")))
             ammo = first_number(clean_value(params.get("ammo", "")))
             reload_time = first_number(clean_value(params.get("reload_time", "")))
+            stated = stated_dps_of(params.get("hps", ""))
+
             results.append(
                 {
                     "hero": hero_name,
                     "name": clean_value(params.get("ability_name", "")).strip(),
+                    "kind": kind,
                     "healPerShot": None if per_second else value,
-                    "healPerSecond": value if per_second else None,
+                    "healPerSecond": stated or (value if per_second else None),
                     "fireRate": fire_rate,
                     "ammo": ammo,
                     "reloadTime": reload_time,
+                    "statedHps": stated is not None,
                     "detail": " / ".join(lines),
                 }
             )

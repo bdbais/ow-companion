@@ -171,4 +171,7 @@
     <string name="stadium_footer_v2">Le statistiche sono esatte per ogni oggetto. Il valore di danno viene da una simulazione completa, ma ci entrano solo Weapon Power e Attack Speed: il modello non sa calcolare quanto valgano potenza delle abilita o cooldown, quindi una build costruita su quelli qui viene sottostimata.</string>
     <string name="language_title">Lingua</string>
     <string name="language_system">Segui il telefono</string>
+    <string name="wiki_total_buffs">Buff</string>
+    <string name="wiki_total_nerfs">Nerf</string>
+    <string name="wiki_total_patches">Patch</string>
 </resources>

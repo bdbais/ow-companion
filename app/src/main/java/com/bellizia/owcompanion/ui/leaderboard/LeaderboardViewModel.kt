@@ -116,13 +116,20 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
             _state.update { current ->
                 current.copy(
                     ultimates = set.ultimates
-                        .filter { (it.damage ?: 0.0) > 0 }
+                        // An ultimate whose wiki figure is not a single-cast total is left
+                        // out rather than ranked on a number that means something else.
+                        .filter { (it.damage ?: 0.0) > 0 && !it.unrankable }
                         .sortedByDescending { it.damage }
                         .mapIndexed { index, ultimate ->
                             UltimateEntry(index + 1, ultimate, set.hero(ultimate.hero))
                         },
-                    ultimatesWithoutDamage = set.ultimates.count { (it.damage ?: 0.0) <= 0 },
+                    ultimatesWithoutDamage = set.ultimates.count {
+                        (it.damage ?: 0.0) <= 0 || it.unrankable
+                    },
                     healing = set.healing
+                        // Weapons only: an ultimate that heals is not competing with a
+                        // primary fire, and one list would say it was.
+                        .filter { it.kind == "weapon" }
                         .mapNotNull { source ->
                             source.healingPerSecond?.let { source to it }
                         }

@@ -29,6 +29,10 @@ data class UltimateSpec(
     val duration: Double? = null,
     val radius: Double? = null,
     val description: String = "",
+    /** True when the figure is a channel total, not a burst - eight seconds on one target. */
+    val sustained: Boolean = false,
+    /** True when the wiki's figure is not a single-cast total and cannot honestly be one. */
+    val unrankable: Boolean = false,
 )
 
 /**
@@ -41,6 +45,10 @@ data class UltimateSpec(
 data class HealingSpec(
     val hero: String,
     val name: String,
+    /** `weapon` or `ultimate`: the two are not comparable and are ranked apart. */
+    val kind: String = "weapon",
+    /** True when the rate is the wiki's own figure rather than one derived here. */
+    val statedHps: Boolean = false,
     val healPerShot: Double? = null,
     val healPerSecond: Double? = null,
     val fireRate: Double? = null,

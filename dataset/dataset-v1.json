@@ -903,7 +903,7 @@
    ],
    "damage": {
     "dpshot": [
-     22.0
+     43.992081583683266
     ],
     "falloff": null
    },
@@ -1072,7 +1072,7 @@
    ],
    "damage": {
     "dpshot": [
-     45.0
+     75.0
     ],
     "falloff": null
    },
@@ -1183,8 +1183,8 @@
    ],
    "damage": {
     "dpshot": [
-     5.0,
-     1.5
+     2.221212121212121,
+     0.6663636363636363
     ],
     "falloff": [
      15.0,
@@ -1604,7 +1604,7 @@
    ],
    "damage": {
     "dpshot": [
-     45.0
+     120.0
     ],
     "falloff": null
    },
@@ -1880,7 +1880,7 @@
    ],
    "damage": {
     "dpshot": [
-     30.0
+     59.940059940059946
     ],
     "falloff": null
    },
@@ -1960,7 +1960,7 @@
    ],
    "damage": {
     "dpshot": [
-     40.0
+     120.0
     ],
     "falloff": null
    },
@@ -2097,8 +2097,8 @@
    ],
    "damage": {
     "dpshot": [
-     7.0,
-     2.1
+     162.504,
+     48.7512
     ],
     "falloff": null
    },
@@ -2182,7 +2182,7 @@
    ],
    "damage": {
     "dpshot": [
-     20.0
+     54.70149253731343
     ],
     "falloff": null
    },
@@ -2444,7 +2444,7 @@
    ],
    "damage": {
     "dpshot": [
-     70.0
+     100.0
     ],
     "falloff": null
    },
@@ -2525,7 +2525,7 @@
    ],
    "damage": {
     "dpshot": [
-     35.0
+     74.85029940119762
     ],
     "falloff": null
    },
@@ -2581,8 +2581,8 @@
    ],
    "damage": {
     "dpshot": [
-     12.0,
-     6.0
+     160.0,
+     80.0
     ],
     "falloff": [
      50.0,
@@ -2696,7 +2696,7 @@
    ],
    "damage": {
     "dpshot": [
-     10.0
+     30.30333333333333
     ],
     "falloff": [
      0.8,
@@ -2806,7 +2806,7 @@
    ],
    "damage": {
     "dpshot": [
-     50.0
+     77.64
     ],
     "falloff": null
    },
@@ -4178,6 +4178,8 @@
    "hero": "Ana",
    "name": "Nano Boost",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 8.0,
    "radius": null,
@@ -4187,6 +4189,8 @@
    "hero": "Anran",
    "name": "Vermillion Ascent",
    "damage": 165.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "165 - 90",
    "duration": 3.0,
    "radius": 2.5,
@@ -4196,6 +4200,8 @@
    "hero": "Ashe",
    "name": "B.O.B.",
    "damage": 120.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "120 (charge) / 17 (arm cannons)",
    "duration": 1.5,
    "radius": null,
@@ -4205,6 +4211,8 @@
    "hero": "Baptiste",
    "name": "Amplification Matrix",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 10.0,
    "radius": null,
@@ -4214,6 +4222,8 @@
    "hero": "Bastion",
    "name": "Configuration: Artillery",
    "damage": 550.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "550 (center) / 250 – 50 (area of effect)",
    "duration": 8.0,
    "radius": 1.0,
@@ -4223,6 +4233,8 @@
    "hero": "Brigitte",
    "name": "Rally",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 10.0,
    "radius": 8.0,
@@ -4232,6 +4244,8 @@
    "hero": "Cassidy",
    "name": "Deadeye",
    "damage": 600.0,
+   "sustained": true,
+   "unrankable": false,
    "detail": "150 per second (during warning) / 300 per second (remaining duration)",
    "duration": 2.0,
    "radius": null,
@@ -4241,6 +4255,8 @@
    "hero": "Domina",
    "name": "Panopticon",
    "damage": 300.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "75 (piercing hit) / 300 - 100 (barrier health-based implosion)",
    "duration": 5.0,
    "radius": null,
@@ -4250,6 +4266,8 @@
    "hero": "Doomfist",
    "name": "Meteor Strike",
    "damage": 300.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "300 (inner sphere) / 100 – 50 (outer sphere)",
    "duration": 4.0,
    "radius": 2.0,
@@ -4259,6 +4277,8 @@
    "hero": "D.Va",
    "name": "Self-Destruct",
    "damage": 1000.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "1000 - 100",
    "duration": 3.0,
    "radius": 6.0,
@@ -4268,6 +4288,8 @@
    "hero": "Echo",
    "name": "Duplicate",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 15.0,
    "radius": null,
@@ -4277,6 +4299,8 @@
    "hero": "Emre",
    "name": "Override Protocol",
    "damage": 175.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "45 (light round direct hit) / 30 - 9 (light round area of effect) / 175 (heavy round direct hit) / 140 - 70 (heavy round area of effect)",
    "duration": 8.8,
    "radius": 1.0,
@@ -4286,6 +4310,8 @@
    "hero": "Freja",
    "name": "Bola Shot",
    "damage": 100.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "25 (direct hit) / 75 (over time) / 100 - 60 (explosion, enemy) / 50 - 30 (explosion, self)",
    "duration": 1.4,
    "radius": 2.0,
@@ -4295,6 +4321,8 @@
    "hero": "Genji",
    "name": "Dragonblade",
    "damage": 110.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "110",
    "duration": 6.0,
    "radius": null,
@@ -4304,6 +4332,8 @@
    "hero": "Hanzo",
    "name": "Dragonstrike",
    "damage": 200.0,
+   "sustained": true,
+   "unrankable": false,
    "detail": "125 (initial arrow) / 200 per second (outer) / 400 per second (inner)",
    "duration": 0.5,
    "radius": 4.0,
@@ -4313,6 +4343,8 @@
    "hero": "Hazard",
    "name": "Downpour",
    "damage": 90.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "90 over 0.3 seconds",
    "duration": 2.8,
    "radius": null,
@@ -4322,6 +4354,8 @@
    "hero": "Illari",
    "name": "Captive Sun",
    "damage": 160.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "5 (direct hit) / 50 (splash) / 160 - 120 (Sunstruck explosion)",
    "duration": 5.2,
    "radius": 10.0,
@@ -4331,6 +4365,8 @@
    "hero": "Jetpack Cat",
    "name": "Catnapper",
    "damage": 25.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "25",
    "duration": 1.5,
    "radius": 6.0,
@@ -4340,6 +4376,8 @@
    "hero": "Junker Queen",
    "name": "Rampage",
    "damage": 90.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "40 impact / 90 over 4.5 seconds",
    "duration": 4.5,
    "radius": 5.0,
@@ -4349,6 +4387,8 @@
    "hero": "Junkrat",
    "name": "RIP-Tire",
    "damage": 600.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "600 - 60",
    "duration": 10.0,
    "radius": 10.0,
@@ -4358,6 +4398,8 @@
    "hero": "Juno",
    "name": "Orbital Ray",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 8.0,
    "radius": 8.0,
@@ -4367,6 +4409,8 @@
    "hero": "Kiriko",
    "name": "Kitsune Rush",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 8.0,
    "radius": null,
@@ -4376,6 +4420,8 @@
    "hero": "Lifeweaver",
    "name": "Tree of Life",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 15.0,
    "radius": 12.0,
@@ -4385,6 +4431,8 @@
    "hero": "Lúcio",
    "name": "Sound Barrier",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 5.0,
    "radius": 30.0,
@@ -4394,6 +4442,8 @@
    "hero": "Mauga",
    "name": "Cage Fight",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 8.0,
    "radius": 7.2,
@@ -4403,6 +4453,8 @@
    "hero": "Mei",
    "name": "Blizzard",
    "damage": 85.0,
+   "sustained": true,
+   "unrankable": false,
    "detail": "20 per second",
    "duration": 4.25,
    "radius": 10.0,
@@ -4412,6 +4464,8 @@
    "hero": "Mercy",
    "name": "Valkyrie",
    "damage": 30.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "Chain-damage boost (30% per target)",
    "duration": 15.0,
    "radius": null,
@@ -4421,6 +4475,8 @@
    "hero": "Mizuki",
    "name": "Kekkai Sanctuary",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 6.0,
    "radius": null,
@@ -4430,6 +4486,8 @@
    "hero": "Moira",
    "name": "Coalescence",
    "damage": 680.0,
+   "sustained": true,
+   "unrankable": false,
    "detail": "85 per second",
    "duration": 8.0,
    "radius": null,
@@ -4439,6 +4497,8 @@
    "hero": "Orisa",
    "name": "Terra Surge",
    "damage": 72.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "18.8/s (periodic damage) / 72 - 500 (release)",
    "duration": 0.75,
    "radius": 10.5,
@@ -4448,6 +4508,8 @@
    "hero": "Pharah",
    "name": "Barrage",
    "damage": 25.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "10 (direct hit) / 25 – 7.5 (splash, enemy) / 12.5 – 3.75 (splash, self)",
    "duration": 2.5,
    "radius": 0.5,
@@ -4457,6 +4519,8 @@
    "hero": "Ramattra",
    "name": "Annihilation",
    "damage": 105.0,
+   "sustained": true,
+   "unrankable": false,
    "detail": "35 per second",
    "duration": 3.0,
    "radius": 13.0,
@@ -4466,6 +4530,8 @@
    "hero": "Reaper",
    "name": "Death Blossom",
    "damage": 185.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "185/s per enemy",
    "duration": 3.0,
    "radius": 8.0,
@@ -4475,6 +4541,8 @@
    "hero": "Reinhardt",
    "name": "Earthshatter",
    "damage": 200.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "50 (base) / 200 (critical)",
    "duration": 3.0,
    "radius": 1.5,
@@ -4483,7 +4551,9 @@
   {
    "hero": "Roadhog",
    "name": "Whole Hog",
-   "damage": 7.0,
+   "damage": null,
+   "sustained": false,
+   "unrankable": true,
    "detail": "7 – 2.1",
    "duration": 7.5,
    "radius": null,
@@ -4493,6 +4563,8 @@
    "hero": "Shion",
    "name": "Satsuriku Spree",
    "damage": 180.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "180 - 90",
    "duration": 6.0,
    "radius": 5.0,
@@ -4502,6 +4574,8 @@
    "hero": "Sierra",
    "name": "Trailblazer",
    "damage": 180.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "180 - 72 (area of effect)",
    "duration": 1.0,
    "radius": 1.0,
@@ -4511,6 +4585,8 @@
    "hero": "Sigma",
    "name": "Gravitic Flux",
    "damage": 50.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "50 (lift) / 50% max HP (slam)",
    "duration": 5.0,
    "radius": 8.0,
@@ -4520,6 +4596,8 @@
    "hero": "Sojourn",
    "name": "Overclock",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 8.0,
    "radius": null,
@@ -4529,6 +4607,8 @@
    "hero": "Soldier: 76",
    "name": "Tactical Visor",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 6.0,
    "radius": null,
@@ -4538,6 +4618,8 @@
    "hero": "Sombra",
    "name": "EMP",
    "damage": 25.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "25% of current health",
    "duration": 8.0,
    "radius": 15.0,
@@ -4547,6 +4629,8 @@
    "hero": "Symmetra",
    "name": "Photon Barrier",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 12.0,
    "radius": null,
@@ -4556,6 +4640,8 @@
    "hero": "Torbjörn",
    "name": "Molten Core",
    "damage": 1045.0,
+   "sustained": true,
+   "unrankable": false,
    "detail": "25 (impact) / 190 per second (pools, base) / +100 (pools, bonus against armor)",
    "duration": 5.5,
    "radius": 2.4,
@@ -4565,6 +4651,8 @@
    "hero": "Tracer",
    "name": "Pulse Bomb",
    "damage": 350.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "5 (stick) / 350 - 70 (explosion, enemy) / 175 - 35 (explosion, self)",
    "duration": 1.0,
    "radius": 2.0,
@@ -4574,6 +4662,8 @@
    "hero": "Vendetta",
    "name": "Sundering Blade",
    "damage": 400.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
    "duration": 1.0,
    "radius": 2.1,
@@ -4583,6 +4673,8 @@
    "hero": "Venture",
    "name": "Tectonic Shock",
    "damage": 130.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "130",
    "duration": 7.0,
    "radius": 25.0,
@@ -4592,6 +4684,8 @@
    "hero": "Widowmaker",
    "name": "Infra-Sight",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 15.0,
    "radius": null,
@@ -4601,6 +4695,8 @@
    "hero": "Winston",
    "name": "Primal Rage",
    "damage": 50.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "50 (melee)",
    "duration": 10.0,
    "radius": null,
@@ -4610,6 +4706,8 @@
    "hero": "Wrecking Ball",
    "name": "Minefield",
    "damage": 165.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "165",
    "duration": 16.0,
    "radius": 1.5,
@@ -4619,6 +4717,8 @@
    "hero": "Wuyang",
    "name": "Tidal Blast",
    "damage": 100.0,
+   "sustained": false,
+   "unrankable": false,
    "detail": "100",
    "duration": 3.5,
    "radius": 7.5,
@@ -4628,6 +4728,8 @@
    "hero": "Zarya",
    "name": "Graviton Surge",
    "damage": 20.0,
+   "sustained": true,
+   "unrankable": false,
    "detail": "5 (impact) / 5 per second (over time)",
    "duration": 4.0,
    "radius": 7.0,
@@ -4637,6 +4739,8 @@
    "hero": "Zenyatta",
    "name": "Transcendence",
    "damage": null,
+   "sustained": false,
+   "unrankable": false,
    "detail": null,
    "duration": 6.0,
    "radius": 10.0,
@@ -4647,241 +4751,289 @@
   {
    "hero": "Ana",
    "name": "Biotic Rifle",
+   "kind": "weapon",
    "healPerShot": 75.0,
-   "healPerSecond": null,
+   "healPerSecond": 93.75,
    "fireRate": 1.25,
    "ammo": 15.0,
    "reloadTime": 1.5,
+   "statedHps": true,
    "detail": "75 over 0.59 seconds"
   },
   {
    "hero": "Ana",
    "name": "Zoom (ADS)",
+   "kind": "weapon",
    "healPerShot": 75.0,
-   "healPerSecond": null,
+   "healPerSecond": 93.75,
    "fireRate": 1.25,
    "ammo": 15.0,
    "reloadTime": 1.5,
+   "statedHps": true,
    "detail": "75 over 0.59 seconds"
   },
   {
    "hero": "Ana",
    "name": "Nano Boost",
+   "kind": "ultimate",
    "healPerShot": 250.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "250"
   },
   {
    "hero": "Baptiste",
    "name": "Biotic Launcher Alt Fire",
-   "healPerShot": 30.0,
-   "healPerSecond": null,
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": 66.66,
    "fireRate": 1.11,
    "ammo": 10.0,
    "reloadTime": 1.5,
+   "statedHps": true,
    "detail": "30 (direct hit) / 60 (splash, ally)"
   },
   {
    "hero": "Doomfist",
    "name": "Meteor Strike",
+   "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 90.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "90 per second (while targeting)"
   },
   {
    "hero": "Illari",
    "name": "Solar Rifle Alt Fire",
+   "kind": "weapon",
    "healPerShot": null,
    "healPerSecond": 115.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": true,
    "detail": "115 per second"
   },
   {
    "hero": "Jetpack Cat",
    "name": "Biotic Pawjectiles",
+   "kind": "weapon",
    "healPerShot": 27.0,
    "healPerSecond": null,
    "fireRate": 4.48,
    "ammo": 24.0,
    "reloadTime": 1.25,
+   "statedHps": false,
    "detail": "27 (per volley)"
   },
   {
    "hero": "Jetpack Cat",
    "name": "Catnapper",
+   "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 30.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "30 per second (self)"
   },
   {
    "hero": "Junker Queen",
    "name": "Rampage",
+   "kind": "ultimate",
    "healPerShot": 225.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "225 over 4.5 seconds"
   },
   {
    "hero": "Juno",
    "name": "Mediblaster",
+   "kind": "weapon",
    "healPerShot": 6.0,
-   "healPerSecond": null,
+   "healPerSecond": 93.02,
    "fireRate": 1.29,
    "ammo": 180.0,
    "reloadTime": 1.5,
+   "statedHps": true,
    "detail": "6 - 1.8 (per round) / 72 - 21.6 (per burst)"
   },
   {
    "hero": "Juno",
    "name": "Orbital Ray",
+   "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 85.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "85 per second"
   },
   {
    "hero": "Kiriko",
    "name": "Healing Ofuda",
+   "kind": "weapon",
    "healPerShot": 12.0,
-   "healPerSecond": null,
+   "healPerSecond": 168.0,
    "fireRate": 6.67,
    "ammo": 10.0,
    "reloadTime": 0.9,
+   "statedHps": true,
    "detail": "12 (per talisman) / 24 (per burst)"
   },
   {
    "hero": "Lifeweaver",
    "name": "Healing Blossom",
+   "kind": "weapon",
    "healPerShot": 90.0,
-   "healPerSecond": null,
+   "healPerSecond": 60.300000000000004,
    "fireRate": 0.67,
    "ammo": 16.0,
    "reloadTime": 1.75,
+   "statedHps": true,
    "detail": "90 over 0.3 seconds (max charge) / 10 over 0.3 seconds (min charge)"
   },
   {
    "hero": "Lifeweaver",
    "name": "Tree of Life",
+   "kind": "ultimate",
    "healPerShot": 150.0,
    "healPerSecond": null,
    "fireRate": 1.0,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "150 (instant) / 90 per pulse"
   },
   {
    "hero": "Mercy",
    "name": "Caduceus Staff",
+   "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 55.0,
+   "healPerSecond": 60.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": true,
    "detail": "55 per second"
   },
   {
    "hero": "Mercy",
    "name": "Valkyrie",
+   "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 65.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "65 per second per target"
   },
   {
    "hero": "Mizuki",
    "name": "Kekkai Sanctuary",
+   "kind": "ultimate",
    "healPerShot": 100.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "100 (instant) / 40 per second"
   },
   {
    "hero": "Moira",
    "name": "Biotic Grasp",
+   "kind": "weapon",
    "healPerShot": null,
    "healPerSecond": 80.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": true,
    "detail": "80 per second (impact) / 17 per second (over time)"
   },
   {
    "hero": "Moira",
    "name": "Biotic Grasp Alt Fire",
+   "kind": "weapon",
    "healPerShot": null,
    "healPerSecond": 30.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "30 per second (self)"
   },
   {
    "hero": "Moira",
    "name": "Coalescence",
+   "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 140.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "140 per second (allies) / 55 per second (self)"
   },
   {
    "hero": "Torbjörn",
    "name": "Forge Hammer",
+   "kind": "weapon",
    "healPerShot": 50.0,
    "healPerSecond": null,
    "fireRate": 1.0,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "50 (to Torbjörn's turret)"
   },
   {
    "hero": "Wuyang",
    "name": "Restorative Stream",
+   "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 20.0,
+   "healPerSecond": 25.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": true,
    "detail": "20 per second (passive) / 55 per second (bonus manual healing)"
   },
   {
    "hero": "Wuyang",
    "name": "Tidal Blast",
+   "kind": "ultimate",
    "healPerShot": 250.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "250"
   },
   {
    "hero": "Zenyatta",
    "name": "Transcendence",
+   "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 400.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
+   "statedHps": false,
    "detail": "400 health per second"
   }
  ],

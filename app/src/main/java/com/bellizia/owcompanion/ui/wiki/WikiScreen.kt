@@ -68,6 +68,9 @@ import com.bellizia.owcompanion.ui.chart.HeroRole
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
 import com.bellizia.owcompanion.ui.theme.StatNumber
 
+private val BuffGreen = Color(0xFF7BC96F)
+private val NerfRed = Color(0xFFE0645C)
+
 @Composable
 fun WikiScreen(
     modifier: Modifier = Modifier,
@@ -300,6 +303,39 @@ private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = 
                     label = hero.heroNumber?.let { stringResource(R.string.wiki_hero_number, it) }
                         ?: stringResource(R.string.wiki_released),
                     value = hero.releaseDate ?: "-",
+                    color = color,
+                )
+            }
+        }
+
+        item {
+            // How often a hero has been strengthened or weakened over their whole life,
+            // counted from the numeric changes the patch notes state.
+            val buffs = hero.patches.sumOf { patch ->
+                patch.stats.count { it.direction == "buff" }
+            }
+            val nerfs = hero.patches.sumOf { patch ->
+                patch.stats.count { it.direction == "nerf" }
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(20.dp),
+            ) {
+                Stat(
+                    label = stringResource(R.string.wiki_total_buffs),
+                    value = buffs.toString(),
+                    color = BuffGreen,
+                )
+                Stat(
+                    label = stringResource(R.string.wiki_total_nerfs),
+                    value = nerfs.toString(),
+                    color = NerfRed,
+                )
+                Stat(
+                    label = stringResource(R.string.wiki_total_patches),
+                    value = hero.patches.size.toString(),
                     color = color,
                 )
             }

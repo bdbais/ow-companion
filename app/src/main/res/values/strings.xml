@@ -173,4 +173,7 @@
     <string name="stadium_footer_v2">Stats are exact for every item. The damage figure is a full simulation, but only Weapon Power and Attack Speed feed into it - the model cannot compute what ability power or cooldowns are worth, so a build that leans on those will be undersold here.</string>
     <string name="language_title">Language</string>
     <string name="language_system">Follow the phone</string>
+    <string name="wiki_total_buffs">Buffs</string>
+    <string name="wiki_total_nerfs">Nerfs</string>
+    <string name="wiki_total_patches">Patches</string>
 </resources>

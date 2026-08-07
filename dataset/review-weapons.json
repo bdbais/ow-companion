@@ -2,6 +2,13 @@
  "items": [
   {
    "hero": "Anran",
+   "weapon": "Zhuque Fans",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet",
+   "raw": "22 (per shot)"
+  },
+  {
+   "hero": "Anran",
    "weapon": "Fan the Flames",
    "field": "beam",
    "reason": "beam weapons need their tick rate filled in by hand",
@@ -13,6 +20,13 @@
    "field": "required",
    "reason": "missing damage",
    "raw": ""
+  },
+  {
+   "hero": "Brigitte",
+   "weapon": "Rocket Flail",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 75 dps: 45.0 -> 75.0 per pellet",
+   "raw": "45"
   },
   {
    "hero": "Domina",
@@ -34,6 +48,13 @@
    "field": "required",
    "reason": "missing damage, fireRate",
    "raw": ""
+  },
+  {
+   "hero": "Doomfist",
+   "weapon": "Hand Cannon",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 73 dps: 5.0 -> 2.2 per pellet",
+   "raw": "5 – 1.5 (per shot)"
   },
   {
    "hero": "Freja",
@@ -69,6 +90,13 @@
    "field": "spread",
    "reason": "several spread values, took the first",
    "raw": "0 degrees (center shot) / 0.3 degrees (close paw shots) / 0.9 degrees (far paw shows)"
+  },
+  {
+   "hero": "Junkrat",
+   "weapon": "Frag Launcher",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 180 dps: 45.0 -> 120.0 per pellet",
+   "raw": "45 (direct hit)"
   },
   {
    "hero": "Kiriko",
@@ -148,6 +176,13 @@
    "raw": ""
   },
   {
+   "hero": "Mizuki",
+   "weapon": "Spirit Glaive",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 86 dps: 30.0 -> 59.9 per pellet",
+   "raw": "30 (base)"
+  },
+  {
    "hero": "Moira",
    "weapon": "Biotic Grasp",
    "field": "beam",
@@ -183,6 +218,13 @@
    "raw": ""
   },
   {
+   "hero": "Pharah",
+   "weapon": "Rocket Launcher",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 150 dps: 40.0 -> 120.0 per pellet",
+   "raw": "40 (direct hit)"
+  },
+  {
    "hero": "Roadhog",
    "weapon": "Scrap Gun Alt Fire",
    "field": "falloff",
@@ -197,11 +239,25 @@
    "raw": "None (pre-detonation)\n24 - 39 meters (post-detonation)"
   },
   {
+   "hero": "Roadhog",
+   "weapon": "Scrap Gun Alt Fire",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 203 dps: 7.0 -> 162.5 per pellet",
+   "raw": "50 (pre-detonation)"
+  },
+  {
    "hero": "Sierra",
    "weapon": "Helix Rifle",
    "field": "spread",
    "reason": "blooming spread needs a spreadingAmmoRange",
    "raw": "3 degrees (max) / 0.5 degrees (min)"
+  },
+  {
+   "hero": "Sigma",
+   "weapon": "Hyperspheres",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 73 dps: 20.0 -> 54.7 per pellet",
+   "raw": "20 (direct hit bonus)"
   },
   {
    "hero": "Sojourn",
@@ -246,6 +302,34 @@
    "raw": ""
   },
   {
+   "hero": "Symmetra",
+   "weapon": "Photon Projector Alt Fire",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 91 dps: 5.0 -> 23.3 per pellet",
+   "raw": "5 - 100 (direct hit, min - max charge)"
+  },
+  {
+   "hero": "Torbjörn",
+   "weapon": "Forge Hammer",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 100 dps: 70.0 -> 100.0 per pellet",
+   "raw": "70"
+  },
+  {
+   "hero": "Venture",
+   "weapon": "Smart Excavator",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 125 dps: 35.0 -> 74.9 per pellet",
+   "raw": "35 (direct hit bonus)"
+  },
+  {
+   "hero": "Widowmaker",
+   "weapon": "Widow's Kiss (ADS)",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 80 dps: 12.0 -> 160.0 per pellet",
+   "raw": "12 - 6 (at 0% power)"
+  },
+  {
    "hero": "Winston",
    "weapon": "Tesla Cannon",
    "field": "damage",
@@ -281,6 +365,13 @@
    "raw": "0.8 - 1.3 meters (splash, uncharged) / 0.8 - 2.7 meters (splash, charged)"
   },
   {
+   "hero": "Wuyang",
+   "weapon": "Xuanwu Staff",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 91 dps: 10.0 -> 30.3 per pellet",
+   "raw": "10 (direct hit bonus, uncharged)"
+  },
+  {
    "hero": "Zarya",
    "weapon": "Particle Cannon",
    "field": "damage",
@@ -307,6 +398,13 @@
    "field": "falloff",
    "reason": "damage is a near/far pair but no falloff range was found",
    "raw": ""
+  },
+  {
+   "hero": "Zenyatta",
+   "weapon": "Orb of Destruction Alt Fire",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 78 dps: 50.0 -> 77.6 per pellet",
+   "raw": "50 per orb"
   }
  ]
 }
