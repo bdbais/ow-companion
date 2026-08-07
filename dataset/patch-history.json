@@ -7373,7 +7373,7 @@
      "changes": [
       {
        "ability": "General",
-       "text": "The empowered punch is no longer consumed when the windup is canceled by using {{Al|name=Seismic Slam}} or {{Al|name=Power Block}}."
+       "text": "The empowered punch is no longer consumed when the windup is canceled by using Seismic Slam or Power Block."
       }
      ],
      "stats": [],
@@ -18387,17 +18387,17 @@
        "text": "Model and hit volume size reduced by 8%"
       },
       {
-       "ability": "Healing Blossom (/{{al|Thorn Volley}})",
+       "ability": "Healing Blossom (/Thorn Volley)",
        "text": "Automatic reload time for the inactive weapon reduced from 2.5 seconds to 2 seconds"
       },
       {
-       "ability": "Healing Blossom (/{{al|Thorn Volley}})",
+       "ability": "Healing Blossom (/Thorn Volley)",
        "text": "Time between weapon swap reduced from 0.25 seconds to 0.125 seconds"
       }
      ],
      "stats": [
       {
-       "ability": "Healing Blossom (/{{al|Thorn Volley}})",
+       "ability": "Healing Blossom (/Thorn Volley)",
        "stat": "Automatic reload time for the inactive weapon",
        "from": 2.5,
        "to": 2.0,
@@ -18405,7 +18405,7 @@
        "direction": "buff"
       },
       {
-       "ability": "Healing Blossom (/{{al|Thorn Volley}})",
+       "ability": "Healing Blossom (/Thorn Volley)",
        "stat": "Time between weapon swap",
        "from": 0.25,
        "to": 0.125,
@@ -24608,7 +24608,7 @@
      "changes": [
       {
        "ability": "GENERAL",
-       "text": "Phase effects (includes {{Al|Fade}}) no longer clear the Zarya Graviton Surge or Sigma Gravitic Flux movement restriction effects"
+       "text": "Phase effects (includes Fade) no longer clear the Zarya Graviton Surge or Sigma Gravitic Flux movement restriction effects"
       },
       {
        "ability": "GENERAL",
@@ -28942,15 +28942,15 @@
      "changes": [
       {
        "ability": "HERO",
-       "text": "Phase effects no longer clear the Zarya {{Al|Graviton Surge}} or Sigma {{Al|Gravitic Flux}} movement restriction effects"
+       "text": "Phase effects no longer clear the Zarya Graviton Surge or Sigma Gravitic Flux movement restriction effects"
       },
       {
        "ability": "HERO",
-       "text": "E.g., Reaper can still use {{Al|Wraith Form}} while in Graviton Surge to prevent damage but can’t walk out of it"
+       "text": "E.g., Reaper can still use Wraith Form while in Graviton Surge to prevent damage but can’t walk out of it"
       },
       {
        "ability": "HERO",
-       "text": "Sombra {{Al|Hack}} effect is now removed by phase effects"
+       "text": "Sombra Hack effect is now removed by phase effects"
       },
       {
        "ability": "HERO",
@@ -29377,7 +29377,7 @@
      "changes": [
       {
        "ability": "Steadfast",
-       "text": "Removed and replaced with {{al|Sub-Role: Stalwart}}. (undocumented)"
+       "text": "Removed and replaced with Sub-Role: Stalwart. (undocumented)"
       }
      ],
      "stats": [],
@@ -33248,15 +33248,15 @@
      "changes": [
       {
        "ability": "HERO",
-       "text": "Phase effects no longer clear the Zarya {{Al|Graviton Surge}} or Sigma {{Al|Gravitic Flux}} movement restriction effects"
+       "text": "Phase effects no longer clear the Zarya Graviton Surge or Sigma Gravitic Flux movement restriction effects"
       },
       {
        "ability": "HERO",
-       "text": "E.g., Reaper can still use {{Al|Wraith Form}} while in Graviton Surge to prevent damage but can’t walk out of it"
+       "text": "E.g., Reaper can still use Wraith Form while in Graviton Surge to prevent damage but can’t walk out of it"
       },
       {
        "ability": "HERO",
-       "text": "Mei {{Al|Cryo-Freeze}} no longer removes Sigma’s Gravitic Flux effect"
+       "text": "Mei Cryo-Freeze no longer removes Sigma’s Gravitic Flux effect"
       },
       {
        "ability": "HERO",
@@ -40523,7 +40523,7 @@
      "changes": [
       {
        "ability": "General",
-       "text": "Reduced recovery times of {{al|Palatine Fang}} overhead, {{al|Whirlwind Dash}}, and {{al|Projected Edge}} by about 15%"
+       "text": "Reduced recovery times of Palatine Fang overhead, Whirlwind Dash, and Projected Edge by about 15%"
       },
       {
        "ability": "Projected Edge",
@@ -43244,11 +43244,11 @@
      "changes": [
       {
        "ability": "General",
-       "text": "Hold the jump input while the {{Ability link|name=Grappling Claw}} is attached to terrain to retract it, pulling yourself towards the anchor point. This action can be rebound in his hero settings."
+       "text": "Hold the jump input while the Grappling Claw is attached to terrain to retract it, pulling yourself towards the anchor point. This action can be rebound in his hero settings."
       },
       {
        "ability": "General",
-       "text": "Now has a one second cooldown if Wrecking Ball never reaches ramming speed before canceling the ability. Interrupting him with {{Ability link|name=Hack}}, Hinder, and stuns will still trigger the full cooldown."
+       "text": "Now has a one second cooldown if Wrecking Ball never reaches ramming speed before canceling the ability. Interrupting him with Hack, Hinder, and stuns will still trigger the full cooldown."
       },
       {
        "ability": "General",
@@ -45051,11 +45051,11 @@
      "changes": [
       {
        "ability": "HERO",
-       "text": "Phase effects no longer clear the Zarya {{Al|Graviton Surge}} or Sigma {{Al|Gravitic Flux}} movement restriction effects"
+       "text": "Phase effects no longer clear the Zarya Graviton Surge or Sigma Gravitic Flux movement restriction effects"
       },
       {
        "ability": "HERO",
-       "text": "E.g., Reaper can still use {{Al|Wraith Form}} while in Graviton Surge to prevent damage but can’t walk out of it"
+       "text": "E.g., Reaper can still use Wraith Form while in Graviton Surge to prevent damage but can’t walk out of it"
       },
       {
        "ability": "HERO",
@@ -45341,7 +45341,7 @@
      "changes": [
       {
        "ability": "General",
-       "text": "Attacks like Reinhardt's {{Al|Fire Strike}} or Hanzo's {{Al|Dragonstrike}} that deal damage to both the barrier and the hero within the barrier, no longer deal damage to the barrier twice"
+       "text": "Attacks like Reinhardt's Fire Strike or Hanzo's Dragonstrike that deal damage to both the barrier and the hero within the barrier, no longer deal damage to the barrier twice"
       }
      ],
      "stats": [],

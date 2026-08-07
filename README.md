@@ -6,7 +6,7 @@ with a **hero wiki** covering portraits, abilities, release dates and the full b
 history of every hero.
 
 Status: **working, and looking for opinions.** All 52 heroes, 123 weapons, ten years of
-balance history, in 16 languages. If you play Overwatch and something here looks wrong,
+balance history, 1268 match-ups, and the live meta, in 16 languages. If you play Overwatch and something here looks wrong,
 please [open an issue](../../issues) — see [CONTRIBUTING.md](CONTRIBUTING.md) for the parts
 we already know are weak.
 
@@ -122,8 +122,11 @@ This is a non-commercial fan project.
 - The simulation model and the 2020 reference dataset derive from
   [yfp/owdmgchart](https://github.com/yfp/owdmgchart), MIT licensed. The vendored copies
   used as a test oracle live in `tools/js_oracle/vendor/`.
-- Hero statistics and balance history are sourced from the
+- Hero statistics, balance history and match-up advice are sourced from the
   [Overwatch Wiki](https://overwatch.fandom.com), licensed CC BY-SA.
+- Ban, pick and win rates are read from Blizzard'''s own
+  [rates page](https://overwatch.blizzard.com/en-us/rates/) when the Meta screen is open.
+  They are shown, never stored.
 - Hero portraits, ability icons, names and artwork are the property of Blizzard
   Entertainment, used under Blizzard's Fan Content Policy. This project is not affiliated
   with or endorsed by Blizzard.

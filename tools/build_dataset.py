@@ -188,6 +188,12 @@ def main() -> int:
             {k: v for k, v in perk.items() if k != "hero"}
         )
     history = {h["hero"]: h for h in read_json(DATASET / "patch-history.json")["heroes"]}
+    matchups_path = DATASET / "matchups.json"
+    matchups = (
+        {h["hero"]: h for h in read_json(matchups_path)["heroes"]}
+        if matchups_path.exists()
+        else {}
+    )
     review_notes = read_json(DATASET / "review-weapons.json")["items"]
 
     overrides_path = DATASET / "overrides.json"
@@ -231,6 +237,7 @@ def main() -> int:
                 "heroNumber": order,
                 "perks": perks_by_hero.get(name, []),
                 "patches": history.get(name, {}).get("patches", []),
+                "matchups": matchups.get(name, {}).get("matchups", []),
             }
         )
 
@@ -327,6 +334,8 @@ def main() -> int:
         f"{len(incomplete)} held back for review"
     )
     print(f"patches: {sum(len(h['patches']) for h in heroes)}")
+    rated = sum(1 for h in heroes for m in h["matchups"] if m.get("stance"))
+    print(f"matchups: {sum(len(h['matchups']) for h in heroes)} ({rated} rated by the wiki)")
     print(f"images:  {copied} ({size_mb:.1f} MB)")
     print(f"dataset: {dataset_mb:.1f} MB -> {DATASET / 'dataset-v1.json'}")
     print(f"review:  {DATASET / 'review.md'}")

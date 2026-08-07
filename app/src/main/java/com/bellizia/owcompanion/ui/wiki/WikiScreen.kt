@@ -30,6 +30,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
@@ -64,6 +66,7 @@ import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
+import com.bellizia.owcompanion.data.model.MatchupWiki
 import com.bellizia.owcompanion.ui.chart.HeroRole
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
 import com.bellizia.owcompanion.ui.theme.StatNumber
@@ -97,7 +100,12 @@ fun WikiScreen(
             VerticalDivider()
             Box(modifier = Modifier.weight(1.2f)) {
                 if (selected != null) {
-                    HeroDetail(hero = selected, onBack = { viewModel.select(null) })
+                    HeroDetail(
+                        hero = selected,
+                        roster = state.heroes,
+                        onOpen = viewModel::select,
+                        onBack = { viewModel.select(null) },
+                    )
                 } else {
                     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         Text(
@@ -114,7 +122,13 @@ fun WikiScreen(
 
     if (selected != null) {
         BackHandler { viewModel.select(null) }
-        HeroDetail(hero = selected, onBack = { viewModel.select(null) }, modifier = modifier)
+        HeroDetail(
+            hero = selected,
+            roster = state.heroes,
+            onOpen = viewModel::select,
+            onBack = { viewModel.select(null) },
+            modifier = modifier,
+        )
     } else {
         HeroGrid(state = state, viewModel = viewModel, modifier = modifier)
     }
@@ -224,7 +238,13 @@ private fun HeroCard(hero: HeroWiki, onClick: () -> Unit) {
 }
 
 @Composable
-private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = Modifier) {
+private fun HeroDetail(
+    hero: HeroWiki,
+    roster: List<HeroWiki>,
+    onOpen: (String) -> Unit,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     val color = parseHeroColor(hero.color, MaterialTheme.colorScheme.primary)
     // Reset when moving to another hero: an ability name means nothing on a different one.
     var abilityFilter by remember(hero.key) { mutableStateOf<String?>(null) }
@@ -433,6 +453,37 @@ private fun HeroDetail(hero: HeroWiki, onBack: () -> Unit, modifier: Modifier = 
             }
         }
 
+        if (hero.matchups.isNotEmpty()) {
+            item {
+                Column(modifier = Modifier.padding(start = 12.dp, top = 16.dp, end = 12.dp)) {
+                    Text(
+                        text = stringResource(R.string.wiki_matchups),
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                    Text(
+                        text = stringResource(R.string.wiki_matchups_note),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 2.dp),
+                    )
+                }
+            }
+            // Hardest first. Someone opening this section is asking "who beats me?", and
+            // the answer should not be twelve scrolls below an alphabetical list.
+            val ordered = hero.matchups.sortedWith(
+                compareBy({ MATCHUP_ORDER.indexOf(it.stance).takeIf { i -> i >= 0 } ?: 99 },
+                    { it.opponent }),
+            )
+            val portraits = roster.associate { it.key to it.portrait }
+            items(ordered, key = { "${it.role}-${it.opponent}" }) { matchup ->
+                MatchupRow(
+                    matchup = matchup,
+                    portrait = portraits[matchup.key],
+                    onOpen = { matchup.key.takeIf(portraits::containsKey)?.let(onOpen) },
+                )
+            }
+        }
+
         item {
             val changes = hero.patches.sumOf { it.changes.size }
             Text(
@@ -496,4 +547,98 @@ private fun WikiChip(label: String, selected: Boolean, onClick: () -> Unit) {
             selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
         ),
     )
+}
+
+/** Hardest matchups first; anything the wiki did not grade sinks below the ones it did. */
+private val MATCHUP_ORDER =
+    listOf("very-weak", "weak", "even", "strong", "very-strong")
+
+/**
+ * The wiki grades a matchup in words - "WEAK MATCHUP", "EXTREME RISK" - so the colour here
+ * is decoration for a label that already says what it means, not the label itself. Rows the
+ * wiki never graded get no colour rather than a neutral one, because "we do not know" and
+ * "it is even" are different answers.
+ */
+private fun stanceColour(stance: String?): Color? = when (stance) {
+    "very-weak" -> Color(0xFFE0645C)
+    "weak" -> Color(0xFFE09A5C)
+    "even" -> Color(0xFF8A94A6)
+    "strong" -> Color(0xFF7BC96F)
+    "very-strong" -> Color(0xFF4CAF50)
+    else -> null
+}
+
+@Composable
+private fun MatchupRow(matchup: MatchupWiki, portrait: String?, onOpen: () -> Unit) {
+    var expanded by remember(matchup.opponent, matchup.role) { mutableStateOf(false) }
+    val hasProse = matchup.matchup.isNotBlank() || matchup.synergy.isNotBlank()
+    val tint = stanceColour(matchup.stance)
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(enabled = hasProse) { expanded = !expanded }
+            .padding(horizontal = 12.dp, vertical = 6.dp),
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            AsyncImage(
+                model = WikiRepository.imageUri(portrait),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(34.dp)
+                    .clip(CircleShape)
+                    .clickable(onClick = onOpen),
+            )
+            Column(modifier = Modifier.weight(1f).padding(start = 10.dp)) {
+                Text(
+                    text = matchup.opponent,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.SemiBold,
+                )
+                val badges = listOfNotNull(
+                    matchup.rating,
+                    matchup.risk?.let { stringResource(R.string.wiki_matchup_risk, it) },
+                ).joinToString("  ·  ")
+                if (badges.isNotEmpty()) {
+                    Text(
+                        text = badges,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = tint ?: MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+            if (hasProse) {
+                Icon(
+                    imageVector = if (expanded) Icons.Filled.ExpandLess
+                    else Icons.Filled.ExpandMore,
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
+
+        if (expanded) {
+            if (matchup.matchup.isNotBlank()) {
+                Text(
+                    text = matchup.matchup,
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.padding(start = 44.dp, top = 6.dp),
+                )
+            }
+            if (matchup.synergy.isNotBlank()) {
+                Text(
+                    text = stringResource(R.string.wiki_matchup_synergy),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(start = 44.dp, top = 8.dp),
+                )
+                Text(
+                    text = matchup.synergy,
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.padding(start = 44.dp, top = 2.dp),
+                )
+            }
+        }
+    }
 }

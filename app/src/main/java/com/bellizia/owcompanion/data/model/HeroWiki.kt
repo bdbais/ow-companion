@@ -30,6 +30,32 @@ data class HeroWiki(
     val heroNumber: Int? = null,
     val perks: List<PerkWiki> = emptyList(),
     val patches: List<PatchEntry> = emptyList(),
+    val matchups: List<MatchupWiki> = emptyList(),
+)
+
+/**
+ * How this hero fares against one particular opponent, in the wiki's words.
+ *
+ * Written from the perspective of playing *as* this hero, which is the wiki's own house
+ * rule, so `matchup` reads as advice rather than a scouting report on the enemy.
+ */
+@Serializable
+data class MatchupWiki(
+    val opponent: String = "",
+    /** The opponent's dataset key, for looking up their portrait. */
+    val key: String = "",
+    /** The opponent's role: `tank`, `damage` or `support`. */
+    val role: String = "",
+    val matchup: String = "",
+    val synergy: String = "",
+    /** The wiki's verbatim grade, e.g. `EVEN -> WEAK MATCHUP`; absent on older pages. */
+    val rating: String? = null,
+    /** Normalised from [rating]: `very-weak`, `weak`, `even`, `strong`, `very-strong`. */
+    val stance: String? = null,
+    /** How urgently to shoot them - a separate axis from who wins the duel. */
+    val priority: String? = null,
+    /** How dangerous engaging is: `low`, `medium`, `high`, `extreme`. */
+    val risk: String? = null,
 )
 
 /**

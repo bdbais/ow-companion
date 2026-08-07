@@ -168,6 +168,29 @@ def clean_value(text: str) -> str:
             break
         text = new
 
+    # {{al|Boosters}} links an ability; {{al|Configuration: Recon|Recon}} and
+    # {{al|name=Stealth|text=Invisibility}} both link one thing while showing another. The
+    # displayed text is what a reader sees, so that is what survives.
+    def ability_link(match: re.Match) -> str:
+        parts = split_params(match.group(1))[1:]
+        shown = ""
+        for part in parts:
+            key, sep, value = part.partition("=")
+            if sep and key.strip().lower() == "text":
+                return value.strip()
+            if not sep:
+                shown = part.strip()
+            elif key.strip().lower() == "name" and not shown:
+                shown = value.strip()
+        return shown
+
+    text = re.sub(
+        r"\{\{\s*(?:al|ability link)\s*(\|(?:[^{}]|\{\{[^{}]*\}\})*)\}\}",
+        ability_link,
+        text,
+        flags=re.IGNORECASE,
+    )
+
     text = re.sub(r"\[\[[^\]|]*\|([^\]]*)\]\]", r"\1", text)
     text = re.sub(r"\[\[([^\]]*)\]\]", r"\1", text)
     text = re.sub(r"'''?", "", text)
