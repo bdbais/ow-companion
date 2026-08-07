@@ -1190,6 +1190,38 @@ TRANSLATIONS: dict[str, dict] = {
         ru="В вашей команде", uk="У вашій команді", sv="I ditt lag",
         ar="في فريقك", pl="W twojej drużynie", tr="Takımındayken",
     ),
+    # --- update banner ----------------------------------------------------------------
+    "update_available": t(
+        es="La versión %1$s ya está disponible", pt="A versão %1$s já saiu",
+        fr="La version %1$s est sortie", de="Version %1$s ist da",
+        ja="バージョン %1$s が公開されました", ko="버전 %1$s이(가) 나왔습니다",
+        zhCN="版本 %1$s 已发布", zhTW="版本 %1$s 已發布",
+        ru="Вышла версия %1$s", uk="Вийшла версія %1$s",
+        sv="Version %1$s har släppts", ar="صدر الإصدار %1$s",
+        pl="Jest już wersja %1$s", tr="Sürüm %1$s çıktı",
+    ),
+    "update_open": t(
+        es="Ver novedades", pt="Ver novidades", fr="Voir les nouveautés",
+        de="Was ist neu", ja="変更点を見る", ko="변경 사항 보기",
+        zhCN="查看更新内容", zhTW="查看更新內容", ru="Что изменилось",
+        uk="Що змінилося", sv="Se vad som ändrats", ar="ما الجديد",
+        pl="Zobacz zmiany", tr="Neler değişti",
+    ),
+    "update_dismiss": t(
+        es="No volver a avisar de esta versión",
+        pt="Não avisar mais sobre esta versão",
+        fr="Ne plus signaler cette version",
+        de="Diese Version nicht mehr erwähnen",
+        ja="このバージョンについて今後知らせない",
+        ko="이 버전은 다시 알리지 않기",
+        zhCN="不再提示此版本", zhTW="不再提示此版本",
+        ru="Больше не напоминать об этой версии",
+        uk="Більше не нагадувати про цю версію",
+        sv="Nämn inte den här versionen igen",
+        ar="لا تذكر هذا الإصدار مرة أخرى",
+        pl="Nie przypominaj o tej wersji",
+        tr="Bu sürümü bir daha hatırlatma",
+    ),
 }
 
 

@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">由维基以使用该英雄的视角撰写。编辑给出评级的对位，原文照录；没有评级的条目本就没有被评过，我们也没有代为推断结论。点击头像可打开该英雄。</string>
     <string name="wiki_matchup_risk">%1$s 风险</string>
     <string name="wiki_matchup_synergy">在你的队伍中</string>
+    <string name="update_available">版本 %1$s 已发布</string>
+    <string name="update_open">查看更新内容</string>
+    <string name="update_dismiss">不再提示此版本</string>
 </resources>

@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">Bu kahramanı oynayan kişinin bakış açısıyla wiki tarafından yazılmıştır. Bir editörün eşleşmeyi derecelendirdiği yerlerde ifadesi olduğu gibi gösterilir; derecesi olmayan satırlar hiç derecelendirilmemiştir ve onlar için bir hüküm çıkarılmamıştır. Bir portreye dokunarak o kahramanı açın.</string>
     <string name="wiki_matchup_risk">%1$s risk</string>
     <string name="wiki_matchup_synergy">Takımındayken</string>
+    <string name="update_available">Sürüm %1$s çıktı</string>
+    <string name="update_open">Neler değişti</string>
+    <string name="update_dismiss">Bu sürümü bir daha hatırlatma</string>
 </resources>

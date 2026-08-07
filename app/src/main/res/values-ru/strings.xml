@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">Написано вики от лица того, кто играет за этого героя. Там, где редактор оценил противостояние, его формулировка приведена дословно; строки без оценки её просто не получили, и вердикт за них не додумывался. Нажмите на портрет, чтобы открыть героя.</string>
     <string name="wiki_matchup_risk">риск %1$s</string>
     <string name="wiki_matchup_synergy">В вашей команде</string>
+    <string name="update_available">Вышла версия %1$s</string>
+    <string name="update_open">Что изменилось</string>
+    <string name="update_dismiss">Больше не напоминать об этой версии</string>
 </resources>

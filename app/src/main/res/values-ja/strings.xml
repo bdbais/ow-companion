@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">このヒーローを使う側の視点でウィキが書いたものです。編集者が相性を評価している場合はその表現をそのまま表示しています。評価のない行はもともと評価されていないだけで、こちらで判定を推測してはいません。ポートレートをタップするとそのヒーローを開きます。</string>
     <string name="wiki_matchup_risk">リスク %1$s</string>
     <string name="wiki_matchup_synergy">味方にいる場合</string>
+    <string name="update_available">バージョン %1$s が公開されました</string>
+    <string name="update_open">変更点を見る</string>
+    <string name="update_dismiss">このバージョンについて今後知らせない</string>
 </resources>

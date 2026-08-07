@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">كُتب في الويكي من منظور من يلعب بهذا البطل. حيث قيّم أحد المحررين المواجهة تُعرض صياغته كما هي؛ أما الصفوف بلا تقييم فلم تُقيَّم أصلًا، ولم يُستنتج لها حكم. اضغط على صورة لفتح صفحة ذلك البطل.</string>
     <string name="wiki_matchup_risk">خطر %1$s</string>
     <string name="wiki_matchup_synergy">في فريقك</string>
+    <string name="update_available">صدر الإصدار %1$s</string>
+    <string name="update_open">ما الجديد</string>
+    <string name="update_dismiss">لا تذكر هذا الإصدار مرة أخرى</string>
 </resources>

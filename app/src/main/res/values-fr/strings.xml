@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">Rédigé par le wiki du point de vue de celui qui joue ce héros. Quand un contributeur a noté le duel, sa formulation est reprise telle quelle ; les lignes sans note n\'en ont jamais reçu, et aucun verdict n\'a été déduit pour elles. Touchez un portrait pour ouvrir ce héros.</string>
     <string name="wiki_matchup_risk">risque %1$s</string>
     <string name="wiki_matchup_synergy">Dans votre équipe</string>
+    <string name="update_available">La version %1$s est sortie</string>
+    <string name="update_open">Voir les nouveautés</string>
+    <string name="update_dismiss">Ne plus signaler cette version</string>
 </resources>

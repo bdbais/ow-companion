@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">Skrivet av wikin ur perspektivet från den som spelar hjälten. Där en redaktör har betygsatt matchupen visas deras formulering ordagrant; rader utan betyg har aldrig fått något, och ingen dom har härletts åt dem. Tryck på ett porträtt för att öppna den hjälten.</string>
     <string name="wiki_matchup_risk">%1$s risk</string>
     <string name="wiki_matchup_synergy">I ditt lag</string>
+    <string name="update_available">Version %1$s har släppts</string>
+    <string name="update_open">Se vad som ändrats</string>
+    <string name="update_dismiss">Nämn inte den här versionen igen</string>
 </resources>

@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">Escrito pela wiki na perspectiva de quem joga com este herói. Onde um editor classificou o confronto, o texto dele aparece como está; as linhas sem classificação nunca receberam uma, e nenhum veredito foi deduzido para elas. Toque em um retrato para abrir aquele herói.</string>
     <string name="wiki_matchup_risk">risco %1$s</string>
     <string name="wiki_matchup_synergy">No seu time</string>
+    <string name="update_available">A versão %1$s já saiu</string>
+    <string name="update_open">Ver novidades</string>
+    <string name="update_dismiss">Não avisar mais sobre esta versão</string>
 </resources>

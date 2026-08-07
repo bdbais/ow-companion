@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">Vom Wiki aus der Sicht dessen geschrieben, der diesen Helden spielt. Wo jemand das Duell bewertet hat, steht seine Formulierung unverändert da; Zeilen ohne Bewertung haben nie eine bekommen, und es wurde kein Urteil für sie abgeleitet. Tippe auf ein Porträt, um den Helden zu öffnen.</string>
     <string name="wiki_matchup_risk">%1$s Risiko</string>
     <string name="wiki_matchup_synergy">Im eigenen Team</string>
+    <string name="update_available">Version %1$s ist da</string>
+    <string name="update_open">Was ist neu</string>
+    <string name="update_dismiss">Diese Version nicht mehr erwähnen</string>
 </resources>

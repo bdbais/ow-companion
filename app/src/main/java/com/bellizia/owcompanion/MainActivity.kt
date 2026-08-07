@@ -1,6 +1,20 @@
 package com.bellizia.owcompanion
 
 import android.os.Bundle
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Surface
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import com.bellizia.owcompanion.data.ReleaseChecker
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.enableEdgeToEdge
@@ -68,6 +82,7 @@ private fun AppRoot() {
     var section by remember { mutableStateOf(Section.Chart) }
 
     Scaffold(
+        topBar = { UpdateBanner() },
         bottomBar = {
             NavigationBar {
                 Section.entries.forEach { entry ->
@@ -110,6 +125,58 @@ private fun AppRoot() {
                 Section.Stadium -> StadiumScreen()
                 Section.Meta -> MetaScreen()
                 Section.About -> AboutScreen()
+            }
+        }
+    }
+}
+
+/**
+ * A one-line offer when a newer build exists, and nothing at all otherwise.
+ *
+ * There is no Play Store behind this app, so a reader who installed months ago has no way of
+ * finding out that a wrong number has since been corrected. The check runs once per launch,
+ * fails silently, and remembers a dismissal so that saying no costs one tap forever rather
+ * than one tap per launch.
+ */
+@Composable
+private fun UpdateBanner() {
+    val context = LocalContext.current
+    var release by remember { mutableStateOf<ReleaseChecker.Release?>(null) }
+
+    LaunchedEffect(Unit) {
+        release = ReleaseChecker(context).newerRelease()
+    }
+
+    val newer = release ?: return
+
+    Surface(color = MaterialTheme.colorScheme.primaryContainer) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .statusBarsPadding()
+                .padding(start = 16.dp, end = 4.dp, top = 4.dp, bottom = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = stringResource(R.string.update_available, newer.version),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                modifier = Modifier.weight(1f),
+            )
+            TextButton(onClick = {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(newer.url))
+                runCatching { context.startActivity(intent) }
+                    .onFailure { if (it !is ActivityNotFoundException) throw it }
+            }) { Text(stringResource(R.string.update_open)) }
+            IconButton(onClick = {
+                ReleaseChecker(context).dismiss(newer.version)
+                release = null
+            }) {
+                Icon(
+                    imageVector = Icons.Filled.Close,
+                    contentDescription = stringResource(R.string.update_dismiss),
+                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
             }
         }
     }

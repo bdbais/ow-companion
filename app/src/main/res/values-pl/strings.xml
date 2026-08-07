@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">Napisane przez wiki z perspektywy grającego tym bohaterem. Tam, gdzie redaktor ocenił starcie, jego sformułowanie podano dosłownie; wiersze bez oceny nigdy jej nie dostały i nie wywnioskowano dla nich werdyktu. Dotknij portretu, aby otworzyć tego bohatera.</string>
     <string name="wiki_matchup_risk">ryzyko %1$s</string>
     <string name="wiki_matchup_synergy">W twojej drużynie</string>
+    <string name="update_available">Jest już wersja %1$s</string>
+    <string name="update_open">Zobacz zmiany</string>
+    <string name="update_dismiss">Nie przypominaj o tej wersji</string>
 </resources>

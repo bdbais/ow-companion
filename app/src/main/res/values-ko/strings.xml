@@ -160,4 +160,7 @@
     <string name="wiki_matchups_note">이 영웅을 플레이하는 입장에서 위키가 작성한 내용입니다. 편집자가 상성을 평가한 경우 그 표현을 그대로 보여줍니다. 평가가 없는 항목은 애초에 평가되지 않은 것이며, 임의로 판정을 추론하지 않았습니다. 초상화를 누르면 해당 영웅이 열립니다.</string>
     <string name="wiki_matchup_risk">위험도 %1$s</string>
     <string name="wiki_matchup_synergy">아군일 때</string>
+    <string name="update_available">버전 %1$s이(가) 나왔습니다</string>
+    <string name="update_open">변경 사항 보기</string>
+    <string name="update_dismiss">이 버전은 다시 알리지 않기</string>
 </resources>

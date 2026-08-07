@@ -214,4 +214,7 @@
     <string name="wiki_matchups_note">Written by the wiki from the perspective of playing this hero. Where an editor graded the matchup, their wording is shown as-is; rows without a grade were never graded, and no verdict has been inferred for them. Tap a portrait to open that hero.</string>
     <string name="wiki_matchup_risk">%1$s risk</string>
     <string name="wiki_matchup_synergy">On your team</string>
+    <string name="update_available">Version %1$s is out</string>
+    <string name="update_open">See what changed</string>
+    <string name="update_dismiss">Do not mention this version again</string>
 </resources>
