@@ -79,6 +79,10 @@ data class MetaUiState(
             MetaInput.entries.firstOrNull { it.value == filters.input }?.labelRes,
             MetaRole.entries.firstOrNull { it.value == filters.role }?.labelRes,
         )
+
+    /** The chosen map, or null while every map is being counted together. */
+    val map: MetaMap?
+        get() = MetaMaps.firstOrNull { it.slug == filters.map }
 }
 
 class MetaViewModel : ViewModel() {
@@ -120,6 +124,9 @@ class MetaViewModel : ViewModel() {
     fun input(input: MetaInput) = refilter { it.copy(input = input.value) }
 
     fun role(role: MetaRole) = refilter { it.copy(role = role.value) }
+
+    /** `null` is every map at once, which is what the rates page calls `all-maps`. */
+    fun map(map: MetaMap?) = refilter { it.copy(map = map?.slug ?: "all-maps") }
 
     private fun refilter(change: (MetaRepository.Filters) -> MetaRepository.Filters) {
         val next = change(_state.value.filters)

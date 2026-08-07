@@ -13,3 +13,8 @@ local.properties
 /tools/__pycache__/
 /tools/.cache/
 /dataset/raw/
+
+# Reference material dropped in by hand: top-down map images from statbanana.com, used as
+# whiteboard backgrounds on one machine. They are someone else's work and tens of megabytes
+# each, so they stay out of a public repository.
+maps/

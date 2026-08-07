@@ -221,4 +221,7 @@
     <string name="chart_section_fire_mode">Fire mode</string>
     <string name="fire_primary">Primary</string>
     <string name="fire_secondary">Secondary</string>
+    <string name="meta_map">Map</string>
+    <string name="meta_map_all">All maps</string>
+    <string name="meta_map_note">Scoped to one map, these are the heroes people actually pick there.</string>
 </resources>

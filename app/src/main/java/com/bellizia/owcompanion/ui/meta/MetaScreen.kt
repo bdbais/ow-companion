@@ -31,7 +31,12 @@ import androidx.compose.material3.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -234,6 +239,10 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
                     )
                 }
             }
+            // Thirty maps will not fit in a chip row, and grouping them by mode is what
+            // makes the list readable - nobody looks for Busan among the escort maps.
+            MapPicker(selected = state.map, onSelect = viewModel::map)
+
             ChipRow(stringResource(R.string.meta_role)) {
                 MetaRole.entries.forEach { role ->
                     FilterChip(
@@ -244,6 +253,65 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun MapPicker(selected: MetaMap?, onSelect: (MetaMap?) -> Unit) {
+    var open by remember { mutableStateOf(false) }
+
+    Text(
+        text = stringResource(R.string.meta_map),
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(top = 8.dp, bottom = 2.dp),
+    )
+    Box {
+        OutlinedButton(onClick = { open = true }) {
+            Text(selected?.label ?: stringResource(R.string.meta_map_all))
+            Icon(
+                imageVector = Icons.Filled.ArrowDropDown,
+                contentDescription = null,
+                modifier = Modifier.padding(start = 4.dp),
+            )
+        }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.meta_map_all)) },
+                onClick = {
+                    onSelect(null)
+                    open = false
+                },
+            )
+            var shown: String? = null
+            MetaMaps.forEach { map ->
+                if (map.mode != shown) {
+                    shown = map.mode
+                    HorizontalDivider()
+                    Text(
+                        text = map.mode.replaceFirstChar(Char::uppercase),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
+                    )
+                }
+                DropdownMenuItem(
+                    text = { Text(map.label) },
+                    onClick = {
+                        onSelect(map)
+                        open = false
+                    },
+                )
+            }
+        }
+    }
+    if (selected != null) {
+        Text(
+            text = stringResource(R.string.meta_map_note),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 2.dp),
+        )
     }
 }
 
