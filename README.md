@@ -1,3 +1,5 @@
+<img src="docs/icon.png" alt="" width="96" align="left" hspace="12" />
+
 # OW Companion
 
 Android app that pairs an interactive **damage chart** — a port of
@@ -130,5 +132,10 @@ This is a non-commercial fan project.
 - Hero portraits, ability icons, names and artwork are the property of Blizzard
   Entertainment, used under Blizzard's Fan Content Policy. This project is not affiliated
   with or endorsed by Blizzard.
+
+The launcher icon is drawn by [tools/make_icon.py](tools/make_icon.py) out of plain rounded
+rectangles and two of the app's own colours. It borrows no artwork, mark or likeness from
+anyone: it is a burst of fire drawn the way the damage chart draws one, four shots climbing,
+the gap where the magazine runs dry, then the first shot of the next.
 
 Application code in this repository is MIT licensed — see [LICENSE](LICENSE).
