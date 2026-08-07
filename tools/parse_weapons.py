@@ -35,10 +35,14 @@ TEMPLATE_NAMES = {"ability_details"}
 # accounting differ enough that a tight bound would cry wolf constantly.
 DPS_TOLERANCE = 1.35
 
-# Section the weapons live in. Abilities and ultimates are parsed separately for the wiki
-# screen; only what a hero holds down the trigger on belongs in the damage chart.
-WEAPON_SECTION = re.compile(r"^===\s*Weapons\s*===\s*$", re.MULTILINE)
-NEXT_SECTION = re.compile(r"^===[^=]", re.MULTILINE)
+# What makes something a weapon is `ability_type = Weapon`, not which heading it was filed
+# under. Reading only the `===Weapons===` section looked equivalent and was not: a hero whose
+# gun changes when they transform has the second gun written up beside the transform, so
+# Bastion's Assault turret and Ramattra's Nemesis form were both missing from the chart.
+#
+# The Stadium section is excluded because those are the same weapons with items applied, and
+# removed abilities because Bastion's old Sentry mode is not a weapon anyone can fire today.
+STADIUM_SECTION = re.compile(r"^==\s*Stadium\s*==\s*$", re.MULTILINE)
 
 
 class Review:
@@ -60,12 +64,9 @@ class Review:
 
 
 def weapon_section(text: str) -> str:
-    match = WEAPON_SECTION.search(text)
-    if not match:
-        return ""
-    rest = text[match.end() :]
-    following = NEXT_SECTION.search(rest)
-    return rest[: following.start()] if following else rest
+    """Everything before the Stadium section, which is where weapon blocks may appear."""
+    match = STADIUM_SECTION.search(text)
+    return text[: match.start()] if match else text
 
 
 def lines_of(value: str) -> list[str]:
@@ -110,6 +111,21 @@ def stated_dps_of(raw: str) -> float | None:
     return first_number(clean_value(raw))
 
 
+OVERALL_DPS = re.compile(r"([\d.]+)\s*overall", re.IGNORECASE)
+
+
+def overall_dps_of(raw: str) -> float | None:
+    """The reload-inclusive rate, where the wiki bothers to state one.
+
+    Written as `136.5 while firing (63.86 overall w/ full reload, 34.78 w/ reload after
+    each shot)`, so the figure wanted is the one labelled `overall`.
+    """
+    if not raw:
+        return None
+    match = OVERALL_DPS.search(clean_value(raw))
+    return float(match.group(1)) if match else None
+
+
 def parse_damage(raw: str, review_add) -> tuple[list[float] | None, bool]:
     """Per-pellet damage, and whether the value needed a judgement call."""
     lines = lines_of(raw)
@@ -133,6 +149,41 @@ def parse_damage(raw: str, review_add) -> tuple[list[float] | None, bool]:
         review_add("damage", "no number found", chosen)
         return None, True
     return [single], len(lines) > 1
+
+
+def parse_reload(raw: str, magazine: float | None, review_add) -> float | None:
+    """How long it takes to get a full magazine back.
+
+    Weapons that load one round at a time are written up in parts - Ashe's is `0.5 seconds
+    (initial animation)`, `+0.25 seconds per bullet`, `3.5 seconds (full reload animation)` -
+    and reading only the first number gives 0.5 s for what is really 3.5 s. On the chart that
+    turned into Ashe emptying twelve rounds and starting again almost immediately, which is
+    what a tester noticed.
+
+    So a line stating the complete figure wins, then initial + per-round times the magazine,
+    then the single number that covers the ordinary case.
+    """
+    lines = lines_of(raw)
+    if not lines:
+        return None
+
+    for line in lines:
+        lowered = line.lower()
+        if "full reload" in lowered or "from empty" in lowered or "full magazine" in lowered:
+            value = first_number(line)
+            if value is not None:
+                return value
+
+    per_round = next((l for l in lines if "per bullet" in l.lower() or "per round" in l.lower()), None)
+    if per_round is not None and magazine:
+        increment = first_number(per_round)
+        initial = first_number(lines[0]) if lines[0] is not per_round else 0.0
+        if increment is not None:
+            return (initial or 0.0) + increment * magazine
+
+    if len(lines) > 1:
+        review_add("reload", "several reload values, took the first", " / ".join(lines))
+    return first_number(lines[0])
 
 
 def parse_spread(raw: str, review_add) -> dict | None:
@@ -189,26 +240,65 @@ def parse_shot_type(params: dict, pellets: float, review_add) -> tuple[str, bool
     return base, False
 
 
+def perk_replacing(params: dict, weapon_names: list[str]) -> str | None:
+    """The weapon this perk swaps out, or None when the block is not a weapon at all.
+
+    Perks are mostly ability tweaks, but a few hand the hero a different gun - Bastion's
+    Lindholm Explosives turns the Assault turret into a shell launcher - and the wiki writes
+    those up with the same damage, rate and projectile fields as any weapon.
+
+    The gate is the wiki's own `dps` field rather than the presence of damage numbers.
+    Plenty of perks quote a damage figure while changing something the chart cannot model:
+    D.Va's Precision Fusion states damage and a rate but only tightens spread for three
+    seconds, and emitting it as a weapon would invent a gun that does not exist.
+    """
+    if "perk" not in clean_value(params.get("ability_type", "")).lower():
+        return None
+    if not params.get("dps") or not params.get("damage") or not params.get("fire_rate"):
+        return None
+
+    # Which weapon it replaces is stated in prose, so it is matched rather than parsed: the
+    # hero's own weapon names are a short, exact list to look for.
+    description = clean_value(params.get("official_description", ""))
+    matches = [w for w in weapon_names if w and w.lower() in description.lower()]
+    return max(matches, key=len) if matches else ""
+
+
 def parse_hero(key: str, name: str, text: str, review: Review) -> list[dict]:
     text = resolve_vars(strip_comments(text))
     section = weapon_section(text)
     if not section:
-        review.add(name, "", "weapons", "no ===Weapons=== section on the page")
+        review.add(name, "", "weapons", "the page has no content before its Stadium section")
         return []
 
+    # Two passes: the weapons themselves, then the perks that replace one, which need the
+    # first list to work out what they are replacing.
+    blocks = [t for t in find_templates(section, TEMPLATE_NAMES) if not t["params"].get("removed")]
+    weapon_names = [
+        clean_value(t["params"].get("ability_name", "")).strip()
+        for t in blocks
+        if "weapon" in clean_value(t["params"].get("ability_type", "")).lower()
+    ]
+
     weapons = []
-    for template in find_templates(section, TEMPLATE_NAMES):
+    for template in blocks:
         params = template["params"]
         weapon_name = clean_value(params.get("ability_name", "")).strip()
         if not weapon_name:
             continue
 
+        ability_type = clean_value(params.get("ability_type", "")).lower()
+        perk_of = None
+        if "weapon" not in ability_type:
+            perk_of = perk_replacing(params, weapon_names)
+            if perk_of is None:
+                continue
+            # "Configuration: Assault (Lindholm Explosives)" says both what it is and what
+            # has to be true for it: the perked gun is not the gun you start the match with.
+            weapon_name = f"{perk_of} ({weapon_name})" if perk_of else weapon_name
+
         def review_add(field: str, reason: str, raw: str = "", _w=weapon_name) -> None:
             review.add(name, _w, field, reason, raw)
-
-        ability_type = clean_value(params.get("ability_type", "")).lower()
-        if "weapon" not in ability_type:
-            continue
 
         pellets = first_number(params.get("pellets", "")) or 1.0
         damage, damage_uncertain = parse_damage(params.get("damage", ""), review_add)
@@ -217,7 +307,7 @@ def parse_hero(key: str, name: str, text: str, review: Review) -> list[dict]:
         fire_rate = first_number(clean_value(params.get("fire_rate", "")))
         ammo = first_number(clean_value(params.get("ammo", "")))
         ammo_drain = first_number(clean_value(params.get("ammo_drain", ""))) or 1.0
-        reload_time = first_number(clean_value(params.get("reload_time", "")))
+        reload_time = parse_reload(params.get("reload_time", ""), ammo, review_add)
         velocity = first_number(clean_value(params.get("pspeed", "")))
         headshot = clean_value(params.get("headshot", "")).strip().lower()
 
@@ -287,11 +377,39 @@ def parse_hero(key: str, name: str, text: str, review: Review) -> list[dict]:
                         lines_of(params.get("damage", ""))[0] if params.get("damage") else "",
                     )
 
+        # The same trick again, this time on the reload. The damage check above compares
+        # against the while-firing rate and so passes happily on a weapon whose reload is
+        # wrong: Ashe's damage was right and her reload was 0.5 s instead of 3.5 s, and
+        # nothing complained. Where the wiki also states an overall figure, it is the one
+        # number that can tell the two apart.
+        overall_dps = overall_dps_of(params.get("dps", ""))
+        if overall_dps and damage and fire_rate and reload_time and ammo and not is_beam:
+            period = 1.0 / fire_rate + reload_time / ammo
+            computed_overall = damage[0] * pellets / period
+            ratio = computed_overall / overall_dps
+            if ratio < 1 / DPS_TOLERANCE or ratio > DPS_TOLERANCE:
+                review_add(
+                    "reload",
+                    f"reload of {reload_time:.2f} s implies {computed_overall:.0f} dps "
+                    f"overall, but the wiki states {overall_dps:.0f}",
+                    lines_of(params.get("reload_time", ""))[0]
+                    if params.get("reload_time")
+                    else "",
+                )
+
         shot_time = (1.0 / fire_rate) if fire_rate else None
         weapons.append(
             {
                 "name": weapon_name,
                 "hero": name,
+                # Set when the weapon only exists once a perk has been picked, so the chart
+                # can say so rather than implying every Bastion fires explosive shells.
+                "perk": clean_value(params.get("ability_name", "")).strip()
+                if perk_of is not None
+                else None,
+                # The gun as it is called without the perk, so a narrow label can show the
+                # weapon on one line and what unlocks it on another.
+                "baseWeapon": perk_of or None,
                 "mousebutton": mousebutton_of(params),
                 "type": weapon_type,
                 "behavior": "standard",
@@ -315,21 +433,58 @@ def parse_hero(key: str, name: str, text: str, review: Review) -> list[dict]:
             }
         )
 
+    infer_mousebuttons(weapons)
+
     if not weapons:
         review.add(name, "", "weapons", "no weapon templates matched in the section")
     return weapons
 
 
 def mousebutton_of(params: dict) -> str | None:
+    """Which mouse button fires this, where the wiki says so.
+
+    Scoping counts as secondary fire rather than a category of its own: Ashe and Widowmaker
+    both aim down sights on the right button, and a reader filtering for secondary fire
+    means "the other thing this gun does".
+    """
     key = clean_value(params.get("key", "")).lower()
     ability_type = clean_value(params.get("ability_type", "")).lower()
     if "secondary" in key or "secondary" in ability_type:
         return "M2"
+    if "ads" in ability_type or "zoom" in ability_type:
+        return "M2"
     if "primary" in key or "primary" in ability_type:
         return "M1"
-    if "ads" in ability_type or "zoom" in ability_type:
-        return "ADS"
     return None
+
+
+def infer_mousebuttons(weapons: list[dict]) -> None:
+    """Fill in the button for one hero's weapons where the wiki left the field out.
+
+    Two thirds of the weapon blocks have no `key` at all, which would make a primary/
+    secondary filter useless. What is missing is almost always the obvious half: a hero with
+    one gun fires it with the left button, and a gun sitting beside something the wiki has
+    already called secondary fire is the primary one. Anything genuinely ambiguous is left
+    unlabelled rather than guessed at.
+    """
+    # A perked gun is fired the same way the gun it replaces is.
+    by_name = {w["name"]: w for w in weapons}
+    for weapon in weapons:
+        base = weapon.get("baseWeapon")
+        if base and not weapon.get("mousebutton"):
+            weapon["mousebutton"] = by_name.get(base, {}).get("mousebutton")
+
+    labelled = {w["mousebutton"] for w in weapons if w.get("mousebutton")}
+    unlabelled = [w for w in weapons if not w.get("mousebutton")]
+
+    for weapon in unlabelled:
+        if weapon["type"] == "melee":
+            continue
+        # Only when nothing else has claimed the left button, so a hero with two unlabelled
+        # guns keeps both blank instead of both being called the primary.
+        if "M1" not in labelled and len([w for w in unlabelled if w["type"] != "melee"]) == 1:
+            weapon["mousebutton"] = "M1"
+            labelled.add("M1")
 
 
 PERK_SECTION = re.compile(r"^==\s*Perks\s*==\s*$", re.MULTILINE)

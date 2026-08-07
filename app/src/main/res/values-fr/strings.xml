@@ -163,4 +163,8 @@
     <string name="update_available">La version %1$s est sortie</string>
     <string name="update_open">Voir les nouveautés</string>
     <string name="update_dismiss">Ne plus signaler cette version</string>
+    <string name="chart_section_fire_mode">Mode de tir</string>
+    <string name="fire_primary">Principal</string>
+    <string name="fire_secondary">Secondaire</string>
+    <string name="chart_with_perk">avec %1$s</string>
 </resources>

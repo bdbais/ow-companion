@@ -142,6 +142,15 @@ def apply_overrides(weapons: list[dict], overrides: dict) -> tuple[list[dict], l
         target["complete"] = True
         target["reviewed"] = True
 
+        # `dpsPeriodAdd` is the reload amortised over the magazine, derived by the parser
+        # from two figures an override is free to replace. Correcting ammo and reload
+        # without redoing it leaves the stale derivation in place and the engine keeps
+        # reporting the while-firing rate: Bastion's Assault turret read 360 dps after
+        # being given a magazine, because its amortised reload was still the parser's zero.
+        if {"ammo", "reloadTime"} & patch.keys() and "dpsPeriodAdd" not in patch:
+            ammo, reload_time = target.get("ammo"), target.get("reloadTime")
+            target["dpsPeriodAdd"] = reload_time / ammo if ammo and reload_time else 0.0
+
     for key in overrides.get("drop", []):
         by_id.pop(key, None)
 

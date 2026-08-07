@@ -3,7 +3,9 @@
   {
    "name": "Biotic Rifle",
    "hero": "Ana",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -29,6 +31,8 @@
   {
    "name": "Zoom (ADS)",
    "hero": "Ana",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
    "behavior": "standard",
@@ -55,6 +59,8 @@
   {
    "name": "Zhuque Fans",
    "hero": "Anran",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -81,6 +87,8 @@
   {
    "name": "Fan the Flames",
    "hero": "Anran",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "beam",
    "behavior": "standard",
@@ -107,7 +115,9 @@
   {
    "name": "The Viper",
    "hero": "Ashe",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
    "pellets": [
@@ -130,15 +140,17 @@
    "fireRate": 3.9,
    "shotTime": 0.25641025641025644,
    "ammo": 12.0,
-   "reloadTime": 0.5,
+   "reloadTime": 3.5,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.25641025641025644,
-   "dpsPeriodAdd": 0.041666666666666664,
+   "dpsPeriodAdd": 0.2916666666666667,
    "complete": true
   },
   {
    "name": "Take Aim (ADS)",
    "hero": "Ashe",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
    "behavior": "standard",
@@ -160,15 +172,17 @@
    "fireRate": 1.52,
    "shotTime": 0.6578947368421053,
    "ammo": 12.0,
-   "reloadTime": 0.5,
+   "reloadTime": 2.9,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.6578947368421053,
-   "dpsPeriodAdd": 0.041666666666666664,
+   "dpsPeriodAdd": 0.24166666666666667,
    "complete": true
   },
   {
    "name": "Biotic Launcher",
    "hero": "Baptiste",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "hitscan shotgun",
    "behavior": "standard",
@@ -199,6 +213,8 @@
   {
    "name": "Biotic Launcher Alt Fire",
    "hero": "Baptiste",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",
@@ -223,6 +239,8 @@
   {
    "name": "Configuration: Recon",
    "hero": "Bastion",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
@@ -251,8 +269,72 @@
    "complete": true
   },
   {
+   "name": "Configuration: Assault",
+   "hero": "Bastion",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0,
+     3.6
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": {
+    "angle": 2.0
+   },
+   "velocity": null,
+   "fireRate": 30.0,
+   "shotTime": 0.03333333333333333,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.03333333333333333,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Configuration: Assault (Lindholm Explosives)",
+   "hero": "Bastion",
+   "perk": "Lindholm Explosives",
+   "baseWeapon": "Configuration: Assault",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     140.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 100.0,
+   "fireRate": 1.33,
+   "shotTime": 0.7518796992481203,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.7518796992481203,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
    "name": "Rocket Flail",
    "hero": "Brigitte",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": null,
    "type": "melee",
    "behavior": "standard",
@@ -279,6 +361,8 @@
   {
    "name": "Peacekeeper",
    "hero": "Cassidy",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
@@ -309,6 +393,8 @@
   {
    "name": "Fan the Hammer",
    "hero": "Cassidy",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
    "behavior": "standard",
@@ -341,7 +427,9 @@
   {
    "name": "Photon Magnum",
    "hero": "Domina",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "beam",
    "behavior": "standard",
    "pellets": [
@@ -365,7 +453,9 @@
   {
    "name": "Hand Cannon",
    "hero": "Doomfist",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
@@ -388,15 +478,17 @@
    "fireRate": 3.0,
    "shotTime": 0.3333333333333333,
    "ammo": 4.0,
-   "reloadTime": 0.4,
+   "reloadTime": 1.6,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.3333333333333333,
-   "dpsPeriodAdd": 0.1,
+   "dpsPeriodAdd": 0.4,
    "complete": true
   },
   {
    "name": "Fusion Cannons",
    "hero": "D.Va",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": null,
    "type": "hitscan shotgun",
    "behavior": "standard",
@@ -429,6 +521,8 @@
   {
    "name": "Light Gun",
    "hero": "D.Va",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": null,
    "type": "linear projectile",
    "behavior": "standard",
@@ -455,7 +549,9 @@
   {
    "name": "Tri-Shot",
    "hero": "Echo",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
@@ -483,6 +579,8 @@
   {
    "name": "Synthetic Burst Rifle",
    "hero": "Emre",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "hitscan shotgun",
    "behavior": "standard",
@@ -515,6 +613,8 @@
   {
    "name": "Synthetic Burst Rifle (ADS)",
    "hero": "Emre",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan shotgun",
    "behavior": "standard",
@@ -545,7 +645,9 @@
   {
    "name": "Revdraw Crossbow",
    "hero": "Freja",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -573,6 +675,8 @@
   {
    "name": "Take Aim",
    "hero": "Freja",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",
@@ -599,6 +703,8 @@
   {
    "name": "Shuriken",
    "hero": "Genji",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
@@ -625,6 +731,8 @@
   {
    "name": "Shuriken Alt Fire",
    "hero": "Genji",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "projectile shotgun",
    "behavior": "standard",
@@ -653,7 +761,9 @@
   {
    "name": "Storm Bow",
    "hero": "Hanzo",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -679,7 +789,9 @@
   {
    "name": "Bonespur",
    "hero": "Hazard",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
@@ -711,6 +823,8 @@
   {
    "name": "Solar Rifle",
    "hero": "Illari",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
@@ -741,6 +855,8 @@
   {
    "name": "Solar Rifle Alt Fire",
    "hero": "Illari",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "beam",
    "behavior": "standard",
@@ -765,6 +881,8 @@
   {
    "name": "Biotic Pawjectiles",
    "hero": "Jetpack Cat",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -793,7 +911,9 @@
   {
    "name": "Scattergun",
    "hero": "Junker Queen",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan shotgun",
    "behavior": "standard",
    "pellets": [
@@ -825,7 +945,9 @@
   {
    "name": "Frag Launcher",
    "hero": "Junkrat",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -851,7 +973,9 @@
   {
    "name": "Mediblaster",
    "hero": "Juno",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan shotgun",
    "behavior": "standard",
    "pellets": [
@@ -883,6 +1007,8 @@
   {
    "name": "Healing Ofuda",
    "hero": "Kiriko",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
@@ -907,6 +1033,8 @@
   {
    "name": "Kunai",
    "hero": "Kiriko",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",
@@ -933,6 +1061,8 @@
   {
    "name": "Healing Blossom",
    "hero": "Lifeweaver",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -957,6 +1087,8 @@
   {
    "name": "Thorn Volley",
    "hero": "Lifeweaver",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "projectile shotgun",
    "behavior": "standard",
@@ -985,7 +1117,9 @@
   {
    "name": "Sonic Amplifier",
    "hero": "Lúcio",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
@@ -1011,6 +1145,8 @@
   {
    "name": "Incendiary Chaingun",
    "hero": "Mauga",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
@@ -1044,6 +1180,8 @@
   {
    "name": "Volatile Chaingun",
    "hero": "Mauga",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
    "behavior": "standard",
@@ -1077,6 +1215,8 @@
   {
    "name": "Endothermic Blaster",
    "hero": "Mei",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "beam",
    "behavior": "standard",
@@ -1103,6 +1243,8 @@
   {
    "name": "Icicle",
    "hero": "Mei",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",
@@ -1129,6 +1271,8 @@
   {
    "name": "Caduceus Staff",
    "hero": "Mercy",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "beam",
    "behavior": "standard",
@@ -1153,6 +1297,8 @@
   {
    "name": "Caduceus Staff Alt Fire",
    "hero": "Mercy",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "beam",
    "behavior": "standard",
@@ -1177,6 +1323,8 @@
   {
    "name": "Caduceus Blaster",
    "hero": "Mercy",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": null,
    "type": "linear projectile",
    "behavior": "standard",
@@ -1203,6 +1351,8 @@
   {
    "name": "Spirit Glaive",
    "hero": "Mizuki",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -1229,6 +1379,8 @@
   {
    "name": "Biotic Grasp",
    "hero": "Moira",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "beam",
    "behavior": "standard",
@@ -1253,6 +1405,8 @@
   {
    "name": "Biotic Grasp Alt Fire",
    "hero": "Moira",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "beam",
    "behavior": "standard",
@@ -1277,7 +1431,9 @@
   {
    "name": "Augmented Fusion Driver",
    "hero": "Orisa",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -1305,7 +1461,9 @@
   {
    "name": "Rocket Launcher",
    "hero": "Pharah",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -1331,6 +1489,8 @@
   {
    "name": "Void Accelerator",
    "hero": "Ramattra",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -1355,9 +1515,39 @@
    "complete": true
   },
   {
+   "name": "Pummel",
+   "hero": "Ramattra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     65.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 105.0,
+   "fireRate": 1.67,
+   "shotTime": 0.5988023952095809,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.5988023952095809,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
    "name": "Hellfire Shotguns",
    "hero": "Reaper",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan shotgun",
    "behavior": "standard",
    "pellets": [
@@ -1389,6 +1579,8 @@
   {
    "name": "Rocket Hammer",
    "hero": "Reinhardt",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": null,
    "type": "melee",
    "behavior": "standard",
@@ -1415,6 +1607,8 @@
   {
    "name": "Scrap Gun",
    "hero": "Roadhog",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
@@ -1447,6 +1641,8 @@
   {
    "name": "Scrap Gun Alt Fire",
    "hero": "Roadhog",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",
@@ -1476,6 +1672,8 @@
   {
    "name": "Kira Pistols",
    "hero": "Shion",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
@@ -1506,6 +1704,8 @@
   {
    "name": "Helix Rifle",
    "hero": "Sierra",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
@@ -1535,7 +1735,9 @@
   {
    "name": "Hyperspheres",
    "hero": "Sigma",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
@@ -1561,6 +1763,8 @@
   {
    "name": "Railgun",
    "hero": "Sojourn",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -1589,6 +1793,8 @@
   {
    "name": "Charged Shot",
    "hero": "Sojourn",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
    "behavior": "standard",
@@ -1619,7 +1825,9 @@
   {
    "name": "Heavy Pulse Rifle",
    "hero": "Soldier: 76",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
    "pellets": [
@@ -1649,7 +1857,9 @@
   {
    "name": "Machine Pistol",
    "hero": "Sombra",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
    "pellets": [
@@ -1681,6 +1891,8 @@
   {
    "name": "Photon Projector",
    "hero": "Symmetra",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "beam",
    "behavior": "standard",
@@ -1705,6 +1917,8 @@
   {
    "name": "Photon Projector Alt Fire",
    "hero": "Symmetra",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",
@@ -1732,6 +1946,8 @@
   {
    "name": "Rivet Gun",
    "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -1758,6 +1974,8 @@
   {
    "name": "Rivet Gun Alt Fire",
    "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "projectile shotgun",
    "behavior": "standard",
@@ -1790,6 +2008,8 @@
   {
    "name": "Forge Hammer",
    "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": null,
    "type": "melee",
    "behavior": "standard",
@@ -1816,7 +2036,9 @@
   {
    "name": "Pulse Pistols",
    "hero": "Tracer",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan shotgun",
    "behavior": "standard",
    "pellets": [
@@ -1848,6 +2070,8 @@
   {
    "name": "Palatine Fang",
    "hero": "Vendetta",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "melee",
    "behavior": "standard",
@@ -1874,7 +2098,9 @@
   {
    "name": "Smart Excavator",
    "hero": "Venture",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -1900,7 +2126,9 @@
   {
    "name": "Widow's Kiss",
    "hero": "Widowmaker",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
    "pellets": [
@@ -1932,6 +2160,8 @@
   {
    "name": "Widow's Kiss (ADS)",
    "hero": "Widowmaker",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
    "behavior": "standard",
@@ -1962,6 +2192,8 @@
   {
    "name": "Tesla Cannon",
    "hero": "Winston",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "beam",
    "behavior": "standard",
@@ -1986,6 +2218,8 @@
   {
    "name": "Tesla Cannon Alt Fire",
    "hero": "Winston",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
    "behavior": "standard",
@@ -2012,7 +2246,9 @@
   {
    "name": "Quad Cannons",
    "hero": "Wrecking Ball",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "hitscan",
    "behavior": "standard",
    "pellets": [
@@ -2044,7 +2280,9 @@
   {
    "name": "Xuanwu Staff",
    "hero": "Wuyang",
-   "mousebutton": null,
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
@@ -2073,6 +2311,8 @@
   {
    "name": "Particle Cannon",
    "hero": "Zarya",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "beam",
    "behavior": "standard",
@@ -2097,6 +2337,8 @@
   {
    "name": "Particle Cannon Alt Fire",
    "hero": "Zarya",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",
@@ -2124,6 +2366,8 @@
   {
    "name": "Orb of Destruction",
    "hero": "Zenyatta",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M1",
    "type": "linear projectile",
    "behavior": "standard",
@@ -2150,6 +2394,8 @@
   {
    "name": "Orb of Destruction Alt Fire",
    "hero": "Zenyatta",
+   "perk": null,
+   "baseWeapon": null,
    "mousebutton": "M2",
    "type": "linear projectile",
    "behavior": "standard",

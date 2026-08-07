@@ -163,4 +163,8 @@
     <string name="update_available">Version %1$s har släppts</string>
     <string name="update_open">Se vad som ändrats</string>
     <string name="update_dismiss">Nämn inte den här versionen igen</string>
+    <string name="chart_section_fire_mode">Eldläge</string>
+    <string name="fire_primary">Primär</string>
+    <string name="fire_secondary">Sekundär</string>
+    <string name="chart_with_perk">med %1$s</string>
 </resources>

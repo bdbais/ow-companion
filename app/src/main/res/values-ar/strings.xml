@@ -163,4 +163,8 @@
     <string name="update_available">صدر الإصدار %1$s</string>
     <string name="update_open">ما الجديد</string>
     <string name="update_dismiss">لا تذكر هذا الإصدار مرة أخرى</string>
+    <string name="chart_section_fire_mode">نمط إطلاق النار</string>
+    <string name="fire_primary">أساسي</string>
+    <string name="fire_secondary">ثانوي</string>
+    <string name="chart_with_perk">مع %1$s</string>
 </resources>

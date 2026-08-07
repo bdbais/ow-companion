@@ -15,11 +15,25 @@
    "raw": ""
   },
   {
+   "hero": "Ashe",
+   "weapon": "Take Aim (ADS)",
+   "field": "reload",
+   "reason": "reload of 2.90 s implies 83 dps overall, but the wiki states 41",
+   "raw": "0.5 seconds (initial animation)"
+  },
+  {
    "hero": "Baptiste",
    "weapon": "Biotic Launcher Alt Fire",
    "field": "required",
    "reason": "missing damage",
    "raw": ""
+  },
+  {
+   "hero": "Bastion",
+   "weapon": "Configuration: Assault (Lindholm Explosives)",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 186 dps: 50.0 -> 140.0 per pellet",
+   "raw": "50 (direct hit bonus)"
   },
   {
    "hero": "Brigitte",
@@ -218,6 +232,13 @@
    "raw": ""
   },
   {
+   "hero": "Orisa",
+   "weapon": "Augmented Fusion Driver",
+   "field": "reload",
+   "reason": "several reload values, took the first",
+   "raw": "3 seconds (cooldown after overheat) / 1.9 seconds (recharge from full heat)"
+  },
+  {
    "hero": "Pharah",
    "weapon": "Rocket Launcher",
    "field": "damage",
@@ -398,6 +419,13 @@
    "field": "falloff",
    "reason": "damage is a near/far pair but no falloff range was found",
    "raw": ""
+  },
+  {
+   "hero": "Zarya",
+   "weapon": "Particle Cannon Alt Fire",
+   "field": "reload",
+   "reason": "reload of 1.50 s implies 54 dps overall, but the wiki states 40",
+   "raw": "1.5 seconds"
   },
   {
    "hero": "Zenyatta",

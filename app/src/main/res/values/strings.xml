@@ -217,4 +217,8 @@
     <string name="update_available">Version %1$s is out</string>
     <string name="update_open">See what changed</string>
     <string name="update_dismiss">Do not mention this version again</string>
+    <string name="chart_with_perk">with %1$s</string>
+    <string name="chart_section_fire_mode">Fire mode</string>
+    <string name="fire_primary">Primary</string>
+    <string name="fire_secondary">Secondary</string>
 </resources>

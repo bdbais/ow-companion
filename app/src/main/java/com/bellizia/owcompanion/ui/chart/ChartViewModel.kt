@@ -79,6 +79,12 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
         )
     }
 
+    fun toggleFireMode(mode: FireMode) = edit { current ->
+        current.copy(
+            fireModes = current.fireModes.narrowOrToggle(mode, FireMode.entries.toSet()),
+        )
+    }
+
     fun setRoles(roles: Set<HeroRole>) = edit { it.copy(roles = roles) }
 
     fun setCategories(categories: Set<WeaponCategory>) = edit { it.copy(categories = categories) }
@@ -136,7 +142,9 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
             .filter { spec ->
                 val role = set.hero(spec.hero)?.role?.let(HeroRole::of)
                 val roleVisible = role == null || role in state.roles
-                roleVisible && WeaponCategory.of(spec).any { it in state.categories }
+                roleVisible &&
+                    WeaponCategory.of(spec).any { it in state.categories } &&
+                    FireMode.of(spec) in state.fireModes
             }
             .map { spec ->
                 async(Dispatchers.Default) {

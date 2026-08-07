@@ -212,6 +212,16 @@ data class WeaponSpec(
     /** `M1` / `M2` when a hero has more than one firing mode. */
     val mousebutton: String? = null,
     /**
+     * The perk that has to be picked for this weapon to exist at all, if any.
+     *
+     * Bastion's Assault turret fires explosive shells only once Lindholm Explosives is
+     * taken, so the row is true of some Bastions and not others - which is worth saying on
+     * the row rather than leaving the reader to infer it from a name in brackets.
+     */
+    val perk: String? = null,
+    /** What the weapon is called without [perk]; null when there is no perk involved. */
+    val baseWeapon: String? = null,
+    /**
      * Space-separated traits, e.g. `hitscan shotgun`, `arc projectile`, `projectile EOT`.
      * Drives falloff, travel time and which damage accounting a weapon gets.
      */

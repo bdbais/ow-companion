@@ -163,4 +163,8 @@
     <string name="update_available">バージョン %1$s が公開されました</string>
     <string name="update_open">変更点を見る</string>
     <string name="update_dismiss">このバージョンについて今後知らせない</string>
+    <string name="chart_section_fire_mode">射撃モード</string>
+    <string name="fire_primary">通常攻撃</string>
+    <string name="fire_secondary">サブ攻撃</string>
+    <string name="chart_with_perk">%1$s あり</string>
 </resources>

@@ -1222,6 +1222,31 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Nie przypominaj o tej wersji",
         tr="Bu sürümü bir daha hatırlatma",
     ),
+    # --- fire mode and perks ----------------------------------------------------------
+    "chart_section_fire_mode": t(
+        es="Modo de disparo", pt="Modo de disparo", fr="Mode de tir", de="Feuermodus",
+        ja="射撃モード", ko="사격 방식", zhCN="开火方式", zhTW="開火方式",
+        ru="Режим огня", uk="Режим вогню", sv="Eldläge", ar="نمط إطلاق النار",
+        pl="Tryb ognia", tr="Ateş modu",
+    ),
+    "fire_primary": t(
+        es="Primario", pt="Primário", fr="Principal", de="Primär",
+        ja="通常攻撃", ko="기본 공격", zhCN="主要攻击", zhTW="主要攻擊",
+        ru="Основной", uk="Основний", sv="Primär", ar="أساسي",
+        pl="Podstawowy", tr="Birincil",
+    ),
+    "fire_secondary": t(
+        es="Secundario", pt="Secundário", fr="Secondaire", de="Sekundär",
+        ja="サブ攻撃", ko="보조 공격", zhCN="次要攻击", zhTW="次要攻擊",
+        ru="Альтернативный", uk="Альтернативний", sv="Sekundär", ar="ثانوي",
+        pl="Dodatkowy", tr="İkincil",
+    ),
+    "chart_with_perk": t(
+        es="con %1$s", pt="com %1$s", fr="avec %1$s", de="mit %1$s",
+        ja="%1$s あり", ko="%1$s 적용", zhCN="搭配 %1$s", zhTW="搭配 %1$s",
+        ru="с %1$s", uk="з %1$s", sv="med %1$s", ar="مع %1$s",
+        pl="z %1$s", tr="%1$s ile",
+    ),
 }
 
 
@@ -1263,6 +1288,24 @@ def main() -> int:
         print(f"  values-{qualifier:<8} {count:>3}/{total_keys} strings ({share:.0f}%)")
 
     print(f"\n{len(LOCALES)} locales generated; missing keys fall back to English.")
+
+    # Italian is hand-written rather than generated, which means it is the one language that
+    # can silently fall behind: a new string appears in English, lands in fourteen locales
+    # from the table above, and is simply absent here. It went forty-five strings behind
+    # before anyone noticed. Nothing is written for it - a machine translation of the
+    # original language would be a step down - but it is counted out loud.
+    hand_written = RES / "values-it" / "strings.xml"
+    if hand_written.exists():
+        english_keys = set(re.findall(r'<string name="([^"]+)"', english))
+        italian_keys = set(
+            re.findall(r'<string name="([^"]+)"', hand_written.read_text(encoding="utf-8"))
+        )
+        # The app's own name is deliberately the same in every language.
+        missing = sorted(english_keys - italian_keys - {"app_name"})
+        if missing:
+            print(f"\nvalues-it is hand-written and is missing {len(missing)} strings:")
+            for key in missing:
+                print(f"    {key}")
     return 0
 
 

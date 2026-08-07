@@ -200,11 +200,12 @@ private data class OpenSections(
     val modifiers: Boolean = true,
     val roles: Boolean = false,
     val categories: Boolean = false,
+    val fireModes: Boolean = false,
 )
 
 private val OpenSectionsSaver = listSaver<OpenSections, Boolean>(
-    save = { listOf(it.sort, it.modifiers, it.roles, it.categories) },
-    restore = { OpenSections(it[0], it[1], it[2], it[3]) },
+    save = { listOf(it.sort, it.modifiers, it.roles, it.categories, it.fireModes) },
+    restore = { OpenSections(it[0], it[1], it[2], it[3], it[4]) },
 )
 
 @Composable
@@ -328,6 +329,28 @@ private fun ControlPanel(
                         label = stringResource(role.labelRes),
                         selected = role in state.roles,
                         onClick = { viewModel.toggleRole(role) },
+                    )
+                }
+            }
+
+            // Next to the weapon-type filter because they answer the same shape of
+            // question: this one is how a reader compares Ashe scoped against Ashe not.
+            val hiddenModes = FireMode.entries.size - state.fireModes.size
+            CollapsibleSection(
+                title = stringResource(R.string.chart_section_fire_mode),
+                summary = if (hiddenModes > 0) {
+                    stringResource(R.string.chart_summary_hidden, hiddenModes)
+                } else {
+                    null
+                },
+                expanded = sections.fireModes,
+                onExpandedChange = { onSectionsChange(sections.copy(fireModes = it)) },
+            ) {
+                FireMode.entries.forEach { mode ->
+                    Chip(
+                        label = stringResource(mode.labelRes),
+                        selected = mode in state.fireModes,
+                        onClick = { viewModel.toggleFireMode(mode) },
                     )
                 }
             }

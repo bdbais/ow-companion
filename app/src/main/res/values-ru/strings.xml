@@ -163,4 +163,8 @@
     <string name="update_available">Вышла версия %1$s</string>
     <string name="update_open">Что изменилось</string>
     <string name="update_dismiss">Больше не напоминать об этой версии</string>
+    <string name="chart_section_fire_mode">Режим огня</string>
+    <string name="fire_primary">Основной</string>
+    <string name="fire_secondary">Альтернативный</string>
+    <string name="chart_with_perk">с %1$s</string>
 </resources>

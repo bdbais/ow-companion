@@ -23,6 +23,8 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.res.stringResource
+import com.bellizia.owcompanion.R
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.sim.Simulator
@@ -98,12 +100,23 @@ fun ChartRowView(
                 )
             }
             Text(
-                text = row.spec.name,
+                text = row.spec.baseWeapon ?: row.spec.name,
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
+            // A perked weapon is true of some players and not others, and the label column
+            // is too narrow to carry that inside the name without eliding it away.
+            row.spec.perk?.let { perk ->
+                Text(
+                    text = stringResource(R.string.chart_with_perk, perk),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = color,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
             Text(
                 text = "${row.train.dps.formatted(1)} dps",
                 style = MaterialTheme.typography.labelMedium,

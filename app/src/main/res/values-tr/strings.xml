@@ -163,4 +163,8 @@
     <string name="update_available">Sürüm %1$s çıktı</string>
     <string name="update_open">Neler değişti</string>
     <string name="update_dismiss">Bu sürümü bir daha hatırlatma</string>
+    <string name="chart_section_fire_mode">Ateş modu</string>
+    <string name="fire_primary">Birincil</string>
+    <string name="fire_secondary">İkincil</string>
+    <string name="chart_with_perk">%1$s ile</string>
 </resources>

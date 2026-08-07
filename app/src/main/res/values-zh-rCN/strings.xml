@@ -163,4 +163,8 @@
     <string name="update_available">版本 %1$s 已发布</string>
     <string name="update_open">查看更新内容</string>
     <string name="update_dismiss">不再提示此版本</string>
+    <string name="chart_section_fire_mode">开火方式</string>
+    <string name="fire_primary">主要攻击</string>
+    <string name="fire_secondary">次要攻击</string>
+    <string name="chart_with_perk">搭配 %1$s</string>
 </resources>

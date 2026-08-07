@@ -9,9 +9,15 @@
     "fireRate = 20, and the magazine is restated in ticks: ammo * 20 / drainPerSecond.",
     "",
     "'drop' removes a weapon entirely. Healing tools deal no damage and do not belong in",
-    "a damage chart; inventing a number for them would be worse than leaving them out."
+    "a damage chart; inventing a number for them would be worse than leaving them out.",
+    "",
+    "Transform weapons: Bastion's Assault turret and Ramattra's Pummel state 'ammo = infinity'",
+    "on the wiki, and they do mean it - neither reloads. What ends them is the form running",
+    "out, and that duration lives on the transform ability rather than on the weapon, so the",
+    "parser cannot see it. Left alone the engine fires them forever and reports 360 dps for a",
+    "gun that is available six seconds in every thirteen. The form is therefore written down",
+    "as a magazine: ammo = rate * duration, reloadTime = cooldown - duration + cast time."
   ],
-
   "drop": [
     "Mercy|Caduceus Staff",
     "Mercy|Caduceus Staff Alt Fire",
@@ -21,18 +27,23 @@
     "Baptiste|Biotic Launcher Alt Fire",
     "Illari|Solar Rifle Alt Fire"
   ],
-
   "weapons": {
     "Symmetra|Photon Projector": {
       "_note": "60/120/180 dps by charge level. Charge time per level is not stated on the wiki; 1.33 s carried over from the owdmgchart reference dataset.",
       "type": "beam",
       "behavior": "photonProjector",
       "damage": {
-        "dpshot": [3.0],
+        "dpshot": [
+          3.0
+        ],
         "falloff": null,
         "maxRange": 12.0,
         "dps": 60.0,
-        "dpsFactors": [1.0, 2.0, 3.0],
+        "dpsFactors": [
+          1.0,
+          2.0,
+          3.0
+        ],
         "levelChargingTime": 1.33
       },
       "spread": null,
@@ -46,11 +57,17 @@
       "dpsPeriodBase": 0.05,
       "dpsPeriodAdd": 0.0075
     },
-
     "Winston|Tesla Cannon": {
       "_note": "70 dps, 120 rounds draining 20/s, 8 m range.",
       "type": "beam",
-      "damage": { "dpshot": [3.5], "falloff": null, "maxRange": 8.0, "dps": 70.0 },
+      "damage": {
+        "dpshot": [
+          3.5
+        ],
+        "falloff": null,
+        "maxRange": 8.0,
+        "dps": 70.0
+      },
       "spread": null,
       "fireRate": 20.0,
       "shotTime": 0.05,
@@ -62,11 +79,16 @@
       "dpsPeriodBase": 0.05,
       "dpsPeriodAdd": 0.0125
     },
-
     "Winston|Tesla Cannon Alt Fire": {
       "_note": "Charged bolt: 60 damage at full charge, 37.5 dps firing continuously, so one shot every 1.6 s.",
       "type": "hitscan",
-      "damage": { "dpshot": [60.0], "falloff": null, "maxRange": 40.0 },
+      "damage": {
+        "dpshot": [
+          60.0
+        ],
+        "falloff": null,
+        "maxRange": 40.0
+      },
       "spread": null,
       "fireRate": 0.625,
       "shotTime": 1.6,
@@ -76,12 +98,18 @@
       "dpsPeriodBase": 1.6,
       "dpsPeriodAdd": 0.15
     },
-
     "Zarya|Particle Cannon": {
       "_note": "95 dps at 0 energy and 175 at 100, so damage scales by 0.842 per full charge.",
       "type": "beam",
       "behavior": "particleCannon",
-      "damage": { "dpshot": [4.75], "falloff": null, "maxRange": 15.0, "dps": 95.0 },
+      "damage": {
+        "dpshot": [
+          4.75
+        ],
+        "falloff": null,
+        "maxRange": 15.0,
+        "dps": 95.0
+      },
       "spread": null,
       "fireRate": 20.0,
       "shotTime": 0.05,
@@ -95,11 +123,17 @@
       "dpsPeriodBase": 0.05,
       "dpsPeriodAdd": 0.015
     },
-
     "Mei|Endothermic Blaster": {
       "_note": "5.5 per tick at 20 ticks/s is the wiki's 110 dps; 140 rounds draining 20/s gives 7 s of fire.",
       "type": "beam",
-      "damage": { "dpshot": [5.5], "falloff": null, "maxRange": 12.0, "dps": 110.0 },
+      "damage": {
+        "dpshot": [
+          5.5
+        ],
+        "falloff": null,
+        "maxRange": 12.0,
+        "dps": 110.0
+      },
       "spread": null,
       "fireRate": 20.0,
       "shotTime": 0.05,
@@ -111,11 +145,17 @@
       "dpsPeriodBase": 0.05,
       "dpsPeriodAdd": 0.0107
     },
-
     "Moira|Biotic Grasp Alt Fire": {
       "_note": "65 dps, no magazine - the resource is her biotic energy, which this model does not track.",
       "type": "beam",
-      "damage": { "dpshot": [3.25], "falloff": null, "maxRange": 20.0, "dps": 65.0 },
+      "damage": {
+        "dpshot": [
+          3.25
+        ],
+        "falloff": null,
+        "maxRange": 20.0,
+        "dps": 65.0
+      },
       "spread": null,
       "fireRate": 20.0,
       "shotTime": 0.05,
@@ -126,12 +166,19 @@
       "dpsPeriodBase": 0.05,
       "dpsPeriodAdd": 0.0
     },
-
     "Anran|Fan the Flames": {
       "_note": "The wiki calls it a beam, but 6 damage per pellet for 36 a shot is a projectile shotgun and behaves like one.",
       "type": "projectile shotgun",
-      "pellets": [6.0],
-      "damage": { "dpshot": [6.0], "falloff": null, "maxRange": 10.0 },
+      "pellets": [
+        6.0
+      ],
+      "damage": {
+        "dpshot": [
+          6.0
+        ],
+        "falloff": null,
+        "maxRange": 10.0
+      },
       "velocity": 90.0,
       "fireRate": 1.66667,
       "shotTime": 0.6,
@@ -141,11 +188,16 @@
       "dpsPeriodBase": 0.6,
       "dpsPeriodAdd": 0.15
     },
-
     "Domina|Photon Magnum": {
       "_note": "Two modes sharing a magazine. Modelled as the hitscan shot: 60 damage, 0.8 s charge, 5 of 100 rounds per shot.",
       "type": "hitscan",
-      "damage": { "dpshot": [60.0], "falloff": null, "maxRange": 25.0 },
+      "damage": {
+        "dpshot": [
+          60.0
+        ],
+        "falloff": null,
+        "maxRange": 25.0
+      },
       "spread": null,
       "fireRate": 1.25,
       "shotTime": 0.8,
@@ -155,11 +207,15 @@
       "dpsPeriodBase": 0.8,
       "dpsPeriodAdd": 0.075
     },
-
     "Freja|Take Aim": {
       "_note": "Single bolt, 0.4 s to fire and a 1.5 s reload after every shot. Only the direct hit is modelled, not the explosion.",
       "type": "linear projectile",
-      "damage": { "dpshot": [35.0], "falloff": null },
+      "damage": {
+        "dpshot": [
+          35.0
+        ],
+        "falloff": null
+      },
       "velocity": 125.0,
       "fireRate": 2.5,
       "shotTime": 0.4,
@@ -169,15 +225,19 @@
       "dpsPeriodBase": 0.4,
       "dpsPeriodAdd": 1.5
     },
-
     "Symmetra|Photon Projector Alt Fire": {
       "_note": "5 to 100 direct damage between minimum and maximum charge, one second to full. The parser read that pair as falloff, which it is not - it is the charge range.",
       "type": "linear projectile",
       "behavior": "chargeScaled",
       "damage": {
-        "dpshot": [5.0],
+        "dpshot": [
+          5.0
+        ],
         "falloff": null,
-        "chargeDamage": [5.0, 100.0],
+        "chargeDamage": [
+          5.0,
+          100.0
+        ],
         "chargeTime": 1.0
       },
       "spread": null,
@@ -190,11 +250,19 @@
       "dpsPeriodBase": 1.25,
       "dpsPeriodAdd": 0.15
     },
-
     "Sojourn|Charged Shot": {
       "_note": "Fully charged railgun shot: 120 falling to 60 between 40 and 60 m, one every 0.64 s. Charge comes from her primary fire, which this model does not track.",
       "type": "hitscan",
-      "damage": { "dpshot": [120.0, 60.0], "falloff": [40.0, 60.0] },
+      "damage": {
+        "dpshot": [
+          120.0,
+          60.0
+        ],
+        "falloff": [
+          40.0,
+          60.0
+        ]
+      },
       "spread": null,
       "fireRate": 1.5625,
       "shotTime": 0.64,
@@ -203,6 +271,21 @@
       "critFactor": 2.0,
       "dpsPeriodBase": 0.64,
       "dpsPeriodAdd": 0.0
+    },
+    "Bastion|Configuration: Assault": {
+      "_note": "Assault lasts 6 s on a 12 s cooldown with 1 + 0.5 s of transform animation, and does not reload. 30 shots/s * 6 s = 180 rounds, then 12 - 6 + 1.5 = 7.5 s before it can fire again.",
+      "ammo": 180.0,
+      "reloadTime": 7.5
+    },
+    "Bastion|Configuration: Assault (Lindholm Explosives)": {
+      "_note": "The same 6 s form as Configuration: Assault, at the perk's slower 1.33 shots/s: 8 shells, then 7.5 s.",
+      "ammo": 8.0,
+      "reloadTime": 7.5
+    },
+    "Ramattra|Pummel": {
+      "_note": "Nemesis Form lasts 8 s and its 8 s cooldown starts when the form ends, plus 0.5 s of recovery. 1.67 shots/s * 8 s = 13 swings, then 8.5 s.",
+      "ammo": 13.0,
+      "reloadTime": 8.5
     }
   }
 }

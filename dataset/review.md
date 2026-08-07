@@ -10,11 +10,13 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 { "weapons": { "Ana|Biotic Rifle": { "fireRate": 1.25, "reviewed": true } } }
 ```
 
-## Field-level warnings on weapons that are otherwise usable (58)
+## Field-level warnings on weapons that are otherwise usable (62)
 
 - **Anran — Zhuque Fans** `damage`: derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet — `22 (per shot)`
 - **Anran — Fan the Flames** `beam`: beam weapons need their tick rate filled in by hand
+- **Ashe — Take Aim (ADS)** `reload`: reload of 2.90 s implies 83 dps overall, but the wiki states 41 — `0.5 seconds (initial animation)`
 - **Baptiste — Biotic Launcher Alt Fire** `required`: missing damage
+- **Bastion — Configuration: Assault (Lindholm Explosives)** `damage`: derived from the wiki's stated 186 dps: 50.0 -> 140.0 per pellet — `50 (direct hit bonus)`
 - **Brigitte — Rocket Flail** `damage`: derived from the wiki's stated 75 dps: 45.0 -> 75.0 per pellet — `45`
 - **Domina — Photon Magnum** `damage`: damage is stated as a rate, not per shot — `60 (over time)`
 - **Domina — Photon Magnum** `beam`: beam weapons need their tick rate filled in by hand
@@ -43,6 +45,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Moira — Biotic Grasp Alt Fire** `damage`: damage is stated as a rate, not per shot — `65 per second`
 - **Moira — Biotic Grasp Alt Fire** `beam`: beam weapons need their tick rate filled in by hand
 - **Moira — Biotic Grasp Alt Fire** `required`: missing damage, fireRate
+- **Orisa — Augmented Fusion Driver** `reload`: several reload values, took the first — `3 seconds (cooldown after overheat) / 1.9 seconds (recharge from full heat)`
 - **Pharah — Rocket Launcher** `damage`: derived from the wiki's stated 150 dps: 40.0 -> 120.0 per pellet — `40 (direct hit)`
 - **Roadhog — Scrap Gun Alt Fire** `falloff`: falloff differs by condition, took the first — `None (pre-detonation) / 24 - 39 meters (post-detonation)`
 - **Roadhog — Scrap Gun Alt Fire** `falloff`: damage is a near/far pair but no falloff range was found — `None (pre-detonation)
@@ -70,6 +73,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Zarya — Particle Cannon** `beam`: beam weapons need their tick rate filled in by hand
 - **Zarya — Particle Cannon** `required`: missing damage, fireRate
 - **Zarya — Particle Cannon Alt Fire** `falloff`: damage is a near/far pair but no falloff range was found
+- **Zarya — Particle Cannon Alt Fire** `reload`: reload of 1.50 s implies 54 dps overall, but the wiki states 40 — `1.5 seconds`
 - **Zenyatta — Orb of Destruction Alt Fire** `damage`: derived from the wiki's stated 78 dps: 50.0 -> 77.6 per pellet — `50 per orb`
 
 ## Hero colours derived from a portrait (faces skew these towards skin tone) (20)

@@ -28,6 +28,27 @@ enum class WeaponCategory(@StringRes val labelRes: Int) {
     }
 }
 
+/**
+ * Which mouse button fires a weapon.
+ *
+ * A hero with two guns wants comparing one at a time - Ashe scoped against Ashe hip-firing -
+ * and without this the only way to do that is to read past every other row.
+ */
+enum class FireMode(@StringRes val labelRes: Int) {
+    Primary(R.string.fire_primary),
+    Secondary(R.string.fire_secondary);
+
+    companion object {
+        /**
+         * The wiki labels two thirds of the weapons and leaves the rest blank. What it
+         * leaves blank is melee and transform weapons, every one of which is swung or fired
+         * on the left button, so an unlabelled weapon is a primary one.
+         */
+        fun of(spec: WeaponSpec): FireMode =
+            if (spec.mousebutton == "M2") Secondary else Primary
+    }
+}
+
 enum class HeroRole(@StringRes val labelRes: Int, vararg val keys: String) {
     Tank(R.string.role_tank, "tank"),
     Damage(R.string.role_damage, "damage"),
@@ -68,6 +89,7 @@ data class ChartUiState(
     val modifiers: Modifiers = Modifiers.NONE,
     val roles: Set<HeroRole> = HeroRole.entries.toSet(),
     val categories: Set<WeaponCategory> = WeaponCategory.entries.toSet(),
+    val fireModes: Set<FireMode> = FireMode.entries.toSet(),
     val sortOrder: SortOrder = SortOrder.Dps,
     /** Zarya's charge, 0-100. Only her Particle Cannon reads it. */
     val energy: Float = 0f,
