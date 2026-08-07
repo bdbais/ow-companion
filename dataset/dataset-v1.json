@@ -10983,7 +10983,7 @@
        "from": 60.0,
        "to": 40.0,
        "unit": null,
-       "direction": "buff"
+       "direction": "nerf"
       },
       {
        "ability": "General",
@@ -11338,7 +11338,7 @@
        "from": 0.5,
        "to": 0.75,
        "unit": null,
-       "direction": "nerf"
+       "direction": "buff"
       }
      ],
      "comments": [
@@ -21412,7 +21412,7 @@
        "from": 1.5,
        "to": 2.0,
        "unit": null,
-       "direction": "nerf"
+       "direction": "buff"
       }
      ],
      "comments": []
@@ -52659,7 +52659,7 @@
        "from": 33.0,
        "to": 50.0,
        "unit": "%",
-       "direction": "nerf"
+       "direction": "buff"
       }
      ],
      "comments": [

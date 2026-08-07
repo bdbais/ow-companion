@@ -155,11 +155,30 @@ def parse_body(body: str) -> list[dict]:
     return [g for g in groups if g["changes"]]
 
 
+# Words that turn a lower-is-better stat back around. A cooldown going up is a nerf, but a
+# cooldown *refund* going up is a gift: the stat names the relief, not the cost.
+INVERTING = (
+    "refund",
+    "reduction",
+    "reduced by",
+    "returned",
+    "restored",
+    "discount",
+    "saved",
+)
+
+# Direction is a heuristic over prose and will never be perfect. "Shots until max spread
+# reduction" reads as relief but fewer shots is the good outcome; a phrase like that comes
+# out wrong. Wrong badges are worth reporting - see CONTRIBUTING.md.
+
+
 def classify(stat: str, before: float, after: float) -> str:
     if after == before:
         return "neutral"
     lowered = stat.lower()
     lower_is_better = any(token in lowered for token in LOWER_IS_BETTER)
+    if lower_is_better and any(token in lowered for token in INVERTING):
+        lower_is_better = False
     went_up = after > before
     if lower_is_better:
         return "nerf" if went_up else "buff"
