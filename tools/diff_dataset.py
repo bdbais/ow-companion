@@ -136,7 +136,14 @@ def main() -> int:
     lines = compare(load(Path(args[0])), load(Path(args[1])))
 
     if not lines:
-        print("No change." if not markdown else "The regenerated dataset is identical.")
+        # Deliberately specific: this compares weapons, ultimates, healing, hero stats and
+        # the patch count. Match-ups, perks and the wiki prose are not read here, so saying
+        # "identical" flatly would claim more than was checked.
+        print(
+            "No change."
+            if not markdown
+            else "No change to weapons, ultimates, healing, hero stats or patch counts."
+        )
         return 0
 
     if markdown:

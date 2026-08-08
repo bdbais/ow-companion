@@ -53,15 +53,27 @@ jobs:
         id: describe
         run: |
           set -euo pipefail
-          python tools/diff_dataset.py \
-            "${RUNNER_TEMP}/before.json" dataset/dataset-v1.json --markdown \
-            > "${RUNNER_TEMP}/summary.md"
-          cat "${RUNNER_TEMP}/summary.md"
-          if git diff --quiet && git diff --quiet --cached; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-          else
+
+          # dataset/roster.json records each wiki page's byte size, which moves whenever an
+          # editor fixes a typo. Judging by it would open a pull request every week saying
+          # nothing. A genuinely new hero still shows up, through the dataset itself.
+          if git status --porcelain -- . ':(exclude)dataset/roster.json' | grep -q .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
+
+          {
+            python tools/diff_dataset.py \
+              "${RUNNER_TEMP}/before.json" dataset/dataset-v1.json --markdown
+            echo
+            echo "Files touched:"
+            echo
+            echo '```'
+            git status --porcelain -- . ':(exclude)dataset/roster.json'
+            echo '```'
+          } > "${RUNNER_TEMP}/summary.md"
+          cat "${RUNNER_TEMP}/summary.md"
 
       - name: Say so when nothing moved
         if: steps.describe.outputs.changed == 'false'
@@ -96,10 +108,26 @@ jobs:
           if [ -n "$existing" ]; then
             gh pr edit "$existing" --body-file "${RUNNER_TEMP}/body.md"
             echo "Updated pull request #${existing}."
-          else
-            gh pr create \
+          elif gh pr create \
               --base master \
               --head "$branch" \
               --title "Dataset refresh, $(date -u +%Y-%m-%d)" \
-              --body-file "${RUNNER_TEMP}/body.md"
+              --body-file "${RUNNER_TEMP}/body.md"; then
+            echo "Opened a pull request."
+          else
+            # Opening the pull request needs Settings -> Actions -> General -> "Allow GitHub
+            # Actions to create and approve pull requests". Without it the branch is still
+            # pushed and reviewable, so the run reports rather than fails.
+            {
+              echo "### Dataset refresh, $(date -u +%Y-%m-%d)"
+              echo
+              echo "The branch \`${branch}\` was pushed, but this repository does not let"
+              echo "Actions open pull requests. Enable it under **Settings -> Actions ->"
+              echo "General -> Workflow permissions**, or open the pull request by hand:"
+              echo
+              echo "<${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/master...${branch}?expand=1>"
+              echo
+              cat "${RUNNER_TEMP}/body.md"
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "Branch pushed; pull request not permitted. See the run summary."
           fi
