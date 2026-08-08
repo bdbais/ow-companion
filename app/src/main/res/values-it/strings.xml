@@ -258,4 +258,16 @@
     <string name="wiki_combo_total">Totale, in circa %1$.1f s di lancio</string>
     <string name="wiki_combo_per_second">%1$s, un secondo</string>
     <string name="rank_combos">Combo</string>
+    <string name="tab_board">Lavagna</string>
+    <string name="board_frame">t%1$d</string>
+    <string name="board_add_frame">Aggiungi una fase</string>
+    <string name="board_remove_frame">Rimuovi questa fase</string>
+    <string name="board_caption_hint">Cosa succede in questa fase</string>
+    <string name="board_side_ours">Noi</string>
+    <string name="board_side_theirs">Loro</string>
+    <string name="board_background">Sfondo</string>
+    <string name="board_tap_to_add">Tocca un eroe per piazzarlo. Trascina una pedina per spostarla, tienila premuta per rimuoverla.</string>
+    <string name="board_export_pdf">Esporta in PDF</string>
+    <string name="board_export_video">Esporta come video</string>
+    <string name="board_reset_zoom">Adatta</string>
 </resources>

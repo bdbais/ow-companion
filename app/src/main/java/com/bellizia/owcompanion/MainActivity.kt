@@ -1,5 +1,6 @@
 package com.bellizia.owcompanion
 
+import android.content.Context
 import android.os.Bundle
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -25,6 +26,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BarChart
+import androidx.compose.material.icons.filled.Dashboard
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.Info
@@ -47,6 +49,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import com.bellizia.owcompanion.ui.about.AboutScreen
+import com.bellizia.owcompanion.ui.board.BoardScreen
 import com.bellizia.owcompanion.ui.chart.ChartScreen
 import com.bellizia.owcompanion.ui.custom.CustomScreen
 import com.bellizia.owcompanion.ui.stadium.StadiumScreen
@@ -73,13 +76,36 @@ private enum class Section(val labelRes: Int) {
     Wiki(R.string.tab_wiki),
     Custom(R.string.tab_custom),
     Stadium(R.string.tab_stadium),
+    Board(R.string.tab_board),
     Meta(R.string.tab_meta),
     About(R.string.tab_about),
 }
 
+/**
+ * Where the app opens: wherever it was last closed.
+ *
+ * Someone who spends a session on the board does not want to start on the chart every time,
+ * and the tab you were on is the cheapest possible statement of what you came for.
+ */
+private const val PREFS = "app"
+private const val KEY_SECTION = "last_section"
+
 @Composable
 private fun AppRoot() {
-    var section by remember { mutableStateOf(Section.Chart) }
+    val context = LocalContext.current
+    val prefs = remember { context.getSharedPreferences(PREFS, Context.MODE_PRIVATE) }
+    var section by remember {
+        mutableStateOf(
+            // A tab that no longer exists - after an update that removed one - falls back
+            // rather than crashing.
+            runCatching { Section.valueOf(prefs.getString(KEY_SECTION, "").orEmpty()) }
+                .getOrDefault(Section.Chart),
+        )
+    }
+
+    LaunchedEffect(section) {
+        prefs.edit().putString(KEY_SECTION, section.name).apply()
+    }
 
     Scaffold(
         topBar = { UpdateBanner() },
@@ -97,6 +123,7 @@ private fun AppRoot() {
                                     Section.Wiki -> Icons.Filled.Groups
                                     Section.Custom -> Icons.Filled.Science
                                     Section.Stadium -> Icons.Filled.Stadium
+                                    Section.Board -> Icons.Filled.Dashboard
                                     Section.Meta -> Icons.Filled.Whatshot
                                     Section.About -> Icons.Filled.Info
                                 },
@@ -123,6 +150,7 @@ private fun AppRoot() {
                 Section.Wiki -> WikiScreen()
                 Section.Custom -> CustomScreen()
                 Section.Stadium -> StadiumScreen()
+                Section.Board -> BoardScreen()
                 Section.Meta -> MetaTab()
                 Section.About -> AboutScreen()
             }

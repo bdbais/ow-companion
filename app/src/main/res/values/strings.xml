@@ -258,4 +258,17 @@
     <string name="wiki_combo_total">Total, over about %1$.1f s of casting</string>
     <string name="rank_combos">Combos</string>
     <string name="rank_combos_note">The whole opening each hero has on one target: every ability once, a melee, then the hardest single shot — one second for a beam. Best case, assuming everything lands and nothing repeats.</string>
+    <!-- Tactics board -->
+    <string name="tab_board">Board</string>
+    <string name="board_frame">t%1$d</string>
+    <string name="board_add_frame">Add a phase</string>
+    <string name="board_remove_frame">Remove this phase</string>
+    <string name="board_caption_hint">What happens in this phase</string>
+    <string name="board_side_ours">Us</string>
+    <string name="board_side_theirs">Them</string>
+    <string name="board_background">Background</string>
+    <string name="board_tap_to_add">Tap a hero to place them. Drag a token to move it, long press to remove.</string>
+    <string name="board_export_pdf">Export as a PDF</string>
+    <string name="board_export_video">Export as a video</string>
+    <string name="board_reset_zoom">Fit</string>
 </resources>

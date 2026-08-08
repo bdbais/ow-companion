@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Exports live in the cache and are handed to other apps by content URI, so nothing is
+     written where another app could read it without being given it. -->
+<paths>
+    <cache-path name="boards" path="boards/" />
+</paths>
