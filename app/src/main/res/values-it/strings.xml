@@ -272,7 +272,7 @@
     <string name="board_reset_zoom">Adatta</string>
     <string name="board_tool_move">Sposta</string>
     <string name="board_tool_arrow">Freccia</string>
-    <string name="board_undo_arrow">Annulla l'ultima freccia</string>
+    <string name="board_undo_arrow">Annulla l\'ultima freccia</string>
     <string name="board_name_hint">Dai un nome al piano</string>
     <string name="board_save">Salva</string>
     <string name="board_delete_saved">Elimina questo piano</string>
