@@ -117,6 +117,14 @@ Regenerate the golden values the engine is tested against (requires Node):
 node tools/js_oracle/generate_golden.js
 ```
 
+## Thanks
+
+**BYZ** and **MrStonestar** played with this and reported what was wrong. Bastion stuck in
+Recon mode, Ashe reloading twelve rounds in half a second, Symmetra's and Torbjörn's turrets
+missing from the chart entirely, quick melee appearing to do no damage at all — each of those
+was a real defect found by someone using the app rather than building it. Several numbers in
+here are right because they said so.
+
 ## Attribution and licensing
 
 This is a non-commercial fan project.

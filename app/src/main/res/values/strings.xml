@@ -250,4 +250,6 @@
     <string name="player_line">%1$d games  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Career profiles come from Blizzard through the OverFast API. Only the BattleTag you pick is stored, and only on this phone.</string>
     <string name="chart_out_of_range">out of range</string>
+    <string name="about_thanks_title">Thanks</string>
+    <string name="about_thanks">BYZ and MrStonestar played with this and reported what was wrong: Bastion stuck in Recon, Ashe reloading twelve rounds in half a second, the turrets that were missing, and a good deal more. Several numbers in this app are right because they said so.</string>
 </resources>

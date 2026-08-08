@@ -107,6 +107,10 @@ fun AboutScreen(
             Paragraph(R.string.about_data_owdmgchart)
         }
 
+        Section(R.string.about_thanks_title) {
+            Paragraph(R.string.about_thanks)
+        }
+
         Section(R.string.about_art_title) {
             Paragraph(R.string.about_art)
         }
