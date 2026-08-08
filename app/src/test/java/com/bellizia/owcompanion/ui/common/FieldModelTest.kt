@@ -58,13 +58,53 @@ class FieldModelTest {
         repeat((seconds * 60).toInt()) { model.step(controls, 1f / 60f) }
     }
 
+    /**
+     * Fire, and slide away from the nearest thing coming at her.
+     *
+     * Crude, but it is the difference between testing the game and testing a stationary
+     * target: on foot a single hit costs a life, so a still pilot proves nothing.
+     */
+    private fun dodging(model: FieldModel): Controls {
+        val incoming = model.motes
+            .filter { it.kind == Trace.Incoming && it.y < model.ownY && it.vy > 0f }
+            .minByOrNull { kotlin.math.abs(it.x - model.ownX) }
+
+        // Step aside from anything about to arrive; otherwise line up on something to shoot.
+        val dx = if (incoming != null && kotlin.math.abs(incoming.x - model.ownX) < 9f) {
+            if (incoming.x > model.ownX) -1f else 1f
+        } else {
+            val target = model.markers.minByOrNull { kotlin.math.abs(it.x - model.ownX) }
+            when {
+                target == null -> 0f
+                target.x > model.ownX + 1f -> 1f
+                target.x < model.ownX - 1f -> -1f
+                else -> 0f
+            }
+        }
+        return Controls(dx = dx, primary = true)
+    }
+
+    /** A field stepped forward to the moment the suit gives out. */
+    private fun ejecting(seed: Long): FieldModel {
+        val model = FieldModel(seed = seed)
+        var frames = 0
+        while (model.form != Form.Ejecting && frames < 60 * 200) {
+            model.step(Controls(), 1f / 60f)
+            frames += 1
+        }
+        check(model.form == Form.Ejecting) { "the suit never gave out" }
+        return model
+    }
+
     @Test
-    fun `it starts alive, on the first level, with nothing scored`() {
+    fun `it starts suited, on the first level, with nothing scored`() {
         val model = FieldModel(seed = 1)
         assertEquals(Stage.Running, model.stage)
+        assertEquals(Form.Suit, model.form)
         assertEquals(1, model.tier)
         assertEquals(0, model.tally)
-        assertEquals(model.maxHealth, model.health)
+        assertEquals(model.maxIntegrity, model.integrity)
+        assertEquals(3, model.lives)
     }
 
     @Test
@@ -130,18 +170,105 @@ class FieldModelTest {
     }
 
     @Test
-    fun `running out of health ends it`() {
+    fun `a spent suit opens the eject window rather than ending the run`() {
         val model = FieldModel(seed = 7)
-        // Sit still and let everything through; the floor takes a life at a time.
-        run(model, 120f)
+        // Sit still until the suit gives out. Nothing has been lost yet at that point.
+        var frames = 0
+        while (model.form != Form.Ejecting && frames < 60 * 200) {
+            model.step(Controls(), 1f / 60f)
+            frames += 1
+        }
+        assertEquals(Form.Ejecting, model.form)
+        assertEquals(0, model.integrity)
+        assertEquals("the life is only spent when the window closes", 3, model.lives)
+        assertTrue(model.ejectIn > 0f)
+    }
+
+    @Test
+    fun `taking the window blows the field up and costs nothing`() {
+        val model = ejecting(seed = 11)
+        // Wait for something to be on the field worth taking with her.
+        assertTrue(model.markers.isNotEmpty())
+        val livesBefore = model.lives
+
+        model.step(Controls(charge = true), 1f / 60f)
+
+        assertEquals(Form.Pilot, model.form)
+        assertEquals("no life is spent when the window is taken", livesBefore, model.lives)
+        assertTrue("the field is cleared", model.markers.none { !it.heavy })
+        assertTrue("incoming fire is swept away", model.motes.none { it.kind == Trace.Incoming })
+    }
+
+    @Test
+    fun `letting the window close costs a life`() {
+        val model = ejecting(seed = 12)
+        val livesBefore = model.lives
+
+        run(model, 1.5f)
+
+        assertEquals(Form.Pilot, model.form)
+        assertEquals(livesBefore - 1, model.lives)
+    }
+
+    @Test
+    fun `on foot she has the pistol but not the missiles`() {
+        val model = ejecting(seed = 13)
+        run(model, 1.5f)
+        assertEquals(Form.Pilot, model.form)
+
+        val before = model.motes.count { it.kind == Trace.Secondary }
+        run(model, 0.5f, Controls(primary = true, secondary = true))
+        assertTrue("the pistol fires", model.motes.any { it.kind == Trace.Primary })
+        assertEquals("the missiles do not", before, model.motes.count { it.kind == Trace.Secondary })
+    }
+
+    @Test
+    fun `landing hits on foot fills the meter`() {
+        val model = ejecting(seed = 14)
+        run(model, 1.5f)
+        assertEquals(Form.Pilot, model.form)
+        assertEquals(0f, model.charge, 0.0001f)
+
+        var frames = 0
+        while (model.charge == 0f && model.stage == Stage.Running && frames < 60 * 30) {
+            model.step(dodging(model), 1f / 60f)
+            frames += 1
+        }
+        assertTrue("the pistol charges the meter", model.charge > 0f)
+    }
+
+    @Test
+    fun `a full meter on foot buys a new suit`() {
+        // Getting back in is meant to be hard, and a stationary pilot never manages it, so
+        // this plays several fixed seeds and asks that the way back exists at all.
+        val recovered = (1L..12L).count { seed ->
+            val model = ejecting(seed = seed)
+            run(model, 1.5f)
+            if (model.form != Form.Pilot) return@count false
+
+            var frames = 0
+            while (model.form == Form.Pilot && model.stage == Stage.Running && frames < 60 * 90) {
+                val meterFull = model.charge >= 1f
+                model.step(dodging(model).copy(charge = meterFull), 1f / 60f)
+                frames += 1
+            }
+            model.form == Form.Suit && model.integrity == model.maxIntegrity
+        }
+        assertTrue("a pilot should be able to earn a suit back", recovered > 0)
+    }
+
+    @Test
+    fun `running out of lives ends it`() {
+        val model = FieldModel(seed = 15)
+        run(model, 400f)
         assertEquals(Stage.Finished, model.stage)
-        assertEquals(0, model.health)
+        assertEquals(0, model.lives)
     }
 
     @Test
     fun `a finished field ignores further input`() {
         val model = FieldModel(seed = 8)
-        run(model, 120f)
+        run(model, 400f)
         val before = model.tally
         run(model, 5f, Controls(primary = true, dx = 1f))
         assertEquals(before, model.tally)

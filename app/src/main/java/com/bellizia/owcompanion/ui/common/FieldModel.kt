@@ -8,30 +8,47 @@ import kotlin.math.sin
 import kotlin.random.Random
 
 /**
- * A fixed 100x160 field stepped by elapsed seconds.
+ * A field of a given shape, stepped by elapsed seconds.
  *
  * Nothing here touches Android or Compose, so the result does not depend on the screen or
  * the frame rate and the whole thing can be played out in a test.
  */
+/** The shape used when none is given: a tall screen. */
 const val FIELD_W = 100f
 const val FIELD_H = 160f
 
-private const val OWN_SPEED = 58f
-private const val OWN_RADIUS = 4.2f
-private const val OWN_MAX_HEALTH = 5
+private const val SUIT_SPEED = 58f
+private const val SUIT_RADIUS = 4.2f
+private const val SUIT_INTEGRITY = 5
+
+private const val PILOT_SPEED = 74f
+private const val PILOT_RADIUS = 2.6f
 
 private const val PRIMARY_INTERVAL = 0.14f
 private const val PRIMARY_SPEED = 105f
+private const val PILOT_INTERVAL = 0.3f
+private const val PILOT_SHOT_SPEED = 120f
 
 private const val SECONDARY_COOLDOWN = 6f
 private const val SECONDARY_SPEED = 78f
 private const val SECONDARY_DAMAGE = 4
 
 private const val CHARGE_PER_DAMAGE = 0.016f
-private const val CHARGE_RADIUS = 62f
-private const val CHARGE_DAMAGE = 14
+
+/**
+ * On foot the meter fills far faster. The pistol does one damage a third of a second, so at
+ * the suit's rate a new one would take a minute of clean hits while she dies to a touch.
+ * Eight hits is about three seconds, which is long enough to hurt and short enough to want.
+ */
+private const val PILOT_CHARGE_PER_DAMAGE = 0.125f
+
+private const val BLAST_DAMAGE = 40
+
+/** How long the prompt stays up once the suit is spent. */
+private const val EJECT_WINDOW = 1f
 
 private const val FLASH = 1.1f
+private const val STARTING_LIVES = 3
 
 internal val HEAVIES = listOf(
     "REINHARDT", "ROADHOG", "WINSTON", "ORISA", "SIGMA",
@@ -42,6 +59,14 @@ internal val HEAVIES = listOf(
 internal fun heavyFor(tier: Int): String = HEAVIES[(tier - 1).mod(HEAVIES.size)]
 
 internal enum class Stage { Running, Cleared, Finished }
+
+/**
+ * Suited, the one second in between, and on foot.
+ *
+ * Ejecting is a state of its own rather than a flag, because it is the only moment when the
+ * charge button costs nothing and when nothing can be hurt.
+ */
+internal enum class Form { Suit, Ejecting, Pilot }
 
 internal enum class Trace { Primary, Secondary, Incoming }
 
@@ -80,26 +105,47 @@ internal data class Controls(
     val charge: Boolean = false,
 )
 
-internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
+internal class FieldModel(
+    seed: Long = 0L,
+    startTier: Int = 1,
+    width: Float = FIELD_W,
+    height: Float = FIELD_H,
+) {
 
     private val random = Random(seed)
 
+    /**
+     * The field takes the shape of the space it is played in, so a tall screen is played
+     * tall and a wide one wide. Height is the fixed dimension because it sets how long a
+     * descent lasts, which is the pacing.
+     */
+    var width: Float = width
+        private set
+    var height: Float = height
+        private set
+
     var stage: Stage = Stage.Running
+        private set
+    var form: Form = Form.Suit
         private set
     var tally: Int = 0
         private set
     var tier: Int = 1
         private set
-    var health: Int = OWN_MAX_HEALTH
+    var lives: Int = STARTING_LIVES
+        private set
+    var integrity: Int = SUIT_INTEGRITY
         private set
     var charge: Float = 0f
         private set
     var secondaryReady: Float = 1f
         private set
-
-    var ownX: Float = FIELD_W / 2f
+    var ejectIn: Float = 0f
         private set
-    var ownY: Float = FIELD_H - 18f
+
+    var ownX: Float = width / 2f
+        private set
+    var ownY: Float = height - 18f
         private set
     private var ownFlash: Float = 0f
 
@@ -113,8 +159,9 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
     private var heavyOut = false
     private var clearedIn = 0f
 
-    val maxHealth: Int get() = OWN_MAX_HEALTH
+    val maxIntegrity: Int get() = SUIT_INTEGRITY
     val heavyLabel: String? get() = markers.firstOrNull { it.heavy }?.label
+    val radius: Float get() = if (form == Form.Pilot) PILOT_RADIUS else SUIT_RADIUS
 
     init {
         begin(startTier)
@@ -142,8 +189,20 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
             return
         }
 
+        if (form == Form.Ejecting) {
+            if (controls.charge) {
+                detonate()
+            } else {
+                ejectIn -= dt
+                if (ejectIn <= 0f) {
+                    spendLife()
+                    if (stage != Stage.Finished) toPilot()
+                }
+            }
+        }
+
         moveOwn(controls, dt)
-        shoot(controls, dt)
+        if (form != Form.Ejecting) shoot(controls, dt)
         release(dt)
         moveMarkers(dt)
         moveMotes(dt)
@@ -151,7 +210,9 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
         ageRipples(dt)
 
         ownFlash = max(0f, ownFlash - dt)
-        secondaryReady = min(1f, secondaryReady + dt / SECONDARY_COOLDOWN)
+        if (form == Form.Suit) {
+            secondaryReady = min(1f, secondaryReady + dt / SECONDARY_COOLDOWN)
+        }
 
         if (markers.isEmpty() && toRelease == 0 && heavyOut) {
             stage = Stage.Cleared
@@ -161,30 +222,39 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
     }
 
     private fun moveOwn(controls: Controls, dt: Float) {
+        val speed = if (form == Form.Pilot) PILOT_SPEED else SUIT_SPEED
         val length = hypot(controls.dx, controls.dy).coerceAtLeast(1f)
-        ownX += controls.dx / length * OWN_SPEED * dt
-        ownY += controls.dy / length * OWN_SPEED * dt
-        ownX = ownX.coerceIn(OWN_RADIUS, FIELD_W - OWN_RADIUS)
+        ownX += controls.dx / length * speed * dt
+        ownY += controls.dy / length * speed * dt
+        ownX = ownX.coerceIn(radius, width - radius)
         // The top of the field stays out of reach, so the release points cannot be camped.
-        ownY = ownY.coerceIn(FIELD_H * 0.42f, FIELD_H - OWN_RADIUS)
+        ownY = ownY.coerceIn(height * 0.42f, height - radius)
     }
 
     private fun shoot(controls: Controls, dt: Float) {
         primaryIn -= dt
+        val interval = if (form == Form.Pilot) PILOT_INTERVAL else PRIMARY_INTERVAL
         if (controls.primary && primaryIn <= 0f) {
-            primaryIn = PRIMARY_INTERVAL
-            for (offset in listOf(-2.4f, 2.4f)) {
-                motes += Mote(ownX + offset, ownY - OWN_RADIUS, 0f, -PRIMARY_SPEED, 1, Trace.Primary, 1.1f)
+            primaryIn = interval
+            if (form == Form.Pilot) {
+                // One barrel on foot, and it stings rather than hurts.
+                motes += Mote(ownX, ownY - radius, 0f, -PILOT_SHOT_SPEED, 1, Trace.Primary, 1f)
+            } else {
+                for (offset in listOf(-2.4f, 2.4f)) {
+                    motes += Mote(
+                        ownX + offset, ownY - radius, 0f, -PRIMARY_SPEED, 1, Trace.Primary, 1.1f,
+                    )
+                }
             }
         }
 
-        if (controls.secondary && secondaryReady >= 1f) {
+        if (form == Form.Suit && controls.secondary && secondaryReady >= 1f) {
             secondaryReady = 0f
             for (degrees in listOf(-14f, 0f, 14f)) {
                 val radians = Math.toRadians(degrees.toDouble())
                 motes += Mote(
                     x = ownX,
-                    y = ownY - OWN_RADIUS,
+                    y = ownY - radius,
                     vx = (SECONDARY_SPEED * sin(radians)).toFloat(),
                     vy = (-SECONDARY_SPEED * cos(radians)).toFloat(),
                     damage = SECONDARY_DAMAGE,
@@ -195,14 +265,41 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
         }
 
         if (controls.charge && charge >= 1f) {
-            charge = 0f
-            val originY = ownY - 14f
-            ripples += Ripple(ownX, originY, 0f, CHARGE_RADIUS)
-            markers.filter { hypot(it.x - ownX, it.y - originY) <= CHARGE_RADIUS + it.radius }
-                .forEach { hit(it, CHARGE_DAMAGE, charges = false) }
-            // It sweeps the field clear as well, which is what makes it worth saving.
-            motes.removeAll { it.kind == Trace.Incoming }
+            if (form == Form.Pilot) {
+                // A full meter on foot buys a new one rather than an explosion.
+                charge = 0f
+                form = Form.Suit
+                integrity = SUIT_INTEGRITY
+                secondaryReady = 1f
+                ownFlash = FLASH
+                ripples += Ripple(ownX, ownY, 0f, 20f)
+            } else {
+                charge = 0f
+                detonate()
+            }
         }
+    }
+
+    /**
+     * Everything on the field goes up, and the suit with it.
+     *
+     * It is the same explosion whether it was set off deliberately or caught in the second
+     * after the suit gives out, which is what makes that second worth taking.
+     */
+    private fun detonate() {
+        ripples += Ripple(ownX, ownY, 0f, min(width, height) * 0.9f)
+        markers.toList().forEach { hit(it, BLAST_DAMAGE, charges = false) }
+        motes.removeAll { it.kind == Trace.Incoming }
+        toPilot()
+    }
+
+    private fun toPilot() {
+        form = Form.Pilot
+        charge = 0f
+        integrity = 0
+        ejectIn = 0f
+        ownFlash = FLASH
+        ownY = ownY.coerceAtMost(height - PILOT_RADIUS)
     }
 
     private fun release(dt: Float) {
@@ -218,7 +315,7 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
 
         val health = 2 + tier / 2
         markers += Marker(
-            x = 8f + random.nextFloat() * (FIELD_W - 16f),
+            x = 8f + random.nextFloat() * (width - 16f),
             y = -6f,
             vx = (random.nextFloat() - 0.5f) * (7f + tier),
             vy = 11f + tier * 1.1f,
@@ -234,7 +331,7 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
         heavyOut = true
         val health = 40 + tier * 18
         markers += Marker(
-            x = FIELD_W / 2f,
+            x = width / 2f,
             y = -14f,
             vx = 15f + tier * 1.5f,
             vy = 8f,
@@ -261,11 +358,11 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
                     marker.y = 22f
                     marker.vy = 0f
                 }
-                if (marker.x < marker.radius || marker.x > FIELD_W - marker.radius) {
+                if (marker.x < marker.radius || marker.x > width - marker.radius) {
                     marker.vx = -marker.vx
-                    marker.x = marker.x.coerceIn(marker.radius, FIELD_W - marker.radius)
+                    marker.x = marker.x.coerceIn(marker.radius, width - marker.radius)
                 }
-            } else if (marker.x < marker.radius || marker.x > FIELD_W - marker.radius) {
+            } else if (marker.x < marker.radius || marker.x > width - marker.radius) {
                 marker.vx = -marker.vx
             }
 
@@ -279,7 +376,7 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
                 markerShoot(marker)
             }
 
-            if (marker.y - marker.radius > FIELD_H) {
+            if (marker.y - marker.radius > height) {
                 iterator.remove()
                 if (!marker.heavy) wound(1)
             }
@@ -316,7 +413,7 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
             val mote = iterator.next()
             mote.x += mote.vx * dt
             mote.y += mote.vy * dt
-            if (mote.y < -8f || mote.y > FIELD_H + 8f || mote.x < -8f || mote.x > FIELD_W + 8f) {
+            if (mote.y < -8f || mote.y > height + 8f || mote.x < -8f || mote.x > width + 8f) {
                 iterator.remove()
             }
         }
@@ -327,8 +424,8 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
 
         for (mote in motes) {
             if (mote.kind == Trace.Incoming) {
-                if (ownFlash > 0f) continue
-                if (hypot(mote.x - ownX, mote.y - ownY) <= mote.radius + OWN_RADIUS) {
+                if (!vulnerable()) continue
+                if (hypot(mote.x - ownX, mote.y - ownY) <= mote.radius + radius) {
                     spent += mote
                     wound(mote.damage)
                 }
@@ -342,9 +439,9 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
         }
         motes.removeAll(spent)
 
-        if (ownFlash <= 0f) {
+        if (vulnerable()) {
             markers.firstOrNull {
-                hypot(it.x - ownX, it.y - ownY) <= it.radius + OWN_RADIUS
+                hypot(it.x - ownX, it.y - ownY) <= it.radius + radius
             }?.let { marker ->
                 wound(1)
                 if (!marker.heavy) hit(marker, 2)
@@ -352,10 +449,15 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
         }
     }
 
+    private fun vulnerable(): Boolean = ownFlash <= 0f && form != Form.Ejecting
+
     private fun hit(marker: Marker, amount: Int, charges: Boolean = true) {
         marker.health -= amount
         marker.flash = 0.12f
-        if (charges) charge = min(1f, charge + amount * CHARGE_PER_DAMAGE)
+        if (charges) {
+            val rate = if (form == Form.Pilot) PILOT_CHARGE_PER_DAMAGE else CHARGE_PER_DAMAGE
+            charge = min(1f, charge + amount * rate)
+        }
         if (marker.health <= 0) {
             markers.remove(marker)
             tally += marker.value * tier
@@ -364,12 +466,32 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
     }
 
     private fun wound(amount: Int) {
-        if (ownFlash > 0f) return
-        health -= amount
+        if (!vulnerable()) return
+
+        if (form == Form.Pilot) {
+            // On foot there is nothing left to lose but the life itself.
+            spendLife()
+            if (stage != Stage.Finished) {
+                ownFlash = FLASH
+                ripples += Ripple(ownX, ownY, 0f, 12f)
+            }
+            return
+        }
+
+        integrity -= amount
         ownFlash = FLASH
         ripples += Ripple(ownX, ownY, 0f, 12f)
-        if (health <= 0) {
-            health = 0
+        if (integrity <= 0) {
+            integrity = 0
+            form = Form.Ejecting
+            ejectIn = EJECT_WINDOW
+        }
+    }
+
+    private fun spendLife() {
+        lives -= 1
+        if (lives <= 0) {
+            lives = 0
             stage = Stage.Finished
         }
     }
@@ -377,6 +499,35 @@ internal class FieldModel(seed: Long = 0L, startTier: Int = 1) {
     private fun ageRipples(dt: Float) {
         ripples.forEach { it.age += dt }
         ripples.removeAll { it.age > 0.45f }
+    }
+
+    /**
+     * Takes a new shape without interrupting the run.
+     *
+     * Turning the phone would otherwise mean either throwing the game away or playing the
+     * rest of it letterboxed. Everything is scaled in proportion, velocities included, so a
+     * descent keeps taking the same time and nothing lands somewhere it could not reach.
+     */
+    fun reshape(newWidth: Float, newHeight: Float) {
+        if (newWidth <= 0f || newHeight <= 0f) return
+        val sx = newWidth / width
+        val sy = newHeight / height
+        if (sx == 1f && sy == 1f) return
+
+        width = newWidth
+        height = newHeight
+
+        ownX *= sx
+        ownY *= sy
+        for (marker in markers) {
+            marker.x *= sx; marker.y *= sy; marker.vx *= sx; marker.vy *= sy
+        }
+        for (mote in motes) {
+            mote.x *= sx; mote.y *= sy; mote.vx *= sx; mote.vy *= sy
+        }
+        for (ripple in ripples) {
+            ripple.x *= sx; ripple.y *= sy
+        }
     }
 
     fun flickering(): Boolean = ownFlash > 0f && (ownFlash * 12f).toInt() % 2 == 0

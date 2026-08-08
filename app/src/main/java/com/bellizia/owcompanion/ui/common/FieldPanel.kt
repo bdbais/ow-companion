@@ -36,6 +36,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -106,26 +107,55 @@ internal fun FieldPanel(onDismiss: () -> Unit) {
                 .background(BACKDROP)
                 .padding(8.dp),
         ) {
-            Column(modifier = Modifier.fillMaxSize()) {
-                Readout(model = model, frame = frame)
-
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .weight(1f)
-                        .padding(vertical = 6.dp),
+            val config = LocalConfiguration.current
+            if (config.screenWidthDp > config.screenHeightDp) {
+                // Wide: the controls flank the screen, the way a cabinet is laid out.
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Playfield(model = model, frame = frame, modifier = Modifier.fillMaxSize())
+                    Column(
+                        modifier = Modifier.weight(0.24f),
+                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        Triggers({ primary = it }, { secondary = true }, { charging = true }, model)
+                    }
+                    Column(modifier = Modifier.weight(0.52f).fillMaxSize()) {
+                        Readout(model = model, frame = frame)
+                        Box(
+                            modifier = Modifier.fillMaxWidth().weight(1f).padding(vertical = 4.dp),
+                        ) {
+                            Playfield(model, frame, Modifier.fillMaxSize())
+                        }
+                    }
+                    Box(
+                        modifier = Modifier.weight(0.24f).aspectRatio(1f),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Stick(onMove = { x, y -> dx = x; dy = y })
+                    }
                 }
+            } else {
+                Column(modifier = Modifier.fillMaxSize()) {
+                    Readout(model = model, frame = frame)
 
-                Pad(
-                    onMove = { x, y -> dx = x; dy = y },
-                    onPrimary = { primary = it },
-                    onSecondary = { secondary = true },
-                    onCharge = { charging = true },
-                    model = model,
-                    frame = frame,
-                )
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .weight(1f)
+                            .padding(vertical = 6.dp),
+                    ) {
+                        Playfield(model = model, frame = frame, modifier = Modifier.fillMaxSize())
+                    }
+
+                    Pad(
+                        onMove = { x, y -> dx = x; dy = y },
+                        onPrimary = { primary = it },
+                        onSecondary = { secondary = true },
+                        onCharge = { charging = true },
+                        model = model,
+                    )
+                }
             }
 
             if (entering) {
@@ -142,7 +172,6 @@ internal fun FieldPanel(onDismiss: () -> Unit) {
 
 @Composable
 private fun Readout(model: FieldModel, frame: Int) {
-    @Suppress("UNUSED_EXPRESSION") frame
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Column(modifier = Modifier.weight(1f)) {
             Mono("SCORE", 11)
@@ -152,19 +181,34 @@ private fun Readout(model: FieldModel, frame: Int) {
                 horizontalArrangement = Arrangement.spacedBy(3.dp),
                 modifier = Modifier.padding(top = 2.dp),
             ) {
-                repeat(model.maxHealth) { index ->
+                repeat(3) { index ->
                     Box(
                         modifier = Modifier
                             .size(9.dp)
                             .background(
-                                if (index < model.health) LIVES else LIVES.copy(alpha = 0.18f),
+                                if (index < model.lives) LIVES else LIVES.copy(alpha = 0.18f),
+                            ),
+                    )
+                }
+                repeat(model.maxIntegrity) { index ->
+                    Box(
+                        modifier = Modifier
+                            .size(width = 4.dp, height = 9.dp)
+                            .background(
+                                if (index < model.integrity) FRAME else FRAME.copy(alpha = 0.15f),
                             ),
                     )
                 }
             }
         }
-        model.heavyLabel?.let {
-            Mono(it, 12, tint = ACCENT, modifier = Modifier.padding(horizontal = 6.dp))
+        when (model.form) {
+            Form.Ejecting ->
+                Mono("EJECT!", 16, tint = LIVES, modifier = Modifier.padding(horizontal = 6.dp))
+            Form.Pilot ->
+                Mono("ON FOOT", 12, tint = ACCENT, modifier = Modifier.padding(horizontal = 6.dp))
+            Form.Suit -> model.heavyLabel?.let {
+                Mono(it, 12, tint = ACCENT, modifier = Modifier.padding(horizontal = 6.dp))
+            }
         }
         Column(horizontalAlignment = Alignment.End) {
             Mono("LEVEL", 11)
@@ -193,15 +237,18 @@ private fun Mono(
 
 @Composable
 private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifier) {
-    @Suppress("UNUSED_EXPRESSION") frame
     Canvas(modifier = modifier) {
-        val scale = minOf(size.width / FIELD_W, size.height / FIELD_H)
-        val originX = (size.width - FIELD_W * scale) / 2f
-        val originY = (size.height - FIELD_H * scale) / 2f
+        // Height sets the pace, so the width follows whatever space there actually is.
+        model.reshape((FIELD_H * size.width / size.height).coerceIn(60f, 320f), FIELD_H)
+        val width = model.width
+        val height = model.height
+        val scale = minOf(size.width / width, size.height / height)
+        val originX = (size.width - width * scale) / 2f
+        val originY = (size.height - height * scale) / 2f
         fun px(x: Float) = originX + x * scale
         fun py(y: Float) = originY + y * scale
 
-        val panel = Size(FIELD_W * scale, FIELD_H * scale)
+        val panel = Size(width * scale, height * scale)
         drawRect(color = SCREEN, topLeft = Offset(px(0f), py(0f)), size = panel)
         drawRect(
             color = FRAME.copy(alpha = 0.30f),
@@ -217,10 +264,10 @@ private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifi
         )
         // A scrolling starfield, cheap enough to compute rather than store.
         for (row in 0..24) {
-            val y = (row * 7f + (frame * 0.9f) % 7f) % FIELD_H
+            val y = (row * 7f + (frame * 0.9f) % 7f) % height
             drawRect(
                 color = GRID,
-                topLeft = Offset(px((row * 37f) % FIELD_W), py(y)),
+                topLeft = Offset(px((row * 37f) % width), py(y)),
                 size = Size(scale, scale),
             )
         }
@@ -279,11 +326,24 @@ private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifi
         if (!model.flickering()) {
             val x = px(model.ownX)
             val y = py(model.ownY)
-            val unit = scale * 1.4f
-            drawRect(OWN_TINT, Offset(x - unit * 3, y - unit), Size(unit * 6, unit * 3))
-            drawRect(OWN_TRIM, Offset(x - unit, y - unit * 3), Size(unit * 2, unit * 2))
-            drawRect(OWN_TINT, Offset(x - unit * 4.5f, y - unit * 0.5f), Size(unit * 1.5f, unit * 3))
-            drawRect(OWN_TINT, Offset(x + unit * 3, y - unit * 0.5f), Size(unit * 1.5f, unit * 3))
+            if (model.form == Form.Pilot) {
+                // Smaller, with the drone's rotors either side of her.
+                val unit = scale * 0.9f
+                drawRect(OWN_TINT, Offset(x - unit, y - unit * 1.5f), Size(unit * 2, unit * 3))
+                drawRect(OWN_TRIM, Offset(x - unit * 0.5f, y - unit * 2.5f), Size(unit, unit))
+                drawRect(ACCENT, Offset(x - unit * 3, y - unit), Size(unit * 1.6f, unit * 0.7f))
+                drawRect(ACCENT, Offset(x + unit * 1.4f, y - unit), Size(unit * 1.6f, unit * 0.7f))
+            } else {
+                val unit = scale * 1.4f
+                drawRect(OWN_TINT, Offset(x - unit * 3, y - unit), Size(unit * 6, unit * 3))
+                drawRect(OWN_TRIM, Offset(x - unit, y - unit * 3), Size(unit * 2, unit * 2))
+                drawRect(
+                    OWN_TINT, Offset(x - unit * 4.5f, y - unit * 0.5f), Size(unit * 1.5f, unit * 3),
+                )
+                drawRect(
+                    OWN_TINT, Offset(x + unit * 3, y - unit * 0.5f), Size(unit * 1.5f, unit * 3),
+                )
+            }
         }
     }
 }
@@ -295,40 +355,45 @@ private fun Pad(
     onSecondary: () -> Unit,
     onCharge: () -> Unit,
     model: FieldModel,
-    frame: Int,
 ) {
-    @Suppress("UNUSED_EXPRESSION") frame
     Row(
         modifier = Modifier.fillMaxWidth().height(150.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        // Three buttons on the left.
         Column(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
-            HoldButton("FIRE", FRAME, onPress = onPrimary)
-            TapButton(
-                label = "MISSILES",
-                tint = Color(0xFFC9FFB0),
-                ready = model.secondaryReady,
-                onTap = onSecondary,
-            )
-            TapButton(
-                label = "ULTIMATE",
-                tint = Color(0xFFFFFFFF),
-                ready = model.charge,
-                onTap = onCharge,
-            )
+            Triggers(onPrimary, onSecondary, onCharge, model)
         }
-
-        // Arrows on the right.
         Box(
             modifier = Modifier.weight(1f).aspectRatio(1f),
             contentAlignment = Alignment.Center,
         ) {
             Stick(onMove = onMove)
         }
+    }
+}
+
+/** Three buttons, always to the left; the stick is always to the right. */
+@Composable
+private fun Triggers(
+    onPrimary: (Boolean) -> Unit,
+    onSecondary: () -> Unit,
+    onCharge: () -> Unit,
+    model: FieldModel,
+) {
+    HoldButton("FIRE", FRAME, onPress = onPrimary)
+    TapButton(
+        label = if (model.form == Form.Pilot) "PISTOL ONLY" else "MISSILES",
+        tint = Color(0xFFC9FFB0),
+        ready = if (model.form == Form.Pilot) 0f else model.secondaryReady,
+        onTap = onSecondary,
+    )
+    when (model.form) {
+        Form.Ejecting -> TapButton("SELF-DESTRUCT", LIVES, 1f, onCharge)
+        Form.Pilot -> TapButton("CALL MECH", Color(0xFFFFFFFF), model.charge, onCharge)
+        Form.Suit -> TapButton("ULTIMATE", Color(0xFFFFFFFF), model.charge, onCharge)
     }
 }
 
