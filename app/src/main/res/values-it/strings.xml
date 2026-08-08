@@ -221,4 +221,34 @@
     <string name="fire_primary">Primario</string>
     <string name="fire_secondary">Secondario</string>
     <string name="chart_with_perk">con %1$s</string>
+
+    <!-- Map filter and player profile -->
+    <string name="meta_map">Mappa</string>
+    <string name="meta_map_all">Tutte le mappe</string>
+    <string name="meta_map_note">Ristretto a una mappa, questi sono gli eroi che la gente sceglie davvero lì.</string>
+    <string name="meta_tab_everyone">Tutti</string>
+    <string name="meta_tab_you">Tu</string>
+    <string name="player_intro">La tua carriera, cercata per BattleTag. Non c\'è nessun accesso: Blizzard pubblica già il profilo di chi lo ha reso pubblico, quindi basta un nome e questa app non vede mai una password.</string>
+    <string name="player_battletag">BattleTag o nome</string>
+    <string name="player_search">Cerca</string>
+    <string name="player_no_results">Nessuno con quel nome. La ricerca vuole il nome da solo, senza il numero dopo il cancelletto — ed è sensibile alle maiuscole, quindi sono state provate entrambe.</string>
+    <string name="player_public">Profilo pubblico</string>
+    <string name="player_hidden">Il profilo non è pubblico</string>
+    <string name="player_add">Aggiungi un altro</string>
+    <string name="player_saved">Preferiti</string>
+    <string name="player_remove">Rimuovi questo account</string>
+    <string name="player_hit_line">%1$d partite  ·  %2$.1f%% vinte</string>
+    <string name="player_private">Questo profilo esiste, ma le sue statistiche non sono pubbliche. È un\'impostazione dentro Overwatch — Opzioni, Sociale, Profilo carriera — e non qualcosa che questa app possa fare da fuori.</string>
+    <string name="player_failed">Impossibile raggiungere il profilo.</string>
+    <string name="player_games">Partite</string>
+    <string name="player_winrate">Vittorie</string>
+    <string name="player_kda">KDA</string>
+    <string name="player_time">Giocato</string>
+    <string name="player_by_role">Per ruolo</string>
+    <string name="player_by_hero">Per eroe, i più giocati per primi</string>
+    <string name="player_line">%1$d partite  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
+    <string name="player_credit">I profili carriera arrivano da Blizzard tramite l\'API OverFast. Viene salvato solo il BattleTag che scegli, e solo su questo telefono.</string>
+    <string name="player_back">Torna ai risultati</string>
+    <string name="player_star">Aggiungi ai preferiti</string>
+    <string name="player_unstar">Togli dai preferiti</string>
 </resources>

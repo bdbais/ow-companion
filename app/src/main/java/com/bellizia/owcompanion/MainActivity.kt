@@ -51,7 +51,7 @@ import com.bellizia.owcompanion.ui.chart.ChartScreen
 import com.bellizia.owcompanion.ui.custom.CustomScreen
 import com.bellizia.owcompanion.ui.stadium.StadiumScreen
 import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
-import com.bellizia.owcompanion.ui.meta.MetaScreen
+import com.bellizia.owcompanion.ui.meta.MetaTab
 import com.bellizia.owcompanion.ui.wiki.WikiScreen
 import com.bellizia.owcompanion.ui.theme.OwCompanionTheme
 
@@ -123,7 +123,7 @@ private fun AppRoot() {
                 Section.Wiki -> WikiScreen()
                 Section.Custom -> CustomScreen()
                 Section.Stadium -> StadiumScreen()
-                Section.Meta -> MetaScreen()
+                Section.Meta -> MetaTab()
                 Section.About -> AboutScreen()
             }
         }

@@ -224,4 +224,29 @@
     <string name="meta_map">Map</string>
     <string name="meta_map_all">All maps</string>
     <string name="meta_map_note">Scoped to one map, these are the heroes people actually pick there.</string>
+    <!-- Player profile -->
+    <string name="meta_tab_everyone">Everyone</string>
+    <string name="meta_tab_you">You</string>
+    <string name="player_intro">Your career, looked up by BattleTag. There is no sign-in because there is nothing to sign in to: Blizzard publish no Overwatch API, so the only source is the career profile they publish for players who have set theirs to public. Type the whole tag — Name#1234 — to go straight to one.</string>
+    <string name="player_battletag">BattleTag or name</string>
+    <string name="player_search">Search</string>
+    <string name="player_no_results">Not found. Try the whole BattleTag with its number, like Name#1234, which addresses a profile directly. If that fails too, the profile is almost certainly private: Blizzard only publishes — and only lets anything search — profiles set to public in the game, under Options, Social, Career Profile.</string>
+    <string name="player_public">Public profile</string>
+    <string name="player_hidden">Profile is not public</string>
+    <string name="player_back">Back to the results</string>
+    <string name="player_star">Add to favourites</string>
+    <string name="player_unstar">Remove from favourites</string>
+    <string name="player_saved">Favourites</string>
+    <string name="player_remove">Remove this account</string>
+    <string name="player_hit_line">%1$d games  ·  %2$.1f%% won</string>
+    <string name="player_private">This profile exists, but its career statistics are not public. That is a setting inside Overwatch — Options, Social, Career Profile — and nothing this app can do from the outside.</string>
+    <string name="player_failed">Could not reach the profile.</string>
+    <string name="player_games">Games</string>
+    <string name="player_winrate">Win rate</string>
+    <string name="player_kda">KDA</string>
+    <string name="player_time">Played</string>
+    <string name="player_by_role">By role</string>
+    <string name="player_by_hero">By hero, most played first</string>
+    <string name="player_line">%1$d games  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
+    <string name="player_credit">Career profiles come from Blizzard through the OverFast API. Only the BattleTag you pick is stored, and only on this phone.</string>
 </resources>
