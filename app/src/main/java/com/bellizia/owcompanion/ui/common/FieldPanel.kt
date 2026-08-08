@@ -34,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
@@ -49,15 +50,17 @@ private val BACKDROP = Color(0xFF04120A)
 private val SCREEN = Color(0xFF071E10)
 private val FRAME = Color(0xFF6BFF57)
 private val GRID = Color(0xFF11351D)
-private val OWN_TINT = Color(0xFFC9FFB0)
-private val OWN_TRIM = Color(0xFFFFFFFF)
+private val OWN_TINT = Color(0xFF8CFF6B)
+private val OWN_TRIM = Color(0xFF39C6FF)
 private val MARKER_TINT = Color(0xFF3FBF4A)
 private val HEAVY_TINT = Color(0xFFB6FF6B)
-private val PRIMARY_TINT = Color(0xFFEAFFD6)
+// The one thing on the screen that is plainly not green.
+private val PRIMARY_TINT = Color(0xFF39C6FF)
 private val SECONDARY_TINT = Color(0xFFFFFFFF)
 private val INCOMING_TINT = Color(0xFF2BE07A)
 private val TEXT_TINT = Color(0xFF8CFF7A)
 private val LIVES = Color(0xFFFF3B30)
+private val ACCENT = Color(0xFFFF3EA5)
 
 @Composable
 internal fun FieldPanel(onDismiss: () -> Unit) {
@@ -161,7 +164,7 @@ private fun Readout(model: FieldModel, frame: Int) {
             }
         }
         model.heavyLabel?.let {
-            Mono(it, 12, tint = HEAVY_TINT, modifier = Modifier.padding(horizontal = 6.dp))
+            Mono(it, 12, tint = ACCENT, modifier = Modifier.padding(horizontal = 6.dp))
         }
         Column(horizontalAlignment = Alignment.End) {
             Mono("LEVEL", 11)
@@ -201,10 +204,16 @@ private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifi
         val panel = Size(FIELD_W * scale, FIELD_H * scale)
         drawRect(color = SCREEN, topLeft = Offset(px(0f), py(0f)), size = panel)
         drawRect(
+            color = FRAME.copy(alpha = 0.30f),
+            topLeft = Offset(px(0f), py(0f)),
+            size = panel,
+            style = Stroke(width = scale * 3.2f),
+        )
+        drawRect(
             color = FRAME,
             topLeft = Offset(px(0f), py(0f)),
             size = panel,
-            style = androidx.compose.ui.graphics.drawscope.Stroke(width = scale * 0.9f),
+            style = Stroke(width = scale * 0.9f),
         )
         // A scrolling starfield, cheap enough to compute rather than store.
         for (row in 0..24) {
