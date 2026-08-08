@@ -41,6 +41,8 @@ enum class MetaTier(val value: String, val labelRes: Int) {
 }
 
 enum class MetaRegion(val value: String, val labelRes: Int) {
+    // Not one of Blizzard's: the three below are fetched together and averaged.
+    World(MetaRepository.WORLD, R.string.meta_region_world),
     Europe("Europe", R.string.meta_region_europe),
     Americas("Americas", R.string.meta_region_americas),
     Asia("Asia", R.string.meta_region_asia),

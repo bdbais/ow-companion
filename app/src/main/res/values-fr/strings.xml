@@ -197,4 +197,6 @@
     <string name="about_cost_title">Ce que sa construction a coûté</string>
     <string name="about_cost">%1$s jetons de Claude Code, jusqu\'à la version %2$s.</string>
     <string name="about_cost_detail">%1$s écrits, %2$s relus du cache. Mesuré le %3$s.</string>
+    <string name="meta_region_world">Monde</string>
+    <string name="meta_region_world_note">Monde est la moyenne de l\'Europe, des Amériques et de l\'Asie, à poids égal. Blizzard ne publie ni chiffre mondial ni nombre de joueurs par région.</string>
 </resources>

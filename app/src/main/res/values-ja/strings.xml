@@ -197,4 +197,6 @@
     <string name="about_cost_title">開発にかかった量</string>
     <string name="about_cost">Claude Code のトークン %1$s、バージョン %2$s まで。</string>
     <string name="about_cost_detail">生成 %1$s、キャッシュ再読み込み %2$s。%3$s 時点の計測。</string>
+    <string name="meta_region_world">世界</string>
+    <string name="meta_region_world_note">「世界」はヨーロッパ・アメリカ・アジアを等しく平均した値です。Blizzard は世界全体の数値も地域別のプレイヤー数も公開していません。</string>
 </resources>

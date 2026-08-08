@@ -287,4 +287,6 @@
     <string name="era_recent">2024 onwards</string>
     <string name="era_newest">2025 onwards</string>
 
+    <string name="meta_region_world">World</string>
+    <string name="meta_region_world_note">World is the mean of Europe, Americas and Asia, weighted equally. Blizzard publish no worldwide figure and no player counts to weight by.</string>
 </resources>

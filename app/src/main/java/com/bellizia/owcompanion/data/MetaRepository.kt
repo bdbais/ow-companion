@@ -1,13 +1,16 @@
 package com.bellizia.owcompanion.data
 
+import java.net.HttpURLConnection
+import java.net.URL
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
-import java.net.HttpURLConnection
-import java.net.URL
 
 /**
  * Ban, pick and win rates, straight from Blizzard.
@@ -51,13 +54,34 @@ class MetaRepository {
     }
 
     suspend fun rates(filters: Filters): Result = withContext(Dispatchers.IO) {
-        runCatching { parse(fetch(url(filters))) }.fold(
+        runCatching {
+            if (filters.region == WORLD) worldwide(filters) else parse(fetch(url(filters)))
+        }.fold(
             onSuccess = { heroes ->
                 if (heroes.isEmpty()) Result.Failed("the page carried no rates")
                 else Result.Loaded(byRole(heroes, filters.role))
             },
             onFailure = { Result.Failed(it.message ?: it.javaClass.simpleName) },
         )
+    }
+
+    /**
+     * All three regions at once, averaged.
+     *
+     * Blizzard offer no worldwide figure, and asking for one is worse than useless: any
+     * region they do not recognise is answered with Europe rather than an error, so a
+     * "World" that simply passed the word through would quietly show European numbers.
+     *
+     * The three are fetched and their rates averaged. It is an unweighted mean - Blizzard
+     * publish no population per region, so there is nothing to weight by - which the screen
+     * says plainly rather than presenting it as an official global rate.
+     */
+    private suspend fun worldwide(filters: Filters): List<HeroRate> = coroutineScope {
+        val regions = REGIONS.map { region ->
+            async { runCatching { parse(fetch(url(filters.copy(region = region)))) }.getOrNull() }
+        }.awaitAll().filterNotNull().filter { it.isNotEmpty() }
+
+        if (regions.isEmpty()) emptyList() else average(regions)
     }
 
 
@@ -109,6 +133,29 @@ class MetaRepository {
 
         /** The rates table, before any HTML entity decoding. */
         private val ALL_ROWS = Regex("""allrows="([^"]*)"""")
+
+        /** The value that stands for every region at once; not one the site knows. */
+        const val WORLD = "World"
+
+        /** The regions the site does know, and the ones "World" is built from. */
+        val REGIONS = listOf("Europe", "Americas", "Asia")
+
+        /**
+         * One row per hero, each rate the mean of the regions that hero appears in.
+         *
+         * A hero missing from one region is averaged over the ones that have it rather than
+         * counted as zero, which would read as "nobody bans them" instead of "not known".
+         */
+        internal fun average(regions: List<List<HeroRate>>): List<HeroRate> =
+            regions.flatten()
+                .groupBy { it.slug }
+                .map { (_, rows) ->
+                    rows.first().copy(
+                        ban = rows.sumOf { it.ban } / rows.size,
+                        pick = rows.sumOf { it.pick } / rows.size,
+                        win = rows.sumOf { it.win } / rows.size,
+                    )
+                }
 
         /**
          * The role has to be applied here, not asked for.

@@ -197,4 +197,6 @@
     <string name="about_cost_title">Во что обошлась разработка</string>
     <string name="about_cost">%1$s токенов Claude Code, до версии %2$s.</string>
     <string name="about_cost_detail">%1$s записано, %2$s перечитано из кеша. Измерено %3$s.</string>
+    <string name="meta_region_world">Мир</string>
+    <string name="meta_region_world_note">«Мир» — среднее по Европе, Америке и Азии с равными весами. Blizzard не публикует ни мировых данных, ни числа игроков по регионам.</string>
 </resources>

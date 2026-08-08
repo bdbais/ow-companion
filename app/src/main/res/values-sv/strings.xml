@@ -197,4 +197,6 @@
     <string name="about_cost_title">Vad det kostade att bygga</string>
     <string name="about_cost">%1$s tokens Claude Code, till version %2$s.</string>
     <string name="about_cost_detail">%1$s skrivna, %2$s omlästa från cachen. Uppmätt %3$s.</string>
+    <string name="meta_region_world">Varlden</string>
+    <string name="meta_region_world_note">Varlden ar medelvardet av Europa, Amerika och Asien, lika viktat. Blizzard publicerar ingen varldssiffra och inga spelarantal att vikta med.</string>
 </resources>

@@ -230,6 +230,16 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
                     )
                 }
             }
+            // Said on the screen, because the average is a choice this app made rather
+            // than a figure Blizzard publish.
+            if (state.filters.region == MetaRepository.WORLD) {
+                Text(
+                    text = stringResource(R.string.meta_region_world_note),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 2.dp, bottom = 4.dp),
+                )
+            }
             ChipRow(stringResource(R.string.meta_input)) {
                 MetaInput.entries.forEach { input ->
                     FilterChip(

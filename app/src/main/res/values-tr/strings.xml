@@ -197,4 +197,6 @@
     <string name="about_cost_title">Yapımı neye mal oldu</string>
     <string name="about_cost">%1$s Claude Code jetonu, %2$s sürümüne kadar.</string>
     <string name="about_cost_detail">%1$s yazıldı, %2$s önbellekten yeniden okundu. %3$s ölçüldü.</string>
+    <string name="meta_region_world">Dunya</string>
+    <string name="meta_region_world_note">Dunya, Avrupa, Amerika ve Asya ortalamasidir, esit agirlikli. Blizzard dunya geneli bir rakam ya da bolge oyuncu sayisi yayinlamiyor.</string>
 </resources>

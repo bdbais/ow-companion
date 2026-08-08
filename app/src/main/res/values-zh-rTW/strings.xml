@@ -197,4 +197,6 @@
     <string name="about_cost_title">開發耗費</string>
     <string name="about_cost">Claude Code 詞元 %1$s，截至版本 %2$s。</string>
     <string name="about_cost_detail">產生 %1$s，快取重讀 %2$s。測量於 %3$s。</string>
+    <string name="meta_region_world">全球</string>
+    <string name="meta_region_world_note">「全球」是歐洲、美洲與亞洲的等權平均值。暴雪未公布全球數據，也未公布各區玩家數量以供加權。</string>
 </resources>

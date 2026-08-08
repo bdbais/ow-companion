@@ -197,4 +197,6 @@
     <string name="about_cost_title">تكلفة البناء</string>
     <string name="about_cost">%1$s رمز من Claude Code، حتى الإصدار %2$s.</string>
     <string name="about_cost_detail">%1$s مكتوبة، %2$s أعيدت قراءتها من الذاكرة المؤقتة. قيست في %3$s.</string>
+    <string name="meta_region_world">العالم</string>
+    <string name="meta_region_world_note">«العالم» هو متوسط أوروبا والأمريكتين وآسيا بأوزان متساوية. لا تنشر Blizzard رقما عالميا ولا أعداد اللاعبين لكل منطقة.</string>
 </resources>

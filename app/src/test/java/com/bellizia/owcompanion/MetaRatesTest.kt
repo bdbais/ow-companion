@@ -67,6 +67,27 @@ class MetaRatesTest {
     }
 
     @Test
+    fun `World averages the regions, and does not treat a missing hero as a zero`() {
+        fun row(slug: String, ban: Double, pick: Double, win: Double) =
+            MetaRepository.HeroRate(slug, slug, "tank", "", null, ban, pick, win)
+
+        val europe = listOf(row("zarya", 48.0, 5.0, 49.0), row("mauga", 27.0, 7.0, 50.0))
+        val americas = listOf(row("zarya", 54.0, 6.0, 50.0), row("mauga", 21.0, 5.0, 52.0))
+        // Not played enough to be listed in the third region.
+        val asia = listOf(row("zarya", 66.0, 7.0, 54.0))
+
+        val world = MetaRepository.average(listOf(europe, americas, asia)).associateBy { it.slug }
+
+        assertEquals(56.0, world.getValue("zarya").ban, 1e-9)
+        assertEquals(6.0, world.getValue("zarya").pick, 1e-9)
+        assertEquals(51.0, world.getValue("zarya").win, 1e-9)
+
+        // Averaged over the two regions that have him, not dragged towards zero by the third.
+        assertEquals(24.0, world.getValue("mauga").ban, 1e-9)
+        assertEquals(51.0, world.getValue("mauga").win, 1e-9)
+    }
+
+    @Test
     fun `filters go into the query string the site expects`() {
         val url = MetaRepository.url(
             MetaRepository.Filters(region = "Asia", tier = "Master", queue = "1", role = "tank"),

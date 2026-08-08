@@ -197,4 +197,6 @@
     <string name="about_cost_title">제작에 든 비용</string>
     <string name="about_cost">Claude Code 토큰 %1$s, 버전 %2$s 까지.</string>
     <string name="about_cost_detail">생성 %1$s, 캐시 재읽기 %2$s. %3$s 측정.</string>
+    <string name="meta_region_world">전 세계</string>
+    <string name="meta_region_world_note">「전 세계」는 유럽, 아메리카, 아시아를 동일한 비중으로 평균한 값입니다. Blizzard는 전 세계 수치도 지역별 플레이어 수도 공개하지 않습니다.</string>
 </resources>
