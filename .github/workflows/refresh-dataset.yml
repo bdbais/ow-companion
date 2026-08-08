@@ -1,7 +1,7 @@
 # Regenerates the dataset from the wiki once a week and opens a pull request when the
 # numbers have moved.
 #
-# It deliberately does not push to main. The parsers have been silently wrong before - a
+# It deliberately does not push to master. The parsers have been silently wrong before - a
 # per-bullet reload read as a full one, an ability box read from the wrong section - so the
 # point of this job is to put the change in front of a human with a readable summary, not
 # to save the click.
@@ -98,7 +98,7 @@ jobs:
             echo "Updated pull request #${existing}."
           else
             gh pr create \
-              --base main \
+              --base master \
               --head "$branch" \
               --title "Dataset refresh, $(date -u +%Y-%m-%d)" \
               --body-file "${RUNNER_TEMP}/body.md"
