@@ -571,13 +571,32 @@ def parse_perks(hero_name: str, text: str) -> list[dict]:
 ULTIMATE_SECTION = re.compile(r"^===\s*Ultimate Ability\s*===\s*$", re.MULTILINE)
 
 
-def ultimate_section(text: str) -> str:
+def ultimate_span(text: str) -> tuple[int, int] | None:
+    """Where the ultimate's own block starts and ends, so a caller can also cut it out."""
     match = ULTIMATE_SECTION.search(text)
     if not match:
-        return ""
+        return None
     rest = text[match.end() :]
     following = re.search(r"^==[^=]|^===[^=]", rest, re.MULTILINE)
-    return rest[: following.start()] if following else rest
+    end = match.end() + (following.start() if following else len(rest))
+    return match.start(), end
+
+
+def ultimate_section(text: str) -> str:
+    span = ultimate_span(text)
+    return text[span[0] : span[1]] if span else ""
+
+
+def without_ultimate(text: str) -> str:
+    """The same text with the ultimate's block removed.
+
+    weapon_section() is bounded by the Stadium heading rather than by ===Weapons===, because
+    weapon blocks appear under several headings - that is what recovered Bastion's Assault
+    form. The cost is that the ultimate's block falls inside it too, so anything read from
+    both slices is read twice.
+    """
+    span = ultimate_span(text)
+    return text[: span[0]] + text[span[1] :] if span else text
 
 
 def parse_ultimate(hero_name: str, text: str) -> dict | None:
@@ -664,7 +683,13 @@ def parse_healing(hero_name: str, text: str) -> list[dict]:
     """
     text = resolve_vars(strip_comments(text))
     results = []
-    sections = (("weapon", weapon_section(text)), ("ultimate", ultimate_section(text)))
+    # The ultimate is cut out of the weapon slice: the two overlap, and without this every
+    # healing ultimate was emitted twice - once correctly, and once ranked against primary
+    # fires, where Transcendence's 400 per second topped the chart.
+    sections = (
+        ("weapon", without_ultimate(weapon_section(text))),
+        ("ultimate", ultimate_section(text)),
+    )
     for kind, section in sections:
         if not section:
             continue

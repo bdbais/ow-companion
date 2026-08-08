@@ -38,18 +38,6 @@
   },
   {
    "hero": "Ana",
-   "name": "Nano Boost",
-   "kind": "weapon",
-   "healPerShot": 250.0,
-   "healPerSecond": null,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "250"
-  },
-  {
-   "hero": "Ana",
    "name": "Biotic Bounce",
    "kind": "weapon",
    "healPerShot": 60.0,
@@ -231,18 +219,6 @@
   {
    "hero": "Doomfist",
    "name": "Meteor Strike",
-   "kind": "weapon",
-   "healPerShot": null,
-   "healPerSecond": 90.0,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "90 per second (while targeting)"
-  },
-  {
-   "hero": "Doomfist",
-   "name": "Meteor Strike",
    "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 90.0,
@@ -399,18 +375,6 @@
   {
    "hero": "Jetpack Cat",
    "name": "Catnapper",
-   "kind": "weapon",
-   "healPerShot": null,
-   "healPerSecond": 30.0,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "30 per second (self)"
-  },
-  {
-   "hero": "Jetpack Cat",
-   "name": "Catnapper",
    "kind": "ultimate",
    "healPerShot": null,
    "healPerSecond": 30.0,
@@ -455,18 +419,6 @@
    "reloadTime": null,
    "statedHps": false,
    "detail": "100 over 3 seconds"
-  },
-  {
-   "hero": "Junker Queen",
-   "name": "Rampage",
-   "kind": "weapon",
-   "healPerShot": 225.0,
-   "healPerSecond": null,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "225 over 4.5 seconds"
   },
   {
    "hero": "Junker Queen",
@@ -515,18 +467,6 @@
    "reloadTime": null,
    "statedHps": false,
    "detail": "85 (direct) / 50 (over time)"
-  },
-  {
-   "hero": "Juno",
-   "name": "Orbital Ray",
-   "kind": "weapon",
-   "healPerShot": null,
-   "healPerSecond": 85.0,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "85 per second"
   },
   {
    "hero": "Juno",
@@ -599,18 +539,6 @@
    "reloadTime": null,
    "statedHps": false,
    "detail": "75 (ally)"
-  },
-  {
-   "hero": "Lifeweaver",
-   "name": "Tree of Life",
-   "kind": "weapon",
-   "healPerShot": 150.0,
-   "healPerSecond": null,
-   "fireRate": 1.0,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "150 (instant) / 90 per pulse"
   },
   {
    "hero": "Lifeweaver",
@@ -770,18 +698,6 @@
   },
   {
    "hero": "Mercy",
-   "name": "Valkyrie",
-   "kind": "weapon",
-   "healPerShot": null,
-   "healPerSecond": 65.0,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "65 per second per target"
-  },
-  {
-   "hero": "Mercy",
    "name": "Double Dose",
    "kind": "weapon",
    "healPerShot": 60.0,
@@ -827,18 +743,6 @@
    "reloadTime": null,
    "statedHps": false,
    "detail": "90 (1st bounce) / 70 (2nd bounce) / 50 (3rd bounce) / 30 (self)"
-  },
-  {
-   "hero": "Mizuki",
-   "name": "Kekkai Sanctuary",
-   "kind": "weapon",
-   "healPerShot": 100.0,
-   "healPerSecond": null,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "100 (instant) / 40 per second"
   },
   {
    "hero": "Mizuki",
@@ -899,18 +803,6 @@
    "reloadTime": null,
    "statedHps": false,
    "detail": "75 per second, up to 300"
-  },
-  {
-   "hero": "Moira",
-   "name": "Coalescence",
-   "kind": "weapon",
-   "healPerShot": null,
-   "healPerSecond": 140.0,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "140 per second (allies) / 55 per second (self)"
   },
   {
    "hero": "Moira",
@@ -1130,18 +1022,6 @@
   },
   {
    "hero": "Wuyang",
-   "name": "Tidal Blast",
-   "kind": "weapon",
-   "healPerShot": 250.0,
-   "healPerSecond": null,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "250"
-  },
-  {
-   "hero": "Wuyang",
    "name": "Balance",
    "kind": "weapon",
    "healPerShot": null,
@@ -1187,18 +1067,6 @@
    "reloadTime": null,
    "statedHps": false,
    "detail": "35 health per second"
-  },
-  {
-   "hero": "Zenyatta",
-   "name": "Transcendence",
-   "kind": "weapon",
-   "healPerShot": null,
-   "healPerSecond": 400.0,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "400 health per second"
   },
   {
    "hero": "Zenyatta",
