@@ -103,6 +103,8 @@ data class Hero(
     /** Hex string, e.g. `#718ab3`; the chart colours each weapon by its hero. */
     val color: String,
     val role: String,
+    /** File name under `assets/heroes/`, so a chart row can show the hero's face. */
+    val portrait: String? = null,
     val health: Int? = null,
     val shields: Int? = null,
     val armor: Int? = null,

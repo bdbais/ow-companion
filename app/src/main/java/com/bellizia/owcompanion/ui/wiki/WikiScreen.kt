@@ -64,6 +64,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.data.model.MatchupWiki
@@ -143,6 +144,7 @@ private fun HeroGrid(
     viewModel: WikiViewModel,
     modifier: Modifier = Modifier,
 ) {
+    val roleTaps = rememberFilterTaps<HeroRole>()
     Column(modifier = modifier.fillMaxSize()) {
         Surface(tonalElevation = 2.dp) {
             Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
@@ -161,7 +163,7 @@ private fun HeroGrid(
                         WikiChip(
                             label = stringResource(role.labelRes),
                             selected = role in state.roles,
-                            onClick = { viewModel.toggleRole(role) },
+                            onClick = { viewModel.setRoles(roleTaps.onTap(role, state.roles, HeroRole.entries.toSet())) },
                         )
                     }
                 }

@@ -73,16 +73,7 @@ class WikiViewModel(application: Application) : AndroidViewModel(application) {
 
     fun setSort(sort: HeroSort) = _state.update { it.copy(sort = sort) }
 
-    fun toggleRole(role: HeroRole) = _state.update { current ->
-        val all = HeroRole.entries.toSet()
-        val roles = when {
-            current.roles == all -> setOf(role)
-            role in current.roles && current.roles.size == 1 -> all
-            role in current.roles -> current.roles - role
-            else -> current.roles + role
-        }
-        current.copy(roles = roles)
-    }
+    fun setRoles(roles: Set<HeroRole>) = _state.update { it.copy(roles = roles) }
 
     fun select(key: String?) = _state.update { it.copy(selectedKey = key) }
 }

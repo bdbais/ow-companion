@@ -145,16 +145,7 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
 
     fun setMode(mode: RankingMode) = _state.update { it.copy(mode = mode) }
 
-    fun toggleRole(role: HeroRole) = _state.update { current ->
-        val all = HeroRole.entries.toSet()
-        val roles = when {
-            current.roles == all -> setOf(role)
-            role in current.roles && current.roles.size == 1 -> all
-            role in current.roles -> current.roles - role
-            else -> current.roles + role
-        }
-        current.copy(roles = roles)
-    }
+    fun setRoles(roles: Set<HeroRole>) = _state.update { it.copy(roles = roles) }
 
     fun setBuffs(buffs: BuffSelection) {
         _state.update { it.copy(buffs = buffs, loading = true) }

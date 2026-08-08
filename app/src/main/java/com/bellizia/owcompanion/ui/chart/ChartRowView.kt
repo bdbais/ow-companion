@@ -22,22 +22,34 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.res.stringResource
+import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.data.WikiRepository
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.sim.Simulator
 import kotlin.math.max
 
-/** Width of the fixed label column that stays put while the timeline scrolls. */
-val LabelColumnWidth = 128.dp
+/**
+ * Width of the fixed label column that stays put while the timeline scrolls.
+ *
+ * Wide enough for the longest hero name - Wrecking Ball - alongside its damage figure.
+ * Truncating to "Wrec..." to buy a little more timeline is a bad trade: the timeline
+ * scrolls and can be zoomed, while a clipped name is simply gone.
+ */
+val LabelColumnWidth = 176.dp
 
 /** Left gutter before t=0, in dp, shared by the rows and the time axis. */
 internal const val ChartPaddingLeft = 8f
 
 /** Minimum row height in dp, so short-lived weapons still get a legible strip. */
 private const val MinRowHeight = 46f
+
+/** A perked weapon needs a third line to say which perk, and three lines need the room. */
+private const val PerkRowHeight = 60f
 
 /** Timeline width in dp at the given zoom. */
 internal fun chartWidthDp(zoom: Float): Float =
@@ -70,10 +82,20 @@ fun ChartRowView(
     row: ChartRow,
     zoom: Float,
     scrollState: ScrollState,
+    distance: Float,
     modifier: Modifier = Modifier,
 ) {
-    val color = parseHeroColor(row.hero?.color, MaterialTheme.colorScheme.primary)
-    val rowHeight = max(MinRowHeight, row.train.height.toFloat())
+    val heroColor = parseHeroColor(row.hero?.color, MaterialTheme.colorScheme.primary)
+    val floor = if (row.spec.perk != null) PerkRowHeight else MinRowHeight
+    val rowHeight = max(floor, row.train.height.toFloat())
+
+    // A weapon that cannot reach the target draws nothing and reports zero, which reads as
+    // missing data rather than as the answer. Quick melee at five metres is the case people
+    // hit first. The row stays - taking it away would look like the weapon does not exist -
+    // but goes grey and says why.
+    val range = row.spec.damage.maxRange
+    val outOfRange = range != null && distance > range
+    val color = if (outOfRange) MaterialTheme.colorScheme.onSurfaceVariant else heroColor
 
     Row(
         modifier = modifier.height((rowHeight + 4f).dp),
@@ -84,19 +106,38 @@ fun ChartRowView(
                 .width(LabelColumnWidth)
                 .padding(horizontal = 8.dp),
         ) {
+            // The rate shares the hero's line rather than taking one of its own: a perked
+            // weapon needs a fourth line to say which perk, and the column is only tall
+            // enough for three - so the dps was the one that fell off the bottom.
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Box(
-                    modifier = Modifier
-                        .size(10.dp)
-                        .clip(CircleShape)
-                        .background(color),
+                // The face rather than a coloured dot: at a glance a row is found by the
+                // hero on it, and the colour is still carried by the bars and the figure.
+                AsyncImage(
+                    model = WikiRepository.imageUri(row.hero?.portrait),
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    alpha = if (outOfRange) 0.4f else 1f,
+                    modifier = Modifier.size(24.dp).clip(CircleShape).background(color),
                 )
                 Text(
                     text = row.spec.hero,
                     style = MaterialTheme.typography.labelLarge,
+                    color = if (outOfRange) MaterialTheme.colorScheme.onSurfaceVariant
+                    else MaterialTheme.colorScheme.onSurface,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(start = 6.dp),
+                    modifier = Modifier.weight(1f).padding(start = 6.dp),
+                )
+                Text(
+                    text = if (outOfRange) {
+                        stringResource(R.string.chart_out_of_range)
+                    } else {
+                        row.train.dps.formatted(1)
+                    },
+                    style = MaterialTheme.typography.labelMedium,
+                    fontWeight = if (outOfRange) FontWeight.Normal else FontWeight.Bold,
+                    color = color,
+                    maxLines = 1,
                 )
             }
             Text(
@@ -117,12 +158,6 @@ fun ChartRowView(
                     overflow = TextOverflow.Ellipsis,
                 )
             }
-            Text(
-                text = "${row.train.dps.formatted(1)} dps",
-                style = MaterialTheme.typography.labelMedium,
-                fontWeight = FontWeight.Bold,
-                color = color,
-            )
         }
 
         Box(

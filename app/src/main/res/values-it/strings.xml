@@ -251,4 +251,5 @@
     <string name="player_back">Torna ai risultati</string>
     <string name="player_star">Aggiungi ai preferiti</string>
     <string name="player_unstar">Togli dai preferiti</string>
+    <string name="chart_out_of_range">fuori portata</string>
 </resources>

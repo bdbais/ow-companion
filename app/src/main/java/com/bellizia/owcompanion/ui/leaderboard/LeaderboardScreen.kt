@@ -45,6 +45,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.sim.DamagePeak
 import com.bellizia.owcompanion.ui.chart.HeroRole
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
@@ -79,6 +80,7 @@ fun LeaderboardScreen(
     modifier: Modifier = Modifier,
     viewModel: LeaderboardViewModel = viewModel(),
 ) {
+    val roleTaps = rememberFilterTaps<HeroRole>()
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     Column(modifier = modifier.fillMaxSize()) {
@@ -115,7 +117,7 @@ fun LeaderboardScreen(
                     HeroRole.entries.forEach { role ->
                         FilterChip(
                             selected = role in state.roles,
-                            onClick = { viewModel.toggleRole(role) },
+                            onClick = { viewModel.setRoles(roleTaps.onTap(role, state.roles, HeroRole.entries.toSet())) },
                             label = {
                                 Text(
                                     stringResource(role.labelRes),

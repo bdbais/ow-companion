@@ -67,6 +67,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.sim.Modifiers
 import com.bellizia.owcompanion.sim.Simulator
 import kotlin.math.roundToInt
@@ -184,7 +185,12 @@ private fun ColumnScope.ChartBody(
             .transformable(transformState),
     ) {
         items(state.rows, key = { it.spec.id }) { row ->
-            ChartRowView(row = row, zoom = state.zoom, scrollState = timelineScroll)
+            ChartRowView(
+                row = row,
+                zoom = state.zoom,
+                scrollState = timelineScroll,
+                distance = state.distance,
+            )
             HorizontalDivider(color = MaterialTheme.colorScheme.surfaceVariant)
         }
     }
@@ -217,6 +223,11 @@ private fun ControlPanel(
     /** Null on a wide screen, where the panel has its own column and nothing to yield. */
     onCollapse: (() -> Unit)?,
 ) {
+    // One tracker per chip row: a double tap means "just this one" only within the row
+    // it was aimed at.
+    val roleTaps = rememberFilterTaps<HeroRole>()
+    val modeTaps = rememberFilterTaps<FireMode>()
+    val typeTaps = rememberFilterTaps<WeaponCategory>()
     Surface(tonalElevation = 2.dp) {
         Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -328,7 +339,7 @@ private fun ControlPanel(
                     Chip(
                         label = stringResource(role.labelRes),
                         selected = role in state.roles,
-                        onClick = { viewModel.toggleRole(role) },
+                        onClick = { viewModel.setRoles(roleTaps.onTap(role, state.roles, HeroRole.entries.toSet())) },
                     )
                 }
             }
@@ -350,7 +361,7 @@ private fun ControlPanel(
                     Chip(
                         label = stringResource(mode.labelRes),
                         selected = mode in state.fireModes,
-                        onClick = { viewModel.toggleFireMode(mode) },
+                        onClick = { viewModel.setFireModes(modeTaps.onTap(mode, state.fireModes, FireMode.entries.toSet())) },
                     )
                 }
             }
@@ -366,7 +377,7 @@ private fun ControlPanel(
                     Chip(
                         label = stringResource(category.labelRes),
                         selected = category in state.categories,
-                        onClick = { viewModel.toggleCategory(category) },
+                        onClick = { viewModel.setCategories(typeTaps.onTap(category, state.categories, WeaponCategory.entries.toSet())) },
                     )
                 }
             }

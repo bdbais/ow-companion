@@ -172,18 +172,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
         _state.update { it.copy(favourites = repository.favourites()) }
     }
 
-    fun toggleRole(role: PlayerRole) = _state.update { current ->
-        // Same rule as every other filter in the app: from "everything" a tap narrows to
-        // one, and turning the last one off goes back to everything.
-        val all = PlayerRole.entries.toSet()
-        val next = when {
-            current.roles == all -> setOf(role)
-            role in current.roles && current.roles.size == 1 -> all
-            role in current.roles -> current.roles - role
-            else -> current.roles + role
-        }
-        current.copy(roles = next)
-    }
+    fun setRoles(roles: Set<PlayerRole>) = _state.update { it.copy(roles = roles) }
 
     fun removeFavourite(hit: PlayerRepository.Hit) {
         repository.removeFavourite(hit)

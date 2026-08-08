@@ -49,6 +49,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.data.PlayerRepository
 import com.bellizia.owcompanion.ui.theme.StatNumber
 
@@ -386,6 +387,7 @@ private fun RoleRow(role: String, block: PlayerRepository.Block) {
 
 @Composable
 private fun RoleFilter(state: PlayerUiState, viewModel: PlayerViewModel) {
+    val roleTaps = rememberFilterTaps<PlayerRole>()
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(6.dp),
         modifier = Modifier.padding(bottom = 4.dp),
@@ -393,7 +395,7 @@ private fun RoleFilter(state: PlayerUiState, viewModel: PlayerViewModel) {
         PlayerRole.entries.forEach { role ->
             FilterChip(
                 selected = role in state.roles,
-                onClick = { viewModel.toggleRole(role) },
+                onClick = { viewModel.setRoles(roleTaps.onTap(role, state.roles, PlayerRole.entries.toSet())) },
                 label = { Text(stringResource(role.labelRes)) },
             )
         }

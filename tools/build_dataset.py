@@ -267,6 +267,9 @@ def main() -> int:
                 "name": h["name"],
                 "color": h["color"],
                 "role": h["role"],
+                # The chart labels each row with the hero's face, and loading the whole
+                # wiki file - twenty times the size - to find one portrait would be silly.
+                "portrait": h["portrait"],
                 # Carried here as well as in the wiki file: a Stadium build changes these,
                 # and the chart data should not need the whole patch history to show them.
                 "health": h["health"],
