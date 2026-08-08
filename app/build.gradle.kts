@@ -1,14 +1,6 @@
 import java.util.Properties
 
 /**
- * How many commits have changed the data the app ships with.
- *
- * It increments exactly when the dataset does, which is what the update check needs: an APK
- * built from a given commit reports the version it actually carries, so it never downloads
- * a copy of what is already inside it. A checkout without git history falls back to 1, which
- * simply means the first published dataset looks newer.
- */
-/**
  * Where published datasets live: a branch of this repository, served raw.
  *
  * A branch rather than the default one, so publishing cannot trigger the workflows that
@@ -17,6 +9,14 @@ import java.util.Properties
 val DEFAULT_DATASET_URL =
     "https://raw.githubusercontent.com/bdbais/ow-companion/dataset-published"
 
+/**
+ * How many commits have changed the data the app ships with.
+ *
+ * It increments exactly when the dataset does, which is what the update check needs: an APK
+ * built from a given commit reports the version it actually carries, so it never downloads
+ * a copy of what is already inside it. A checkout without git history falls back to 1, which
+ * simply means the first published dataset looks newer.
+ */
 fun datasetVersion(): Int = try {
     val process = ProcessBuilder(
         "git", "rev-list", "--count", "HEAD", "--",
@@ -47,8 +47,8 @@ android {
         targetSdk = 35
         // Kept in step with the git tag the release is published under: the in-app
         // update prompt compares this against the newest tag on GitHub.
-        versionCode = 9
-        versionName = "0.3.4"
+        versionCode = 10
+        versionName = "0.3.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
