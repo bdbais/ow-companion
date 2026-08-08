@@ -30,11 +30,14 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Undo
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Image
 import androidx.compose.material.icons.filled.Movie
 import androidx.compose.material.icons.filled.PictureAsPdf
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -55,6 +58,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.ContentScale
@@ -124,6 +129,7 @@ fun BoardScreen(
     ) { uri -> uri?.let { viewModel.setBackground(it.toString()) } }
 
     Column(modifier = modifier.fillMaxSize().padding(8.dp)) {
+        SavedBoards(state = state, viewModel = viewModel)
         FrameStrip(state = state, viewModel = viewModel)
 
         OutlinedTextField(
@@ -140,6 +146,8 @@ fun BoardScreen(
             modifier = Modifier.fillMaxWidth().weight(1f),
         )
 
+        // Two rows: what you are placing, then what you do with the result. Seven controls
+        // on one line pushed the video button off the edge of the screen.
         Row(
             modifier = Modifier.fillMaxWidth().padding(top = 6.dp),
             verticalAlignment = Alignment.CenterVertically,
@@ -159,6 +167,35 @@ fun BoardScreen(
                     modifier = Modifier.padding(end = 6.dp),
                 )
             }
+            Tool.entries.forEach { tool ->
+                FilterChip(
+                    selected = state.tool == tool,
+                    onClick = { viewModel.setTool(tool) },
+                    label = {
+                        Text(
+                            stringResource(
+                                if (tool == Tool.Move) R.string.board_tool_move
+                                else R.string.board_tool_arrow,
+                            ),
+                        )
+                    },
+                    modifier = Modifier.padding(end = 6.dp),
+                )
+            }
+            if (state.tool == Tool.Arrow) {
+                IconButton(onClick = viewModel::undoArrow) {
+                    Icon(
+                        Icons.AutoMirrored.Filled.Undo,
+                        contentDescription = stringResource(R.string.board_undo_arrow),
+                    )
+                }
+            }
+        }
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
             TextButton(onClick = {
                 pickImage.launch(
                     PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly),
@@ -171,19 +208,19 @@ fun BoardScreen(
                 )
             }
             Box(modifier = Modifier.weight(1f))
-            IconButton(
-                onClick = { exporting = ExportKind.Pdf },
-                enabled = exporting == null,
-            ) {
+            if (exporting != null) {
+                CircularProgressIndicator(
+                    strokeWidth = 2.dp,
+                    modifier = Modifier.size(18.dp).padding(end = 8.dp),
+                )
+            }
+            IconButton(onClick = { exporting = ExportKind.Pdf }, enabled = exporting == null) {
                 Icon(
                     Icons.Filled.PictureAsPdf,
                     contentDescription = stringResource(R.string.board_export_pdf),
                 )
             }
-            IconButton(
-                onClick = { exporting = ExportKind.Video },
-                enabled = exporting == null,
-            ) {
+            IconButton(onClick = { exporting = ExportKind.Video }, enabled = exporting == null) {
                 Icon(
                     Icons.Filled.Movie,
                     contentDescription = stringResource(R.string.board_export_video),
@@ -192,6 +229,49 @@ fun BoardScreen(
         }
 
         HeroStrip(state = state, viewModel = viewModel)
+    }
+}
+
+/** Name it and it keeps; a plan you have to rebuild before every match is not a plan. */
+@Composable
+private fun SavedBoards(state: BoardUiState, viewModel: BoardViewModel) {
+    Column {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            OutlinedTextField(
+                value = state.board.name,
+                onValueChange = viewModel::setName,
+                modifier = Modifier.weight(1f),
+                singleLine = true,
+                placeholder = { Text(stringResource(R.string.board_name_hint)) },
+            )
+            TextButton(
+                onClick = viewModel::save,
+                enabled = state.board.name.isNotBlank(),
+            ) { Text(stringResource(R.string.board_save)) }
+        }
+        if (state.saved.isNotEmpty()) {
+            LazyRow(
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+                modifier = Modifier.padding(top = 4.dp),
+            ) {
+                items(state.saved, key = { it.name }) { board ->
+                    FilterChip(
+                        selected = board.name == state.board.name,
+                        onClick = { viewModel.load(board) },
+                        label = { Text(board.name) },
+                        trailingIcon = {
+                            Icon(
+                                Icons.Filled.Close,
+                                contentDescription = stringResource(R.string.board_delete_saved),
+                                modifier = Modifier
+                                    .size(16.dp)
+                                    .clickable { viewModel.deleteSaved(board.name) },
+                            )
+                        },
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -240,13 +320,38 @@ private fun BoardSurface(
     // thing - background and tokens together - pinches and pans as one.
     var scale by remember { mutableFloatStateOf(1f) }
     var pan by remember { mutableStateOf(Offset.Zero) }
+    var drawing by remember { mutableStateOf<Pair<Offset, Offset>?>(null) }
 
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(10.dp))
             .background(MaterialTheme.colorScheme.surfaceVariant)
             .onSizeChanged { size = it }
-            .pointerInput(Unit) {
+            .pointerInput(state.tool, size) {
+                // In arrow mode a drag draws rather than pans, so the two never fight over
+                // the same gesture.
+                if (state.tool != Tool.Arrow) return@pointerInput
+                detectDragGestures(
+                    onDragStart = { start -> drawing = start to start },
+                    onDragEnd = {
+                        drawing?.let { (from, to) ->
+                            if ((to - from).getDistance() > 24f && size.width > 0) {
+                                viewModel.addArrow(
+                                    from.x / size.width, from.y / size.height,
+                                    to.x / size.width, to.y / size.height,
+                                )
+                            }
+                        }
+                        drawing = null
+                    },
+                    onDragCancel = { drawing = null },
+                ) { change, _ ->
+                    change.consume()
+                    drawing = drawing?.copy(second = change.position)
+                }
+            }
+            .pointerInput(state.tool) {
+                if (state.tool != Tool.Move) return@pointerInput
                 detectTransformGestures { _, panChange, zoomChange, _ ->
                     scale = (scale * zoomChange).coerceIn(1f, 8f)
                     // Panning is pointless at rest and disorientating past the edges, so
@@ -296,6 +401,25 @@ private fun BoardSurface(
                 }
             }
 
+            Canvas(modifier = Modifier.fillMaxSize()) {
+                state.frame.arrows.forEach { arrow ->
+                    drawArrow(
+                        start = Offset(arrow.fromX * this.size.width, arrow.fromY * this.size.height),
+                        end = Offset(arrow.toX * this.size.width, arrow.toY * this.size.height),
+                        color = ringFor(arrow.side),
+                        width = 5f / scale,
+                    )
+                }
+                drawing?.let { (from, to) ->
+                    drawArrow(
+                        start = from,
+                        end = to,
+                        color = ringFor(state.adding).copy(alpha = 0.6f),
+                        width = 5f / scale,
+                    )
+                }
+            }
+
             state.frame.tokens.forEach { token ->
                 TokenView(
                     token = token,
@@ -304,6 +428,7 @@ private fun BoardSurface(
                     // hero's face shrinking to nothing would defeat the point of zooming in.
                     tokenPx = tokenPx / scale,
                     scale = scale,
+                    draggable = state.tool == Tool.Move,
                     onMove = { x, y -> viewModel.move(token.id, x, y) },
                     onRemove = { viewModel.remove(token.id) },
                 )
@@ -330,6 +455,7 @@ private fun TokenView(
     boardSize: IntSize,
     tokenPx: Float,
     scale: Float,
+    draggable: Boolean,
     onMove: (Float, Float) -> Unit,
     onRemove: () -> Unit,
 ) {
@@ -360,7 +486,8 @@ private fun TokenView(
                 onClick = {},
                 onLongClick = onRemove,
             )
-            .pointerInput(token.id, boardSize) {
+            .pointerInput(token.id, boardSize, draggable) {
+                if (!draggable) return@pointerInput
                 detectDragGestures { change, dragAmount ->
                     change.consume()
                     if (boardSize.width == 0 || boardSize.height == 0) return@detectDragGestures
@@ -419,4 +546,20 @@ private fun HeroStrip(state: BoardUiState, viewModel: BoardViewModel) {
             }
         }
     }
+}
+
+/** A line with a head, in the direction it points. */
+private fun DrawScope.drawArrow(start: Offset, end: Offset, color: Color, width: Float) {
+    drawLine(color, start, end, strokeWidth = width, cap = StrokeCap.Round)
+
+    val direction = end - start
+    val length = direction.getDistance()
+    if (length < 1f) return
+    val unit = Offset(direction.x / length, direction.y / length)
+    val head = (width * 4f).coerceAtMost(length / 2f)
+    // Two strokes back from the tip at roughly thirty degrees either side.
+    val left = Offset(unit.x * 0.87f - unit.y * 0.5f, unit.y * 0.87f + unit.x * 0.5f)
+    val right = Offset(unit.x * 0.87f + unit.y * 0.5f, unit.y * 0.87f - unit.x * 0.5f)
+    drawLine(color, end, end - left * head, strokeWidth = width, cap = StrokeCap.Round)
+    drawLine(color, end, end - right * head, strokeWidth = width, cap = StrokeCap.Round)
 }

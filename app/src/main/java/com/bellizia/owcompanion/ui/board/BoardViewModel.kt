@@ -4,6 +4,7 @@ import android.app.Application
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.bellizia.owcompanion.data.BoardRepository
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,13 +16,19 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
+/** What a drag on the board does. */
+enum class Tool { Move, Arrow }
+
 data class BoardUiState(
     val board: Board = Board(),
     val frameIndex: Int = 0,
     val roster: List<HeroWiki> = emptyList(),
     /** Which team the next hero added joins. */
     val adding: Side = Side.Ours,
+    /** Placing pieces, or drawing the movement between them. */
+    val tool: Tool = Tool.Move,
     val loading: Boolean = true,
+    val saved: List<Board> = emptyList(),
 ) {
     val frame: Frame get() = board.frame(frameIndex)
 }
@@ -36,13 +43,15 @@ data class BoardUiState(
  */
 class BoardViewModel(application: Application) : AndroidViewModel(application) {
 
+    private val boards = BoardRepository(application)
+
     private val _state = MutableStateFlow(BoardUiState())
     val state: StateFlow<BoardUiState> = _state.asStateFlow()
 
     init {
         viewModelScope.launch {
             val heroes = WikiRepository(getApplication()).wiki().heroes.sortedBy { it.name }
-            _state.update { it.copy(roster = heroes, loading = false) }
+            _state.update { it.copy(roster = heroes, loading = false, saved = boards.all()) }
         }
     }
 
@@ -68,7 +77,43 @@ class BoardViewModel(application: Application) : AndroidViewModel(application) {
         _state.update { it.copy(board = it.board.copy(background = stored)) }
     }
 
+    fun setName(name: String) = _state.update { it.copy(board = it.board.copy(name = name)) }
+
+    fun save() = viewModelScope.launch {
+        val board = _state.value.board
+        if (board.name.isBlank()) return@launch
+        _state.update { it.copy(saved = boards.save(board)) }
+    }
+
+    fun load(board: Board) = _state.update {
+        it.copy(board = board, frameIndex = 0)
+    }
+
+    fun deleteSaved(name: String) = viewModelScope.launch {
+        _state.update { it.copy(saved = boards.delete(name)) }
+    }
+
     fun setAddingSide(side: Side) = _state.update { it.copy(adding = side) }
+
+    fun setTool(tool: Tool) = _state.update { it.copy(tool = tool) }
+
+    fun addArrow(fromX: Float, fromY: Float, toX: Float, toY: Float) = editFrame { frame ->
+        frame.copy(
+            arrows = frame.arrows + Arrow(
+                id = System.nanoTime().toString(),
+                side = _state.value.adding,
+                fromX = fromX.coerceIn(0f, 1f),
+                fromY = fromY.coerceIn(0f, 1f),
+                toX = toX.coerceIn(0f, 1f),
+                toY = toY.coerceIn(0f, 1f),
+            ),
+        )
+    }
+
+    /** Arrows are drawn faster than they are aimed, so undo is the tool that gets used. */
+    fun undoArrow() = editFrame { frame ->
+        frame.copy(arrows = frame.arrows.dropLast(1))
+    }
 
     fun add(hero: HeroWiki) = editFrame { frame ->
         frame.copy(

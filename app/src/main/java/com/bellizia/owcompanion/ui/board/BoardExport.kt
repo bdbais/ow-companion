@@ -165,6 +165,41 @@ object BoardExport {
             }
         }
 
+        // Arrows first, so a token always sits on top of the line that reaches it.
+        val stroke = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            style = Paint.Style.STROKE
+            strokeWidth = 7f
+            strokeCap = Paint.Cap.ROUND
+        }
+        frame.arrows.forEach { arrow ->
+            stroke.color = if (arrow.side == Side.Ours) 0xFF4C8DF6.toInt() else 0xFFE0645C.toInt()
+            val fromX = arrow.fromX * WIDTH
+            val fromY = arrow.fromY * HEIGHT
+            val toX = arrow.toX * WIDTH
+            val toY = arrow.toY * HEIGHT
+            canvas.drawLine(fromX, fromY, toX, toY, stroke)
+            val dx = toX - fromX
+            val dy = toY - fromY
+            val length = kotlin.math.hypot(dx, dy)
+            if (length >= 1f) {
+                val ux = dx / length
+                val uy = dy / length
+                val head = minOf(28f, length / 2f)
+                canvas.drawLine(
+                    toX, toY,
+                    toX - (ux * 0.87f - uy * 0.5f) * head,
+                    toY - (uy * 0.87f + ux * 0.5f) * head,
+                    stroke,
+                )
+                canvas.drawLine(
+                    toX, toY,
+                    toX - (ux * 0.87f + uy * 0.5f) * head,
+                    toY - (uy * 0.87f - ux * 0.5f) * head,
+                    stroke,
+                )
+            }
+        }
+
         val ring = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             style = Paint.Style.STROKE
             strokeWidth = 6f

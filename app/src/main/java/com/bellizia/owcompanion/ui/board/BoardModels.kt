@@ -23,6 +23,22 @@ data class Token(
 )
 
 /**
+ * A movement, drawn from where something is to where it goes.
+ *
+ * Positions are fractions like a token's, for the same reason: the plan has to survive being
+ * looked at on a different screen.
+ */
+@Serializable
+data class Arrow(
+    val id: String,
+    val side: Side = Side.Ours,
+    val fromX: Float = 0f,
+    val fromY: Float = 0f,
+    val toX: Float = 0f,
+    val toY: Float = 0f,
+)
+
+/**
  * One moment in the plan.
  *
  * A frame is a whole board, not a diff. Adding one copies the frame before it so you move
@@ -34,6 +50,7 @@ data class Frame(
     val id: String,
     val caption: String = "",
     val tokens: List<Token> = emptyList(),
+    val arrows: List<Arrow> = emptyList(),
 )
 
 @Serializable

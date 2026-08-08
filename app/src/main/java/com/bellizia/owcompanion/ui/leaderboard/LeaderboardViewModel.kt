@@ -50,6 +50,20 @@ data class BuffSelection(
     )
 }
 
+/**
+ * How far back to include heroes by when they arrived.
+ *
+ * Release dates are the one piece of history the dataset has for every hero without a gap,
+ * so this filter is exact - unlike rolling the numbers back to an old patch, which the
+ * balance notes do not describe completely enough to attempt.
+ */
+enum class Era(val since: String?, @androidx.annotation.StringRes val labelRes: Int) {
+    All(null, com.bellizia.owcompanion.R.string.era_all),
+    Ow2("2022-10-04", com.bellizia.owcompanion.R.string.era_ow2),
+    Recent("2024-01-01", com.bellizia.owcompanion.R.string.era_recent),
+    Newest("2025-01-01", com.bellizia.owcompanion.R.string.era_newest),
+}
+
 /** Three different questions, three different metrics. */
 enum class RankingMode(@androidx.annotation.StringRes val labelRes: Int) {
     Weapons(com.bellizia.owcompanion.R.string.rank_weapons),
@@ -92,18 +106,38 @@ data class LeaderboardUiState(
     val ultimatesWithoutDamage: Int = 0,
     val buffs: BuffSelection = BuffSelection(),
     val roles: Set<HeroRole> = HeroRole.entries.toSet(),
+    val era: Era = Era.All,
+    /** Release date per hero name, for the era filter. */
+    val released: Map<String, String> = emptyMap(),
     val computeMillis: Long = 0,
 ) {
     /** Ranked combos, narrowed to the chosen roles like every other list here. */
     val combos: List<ComboEntry>
         get() = allCombos.filter { entry ->
-            entry.hero?.role?.let(HeroRole::of)?.let { it in roles } ?: true
+            (entry.hero?.role?.let(HeroRole::of)?.let { it in roles } ?: true) &&
+                arrivedInEra(entry.heroName)
         }
 
-    /** Applies the role filter to whichever ranking is on screen. */
-    fun <T> visible(items: List<T>, heroOf: (T) -> Hero?): List<T> = items.filter {
-        val role = heroOf(it)?.role?.let(HeroRole::of)
-        role == null || role in roles
+    /** Whether a hero was released within the chosen era. */
+    fun arrivedInEra(heroName: String): Boolean {
+        val since = era.since ?: return true
+        // ISO dates, so string comparison is date comparison. A hero with no known release
+        // date is kept rather than hidden: absent is not the same as old.
+        val date = released[heroName] ?: return true
+        return date >= since
+    }
+
+    /**
+     * Applies the filters to whichever ranking is on screen.
+     *
+     * Every chip above a list has to act on that list, or it is furniture: the role chips
+     * were already on the combos tab doing nothing before this was made to go through one
+     * place.
+     */
+    fun <T> visible(items: List<T>, heroOf: (T) -> Hero?): List<T> = items.filter { item ->
+        val hero = heroOf(item)
+        val role = hero?.role?.let(HeroRole::of)
+        (role == null || role in roles) && (hero == null || arrivedInEra(hero.name))
     }
 }
 
@@ -165,6 +199,13 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
             val heroes = WikiRepository(getApplication()).wiki().heroes
             _state.update { current ->
                 current.copy(
+                    released = heroes.mapNotNull { hero ->
+                        hero.releaseDate?.let { hero.name to it }
+                    }.toMap(),
+                )
+            }
+            _state.update { current ->
+                current.copy(
                     allCombos = heroes
                         .map { hero -> hero to Combo.stepsFor(hero, set.weapons) }
                         .filter { (_, steps) -> steps.size > 1 }
@@ -191,6 +232,8 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
     fun setMode(mode: RankingMode) = _state.update { it.copy(mode = mode) }
 
     fun setRoles(roles: Set<HeroRole>) = _state.update { it.copy(roles = roles) }
+
+    fun setEra(era: Era) = _state.update { it.copy(era = era) }
 
     fun setBuffs(buffs: BuffSelection) {
         _state.update { it.copy(buffs = buffs, loading = true) }

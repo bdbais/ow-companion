@@ -110,6 +110,31 @@ fun LeaderboardScreen(
                 }
 
                 Text(
+                    text = stringResource(R.string.rank_era),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 6.dp),
+                )
+                FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                    Era.entries.forEach { era ->
+                        FilterChip(
+                            selected = state.era == era,
+                            onClick = { viewModel.setEra(era) },
+                            label = {
+                                Text(
+                                    stringResource(era.labelRes),
+                                    style = MaterialTheme.typography.labelSmall,
+                                )
+                            },
+                            colors = FilterChipDefaults.filterChipColors(
+                                selectedContainerColor = MaterialTheme.colorScheme.primary,
+                                selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
+                            ),
+                        )
+                    }
+                }
+
+                Text(
                     text = stringResource(R.string.chart_section_role),
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,

@@ -271,4 +271,15 @@
     <string name="board_export_pdf">Export as a PDF</string>
     <string name="board_export_video">Export as a video</string>
     <string name="board_reset_zoom">Fit</string>
+    <string name="board_tool_move">Move</string>
+    <string name="board_tool_arrow">Arrow</string>
+    <string name="board_undo_arrow">Undo the last arrow</string>
+    <string name="board_name_hint">Name this plan</string>
+    <string name="board_save">Save</string>
+    <string name="board_delete_saved">Delete this plan</string>
+    <string name="rank_era">Released</string>
+    <string name="era_all">Any time</string>
+    <string name="era_ow2">Overwatch 2 onwards</string>
+    <string name="era_recent">2024 onwards</string>
+    <string name="era_newest">2025 onwards</string>
 </resources>
