@@ -1,5 +1,35 @@
 import java.util.Properties
 
+/**
+ * How many commits have changed the data the app ships with.
+ *
+ * It increments exactly when the dataset does, which is what the update check needs: an APK
+ * built from a given commit reports the version it actually carries, so it never downloads
+ * a copy of what is already inside it. A checkout without git history falls back to 1, which
+ * simply means the first published dataset looks newer.
+ */
+/**
+ * Where published datasets live: a branch of this repository, served raw.
+ *
+ * A branch rather than the default one, so publishing cannot trigger the workflows that
+ * watch master, and so a bad dataset is reverted without touching the source.
+ */
+val DEFAULT_DATASET_URL =
+    "https://raw.githubusercontent.com/bdbais/ow-companion/dataset-published"
+
+fun datasetVersion(): Int = try {
+    val process = ProcessBuilder(
+        "git", "rev-list", "--count", "HEAD", "--",
+        "app/src/main/assets/weapons.json", "app/src/main/assets/wiki.json",
+    ).directory(rootDir).redirectErrorStream(true).start()
+    val output = process.inputStream.bufferedReader().use { it.readText() }.trim()
+    process.waitFor()
+    output.toIntOrNull()?.takeIf { it > 0 } ?: 1
+} catch (error: Exception) {
+    logger.warn("Could not read the dataset version from git (${error.message}); using 1.")
+    1
+}
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -22,14 +52,16 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // Where the app looks for a newer dataset. Empty by default: the repository is
-        // private, so there is nowhere public to serve it from yet, and the app is
-        // offline-first regardless. Set it in gradle.properties to switch updates on.
+        // Where the app looks for a newer dataset. Overridable in gradle.properties, and
+        // blank switches updates off: the app is offline-first, so an absent server is a
+        // non-event rather than an error.
         buildConfigField(
             "String",
             "DATASET_UPDATE_URL",
-            "\"${project.findProperty("datasetUpdateUrl") ?: ""}\"",
+            "\"${project.findProperty("datasetUpdateUrl") ?: DEFAULT_DATASET_URL}\"",
         )
+
+        buildConfigField("int", "DATASET_VERSION", "${datasetVersion()}")
     }
 
     // Release signing is read from keystore.properties when present, so the keystore and

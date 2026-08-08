@@ -20,6 +20,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.bellizia.owcompanion.BuildConfig
 import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.data.DatasetRepository
 import com.bellizia.owcompanion.data.DatasetUpdater
@@ -51,7 +52,10 @@ class AboutViewModel(application: Application) : AndroidViewModel(application) {
             val set = repository.weapons()
             _state.update {
                 it.copy(
-                    datasetVersion = DatasetUpdater.installedVersion(getApplication(), 1),
+                    datasetVersion = DatasetUpdater.installedVersion(
+                        getApplication(),
+                        BuildConfig.DATASET_VERSION,
+                    ),
                     heroes = set.heroes.size,
                     weapons = set.weapons.size,
                     updatesConfigured = updater.isConfigured,

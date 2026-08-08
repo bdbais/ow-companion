@@ -1,0 +1,81 @@
+# Publishes the dataset so installed apps can pick up a new patch without a new APK.
+#
+# The app reads manifest.json from the dataset-published branch, compares its version with
+# the one it was built with, and downloads the two files only when the published one is
+# newer. Version is the number of commits that have changed the data, so an APK built from
+# any commit already reports what it carries and never re-downloads its own copy.
+#
+# Publishing to a branch rather than to master keeps this from re-triggering the workflows
+# that watch master, and means a bad dataset is undone without touching the source.
+name: Publish dataset
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "app/src/main/assets/weapons.json"
+      - "app/src/main/assets/wiki.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-dataset
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The version is a commit count, so the whole history has to be here.
+          fetch-depth: 0
+
+      - name: Work out the version
+        id: version
+        run: |
+          set -euo pipefail
+          version="$(git rev-list --count HEAD -- \
+            app/src/main/assets/weapons.json app/src/main/assets/wiki.json)"
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "Publishing dataset version ${version}."
+
+      - name: Assemble what gets served
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/publish"
+          cp app/src/main/assets/weapons.json "${RUNNER_TEMP}/publish/weapons.json"
+          cp app/src/main/assets/wiki.json "${RUNNER_TEMP}/publish/wiki.json"
+          cat > "${RUNNER_TEMP}/publish/manifest.json" <<JSON
+          {
+            "version": ${{ steps.version.outputs.version }},
+            "weapons": "weapons.json",
+            "wiki": "wiki.json",
+            "publishedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "commit": "${GITHUB_SHA}"
+          }
+          JSON
+          python3 -c "import json,sys; json.load(open(sys.argv[1]))" \
+            "${RUNNER_TEMP}/publish/manifest.json"
+          cat "${RUNNER_TEMP}/publish/manifest.json"
+
+      - name: Push it to the dataset-published branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # An orphan branch each time: this is a published artefact, not a history worth
+          # keeping, and it stops the branch growing a copy of every dataset ever built.
+          git checkout --orphan dataset-published
+          git rm -rq --cached .
+          find . -mindepth 1 -maxdepth 1 -not -name .git -exec rm -rf {} +
+          cp "${RUNNER_TEMP}/publish/"* .
+
+          git add manifest.json weapons.json wiki.json
+          git commit -m "Dataset version ${{ steps.version.outputs.version }}"
+          git push --force origin dataset-published
+
+          echo "Serving from https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/dataset-published/manifest.json"
