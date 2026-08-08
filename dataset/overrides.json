@@ -1,359 +1,359 @@
 {
-  "_readme": [
-    "Hand corrections merged over the parsed weapons by tools/build_dataset.py.",
-    "Keyed by \"Hero|Weapon name\". Everything here exists because the wiki states the",
-    "value in prose a parser cannot read, not because the parser is weak.",
-    "",
-    "Beams: the wiki gives damage per second and ammo drain per second, but the engine",
-    "needs damage per tick. Overwatch beams tick 20 times a second, so dpshot = dps/20,",
-    "fireRate = 20, and the magazine is restated in ticks: ammo * 20 / drainPerSecond.",
-    "",
-    "'drop' removes a weapon entirely. Healing tools deal no damage and do not belong in",
-    "a damage chart; inventing a number for them would be worse than leaving them out.",
-    "",
-    "Transform weapons: Bastion's Assault turret and Ramattra's Pummel state 'ammo = infinity'",
-    "on the wiki, and they do mean it - neither reloads. What ends them is the form running",
-    "out, and that duration lives on the transform ability rather than on the weapon, so the",
-    "parser cannot see it. Left alone the engine fires them forever and reports 360 dps for a",
-    "gun that is available six seconds in every thirteen. The form is therefore written down",
-    "as a magazine: ammo = rate * duration, reloadTime = cooldown - duration + cast time.",
-    "",
-    "Turrets: a turret is on the chart for the same reason a gun is - it produces a stream of",
-    "damage you can compare with everything else. Symmetra's states its damage as a rate, so",
-    "it is treated as a beam: 30 dps over 20 ticks is 1.5 per tick.",
-    "",
-    "'add' defines a weapon outright, for the few the wiki only describes in prose.",
-    "",
-    "Venom Mine is dropped rather than treated as a turret. It is destructible and its damage",
-    "is written as a rate, which is the same signature a turret has, but the rate is poison on",
-    "whoever trips it - the mine never shoots at anything, so a firing timeline would be a lie."
-  ],
-  "drop": [
-    "Mercy|Caduceus Staff",
-    "Mercy|Caduceus Staff Alt Fire",
-    "Moira|Biotic Grasp",
-    "Kiriko|Healing Ofuda",
-    "Lifeweaver|Healing Blossom",
-    "Baptiste|Biotic Launcher Alt Fire",
-    "Illari|Solar Rifle Alt Fire",
-    "Widowmaker|Venom Mine"
-  ],
-  "weapons": {
-    "Symmetra|Photon Projector": {
-      "_note": "60/120/180 dps by charge level. Charge time per level is not stated on the wiki; 1.33 s carried over from the owdmgchart reference dataset.",
-      "type": "beam",
-      "behavior": "photonProjector",
-      "damage": {
-        "dpshot": [
-          3.0
-        ],
-        "falloff": null,
-        "maxRange": 12.0,
-        "dps": 60.0,
-        "dpsFactors": [
-          1.0,
-          2.0,
-          3.0
-        ],
-        "levelChargingTime": 1.33
-      },
-      "spread": null,
-      "fireRate": 20.0,
-      "shotTime": 0.05,
-      "tickRate": 20.0,
-      "ammoUsage": 10.0,
-      "ammo": 200.0,
-      "reloadTime": 1.5,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.05,
-      "dpsPeriodAdd": 0.0075
-    },
-    "Winston|Tesla Cannon": {
-      "_note": "70 dps, 120 rounds draining 20/s, 8 m range.",
-      "type": "beam",
-      "damage": {
-        "dpshot": [
-          3.5
-        ],
-        "falloff": null,
-        "maxRange": 8.0,
-        "dps": 70.0
-      },
-      "spread": null,
-      "fireRate": 20.0,
-      "shotTime": 0.05,
-      "tickRate": 20.0,
-      "ammoUsage": 20.0,
-      "ammo": 120.0,
-      "reloadTime": 1.5,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.05,
-      "dpsPeriodAdd": 0.0125
-    },
-    "Winston|Tesla Cannon Alt Fire": {
-      "_note": "Charged bolt: 60 damage at full charge, 37.5 dps firing continuously, so one shot every 1.6 s.",
-      "type": "hitscan",
-      "damage": {
-        "dpshot": [
-          60.0
-        ],
-        "falloff": null,
-        "maxRange": 40.0
-      },
-      "spread": null,
-      "fireRate": 0.625,
-      "shotTime": 1.6,
-      "ammo": 10.0,
-      "reloadTime": 1.5,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 1.6,
-      "dpsPeriodAdd": 0.15
-    },
-    "Zarya|Particle Cannon": {
-      "_note": "95 dps at 0 energy and 175 at 100, so damage scales by 0.842 per full charge.",
-      "type": "beam",
-      "behavior": "particleCannon",
-      "damage": {
-        "dpshot": [
-          4.75
-        ],
-        "falloff": null,
-        "maxRange": 15.0,
-        "dps": 95.0
-      },
-      "spread": null,
-      "fireRate": 20.0,
-      "shotTime": 0.05,
-      "tickRate": 20.0,
-      "ammoUsage": 20.0,
-      "ammo": 100.0,
-      "reloadTime": 1.5,
-      "energy": 0.0,
-      "energyFactor": 0.8421,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.05,
-      "dpsPeriodAdd": 0.015
-    },
-    "Mei|Endothermic Blaster": {
-      "_note": "5.5 per tick at 20 ticks/s is the wiki's 110 dps; 140 rounds draining 20/s gives 7 s of fire.",
-      "type": "beam",
-      "damage": {
-        "dpshot": [
-          5.5
-        ],
-        "falloff": null,
-        "maxRange": 12.0,
-        "dps": 110.0
-      },
-      "spread": null,
-      "fireRate": 20.0,
-      "shotTime": 0.05,
-      "tickRate": 20.0,
-      "ammoUsage": 20.0,
-      "ammo": 140.0,
-      "reloadTime": 1.5,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.05,
-      "dpsPeriodAdd": 0.0107
-    },
-    "Moira|Biotic Grasp Alt Fire": {
-      "_note": "65 dps, no magazine - the resource is her biotic energy, which this model does not track.",
-      "type": "beam",
-      "damage": {
-        "dpshot": [
-          3.25
-        ],
-        "falloff": null,
-        "maxRange": 20.0,
-        "dps": 65.0
-      },
-      "spread": null,
-      "fireRate": 20.0,
-      "shotTime": 0.05,
-      "tickRate": 20.0,
-      "ammo": 340.0,
-      "reloadTime": 0.0,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.05,
-      "dpsPeriodAdd": 0.0
-    },
-    "Anran|Fan the Flames": {
-      "_note": "The wiki calls it a beam, but 6 damage per pellet for 36 a shot is a projectile shotgun and behaves like one.",
-      "type": "projectile shotgun",
-      "pellets": [
-        6.0
-      ],
-      "damage": {
-        "dpshot": [
-          6.0
-        ],
-        "falloff": null,
-        "maxRange": 10.0
-      },
-      "velocity": 90.0,
-      "fireRate": 1.66667,
-      "shotTime": 0.6,
-      "ammo": 10.0,
-      "reloadTime": 1.5,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.6,
-      "dpsPeriodAdd": 0.15
-    },
-    "Domina|Photon Magnum": {
-      "_note": "Two modes sharing a magazine. Modelled as the hitscan shot: 60 damage, 0.8 s charge, 5 of 100 rounds per shot.",
-      "type": "hitscan",
-      "damage": {
-        "dpshot": [
-          60.0
-        ],
-        "falloff": null,
-        "maxRange": 25.0
-      },
-      "spread": null,
-      "fireRate": 1.25,
-      "shotTime": 0.8,
-      "ammo": 20.0,
-      "reloadTime": 1.5,
-      "critFactor": 2.0,
-      "dpsPeriodBase": 0.8,
-      "dpsPeriodAdd": 0.075
-    },
-    "Freja|Take Aim": {
-      "_note": "Single bolt, 0.4 s to fire and a 1.5 s reload after every shot. Only the direct hit is modelled, not the explosion.",
-      "type": "linear projectile",
-      "damage": {
-        "dpshot": [
-          35.0
-        ],
-        "falloff": null
-      },
-      "velocity": 125.0,
-      "fireRate": 2.5,
-      "shotTime": 0.4,
-      "ammo": 1.0,
-      "reloadTime": 1.5,
-      "critFactor": 2.0,
-      "dpsPeriodBase": 0.4,
-      "dpsPeriodAdd": 1.5
-    },
-    "Symmetra|Photon Projector Alt Fire": {
-      "_note": "5 to 100 direct damage between minimum and maximum charge, one second to full. The parser read that pair as falloff, which it is not - it is the charge range.",
-      "type": "linear projectile",
-      "behavior": "chargeScaled",
-      "damage": {
-        "dpshot": [
-          5.0
-        ],
-        "falloff": null,
-        "chargeDamage": [
-          5.0,
-          100.0
-        ],
-        "chargeTime": 1.0
-      },
-      "spread": null,
-      "velocity": 25.0,
-      "fireRate": 0.8,
-      "shotTime": 1.25,
-      "ammo": 10.0,
-      "reloadTime": 1.5,
-      "critFactor": 2.0,
-      "dpsPeriodBase": 1.25,
-      "dpsPeriodAdd": 0.15
-    },
-    "Sojourn|Charged Shot": {
-      "_note": "Fully charged railgun shot: 120 falling to 60 between 40 and 60 m, one every 0.64 s. Charge comes from her primary fire, which this model does not track.",
-      "type": "hitscan",
-      "damage": {
-        "dpshot": [
-          120.0,
-          60.0
-        ],
-        "falloff": [
-          40.0,
-          60.0
-        ]
-      },
-      "spread": null,
-      "fireRate": 1.5625,
-      "shotTime": 0.64,
-      "ammo": null,
-      "reloadTime": 0.0,
-      "critFactor": 2.0,
-      "dpsPeriodBase": 0.64,
-      "dpsPeriodAdd": 0.0
-    },
-    "Bastion|Configuration: Assault": {
-      "_note": "Assault lasts 6 s on a 12 s cooldown with 1 + 0.5 s of transform animation, and does not reload. 30 shots/s * 6 s = 180 rounds, then 12 - 6 + 1.5 = 7.5 s before it can fire again.",
-      "ammo": 180.0,
-      "reloadTime": 7.5
-    },
-    "Bastion|Configuration: Assault (Lindholm Explosives)": {
-      "_note": "The same 6 s form as Configuration: Assault, at the perk's slower 1.33 shots/s: 8 shells, then 7.5 s.",
-      "ammo": 8.0,
-      "reloadTime": 7.5
-    },
-    "Ramattra|Pummel": {
-      "_note": "Nemesis Form lasts 8 s and its 8 s cooldown starts when the form ends, plus 0.5 s of recovery. 1.67 shots/s * 8 s = 13 swings, then 8.5 s.",
-      "ammo": 13.0,
-      "reloadTime": 8.5
-    },
-    "Symmetra|Sentry Turret": {
-      "_note": "The wiki states 30 damage per second and no rate. Treated as a beam at the usual 20 ticks a second, so 1.5 per tick. Range is the stated 10 m of turret beam.",
-      "type": "beam",
-      "fireRate": 20.0,
-      "tickRate": 20.0,
-      "damage": {
-        "dpshot": [
-          1.5
-        ],
-        "falloff": null,
-        "maxRange": 10.0
-      },
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.05,
-      "dpsPeriodAdd": 0.0
-    },
-    "Torbjörn|Deploy Turret": {
-      "_note": "12 damage at 4 shots a second, hitscan, out to the stated 40 m attack range. It never reloads and fires until destroyed.",
-      "type": "hitscan",
-      "damage": {
-        "dpshot": [
-          12.0
-        ],
-        "falloff": null,
-        "maxRange": 40.0
-      },
-      "critFactor": 1.0
-    }
+ "_readme": [
+  "Hand corrections merged over the parsed weapons by tools/build_dataset.py.",
+  "Keyed by \"Hero|Weapon name\". Everything here exists because the wiki states the",
+  "value in prose a parser cannot read, not because the parser is weak.",
+  "",
+  "Beams: the wiki gives damage per second and ammo drain per second, but the engine",
+  "needs damage per tick. Overwatch beams tick 20 times a second, so dpshot = dps/20,",
+  "fireRate = 20, and the magazine is restated in ticks: ammo * 20 / drainPerSecond.",
+  "",
+  "'drop' removes a weapon entirely. Healing tools deal no damage and do not belong in",
+  "a damage chart; inventing a number for them would be worse than leaving them out.",
+  "",
+  "Transform weapons: Bastion's Assault turret and Ramattra's Pummel state 'ammo = infinity'",
+  "on the wiki, and they do mean it - neither reloads. What ends them is the form running",
+  "out, and that duration lives on the transform ability rather than on the weapon, so the",
+  "parser cannot see it. Left alone the engine fires them forever and reports 360 dps for a",
+  "gun that is available six seconds in every thirteen. The form is therefore written down",
+  "as a magazine: ammo = rate * duration, reloadTime = cooldown - duration + cast time.",
+  "",
+  "Turrets: a turret is on the chart for the same reason a gun is - it produces a stream of",
+  "damage you can compare with everything else. Symmetra's states its damage as a rate, so",
+  "it is treated as a beam: 30 dps over 20 ticks is 1.5 per tick.",
+  "",
+  "'add' defines a weapon outright, for the few the wiki only describes in prose.",
+  "",
+  "Venom Mine is dropped rather than treated as a turret. It is destructible and its damage",
+  "is written as a rate, which is the same signature a turret has, but the rate is poison on",
+  "whoever trips it - the mine never shoots at anything, so a firing timeline would be a lie."
+ ],
+ "drop": [
+  "Mercy|Caduceus Staff",
+  "Mercy|Caduceus Staff Alt Fire",
+  "Moira|Biotic Grasp",
+  "Kiriko|Healing Ofuda",
+  "Lifeweaver|Healing Blossom",
+  "Baptiste|Biotic Launcher Alt Fire",
+  "Illari|Solar Rifle Alt Fire",
+  "Widowmaker|Venom Mine"
+ ],
+ "weapons": {
+  "Symmetra|Photon Projector": {
+   "_note": "60/120/180 dps by charge level. Charge time per level is not stated on the wiki; 1.33 s carried over from the owdmgchart reference dataset.",
+   "type": "beam",
+   "behavior": "photonProjector",
+   "damage": {
+    "dpshot": [
+     3.0
+    ],
+    "falloff": null,
+    "maxRange": 12.0,
+    "dps": 60.0,
+    "dpsFactors": [
+     1.0,
+     2.0,
+     3.0
+    ],
+    "levelChargingTime": 1.33
+   },
+   "spread": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "tickRate": 20.0,
+   "ammoUsage": 10.0,
+   "ammo": 200.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0075
   },
-  "add": {
-    "Torbjörn|Deploy Turret (Overloaded)": {
-      "_note": "The Overloaded Turret perk. Its missiles are only described in prose - 'a burst of 3 missiles every 1.5 seconds', 30 damage each - so no field carries the rate and the parser cannot see it. That is 60 dps of missiles on top of the turret's own 48, modelled here as one 27-damage shot at 4/s: 108 dps combined, which is what the two together produce.",
-      "perk": "Overloaded Turret",
-      "baseWeapon": "Deploy Turret",
-      "mousebutton": null,
-      "type": "hitscan",
-      "behavior": "standard",
-      "pellets": [
-        1.0
-      ],
-      "damage": {
-        "dpshot": [
-          27.0
-        ],
-        "falloff": null,
-        "maxRange": 40.0
-      },
-      "spread": null,
-      "velocity": null,
-      "fireRate": 4.0,
-      "shotTime": 0.25,
-      "ammo": null,
-      "reloadTime": 0.0,
-      "critFactor": 1.0,
-      "dpsPeriodBase": 0.25,
-      "dpsPeriodAdd": 0.0
-    }
+  "Winston|Tesla Cannon": {
+   "_note": "70 dps, 120 rounds draining 20/s, 8 m range.",
+   "type": "beam",
+   "damage": {
+    "dpshot": [
+     3.5
+    ],
+    "falloff": null,
+    "maxRange": 8.0,
+    "dps": 70.0
+   },
+   "spread": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "tickRate": 20.0,
+   "ammoUsage": 20.0,
+   "ammo": 120.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0125
+  },
+  "Winston|Tesla Cannon Alt Fire": {
+   "_note": "Charged bolt: 60 damage at full charge, 37.5 dps firing continuously, so one shot every 1.6 s.",
+   "type": "hitscan",
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": null,
+   "fireRate": 0.625,
+   "shotTime": 1.6,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.6,
+   "dpsPeriodAdd": 0.15
+  },
+  "Zarya|Particle Cannon": {
+   "_note": "95 dps at 0 energy and 175 at 100, so damage scales by 0.842 per full charge.",
+   "type": "beam",
+   "behavior": "particleCannon",
+   "damage": {
+    "dpshot": [
+     4.75
+    ],
+    "falloff": null,
+    "maxRange": 15.0,
+    "dps": 95.0
+   },
+   "spread": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "tickRate": 20.0,
+   "ammoUsage": 20.0,
+   "ammo": 100.0,
+   "reloadTime": 1.5,
+   "energy": 0.0,
+   "energyFactor": 0.8421,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.015
+  },
+  "Mei|Endothermic Blaster": {
+   "_note": "5.5 per tick at 20 ticks/s is the wiki's 110 dps; 140 rounds draining 20/s gives 7 s of fire.",
+   "type": "beam",
+   "damage": {
+    "dpshot": [
+     5.5
+    ],
+    "falloff": null,
+    "maxRange": 12.0,
+    "dps": 110.0
+   },
+   "spread": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "tickRate": 20.0,
+   "ammoUsage": 20.0,
+   "ammo": 140.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0107
+  },
+  "Moira|Biotic Grasp Alt Fire": {
+   "_note": "65 dps, no magazine - the resource is her biotic energy, which this model does not track.",
+   "type": "beam",
+   "damage": {
+    "dpshot": [
+     3.25
+    ],
+    "falloff": null,
+    "maxRange": 20.0,
+    "dps": 65.0
+   },
+   "spread": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "tickRate": 20.0,
+   "ammo": 340.0,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0
+  },
+  "Anran|Fan the Flames": {
+   "_note": "The wiki calls it a beam, but 6 damage per pellet for 36 a shot is a projectile shotgun and behaves like one.",
+   "type": "projectile shotgun",
+   "pellets": [
+    6.0
+   ],
+   "damage": {
+    "dpshot": [
+     6.0
+    ],
+    "falloff": null,
+    "maxRange": 10.0
+   },
+   "velocity": 90.0,
+   "fireRate": 1.66667,
+   "shotTime": 0.6,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.6,
+   "dpsPeriodAdd": 0.15
+  },
+  "Domina|Photon Magnum": {
+   "_note": "One weapon, not two: a beam that culminates in a hitscan shot, costing 10 of 100 rounds per cycle. The wiki's own damage lines (60 over time plus a 60 shot) cannot be reconciled with its stated rate - 120 per cycle would be far more than 90 dps - so the stated figures win, as everywhere else. 60 per cycle at 1.5 cycles per second gives the 90 dps it states while firing, and 73 against its stated ~72 overall with reload.",
+   "type": "hitscan",
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null,
+    "maxRange": 25.0
+   },
+   "spread": null,
+   "fireRate": 1.5,
+   "shotTime": 0.8,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.5,
+   "dpsPeriodBase": 0.6667,
+   "dpsPeriodAdd": 0.075
+  },
+  "Freja|Take Aim": {
+   "_note": "Single bolt, 0.4 s to fire and a 1.5 s reload after every shot. Only the direct hit is modelled, not the explosion.",
+   "type": "linear projectile",
+   "damage": {
+    "dpshot": [
+     35.0
+    ],
+    "falloff": null
+   },
+   "velocity": 125.0,
+   "fireRate": 2.5,
+   "shotTime": 0.4,
+   "ammo": 1.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4,
+   "dpsPeriodAdd": 1.5
+  },
+  "Symmetra|Photon Projector Alt Fire": {
+   "_note": "5 to 100 direct damage between minimum and maximum charge, one second to full. The parser read that pair as falloff, which it is not - it is the charge range.",
+   "type": "linear projectile",
+   "behavior": "chargeScaled",
+   "damage": {
+    "dpshot": [
+     5.0
+    ],
+    "falloff": null,
+    "chargeDamage": [
+     5.0,
+     100.0
+    ],
+    "chargeTime": 1.0
+   },
+   "spread": null,
+   "velocity": 25.0,
+   "fireRate": 0.8,
+   "shotTime": 1.25,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.25,
+   "dpsPeriodAdd": 0.15
+  },
+  "Sojourn|Charged Shot": {
+   "_note": "Fully charged railgun shot: 120 falling to 60 between 40 and 60 m, one every 0.64 s. Charge comes from her primary fire, which this model does not track.",
+   "type": "hitscan",
+   "damage": {
+    "dpshot": [
+     120.0,
+     60.0
+    ],
+    "falloff": [
+     40.0,
+     60.0
+    ]
+   },
+   "spread": null,
+   "fireRate": 1.5625,
+   "shotTime": 0.64,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.64,
+   "dpsPeriodAdd": 0.0
+  },
+  "Bastion|Configuration: Assault": {
+   "_note": "Assault lasts 6 s on a 12 s cooldown with 1 + 0.5 s of transform animation, and does not reload. 30 shots/s * 6 s = 180 rounds, then 12 - 6 + 1.5 = 7.5 s before it can fire again.",
+   "ammo": 180.0,
+   "reloadTime": 7.5
+  },
+  "Bastion|Configuration: Assault (Lindholm Explosives)": {
+   "_note": "The same 6 s form as Configuration: Assault, at the perk's slower 1.33 shots/s: 8 shells, then 7.5 s.",
+   "ammo": 8.0,
+   "reloadTime": 7.5
+  },
+  "Ramattra|Pummel": {
+   "_note": "Nemesis Form lasts 8 s and its 8 s cooldown starts when the form ends, plus 0.5 s of recovery. 1.67 shots/s * 8 s = 13 swings, then 8.5 s.",
+   "ammo": 13.0,
+   "reloadTime": 8.5
+  },
+  "Symmetra|Sentry Turret": {
+   "_note": "The wiki states 30 damage per second and no rate. Treated as a beam at the usual 20 ticks a second, so 1.5 per tick. Range is the stated 10 m of turret beam.",
+   "type": "beam",
+   "fireRate": 20.0,
+   "tickRate": 20.0,
+   "damage": {
+    "dpshot": [
+     1.5
+    ],
+    "falloff": null,
+    "maxRange": 10.0
+   },
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0
+  },
+  "Torbjörn|Deploy Turret": {
+   "_note": "12 damage at 4 shots a second, hitscan, out to the stated 40 m attack range. It never reloads and fires until destroyed.",
+   "type": "hitscan",
+   "damage": {
+    "dpshot": [
+     12.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "critFactor": 1.0
   }
+ },
+ "add": {
+  "Torbjörn|Deploy Turret (Overloaded)": {
+   "_note": "The Overloaded Turret perk. Its missiles are only described in prose - 'a burst of 3 missiles every 1.5 seconds', 30 damage each - so no field carries the rate and the parser cannot see it. That is 60 dps of missiles on top of the turret's own 48, modelled here as one 27-damage shot at 4/s: 108 dps combined, which is what the two together produce.",
+   "perk": "Overloaded Turret",
+   "baseWeapon": "Deploy Turret",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.25,
+   "dpsPeriodAdd": 0.0
+  }
+ }
 }

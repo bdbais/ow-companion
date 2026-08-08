@@ -1300,12 +1300,12 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.25,
+   "fireRate": 1.5,
    "shotTime": 0.8,
-   "ammo": 20.0,
+   "ammo": 10.0,
    "reloadTime": 1.5,
-   "critFactor": 2.0,
-   "dpsPeriodBase": 0.8,
+   "critFactor": 1.5,
+   "dpsPeriodBase": 0.6667,
    "dpsPeriodAdd": 0.075
   },
   {
