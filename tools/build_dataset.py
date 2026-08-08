@@ -154,7 +154,18 @@ def apply_overrides(weapons: list[dict], overrides: dict) -> tuple[list[dict], l
     for key in overrides.get("drop", []):
         by_id.pop(key, None)
 
-    return [w for w in weapons if f"{w['hero']}|{w['name']}" in by_id], stale
+    kept = [w for w in weapons if f"{w['hero']}|{w['name']}" in by_id]
+
+    # Weapons written out by hand, for the handful the wiki describes only in prose. Torbjörn's
+    # overloaded turret states its missile rate in a sentence - "a burst of 3 missiles every
+    # 1.5 seconds" - which no field carries, so the parser cannot see it at all.
+    for key, spec in overrides.get("add", {}).items():
+        hero, _, name = key.partition("|")
+        entry = {k: v for k, v in spec.items() if not k.startswith("_")}
+        entry.update({"hero": hero, "name": name, "complete": True, "reviewed": True})
+        kept.append(entry)
+
+    return kept, stale
 
 
 def write_review(path: Path, sections: dict[str, list[str]]) -> None:

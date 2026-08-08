@@ -16,7 +16,17 @@
     "out, and that duration lives on the transform ability rather than on the weapon, so the",
     "parser cannot see it. Left alone the engine fires them forever and reports 360 dps for a",
     "gun that is available six seconds in every thirteen. The form is therefore written down",
-    "as a magazine: ammo = rate * duration, reloadTime = cooldown - duration + cast time."
+    "as a magazine: ammo = rate * duration, reloadTime = cooldown - duration + cast time.",
+    "",
+    "Turrets: a turret is on the chart for the same reason a gun is - it produces a stream of",
+    "damage you can compare with everything else. Symmetra's states its damage as a rate, so",
+    "it is treated as a beam: 30 dps over 20 ticks is 1.5 per tick.",
+    "",
+    "'add' defines a weapon outright, for the few the wiki only describes in prose.",
+    "",
+    "Venom Mine is dropped rather than treated as a turret. It is destructible and its damage",
+    "is written as a rate, which is the same signature a turret has, but the rate is poison on",
+    "whoever trips it - the mine never shoots at anything, so a firing timeline would be a lie."
   ],
   "drop": [
     "Mercy|Caduceus Staff",
@@ -25,7 +35,8 @@
     "Kiriko|Healing Ofuda",
     "Lifeweaver|Healing Blossom",
     "Baptiste|Biotic Launcher Alt Fire",
-    "Illari|Solar Rifle Alt Fire"
+    "Illari|Solar Rifle Alt Fire",
+    "Widowmaker|Venom Mine"
   ],
   "weapons": {
     "Symmetra|Photon Projector": {
@@ -286,6 +297,63 @@
       "_note": "Nemesis Form lasts 8 s and its 8 s cooldown starts when the form ends, plus 0.5 s of recovery. 1.67 shots/s * 8 s = 13 swings, then 8.5 s.",
       "ammo": 13.0,
       "reloadTime": 8.5
+    },
+    "Symmetra|Sentry Turret": {
+      "_note": "The wiki states 30 damage per second and no rate. Treated as a beam at the usual 20 ticks a second, so 1.5 per tick. Range is the stated 10 m of turret beam.",
+      "type": "beam",
+      "fireRate": 20.0,
+      "tickRate": 20.0,
+      "damage": {
+        "dpshot": [
+          1.5
+        ],
+        "falloff": null,
+        "maxRange": 10.0
+      },
+      "critFactor": 1.0,
+      "dpsPeriodBase": 0.05,
+      "dpsPeriodAdd": 0.0
+    },
+    "Torbjörn|Deploy Turret": {
+      "_note": "12 damage at 4 shots a second, hitscan, out to the stated 40 m attack range. It never reloads and fires until destroyed.",
+      "type": "hitscan",
+      "damage": {
+        "dpshot": [
+          12.0
+        ],
+        "falloff": null,
+        "maxRange": 40.0
+      },
+      "critFactor": 1.0
+    }
+  },
+  "add": {
+    "Torbjörn|Deploy Turret (Overloaded)": {
+      "_note": "The Overloaded Turret perk. Its missiles are only described in prose - 'a burst of 3 missiles every 1.5 seconds', 30 damage each - so no field carries the rate and the parser cannot see it. That is 60 dps of missiles on top of the turret's own 48, modelled here as one 27-damage shot at 4/s: 108 dps combined, which is what the two together produce.",
+      "perk": "Overloaded Turret",
+      "baseWeapon": "Deploy Turret",
+      "mousebutton": null,
+      "type": "hitscan",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          27.0
+        ],
+        "falloff": null,
+        "maxRange": 40.0
+      },
+      "spread": null,
+      "velocity": null,
+      "fireRate": 4.0,
+      "shotTime": 0.25,
+      "ammo": null,
+      "reloadTime": 0.0,
+      "critFactor": 1.0,
+      "dpsPeriodBase": 0.25,
+      "dpsPeriodAdd": 0.0
     }
   }
 }

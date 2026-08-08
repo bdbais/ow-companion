@@ -1944,6 +1944,34 @@
    "complete": true
   },
   {
+   "name": "Sentry Turret",
+   "hero": "Symmetra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     1.5
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 20.0,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
    "name": "Rivet Gun",
    "hero": "Torbjörn",
    "perk": null,
@@ -2030,6 +2058,34 @@
    "reloadTime": null,
    "critFactor": 1.0,
    "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Deploy Turret",
+   "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 17.0,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.25,
    "dpsPeriodAdd": 0.0,
    "complete": true
   },
@@ -2128,7 +2184,7 @@
    "hero": "Widowmaker",
    "perk": null,
    "baseWeapon": null,
-   "mousebutton": "M1",
+   "mousebutton": null,
    "type": "hitscan",
    "behavior": "standard",
    "pellets": [
@@ -2188,6 +2244,34 @@
    "dpsPeriodBase": 2.0,
    "dpsPeriodAdd": 0.21428571428571427,
    "complete": true
+  },
+  {
+   "name": "Venom Mine",
+   "hero": "Widowmaker",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     1.25
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 20.0,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
   },
   {
    "name": "Tesla Cannon",

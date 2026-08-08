@@ -10,7 +10,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 { "weapons": { "Ana|Biotic Rifle": { "fireRate": 1.25, "reviewed": true } } }
 ```
 
-## Field-level warnings on weapons that are otherwise usable (62)
+## Field-level warnings on weapons that are otherwise usable (67)
 
 - **Anran — Zhuque Fans** `damage`: derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet — `22 (per shot)`
 - **Anran — Fan the Flames** `beam`: beam weapons need their tick rate filled in by hand
@@ -60,9 +60,14 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Symmetra — Photon Projector** `required`: missing damage, fireRate
 - **Symmetra — Photon Projector Alt Fire** `falloff`: damage is a near/far pair but no falloff range was found
 - **Symmetra — Photon Projector Alt Fire** `damage`: derived from the wiki's stated 91 dps: 5.0 -> 23.3 per pellet — `5 - 100 (direct hit, min - max charge)`
+- **Symmetra — Sentry Turret** `damage`: damage is stated as a rate, not per shot — `30 per second`
+- **Symmetra — Sentry Turret** `beam`: beam weapons need their tick rate filled in by hand
+- **Symmetra — Sentry Turret** `required`: missing fireRate
 - **Torbjörn — Forge Hammer** `damage`: derived from the wiki's stated 100 dps: 70.0 -> 100.0 per pellet — `70`
 - **Venture — Smart Excavator** `damage`: derived from the wiki's stated 125 dps: 35.0 -> 74.9 per pellet — `35 (direct hit bonus)`
 - **Widowmaker — Widow's Kiss (ADS)** `damage`: derived from the wiki's stated 80 dps: 12.0 -> 160.0 per pellet — `12 - 6 (at 0% power)`
+- **Widowmaker — Venom Mine** `damage`: damage is stated as a rate, not per shot — `25 per second`
+- **Widowmaker — Venom Mine** `required`: missing fireRate
 - **Winston — Tesla Cannon** `damage`: damage is stated as a rate, not per shot — `70 per second`
 - **Winston — Tesla Cannon** `beam`: beam weapons need their tick rate filled in by hand
 - **Winston — Tesla Cannon** `required`: missing damage, fireRate

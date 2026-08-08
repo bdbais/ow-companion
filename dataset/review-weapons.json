@@ -330,6 +330,27 @@
    "raw": "5 - 100 (direct hit, min - max charge)"
   },
   {
+   "hero": "Symmetra",
+   "weapon": "Sentry Turret",
+   "field": "damage",
+   "reason": "damage is stated as a rate, not per shot",
+   "raw": "30 per second"
+  },
+  {
+   "hero": "Symmetra",
+   "weapon": "Sentry Turret",
+   "field": "beam",
+   "reason": "beam weapons need their tick rate filled in by hand",
+   "raw": ""
+  },
+  {
+   "hero": "Symmetra",
+   "weapon": "Sentry Turret",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
+  },
+  {
    "hero": "Torbjörn",
    "weapon": "Forge Hammer",
    "field": "damage",
@@ -349,6 +370,20 @@
    "field": "damage",
    "reason": "derived from the wiki's stated 80 dps: 12.0 -> 160.0 per pellet",
    "raw": "12 - 6 (at 0% power)"
+  },
+  {
+   "hero": "Widowmaker",
+   "weapon": "Venom Mine",
+   "field": "damage",
+   "reason": "damage is stated as a rate, not per shot",
+   "raw": "25 per second"
+  },
+  {
+   "hero": "Widowmaker",
+   "weapon": "Venom Mine",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
   },
   {
    "hero": "Winston",

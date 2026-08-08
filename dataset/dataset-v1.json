@@ -2627,6 +2627,35 @@
    "dpsPeriodAdd": 0.15
   },
   {
+   "name": "Sentry Turret",
+   "hero": "Symmetra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     1.5
+    ],
+    "falloff": null,
+    "maxRange": 10.0
+   },
+   "spread": null,
+   "velocity": 20.0,
+   "fireRate": 20.0,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0,
+   "tickRate": 20.0
+  },
+  {
    "name": "Rivet Gun",
    "hero": "Torbjörn",
    "perk": null,
@@ -2711,6 +2740,34 @@
    "reloadTime": null,
    "critFactor": 1.0,
    "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Deploy Turret",
+   "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": null,
+   "velocity": 17.0,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.25,
    "dpsPeriodAdd": 0.0
   },
   {
@@ -2805,7 +2862,7 @@
    "hero": "Widowmaker",
    "perk": null,
    "baseWeapon": null,
-   "mousebutton": "M1",
+   "mousebutton": null,
    "type": "hitscan",
    "behavior": "standard",
    "pellets": [
@@ -3100,6 +3157,34 @@
    "critFactor": 2.0,
    "dpsPeriodBase": 1.0,
    "dpsPeriodAdd": 0.3
+  },
+  {
+   "perk": "Overloaded Turret",
+   "baseWeapon": "Deploy Turret",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.25,
+   "dpsPeriodAdd": 0.0,
+   "hero": "Torbjörn",
+   "name": "Deploy Turret (Overloaded)"
   },
   {
    "name": "Quick Melee",

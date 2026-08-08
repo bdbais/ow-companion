@@ -240,6 +240,36 @@ def parse_shot_type(params: dict, pellets: float, review_add) -> tuple[str, bool
     return base, False
 
 
+PER_SECOND = re.compile(r"([\d.]+)\s*per second", re.IGNORECASE)
+
+# How often an Overwatch beam or damage-over-time effect ticks. Same convention as the
+# beam overrides: damage per tick is the stated rate divided by this.
+BEAM_TICKS = 20.0
+
+
+def deployable(params: dict) -> bool:
+    """Whether this ability is a turret: something placed that then shoots by itself.
+
+    Turrets belong on a damage chart for the same reason weapons do - they produce a
+    continuous stream of damage that can be compared with everything else. What separates
+    one from a grenade is that it exists in the world, so it has hit points of its own, and
+    that it keeps firing, so it has a rate. Mines and traps have neither and are excluded by
+    the same test rather than by name.
+
+    Ultimates are left out because they are ranked separately, where their once-a-fight
+    nature is the point.
+    """
+    ability_type = clean_value(params.get("ability_type", "")).lower()
+    if "ultimate" in ability_type:
+        return False
+    if not params.get("health") or not params.get("damage"):
+        return False
+    has_rate = bool(params.get("fire_rate")) or bool(
+        PER_SECOND.search(clean_value(params.get("damage", "")))
+    )
+    return has_rate
+
+
 def perk_replacing(params: dict, weapon_names: list[str]) -> str | None:
     """The weapon this perk swaps out, or None when the block is not a weapon at all.
 
@@ -289,10 +319,14 @@ def parse_hero(key: str, name: str, text: str, review: Review) -> list[dict]:
 
         ability_type = clean_value(params.get("ability_type", "")).lower()
         perk_of = None
+        is_turret = False
         if "weapon" not in ability_type:
-            perk_of = perk_replacing(params, weapon_names)
-            if perk_of is None:
-                continue
+            if deployable(params):
+                is_turret = True
+            else:
+                perk_of = perk_replacing(params, weapon_names)
+                if perk_of is None:
+                    continue
             # "Configuration: Assault (Lindholm Explosives)" says both what it is and what
             # has to be true for it: the perked gun is not the gun you start the match with.
             weapon_name = f"{perk_of} ({weapon_name})" if perk_of else weapon_name
@@ -302,6 +336,13 @@ def parse_hero(key: str, name: str, text: str, review: Review) -> list[dict]:
 
         pellets = first_number(params.get("pellets", "")) or 1.0
         damage, damage_uncertain = parse_damage(params.get("damage", ""), review_add)
+
+        # A turret whose damage is written as a rate is a beam in all but name, and the
+        # engine wants damage per tick rather than per second.
+        rate_only = PER_SECOND.search(clean_value(params.get("damage", "")))
+        if is_turret and damage is None and rate_only:
+            damage = [float(rate_only.group(1)) / BEAM_TICKS]
+            damage_uncertain = False
         weapon_type, is_beam = parse_shot_type(params, pellets, review_add)
 
         fire_rate = first_number(clean_value(params.get("fire_rate", "")))
