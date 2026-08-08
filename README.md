@@ -117,6 +117,13 @@ Regenerate the golden values the engine is tested against (requires Node):
 node tools/js_oracle/generate_golden.js
 ```
 
+## Porting
+
+The app is being split across five platforms — Android including TV, iPhone, a web app,
+Windows and Linux. [PORTING.md](PORTING.md) is a self-contained brief for that work: what is
+reusable, what has to be rebuilt, the parsing traps that have already cost real bugs, and the
+licence position. Written to be read cold.
+
 ## Thanks
 
 **BYZ** and **MrStonestar** played with this and reported what was wrong. Bastion stuck in
