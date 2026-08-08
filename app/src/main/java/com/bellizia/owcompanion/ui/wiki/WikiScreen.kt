@@ -68,9 +68,11 @@ import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.data.model.MatchupWiki
+import com.bellizia.owcompanion.sim.WeaponSpec
 import com.bellizia.owcompanion.ui.chart.HeroRole
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
 import com.bellizia.owcompanion.ui.theme.StatNumber
+import kotlin.math.roundToInt
 
 private val BuffGreen = Color(0xFF7BC96F)
 private val NerfRed = Color(0xFFE0645C)
@@ -104,6 +106,7 @@ fun WikiScreen(
                     HeroDetail(
                         hero = selected,
                         roster = state.heroes,
+                        weapons = state.weapons,
                         onOpen = viewModel::select,
                         onBack = { viewModel.select(null) },
                     )
@@ -126,6 +129,7 @@ fun WikiScreen(
         HeroDetail(
             hero = selected,
             roster = state.heroes,
+            weapons = state.weapons,
             onOpen = viewModel::select,
             onBack = { viewModel.select(null) },
             modifier = modifier,
@@ -243,6 +247,7 @@ private fun HeroCard(hero: HeroWiki, onClick: () -> Unit) {
 private fun HeroDetail(
     hero: HeroWiki,
     roster: List<HeroWiki>,
+    weapons: List<WeaponSpec>,
     onOpen: (String) -> Unit,
     onBack: () -> Unit,
     modifier: Modifier = Modifier,
@@ -451,6 +456,71 @@ private fun HeroDetail(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                     }
+                }
+            }
+        }
+
+        val combo = Combo.stepsFor(hero, weapons)
+        if (combo.size > 1) {
+            item {
+                Column(modifier = Modifier.padding(start = 12.dp, top = 16.dp, end = 12.dp)) {
+                    Text(
+                        text = stringResource(R.string.wiki_combo),
+                        style = MaterialTheme.typography.titleMedium,
+                    )
+                    Text(
+                        text = stringResource(R.string.wiki_combo_note),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 2.dp),
+                    )
+                }
+            }
+            items(combo, key = { "combo-${it.name}" }) { step ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp, vertical = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = if (step.perSecond) {
+                            stringResource(R.string.wiki_combo_per_second, step.name)
+                        } else {
+                            step.name
+                        },
+                        style = MaterialTheme.typography.bodyMedium,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = step.damage.roundToInt().toString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.SemiBold,
+                        color = color,
+                    )
+                }
+            }
+            item {
+                val total = combo.sumOf { it.damage }
+                val seconds = combo.sumOf { it.seconds }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 12.dp, vertical = 6.dp),
+                ) {
+                    Text(
+                        text = stringResource(R.string.wiki_combo_total, seconds),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = total.roundToInt().toString(),
+                        style = StatNumber,
+                        color = color,
+                    )
                 }
             }
         }

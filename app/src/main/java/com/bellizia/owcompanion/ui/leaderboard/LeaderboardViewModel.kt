@@ -4,6 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.bellizia.owcompanion.data.DatasetRepository
+import com.bellizia.owcompanion.data.WikiRepository
+import com.bellizia.owcompanion.ui.wiki.Combo
 import com.bellizia.owcompanion.sim.DamageOptimizer
 import com.bellizia.owcompanion.sim.DamagePeak
 import com.bellizia.owcompanion.sim.Hero
@@ -53,7 +55,18 @@ enum class RankingMode(@androidx.annotation.StringRes val labelRes: Int) {
     Weapons(com.bellizia.owcompanion.R.string.rank_weapons),
     Ultimates(com.bellizia.owcompanion.R.string.rank_ultimates),
     Healing(com.bellizia.owcompanion.R.string.rank_healing),
+    Combos(com.bellizia.owcompanion.R.string.rank_combos),
 }
+
+/** A hero's whole opening, totalled. */
+data class ComboEntry(
+    val rank: Int,
+    val hero: Hero?,
+    val heroName: String,
+    val total: Double,
+    val seconds: Double,
+    val steps: List<com.bellizia.owcompanion.ui.wiki.ComboStep>,
+)
 
 data class UltimateEntry(
     val rank: Int,
@@ -74,12 +87,19 @@ data class LeaderboardUiState(
     val entries: List<LeaderboardEntry> = emptyList(),
     val ultimates: List<UltimateEntry> = emptyList(),
     val healing: List<HealingEntry> = emptyList(),
+    private val allCombos: List<ComboEntry> = emptyList(),
     /** Ultimates that deal no damage, and so are left out rather than ranked at zero. */
     val ultimatesWithoutDamage: Int = 0,
     val buffs: BuffSelection = BuffSelection(),
     val roles: Set<HeroRole> = HeroRole.entries.toSet(),
     val computeMillis: Long = 0,
 ) {
+    /** Ranked combos, narrowed to the chosen roles like every other list here. */
+    val combos: List<ComboEntry>
+        get() = allCombos.filter { entry ->
+            entry.hero?.role?.let(HeroRole::of)?.let { it in roles } ?: true
+        }
+
     /** Applies the role filter to whichever ranking is on screen. */
     fun <T> visible(items: List<T>, heroOf: (T) -> Hero?): List<T> = items.filter {
         val role = heroOf(it)?.role?.let(HeroRole::of)
@@ -136,6 +156,31 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
                         .sortedByDescending { it.second }
                         .mapIndexed { index, (source, hps) ->
                             HealingEntry(index + 1, source, hps, set.hero(source.hero))
+                        },
+                )
+            }
+            // The combo needs the wiki's abilities as well as the chart's weapons, and it
+            // is the only thing on this screen that does, so it is loaded here rather than
+            // making every ranking wait for a file twenty times the size.
+            val heroes = WikiRepository(getApplication()).wiki().heroes
+            _state.update { current ->
+                current.copy(
+                    allCombos = heroes
+                        .map { hero -> hero to Combo.stepsFor(hero, set.weapons) }
+                        .filter { (_, steps) -> steps.size > 1 }
+                        .map { (hero, steps) ->
+                            Triple(hero, steps, steps.sumOf { it.damage })
+                        }
+                        .sortedByDescending { it.third }
+                        .mapIndexed { index, (hero, steps, total) ->
+                            ComboEntry(
+                                rank = index + 1,
+                                hero = set.hero(hero.name),
+                                heroName = hero.name,
+                                total = total,
+                                seconds = steps.sumOf { it.seconds },
+                                steps = steps,
+                            )
                         },
                 )
             }

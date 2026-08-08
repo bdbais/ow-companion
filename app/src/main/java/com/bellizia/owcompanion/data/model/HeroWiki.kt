@@ -31,6 +31,36 @@ data class HeroWiki(
     val perks: List<PerkWiki> = emptyList(),
     val patches: List<PatchEntry> = emptyList(),
     val matchups: List<MatchupWiki> = emptyList(),
+    /** Damaging abilities Blizzard's own roster does not list, chiefly perks. */
+    val extraAbilities: List<ExtraAbility> = emptyList(),
+) {
+    /** Everything this hero can do damage with, other than a weapon. */
+    val damagingAbilities: List<AbilityWiki>
+        get() = abilities.filter { it.damage != null } +
+            extraAbilities
+                .filter { it.damage != null && it.kind != "perk" }
+                .map {
+                    AbilityWiki(
+                        name = it.name,
+                        damage = it.damage,
+                        cooldown = it.cooldown,
+                        castTime = it.castTime,
+                        damageLines = it.lines,
+                        damageUncertain = it.uncertain,
+                    )
+                }
+}
+
+@Serializable
+data class ExtraAbility(
+    val name: String = "",
+    /** `ability` or `perk`; a perk is only true of players who picked it. */
+    val kind: String = "ability",
+    val damage: Double? = null,
+    val cooldown: Double? = null,
+    val castTime: Double? = null,
+    val lines: List<String> = emptyList(),
+    val uncertain: Boolean = false,
 )
 
 /**
@@ -79,6 +109,18 @@ data class AbilityWiki(
     val description: String = "",
     /** File name under `assets/heroes/`. */
     val icon: String? = null,
+    /**
+     * Most damage one cast does to one enemy, where the wiki gives a figure.
+     *
+     * Never a sum of the lines below: several of them are the same ability in different
+     * states rather than parts of one hit. When [damageUncertain] is set this is the
+     * largest single line rather than a stated total, and the lines say the rest.
+     */
+    val damage: Double? = null,
+    val cooldown: Double? = null,
+    val castTime: Double? = null,
+    val damageLines: List<String> = emptyList(),
+    val damageUncertain: Boolean = false,
 )
 
 @Serializable

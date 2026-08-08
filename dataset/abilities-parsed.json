@@ -1,0 +1,1389 @@
+{
+ "abilities": [
+  {
+   "hero": "Ana",
+   "name": "Sleep Dart",
+   "kind": "ability",
+   "damage": 5.0,
+   "damagePerSecond": null,
+   "cooldown": 14.0,
+   "castTime": 0.24,
+   "lines": [
+    "5"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Ana",
+   "name": "Biotic Grenade",
+   "kind": "ability",
+   "damage": 90.0,
+   "damagePerSecond": null,
+   "cooldown": 12.0,
+   "castTime": 0.69,
+   "lines": [
+    "90"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Ana",
+   "name": "Groggy",
+   "kind": "perk",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Ana",
+   "name": "Biotic Bounce",
+   "kind": "perk",
+   "damage": 60.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "60"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Anran",
+   "name": "Inferno Rush",
+   "kind": "ability",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.3,
+   "lines": [
+    "30"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Anran",
+   "name": "Dancing Blaze",
+   "kind": "ability",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.2,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Ashe",
+   "name": "Coach Gun",
+   "kind": "ability",
+   "damage": 90.0,
+   "damagePerSecond": null,
+   "cooldown": 10.0,
+   "castTime": 0.16,
+   "lines": [
+    "6 per shot",
+    "90 per volley"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Ashe",
+   "name": "Dynamite",
+   "kind": "ability",
+   "damage": 100.0,
+   "damagePerSecond": null,
+   "cooldown": 12.0,
+   "castTime": 0.0,
+   "lines": [
+    "50 - 20 (explosion, enemy)",
+    "100 over 5 seconds (burn, enemy)",
+    "25 - 10 (explosion, self)",
+    "50 over 5 seconds (burn, self)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Ashe",
+   "name": "Viper's Sting",
+   "kind": "perk",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "25"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Bastion",
+   "name": "A-36 Tactical Grenade",
+   "kind": "ability",
+   "damage": 115.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.0,
+   "lines": [
+    "15 (direct hit bonus)",
+    "100 - 50 (splash, enemy)",
+    "50 - 25 (splash, self)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Bastion",
+   "name": "Lindholm Explosives",
+   "kind": "perk",
+   "damage": 140.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "50 (direct hit bonus)",
+    "90 - 27 (splash, enemy)",
+    "36 - 10.8 (splash, self)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Brigitte",
+   "name": "Shield Bash",
+   "kind": "ability",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": 5.0,
+   "castTime": 0.02,
+   "lines": [
+    "70"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Brigitte",
+   "name": "Whip Shot",
+   "kind": "ability",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": 4.0,
+   "castTime": 0.19,
+   "lines": [
+    "70"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Brigitte",
+   "name": "Whiplash",
+   "kind": "perk",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "70 → 130 (wall impact)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Cassidy",
+   "name": "Flashbang",
+   "kind": "ability",
+   "damage": 75.0,
+   "damagePerSecond": null,
+   "cooldown": 12.0,
+   "castTime": 0.13,
+   "lines": [
+    "75"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Cassidy",
+   "name": "Bang Bang",
+   "kind": "perk",
+   "damage": 75.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "75 → {{#expr: 75*0.6 round2}}"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Cassidy",
+   "name": "Silver Bullet",
+   "kind": "perk",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": null,
+   "lines": [
+    "70 - 21 (base)",
+    "50 (bleed)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Domina",
+   "name": "Sonic Repulsors",
+   "kind": "ability",
+   "damage": 40.0,
+   "damagePerSecond": null,
+   "cooldown": 7.0,
+   "castTime": 0.5,
+   "lines": [
+    "40 (base)",
+    "40 (wall impact)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Domina",
+   "name": "Crystal Charge",
+   "kind": "ability",
+   "damage": 100.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.2,
+   "lines": [
+    "50 (over time)",
+    "100 - 50 (explosion)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Doomfist",
+   "name": "Rocket Punch",
+   "kind": "ability",
+   "damage": 38.0,
+   "damagePerSecond": null,
+   "cooldown": 4.0,
+   "castTime": 0.2,
+   "lines": [
+    "25 - 75 (base, impact damage)",
+    "10 - 40 (base, wall slam)",
+    "38 - 113 (empowered, impact damage)",
+    "15 - 60 (empowered, wall slam)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Doomfist",
+   "name": "Seismic Slam",
+   "kind": "ability",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": 6.5,
+   "castTime": null,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Va",
+   "name": "Boosters",
+   "kind": "ability",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": 4.0,
+   "castTime": null,
+   "lines": [
+    "25"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Va",
+   "name": "Micro Missiles",
+   "kind": "ability",
+   "damage": 7.5,
+   "damagePerSecond": null,
+   "cooldown": 7.0,
+   "castTime": 0.16,
+   "lines": [
+    "2 (direct hit bonus)",
+    "5.5 - 1.375 (splash, enemy)",
+    "5.5 - 1.375 (splash, self)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Va",
+   "name": "Extended Boosters",
+   "kind": "perk",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "25 → 35"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Va",
+   "name": "Precision Fusion",
+   "kind": "perk",
+   "damage": 22.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": null,
+   "lines": [
+    "2 - 0.6 → 1 - 0.3 (per projectile)",
+    "22 - 6.6 → 11 - 3.3 (per volley)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Echo",
+   "name": "Sticky Bombs",
+   "kind": "ability",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": 0.05,
+   "lines": [
+    "5 (direct hit)",
+    "25 (explosion, enemy)",
+    "12.5 (explosion, self)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Echo",
+   "name": "Focusing Beam",
+   "kind": "ability",
+   "damage": null,
+   "damagePerSecond": 75.0,
+   "cooldown": 8.0,
+   "castTime": 0.14,
+   "lines": [
+    "75 per second",
+    "175 per second (target <50% hp)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Emre",
+   "name": "Siphon Blaster",
+   "kind": "ability",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": 11.0,
+   "castTime": 0.24,
+   "lines": [
+    "10 (direct hit)",
+    "15 - 5 (area of effect)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Emre",
+   "name": "Cyber Frag",
+   "kind": "ability",
+   "damage": 110.0,
+   "damagePerSecond": null,
+   "cooldown": 10.0,
+   "castTime": 0.0,
+   "lines": [
+    "110 - 55 (area of effect)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Emre",
+   "name": "Cyber Adhesion",
+   "kind": "perk",
+   "damage": 40.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "40 (impact)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Genji",
+   "name": "Swift Strike",
+   "kind": "ability",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": null,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Genji",
+   "name": "Blade Twisting",
+   "kind": "perk",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "25 over time"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Hanzo",
+   "name": "Storm Arrows",
+   "kind": "ability",
+   "damage": 75.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.0,
+   "lines": [
+    "75"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Hanzo",
+   "name": "Frost Arrow",
+   "kind": "perk",
+   "damage": 60.0,
+   "damagePerSecond": null,
+   "cooldown": 14.0,
+   "castTime": null,
+   "lines": [
+    "60 (max charge, area of effect)",
+    "20 (min charge, area of effect)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Hanzo",
+   "name": "Scatter Arrows",
+   "kind": "perk",
+   "damage": 75.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "75 → 25 (after bounce)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Hazard",
+   "name": "Spike Guard",
+   "kind": "ability",
+   "damage": 175.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": 0.0,
+   "lines": [
+    "11.67 per projectile",
+    "175 maximum"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Hazard",
+   "name": "Violent Leap",
+   "kind": "ability",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": 5.5,
+   "castTime": 0.0,
+   "lines": [
+    "70 (slash)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Hazard",
+   "name": "Jagged Wall",
+   "kind": "ability",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": 12.0,
+   "castTime": 0.14,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Hazard",
+   "name": "Explosive Impalements",
+   "kind": "perk",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "30"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Illari",
+   "name": "Outburst",
+   "kind": "ability",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.2,
+   "lines": [
+    "25"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Illari",
+   "name": "Sunburn",
+   "kind": "perk",
+   "damage": 50.0,
+   "damagePerSecond": 16.67,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "16.67 per second",
+    "50 total"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Purr",
+   "kind": "ability",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": 12.0,
+   "castTime": null,
+   "lines": [
+    "30"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Headbutt",
+   "kind": "perk",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Claws Out",
+   "kind": "perk",
+   "damage": 40.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": null,
+   "lines": [
+    "40 (damage over time)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Jagged Blade",
+   "kind": "ability",
+   "damage": 65.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": 0.13,
+   "lines": [
+    "65 (thrown hit)",
+    "30 over 3 seconds (wound, thrown hit)",
+    "15 over 3 seconds (wound, return hit & melee)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Carnage",
+   "kind": "ability",
+   "damage": 105.0,
+   "damagePerSecond": null,
+   "cooldown": 9.0,
+   "castTime": 1.0,
+   "lines": [
+    "105 (impact)",
+    "40 over 3 seconds (wound)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Willy-Willy",
+   "kind": "perk",
+   "damage": 0.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "0 → 30 (return impact)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Junkrat",
+   "name": "Concussion Mine",
+   "kind": "ability",
+   "damage": 120.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.128,
+   "lines": [
+    "120 – 55"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Junkrat",
+   "name": "Steel Trap",
+   "kind": "ability",
+   "damage": 100.0,
+   "damagePerSecond": null,
+   "cooldown": 10.0,
+   "castTime": 0.33,
+   "lines": [
+    "100"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Juno",
+   "name": "Pulsar Torpedoes",
+   "kind": "ability",
+   "damage": 85.0,
+   "damagePerSecond": null,
+   "cooldown": 10.0,
+   "castTime": 0.0,
+   "lines": [
+    "85"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Superbloom",
+   "kind": "perk",
+   "damage": 40.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "40"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Lúcio",
+   "name": "Soundwave",
+   "kind": "ability",
+   "damage": 45.0,
+   "damagePerSecond": null,
+   "cooldown": 5.0,
+   "castTime": null,
+   "lines": [
+    "45"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Lúcio",
+   "name": "Soundwave Rider",
+   "kind": "perk",
+   "damage": 45.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "45 → 67.5"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Mauga",
+   "name": "Overrun",
+   "kind": "ability",
+   "damage": 150.0,
+   "damagePerSecond": null,
+   "cooldown": 5.0,
+   "castTime": 0.21,
+   "lines": [
+    "30 (collision)",
+    "75 (stomp, outer radius)",
+    "150 (stomp, inner radius)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Mei",
+   "name": "Cryo-Storm",
+   "kind": "perk",
+   "damage": null,
+   "damagePerSecond": 70.0,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "70 per second"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Mercy",
+   "name": "Chain Boost",
+   "kind": "perk",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "+30% dealt"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Mizuki",
+   "name": "Binding Chain",
+   "kind": "ability",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": 12.0,
+   "castTime": 0.24,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Moira",
+   "name": "Biotic Orb",
+   "kind": "ability",
+   "damage": 250.0,
+   "damagePerSecond": 60.0,
+   "cooldown": 8.0,
+   "castTime": 0.0,
+   "lines": [
+    "60 per second, up to 250"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Moira",
+   "name": "Destruction's Divide",
+   "kind": "perk",
+   "damage": null,
+   "damagePerSecond": 110.5,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "85 → 110.5 per second"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Orisa",
+   "name": "Energy Javelin",
+   "kind": "ability",
+   "damage": 110.0,
+   "damagePerSecond": null,
+   "cooldown": 7.0,
+   "castTime": 0.3,
+   "lines": [
+    "70 (direct impact)",
+    "40 (wall collision)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Orisa",
+   "name": "Javelin Spin",
+   "kind": "ability",
+   "damage": 20.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.0,
+   "lines": [
+    "20 (first hit)",
+    "5.3 (subsequent hits)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Pharah",
+   "name": "Concussive Blast",
+   "kind": "ability",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": 7.0,
+   "castTime": 0.16,
+   "lines": [
+    "30 (direct hit only)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Pharah",
+   "name": "Concussive Force",
+   "kind": "perk",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "30 (splash damage)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Pharah",
+   "name": "Rocket Salvo",
+   "kind": "perk",
+   "damage": 180.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "30 (per rocket)",
+    "180 (direct hit if all rockets land)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Ramattra",
+   "name": "Ravenous Vortex",
+   "kind": "ability",
+   "damage": 100.0,
+   "damagePerSecond": null,
+   "cooldown": 11.0,
+   "castTime": 0.5,
+   "lines": [
+    "30 (explosion damage)",
+    "70 over time"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Ramattra",
+   "name": "Void Surge",
+   "kind": "perk",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "5 (per pellet)",
+    "30 (per burst)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Reaper",
+   "name": "Dire Triggers",
+   "kind": "ability",
+   "damage": 138.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": 0.0,
+   "lines": [
+    "3.45 - 1.035 (per pellet)",
+    "69 - 20.7 (per blast)",
+    "138 - 41.4 (both blasts)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Reinhardt",
+   "name": "Charge",
+   "kind": "ability",
+   "damage": 300.0,
+   "damagePerSecond": null,
+   "cooldown": 7.0,
+   "castTime": 0.6,
+   "lines": [
+    "300 (pinned to wall)",
+    "50 (collision w/out pin)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Reinhardt",
+   "name": "Fire Strike",
+   "kind": "ability",
+   "damage": 125.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": 0.5,
+   "lines": [
+    "125"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Reinhardt",
+   "name": "Shield Slam",
+   "kind": "perk",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": null,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Roadhog",
+   "name": "Chain Hook",
+   "kind": "ability",
+   "damage": 25.0,
+   "damagePerSecond": null,
+   "cooldown": 7.0,
+   "castTime": 0.1,
+   "lines": [
+    "25"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Shion",
+   "name": "Execution",
+   "kind": "ability",
+   "damage": 140.0,
+   "damagePerSecond": null,
+   "cooldown": 5.0,
+   "castTime": 0.1,
+   "lines": [
+    "10 - 3 (per shot)",
+    "140 - 42 (total)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Shion",
+   "name": "Joyride",
+   "kind": "ability",
+   "damage": 130.0,
+   "damagePerSecond": null,
+   "cooldown": 15.0,
+   "castTime": 0.38,
+   "lines": [
+    "30 (impact while riding)",
+    "130 (ground launch damage)",
+    "30 (air launch impact damage)",
+    "100 (air launch explosion damage)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Sierra",
+   "name": "Tracking Shot",
+   "kind": "ability",
+   "damage": 35.0,
+   "damagePerSecond": null,
+   "cooldown": 10.0,
+   "castTime": 0.3,
+   "lines": [
+    "35"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Sierra",
+   "name": "Tremor Charge",
+   "kind": "ability",
+   "damage": 100.0,
+   "damagePerSecond": null,
+   "cooldown": 8.5,
+   "castTime": 0.73,
+   "lines": [
+    "100 (inner shockwave)",
+    "60 (outer shockwave)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Sigma",
+   "name": "Accretion",
+   "kind": "ability",
+   "damage": 120.0,
+   "damagePerSecond": null,
+   "cooldown": 10.0,
+   "castTime": 0.64,
+   "lines": [
+    "80 (direct)",
+    "40 – 12 (splash, enemy)",
+    "20 – 6 (splash, self)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Sigma",
+   "name": "Hyper Strike",
+   "kind": "perk",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "50 over 0.37 seconds"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Sojourn",
+   "name": "Disruptor Shot",
+   "kind": "ability",
+   "damage": 315.0,
+   "damagePerSecond": 90.0,
+   "cooldown": 15.0,
+   "castTime": null,
+   "lines": [
+    "90 per second",
+    "315 total"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Soldier: 76",
+   "name": "Helix Rockets",
+   "kind": "ability",
+   "damage": 120.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": 0.1,
+   "lines": [
+    "40 (direct hit bonus)",
+    "80 – 40 (splash, enemy)",
+    "40 – 20 (splash, self)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Sombra",
+   "name": "Virus",
+   "kind": "ability",
+   "damage": 75.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": 0.06,
+   "lines": [
+    "35 (impact, normal)",
+    "70 (impact, hacked)",
+    "75 (DoT)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Symmetra",
+   "name": "Sentry Turret",
+   "kind": "ability",
+   "damage": null,
+   "damagePerSecond": 30.0,
+   "cooldown": 10.0,
+   "castTime": 0.22,
+   "lines": [
+    "30 per second"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Torbjörn",
+   "name": "Deploy Turret",
+   "kind": "ability",
+   "damage": 12.0,
+   "damagePerSecond": null,
+   "cooldown": 5.0,
+   "castTime": 0.51,
+   "lines": [
+    "12"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Torbjörn",
+   "name": "Overloaded Turret",
+   "kind": "perk",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "30 (per missiles)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Vendetta",
+   "name": "Projected Edge",
+   "kind": "ability",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": 0.43,
+   "lines": [
+    "70"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Vendetta",
+   "name": "Whirlwind Dash",
+   "kind": "ability",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": 10.0,
+   "castTime": 0.1,
+   "lines": [
+    "70 - 35"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Vendetta",
+   "name": "Soaring Slice",
+   "kind": "ability",
+   "damage": 50.0,
+   "damagePerSecond": null,
+   "cooldown": 7.0,
+   "castTime": 0.3,
+   "lines": [
+    "50"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Vendetta",
+   "name": "Raging Storm",
+   "kind": "perk",
+   "damage": 30.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "30"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Venture",
+   "name": "Drill Dash",
+   "kind": "ability",
+   "damage": 60.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.0,
+   "lines": [
+    "30 (first hit)",
+    "60 over 0.4 seconds (subsequent hits)",
+    "5 (during Burrow)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Venture",
+   "name": "Burrow",
+   "kind": "ability",
+   "damage": 110.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.7,
+   "lines": [
+    "110 - 75 (max charge)",
+    "55 - 37.5 (min charge)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Widowmaker",
+   "name": "Venom Mine",
+   "kind": "ability",
+   "damage": 125.0,
+   "damagePerSecond": 25.0,
+   "cooldown": 15.0,
+   "castTime": 0.0,
+   "lines": [
+    "25 per second",
+    "125 total"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Widowmaker",
+   "name": "Widow’s Bite",
+   "kind": "perk",
+   "damage": 150.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "150 - 75 (at 125% power)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Widowmaker",
+   "name": "Seeker Mine",
+   "kind": "perk",
+   "damage": 75.0,
+   "damagePerSecond": 10.0,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "10 per second",
+    "75 total"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Winston",
+   "name": "Jump Pack",
+   "kind": "ability",
+   "damage": 60.0,
+   "damagePerSecond": null,
+   "cooldown": 5.0,
+   "castTime": null,
+   "lines": [
+    "1 (collision)",
+    "60 – 1 (landing)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Winston",
+   "name": "Heavy Landing",
+   "kind": "perk",
+   "damage": 105.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "105 - 1"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Winston",
+   "name": "Chain Lightning",
+   "kind": "perk",
+   "damage": 48.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "48 (1st bounce)",
+    "36 (2nd bounce)"
+   ],
+   "uncertain": true
+  },
+  {
+   "hero": "Wrecking Ball",
+   "name": "Grappling Claw",
+   "kind": "ability",
+   "damage": 60.0,
+   "damagePerSecond": null,
+   "cooldown": 5.0,
+   "castTime": null,
+   "lines": [
+    "60 (fireball collision)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Wrecking Ball",
+   "name": "Piledriver",
+   "kind": "ability",
+   "damage": 100.0,
+   "damagePerSecond": null,
+   "cooldown": 8.0,
+   "castTime": 0.0,
+   "lines": [
+    "100 - 20"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Wrecking Ball",
+   "name": "Steamroller",
+   "kind": "perk",
+   "damage": 120.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "120 (Tanks)"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Wrecking Ball",
+   "name": "Hang Time",
+   "kind": "perk",
+   "damage": 150.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "150 - 20"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Guardian Wave",
+   "kind": "ability",
+   "damage": 80.0,
+   "damagePerSecond": null,
+   "cooldown": 14.0,
+   "castTime": 0.4,
+   "lines": [
+    "80 - 40"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Ebb and Flow",
+   "kind": "perk",
+   "damage": 40.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "40"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Falling Rain",
+   "kind": "perk",
+   "damage": 60.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "10 → 4 (direct hit bonus, uncharged)",
+    "20 → 8 (splash, uncharged)",
+    "40 → 16 (direct hit bonus, charged)",
+    "60 → 24 (splash, charged)"
+   ],
+   "uncertain": true
+  }
+ ]
+}

@@ -122,6 +122,20 @@ def quick_melee_for(hero_name: str) -> dict:
     }
 
 
+def numbers_for(abilities: dict, name: str | None) -> dict:
+    """The wiki's damage and cooldown for an ability Blizzard listed, matched by name."""
+    entry = abilities.get(name or "")
+    if entry is None:
+        return {}
+    return {
+        "damage": entry["damage"],
+        "cooldown": entry["cooldown"],
+        "castTime": entry["castTime"],
+        "damageLines": entry["lines"],
+        "damageUncertain": entry["uncertain"],
+    }
+
+
 def apply_overrides(weapons: list[dict], overrides: dict) -> tuple[list[dict], list[str]]:
     """Merge hand corrections in, and report any that no longer match a weapon."""
     by_id = {f"{w['hero']}|{w['name']}": w for w in weapons}
@@ -208,6 +222,12 @@ def main() -> int:
             {k: v for k, v in perk.items() if k != "hero"}
         )
     history = {h["hero"]: h for h in read_json(DATASET / "patch-history.json")["heroes"]}
+    abilities_path = DATASET / "abilities-parsed.json"
+    damaging = {}
+    if abilities_path.exists():
+        for entry in read_json(abilities_path)["abilities"]:
+            damaging.setdefault(entry["hero"], {})[entry["name"]] = entry
+
     matchups_path = DATASET / "matchups.json"
     matchups = (
         {h["hero"]: h for h in read_json(matchups_path)["heroes"]}
@@ -252,7 +272,22 @@ def main() -> int:
                 "armor": detail.get("armor"),
                 "totalHitpoints": detail.get("totalHitpoints"),
                 "portrait": detail.get("portrait"),
-                "abilities": detail.get("abilities", []),
+                # Blizzard's description says what an ability does; the wiki says how much.
+                # Joined by name so the hero page can show both.
+                "abilities": [
+                    {**a, **numbers_for(damaging.get(name, {}), a.get("name"))}
+                    for a in detail.get("abilities", [])
+                ],
+                # Damaging abilities the roster never mentions - perks, and anything
+                # Blizzard's own list leaves out.
+                "extraAbilities": [
+                    entry
+                    for ability_name, entry in damaging.get(name, {}).items()
+                    if not any(
+                        (a.get("name") or "").lower() == ability_name.lower()
+                        for a in detail.get("abilities", [])
+                    )
+                ],
                 "releaseDate": released,
                 "heroNumber": order,
                 "perks": perks_by_hero.get(name, []),

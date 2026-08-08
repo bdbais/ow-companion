@@ -5,6 +5,7 @@ package com.bellizia.owcompanion.ui.leaderboard
 import androidx.annotation.StringRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
@@ -45,6 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import kotlin.math.roundToInt
 import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.sim.DamagePeak
 import com.bellizia.owcompanion.ui.chart.HeroRole
@@ -193,6 +195,11 @@ fun LeaderboardScreen(
                 return@Column
             }
 
+            RankingMode.Combos -> {
+                ComboList(state)
+                return@Column
+            }
+
             RankingMode.Weapons -> Unit
         }
 
@@ -266,6 +273,59 @@ private fun UltimateList(state: LeaderboardUiState) {
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = 8.dp),
             )
+        }
+    }
+}
+
+/**
+ * Every hero's opening, totalled and ranked.
+ *
+ * The wiki mentions combos constantly and never as a sequence with numbers, so these are
+ * computed - each ability once, a melee, then the hardest single shot - out of figures that
+ * are individually sourced. Best case on one target, which is what makes it comparable.
+ */
+@Composable
+private fun ComboList(state: LeaderboardUiState) {
+    LazyColumn(contentPadding = PaddingValues(12.dp)) {
+        item {
+            Text(
+                text = stringResource(R.string.rank_combos_note),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(bottom = 10.dp),
+            )
+        }
+        items(state.combos, key = { it.heroName }) { entry ->
+            val color = parseHeroColor(entry.hero?.color, MaterialTheme.colorScheme.primary)
+            Column(modifier = Modifier.padding(vertical = 6.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = "${entry.rank}",
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.width(28.dp),
+                    )
+                    Text(
+                        text = entry.heroName,
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Text(
+                        text = entry.total.roundToInt().toString(),
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = color,
+                    )
+                }
+                Text(
+                    text = entry.steps.joinToString("  +  ") {
+                        "${it.name} ${it.damage.roundToInt()}"
+                    },
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(start = 28.dp, top = 2.dp),
+                )
+            }
         }
     }
 }

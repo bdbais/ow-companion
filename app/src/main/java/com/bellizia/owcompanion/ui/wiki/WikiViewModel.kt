@@ -5,7 +5,9 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.AndroidViewModel
 import com.bellizia.owcompanion.R
 import androidx.lifecycle.viewModelScope
+import com.bellizia.owcompanion.data.DatasetRepository
 import com.bellizia.owcompanion.data.WikiRepository
+import com.bellizia.owcompanion.sim.WeaponSpec
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.ui.chart.HeroRole
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,6 +30,8 @@ data class WikiUiState(
     val roles: Set<HeroRole> = HeroRole.entries.toSet(),
     val sort: HeroSort = HeroSort.Name,
     val selectedKey: String? = null,
+    /** Needed for the combo: a hero's own guns are half of any opening. */
+    val weapons: List<WeaponSpec> = emptyList(),
 ) {
     val visible: List<HeroWiki>
         get() = heroes
@@ -58,6 +62,7 @@ data class WikiUiState(
 class WikiViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = WikiRepository(application)
+    private val weapons = DatasetRepository(application)
 
     private val _state = MutableStateFlow(WikiUiState())
     val state: StateFlow<WikiUiState> = _state.asStateFlow()
@@ -66,6 +71,8 @@ class WikiViewModel(application: Application) : AndroidViewModel(application) {
         viewModelScope.launch {
             val wiki = repository.wiki()
             _state.update { it.copy(loading = false, heroes = wiki.heroes) }
+            val set = weapons.weapons()
+            _state.update { it.copy(weapons = set.weapons) }
         }
     }
 

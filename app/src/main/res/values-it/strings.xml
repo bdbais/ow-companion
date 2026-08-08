@@ -254,4 +254,8 @@
     <string name="chart_out_of_range">fuori portata</string>
     <string name="about_thanks_title">Ringraziamenti</string>
     <string name="about_thanks">BYZ e MrStonestar hanno provato l\'app e segnalato cosa non andava: Bastion bloccato in Recon, Ashe che ricaricava dodici colpi in mezzo secondo, le torrette mancanti e parecchio altro. Diversi numeri in questa app sono giusti perché l\'hanno detto loro.</string>
+    <string name="wiki_combo">Combo d'apertura</string>
+    <string name="wiki_combo_total">Totale, in circa %1$.1f s di lancio</string>
+    <string name="wiki_combo_per_second">%1$s, un secondo</string>
+    <string name="rank_combos">Combo</string>
 </resources>

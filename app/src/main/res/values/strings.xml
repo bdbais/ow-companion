@@ -252,4 +252,10 @@
     <string name="chart_out_of_range">out of range</string>
     <string name="about_thanks_title">Thanks</string>
     <string name="about_thanks">BYZ and MrStonestar played with this and reported what was wrong: Bastion stuck in Recon, Ashe reloading twelve rounds in half a second, the turrets that were missing, and a good deal more. Several numbers in this app are right because they said so.</string>
+    <string name="wiki_combo">Burst combo</string>
+    <string name="wiki_combo_note">Every ability once, then a melee, then the hardest-hitting weapon — one shot, or one second for a beam — all at point-blank. Computed from the same figures the rest of the app uses, because the wiki describes combos only in prose. It assumes everything lands on one target and each thing is used once: an orb that bounces back for a second pass is worth more than this says — that is a real figure, just one that depends on the bounce rather than on the hero.</string>
+    <string name="wiki_combo_per_second">%1$s, one second</string>
+    <string name="wiki_combo_total">Total, over about %1$.1f s of casting</string>
+    <string name="rank_combos">Combos</string>
+    <string name="rank_combos_note">The whole opening each hero has on one target: every ability once, a melee, then the hardest single shot — one second for a beam. Best case, assuming everything lands and nothing repeats.</string>
 </resources>

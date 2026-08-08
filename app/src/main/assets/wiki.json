@@ -24,17 +24,59 @@
     {
      "name": "Sleep Dart",
      "description": "Fires a dart that puts an enemy to sleep.",
-     "icon": "ability_ana_1.png"
+     "icon": "ability_ana_1.png",
+     "damage": 5.0,
+     "cooldown": 14.0,
+     "castTime": 0.24,
+     "damageLines": [
+      "5"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Biotic Grenade",
      "description": "Throws a grenade that heals and increases healing on allies, while damaging and preventing healing on enemies.",
-     "icon": "ability_ana_2.png"
+     "icon": "ability_ana_2.png",
+     "damage": 90.0,
+     "cooldown": 12.0,
+     "castTime": 0.69,
+     "damageLines": [
+      "90"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Nano Boost",
      "description": "Increases an ally's damage, while reducing damage taken.",
      "icon": "ability_ana_3.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Ana",
+     "name": "Groggy",
+     "kind": "perk",
+     "damage": 50.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "50"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Ana",
+     "name": "Biotic Bounce",
+     "kind": "perk",
+     "damage": 60.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "60"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-07-19",
@@ -1522,12 +1564,26 @@
     {
      "name": "Dancing Blaze",
      "description": "Dodge all damage while striking nearby enemies, healing yourself for each enemy hit.",
-     "icon": "ability_anran_2.png"
+     "icon": "ability_anran_2.png",
+     "damage": 50.0,
+     "cooldown": 8.0,
+     "castTime": 0.2,
+     "damageLines": [
+      "50"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Inferno Rush",
      "description": "Propel yourself forward and damage enemies you impact.",
-     "icon": "ability_anran_3.png"
+     "icon": "ability_anran_3.png",
+     "damage": 30.0,
+     "cooldown": 8.0,
+     "castTime": 0.3,
+     "damageLines": [
+      "30"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Vermillion Ascent",
@@ -1545,6 +1601,7 @@
      "icon": "ability_anran_6.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2026-02-10",
    "heroNumber": 46,
    "perks": [
@@ -1977,17 +2034,50 @@
     {
      "name": "Coach Gun",
      "description": "Blast enemies in front of you and knock yourself backwards.",
-     "icon": "ability_ashe_1.png"
+     "icon": "ability_ashe_1.png",
+     "damage": 90.0,
+     "cooldown": 10.0,
+     "castTime": 0.16,
+     "damageLines": [
+      "6 per shot",
+      "90 per volley"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Dynamite",
      "description": "Throw an explosive that detonates after a short delay or immediately when shot.",
-     "icon": "ability_ashe_2.png"
+     "icon": "ability_ashe_2.png",
+     "damage": 100.0,
+     "cooldown": 12.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "50 - 20 (explosion, enemy)",
+      "100 over 5 seconds (burn, enemy)",
+      "25 - 10 (explosion, self)",
+      "50 over 5 seconds (burn, self)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "B.O.B.",
      "description": "Deploy Bob. He charges forward and knocks enemies into the air, then attacks with his arm cannons.",
      "icon": "ability_ashe_3.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Ashe",
+     "name": "Viper's Sting",
+     "kind": "perk",
+     "damage": 25.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "25"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2018-11-13",
@@ -3116,6 +3206,7 @@
      "icon": "ability_baptiste_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2019-03-19",
    "heroNumber": 30,
    "perks": [
@@ -4667,7 +4758,16 @@
     {
      "name": "A-36 Tactical Grenade",
      "description": "Fire a bomb that bounces off walls and explodes when it impacts enemies or the ground.",
-     "icon": "ability_bastion_2.png"
+     "icon": "ability_bastion_2.png",
+     "damage": 115.0,
+     "cooldown": 8.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "15 (direct hit bonus)",
+      "100 - 50 (splash, enemy)",
+      "50 - 25 (splash, self)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Reconfigure",
@@ -4678,6 +4778,23 @@
      "name": "Configuration: Artillery",
      "description": "Become immobile and fire up to 3 powerful artillery shells.",
      "icon": "ability_bastion_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Bastion",
+     "name": "Lindholm Explosives",
+     "kind": "perk",
+     "damage": 140.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "50 (direct hit bonus)",
+      "90 - 27 (splash, enemy)",
+      "36 - 10.8 (splash, self)"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -6015,7 +6132,14 @@
     {
      "name": "Whip Shot",
      "description": "Launch your flail forward to knock an enemy away from you.",
-     "icon": "ability_brigitte_2.png"
+     "icon": "ability_brigitte_2.png",
+     "damage": 70.0,
+     "cooldown": 4.0,
+     "castTime": 0.19,
+     "damageLines": [
+      "70"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Barrier Shield",
@@ -6025,7 +6149,14 @@
     {
      "name": "Shield Bash",
      "description": "Available when Barrier Shield is deployed. Dash forward to knock back an enemy.",
-     "icon": "ability_brigitte_4.png"
+     "icon": "ability_brigitte_4.png",
+     "damage": 70.0,
+     "cooldown": 5.0,
+     "castTime": 0.02,
+     "damageLines": [
+      "70"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Rally",
@@ -6036,6 +6167,21 @@
      "name": "Inspire",
      "description": "Dealing damage to enemies heals nearby allies.",
      "icon": "ability_brigitte_6.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Brigitte",
+     "name": "Whiplash",
+     "kind": "perk",
+     "damage": 70.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "70 → 130 (wall impact)"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2018-03-20",
@@ -7601,6 +7747,48 @@
      "name": "Deadeye",
      "description": "Face off against your enemies. Press Q to lock on, then Q or ABILITY 3 to fire.",
      "icon": "ability_cassidy_2.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Cassidy",
+     "name": "Flashbang",
+     "kind": "ability",
+     "damage": 75.0,
+     "damagePerSecond": null,
+     "cooldown": 12.0,
+     "castTime": 0.13,
+     "lines": [
+      "75"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Cassidy",
+     "name": "Bang Bang",
+     "kind": "perk",
+     "damage": 75.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "75 → {{#expr: 75*0.6 round2}}"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Cassidy",
+     "name": "Silver Bullet",
+     "kind": "perk",
+     "damage": 70.0,
+     "damagePerSecond": null,
+     "cooldown": 8.0,
+     "castTime": null,
+     "lines": [
+      "70 - 21 (base)",
+      "50 (bleed)"
+     ],
+     "uncertain": true
     }
    ],
    "releaseDate": "2016-05-24",
@@ -9454,12 +9642,28 @@
     {
      "name": "Sonic Repulsors",
      "description": "Push enemies back, stunning them if they hit a wall.",
-     "icon": "ability_domina_2.png"
+     "icon": "ability_domina_2.png",
+     "damage": 40.0,
+     "cooldown": 7.0,
+     "castTime": 0.5,
+     "damageLines": [
+      "40 (base)",
+      "40 (wall impact)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Crystal Charge",
      "description": "Project an explosive crystal and reactivate to detonate it.",
-     "icon": "ability_domina_3.png"
+     "icon": "ability_domina_3.png",
+     "damage": 100.0,
+     "cooldown": 8.0,
+     "castTime": 0.2,
+     "damageLines": [
+      "50 (over time)",
+      "100 - 50 (explosion)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Panopticon",
@@ -9467,6 +9671,7 @@
      "icon": "ability_domina_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2026-02-10",
    "heroNumber": 47,
    "perks": [
@@ -9754,12 +9959,29 @@
     {
      "name": "Rocket Punch",
      "description": "Hold to charge then release to launch forward and knock an enemy back. Damage increases if the enemy hits a wall.",
-     "icon": "ability_doomfist_1.png"
+     "icon": "ability_doomfist_1.png",
+     "damage": 38.0,
+     "cooldown": 4.0,
+     "castTime": 0.2,
+     "damageLines": [
+      "25 - 75 (base, impact damage)",
+      "10 - 40 (base, wall slam)",
+      "38 - 113 (empowered, impact damage)",
+      "15 - 60 (empowered, wall slam)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Seismic Slam",
      "description": "Leap and smash the ground.",
-     "icon": "ability_doomfist_2.png"
+     "icon": "ability_doomfist_2.png",
+     "damage": 50.0,
+     "cooldown": 6.5,
+     "castTime": null,
+     "damageLines": [
+      "50"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Power Block",
@@ -9772,6 +9994,7 @@
      "icon": "ability_doomfist_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2017-07-27",
    "heroNumber": 25,
    "perks": [
@@ -11813,7 +12036,14 @@
     {
      "name": "Boosters",
      "description": "Fly in the direction you are facing.",
-     "icon": "ability_dva_2.png"
+     "icon": "ability_dva_2.png",
+     "damage": 25.0,
+     "cooldown": 4.0,
+     "castTime": null,
+     "damageLines": [
+      "25"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Defense Matrix",
@@ -11823,7 +12053,16 @@
     {
      "name": "Micro Missiles",
      "description": "Launch a volley of explosive rockets.",
-     "icon": "ability_dva_4.png"
+     "icon": "ability_dva_4.png",
+     "damage": 7.5,
+     "cooldown": 7.0,
+     "castTime": 0.16,
+     "damageLines": [
+      "2 (direct hit bonus)",
+      "5.5 - 1.375 (splash, enemy)",
+      "5.5 - 1.375 (splash, self)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Self-Destruct",
@@ -11839,6 +12078,35 @@
      "name": "Eject!",
      "description": "Eject out of your mech when it is destroyed.",
      "icon": "ability_dva_7.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "D.Va",
+     "name": "Extended Boosters",
+     "kind": "perk",
+     "damage": 25.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "25 → 35"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "D.Va",
+     "name": "Precision Fusion",
+     "kind": "perk",
+     "damage": 22.0,
+     "damagePerSecond": null,
+     "cooldown": 8.0,
+     "castTime": null,
+     "lines": [
+      "2 - 0.6 → 1 - 0.3 (per projectile)",
+      "22 - 6.6 → 11 - 3.3 (per volley)"
+     ],
+     "uncertain": true
     }
    ],
    "releaseDate": "2016-05-24",
@@ -13873,7 +14141,16 @@
     {
      "name": "Sticky Bombs",
      "description": "Fire a volley of sticky bombs that detonate after a delay.",
-     "icon": "ability_echo_1.png"
+     "icon": "ability_echo_1.png",
+     "damage": 25.0,
+     "cooldown": 6.0,
+     "castTime": 0.05,
+     "damageLines": [
+      "5 (direct hit)",
+      "25 (explosion, enemy)",
+      "12.5 (explosion, self)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Flight",
@@ -13883,7 +14160,15 @@
     {
      "name": "Focusing Beam",
      "description": "Channel a beam for a few seconds. Deals very high damage to targets under half health.",
-     "icon": "ability_echo_3.png"
+     "icon": "ability_echo_3.png",
+     "damage": null,
+     "cooldown": 8.0,
+     "castTime": 0.14,
+     "damageLines": [
+      "75 per second",
+      "175 per second (target <50% hp)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Duplicate",
@@ -13896,6 +14181,7 @@
      "icon": "ability_echo_5.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2020-04-14",
    "heroNumber": 32,
    "perks": [
@@ -14931,7 +15217,14 @@
     {
      "name": "Cyber Frag",
      "description": "Throw a grenade that detonates shortly after bouncing.",
-     "icon": "ability_emre_1.png"
+     "icon": "ability_emre_1.png",
+     "damage": 110.0,
+     "cooldown": 10.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "110 - 55 (area of effect)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Override Protocol",
@@ -14942,6 +15235,35 @@
      "name": "Altered Vitals",
      "description": "Passive health regeneration activates sooner and instantly restores 30 health when activated.",
      "icon": "ability_emre_3.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Emre",
+     "name": "Siphon Blaster",
+     "kind": "ability",
+     "damage": 25.0,
+     "damagePerSecond": null,
+     "cooldown": 11.0,
+     "castTime": 0.24,
+     "lines": [
+      "10 (direct hit)",
+      "15 - 5 (area of effect)"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Emre",
+     "name": "Cyber Adhesion",
+     "kind": "perk",
+     "damage": 40.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "40 (impact)"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2026-02-10",
@@ -15235,6 +15557,7 @@
      "icon": "ability_freja_3.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2025-04-22",
    "heroNumber": 43,
    "perks": [
@@ -15868,7 +16191,14 @@
     {
      "name": "Swift Strike",
      "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown.",
-     "icon": "ability_genji_2.png"
+     "icon": "ability_genji_2.png",
+     "damage": 50.0,
+     "cooldown": 8.0,
+     "castTime": null,
+     "damageLines": [
+      "50"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Dragonblade",
@@ -15879,6 +16209,21 @@
      "name": "Cyber-Agility",
      "description": "Climb on walls and double jump.",
      "icon": "ability_genji_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Genji",
+     "name": "Blade Twisting",
+     "kind": "perk",
+     "damage": 25.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "25 over time"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -16988,7 +17333,14 @@
     {
      "name": "Storm Arrows",
      "description": "The next 5 arrows ricochet and fire instantly at reduced damage.",
-     "icon": "ability_hanzo_1.png"
+     "icon": "ability_hanzo_1.png",
+     "damage": 75.0,
+     "cooldown": 8.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "75"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Sonic Arrow",
@@ -17009,6 +17361,35 @@
      "name": "Wall Climb",
      "description": "Jump at walls to climb up them.",
      "icon": "ability_hanzo_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Hanzo",
+     "name": "Frost Arrow",
+     "kind": "perk",
+     "damage": 60.0,
+     "damagePerSecond": null,
+     "cooldown": 14.0,
+     "castTime": null,
+     "lines": [
+      "60 (max charge, area of effect)",
+      "20 (min charge, area of effect)"
+     ],
+     "uncertain": true
+    },
+    {
+     "hero": "Hanzo",
+     "name": "Scatter Arrows",
+     "kind": "perk",
+     "damage": 75.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "75 → 25 (after bounce)"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -18307,17 +18688,39 @@
     {
      "name": "Spike Guard",
      "description": "Protect yourself from frontal damage, firing homing spikes at nearby enemies and regenerating ammo.",
-     "icon": "ability_hazard_1.png"
+     "icon": "ability_hazard_1.png",
+     "damage": 175.0,
+     "cooldown": null,
+     "castTime": 0.0,
+     "damageLines": [
+      "11.67 per projectile",
+      "175 maximum"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Violent Leap",
      "description": "Lunge forward. Activate again to slash at enemies, knocking them back.",
-     "icon": "ability_hazard_2.png"
+     "icon": "ability_hazard_2.png",
+     "damage": 70.0,
+     "cooldown": 5.5,
+     "castTime": 0.0,
+     "damageLines": [
+      "70 (slash)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Jagged Wall",
      "description": "Launch a spiked wall that damages and knocks back nearby enemies.",
-     "icon": "ability_hazard_3.png"
+     "icon": "ability_hazard_3.png",
+     "damage": 50.0,
+     "cooldown": 12.0,
+     "castTime": 0.14,
+     "damageLines": [
+      "50"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Downpour",
@@ -18328,6 +18731,21 @@
      "name": "Vault",
      "description": "Scale short walls and grab ledges.",
      "icon": "ability_hazard_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Hazard",
+     "name": "Explosive Impalements",
+     "kind": "perk",
+     "damage": 30.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "30"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2024-12-10",
@@ -19056,7 +19474,30 @@
     {
      "name": "Outburst",
      "description": "Launches you in the direction you are moving, knocking back enemies. Hold jump to go higher.",
-     "icon": "ability_illari_3.png"
+     "icon": "ability_illari_3.png",
+     "damage": 25.0,
+     "cooldown": 8.0,
+     "castTime": 0.2,
+     "damageLines": [
+      "25"
+     ],
+     "damageUncertain": false
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Illari",
+     "name": "Sunburn",
+     "kind": "perk",
+     "damage": 50.0,
+     "damagePerSecond": 16.67,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "16.67 per second",
+      "50 total"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2023-08-10",
@@ -20169,12 +20610,47 @@
     {
      "name": "Purr",
      "description": "Pulsing area heal that increases in frequency over time. Knockback nearby enemies when activated.",
-     "icon": "ability_jetpack-cat_3.png"
+     "icon": "ability_jetpack-cat_3.png",
+     "damage": 30.0,
+     "cooldown": 12.0,
+     "castTime": null,
+     "damageLines": [
+      "30"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Catnapper",
      "description": "Dive towards a ground location, knocking down enemies and tethering the nearest one to you.",
      "icon": "ability_jetpack-cat_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Jetpack Cat",
+     "name": "Headbutt",
+     "kind": "perk",
+     "damage": 50.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "50"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Jetpack Cat",
+     "name": "Claws Out",
+     "kind": "perk",
+     "damage": 40.0,
+     "damagePerSecond": null,
+     "cooldown": 6.0,
+     "castTime": null,
+     "lines": [
+      "40 (damage over time)"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2026-02-10",
@@ -21012,7 +21488,15 @@
     {
      "name": "Carnage",
      "description": "Wound all enemies in front of you, dealing damage over time and reducing the cooldown for each enemy hit.",
-     "icon": "ability_junker-queen_2.png"
+     "icon": "ability_junker-queen_2.png",
+     "damage": 105.0,
+     "cooldown": 9.0,
+     "castTime": 1.0,
+     "damageLines": [
+      "105 (impact)",
+      "40 over 3 seconds (wound)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Rampage",
@@ -21023,6 +21507,36 @@
      "name": "Adrenaline Rush",
      "description": "Heal from all damage over time dealt by wounds.",
      "icon": "ability_junker-queen_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Junker Queen",
+     "name": "Jagged Blade",
+     "kind": "ability",
+     "damage": 65.0,
+     "damagePerSecond": null,
+     "cooldown": 6.0,
+     "castTime": 0.13,
+     "lines": [
+      "65 (thrown hit)",
+      "30 over 3 seconds (wound, thrown hit)",
+      "15 over 3 seconds (wound, return hit & melee)"
+     ],
+     "uncertain": true
+    },
+    {
+     "hero": "Junker Queen",
+     "name": "Willy-Willy",
+     "kind": "perk",
+     "damage": 0.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "0 → 30 (return impact)"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2022-10-04",
@@ -22408,12 +22922,26 @@
     {
      "name": "Concussion Mine",
      "description": "Throw a knockback mine with LSHIFT then detonate it with ABILITY 1.",
-     "icon": "ability_junkrat_1.png"
+     "icon": "ability_junkrat_1.png",
+     "damage": 120.0,
+     "cooldown": 8.0,
+     "castTime": 0.128,
+     "damageLines": [
+      "120 – 55"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Steel Trap",
      "description": "Place an immobilizing trap.",
-     "icon": "ability_junkrat_2.png"
+     "icon": "ability_junkrat_2.png",
+     "damage": 100.0,
+     "cooldown": 10.0,
+     "castTime": 0.33,
+     "damageLines": [
+      "100"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "RIP-Tire",
@@ -22426,6 +22954,7 @@
      "icon": "ability_junkrat_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -23693,7 +24222,14 @@
     {
      "name": "Pulsar Torpedoes",
      "description": "Press  to lock on, then SECONDARY FIRE to fire homing projectiles. Heals allies over time and damages enemies.",
-     "icon": "ability_juno_1.png"
+     "icon": "ability_juno_1.png",
+     "damage": 85.0,
+     "cooldown": 10.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "85"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Orbital Ray",
@@ -23716,6 +24252,7 @@
      "icon": "ability_juno_5.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2024-08-20",
    "heroNumber": 41,
    "perks": [
@@ -24879,6 +25416,7 @@
      "icon": "ability_kiriko_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2022-10-04",
    "heroNumber": 35,
    "perks": [
@@ -26022,6 +26560,21 @@
      "name": "Tree of Life",
      "description": "Place a tree that instantly heals allies upon sprouting and continues healing periodically as it lives.",
      "icon": "ability_lifeweaver_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Lifeweaver",
+     "name": "Superbloom",
+     "kind": "perk",
+     "damage": 40.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "40"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2023-04-11",
@@ -27700,7 +28253,14 @@
     {
      "name": "Soundwave",
      "description": "Create a short-range blast wave to knock enemies away from you.",
-     "icon": "ability_lucio_3.png"
+     "icon": "ability_lucio_3.png",
+     "damage": 45.0,
+     "cooldown": 5.0,
+     "castTime": null,
+     "damageLines": [
+      "45"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Sound Barrier",
@@ -27711,6 +28271,21 @@
      "name": "Wall Ride",
      "description": "Jump onto a wall to ride along it.",
      "icon": "ability_lucio_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Lúcio",
+     "name": "Soundwave Rider",
+     "kind": "perk",
+     "damage": 45.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "45 → 67.5"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -28939,7 +29514,16 @@
     {
      "name": "Overrun",
      "description": "Charge forward and stomp to launch enemies. You are unstoppable while charging.",
-     "icon": "ability_mauga_0.png"
+     "icon": "ability_mauga_0.png",
+     "damage": 150.0,
+     "cooldown": 5.0,
+     "castTime": 0.21,
+     "damageLines": [
+      "30 (collision)",
+      "75 (stomp, outer radius)",
+      "150 (stomp, inner radius)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Cardiac Overdrive",
@@ -28957,6 +29541,7 @@
      "icon": "ability_mauga_3.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2023-12-05",
    "heroNumber": 39,
    "perks": [
@@ -30600,6 +31185,21 @@
      "icon": "ability_mei_3.png"
     }
    ],
+   "extraAbilities": [
+    {
+     "hero": "Mei",
+     "name": "Cryo-Storm",
+     "kind": "perk",
+     "damage": null,
+     "damagePerSecond": 70.0,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "70 per second"
+     ],
+     "uncertain": true
+    }
+   ],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -32060,6 +32660,21 @@
      "name": "Valkyrie",
      "description": "Gain the ability to fly. Abilities are enhanced.",
      "icon": "ability_mercy_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Mercy",
+     "name": "Chain Boost",
+     "kind": "perk",
+     "damage": 30.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "+30% dealt"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -33563,7 +34178,14 @@
     {
      "name": "Binding Chain",
      "description": "Launch your chain at an enemy, hindering their movement.",
-     "icon": "ability_mizuki_2.png"
+     "icon": "ability_mizuki_2.png",
+     "damage": 50.0,
+     "cooldown": 12.0,
+     "castTime": 0.24,
+     "damageLines": [
+      "50"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Katashiro Return",
@@ -33581,6 +34203,7 @@
      "icon": "ability_mizuki_5.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2026-02-10",
    "heroNumber": 49,
    "perks": [
@@ -33947,7 +34570,14 @@
     {
      "name": "Biotic Orb",
      "description": "Launch a bouncing sphere that either heals nearby allies or damages nearby enemies.",
-     "icon": "ability_moira_1.png"
+     "icon": "ability_moira_1.png",
+     "damage": 250.0,
+     "cooldown": 8.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "60 per second, up to 250"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Fade",
@@ -33958,6 +34588,21 @@
      "name": "Coalescence",
      "description": "Fire a beam that heals allies and damages enemies.",
      "icon": "ability_moira_3.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Moira",
+     "name": "Destruction's Divide",
+     "kind": "perk",
+     "damage": null,
+     "damagePerSecond": 110.5,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "85 → 110.5 per second"
+     ],
+     "uncertain": true
     }
    ],
    "releaseDate": "2017-11-16",
@@ -35237,7 +35882,15 @@
     {
      "name": "Energy Javelin",
      "description": "Launch your javelin at an enemy to stun and knock them back. More effective if the enemy hits a wall.",
-     "icon": "ability_orisa_1.png"
+     "icon": "ability_orisa_1.png",
+     "damage": 110.0,
+     "cooldown": 7.0,
+     "castTime": 0.3,
+     "damageLines": [
+      "70 (direct impact)",
+      "40 (wall collision)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Fortify",
@@ -35247,7 +35900,15 @@
     {
      "name": "Javelin Spin",
      "description": "Spin your javelin to destroy projectiles and block melee attacks, while also pushing enemies and increasing forward speed.",
-     "icon": "ability_orisa_3.png"
+     "icon": "ability_orisa_3.png",
+     "damage": 20.0,
+     "cooldown": 8.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "20 (first hit)",
+      "5.3 (subsequent hits)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Terra Surge",
@@ -35255,6 +35916,7 @@
      "icon": "ability_orisa_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2017-03-21",
    "heroNumber": 24,
    "perks": [
@@ -37157,7 +37819,14 @@
     {
      "name": "Concussive Blast",
      "description": "Launch an explosive blast to knock back enemies.",
-     "icon": "ability_pharah_3.png"
+     "icon": "ability_pharah_3.png",
+     "damage": 30.0,
+     "cooldown": 7.0,
+     "castTime": 0.16,
+     "damageLines": [
+      "30 (direct hit only)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Barrage",
@@ -37168,6 +37837,35 @@
      "name": "Hover Jets",
      "description": "Hold to hover. Slows falling when fuel is empty. Fuel only regenerates while on the ground.",
      "icon": "ability_pharah_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Pharah",
+     "name": "Concussive Force",
+     "kind": "perk",
+     "damage": 30.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "30 (splash damage)"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Pharah",
+     "name": "Rocket Salvo",
+     "kind": "perk",
+     "damage": 180.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "30 (per rocket)",
+      "180 (direct hit if all rockets land)"
+     ],
+     "uncertain": true
     }
    ],
    "releaseDate": "2016-05-24",
@@ -38504,12 +39202,36 @@
     {
      "name": "Ravenous Vortex",
      "description": "Fire a sphere of energy that detonates on the ground, slowing and pulling down enemies. Re-activate to detonate early.",
-     "icon": "ability_ramattra_3.png"
+     "icon": "ability_ramattra_3.png",
+     "damage": 100.0,
+     "cooldown": 11.0,
+     "castTime": 0.5,
+     "damageLines": [
+      "30 (explosion damage)",
+      "70 over time"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Annihilation",
      "description": "Enter Nemesis Form and create a deadly swarm that lashes out at nearby enemies, persisting longer when damaging enemies.",
      "icon": "ability_ramattra_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Ramattra",
+     "name": "Void Surge",
+     "kind": "perk",
+     "damage": 30.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "5 (per pellet)",
+      "30 (per burst)"
+     ],
+     "uncertain": true
     }
    ],
    "releaseDate": "2022-12-06",
@@ -39926,6 +40648,23 @@
      "icon": "ability_reaper_4.png"
     }
    ],
+   "extraAbilities": [
+    {
+     "hero": "Reaper",
+     "name": "Dire Triggers",
+     "kind": "ability",
+     "damage": 138.0,
+     "damagePerSecond": null,
+     "cooldown": 6.0,
+     "castTime": 0.0,
+     "lines": [
+      "3.45 - 1.035 (per pellet)",
+      "69 - 20.7 (per blast)",
+      "138 - 41.4 (both blasts)"
+     ],
+     "uncertain": true
+    }
+   ],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -41206,12 +41945,27 @@
     {
      "name": "Charge",
      "description": "Charge forward and smash an enemy against a wall.",
-     "icon": "ability_reinhardt_1.png"
+     "icon": "ability_reinhardt_1.png",
+     "damage": 300.0,
+     "cooldown": 7.0,
+     "castTime": 0.6,
+     "damageLines": [
+      "300 (pinned to wall)",
+      "50 (collision w/out pin)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Fire Strike",
      "description": "Launch a fiery projectile.",
-     "icon": "ability_reinhardt_2.png"
+     "icon": "ability_reinhardt_2.png",
+     "damage": 125.0,
+     "cooldown": 6.0,
+     "castTime": 0.5,
+     "damageLines": [
+      "125"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Barrier Field",
@@ -41222,6 +41976,21 @@
      "name": "Earthshatter",
      "description": "Knock down all enemies in front of you.",
      "icon": "ability_reinhardt_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Reinhardt",
+     "name": "Shield Slam",
+     "kind": "perk",
+     "damage": 50.0,
+     "damagePerSecond": null,
+     "cooldown": 6.0,
+     "castTime": null,
+     "lines": [
+      "50"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -42882,7 +43651,14 @@
     {
      "name": "Chain Hook",
      "description": "Drag a targeted enemy to you.",
-     "icon": "ability_roadhog_1.png"
+     "icon": "ability_roadhog_1.png",
+     "damage": 25.0,
+     "cooldown": 7.0,
+     "castTime": 0.1,
+     "damageLines": [
+      "25"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Take a Breather",
@@ -42895,6 +43671,7 @@
      "icon": "ability_roadhog_3.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -45006,12 +45783,30 @@
     {
      "name": "Execution",
      "description": "Fire an X-shaped volley. Hold to tighten its spread.",
-     "icon": "ability_shion_1.png"
+     "icon": "ability_shion_1.png",
+     "damage": 140.0,
+     "cooldown": 5.0,
+     "castTime": 0.1,
+     "damageLines": [
+      "10 - 3 (per shot)",
+      "140 - 42 (total)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Joyride",
      "description": "Rev your engine. Reactivate to dismount and launch your bike forward.",
-     "icon": "ability_shion_2.png"
+     "icon": "ability_shion_2.png",
+     "damage": 130.0,
+     "cooldown": 15.0,
+     "castTime": 0.38,
+     "damageLines": [
+      "30 (impact while riding)",
+      "130 (ground launch damage)",
+      "30 (air launch impact damage)",
+      "100 (air launch explosion damage)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Evade",
@@ -45024,6 +45819,7 @@
      "icon": "ability_shion_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2026-06-16",
    "heroNumber": 52,
    "perks": [
@@ -45148,12 +45944,27 @@
     {
      "name": "Tracking Shot",
      "description": "Marks an enemy. Helix Rifle shots automatically track marked enemies.",
-     "icon": "ability_sierra_1.png"
+     "icon": "ability_sierra_1.png",
+     "damage": 35.0,
+     "cooldown": 10.0,
+     "castTime": 0.3,
+     "damageLines": [
+      "35"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Tremor Charge",
      "description": "Throw a charge that creates a shockwave on impact.",
-     "icon": "ability_sierra_2.png"
+     "icon": "ability_sierra_2.png",
+     "damage": 100.0,
+     "cooldown": 8.5,
+     "castTime": 0.73,
+     "damageLines": [
+      "100 (inner shockwave)",
+      "60 (outer shockwave)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Anchor Drone",
@@ -45166,6 +45977,7 @@
      "icon": "ability_sierra_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2026-04-14",
    "heroNumber": 51,
    "perks": [
@@ -45460,7 +46272,16 @@
     {
      "name": "Accretion",
      "description": "Gather a mass of debris and throw it at an enemy to knock them down.",
-     "icon": "ability_sigma_2.png"
+     "icon": "ability_sigma_2.png",
+     "damage": 120.0,
+     "cooldown": 10.0,
+     "castTime": 0.64,
+     "damageLines": [
+      "80 (direct)",
+      "40 – 12 (splash, enemy)",
+      "20 – 6 (splash, self)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Experimental Barrier",
@@ -45471,6 +46292,21 @@
      "name": "Gravitic Flux",
      "description": "Manipulate gravity to lift enemies into the air and slam them back down.",
      "icon": "ability_sigma_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Sigma",
+     "name": "Hyper Strike",
+     "kind": "perk",
+     "damage": 50.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "50 over 0.37 seconds"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2019-08-13",
@@ -46838,7 +47674,15 @@
     {
      "name": "Disruptor Shot",
      "description": "Launch an energy burst that deals damage to enemies within it.",
-     "icon": "ability_sojourn_2.png"
+     "icon": "ability_sojourn_2.png",
+     "damage": 315.0,
+     "cooldown": 15.0,
+     "castTime": null,
+     "damageLines": [
+      "90 per second",
+      "315 total"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Overclock",
@@ -46846,6 +47690,7 @@
      "icon": "ability_sojourn_3.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2022-10-04",
    "heroNumber": 33,
    "perks": [
@@ -47775,7 +48620,16 @@
     {
      "name": "Helix Rockets",
      "description": "Launch a volley of explosive rockets.",
-     "icon": "ability_soldier-76_3.png"
+     "icon": "ability_soldier-76_3.png",
+     "damage": 120.0,
+     "cooldown": 6.0,
+     "castTime": 0.1,
+     "damageLines": [
+      "40 (direct hit bonus)",
+      "80 – 40 (splash, enemy)",
+      "40 – 20 (splash, self)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Tactical Visor",
@@ -47783,6 +48637,7 @@
      "icon": "ability_soldier-76_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -48955,7 +49810,16 @@
     {
      "name": "Virus",
      "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked enemies at a faster rate.",
-     "icon": "ability_sombra_3.png"
+     "icon": "ability_sombra_3.png",
+     "damage": 75.0,
+     "cooldown": 6.0,
+     "castTime": 0.06,
+     "damageLines": [
+      "35 (impact, normal)",
+      "70 (impact, hacked)",
+      "75 (DoT)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "EMP",
@@ -48963,6 +49827,7 @@
      "icon": "ability_sombra_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-11-15",
    "heroNumber": 23,
    "perks": [
@@ -50943,7 +51808,14 @@
     {
      "name": "Sentry Turret",
      "description": "Deploy a small turret that damages and slows enemies.",
-     "icon": "ability_symmetra_1.png"
+     "icon": "ability_symmetra_1.png",
+     "damage": null,
+     "cooldown": 10.0,
+     "castTime": 0.22,
+     "damageLines": [
+      "30 per second"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Teleporter",
@@ -50956,6 +51828,7 @@
      "icon": "ability_symmetra_3.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -52508,7 +53381,14 @@
     {
      "name": "Deploy Turret",
      "description": "Deploy a self-building turret.",
-     "icon": "ability_torbjorn_2.png"
+     "icon": "ability_torbjorn_2.png",
+     "damage": 12.0,
+     "cooldown": 5.0,
+     "castTime": 0.51,
+     "damageLines": [
+      "12"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Overload",
@@ -52519,6 +53399,21 @@
      "name": "Molten Core",
      "description": "Create pools of molten slag that damage enemies. Deals additional damage to armor.",
      "icon": "ability_torbjorn_4.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Torbjörn",
+     "name": "Overloaded Turret",
+     "kind": "perk",
+     "damage": 30.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "30 (per missiles)"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -53891,6 +54786,7 @@
      "icon": "ability_tracer_3.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -54926,22 +55822,58 @@
     {
      "name": "Whirlwind Dash",
      "description": "Rush forward into a circular slash.",
-     "icon": "ability_vendetta_2.png"
+     "icon": "ability_vendetta_2.png",
+     "damage": 70.0,
+     "cooldown": 10.0,
+     "castTime": 0.1,
+     "damageLines": [
+      "70 - 35"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Soaring Slice",
      "description": "Hurl your sword in the direction you are facing and then fly to it.",
-     "icon": "ability_vendetta_3.png"
+     "icon": "ability_vendetta_3.png",
+     "damage": 50.0,
+     "cooldown": 7.0,
+     "castTime": 0.3,
+     "damageLines": [
+      "50"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Projected Edge",
      "description": "Available while Warding Stance is active. Consume energy to fire a wide projectile.",
-     "icon": "ability_vendetta_4.png"
+     "icon": "ability_vendetta_4.png",
+     "damage": 70.0,
+     "cooldown": null,
+     "castTime": 0.43,
+     "damageLines": [
+      "70"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Sundering Blade",
      "description": "Cleave through most defenses, dealing severe damage to enemies in front of you.",
      "icon": "ability_vendetta_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Vendetta",
+     "name": "Raging Storm",
+     "kind": "perk",
+     "damage": 30.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "30"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2025-12-09",
@@ -55614,12 +56546,29 @@
     {
      "name": "Drill Dash",
      "description": "Dash forward while above or underground, pushing enemies back. The cooldown is accelerated while Burrow is active.",
-     "icon": "ability_venture_1.png"
+     "icon": "ability_venture_1.png",
+     "damage": 60.0,
+     "cooldown": 8.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "30 (first hit)",
+      "60 over 0.4 seconds (subsequent hits)",
+      "5 (during Burrow)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Burrow",
      "description": "Move underground and become invulnerable. Press or hold  LSHIFT  to emerge and damage enemies.",
-     "icon": "ability_venture_2.png"
+     "icon": "ability_venture_2.png",
+     "damage": 110.0,
+     "cooldown": 8.0,
+     "castTime": 0.7,
+     "damageLines": [
+      "110 - 75 (max charge)",
+      "55 - 37.5 (min charge)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Tectonic Shock",
@@ -55627,6 +56576,7 @@
      "icon": "ability_venture_3.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2024-04-16",
    "heroNumber": 40,
    "perks": [
@@ -56006,12 +56956,49 @@
     {
      "name": "Venom Mine",
      "description": "Launch a poison trap.",
-     "icon": "ability_widowmaker_2.png"
+     "icon": "ability_widowmaker_2.png",
+     "damage": 125.0,
+     "cooldown": 15.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "25 per second",
+      "125 total"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Infra-Sight",
      "description": "Provide your team with a view of the enemy's location.",
      "icon": "ability_widowmaker_3.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Widowmaker",
+     "name": "Widow’s Bite",
+     "kind": "perk",
+     "damage": 150.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "150 - 75 (at 125% power)"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Widowmaker",
+     "name": "Seeker Mine",
+     "kind": "perk",
+     "damage": 75.0,
+     "damagePerSecond": 10.0,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "10 per second",
+      "75 total"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2016-05-24",
@@ -57239,7 +58226,15 @@
     {
      "name": "Jump Pack",
      "description": "Leap forward into the air. Landing on an enemy damages them.",
-     "icon": "ability_winston_1.png"
+     "icon": "ability_winston_1.png",
+     "damage": 60.0,
+     "cooldown": 5.0,
+     "castTime": null,
+     "damageLines": [
+      "1 (collision)",
+      "60 – 1 (landing)"
+     ],
+     "damageUncertain": true
     },
     {
      "name": "Barrier Projector",
@@ -57250,6 +58245,35 @@
      "name": "Primal Rage",
      "description": "Gain immense health, but you can only leap and punch enemies.",
      "icon": "ability_winston_3.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Winston",
+     "name": "Heavy Landing",
+     "kind": "perk",
+     "damage": 105.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "105 - 1"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Winston",
+     "name": "Chain Lightning",
+     "kind": "perk",
+     "damage": 48.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "48 (1st bounce)",
+      "36 (2nd bounce)"
+     ],
+     "uncertain": true
     }
    ],
    "releaseDate": "2016-05-24",
@@ -58571,7 +59595,14 @@
     {
      "name": "Grappling Claw",
      "description": "Launch a grappling claw to rapidly swing around the area. Enables high speed collisions to damage and knockback enemies.",
-     "icon": "ability_wrecking-ball_1.png"
+     "icon": "ability_wrecking-ball_1.png",
+     "damage": 60.0,
+     "cooldown": 5.0,
+     "castTime": null,
+     "damageLines": [
+      "60 (fireball collision)"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Roll",
@@ -58581,7 +59612,14 @@
     {
      "name": "Piledriver",
      "description": "Slam into the ground below to damage and launch enemies upward.",
-     "icon": "ability_wrecking-ball_3.png"
+     "icon": "ability_wrecking-ball_3.png",
+     "damage": 100.0,
+     "cooldown": 8.0,
+     "castTime": 0.0,
+     "damageLines": [
+      "100 - 20"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Adaptive Shield",
@@ -58592,6 +59630,34 @@
      "name": "Minefield",
      "description": "Deploy a massive field of proximity mines.",
      "icon": "ability_wrecking-ball_5.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Wrecking Ball",
+     "name": "Steamroller",
+     "kind": "perk",
+     "damage": 120.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "120 (Tanks)"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Wrecking Ball",
+     "name": "Hang Time",
+     "kind": "perk",
+     "damage": 150.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "150 - 20"
+     ],
+     "uncertain": false
     }
    ],
    "releaseDate": "2018-07-24",
@@ -60018,7 +61084,45 @@
     {
      "name": "Guardian Wave",
      "description": "Send a water wave forward that increases the amount of healing received by allies and knocks back enemies.",
-     "icon": "ability_wuyang_4.png"
+     "icon": "ability_wuyang_4.png",
+     "damage": 80.0,
+     "cooldown": 14.0,
+     "castTime": 0.4,
+     "damageLines": [
+      "80 - 40"
+     ],
+     "damageUncertain": false
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "Wuyang",
+     "name": "Ebb and Flow",
+     "kind": "perk",
+     "damage": 40.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "40"
+     ],
+     "uncertain": false
+    },
+    {
+     "hero": "Wuyang",
+     "name": "Falling Rain",
+     "kind": "perk",
+     "damage": 60.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "10 → 4 (direct hit bonus, uncharged)",
+      "20 → 8 (splash, uncharged)",
+      "40 → 16 (direct hit bonus, charged)",
+      "60 → 24 (splash, charged)"
+     ],
+     "uncertain": true
     }
    ],
    "releaseDate": "2025-08-26",
@@ -60804,6 +61908,7 @@
      "icon": "ability_zarya_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
@@ -62430,6 +63535,7 @@
      "icon": "ability_zenyatta_4.png"
     }
    ],
+   "extraAbilities": [],
    "releaseDate": "2016-05-24",
    "heroNumber": null,
    "perks": [
