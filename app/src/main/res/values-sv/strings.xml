@@ -175,10 +175,11 @@
     <string name="player_intro">Din karriär, uppslagen via BattleTag. Ingen inloggning: Blizzard publicerar redan profilen för den som satt den till offentlig, så ett namn räcker och appen ser aldrig ett lösenord.</string>
     <string name="player_battletag">BattleTag eller namn</string>
     <string name="player_search">Sök</string>
+    <string name="player_back">Tillbaka till sökningen</string>
+    <string name="player_clear">Rensa</string>
     <string name="player_no_results">Ingen med det namnet. Sökningen vill ha namnet ensamt, utan siffran efter brädgården - och den skiljer på versaler, så båda stavningarna testades.</string>
     <string name="player_public">Offentlig profil</string>
     <string name="player_hidden">Profilen är inte offentlig</string>
-    <string name="player_add">Lägg till ett till</string>
     <string name="player_saved">Dina konton</string>
     <string name="player_remove">Ta bort det här kontot</string>
     <string name="player_hit_line">%1$d matcher  ·  %2$.1f%% vunna</string>

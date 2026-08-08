@@ -175,10 +175,11 @@
     <string name="player_intro">用 BattleTag 查询你的战绩。无需登录：只要资料设为公开，暴雪本就会公布，因此只需一个名字，本应用永远不会看到密码。</string>
     <string name="player_battletag">BattleTag 或名称</string>
     <string name="player_search">搜索</string>
+    <string name="player_back">返回搜索</string>
+    <string name="player_clear">清除</string>
     <string name="player_no_results">没有这个名字的玩家。搜索只要井号前的名字，并且区分大小写，两种写法都已尝试。</string>
     <string name="player_public">公开资料</string>
     <string name="player_hidden">资料未公开</string>
-    <string name="player_add">添加另一个</string>
     <string name="player_saved">你的账号</string>
     <string name="player_remove">移除此账号</string>
     <string name="player_hit_line">%1$d 场  ·  胜率 %2$.1f%%</string>

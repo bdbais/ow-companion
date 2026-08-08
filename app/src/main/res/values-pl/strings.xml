@@ -175,10 +175,11 @@
     <string name="player_intro">Twoja kariera wyszukiwana po BattleTagu. Bez logowania: Blizzard i tak publikuje profil tych, którzy ustawili go jako publiczny, więc wystarczy nazwa, a ta aplikacja nigdy nie widzi hasła.</string>
     <string name="player_battletag">BattleTag lub nazwa</string>
     <string name="player_search">Szukaj</string>
+    <string name="player_back">Powrót do wyszukiwania</string>
+    <string name="player_clear">Wyczyść</string>
     <string name="player_no_results">Nikogo o tej nazwie. Wyszukiwarka chce samej nazwy, bez liczby po kratce - i rozróżnia wielkość liter, więc sprawdzono obie pisownie.</string>
     <string name="player_public">Profil publiczny</string>
     <string name="player_hidden">Profil nie jest publiczny</string>
-    <string name="player_add">Dodaj kolejne</string>
     <string name="player_saved">Twoje konta</string>
     <string name="player_remove">Usuń to konto</string>
     <string name="player_hit_line">%1$d gier  ·  %2$.1f%% wygranych</string>

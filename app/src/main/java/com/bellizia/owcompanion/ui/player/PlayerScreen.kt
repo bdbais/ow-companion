@@ -240,6 +240,18 @@ private fun SearchBox(state: PlayerUiState, viewModel: PlayerViewModel) {
             label = { Text(stringResource(R.string.player_battletag)) },
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
             keyboardActions = KeyboardActions(onSearch = { viewModel.search() }),
+            trailingIcon = {
+                // Coming back from a profile leaves the previous BattleTag in the field, and
+                // clearing it a character at a time to look somebody else up is a chore.
+                if (state.query.isNotEmpty()) {
+                    IconButton(onClick = viewModel::clearQuery) {
+                        Icon(
+                            imageVector = Icons.Filled.Close,
+                            contentDescription = stringResource(R.string.player_clear),
+                        )
+                    }
+                }
+            },
         )
         Row(
             modifier = Modifier.padding(top = 8.dp),
@@ -300,15 +312,14 @@ private fun ProfileHeader(
 ) {
     val hit = state.selected ?: return
     Row(verticalAlignment = Alignment.CenterVertically) {
-        // Only when there is a list to go back to: after opening a starred account straight
-        // from the chips, back would lead nowhere.
-        if (state.canGoBack) {
-            IconButton(onClick = onBack) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.player_back),
-                )
-            }
+        // Always offered. This used to be hidden unless there were search results to return
+        // to, which left anyone who opened a starred account from the chips with no way back
+        // to the search box - and so no way to look anybody else up.
+        IconButton(onClick = onBack) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                contentDescription = stringResource(R.string.player_back),
+            )
         }
         AsyncImage(
             model = hit.avatar,

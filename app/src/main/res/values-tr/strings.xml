@@ -175,10 +175,11 @@
     <string name="player_intro">BattleTag ile aranan kariyerin. Giriş yok: Blizzard, profilini herkese açık yapanların profilini zaten yayımlıyor, bu yüzden bir ad yeterli ve bu uygulama asla parola görmez.</string>
     <string name="player_battletag">BattleTag veya ad</string>
     <string name="player_search">Ara</string>
+    <string name="player_back">Aramaya dön</string>
+    <string name="player_clear">Temizle</string>
     <string name="player_no_results">Bu adda kimse yok. Arama, kareden sonraki sayı olmadan yalnızca adı ister ve büyük harfe duyarlıdır; her iki yazım da denendi.</string>
     <string name="player_public">Herkese açık profil</string>
     <string name="player_hidden">Profil herkese açık değil</string>
-    <string name="player_add">Başka ekle</string>
     <string name="player_saved">Hesapların</string>
     <string name="player_remove">Bu hesabı kaldır</string>
     <string name="player_hit_line">%1$d maç  ·  %%%2$.1f kazanma</string>

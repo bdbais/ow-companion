@@ -175,10 +175,11 @@
     <string name="player_intro">Tu carrera, buscada por BattleTag. No hay inicio de sesión: Blizzard ya publica el perfil de quien lo haya puesto público, así que basta un nombre y esta app nunca ve una contraseña.</string>
     <string name="player_battletag">BattleTag o nombre</string>
     <string name="player_search">Buscar</string>
+    <string name="player_back">Volver a la búsqueda</string>
+    <string name="player_clear">Borrar</string>
     <string name="player_no_results">Nadie con ese nombre. La búsqueda quiere el nombre solo, sin el número tras la almohadilla — y distingue mayúsculas, así que se probaron ambas.</string>
     <string name="player_public">Perfil público</string>
     <string name="player_hidden">El perfil no es público</string>
-    <string name="player_add">Añadir otra</string>
     <string name="player_saved">Tus cuentas</string>
     <string name="player_remove">Quitar esta cuenta</string>
     <string name="player_hit_line">%1$d partidas  ·  %2$.1f%% ganadas</string>

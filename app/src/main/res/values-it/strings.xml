@@ -234,7 +234,6 @@
     <string name="player_no_results">Nessuno con quel nome. La ricerca vuole il nome da solo, senza il numero dopo il cancelletto — ed è sensibile alle maiuscole, quindi sono state provate entrambe.</string>
     <string name="player_public">Profilo pubblico</string>
     <string name="player_hidden">Il profilo non è pubblico</string>
-    <string name="player_add">Aggiungi un altro</string>
     <string name="player_saved">Preferiti</string>
     <string name="player_remove">Rimuovi questo account</string>
     <string name="player_hit_line">%1$d partite  ·  %2$.1f%% vinte</string>
@@ -248,7 +247,8 @@
     <string name="player_by_hero">Per eroe, i più giocati per primi</string>
     <string name="player_line">%1$d partite  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">I profili carriera arrivano da Blizzard tramite l\'API OverFast. Viene salvato solo il BattleTag che scegli, e solo su questo telefono.</string>
-    <string name="player_back">Torna ai risultati</string>
+    <string name="player_back">Torna alla ricerca</string>
+    <string name="player_clear">Cancella</string>
     <string name="player_star">Aggiungi ai preferiti</string>
     <string name="player_unstar">Togli dai preferiti</string>
     <string name="chart_out_of_range">fuori portata</string>

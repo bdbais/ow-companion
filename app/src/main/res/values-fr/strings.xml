@@ -175,10 +175,11 @@
     <string name="player_intro">Votre carrière, recherchée par BattleTag. Pas de connexion : Blizzard publie déjà le profil de qui l\'a rendu public, un nom suffit donc et cette appli ne voit jamais de mot de passe.</string>
     <string name="player_battletag">BattleTag ou nom</string>
     <string name="player_search">Rechercher</string>
+    <string name="player_back">Retour à la recherche</string>
+    <string name="player_clear">Effacer</string>
     <string name="player_no_results">Personne de ce nom. La recherche veut le nom seul, sans le numéro après le dièse — et elle distingue les majuscules, les deux ont donc été essayées.</string>
     <string name="player_public">Profil public</string>
     <string name="player_hidden">Le profil n\'est pas public</string>
-    <string name="player_add">En ajouter un</string>
     <string name="player_saved">Vos comptes</string>
     <string name="player_remove">Retirer ce compte</string>
     <string name="player_hit_line">%1$d parties  ·  %2$.1f%% gagnées</string>

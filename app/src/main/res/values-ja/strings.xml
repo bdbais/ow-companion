@@ -175,10 +175,11 @@
     <string name="player_intro">BattleTag で検索する自分の戦績。ログインはありません。公開設定にしていれば Blizzard が profile を公開しているので、名前だけで足り、このアプリがパスワードを見ることはありません。</string>
     <string name="player_battletag">BattleTag または名前</string>
     <string name="player_search">検索</string>
+    <string name="player_back">検索に戻る</string>
+    <string name="player_clear">クリア</string>
     <string name="player_no_results">その名前の人は見つかりません。検索は # の後ろの数字を除いた名前だけを求め、大文字と小文字も区別するため、両方を試しました。</string>
     <string name="player_public">公開プロフィール</string>
     <string name="player_hidden">プロフィールは非公開</string>
-    <string name="player_add">別のアカウントを追加</string>
     <string name="player_saved">自分のアカウント</string>
     <string name="player_remove">このアカウントを削除</string>
     <string name="player_hit_line">%1$d 試合  ·  勝率 %2$.1f%%</string>

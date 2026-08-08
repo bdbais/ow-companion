@@ -56,10 +56,6 @@ data class PlayerUiState(
     val isFavourite: Boolean
         get() = selected != null && favourites.any { it.id == selected.id }
 
-    /** Whether stepping back to the list of results would show anything. */
-    val canGoBack: Boolean
-        get() = selected != null && results.isNotEmpty()
-
     /** Heroes worth showing, most played first, narrowed to the chosen roles. */
     val heroes: List<HeroStat>
         get() = summary?.heroes.orEmpty()
@@ -107,6 +103,11 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun setQuery(query: String) = _state.update { it.copy(query = query, searched = false) }
+
+    /** Empties the field and the stale results under it, ready for a different name. */
+    fun clearQuery() = _state.update {
+        it.copy(query = "", searched = false, results = emptyList(), error = null)
+    }
 
     fun search() {
         val name = _state.value.query

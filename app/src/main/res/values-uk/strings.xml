@@ -175,10 +175,11 @@
     <string name="player_intro">Ваша кар\'єра за BattleTag. Входу немає: Blizzard і так публікує профіль тих, хто його відкрив, тож достатньо імені, і застосунок ніколи не бачить пароля.</string>
     <string name="player_battletag">BattleTag або ім\'я</string>
     <string name="player_search">Знайти</string>
+    <string name="player_back">Назад до пошуку</string>
+    <string name="player_clear">Очистити</string>
     <string name="player_no_results">Нікого з таким іменем. Пошуку потрібне лише ім\'я без числа після решітки, і він розрізняє регістр - обидва варіанти вже пробувалися.</string>
     <string name="player_public">Відкритий профіль</string>
     <string name="player_hidden">Профіль закритий</string>
-    <string name="player_add">Додати ще</string>
     <string name="player_saved">Ваші акаунти</string>
     <string name="player_remove">Прибрати цей акаунт</string>
     <string name="player_hit_line">%1$d ігор  ·  %2$.1f%% перемог</string>

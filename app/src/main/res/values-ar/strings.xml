@@ -175,10 +175,11 @@
     <string name="player_intro">سجلك مبحوثًا عنه بواسطة BattleTag. لا تسجيل دخول: Blizzard تنشر الملف أصلًا لمن جعله عامًا، فيكفي الاسم، وهذا التطبيق لا يرى كلمة مرور أبدًا.</string>
     <string name="player_battletag">BattleTag أو الاسم</string>
     <string name="player_search">بحث</string>
+    <string name="player_back">العودة إلى البحث</string>
+    <string name="player_clear">مسح</string>
     <string name="player_no_results">لا أحد بهذا الاسم. البحث يريد الاسم وحده دون الرقم بعد العلامة، وهو يفرّق بين الحروف الكبيرة والصغيرة، لذا جُرِّبت الصيغتان.</string>
     <string name="player_public">ملف عام</string>
     <string name="player_hidden">الملف ليس عامًا</string>
-    <string name="player_add">أضف حسابًا آخر</string>
     <string name="player_saved">حساباتك</string>
     <string name="player_remove">أزل هذا الحساب</string>
     <string name="player_hit_line">%1$d مباراة  ·  %2$.1f%% فوز</string>

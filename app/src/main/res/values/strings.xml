@@ -233,7 +233,8 @@
     <string name="player_no_results">Not found. Try the whole BattleTag with its number, like Name#1234, which addresses a profile directly. If that fails too, the profile is almost certainly private: Blizzard only publishes — and only lets anything search — profiles set to public in the game, under Options, Social, Career Profile.</string>
     <string name="player_public">Public profile</string>
     <string name="player_hidden">Profile is not public</string>
-    <string name="player_back">Back to the results</string>
+    <string name="player_back">Back to search</string>
+    <string name="player_clear">Clear</string>
     <string name="player_star">Add to favourites</string>
     <string name="player_unstar">Remove from favourites</string>
     <string name="player_saved">Favourites</string>

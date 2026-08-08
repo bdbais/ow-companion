@@ -175,10 +175,11 @@
     <string name="player_intro">Deine Laufbahn, über den BattleTag gesucht. Keine Anmeldung: Blizzard veröffentlicht das Profil ohnehin, wenn es auf öffentlich steht - ein Name genügt, und diese App sieht nie ein Passwort.</string>
     <string name="player_battletag">BattleTag oder Name</string>
     <string name="player_search">Suchen</string>
+    <string name="player_back">Zurück zur Suche</string>
+    <string name="player_clear">Löschen</string>
     <string name="player_no_results">Niemand mit diesem Namen. Die Suche will den Namen allein, ohne die Zahl hinter der Raute - und sie unterscheidet Groß- und Kleinschreibung, beides wurde probiert.</string>
     <string name="player_public">Öffentliches Profil</string>
     <string name="player_hidden">Profil ist nicht öffentlich</string>
-    <string name="player_add">Weiteres hinzufügen</string>
     <string name="player_saved">Deine Konten</string>
     <string name="player_remove">Dieses Konto entfernen</string>
     <string name="player_hit_line">%1$d Spiele  ·  %2$.1f%% gewonnen</string>
