@@ -192,4 +192,5 @@
     <string name="player_by_hero">Nach Held, meistgespielte zuerst</string>
     <string name="player_line">%1$d Spiele  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Die Karriereprofile stammen von Blizzard über die OverFast-API. Gespeichert wird nur der gewählte BattleTag, und nur auf diesem Gerät.</string>
+    <string name="board_background">Karte laden</string>
 </resources>

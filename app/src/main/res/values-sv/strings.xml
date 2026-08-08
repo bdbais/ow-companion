@@ -192,4 +192,5 @@
     <string name="player_by_hero">Per hjälte, mest spelade först</string>
     <string name="player_line">%1$d matcher  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Karriärprofilerna kommer från Blizzard via OverFast-API:t. Bara den BattleTag du väljer sparas, och bara på den här telefonen.</string>
+    <string name="board_background">Ladda karta</string>
 </resources>

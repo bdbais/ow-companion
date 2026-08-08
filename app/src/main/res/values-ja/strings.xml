@@ -192,4 +192,5 @@
     <string name="player_by_hero">ヒーロー別（プレイ時間順）</string>
     <string name="player_line">%1$d 試合  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">キャリアプロフィールは OverFast API 経由で Blizzard から取得しています。保存されるのは選んだ BattleTag だけで、この端末の中だけです。</string>
+    <string name="board_background">マップを読み込む</string>
 </resources>

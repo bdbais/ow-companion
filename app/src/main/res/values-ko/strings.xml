@@ -192,4 +192,5 @@
     <string name="player_by_hero">영웅별, 많이 한 순서</string>
     <string name="player_line">%1$d 경기  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">경력 프로필은 OverFast API를 통해 Blizzard에서 가져옵니다. 저장되는 것은 선택한 BattleTag뿐이며, 이 기기 안에만 저장됩니다.</string>
+    <string name="board_background">맵 불러오기</string>
 </resources>

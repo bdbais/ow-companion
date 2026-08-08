@@ -265,7 +265,7 @@
     <string name="board_caption_hint">Cosa succede in questa fase</string>
     <string name="board_side_ours">Noi</string>
     <string name="board_side_theirs">Loro</string>
-    <string name="board_background">Sfondo</string>
+    <string name="board_background">Carica mappa</string>
     <string name="board_tap_to_add">Tocca un eroe per piazzarlo. Trascina una pedina per spostarla, tienila premuta per rimuoverla.</string>
     <string name="board_export_pdf">Esporta in PDF</string>
     <string name="board_export_video">Esporta come video</string>

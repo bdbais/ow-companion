@@ -266,7 +266,7 @@
     <string name="board_caption_hint">What happens in this phase</string>
     <string name="board_side_ours">Us</string>
     <string name="board_side_theirs">Them</string>
-    <string name="board_background">Background</string>
+    <string name="board_background">Load map</string>
     <string name="board_tap_to_add">Tap a hero to place them. Drag a token to move it, long press to remove.</string>
     <string name="board_export_pdf">Export as a PDF</string>
     <string name="board_export_video">Export as a video</string>

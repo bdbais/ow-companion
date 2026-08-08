@@ -192,4 +192,5 @@
     <string name="player_by_hero">Par héros, les plus joués d\'abord</string>
     <string name="player_line">%1$d parties  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Les profils de carrière viennent de Blizzard via l\'API OverFast. Seul le BattleTag que vous choisissez est conservé, et uniquement sur ce téléphone.</string>
+    <string name="board_background">Charger une carte</string>
 </resources>

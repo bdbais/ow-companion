@@ -192,4 +192,5 @@
     <string name="player_by_hero">За героями, спершу найбільш зіграні</string>
     <string name="player_line">%1$d ігор  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">Профілі кар\'єри надходять від Blizzard через OverFast API. Зберігається лише вибраний BattleTag і лише на цьому телефоні.</string>
+    <string name="board_background">Завантажити карту</string>
 </resources>

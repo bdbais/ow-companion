@@ -192,4 +192,5 @@
     <string name="player_by_hero">Por héroe, más jugados primero</string>
     <string name="player_line">%1$d partidas  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Los perfiles de carrera vienen de Blizzard a través de la API OverFast. Solo se guarda el BattleTag que elijas, y solo en este teléfono.</string>
+    <string name="board_background">Cargar mapa</string>
 </resources>

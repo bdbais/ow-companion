@@ -1462,6 +1462,12 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Profile kariery pochodzą od Blizzarda przez API OverFast. Zapisywany jest tylko wybrany BattleTag i tylko na tym telefonie.",
         tr="Kariyer profilleri OverFast API üzerinden Blizzard\'dan gelir. Yalnızca seçtiğin BattleTag saklanır, o da yalnızca bu telefonda.",
     ),
+    "board_background": t(
+        es="Cargar mapa", pt="Carregar mapa", fr="Charger une carte", de="Karte laden",
+        ja="マップを読み込む", ko="맵 불러오기", zhCN="载入地图", zhTW="載入地圖",
+        ru="Загрузить карту", uk="Завантажити карту", sv="Ladda karta",
+        ar="حمّل خريطة", pl="Wczytaj mapę", tr="Harita yükle",
+    ),
 }
 
 

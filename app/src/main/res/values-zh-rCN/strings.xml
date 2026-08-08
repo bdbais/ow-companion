@@ -192,4 +192,5 @@
     <string name="player_by_hero">按英雄，游玩最多在前</string>
     <string name="player_line">%1$d 场  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">生涯档案通过 OverFast API 来自暴雪。仅保存你选择的 BattleTag，且只存在这台手机上。</string>
+    <string name="board_background">载入地图</string>
 </resources>
