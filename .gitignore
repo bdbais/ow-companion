@@ -18,3 +18,6 @@ local.properties
 # whiteboard backgrounds on one machine. They are someone else's work and tens of megabytes
 # each, so they stay out of a public repository.
 maps/
+
+# Kotlin compiler crash logs, written into the working tree on a failed build.
+.kotlin/
