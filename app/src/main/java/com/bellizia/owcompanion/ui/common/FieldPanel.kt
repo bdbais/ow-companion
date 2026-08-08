@@ -43,15 +43,21 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
-private val BACKDROP = Color(0xFF0B0F1A)
-private val GRID = Color(0xFF16203A)
-private val OWN_TINT = Color(0xFFFF6FA5)
-private val OWN_TRIM = Color(0xFF7FDBFF)
-private val MARKER_TINT = Color(0xFF8C9BB5)
-private val HEAVY_TINT = Color(0xFFE8734A)
-private val PRIMARY_TINT = Color(0xFFFFE066)
-private val SECONDARY_TINT = Color(0xFF7FDBFF)
-private val INCOMING_TINT = Color(0xFFFF5C5C)
+// A green phosphor screen: almost monochrome, with white kept for the few things that
+// have to be read instantly against everything else.
+private val BACKDROP = Color(0xFF04120A)
+private val SCREEN = Color(0xFF071E10)
+private val FRAME = Color(0xFF6BFF57)
+private val GRID = Color(0xFF11351D)
+private val OWN_TINT = Color(0xFFC9FFB0)
+private val OWN_TRIM = Color(0xFFFFFFFF)
+private val MARKER_TINT = Color(0xFF3FBF4A)
+private val HEAVY_TINT = Color(0xFFB6FF6B)
+private val PRIMARY_TINT = Color(0xFFEAFFD6)
+private val SECONDARY_TINT = Color(0xFFFFFFFF)
+private val INCOMING_TINT = Color(0xFF2BE07A)
+private val TEXT_TINT = Color(0xFF8CFF7A)
+private val LIVES = Color(0xFFFF3B30)
 
 @Composable
 internal fun FieldPanel(onDismiss: () -> Unit) {
@@ -138,6 +144,21 @@ private fun Readout(model: FieldModel, frame: Int) {
         Column(modifier = Modifier.weight(1f)) {
             Mono("SCORE", 11)
             Mono("%07d".format(model.tally), 20)
+            // Red against the green, which is the one thing on the cabinet that is not.
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(3.dp),
+                modifier = Modifier.padding(top = 2.dp),
+            ) {
+                repeat(model.maxHealth) { index ->
+                    Box(
+                        modifier = Modifier
+                            .size(9.dp)
+                            .background(
+                                if (index < model.health) LIVES else LIVES.copy(alpha = 0.18f),
+                            ),
+                    )
+                }
+            }
         }
         model.heavyLabel?.let {
             Mono(it, 12, tint = HEAVY_TINT, modifier = Modifier.padding(horizontal = 6.dp))
@@ -153,7 +174,7 @@ private fun Readout(model: FieldModel, frame: Int) {
 private fun Mono(
     text: String,
     size: Int,
-    tint: Color = Color(0xFFCFE3FF),
+    tint: Color = TEXT_TINT,
     modifier: Modifier = Modifier,
 ) {
     Text(
@@ -177,10 +198,13 @@ private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifi
         fun px(x: Float) = originX + x * scale
         fun py(y: Float) = originY + y * scale
 
+        val panel = Size(FIELD_W * scale, FIELD_H * scale)
+        drawRect(color = SCREEN, topLeft = Offset(px(0f), py(0f)), size = panel)
         drawRect(
-            color = GRID.copy(alpha = 0.35f),
+            color = FRAME,
             topLeft = Offset(px(0f), py(0f)),
-            size = Size(FIELD_W * scale, FIELD_H * scale),
+            size = panel,
+            style = androidx.compose.ui.graphics.drawscope.Stroke(width = scale * 0.9f),
         )
         // A scrolling starfield, cheap enough to compute rather than store.
         for (row in 0..24) {
@@ -195,7 +219,7 @@ private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifi
         for (ripple in model.ripples) {
             val grow = ripple.age / 0.45f
             drawCircle(
-                color = Color(0xFFFFC857).copy(alpha = (1f - grow).coerceIn(0f, 1f)),
+                color = Color(0xFFDFFFC2).copy(alpha = (1f - grow).coerceIn(0f, 1f)),
                 radius = ripple.radius * grow * scale,
                 center = Offset(px(ripple.x), py(ripple.y)),
             )
@@ -218,12 +242,12 @@ private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifi
             if (marker.heavy) {
                 val width = side * 2
                 drawRect(
-                    color = Color(0xFF3A2A2A),
+                    color = Color(0xFF12401F),
                     topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 1.5f),
                     size = Size(width, scale * 1.6f),
                 )
                 drawRect(
-                    color = Color(0xFFFF4D4D),
+                    color = Color(0xFFFFFFFF),
                     topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 1.5f),
                     size = Size(width * marker.health / marker.maxHealth.toFloat(), scale * 1.6f),
                 )
@@ -274,16 +298,16 @@ private fun Pad(
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(6.dp),
         ) {
-            HoldButton("FIRE", Color(0xFFFFE066), onPress = onPrimary)
+            HoldButton("FIRE", FRAME, onPress = onPrimary)
             TapButton(
                 label = "MISSILES",
-                tint = Color(0xFF7FDBFF),
+                tint = Color(0xFFC9FFB0),
                 ready = model.secondaryReady,
                 onTap = onSecondary,
             )
             TapButton(
                 label = "ULTIMATE",
-                tint = Color(0xFFB388FF),
+                tint = Color(0xFFFFFFFF),
                 ready = model.charge,
                 onTap = onCharge,
             )
@@ -355,7 +379,7 @@ private fun Stick(onMove: (Float, Float) -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF1B2740), CircleShape)
+            .background(Color(0xFF0C2A16), CircleShape)
             .pointerInput(Unit) {
                 val half = size.width / 2f
                 detectDragGestures(
@@ -385,12 +409,12 @@ private fun Stick(onMove: (Float, Float) -> Unit) {
             val reach = size.minDimension * 0.28f
             val length = kotlin.math.hypot(knob.x, knob.y).coerceAtLeast(1f)
             val clamped = if (length > reach) Offset(knob.x / length * reach, knob.y / length * reach) else knob
-            drawCircle(Color(0xFF2C3E63), radius = size.minDimension * 0.18f, center = middle + clamped)
+            drawCircle(Color(0xFF1C5A2E), radius = size.minDimension * 0.18f, center = middle + clamped)
             listOf(
                 Offset(0f, -1f), Offset(0f, 1f), Offset(-1f, 0f), Offset(1f, 0f),
             ).forEach { direction ->
                 drawCircle(
-                    color = Color(0xFF44598C),
+                    color = Color(0xFF2E8B45),
                     radius = size.minDimension * 0.035f,
                     center = middle + Offset(direction.x * reach * 1.5f, direction.y * reach * 1.5f),
                 )
@@ -421,7 +445,7 @@ private fun Ledger(context: Context, score: Int, tier: Int, onDone: () -> Unit) 
                 },
             ) { Text(if (saved) "Done" else "Enter") }
         },
-        title = { Mono("GAME OVER", 18, tint = Color(0xFFFF6FA5)) },
+        title = { Mono("GAME OVER", 18, tint = FRAME) },
         text = {
             Column {
                 Mono("SCORE  %07d".format(score), 14)
@@ -439,9 +463,9 @@ private fun Ledger(context: Context, score: Int, tier: Int, onDone: () -> Unit) 
                                     .size(44.dp)
                                     .background(
                                         if (index == slot) {
-                                            Color(0xFF2C3E63)
+                                            Color(0xFF1C5A2E)
                                         } else {
-                                            Color(0xFF1B2740)
+                                            Color(0xFF0C2A16)
                                         },
                                         RoundedCornerShape(6.dp),
                                     )
@@ -470,7 +494,7 @@ private fun Ledger(context: Context, score: Int, tier: Int, onDone: () -> Unit) 
                         TextButton(onClick = { slot = (slot + 1) % 3 }) { Mono("NEXT", 14) }
                     }
                 } else {
-                    Mono("HIGH SCORES", 13, tint = Color(0xFFFFC857))
+                    Mono("HIGH SCORES", 13, tint = FRAME)
                     table.forEachIndexed { index, row ->
                         Mono(
                             "%d %s %07d  L%02d".format(index + 1, row.name, row.score, row.tier),
