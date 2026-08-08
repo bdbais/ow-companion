@@ -58,6 +58,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.graphicsLayer
@@ -83,6 +85,9 @@ internal val TheirRed = Color(0xFFE0645C)
 internal fun ringFor(side: Side): Color = if (side == Side.Ours) OurBlue else TheirRed
 
 private enum class ExportKind { Pdf, Video }
+
+/** Drains the colour out of a portrait for a hero this team already has. */
+private val GreyedOut = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) })
 
 /**
  * A tactics board for a team briefing: hero tokens on a picture, one frame per phase.
@@ -520,24 +525,39 @@ private fun HeroStrip(state: BoardUiState, viewModel: BoardViewModel) {
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             items(state.roster, key = { it.key }) { hero ->
+                val taken = hero.key in state.alreadyPlaced
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .clickable { viewModel.add(hero) }
+                        .clickable(enabled = !taken) { viewModel.add(hero) }
                         .padding(2.dp),
                 ) {
                     AsyncImage(
                         model = WikiRepository.imageUri(hero.portrait),
                         contentDescription = hero.name,
                         contentScale = ContentScale.Crop,
+                        // Greyed and flattened rather than hidden: a hero vanishing from the
+                        // strip would look like the app had lost them.
+                        colorFilter = if (taken) GreyedOut else null,
+                        alpha = if (taken) 0.45f else 1f,
                         modifier = Modifier
                             .size(40.dp)
                             .clip(CircleShape)
-                            .border(2.dp, ringFor(state.adding), CircleShape),
+                            .border(
+                                2.dp,
+                                if (taken) MaterialTheme.colorScheme.outlineVariant
+                                else ringFor(state.adding),
+                                CircleShape,
+                            ),
                     )
                     Text(
                         text = hero.name,
                         style = MaterialTheme.typography.labelSmall,
+                        color = if (taken) {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        } else {
+                            MaterialTheme.colorScheme.onSurface
+                        },
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.size(width = 48.dp, height = 14.dp),

@@ -31,6 +31,16 @@ data class BoardUiState(
     val saved: List<Board> = emptyList(),
 ) {
     val frame: Frame get() = board.frame(frameIndex)
+
+    /**
+     * Heroes already on the team currently being placed.
+     *
+     * A team cannot field the same hero twice, so those are shown greyed out rather than
+     * silently ignoring the tap. The other team is unaffected: both sides fielding an Ana
+     * is an ordinary situation and a plan should be able to say so.
+     */
+    val alreadyPlaced: Set<String>
+        get() = frame.tokens.filter { it.side == adding }.map { it.heroKey }.toSet()
 }
 
 /**
@@ -116,10 +126,16 @@ class BoardViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun add(hero: HeroWiki) = editFrame { frame ->
+        // A team cannot field the same hero twice. The strip greys these out, so reaching
+        // here means something went round the interface; refusing is the right answer either
+        // way, and it keeps the rule in one place rather than only in the view.
+        if (frame.tokens.any { it.side == _state.value.adding && it.heroKey == hero.key }) {
+            return@editFrame frame
+        }
         frame.copy(
             tokens = frame.tokens + Token(
-                // Same hero twice is legitimate - a plan can talk about where a Winston
-                // starts and where he lands - so the id is not the hero.
+                // Still not keyed on the hero: the same hero can appear once per side, and
+                // a token needs an identity that survives being moved between frames.
                 id = "${hero.key}-${System.nanoTime()}",
                 heroKey = hero.key,
                 heroName = hero.name,
