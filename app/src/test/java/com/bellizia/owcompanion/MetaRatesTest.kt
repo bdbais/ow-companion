@@ -51,6 +51,22 @@ class MetaRatesTest {
     }
 
     @Test
+    fun `the role is applied here, because the site ignores it`() {
+        val heroes = MetaRepository.parse(page)
+        // The page returns every hero whatever role is asked for, which is why picking one
+        // used to leave the list untouched.
+        assertEquals(2, heroes.size)
+
+        assertEquals(listOf("Zarya"), MetaRepository.byRole(heroes, "tank").map { it.name })
+        assertEquals(listOf("Ana"), MetaRepository.byRole(heroes, "support").map { it.name })
+        assertTrue(MetaRepository.byRole(heroes, "damage").isEmpty())
+
+        // "All" is not a role, and the case it arrives in is not worth depending on.
+        assertEquals(2, MetaRepository.byRole(heroes, "All").size)
+        assertEquals(1, MetaRepository.byRole(heroes, "TANK").size)
+    }
+
+    @Test
     fun `filters go into the query string the site expects`() {
         val url = MetaRepository.url(
             MetaRepository.Filters(region = "Asia", tier = "Master", queue = "1", role = "tank"),

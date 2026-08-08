@@ -54,11 +54,12 @@ class MetaRepository {
         runCatching { parse(fetch(url(filters))) }.fold(
             onSuccess = { heroes ->
                 if (heroes.isEmpty()) Result.Failed("the page carried no rates")
-                else Result.Loaded(heroes)
+                else Result.Loaded(byRole(heroes, filters.role))
             },
             onFailure = { Result.Failed(it.message ?: it.javaClass.simpleName) },
         )
     }
+
 
     private fun fetch(url: String): String {
         val connection = (URL(url).openConnection() as HttpURLConnection).apply {
@@ -108,6 +109,22 @@ class MetaRepository {
 
         /** The rates table, before any HTML entity decoding. */
         private val ALL_ROWS = Regex("""allrows="([^"]*)"""")
+
+        /**
+         * The role has to be applied here, not asked for.
+         *
+         * Every other filter is honoured by the server: ask for Bronze and the numbers
+         * change, ask for Busan and they change again. The role is the exception - the page
+         * returns all fifty-two heroes whatever is requested and narrows the table in the
+         * browser - so sending it and trusting the answer left the list looking identical
+         * whichever role was picked.
+         */
+        internal fun byRole(heroes: List<HeroRate>, role: String): List<HeroRate> =
+            if (role.equals("All", ignoreCase = true)) {
+                heroes
+            } else {
+                heroes.filter { it.role.equals(role, ignoreCase = true) }
+            }
 
         fun url(filters: Filters): String = buildString {
             append("https://overwatch.blizzard.com/en-us/rates/")

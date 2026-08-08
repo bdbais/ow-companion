@@ -12,6 +12,36 @@ balance history, 1268 match-ups, and the live meta, in 16 languages. If you play
 please [open an issue](../../issues) — see [CONTRIBUTING.md](CONTRIBUTING.md) for the parts
 we already know are weak.
 
+## Why not just look it up
+
+Most of what is here can be found somewhere on the internet, in about six places. The wiki
+has the raw numbers, Blizzard publish pick rates, the patch notes are archived, and there
+are sites for match-ups and for career stats. Using them together means six tabs, and every
+one of them answers a slightly different question from the one you asked.
+
+The gap is that **none of them will compare two weapons for you**. The wiki will tell you
+that Cassidy's Peacekeeper does 70 damage a shot at two shots a second, and that Soldier's
+rifle does 19 at nine. It will not tell you which of them is actually better at fifteen
+metres against an armoured target — that depends on falloff, spread, reload, travel time and
+where the crosshair sits, and answering it means running the shots. This app runs them, for
+every weapon at once, and sorts the result.
+
+The rest is a consequence of having done that:
+
+- **One ranking instead of 52 pages.** The wiki is organised per hero, so "who has the
+  highest sustained DPS" is not a question it can answer. Here it is a sort.
+- **Balance history as a shape.** Ten years of patch notes are prose you would have to read
+  in order. The same changes are drawn as a line, so a nerf is something you see.
+- **The comparison that only exists here.** Damage, healing and ultimates are ranked
+  separately, because they are three different questions and mixing them produces nonsense.
+- **It works on the underground.** Everything is in the app; the network is only used for
+  live pick rates and career lookups, both optional.
+- **No account, no ads, no tracking**, and nothing is sent anywhere.
+
+What it is not: a replacement for the wiki's prose, for the official patch notes, or for
+match history. It is the calculator those sources do not include — and it credits every one
+of them.
+
 ### Download
 
 **[Download the latest APK](../../releases/latest)** — Android 8.0 or newer, about 29 MB.
