@@ -194,4 +194,7 @@
     <string name="player_line">%1$d 경기  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">경력 프로필은 OverFast API를 통해 Blizzard에서 가져옵니다. 저장되는 것은 선택한 BattleTag뿐이며, 이 기기 안에만 저장됩니다.</string>
     <string name="board_background">맵 불러오기</string>
+    <string name="about_cost_title">제작에 든 비용</string>
+    <string name="about_cost">Claude Code 토큰 %1$s, 버전 %2$s 까지.</string>
+    <string name="about_cost_detail">생성 %1$s, 캐시 재읽기 %2$s. %3$s 측정.</string>
 </resources>

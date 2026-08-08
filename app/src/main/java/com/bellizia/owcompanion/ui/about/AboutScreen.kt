@@ -1,6 +1,7 @@
 package com.bellizia.owcompanion.ui.about
 
 import android.app.Application
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,7 +14,12 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.AndroidViewModel
@@ -24,11 +30,15 @@ import com.bellizia.owcompanion.BuildConfig
 import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.data.DatasetRepository
 import com.bellizia.owcompanion.data.DatasetUpdater
+import com.bellizia.owcompanion.ui.common.SegmentPanel
+import java.text.NumberFormat
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+
+private const val SECTION_STEP = 7
 
 data class AboutUiState(
     val datasetVersion: Int = 0,
@@ -111,8 +121,48 @@ fun AboutScreen(
             Paragraph(R.string.about_data_owdmgchart)
         }
 
-        Section(R.string.about_thanks_title) {
+        var count by rememberSaveable { mutableIntStateOf(0) }
+        var panel by rememberSaveable { mutableStateOf(false) }
+
+        Section(
+            titleRes = R.string.about_thanks_title,
+            onTitleClick = if (LocalConfiguration.current.locales[0].language == "en") {
+                { count += 1; if (count % SECTION_STEP == 0) panel = true }
+            } else {
+                null
+            },
+        ) {
             Paragraph(R.string.about_thanks)
+        }
+
+        if (panel) {
+            SegmentPanel(onDismiss = { panel = false })
+        }
+
+        // Only when there is something measured to show: a build made from a checkout with
+        // no transcripts to count would otherwise claim the work cost nothing.
+        if (BuildConfig.DEV_TOKENS > 0) {
+            Section(R.string.about_cost_title) {
+                Text(
+                    text = stringResource(
+                        R.string.about_cost,
+                        formatTokens(BuildConfig.DEV_TOKENS),
+                        BuildConfig.VERSION_NAME,
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Text(
+                    text = stringResource(
+                        R.string.about_cost_detail,
+                        formatTokens(BuildConfig.DEV_TOKENS_OUTPUT),
+                        formatTokens(BuildConfig.DEV_TOKENS_CACHE_READ),
+                        BuildConfig.DEV_MEASURED,
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
+            }
         }
 
         Section(R.string.about_art_title) {
@@ -173,13 +223,36 @@ fun AboutScreen(
     }
 }
 
+/**
+ * Grouped digits rather than a scale word: "1.045.188.268" needs no translating, and every
+ * locale groups it the way its readers expect.
+ */
+private fun formatTokens(value: Long): String =
+    NumberFormat.getIntegerInstance().format(value)
+
 @Composable
-private fun Section(titleRes: Int, content: @Composable () -> Unit) {
+private fun Section(
+    titleRes: Int,
+    onTitleClick: (() -> Unit)? = null,
+    content: @Composable () -> Unit,
+) {
     HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
     Text(
         text = stringResource(titleRes),
         style = MaterialTheme.typography.titleMedium,
-        modifier = Modifier.padding(bottom = 4.dp),
+        modifier = Modifier
+            .then(
+                if (onTitleClick == null) {
+                    Modifier
+                } else {
+                    Modifier.clickable(
+                        interactionSource = null,
+                        indication = null,
+                        onClick = onTitleClick,
+                    )
+                },
+            )
+            .padding(bottom = 4.dp),
     )
     content()
 }

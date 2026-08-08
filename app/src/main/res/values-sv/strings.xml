@@ -194,4 +194,7 @@
     <string name="player_line">%1$d matcher  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Karriärprofilerna kommer från Blizzard via OverFast-API:t. Bara den BattleTag du väljer sparas, och bara på den här telefonen.</string>
     <string name="board_background">Ladda karta</string>
+    <string name="about_cost_title">Vad det kostade att bygga</string>
+    <string name="about_cost">%1$s tokens Claude Code, till version %2$s.</string>
+    <string name="about_cost_detail">%1$s skrivna, %2$s omlästa från cachen. Uppmätt %3$s.</string>
 </resources>

@@ -10,6 +10,19 @@ val DEFAULT_DATASET_URL =
     "https://raw.githubusercontent.com/bdbais/ow-companion/dataset-published"
 
 /**
+ * What building this app cost, in tokens, as measured by tools/count_tokens.py.
+ *
+ * Absent or unreadable, it reports zero and the About screen says nothing, which is the
+ * right behaviour for a checkout on a machine that has no transcripts to count.
+ */
+val development = Properties().apply {
+    val file = rootProject.file("dataset/development.properties")
+    if (file.exists()) file.inputStream().use { stream -> load(stream) }
+}
+
+fun developmentLong(key: String): Long = development.getProperty(key)?.toLongOrNull() ?: 0L
+
+/**
  * How many commits have changed the data the app ships with.
  *
  * It increments exactly when the dataset does, which is what the update check needs: an APK
@@ -47,8 +60,8 @@ android {
         targetSdk = 35
         // Kept in step with the git tag the release is published under: the in-app
         // update prompt compares this against the newest tag on GitHub.
-        versionCode = 11
-        versionName = "1.0.0"
+        versionCode = 13
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -62,6 +75,15 @@ android {
         )
 
         buildConfigField("int", "DATASET_VERSION", "${datasetVersion()}")
+
+        buildConfigField("long", "DEV_TOKENS", "${developmentLong("tokens")}L")
+        buildConfigField("long", "DEV_TOKENS_OUTPUT", "${developmentLong("tokensOutput")}L")
+        buildConfigField("long", "DEV_TOKENS_CACHE_READ", "${developmentLong("tokensCacheRead")}L")
+        buildConfigField(
+            "String",
+            "DEV_MEASURED",
+            "\"${development.getProperty("measured") ?: ""}\"",
+        )
     }
 
     // Release signing is read from keystore.properties when present, so the keystore and

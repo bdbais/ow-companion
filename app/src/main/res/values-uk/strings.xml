@@ -194,4 +194,7 @@
     <string name="player_line">%1$d ігор  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">Профілі кар\'єри надходять від Blizzard через OverFast API. Зберігається лише вибраний BattleTag і лише на цьому телефоні.</string>
     <string name="board_background">Завантажити карту</string>
+    <string name="about_cost_title">У що обійшлася розробка</string>
+    <string name="about_cost">%1$s токенів Claude Code, до версії %2$s.</string>
+    <string name="about_cost_detail">%1$s записано, %2$s перечитано з кешу. Виміряно %3$s.</string>
 </resources>

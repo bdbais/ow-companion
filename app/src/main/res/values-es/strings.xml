@@ -194,4 +194,7 @@
     <string name="player_line">%1$d partidas  ·  %2$.1f%%  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Los perfiles de carrera vienen de Blizzard a través de la API OverFast. Solo se guarda el BattleTag que elijas, y solo en este teléfono.</string>
     <string name="board_background">Cargar mapa</string>
+    <string name="about_cost_title">Lo que costó construirla</string>
+    <string name="about_cost">%1$s tokens de Claude Code, hasta la versión %2$s.</string>
+    <string name="about_cost_detail">%1$s escritos, %2$s releídos de la caché. Medido el %3$s.</string>
 </resources>

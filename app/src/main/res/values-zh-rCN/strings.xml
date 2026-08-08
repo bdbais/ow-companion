@@ -194,4 +194,7 @@
     <string name="player_line">%1$d 场  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">生涯档案通过 OverFast API 来自暴雪。仅保存你选择的 BattleTag，且只存在这台手机上。</string>
     <string name="board_background">载入地图</string>
+    <string name="about_cost_title">开发耗费</string>
+    <string name="about_cost">Claude Code 词元 %1$s，截至版本 %2$s。</string>
+    <string name="about_cost_detail">生成 %1$s，缓存重读 %2$s。测量于 %3$s。</string>
 </resources>

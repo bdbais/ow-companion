@@ -194,4 +194,7 @@
     <string name="player_line">%1$d 試合  ·  %2$.1f%%  ·  KDA %3$.2f  ·  %4$s</string>
     <string name="player_credit">キャリアプロフィールは OverFast API 経由で Blizzard から取得しています。保存されるのは選んだ BattleTag だけで、この端末の中だけです。</string>
     <string name="board_background">マップを読み込む</string>
+    <string name="about_cost_title">開発にかかった量</string>
+    <string name="about_cost">Claude Code のトークン %1$s、バージョン %2$s まで。</string>
+    <string name="about_cost_detail">生成 %1$s、キャッシュ再読み込み %2$s。%3$s 時点の計測。</string>
 </resources>

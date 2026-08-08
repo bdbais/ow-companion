@@ -194,4 +194,7 @@
     <string name="player_line">%1$d maç  ·  %%%2$.1f  ·  %3$.2f KDA  ·  %4$s</string>
     <string name="player_credit">Kariyer profilleri OverFast API üzerinden Blizzard\'dan gelir. Yalnızca seçtiğin BattleTag saklanır, o da yalnızca bu telefonda.</string>
     <string name="board_background">Harita yükle</string>
+    <string name="about_cost_title">Yapımı neye mal oldu</string>
+    <string name="about_cost">%1$s Claude Code jetonu, %2$s sürümüne kadar.</string>
+    <string name="about_cost_detail">%1$s yazıldı, %2$s önbellekten yeniden okundu. %3$s ölçüldü.</string>
 </resources>
