@@ -4,6 +4,9 @@ package com.bellizia.owcompanion.ui.wiki
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
+import android.content.Intent
+import android.net.Uri
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -449,6 +452,13 @@ private fun HeroDetail(
             }
         }
 
+        // Before the abilities, because someone opening a hero they have never played wants
+        // to be told how to play them before being told what the buttons do.
+        val guides = guidesFor(hero.name)
+        if (guides.isNotEmpty()) {
+            item { Guides(guides) }
+        }
+
         item {
             Text(
                 text = stringResource(R.string.wiki_abilities),
@@ -812,5 +822,65 @@ private fun LabPane(onBack: () -> Unit, modifier: Modifier = Modifier) {
         }
         HorizontalDivider()
         CustomScreen(modifier = Modifier.weight(1f))
+    }
+}
+
+/**
+ * Links to guides made by people who play the hero.
+ *
+ * The app writes none of this. Every number it shows is traceable to the wiki or to
+ * Blizzard, and it stays believable because nothing is invented - so "how to play this at
+ * Diamond", which is judgement rather than data, is left to people who have earned the
+ * right to an opinion, and they are named.
+ */
+@Composable
+private fun Guides(guides: List<HeroGuide>) {
+    val context = LocalContext.current
+
+    Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp)) {
+        Text(
+            text = stringResource(R.string.wiki_guides),
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.padding(bottom = 2.dp),
+        )
+        Text(
+            text = stringResource(R.string.wiki_guides_note),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(bottom = 6.dp),
+        )
+        guides.forEach { guide ->
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(guide.url))
+                        runCatching { context.startActivity(intent) }
+                    }
+                    .padding(vertical = 5.dp),
+            ) {
+                Text(
+                    text = stringResource(
+                        if (guide.level == HeroGuide.Level.Basics) {
+                            R.string.wiki_guide_basics
+                        } else {
+                            R.string.wiki_guide_deeper
+                        },
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.width(74.dp),
+                )
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(text = guide.title, style = MaterialTheme.typography.bodyMedium)
+                    Text(
+                        text = guide.author,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
     }
 }

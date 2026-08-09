@@ -342,4 +342,8 @@
     <string name="vocab_epic">Epic</string>
     <string name="vocab_legendary">Legendary</string>
     <string name="board_map_guide">Guide by %1$s</string>
+    <string name="wiki_guides">How to play this hero</string>
+    <string name="wiki_guides_note">Guides by people who play them. The app does not write these: every number here is traceable, and how to play at a given rank is judgement rather than data.</string>
+    <string name="wiki_guide_basics">BASICS</string>
+    <string name="wiki_guide_deeper">DEEPER</string>
 </resources>
