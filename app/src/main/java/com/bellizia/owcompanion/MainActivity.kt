@@ -51,7 +51,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.bellizia.owcompanion.ui.about.AboutScreen
 import com.bellizia.owcompanion.ui.board.BoardScreen
 import com.bellizia.owcompanion.ui.chart.ChartScreen
-import com.bellizia.owcompanion.ui.custom.CustomScreen
 import com.bellizia.owcompanion.ui.stadium.StadiumScreen
 import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
 import com.bellizia.owcompanion.ui.meta.MetaTab
@@ -74,7 +73,6 @@ private enum class Section(val labelRes: Int) {
     Chart(R.string.tab_chart),
     Leaderboard(R.string.tab_rankings),
     Wiki(R.string.tab_wiki),
-    Custom(R.string.tab_custom),
     Stadium(R.string.tab_stadium),
     Board(R.string.tab_board),
     Meta(R.string.tab_meta),
@@ -121,7 +119,6 @@ private fun AppRoot() {
                                     Section.Chart -> Icons.Filled.BarChart
                                     Section.Leaderboard -> Icons.Filled.EmojiEvents
                                     Section.Wiki -> Icons.Filled.Groups
-                                    Section.Custom -> Icons.Filled.Science
                                     Section.Stadium -> Icons.Filled.Stadium
                                     Section.Board -> Icons.Filled.Dashboard
                                     Section.Meta -> Icons.Filled.Whatshot
@@ -148,7 +145,6 @@ private fun AppRoot() {
                 Section.Chart -> ChartScreen()
                 Section.Leaderboard -> LeaderboardScreen()
                 Section.Wiki -> WikiScreen()
-                Section.Custom -> CustomScreen()
                 Section.Stadium -> StadiumScreen()
                 Section.Board -> BoardScreen()
                 Section.Meta -> MetaTab()

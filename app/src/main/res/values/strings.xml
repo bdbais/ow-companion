@@ -304,4 +304,7 @@
     <string name="sens_result">Set this</string>
     <string name="sens_result_note">same feel, on the scope you entered</string>
     <string name="sens_measure">Only Ana and Widowmaker have had their scopes measured, and both zoom to 50.94. Blizzard publish no figure for the others, and the numbers passed around for them are estimates, so type one in rather than be given a guess.</string>
+    <string name="custom_hero_name">Custom hero</string>
+    <string name="custom_hero_role">Yours to set</string>
+    <string name="custom_hero_back">Back to the roster</string>
 </resources>

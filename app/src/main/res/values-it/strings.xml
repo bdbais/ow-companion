@@ -301,4 +301,7 @@
     <string name="sens_result">Imposta questo</string>
     <string name="sens_result_note">stessa sensazione, sul mirino inserito</string>
     <string name="sens_measure">Solo Ana e Widowmaker hanno il mirino misurato, ed entrambe portano a 50,94. Blizzard non pubblica gli altri e i numeri che circolano sono stime: meglio inserirlo che riceverne uno inventato.</string>
+    <string name="custom_hero_name">Eroe personale</string>
+    <string name="custom_hero_role">Lo imposti tu</string>
+    <string name="custom_hero_back">Torna alla griglia</string>
 </resources>

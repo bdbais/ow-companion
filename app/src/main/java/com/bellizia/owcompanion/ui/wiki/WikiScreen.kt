@@ -3,6 +3,7 @@
 package com.bellizia.owcompanion.ui.wiki
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -29,6 +30,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -42,12 +44,13 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
-import androidx.compose.material3.VerticalDivider
 import androidx.compose.material3.Text
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -56,6 +59,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -64,13 +68,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
-import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.data.model.MatchupWiki
 import com.bellizia.owcompanion.sim.WeaponSpec
 import com.bellizia.owcompanion.ui.chart.HeroRole
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
+import com.bellizia.owcompanion.ui.custom.CustomScreen
+import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.ui.theme.StatNumber
 import kotlin.math.roundToInt
 
@@ -93,12 +98,14 @@ fun WikiScreen(
 
     val selected = state.selected
 
+    var lab by rememberSaveable { mutableStateOf(false) }
+
     // Wide enough to hold both: the grid keeps its place while a hero is open, so moving
     // between heroes does not mean going back and hunting for the next one.
     if (LocalConfiguration.current.screenWidthDp >= WIDE_LAYOUT_DP) {
         Row(modifier = modifier.fillMaxSize()) {
             Box(modifier = Modifier.weight(1f)) {
-                HeroGrid(state = state, viewModel = viewModel)
+                HeroGrid(state = state, viewModel = viewModel, onOpenLab = { lab = true })
             }
             VerticalDivider()
             Box(modifier = Modifier.weight(1.2f)) {
@@ -124,6 +131,12 @@ fun WikiScreen(
         return
     }
 
+    if (lab) {
+        BackHandler { lab = false }
+        LabPane(onBack = { lab = false }, modifier = modifier)
+        return
+    }
+
     if (selected != null) {
         BackHandler { viewModel.select(null) }
         HeroDetail(
@@ -135,7 +148,12 @@ fun WikiScreen(
             modifier = modifier,
         )
     } else {
-        HeroGrid(state = state, viewModel = viewModel, modifier = modifier)
+        HeroGrid(
+            state = state,
+            viewModel = viewModel,
+            onOpenLab = { lab = true },
+            modifier = modifier,
+        )
     }
 }
 
@@ -146,6 +164,7 @@ private const val WIDE_LAYOUT_DP = 600
 private fun HeroGrid(
     state: WikiUiState,
     viewModel: WikiViewModel,
+    onOpenLab: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val roleTaps = rememberFilterTaps<HeroRole>()
@@ -194,7 +213,59 @@ private fun HeroGrid(
             items(state.visible, key = { it.key }) { hero ->
                 HeroCard(hero = hero, onClick = { viewModel.select(hero.key) })
             }
+            // The Lab, as a hero of its own. It used to be a tab, but it belongs with the
+            // roster: it is a hero whose numbers happen to be yours to set.
+            item(key = "custom") { CustomHeroCard(onClick = onOpenLab) }
         }
+    }
+}
+
+/**
+ * The custom hero.
+ *
+ * Drawn rather than fetched: every other portrait here is Blizzard's, used under the Fan
+ * Content Policy, and this one stands for a hero that does not exist.
+ */
+@Composable
+private fun CustomHeroCard(onClick: () -> Unit) {
+    val color = MaterialTheme.colorScheme.primary
+
+    Column(
+        modifier = Modifier
+            .clip(RoundedCornerShape(10.dp))
+            .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f))
+            .clickable(onClick = onClick),
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(1f)
+                .background(
+                    Brush.verticalGradient(
+                        listOf(color.copy(alpha = 0.35f), Color.Transparent),
+                    ),
+                ),
+            contentAlignment = Alignment.Center,
+        ) {
+            Image(
+                painter = painterResource(R.drawable.portrait_custom),
+                contentDescription = null,
+                modifier = Modifier.fillMaxSize(0.82f),
+            )
+        }
+        Text(
+            text = stringResource(R.string.custom_hero_name),
+            style = MaterialTheme.typography.titleSmall,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
+        )
+        Text(
+            text = stringResource(R.string.custom_hero_role),
+            style = MaterialTheme.typography.labelSmall,
+            color = color,
+            modifier = Modifier.padding(start = 6.dp, bottom = 6.dp),
+        )
     }
 }
 
@@ -712,5 +783,34 @@ private fun MatchupRow(matchup: MatchupWiki, portrait: String?, onOpen: () -> Un
                 )
             }
         }
+    }
+}
+
+/**
+ * The Lab, opened from the roster rather than from the tab bar.
+ *
+ * It keeps its own heading and back arrow because nothing in the bar is highlighted while
+ * it is open - it is a hero's page, and the hero happens to be one you write yourself.
+ */
+@Composable
+private fun LabPane(onBack: () -> Unit, modifier: Modifier = Modifier) {
+    Column(modifier = modifier.fillMaxSize()) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp, vertical = 4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            IconButton(onClick = onBack) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(R.string.custom_hero_back),
+                )
+            }
+            Text(
+                text = stringResource(R.string.custom_hero_name),
+                style = MaterialTheme.typography.titleLarge,
+            )
+        }
+        HorizontalDivider()
+        CustomScreen(modifier = Modifier.weight(1f))
     }
 }
