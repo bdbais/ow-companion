@@ -304,4 +304,11 @@
     <string name="custom_hero_name">Eroe personale</string>
     <string name="custom_hero_role">Lo imposti tu</string>
     <string name="custom_hero_back">Torna alla griglia</string>
+    <string name="player_mode_all">Tutte</string>
+    <string name="player_mode_quickplay">Rapida</string>
+    <string name="player_mode_competitive">Competitiva</string>
+    <string name="player_season">Stagione %1$d</string>
+    <string name="player_placements">Gradi competitivi</string>
+    <string name="player_close">Chiudi</string>
+    <string name="player_hero_no_stats">Nessun dato per questo eroe in questa coda.</string>
 </resources>

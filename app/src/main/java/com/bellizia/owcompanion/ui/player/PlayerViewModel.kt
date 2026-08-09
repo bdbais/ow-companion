@@ -48,6 +48,14 @@ data class PlayerUiState(
     /** Set when the profile is real but Blizzard is not publishing its numbers. */
     val isPrivate: Boolean = false,
     val error: String? = null,
+    /** The hero whose full figures are open, and what they are. */
+    val openHero: HeroStat? = null,
+    val heroStats: List<PlayerRepository.StatGroup> = emptyList(),
+    val heroStatsLoading: Boolean = false,
+    /** This season's competitive placements, when the profile shows any. */
+    val ranks: PlayerRepository.Ranks? = null,
+    /** Which queue the numbers on screen describe. */
+    val mode: PlayerRepository.Mode = PlayerRepository.Mode.Everything,
     /** Portrait and role for every hero the dataset knows, keyed as OverFast keys them. */
     val roster: Map<String, HeroWiki> = emptyMap(),
     val roles: Set<PlayerRole> = PlayerRole.entries.toSet(),
@@ -143,12 +151,19 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                 selected = hit,
                 loading = true,
                 summary = null,
+                ranks = null,
                 isPrivate = false,
                 error = null,
             )
         }
         inFlight = viewModelScope.launch {
-            when (val result = repository.summary(hit.id)) {
+            // The placements come from a different endpoint, and are not worth making the
+            // career figures wait for: whichever arrives first is shown.
+            launch {
+                val ranks = repository.ranks(hit.id)
+                _state.update { if (it.selected?.id == hit.id) it.copy(ranks = ranks) else it }
+            }
+            when (val result = repository.summary(hit.id, _state.value.mode)) {
                 is PlayerRepository.Result.Ok ->
                     _state.update { it.copy(loading = false, summary = result.value) }
                 PlayerRepository.Result.Private ->
@@ -157,6 +172,39 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                     _state.update { it.copy(loading = false, error = result.cause) }
             }
         }
+    }
+
+    /**
+     * Reloads the open profile for a different queue.
+     *
+     * Quick play dwarfs competitive for most people - twelve thousand games against
+     * nineteen, on the account this was tested with - so a combined figure is really a
+     * quick play figure wearing a hat.
+     */
+    fun mode(mode: PlayerRepository.Mode) {
+        if (mode == _state.value.mode) return
+        _state.update { it.copy(mode = mode) }
+        _state.value.selected?.let { select(it) }
+    }
+
+    /** Everything the profile records about one hero, fetched on demand. */
+    fun openHero(hero: HeroStat) {
+        val player = _state.value.selected ?: return
+        _state.update { it.copy(openHero = hero, heroStats = emptyList(), heroStatsLoading = true) }
+        viewModelScope.launch {
+            val groups = repository.heroStats(player.id, hero.key, _state.value.mode)
+            _state.update {
+                if (it.openHero?.key == hero.key) {
+                    it.copy(heroStats = groups, heroStatsLoading = false)
+                } else {
+                    it
+                }
+            }
+        }
+    }
+
+    fun closeHero() = _state.update {
+        it.copy(openHero = null, heroStats = emptyList(), heroStatsLoading = false)
     }
 
     /** Back to whatever was on screen before this profile was opened. */

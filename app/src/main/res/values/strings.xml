@@ -307,4 +307,11 @@
     <string name="custom_hero_name">Custom hero</string>
     <string name="custom_hero_role">Yours to set</string>
     <string name="custom_hero_back">Back to the roster</string>
+    <string name="player_mode_all">All queues</string>
+    <string name="player_mode_quickplay">Quick Play</string>
+    <string name="player_mode_competitive">Competitive</string>
+    <string name="player_season">Season %1$d</string>
+    <string name="player_placements">Competitive placements</string>
+    <string name="player_close">Close</string>
+    <string name="player_hero_no_stats">No figures recorded for this hero in this queue.</string>
 </resources>

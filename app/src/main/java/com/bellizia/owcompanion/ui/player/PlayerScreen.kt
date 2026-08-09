@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.InputChip
@@ -67,6 +68,10 @@ fun PlayerScreen(
     viewModel: PlayerViewModel = viewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    // The sheet is a sibling of the list, not an entry in it: an item composes only while
+    // it is on screen, and a dialog declared inside one never opens.
+    HeroSheet(state = state, viewModel = viewModel)
 
     LazyColumn(
         modifier = modifier,
@@ -113,6 +118,12 @@ fun PlayerScreen(
                 onBack = viewModel::back,
                 onToggleFavourite = viewModel::toggleFavourite,
             )
+        }
+
+        item { ModeFilter(state = state, viewModel = viewModel) }
+
+        state.ranks?.takeIf { it.roles.isNotEmpty() }?.let { ranks ->
+            item { Placements(ranks) }
         }
 
         when {
@@ -163,7 +174,9 @@ fun PlayerScreen(
                 if (summary?.heroes?.isNotEmpty() == true) {
                     item { SectionTitle(stringResource(R.string.player_by_hero)) }
                     item { RoleFilter(state = state, viewModel = viewModel) }
-                    items(state.heroes, key = { it.key }) { hero -> HeroRow(hero) }
+                    items(state.heroes, key = { it.key }) { hero ->
+                        HeroRow(hero, onClick = { viewModel.openHero(hero) })
+                    }
                 }
             }
         }
@@ -414,15 +427,18 @@ private fun RoleFilter(state: PlayerUiState, viewModel: PlayerViewModel) {
 }
 
 @Composable
-private fun HeroRow(hero: HeroStat) {
-    StatLine(
-        name = hero.name,
-        games = hero.games,
-        winrate = hero.winrate,
-        kda = hero.kda,
-        seconds = hero.seconds,
-        portrait = hero.portrait,
-    )
+private fun HeroRow(hero: HeroStat, onClick: () -> Unit) {
+    // Only the hero rows open anything; the three role rows use the same line and stay put.
+    Box(modifier = Modifier.clickable(onClick = onClick)) {
+        StatLine(
+            name = hero.name,
+            games = hero.games,
+            winrate = hero.winrate,
+            kda = hero.kda,
+            seconds = hero.seconds,
+            portrait = hero.portrait,
+        )
+    }
 }
 
 @Composable
@@ -467,3 +483,141 @@ private fun StatLine(
         )
     }
 }
+
+/**
+ * Which queue the numbers describe.
+ *
+ * Quick play and competitive only, because that is the whole of the split Blizzard publish:
+ * arcade and the rest are folded into quick play before anyone outside can see them.
+ */
+@Composable
+private fun ModeFilter(state: PlayerUiState, viewModel: PlayerViewModel) {
+    val labels = mapOf(
+        PlayerRepository.Mode.Everything to R.string.player_mode_all,
+        PlayerRepository.Mode.QuickPlay to R.string.player_mode_quickplay,
+        PlayerRepository.Mode.Competitive to R.string.player_mode_competitive,
+    )
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        modifier = Modifier.padding(top = 6.dp, bottom = 2.dp),
+    ) {
+        PlayerRepository.Mode.entries.forEach { mode ->
+            FilterChip(
+                selected = state.mode == mode,
+                onClick = { viewModel.mode(mode) },
+                label = { Text(stringResource(labels.getValue(mode))) },
+            )
+        }
+    }
+}
+
+/**
+ * This season's placement in each role, drawn the way the game draws it.
+ *
+ * The icons are Blizzard's own, served from their site and fetched as the portraits are: a
+ * division and a tier are two pictures in the game, and spelling them out as "silver 4"
+ * would be a worse answer to the same question.
+ */
+@Composable
+private fun Placements(ranks: PlayerRepository.Ranks) {
+    Column(modifier = Modifier.padding(top = 6.dp, bottom = 2.dp)) {
+        SectionTitle(
+            if (ranks.season != null) {
+                stringResource(R.string.player_season, ranks.season)
+            } else {
+                stringResource(R.string.player_placements)
+            },
+        )
+        Row(horizontalArrangement = Arrangement.spacedBy(18.dp)) {
+            ranks.roles.forEach { rank ->
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Box(contentAlignment = Alignment.Center) {
+                        AsyncImage(
+                            model = rank.icon,
+                            contentDescription = rank.division,
+                            modifier = Modifier.size(46.dp),
+                        )
+                        AsyncImage(
+                            model = rank.tierIcon,
+                            contentDescription = null,
+                            modifier = Modifier.size(22.dp).padding(top = 26.dp),
+                        )
+                    }
+                    Text(
+                        text = rank.role.replaceFirstChar(Char::uppercase),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Everything the profile holds about one hero.
+ *
+ * The list on the screen behind this shows four figures because four fit; the profile
+ * records nearly ninety, and the ones people actually want - accuracy, self healing, what
+ * each ability did - are all in the rest.
+ */
+@Composable
+private fun HeroSheet(state: PlayerUiState, viewModel: PlayerViewModel) {
+    val hero = state.openHero ?: return
+    AlertDialog(
+        onDismissRequest = viewModel::closeHero,
+        confirmButton = {
+            TextButton(onClick = viewModel::closeHero) {
+                Text(stringResource(R.string.player_close))
+            }
+        },
+        title = { Text(hero.name) },
+        text = {
+            when {
+                state.heroStatsLoading -> Box(
+                    modifier = Modifier.fillMaxWidth().padding(24.dp),
+                    contentAlignment = Alignment.Center,
+                ) { CircularProgressIndicator() }
+
+                state.heroStats.isEmpty() -> Text(
+                    text = stringResource(R.string.player_hero_no_stats),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+
+                else -> LazyColumn {
+                    state.heroStats.forEach { group ->
+                        item {
+                            Text(
+                                text = group.label,
+                                style = MaterialTheme.typography.titleSmall,
+                                modifier = Modifier.padding(top = 10.dp, bottom = 2.dp),
+                            )
+                        }
+                        items(group.stats) { stat ->
+                            Row(
+                                modifier = Modifier.fillMaxWidth().padding(vertical = 1.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                            ) {
+                                Text(
+                                    text = stat.label,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.weight(1f),
+                                )
+                                Text(
+                                    text = statValue(stat.value),
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    fontWeight = FontWeight.SemiBold,
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        },
+    )
+}
+
+/** Whole numbers stay whole; a rate keeps the decimal it needs. */
+private fun statValue(value: Double): String =
+    if (value == value.toLong().toDouble()) "%,d".format(value.toLong()) else "%.2f".format(value)
