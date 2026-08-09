@@ -322,4 +322,9 @@
     <string name="division_master">Master</string>
     <string name="division_grandmaster">Grandmaster</string>
     <string name="division_champion">Champion</string>
+    <string name="about_feedback_title">Feedback</string>
+    <string name="about_feedback">Stars and a written review go to the Play listing, where Google keeps them. Anything wrong with a number belongs in the issue tracker instead, where it can be answered and fixed.</string>
+    <string name="about_feedback_sideloaded">This copy was installed by hand, so there is no store listing to rate on. Anything wrong with a number belongs in the issue tracker, where it can be answered and fixed.</string>
+    <string name="about_rate">Rate the app</string>
+    <string name="about_report">Report something wrong</string>
 </resources>

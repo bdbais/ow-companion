@@ -319,4 +319,9 @@
     <string name="division_master">Maestro</string>
     <string name="division_grandmaster">Gran maestro</string>
     <string name="division_champion">Campione</string>
+    <string name="about_feedback_title">Opinioni</string>
+    <string name="about_feedback">Stelle e recensione vanno alla scheda su Play, dove le tiene Google. Un numero sbagliato va invece nel tracker delle segnalazioni, dove qualcuno può rispondere e correggerlo.</string>
+    <string name="about_feedback_sideloaded">Questa copia è stata installata a mano, quindi non c\'è una scheda su cui votare. Un numero sbagliato va nel tracker delle segnalazioni, dove qualcuno può rispondere e correggerlo.</string>
+    <string name="about_rate">Valuta l\'app</string>
+    <string name="about_report">Segnala un errore</string>
 </resources>

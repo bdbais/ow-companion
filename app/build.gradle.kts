@@ -60,8 +60,8 @@ android {
         targetSdk = 35
         // Kept in step with the git tag the release is published under: the in-app
         // update prompt compares this against the newest tag on GitHub.
-        versionCode = 19
-        versionName = "1.1.2"
+        versionCode = 20
+        versionName = "1.2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -162,6 +162,8 @@ dependencies {
 
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.coil.compose)
+    // Google's own rating card. Inert unless the app was installed from Play.
+    implementation(libs.play.review)
 
     debugImplementation(libs.androidx.ui.tooling)
 
