@@ -24,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
@@ -111,10 +112,21 @@ fun AboutScreen(
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
     ) {
-        Text(
-            text = stringResource(R.string.about_title),
-            style = MaterialTheme.typography.headlineMedium,
-        )
+        // The version sits beside the name rather than buried further down: it is the first
+        // thing anyone is asked for when they report something, and the first thing to check
+        // against the update banner.
+        Row(verticalAlignment = Alignment.Bottom) {
+            Text(
+                text = stringResource(R.string.about_title),
+                style = MaterialTheme.typography.headlineMedium,
+            )
+            Text(
+                text = BuildConfig.VERSION_NAME,
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 8.dp, bottom = 3.dp),
+            )
+        }
         Text(
             text = stringResource(R.string.about_intro),
             style = MaterialTheme.typography.bodyMedium,
