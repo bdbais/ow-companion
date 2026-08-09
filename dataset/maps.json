@@ -1,0 +1,588 @@
+{
+ "maps": [
+  {
+   "key": "aatlis",
+   "name": "Aatlis",
+   "modes": [
+    "flashpoint"
+   ],
+   "location": "Morocco",
+   "country": "MA",
+   "image": "aatlis.webp"
+  },
+  {
+   "key": "antarctic-peninsula",
+   "name": "Antarctic Peninsula",
+   "modes": [
+    "control"
+   ],
+   "location": "Antarctica",
+   "country": "AQ",
+   "image": "antarctic-peninsula.webp"
+  },
+  {
+   "key": "arena-victoriae",
+   "name": "Arena Victoriae",
+   "modes": [
+    "control"
+   ],
+   "location": "Colosseo, Rome, Italy",
+   "country": "IT",
+   "image": "arena-victoriae.webp"
+  },
+  {
+   "key": "ayutthaya",
+   "name": "Ayutthaya",
+   "modes": [
+    "capture-the-flag"
+   ],
+   "location": "Thailand",
+   "country": "TH",
+   "image": "ayutthaya.webp"
+  },
+  {
+   "key": "black-forest",
+   "name": "Black Forest",
+   "modes": [
+    "elimination"
+   ],
+   "location": "Germany",
+   "country": "DE",
+   "image": "black-forest.webp"
+  },
+  {
+   "key": "blizzard-world",
+   "name": "Blizzard World",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "Irvine, California, United States",
+   "country": "US",
+   "image": "blizzard-world.webp"
+  },
+  {
+   "key": "busan",
+   "name": "Busan",
+   "modes": [
+    "control"
+   ],
+   "location": "South Korea",
+   "country": "KR",
+   "image": "busan.webp"
+  },
+  {
+   "key": "castillo",
+   "name": "Castillo",
+   "modes": [
+    "elimination"
+   ],
+   "location": "Mexico",
+   "country": "MX",
+   "image": "castillo.webp"
+  },
+  {
+   "key": "chateau-guillard",
+   "name": "Château Guillard",
+   "modes": [
+    "deathmatch",
+    "team-deathmatch"
+   ],
+   "location": "Annecy, France",
+   "country": "FR",
+   "image": "chateau-guillard.webp"
+  },
+  {
+   "key": "circuit-royal",
+   "name": "Circuit Royal",
+   "modes": [
+    "escort"
+   ],
+   "location": "Monte Carlo, Monaco",
+   "country": "MC",
+   "image": "circuit-royal.webp"
+  },
+  {
+   "key": "colosseo",
+   "name": "Colosseo",
+   "modes": [
+    "push"
+   ],
+   "location": "Rome, Italy",
+   "country": "IT",
+   "image": "colosseo.webp"
+  },
+  {
+   "key": "dorado",
+   "name": "Dorado",
+   "modes": [
+    "escort"
+   ],
+   "location": "Mexico",
+   "country": "MX",
+   "image": "dorado.webp"
+  },
+  {
+   "key": "ecopoint-antarctica",
+   "name": "Ecopoint: Antarctica",
+   "modes": [
+    "elimination"
+   ],
+   "location": "Antarctica",
+   "country": "AQ",
+   "image": "ecopoint-antarctica.webp"
+  },
+  {
+   "key": "eichenwalde",
+   "name": "Eichenwalde",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "Stuttgart, Germany",
+   "country": "DE",
+   "image": "eichenwalde.webp"
+  },
+  {
+   "key": "esperanca",
+   "name": "Esperança",
+   "modes": [
+    "push"
+   ],
+   "location": "Portugal",
+   "country": "PT",
+   "image": "esperanca.webp"
+  },
+  {
+   "key": "gogadoro",
+   "name": "Gogadoro",
+   "modes": [
+    "control"
+   ],
+   "location": "Busan, South Korea",
+   "country": "KR",
+   "image": "gogadoro.webp"
+  },
+  {
+   "key": "hanamura",
+   "name": "Hanamura",
+   "modes": [
+    "assault"
+   ],
+   "location": "Tokyo, Japan",
+   "country": "JP",
+   "image": "hanamura.webp"
+  },
+  {
+   "key": "hanaoka",
+   "name": "Hanaoka",
+   "modes": [
+    "clash"
+   ],
+   "location": "Tokyo, Japan",
+   "country": "JP",
+   "image": "hanaoka.webp"
+  },
+  {
+   "key": "havana",
+   "name": "Havana",
+   "modes": [
+    "escort"
+   ],
+   "location": "Havana, Cuba",
+   "country": "CU",
+   "image": "havana.webp"
+  },
+  {
+   "key": "hollywood",
+   "name": "Hollywood",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "Los Angeles, United States",
+   "country": "US",
+   "image": "hollywood.webp"
+  },
+  {
+   "key": "horizon",
+   "name": "Horizon Lunar Colony",
+   "modes": [
+    "assault"
+   ],
+   "location": "Earth's moon",
+   "country": null,
+   "image": "horizon.webp"
+  },
+  {
+   "key": "ilios",
+   "name": "Ilios",
+   "modes": [
+    "control"
+   ],
+   "location": "Greece",
+   "country": "GR",
+   "image": "ilios.webp"
+  },
+  {
+   "key": "junkertown",
+   "name": "Junkertown",
+   "modes": [
+    "escort"
+   ],
+   "location": "Central Australia",
+   "country": "AU",
+   "image": "junkertown.webp"
+  },
+  {
+   "key": "kanezaka",
+   "name": "Kanezaka",
+   "modes": [
+    "deathmatch",
+    "team-deathmatch"
+   ],
+   "location": "Tokyo, Japan",
+   "country": "JP",
+   "image": "kanezaka.webp"
+  },
+  {
+   "key": "kings-row",
+   "name": "King’s Row",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "London, United Kingdom",
+   "country": "UK",
+   "image": "kings-row.webp"
+  },
+  {
+   "key": "lijiang-tower",
+   "name": "Lijiang Tower",
+   "modes": [
+    "control"
+   ],
+   "location": "China",
+   "country": "CN",
+   "image": "lijiang-tower.webp"
+  },
+  {
+   "key": "malevento",
+   "name": "Malevento",
+   "modes": [
+    "deathmatch",
+    "team-deathmatch"
+   ],
+   "location": "Italy",
+   "country": "IT",
+   "image": "malevento.webp"
+  },
+  {
+   "key": "midtown",
+   "name": "Midtown",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "New York, United States",
+   "country": "US",
+   "image": "midtown.webp"
+  },
+  {
+   "key": "necropolis",
+   "name": "Necropolis",
+   "modes": [
+    "elimination"
+   ],
+   "location": "Egypt",
+   "country": "EG",
+   "image": "necropolis.webp"
+  },
+  {
+   "key": "neon-junction",
+   "name": "Neon Junction",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "Japan",
+   "country": "JP",
+   "image": null
+  },
+  {
+   "key": "nepal",
+   "name": "Nepal",
+   "modes": [
+    "control"
+   ],
+   "location": "Nepal",
+   "country": "NP",
+   "image": "nepal.webp"
+  },
+  {
+   "key": "new-junk-city",
+   "name": "New Junk City",
+   "modes": [
+    "flashpoint"
+   ],
+   "location": "Central Australia",
+   "country": "AU",
+   "image": "new-junk-city.webp"
+  },
+  {
+   "key": "new-queen-street",
+   "name": "New Queen Street",
+   "modes": [
+    "push"
+   ],
+   "location": "Toronto, Canada",
+   "country": "CA",
+   "image": "new-queen-street.webp"
+  },
+  {
+   "key": "numbani",
+   "name": "Numbani",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "Numbani (near Nigeria)",
+   "country": null,
+   "image": "numbani.webp"
+  },
+  {
+   "key": "oasis",
+   "name": "Oasis",
+   "modes": [
+    "control"
+   ],
+   "location": "Iraq",
+   "country": "IQ",
+   "image": "oasis.webp"
+  },
+  {
+   "key": "paraiso",
+   "name": "Paraíso",
+   "modes": [
+    "hybrid"
+   ],
+   "location": "Rio de Janeiro, Brazil",
+   "country": "BR",
+   "image": "paraiso.webp"
+  },
+  {
+   "key": "paris",
+   "name": "Paris",
+   "modes": [
+    "assault"
+   ],
+   "location": "Paris, France",
+   "country": "FR",
+   "image": "paris.webp"
+  },
+  {
+   "key": "petra",
+   "name": "Petra",
+   "modes": [
+    "deathmatch",
+    "team-deathmatch"
+   ],
+   "location": "Southern Jordan",
+   "country": "JO",
+   "image": "petra.webp"
+  },
+  {
+   "key": "place-lacroix",
+   "name": "Place Lacroix",
+   "modes": [
+    "push"
+   ],
+   "location": "Paris, France",
+   "country": "FR",
+   "image": "place-lacroix.webp"
+  },
+  {
+   "key": "powder-keg-mine",
+   "name": "Powder Keg Mine",
+   "modes": [
+    "payload-race"
+   ],
+   "location": "Deadlock Gorge, Arizona, United States",
+   "country": "US",
+   "image": "powder-keg-mine.webp"
+  },
+  {
+   "key": "practice-range",
+   "name": "Practice Range",
+   "modes": [
+    "practice-range"
+   ],
+   "location": "Swiss HQ",
+   "country": "CH",
+   "image": "practice-range.webp"
+  },
+  {
+   "key": "redwood-dam",
+   "name": "Redwood Dam",
+   "modes": [
+    "push"
+   ],
+   "location": "Gibraltar",
+   "country": "GI",
+   "image": "redwood-dam.webp"
+  },
+  {
+   "key": "rialto",
+   "name": "Rialto",
+   "modes": [
+    "escort"
+   ],
+   "location": "Venice, Italy",
+   "country": "IT",
+   "image": "rialto.webp"
+  },
+  {
+   "key": "route-66",
+   "name": "Route 66",
+   "modes": [
+    "escort"
+   ],
+   "location": "Albuquerque, New Mexico, United States",
+   "country": "US",
+   "image": "route-66.webp"
+  },
+  {
+   "key": "runasapi",
+   "name": "Runasapi",
+   "modes": [
+    "push"
+   ],
+   "location": "Peru",
+   "country": "PE",
+   "image": "runasapi.webp"
+  },
+  {
+   "key": "samoa",
+   "name": "Samoa",
+   "modes": [
+    "control"
+   ],
+   "location": "Samoa",
+   "country": "WS",
+   "image": "samoa.webp"
+  },
+  {
+   "key": "shambali-monastery",
+   "name": "Shambali Monastery",
+   "modes": [
+    "escort"
+   ],
+   "location": "Nepal",
+   "country": "NP",
+   "image": "shambali-monastery.webp"
+  },
+  {
+   "key": "suravasa",
+   "name": "Suravasa",
+   "modes": [
+    "flashpoint"
+   ],
+   "location": "India",
+   "country": "IN",
+   "image": "suravasa.webp"
+  },
+  {
+   "key": "anubis",
+   "name": "Temple of Anubis",
+   "modes": [
+    "assault"
+   ],
+   "location": "Giza Plateau, Egypt",
+   "country": "EG",
+   "image": "anubis.webp"
+  },
+  {
+   "key": "thames-district",
+   "name": "Thames District",
+   "modes": [
+    "payload-race"
+   ],
+   "location": "London, United Kingdom",
+   "country": "UK",
+   "image": "thames-district.webp"
+  },
+  {
+   "key": "throne-of-anubis",
+   "name": "Throne of Anubis",
+   "modes": [
+    "clash"
+   ],
+   "location": "Giza Plateau, Egypt",
+   "country": "EG",
+   "image": "throne-of-anubis.webp"
+  },
+  {
+   "key": "volskaya",
+   "name": "Volskaya Industries",
+   "modes": [
+    "assault"
+   ],
+   "location": "St. Petersburg, Russia",
+   "country": "RU",
+   "image": "volskaya.webp"
+  },
+  {
+   "key": "watchpoint-gibraltar",
+   "name": "Watchpoint: Gibraltar",
+   "modes": [
+    "escort"
+   ],
+   "location": "Gibraltar",
+   "country": "GI",
+   "image": "watchpoint-gibraltar.webp"
+  },
+  {
+   "key": "workshop-chamber",
+   "name": "Workshop Chamber",
+   "modes": [
+    "workshop"
+   ],
+   "location": "Earth",
+   "country": null,
+   "image": "workshop-chamber.webp"
+  },
+  {
+   "key": "workshop-expanse",
+   "name": "Workshop Expanse",
+   "modes": [
+    "workshop"
+   ],
+   "location": "Earth",
+   "country": null,
+   "image": "workshop-expanse.webp"
+  },
+  {
+   "key": "workshop-green-screen",
+   "name": "Workshop Green Screen",
+   "modes": [
+    "workshop"
+   ],
+   "location": "Earth",
+   "country": null,
+   "image": "workshop-green-screen.webp"
+  },
+  {
+   "key": "workshop-island",
+   "name": "Workshop Island",
+   "modes": [
+    "workshop"
+   ],
+   "location": "Earth",
+   "country": null,
+   "image": "workshop-island.webp"
+  },
+  {
+   "key": "wuxing-university",
+   "name": "Wuxing University",
+   "modes": [
+    "control"
+   ],
+   "location": "Chengdu, Sichuan, China",
+   "country": "CN",
+   "image": "wuxing-university.webp"
+  }
+ ]
+}

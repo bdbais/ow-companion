@@ -284,7 +284,7 @@ private fun CategoryTabs(state: StadiumUiState, viewModel: StadiumViewModel) {
                 FilterChip(
                     selected = category == state.category,
                     onClick = { viewModel.setCategory(category) },
-                    label = { Text(category, style = MaterialTheme.typography.labelSmall) },
+                    label = { Text(vocab(category), style = MaterialTheme.typography.labelSmall) },
                     colors = FilterChipDefaults.filterChipColors(
                         selectedContainerColor = MaterialTheme.colorScheme.primary,
                         selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
@@ -354,7 +354,7 @@ private fun ItemRow(
                 color = if (selected) color else MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Text(
-                text = item.rarity,
+                text = vocab(item.rarity),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -451,4 +451,27 @@ private fun SavedBuilds(state: StadiumUiState, viewModel: StadiumViewModel, colo
             }
         }
     }
+}
+
+/**
+ * Ordinary words that arrive from the dataset in English.
+ *
+ * Item and hero names are proper nouns and stay as they are, but "Weapon" and "Common" are
+ * not names - reading them in English inside an Italian screen is an omission rather than a
+ * decision. Anything not in this short list is passed through untouched.
+ */
+@Composable
+private fun vocab(word: String): String {
+    val id = when (word.lowercase()) {
+        "weapon" -> R.string.vocab_weapon
+        "ability" -> R.string.vocab_ability
+        "survival" -> R.string.vocab_survival
+        "gadget" -> R.string.vocab_gadget
+        "common" -> R.string.vocab_common
+        "rare" -> R.string.vocab_rare
+        "epic" -> R.string.vocab_epic
+        "legendary" -> R.string.vocab_legendary
+        else -> return word
+    }
+    return stringResource(id)
 }

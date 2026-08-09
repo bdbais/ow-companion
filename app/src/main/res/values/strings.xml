@@ -327,4 +327,18 @@
     <string name="about_feedback_sideloaded">This copy was installed by hand, so there is no store listing to rate on. Anything wrong with a number belongs in the issue tracker, where it can be answered and fixed.</string>
     <string name="about_rate">Rate the app</string>
     <string name="about_report">Report something wrong</string>
+    <string name="board_map_title">Plan on which map</string>
+    <string name="board_map_note">Blizzard\'s own photograph of each map. A top-down diagram is better to plan on, but those belong to whoever drew them, so bring your own if you have one.</string>
+    <string name="board_map_own">From this device</string>
+    <string name="board_map_cancel">Cancel</string>
+    <string name="board_panel">Panel</string>
+    <string name="board_panel_all">All</string>
+    <string name="vocab_weapon">Weapon</string>
+    <string name="vocab_ability">Ability</string>
+    <string name="vocab_survival">Survival</string>
+    <string name="vocab_gadget">Gadget</string>
+    <string name="vocab_common">Common</string>
+    <string name="vocab_rare">Rare</string>
+    <string name="vocab_epic">Epic</string>
+    <string name="vocab_legendary">Legendary</string>
 </resources>

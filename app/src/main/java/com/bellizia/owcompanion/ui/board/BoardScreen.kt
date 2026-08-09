@@ -103,6 +103,7 @@ fun BoardScreen(
     viewModel: BoardViewModel = viewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    var picking by remember { mutableStateOf(false) }
 
     val context = LocalContext.current
     var exporting by remember { mutableStateOf<ExportKind?>(null) }
@@ -202,9 +203,7 @@ fun BoardScreen(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             TextButton(onClick = {
-                pickImage.launch(
-                    PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly),
-                )
+                picking = true
             }) {
                 Icon(Icons.Filled.Image, contentDescription = null)
                 Text(
@@ -235,6 +234,23 @@ fun BoardScreen(
 
         HeroStrip(state = state, viewModel = viewModel)
     }
+
+    if (picking) {
+        MapPicker(
+            onPick = {
+                viewModel.setBackground(it)
+                picking = false
+            },
+            onPickFromDevice = {
+                picking = false
+                pickImage.launch(
+                    PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly),
+                )
+            },
+            onDismiss = { picking = false },
+        )
+    }
+
 }
 
 /** Name it and it keeps; a plan you have to rebuild before every match is not a plan. */

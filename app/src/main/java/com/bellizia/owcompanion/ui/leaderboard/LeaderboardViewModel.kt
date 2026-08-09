@@ -31,14 +31,22 @@ data class LeaderboardEntry(
     val hero: Hero?,
 )
 
-/** The buffs allowed when hunting for the peak. All of them raise damage. */
+/**
+ * The buffs allowed when hunting for the peak. All of them raise damage.
+ *
+ * Off to begin with, and off again at every launch. On, the ranking answers "what is the
+ * most damage anyone can be made to do", which is a fine question but not the first one -
+ * and having them all on by default made the numbers look inflated without saying why. The
+ * hero on their own is the honest starting point; the buffs are there to be switched on
+ * deliberately.
+ */
 data class BuffSelection(
-    val damageBoost: Boolean = true,
-    val discord: Boolean = true,
-    val nanoboost: Boolean = true,
-    val supercharger: Boolean = true,
-    val amplificationMatrix: Boolean = true,
-    val kitsuneRush: Boolean = true,
+    val damageBoost: Boolean = false,
+    val discord: Boolean = false,
+    val nanoboost: Boolean = false,
+    val supercharger: Boolean = false,
+    val amplificationMatrix: Boolean = false,
+    val kitsuneRush: Boolean = false,
 ) {
     fun toModifiers() = Modifiers(
         damageBoost = damageBoost,

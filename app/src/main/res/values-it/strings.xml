@@ -324,4 +324,20 @@
     <string name="about_feedback_sideloaded">Questa copia è stata installata a mano, quindi non c\'è una scheda su cui votare. Un numero sbagliato va nel tracker delle segnalazioni, dove qualcuno può rispondere e correggerlo.</string>
     <string name="about_rate">Valuta l\'app</string>
     <string name="about_report">Segnala un errore</string>
+    <string name="board_map_title">Su quale mappa</string>
+    <string name="board_map_note">La fotografia di Blizzard di ogni mappa. Una piantina dall\'alto sarebbe meglio, ma appartiene a chi l\'ha disegnata: se ne hai una, caricala.</string>
+    <string name="board_map_own">Da questo telefono</string>
+    <string name="board_map_cancel">Annulla</string>
+    <string name="board_panel">Riquadro</string>
+    <string name="board_panel_all">Tutti</string>
+    <string name="rank_combos_note">Le combo sono calcolate dalle abilità, non scritte a mano: la sequenza è quella che infligge più danno, e i numeri sono quelli della wiki.</string>
+    <string name="wiki_combo_note">Calcolata dalle abilità di questo eroe. Il danno è la somma dei singoli colpi, senza contare schivate o cure.</string>
+    <string name="vocab_weapon">Arma</string>
+    <string name="vocab_ability">Abilità</string>
+    <string name="vocab_survival">Sopravvivenza</string>
+    <string name="vocab_gadget">Gadget</string>
+    <string name="vocab_common">Comune</string>
+    <string name="vocab_rare">Raro</string>
+    <string name="vocab_epic">Epico</string>
+    <string name="vocab_legendary">Leggendario</string>
 </resources>
