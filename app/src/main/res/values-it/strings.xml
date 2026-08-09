@@ -286,4 +286,19 @@
     <string name="era_newest">Dal 2025</string>
     <string name="meta_region_world">Mondo</string>
     <string name="meta_region_world_note">Mondo e la media di Europa, Americhe e Asia, con lo stesso peso. Blizzard non pubblica un dato mondiale ne quanti giocatori abbia ogni regione.</string>
+    <string name="sens_title">Sensibilità in mira</string>
+    <string name="sens_intro">La sensibilità relativa in mira è una percentuale di quella normale, impostabile per ogni eroe. Al 100% un giro completo richiede la stessa distanza di mouse; i valori più bassi fanno coincidere l\'aspetto del mirino, non quanto ruota.</string>
+    <string name="sens_fov">Campo visivo %1$d</string>
+    <string name="sens_match_centre">Centro schermo</string>
+    <string name="sens_match_ratio">Rapporto dei campi visivi</string>
+    <string name="sens_match_centre_note">Coincide il movimento al centro dello schermo, rispettando la prospettiva. Nota come distanza monitor 0%.</string>
+    <string name="sens_match_ratio_note">Il rapporto semplice fra i due campi visivi. Più grezzo, perché lo schermo è piatto, ma regge meglio verso i bordi.</string>
+    <string name="sens_scope_fov">il mirino porta a %1$s</string>
+    <string name="sens_convert_title">Far coincidere un altro mirino</string>
+    <string name="sens_convert_intro">Scrivi il valore che su %1$s ti torna già, e il campo visivo del mirino da far coincidere. Il cursore qui sopra non conta: due mirini confrontati con la stessa visuale normale sono confrontati fra loro.</string>
+    <string name="sens_from">Valore su %1$s</string>
+    <string name="sens_target_fov">Campo visivo mirino</string>
+    <string name="sens_result">Imposta questo</string>
+    <string name="sens_result_note">stessa sensazione, sul mirino inserito</string>
+    <string name="sens_measure">Solo Ana e Widowmaker hanno il mirino misurato, ed entrambe portano a 50,94. Blizzard non pubblica gli altri e i numeri che circolano sono stime: meglio inserirlo che riceverne uno inventato.</string>
 </resources>

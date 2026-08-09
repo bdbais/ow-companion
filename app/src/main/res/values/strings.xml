@@ -289,4 +289,19 @@
 
     <string name="meta_region_world">World</string>
     <string name="meta_region_world_note">World is the mean of Europe, Americas and Asia, weighted equally. Blizzard publish no worldwide figure and no player counts to weight by.</string>
+    <string name="sens_title">Scope sensitivity</string>
+    <string name="sens_intro">Relative Aim Sensitivity While Zoomed is a percentage of your hip sensitivity, set per hero. At 100% a full turn takes the same distance of mouse; lower values match how the scope looks rather than how far it turns.</string>
+    <string name="sens_fov">Field of view %1$d</string>
+    <string name="sens_match_centre">Centre of screen</string>
+    <string name="sens_match_ratio">Field of view ratio</string>
+    <string name="sens_match_centre_note">Movement at the middle of the screen matches, following the perspective properly. Known as 0% monitor distance.</string>
+    <string name="sens_match_ratio_note">The plain ratio of the two fields of view. Cruder, because a screen is flat, but it holds up better towards the edges.</string>
+    <string name="sens_scope_fov">scope zooms to %1$s</string>
+    <string name="sens_convert_title">Match another scope</string>
+    <string name="sens_convert_intro">Type the setting that already feels right on %1$s, and the field of view of the scope you want to match. The slider above does not affect this: two scopes compared against the same hip view are compared against each other.</string>
+    <string name="sens_from">%1$s setting</string>
+    <string name="sens_target_fov">Their scope FOV</string>
+    <string name="sens_result">Set this</string>
+    <string name="sens_result_note">same feel, on the scope you entered</string>
+    <string name="sens_measure">Only Ana and Widowmaker have had their scopes measured, and both zoom to 50.94. Blizzard publish no figure for the others, and the numbers passed around for them are estimates, so type one in rather than be given a guess.</string>
 </resources>

@@ -203,6 +203,13 @@ fun CustomScreen(
                 )
             }
         }
+
+        // A different question from the sliders above, but the same kind: a number the game
+        // makes you find by feel, worked out instead.
+        item {
+            HorizontalDivider(modifier = Modifier.padding(top = 16.dp))
+            ScopeSensitivity()
+        }
     }
 }
 
