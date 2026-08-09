@@ -340,4 +340,5 @@
     <string name="vocab_rare">Raro</string>
     <string name="vocab_epic">Epico</string>
     <string name="vocab_legendary">Leggendario</string>
+    <string name="board_map_guide">Guida di %1$s</string>
 </resources>

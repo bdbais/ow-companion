@@ -1,5 +1,7 @@
 package com.bellizia.owcompanion.ui.board
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -117,13 +119,32 @@ private fun MapCard(map: MapsRepository.GameMap, onClick: () -> Unit) {
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
         )
-        Text(
-            // The mode matters more than the country when picking something to plan on.
-            text = map.modes.firstOrNull()?.replaceFirstChar(Char::uppercase).orEmpty(),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(start = 6.dp, bottom = 6.dp),
-        )
+        val guide = videoFor(map.key)
+        if (guide == null) {
+            Text(
+                // The mode matters more than the country when picking something to plan on.
+                text = map.modes.firstOrNull()?.replaceFirstChar(Char::uppercase).orEmpty(),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(start = 6.dp, bottom = 6.dp),
+            )
+        } else {
+            // Named, because pointing at someone's work without saying whose is not on.
+            val context = LocalContext.current
+            Text(
+                text = stringResource(R.string.board_map_guide, guide.author),
+                style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.primary,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier
+                    .clickable {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(guide.url()))
+                        runCatching { context.startActivity(intent) }
+                    }
+                    .padding(start = 6.dp, bottom = 6.dp),
+            )
+        }
     }
 }
 
