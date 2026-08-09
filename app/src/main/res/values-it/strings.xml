@@ -311,4 +311,12 @@
     <string name="player_placements">Gradi competitivi</string>
     <string name="player_close">Chiudi</string>
     <string name="player_hero_no_stats">Nessun dato per questo eroe in questa coda.</string>
+    <string name="division_bronze">Bronzo</string>
+    <string name="division_silver">Argento</string>
+    <string name="division_gold">Oro</string>
+    <string name="division_platinum">Platino</string>
+    <string name="division_diamond">Diamante</string>
+    <string name="division_master">Maestro</string>
+    <string name="division_grandmaster">Gran maestro</string>
+    <string name="division_champion">Campione</string>
 </resources>

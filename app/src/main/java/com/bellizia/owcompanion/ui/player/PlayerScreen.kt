@@ -37,6 +37,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import kotlinx.coroutines.delay
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -122,9 +127,11 @@ fun PlayerScreen(
 
         item { ModeFilter(state = state, viewModel = viewModel) }
 
-        state.ranks?.takeIf { it.roles.isNotEmpty() }?.let { ranks ->
-            item { Placements(ranks) }
-        }
+        // Not under quick play: a competitive placement has nothing to do with that queue,
+        // and showing it there invites the reader to connect two numbers that never met.
+        state.ranks
+            ?.takeIf { it.roles.isNotEmpty() && state.mode != PlayerRepository.Mode.QuickPlay }
+            ?.let { ranks -> item { Placements(ranks) } }
 
         when {
             state.loading -> item {
@@ -520,6 +527,17 @@ private fun ModeFilter(state: PlayerUiState, viewModel: PlayerViewModel) {
  */
 @Composable
 private fun Placements(ranks: PlayerRepository.Ranks) {
+    // Tap an emblem and it says what it is, then gets out of the way. The name is worth
+    // having and worth not having permanently: four labels under four icons is clutter,
+    // and anyone who plays already reads the shapes.
+    var revealed by rememberSaveable { mutableStateOf<String?>(null) }
+    LaunchedEffect(revealed) {
+        if (revealed != null) {
+            delay(3000)
+            revealed = null
+        }
+    }
+
     Column(modifier = Modifier.padding(top = 6.dp, bottom = 2.dp)) {
         SectionTitle(
             if (ranks.season != null) {
@@ -530,7 +548,10 @@ private fun Placements(ranks: PlayerRepository.Ranks) {
         )
         Row(horizontalArrangement = Arrangement.spacedBy(18.dp)) {
             ranks.roles.forEach { rank ->
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.clickable { revealed = rank.role },
+                ) {
                     Box(contentAlignment = Alignment.Center) {
                         AsyncImage(
                             model = rank.icon,
@@ -544,14 +565,40 @@ private fun Placements(ranks: PlayerRepository.Ranks) {
                         )
                     }
                     Text(
-                        text = rank.role.replaceFirstChar(Char::uppercase),
+                        text = if (revealed == rank.role) {
+                            "${divisionName(rank.division)} ${rank.tier}"
+                        } else {
+                            rank.role.replaceFirstChar(Char::uppercase)
+                        },
                         style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        color = if (revealed == rank.role) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        },
+                        maxLines = 1,
                     )
                 }
             }
         }
     }
+}
+
+/** The division as the game names it; anything unrecognised keeps whatever came back. */
+@Composable
+private fun divisionName(division: String): String {
+    val id = when (division.lowercase()) {
+        "bronze" -> R.string.division_bronze
+        "silver" -> R.string.division_silver
+        "gold" -> R.string.division_gold
+        "platinum" -> R.string.division_platinum
+        "diamond" -> R.string.division_diamond
+        "master" -> R.string.division_master
+        "grandmaster" -> R.string.division_grandmaster
+        "champion" -> R.string.division_champion
+        else -> return division.replaceFirstChar(Char::uppercase)
+    }
+    return stringResource(id)
 }
 
 /**

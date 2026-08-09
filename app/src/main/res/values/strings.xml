@@ -314,4 +314,12 @@
     <string name="player_placements">Competitive placements</string>
     <string name="player_close">Close</string>
     <string name="player_hero_no_stats">No figures recorded for this hero in this queue.</string>
+    <string name="division_bronze">Bronze</string>
+    <string name="division_silver">Silver</string>
+    <string name="division_gold">Gold</string>
+    <string name="division_platinum">Platinum</string>
+    <string name="division_diamond">Diamond</string>
+    <string name="division_master">Master</string>
+    <string name="division_grandmaster">Grandmaster</string>
+    <string name="division_champion">Champion</string>
 </resources>
