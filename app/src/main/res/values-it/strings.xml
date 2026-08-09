@@ -253,7 +253,7 @@
     <string name="player_unstar">Togli dai preferiti</string>
     <string name="chart_out_of_range">fuori portata</string>
     <string name="about_thanks_title">Ringraziamenti</string>
-    <string name="about_thanks">BYZ e MrStonestar hanno provato l\'app e segnalato cosa non andava: Bastion bloccato in Recon, Ashe che ricaricava dodici colpi in mezzo secondo, le torrette mancanti e parecchio altro. Diversi numeri in questa app sono giusti perché l\'hanno detto loro.</string>
+    <string name="about_thanks">BYZ, MrStoneStar, MizuBluee e Nana hanno provato l\'app e segnalato cosa non andava: Bastion bloccato in Recon, Ashe che ricaricava dodici colpi in mezzo secondo, le torrette mancanti, il filtro ruolo del meta che non filtrava niente e parecchio altro. Diversi numeri in questa app sono giusti perché l\'hanno detto loro.</string>
     <string name="about_cost_title">Quanto è costato costruirla</string>
     <string name="about_cost">%1$s token di Claude Code, fino alla versione %2$s.</string>
     <string name="about_cost_detail">%1$s scritti, %2$s riletti dalla cache. Misurato il %3$s.</string>

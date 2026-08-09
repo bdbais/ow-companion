@@ -252,7 +252,7 @@
     <string name="player_credit">Career profiles come from Blizzard through the OverFast API. Only the BattleTag you pick is stored, and only on this phone.</string>
     <string name="chart_out_of_range">out of range</string>
     <string name="about_thanks_title">Thanks</string>
-    <string name="about_thanks">BYZ and MrStonestar played with this and reported what was wrong: Bastion stuck in Recon, Ashe reloading twelve rounds in half a second, the turrets that were missing, and a good deal more. Several numbers in this app are right because they said so.</string>
+    <string name="about_thanks">BYZ, MrStoneStar, MizuBluee and Nana played with this and reported what was wrong: Bastion stuck in Recon, Ashe reloading twelve rounds in half a second, the turrets that were missing, the meta role filter that changed nothing, and a good deal more. Several numbers in this app are right because they said so.</string>
     <string name="about_cost_title">What it cost to build</string>
     <string name="about_cost">%1$s tokens of Claude Code, up to version %2$s.</string>
     <string name="about_cost_detail">%1$s written, %2$s re-read from cache. Measured %3$s.</string>
