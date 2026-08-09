@@ -7,7 +7,7 @@ Android app that pairs an interactive **damage chart** — a port of
 with a **hero wiki** covering portraits, abilities, release dates and the full balance
 history of every hero.
 
-Status: **working, and looking for opinions.** All 52 heroes, 123 weapons, ten years of
+Status: **working, and looking for opinions.** All 52 heroes, 129 weapons, ten years of
 balance history, 1268 match-ups, and the live meta, in 16 languages. If you play Overwatch and something here looks wrong,
 please [open an issue](../../issues) — see [CONTRIBUTING.md](CONTRIBUTING.md) for the parts
 we already know are weak.
@@ -57,10 +57,15 @@ the Play Store. Nothing is collected, and everything works offline.
 | ![Damage chart](docs/screenshots/01-chart.png) | ![Rankings](docs/screenshots/02-ranks.png) | ![Hero page](docs/screenshots/03-hero.png) |
 | Every shot drawn as a rectangle whose **area** is its damage | Weapons, ultimates and healing ranked separately | Abilities, perks, and how a hero's damage moved over ten years |
 
-| Lab | Stadium |
-|---|---|
-| ![Lab](docs/screenshots/04-lab.png) | ![Stadium](docs/screenshots/05-stadium.png) |
-| Change a weapon's numbers and see where the hero lands | Pick items and watch the hero's stats move |
+| Custom hero | Stadium | Board |
+|---|---|---|
+| ![Custom hero](docs/screenshots/04-lab.png) | ![Stadium](docs/screenshots/05-stadium.png) | ![Board](docs/screenshots/06-board.png) |
+| Move a weapon's numbers and see where it lands — and the scope sensitivity calculator | Pick items and watch the hero's stats move | Place both teams, draw the plan, export it |
+
+| Live meta |
+|---|
+| ![Live meta](docs/screenshots/07-meta.png) |
+| Ban, pick and win rates from Blizzard, by rank, region, map and role |
 
 ## Screens
 
@@ -69,11 +74,18 @@ the Play Store. Nothing is collected, and everything works offline.
 - **Ranks** — three rankings, because they are three different questions: sustained damage
   per second for weapons, damage per cast for ultimates, healing per second for healers.
 - **Heroes** — portraits, abilities, perks, release dates, and every balance change since
-  2016 with a chart of how a hero's damage moved over the years.
-- **Lab** — what if Roadhog reloaded a third of a second faster? Move a real weapon's
-  numbers and see where the hero lands in the real ranking.
+  2016 with a chart of how a hero's damage moved over the years. At the end of the roster
+  is a hero who does not exist:
+  - **Custom hero** — what if Roadhog reloaded a third of a second faster? Move a real
+    weapon's numbers and see where it lands in the real ranking. It also holds the **scope
+    sensitivity calculator**: Relative Aim Sensitivity While Zoomed is set per hero and the
+    game gives no way to carry a setting from one scope to another, so this works it out.
 - **Stadium** — the Armory: pick items by hand and watch the hero's stats move, or let the
   optimiser propose a build for a budget and show what each item was worth.
+- **Board** — a whiteboard for briefings: place both teams, draw arrows, step through
+  phases, and export the result as a PDF or a video to send to the group chat.
+- **Meta** — Blizzard's own ban, pick and win rates, filtered by rank, region, map, input
+  and role, plus any public career looked up by BattleTag.
 
 ## Why the numbers should be believed
 
