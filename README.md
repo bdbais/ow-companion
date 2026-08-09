@@ -62,10 +62,13 @@ the Play Store. Nothing is collected, and everything works offline.
 | ![Custom hero](docs/screenshots/04-lab.png) | ![Stadium](docs/screenshots/05-stadium.png) | ![Board](docs/screenshots/06-board.png) |
 | Move a weapon's numbers and see where it lands — and the scope sensitivity calculator | Pick items and watch the hero's stats move | Place both teams, draw the plan, export it |
 
-| Live meta |
-|---|
-| ![Live meta](docs/screenshots/07-meta.png) |
-| Ban, pick and win rates from Blizzard, by rank, region, map and role |
+| Live meta | Your career | One hero, in full |
+|---|---|---|
+| ![Live meta](docs/screenshots/07-meta.png) | ![Career](docs/screenshots/08-career.png) | ![Hero stats](docs/screenshots/09-hero-stats.png) |
+| Ban, pick and win rates from Blizzard, by rank, region, map and role | Any public BattleTag, by queue, with this season's placements | Nearly ninety figures per hero, including accuracy |
+
+**[The manual](docs/MANUAL.md)** walks through every screen, what each number means, and
+what the app deliberately will not tell you.
 
 ## Screens
 
