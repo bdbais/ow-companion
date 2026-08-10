@@ -294,9 +294,12 @@
    "reloadTime": 7.5
   },
   "Ramattra|Pummel": {
-   "_note": "Nemesis Form lasts 8 s and its 8 s cooldown starts when the form ends, plus 0.5 s of recovery. 1.67 shots/s * 8 s = 13 swings, then 8.5 s.",
+   "_note": "Melee reach, wiki: 10 meters. Without it the weapon dealt full damage at any distance the chart could show, which flattered every hero who fights in melee.",
    "ammo": 13.0,
-   "reloadTime": 8.5
+   "reloadTime": 8.5,
+   "damage": {
+    "maxRange": 10.0
+   }
   },
   "Symmetra|Sentry Turret": {
    "_note": "The wiki states 30 damage per second and no rate. Treated as a beam at the usual 20 ticks a second, so 1.5 per tick. Range is the stated 10 m of turret beam.",
@@ -325,6 +328,30 @@
     "maxRange": 40.0
    },
    "critFactor": 1.0
+  },
+  "Brigitte|Rocket Flail": {
+   "_note": "Melee reach, wiki: 6 meters. Without it the weapon dealt full damage at any distance the chart could show, which flattered every hero who fights in melee.",
+   "damage": {
+    "maxRange": 6.0
+   }
+  },
+  "Reinhardt|Rocket Hammer": {
+   "_note": "Melee reach, wiki: 4 meters. Without it the weapon dealt full damage at any distance the chart could show, which flattered every hero who fights in melee.",
+   "damage": {
+    "maxRange": 4.0
+   }
+  },
+  "Torbjörn|Forge Hammer": {
+   "_note": "Melee reach, wiki: 2.5 meters, same as quick melee. Without it the weapon dealt full damage at any distance the chart could show, which flattered every hero who fights in melee.",
+   "damage": {
+    "maxRange": 2.5
+   }
+  },
+  "Vendetta|Palatine Fang": {
+   "_note": "Melee reach, wiki: 4.3 meters (swing); the overhead reaches 6.8. Without it the weapon dealt full damage at any distance the chart could show, which flattered every hero who fights in melee.",
+   "damage": {
+    "maxRange": 4.3
+   }
   }
  },
  "add": {

@@ -1204,7 +1204,8 @@
     "dpshot": [
      75.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 6.0
    },
    "spread": null,
    "velocity": null,
@@ -2210,7 +2211,8 @@
     "dpshot": [
      65.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 10.0
    },
    "spread": null,
    "velocity": 105.0,
@@ -2270,7 +2272,8 @@
     "dpshot": [
      100.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 4.0
    },
    "spread": null,
    "velocity": null,
@@ -2730,7 +2733,8 @@
     "dpshot": [
      100.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 2.5
    },
    "spread": null,
    "velocity": null,
@@ -2818,7 +2822,8 @@
     "dpshot": [
      45.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 4.3
    },
    "spread": null,
    "velocity": null,
