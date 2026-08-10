@@ -345,4 +345,7 @@
     <string name="wiki_guides_note">Guide di chi lo gioca davvero. L\'app non le scrive: ogni numero qui dentro ha una fonte, e come giocare a un certo rango è giudizio, non un dato.</string>
     <string name="wiki_guide_basics">BASI</string>
     <string name="wiki_guide_deeper">AVANZATO</string>
+    <string name="rank_shots">Colpi</string>
+    <string name="rank_shots_note">Colpi per uccidere, a bruciapelo. Un numero intero che non cambia con quanto bene miri, ed è quello che decide un duello.</string>
+    <string name="rank_shots_head">%1$d testa</string>
 </resources>

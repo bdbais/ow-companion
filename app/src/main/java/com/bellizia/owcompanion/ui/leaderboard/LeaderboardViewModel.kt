@@ -78,6 +78,7 @@ enum class RankingMode(@androidx.annotation.StringRes val labelRes: Int) {
     Ultimates(com.bellizia.owcompanion.R.string.rank_ultimates),
     Healing(com.bellizia.owcompanion.R.string.rank_healing),
     Combos(com.bellizia.owcompanion.R.string.rank_combos),
+    Shots(com.bellizia.owcompanion.R.string.rank_shots),
 }
 
 /** A hero's whole opening, totalled. */
@@ -117,6 +118,9 @@ data class LeaderboardUiState(
     val era: Era = Era.All,
     /** Release date per hero name, for the era filter. */
     val released: Map<String, String> = emptyMap(),
+    /** The weapons and the heroes, for the shot counts, which need no simulation. */
+    val weapons: List<com.bellizia.owcompanion.sim.WeaponSpec> = emptyList(),
+    val heroes: Map<String, Hero> = emptyMap(),
     val computeMillis: Long = 0,
 ) {
     /** Ranked combos, narrowed to the chosen roles like every other list here. */
@@ -177,6 +181,8 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
             weaponSet = set
             _state.update { current ->
                 current.copy(
+                    weapons = set.weapons,
+                    heroes = set.heroes.associateBy { it.name },
                     ultimates = set.ultimates
                         // An ultimate whose wiki figure is not a single-cast total is left
                         // out rather than ranked on a number that means something else.

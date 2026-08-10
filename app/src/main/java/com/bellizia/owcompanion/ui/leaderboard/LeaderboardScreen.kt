@@ -26,6 +26,13 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.remember
+import com.bellizia.owcompanion.sim.Breakpoints
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -222,6 +229,11 @@ fun LeaderboardScreen(
 
             RankingMode.Combos -> {
                 ComboList(state)
+                return@Column
+            }
+
+            RankingMode.Shots -> {
+                ShotsList(state)
                 return@Column
             }
 
@@ -549,5 +561,103 @@ private fun conditionsOf(peak: DamagePeak): String = buildString {
         // a bug rather than like a one-shot.
         val kill = if (peak.timeToKill < 0.05) "instantly" else "in %.1f s".format(peak.timeToKill)
         append(" · kills a 600 hp target $kill")
+    }
+}
+
+/**
+ * How many shots each weapon needs, against a target you choose.
+ *
+ * The other three lists answer "who does the most damage". This one answers the question
+ * that actually decides a duel - two shots or three - and it is a whole number, unmoved by
+ * how well anyone aims. It is the part of this app that survives the complaint that
+ * statistics stop mattering above a certain rank.
+ *
+ * Point blank, and the screen says so: past the falloff the counts change, and a table that
+ * quietly averaged over range would be worse than no table.
+ */
+@Composable
+private fun ShotsList(state: LeaderboardUiState) {
+    val targets = remember(state.heroes) {
+        Breakpoints.targetsFrom(
+            state.heroes.values.map { hero ->
+                Breakpoints.Target(
+                    hero.name,
+                    hero.health ?: 0,
+                    hero.armor ?: 0,
+                    hero.shields ?: 0,
+                )
+            },
+        )
+    }
+    if (targets.isEmpty()) return
+    var target by rememberSaveable { mutableIntStateOf(0) }
+    val chosen = targets[target.coerceIn(targets.indices)]
+
+    val rows = remember(chosen, state.weapons) {
+        state.weapons
+            .map { it to Breakpoints.shotsToKill(it, chosen) }
+            .filter { (_, result) -> result.body in 1..40 }
+            .sortedBy { (_, result) -> result.body }
+    }
+
+    Column(modifier = Modifier.padding(horizontal = 12.dp)) {
+        Text(
+            text = stringResource(R.string.rank_shots_note),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(vertical = 6.dp),
+        )
+        LazyRow(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            itemsIndexed(targets) { index, option ->
+                FilterChip(
+                    selected = index == target,
+                    onClick = { target = index },
+                    label = {
+                        Text(
+                            text = if (option.armor > 0 || option.shields > 0) {
+                                "${option.total} (${option.name})"
+                            } else {
+                                "${option.total}"
+                            },
+                            style = MaterialTheme.typography.labelSmall,
+                        )
+                    },
+                )
+            }
+        }
+    }
+
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        items(rows, key = { (weapon, _) -> weapon.hero + weapon.name }) { (weapon, result) ->
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp, vertical = 5.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(text = weapon.hero, style = MaterialTheme.typography.titleSmall)
+                    Text(
+                        text = weapon.name,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+                // The head count only earns its place when it removes a shot.
+                if (result.headSaves) {
+                    Text(
+                        text = stringResource(R.string.rank_shots_head, result.head ?: 0),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.padding(end = 10.dp),
+                    )
+                }
+                Text(
+                    text = "${result.body}",
+                    style = MaterialTheme.typography.headlineSmall,
+                )
+            }
+            HorizontalDivider()
+        }
     }
 }

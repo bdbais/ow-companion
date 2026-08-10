@@ -309,7 +309,7 @@ private fun HeroCard(hero: HeroWiki, onClick: () -> Unit) {
             modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp),
         )
         Text(
-            text = hero.role.replaceFirstChar(Char::uppercase),
+            text = roleName(hero.role),
             style = MaterialTheme.typography.labelSmall,
             color = color,
             modifier = Modifier.padding(start = 6.dp, bottom = 6.dp),
@@ -363,7 +363,7 @@ private fun HeroDetail(
                         Text(
                             text = listOfNotNull(
                                 hero.subrole?.replaceFirstChar(Char::uppercase),
-                                hero.role.replaceFirstChar(Char::uppercase),
+                                roleName(hero.role),
                             ).joinToString(" · "),
                             style = MaterialTheme.typography.labelLarge,
                             color = color,
@@ -883,4 +883,19 @@ private fun Guides(guides: List<HeroGuide>) {
             }
         }
     }
+}
+
+/**
+ * A role, in the reader's language.
+ *
+ * It arrives from the dataset as "support", and the three roles already have translated
+ * names for the filter chips - so the card was showing English beside chips that were not,
+ * for no reason other than nobody having joined them up.
+ */
+@Composable
+private fun roleName(role: String): String = when (role.lowercase()) {
+    "tank" -> stringResource(R.string.role_tank)
+    "damage" -> stringResource(R.string.role_damage)
+    "support" -> stringResource(R.string.role_support)
+    else -> role.replaceFirstChar(Char::uppercase)
 }

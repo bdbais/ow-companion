@@ -346,4 +346,7 @@
     <string name="wiki_guides_note">Guides by people who play them. The app does not write these: every number here is traceable, and how to play at a given rank is judgement rather than data.</string>
     <string name="wiki_guide_basics">BASICS</string>
     <string name="wiki_guide_deeper">DEEPER</string>
+    <string name="rank_shots">Shots</string>
+    <string name="rank_shots_note">Shots to kill, at point blank. A whole number that does not move with how well you aim - which is what decides a duel.</string>
+    <string name="rank_shots_head">%1$d head</string>
 </resources>
