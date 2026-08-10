@@ -348,4 +348,5 @@
     <string name="rank_shots">Colpi</string>
     <string name="rank_shots_note">Colpi per uccidere, a bruciapelo. Un numero intero che non cambia con quanto bene miri, ed è quello che decide un duello.</string>
     <string name="rank_shots_head">%1$d testa</string>
+    <string name="patch_official">Note di Blizzard</string>
 </resources>

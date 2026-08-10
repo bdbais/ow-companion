@@ -349,4 +349,5 @@
     <string name="rank_shots">Shots</string>
     <string name="rank_shots_note">Shots to kill, at point blank. A whole number that does not move with how well you aim - which is what decides a duel.</string>
     <string name="rank_shots_head">%1$d head</string>
+    <string name="patch_official">Blizzard's notes</string>
 </resources>

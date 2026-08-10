@@ -1,6 +1,14 @@
 package com.bellizia.owcompanion.ui.wiki
 
 import androidx.compose.foundation.Canvas
+import android.content.Intent
+import android.net.Uri
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.data.OfficialNotes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -372,6 +380,22 @@ private fun PatchCard(patch: PatchEntry, color: Color) {
             )
             if (patch.mode != "owpvp") {
                 Badge(text = patch.mode.removePrefix("ow"), color = MaterialTheme.colorScheme.outline)
+            }
+            // Blizzard's own wording for this patch, in the reader's language where they
+            // publish one. The numbers beside it stay the wiki's, which are checkable.
+            val language = LocalConfiguration.current.locales[0].language
+            OfficialNotes.urlFor(patch.date, language)?.let { address ->
+                val context = LocalContext.current
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = stringResource(R.string.patch_official),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.clickable {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(address))
+                        runCatching { context.startActivity(intent) }
+                    },
+                )
             }
             Row(
                 modifier = Modifier.fillMaxWidth(),
