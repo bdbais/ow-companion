@@ -233,7 +233,11 @@ def parse_shot_type(params: dict, pellets: float, review_add) -> tuple[str, bool
 
     hitscan = "hitscan" in shot_type
     base = "hitscan" if hitscan else "linear projectile"
-    if pellets > 1:
+    # The wiki says "shotgun" when a weapon is one - sixteen of them - so its word is used
+    # rather than inferred from the pellet count. Firing several projectiles is not the same
+    # thing: a burst rifle fires them in sequence and Tracer's pistols are two guns, and
+    # calling those shotguns taxed them wrongly against armour, which the shot counts read.
+    if "shotgun" in shot_type:
         return (f"{base} shotgun" if hitscan else "projectile shotgun"), False
     if not hitscan and not shot_type:
         review_add("type", "no shot type given, assumed a linear projectile", "")

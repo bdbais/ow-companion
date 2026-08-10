@@ -1073,7 +1073,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "hitscan shotgun",
+   "type": "hitscan",
    "behavior": "standard",
    "pellets": [
     3.0
@@ -1407,7 +1407,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     3.0
@@ -1436,7 +1436,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "hitscan shotgun",
+   "type": "hitscan",
    "behavior": "standard",
    "pellets": [
     3.0
@@ -1469,7 +1469,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M2",
-   "type": "hitscan shotgun",
+   "type": "hitscan",
    "behavior": "standard",
    "pellets": [
     3.0
@@ -1556,7 +1556,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     3.0
@@ -1583,7 +1583,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M2",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     3.0
@@ -1703,7 +1703,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "linear projectile",
+   "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
     1.0
@@ -1792,7 +1792,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "hitscan shotgun",
+   "type": "hitscan",
    "behavior": "standard",
    "pellets": [
     12.0
@@ -1852,7 +1852,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M2",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     2.0
@@ -1881,7 +1881,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     4.0
@@ -2321,7 +2321,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M2",
-   "type": "linear projectile",
+   "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
     1.0
@@ -2382,7 +2382,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     2.0
@@ -2412,7 +2412,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     2.0
@@ -2776,7 +2776,7 @@
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M1",
-   "type": "hitscan shotgun",
+   "type": "hitscan",
    "behavior": "standard",
    "pellets": [
     2.0
