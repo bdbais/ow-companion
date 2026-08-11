@@ -2,14 +2,23 @@ package com.bellizia.owcompanion.ui.about
 
 import android.app.Activity
 import android.app.Application
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
@@ -189,6 +198,8 @@ fun AboutScreen(
 
         ReportsSection()
 
+        SocialSection()
+
         FeedbackSection()
 
         Section(R.string.about_art_title) {
@@ -330,6 +341,87 @@ private fun FeedbackSection() {
             }
             TextButton(onClick = feedback::openIssues) {
                 Text(stringResource(R.string.about_report))
+            }
+        }
+    }
+}
+
+/**
+ * Where to find other people.
+ *
+ * The rest of this screen explains where numbers come from. This part cannot do that job
+ * for you: finding a group is something other people do, so the app offers a short list of
+ * doors and gets out of the way. The list lives in [SocialGroups], where each entry is a
+ * link somebody gave us or a public address that has been stable for years.
+ */
+@Composable
+private fun SocialSection() {
+    val context = LocalContext.current
+    var query by rememberSaveable { mutableStateOf("") }
+    var platform by rememberSaveable { mutableStateOf<Platform?>(null) }
+
+    val matches = socialMatching(query, platform)
+
+    Section(R.string.social_title) {
+        Paragraph(R.string.social_note)
+
+        OutlinedTextField(
+            value = query,
+            onValueChange = { query = it },
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true,
+            leadingIcon = { Icon(Icons.Filled.Search, contentDescription = null) },
+            placeholder = { Text(stringResource(R.string.social_search)) },
+        )
+
+        // Tapping the platform already selected clears it, so there is always a way back to
+        // the whole list without a separate "all" chip taking up a slot.
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            modifier = Modifier
+                .horizontalScroll(rememberScrollState())
+                .padding(top = 8.dp, bottom = 4.dp),
+        ) {
+            SocialPlatforms.forEach { entry ->
+                FilterChip(
+                    selected = platform == entry,
+                    onClick = { platform = if (platform == entry) null else entry },
+                    label = { Text(stringResource(entry.labelRes)) },
+                )
+            }
+        }
+
+        if (matches.isEmpty()) {
+            Paragraph(R.string.social_no_matches)
+            return@Section
+        }
+
+        // Grouped by platform, so a list that grows to fifty rooms still reads as a handful
+        // of short lists rather than one long one.
+        matches.groupBy { it.platform }.forEach { (entry, links) ->
+            Text(
+                text = stringResource(entry.labelRes),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+            links.forEach { link ->
+                TextButton(
+                    onClick = {
+                        context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link.url)))
+                    },
+                    contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp),
+                ) {
+                    Text(text = link.name, style = MaterialTheme.typography.bodyMedium)
+                    if (link.mine) {
+                        Text(
+                            text = stringResource(R.string.social_mine_badge),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(start = 8.dp),
+                        )
+                    }
+                }
             }
         }
     }

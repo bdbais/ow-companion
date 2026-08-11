@@ -88,7 +88,6 @@
     <string name="wiki_series_legend">%1$s: %2$s → %3$s  (%4$d modifiche)</string>
 
     <!-- Info -->
-    <string name="about_title">OW Companion</string>
     <string name="about_intro">Progetto amatoriale non commerciale. Non affiliato né approvato da Blizzard Entertainment.</string>
     <string name="about_data_title">Da dove vengono i dati</string>
     <string name="about_data_wiki">Statistiche, abilità, date di rilascio e cronologia di bilanciamento vengono dalla Overwatch Wiki, licenza CC BY-SA.</string>
@@ -262,7 +261,6 @@
     <string name="wiki_combo_per_second">%1$s, un secondo</string>
     <string name="rank_combos">Combo</string>
     <string name="tab_board">Lavagna</string>
-    <string name="board_frame">t%1$d</string>
     <string name="board_add_frame">Aggiungi una fase</string>
     <string name="board_remove_frame">Rimuovi questa fase</string>
     <string name="board_caption_hint">Cosa succede in questa fase</string>
@@ -369,4 +367,10 @@
     <string name="report_10">Danno mostrato a distanze irraggiungibili</string>
     <string name="report_11">Gli eroi che combattono in mischia non avevano portata</string>
     <string name="report_12">Eroi con più di un attacco in mischia</string>
+    <string name="social_title">Trovare gente con cui giocare</string>
+    <string name="social_web">Sito</string>
+    <string name="social_note">Quest\'app la fa una persona sola, che gioca a Overwatch 2 e lo trasmette in streaming. Nelle stanze segnate come mie mi trovi davvero; le altre sono posti pubblici che esistono da anni.</string>
+    <string name="social_search">Cerca fra le stanze</string>
+    <string name="social_no_matches">Niente con quel nome. Cancella la ricerca o scegli un\'altra piattaforma.</string>
+    <string name="social_mine_badge">ci sono io</string>
 </resources>
