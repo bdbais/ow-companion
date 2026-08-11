@@ -198,5 +198,5 @@
     <string name="about_cost">%1$s Tokens Claude Code, bis Version %2$s.</string>
     <string name="about_cost_detail">%1$s geschrieben, %2$s aus dem Cache gelesen. Gemessen am %3$s.</string>
     <string name="meta_region_world">Welt</string>
-    <string name="meta_region_world_note">Welt ist der Mittelwert aus Europa, Amerika und Asien, gleich gewichtet. Blizzard veroffentlicht keine weltweite Zahl und keine Spielerzahlen zum Gewichten.</string>
+    <string name="meta_region_world_note">Welt ist der Mittelwert aus Europa, Amerika und Asien, gleich gewichtet. Blizzard veröffentlicht keine weltweite Zahl und keine Spielerzahlen zum Gewichten.</string>
 </resources>

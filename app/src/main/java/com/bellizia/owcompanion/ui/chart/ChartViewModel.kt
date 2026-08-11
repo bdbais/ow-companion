@@ -57,7 +57,16 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
 
     fun setModifiers(modifiers: Modifiers) = edit { it.copy(modifiers = modifiers) }
 
-    fun setSortOrder(order: SortOrder) = edit { it.copy(sortOrder = order) }
+    /**
+     * Reordering never changes a number, so it must not pay for a simulation.
+     *
+     * A full pass takes over two seconds on 129 weapons, and this used to run one every time
+     * the sort was changed - to display exactly the values already on screen, in a different
+     * order.
+     */
+    fun setSortOrder(order: SortOrder) {
+        _state.update { it.copy(sortOrder = order, rows = it.rows.sortedWith(comparatorFor(order))) }
+    }
 
     fun setEnergy(energy: Float) = edit { it.copy(energy = energy.coerceIn(0f, 100f)) }
 
@@ -108,15 +117,18 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
             distance = state.distance.toDouble(),
         )
         val models = modelsFor(state.modifiers.attackSpeedFactor)
+        val cached = cacheFor(SimInputs(state))
 
-        set.weapons
-            .filter { spec ->
-                val role = set.hero(spec.hero)?.role?.let(HeroRole::of)
-                val roleVisible = role == null || role in state.roles
-                roleVisible &&
-                    WeaponCategory.of(spec).any { it in state.categories } &&
-                    FireMode.of(spec) in state.fireModes
-            }
+        val visible = set.weapons.filter { spec ->
+            val role = set.hero(spec.hero)?.role?.let(HeroRole::of)
+            val roleVisible = role == null || role in state.roles
+            roleVisible &&
+                WeaponCategory.of(spec).any { it in state.categories } &&
+                FireMode.of(spec) in state.fireModes
+        }
+
+        visible
+            .filter { it.id !in cached }
             .map { spec ->
                 async(Dispatchers.Default) {
                     val model = models[spec.id] ?: return@async null
@@ -135,7 +147,45 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
             }
             .awaitAll()
             .filterNotNull()
-            .sortedWith(comparatorFor(state.sortOrder))
+            .forEach { cached[it.spec.id] = it }
+
+        visible.mapNotNull { cached[it.id] }.sortedWith(comparatorFor(state.sortOrder))
+    }
+
+    /**
+     * Everything a simulated row actually depends on.
+     *
+     * Filters and sort order are deliberately absent: narrowing the role filter hides rows,
+     * it does not change what the remaining ones say. Widening it back used to re-simulate
+     * every weapon on screen to arrive at numbers that had not moved.
+     */
+    private data class SimInputs(
+        val distance: Float,
+        val aimX: Float,
+        val aimZ: Float,
+        val modifiers: Modifiers,
+        val energy: Float,
+    ) {
+        constructor(state: ChartUiState) : this(
+            distance = state.distance,
+            aimX = state.aimX,
+            aimZ = state.aimZ,
+            modifiers = state.modifiers,
+            energy = state.energy,
+        )
+    }
+
+    private var rowCache: Pair<SimInputs, MutableMap<String, ChartRow>>? = null
+
+    /**
+     * Rows already simulated for these inputs, ready to be added to.
+     *
+     * Only one set is kept. Moving the distance slider invalidates everything anyway, and
+     * holding older sets would mean deciding when to let 129 results go.
+     */
+    private fun cacheFor(inputs: SimInputs): MutableMap<String, ChartRow> {
+        rowCache?.let { (cachedInputs, rows) -> if (cachedInputs == inputs) return rows }
+        return mutableMapOf<String, ChartRow>().also { rowCache = inputs to it }
     }
 
     private fun comparatorFor(order: SortOrder): Comparator<ChartRow> = when (order) {

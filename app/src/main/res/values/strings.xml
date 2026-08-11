@@ -290,7 +290,7 @@
     <string name="meta_region_world">World</string>
     <string name="meta_region_world_note">World is the mean of Europe, Americas and Asia, weighted equally. Blizzard publish no worldwide figure and no player counts to weight by.</string>
     <string name="sens_title">Scope sensitivity</string>
-    <string name="sens_intro">Relative Aim Sensitivity While Zoomed is a percentage of your hip sensitivity, set per hero. At 100% a full turn takes the same distance of mouse; lower values match how the scope looks rather than how far it turns.</string>
+    <string name="sens_intro">Relative Aim Sensitivity While Zoomed is a percentage of your hip sensitivity, set per hero. A full turn takes the same distance of mouse at 100%; lower values match how the scope looks rather than how far it turns.</string>
     <string name="sens_fov">Field of view %1$d</string>
     <string name="sens_match_centre">Centre of screen</string>
     <string name="sens_match_ratio">Field of view ratio</string>

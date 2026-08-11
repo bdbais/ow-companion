@@ -49,11 +49,34 @@ A string only ever reachable in English — anything behind the seven-tap panel 
 arguments**; in a string with none, `%%` is displayed literally as two characters. That
 shipped once, reading "0%% monitor distance" on screen.
 
+## Accents
+
+Write the accented characters. Whatever channel a translation arrives through, check it did
+not arrive stripped: German read "veroffentlicht", Polish "Swiat", Turkish "Dunya" and
+Italian "abilita" for months, across seven languages, because nobody looked.
+
+```bash
+python tools/check_diacritics.py
+```
+
+It knows only words that are never correct unaccented in that language, so a hit is always a
+real defect. Add to its lists rather than widening them with ambiguous pairs — Italian
+"meta" and "ne" are real words and are deliberately absent.
+
 ## After changing anything
 
 ```bash
 JAVA_HOME="/c/Program Files/Android/Android Studio/jbr" ./gradlew assembleDebug --console=plain -q 2>&1 | grep -E "^e:|Error:" | head -3
 ```
+
+Android Lint catches things this skill cannot, including a percent sign that looks like a
+format specifier. It is worth a run whenever several strings change:
+
+```bash
+JAVA_HOME="/c/Program Files/Android/Android Studio/jbr" ./gradlew :app:lintDebug --console=plain -q
+```
+
+Ignore the `MissingTranslation` errors — that is the known gap below, not a regression.
 
 And to see what is still untranslated:
 

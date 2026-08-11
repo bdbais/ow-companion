@@ -198,5 +198,5 @@
     <string name="about_cost">%1$s tokens de Claude Code, hasta la versión %2$s.</string>
     <string name="about_cost_detail">%1$s escritos, %2$s releídos de la caché. Medido el %3$s.</string>
     <string name="meta_region_world">Mundo</string>
-    <string name="meta_region_world_note">Mundo es la media de Europa, America y Asia, con el mismo peso. Blizzard no publica una cifra mundial ni cuantos jugadores tiene cada region.</string>
+    <string name="meta_region_world_note">Mundo es la media de Europa, América y Asia, con el mismo peso. Blizzard no publica una cifra mundial ni cuántos jugadores tiene cada región.</string>
 </resources>

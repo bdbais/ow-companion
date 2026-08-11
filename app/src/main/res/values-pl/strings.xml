@@ -197,6 +197,6 @@
     <string name="about_cost_title">Ile kosztowało zbudowanie</string>
     <string name="about_cost">%1$s tokenów Claude Code, do wersji %2$s.</string>
     <string name="about_cost_detail">%1$s zapisanych, %2$s odczytanych z pamięci podręcznej. Pomiar %3$s.</string>
-    <string name="meta_region_world">Swiat</string>
-    <string name="meta_region_world_note">Swiat to srednia z Europy, Ameryk i Azji, z rownymi wagami. Blizzard nie publikuje danych swiatowych ani liczby graczy w regionach.</string>
+    <string name="meta_region_world">Świat</string>
+    <string name="meta_region_world_note">Świat to średnia z Europy, Ameryk i Azji, z równymi wagami. Blizzard nie publikuje danych światowych ani liczby graczy w regionach.</string>
 </resources>
