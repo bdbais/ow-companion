@@ -33,6 +33,17 @@ binary. Confirm the APK timestamp is newer than the edits before going on.
 Test count should be 60 or more; a sudden drop means a source set failed to compile rather
 than that tests passed.
 
+Two ways to break this build that look like something else:
+
+- **Never pass `--rerun-tasks`.** It leaves resource linking broken, and the failure that
+  follows blames a missing AppCompat theme, which sends you looking at `themes.xml` where
+  nothing is wrong. `./gradlew :app:clean` does not clear it; a plain build does.
+- **A `composeCompiler { }` block silently empties the dependency graph.** Adding one to get
+  recomposition metrics resolved `debugRuntimeClasspath` down to kotlin-stdlib alone, so
+  every AndroidX resource vanished with the same misleading AppCompat error. Confirm with
+  `./gradlew :app:dependencies --configuration debugRuntimeClasspath` before believing any
+  theory about resources.
+
 ## 3. Commit
 
 Write the message with a heredoc, never with `-m "..."`. Apostrophes in `-m` break the
