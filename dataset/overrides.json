@@ -237,7 +237,7 @@
    "dpsPeriodAdd": 1.5
   },
   "Symmetra|Photon Projector Alt Fire": {
-   "_note": "5 to 100 direct damage between minimum and maximum charge, one second to full. The parser read that pair as falloff, which it is not - it is the charge range.",
+   "_note": "Hard range, wiki: 12 meters. Without it the weapon reached as far as the slider goes.",
    "type": "linear projectile",
    "behavior": "chargeScaled",
    "damage": {
@@ -249,7 +249,8 @@
      5.0,
      100.0
     ],
-    "chargeTime": 1.0
+    "chargeTime": 1.0,
+    "maxRange": 12.0
    },
    "spread": null,
    "velocity": 25.0,
@@ -289,9 +290,15 @@
    "reloadTime": 7.5
   },
   "Bastion|Configuration: Assault (Lindholm Explosives)": {
-   "_note": "The same 6 s form as Configuration: Assault, at the perk's slower 1.33 shots/s: 8 shells, then 7.5 s.",
+   "_note": "Damage falloff, wiki: 30 - 50 meters. The parser never read it, so the weapon was drawn doing full damage at any distance the chart shows.",
    "ammo": 8.0,
-   "reloadTime": 7.5
+   "reloadTime": 7.5,
+   "damage": {
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   }
   },
   "Ramattra|Pummel": {
    "_note": "Melee reach, wiki: 10 meters. Without it the weapon dealt full damage at any distance the chart could show, which flattered every hero who fights in melee.",
@@ -351,6 +358,57 @@
    "_note": "Melee reach, wiki: 4.3 meters (swing); the overhead reaches 6.8. Without it the weapon dealt full damage at any distance the chart could show, which flattered every hero who fights in melee.",
    "damage": {
     "maxRange": 4.3
+   }
+  },
+  "Roadhog|Scrap Gun Alt Fire": {
+   "_note": "Damage falloff, wiki: 30 - 50 meters. The parser never read it, so the weapon was drawn doing full damage at any distance the chart shows.",
+   "damage": {
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   }
+  },
+  "Jetpack Cat|Biotic Pawjectiles": {
+   "_note": "Hard range, wiki: 40 meters. Without it the weapon reached as far as the slider goes.",
+   "damage": {
+    "maxRange": 40.0
+   }
+  },
+  "Kiriko|Kunai": {
+   "_note": "Hard range, wiki: 30 meters. Without it the weapon reached as far as the slider goes.",
+   "damage": {
+    "maxRange": 30.0
+   }
+  },
+  "Mizuki|Spirit Glaive": {
+   "_note": "Hard range, wiki: 30 meters. Without it the weapon reached as far as the slider goes.",
+   "damage": {
+    "maxRange": 30.0
+   }
+  },
+  "Ramattra|Void Accelerator": {
+   "_note": "Hard range, wiki: 35 meters. Without it the weapon reached as far as the slider goes.",
+   "damage": {
+    "maxRange": 35.0
+   }
+  },
+  "Sigma|Hyperspheres": {
+   "_note": "Hard range, wiki: 21 meters. Without it the weapon reached as far as the slider goes.",
+   "damage": {
+    "maxRange": 21.0
+   }
+  },
+  "Venture|Smart Excavator": {
+   "_note": "Hard range, wiki: 16 meters. Without it the weapon reached as far as the slider goes.",
+   "damage": {
+    "maxRange": 16.0
+   }
+  },
+  "Zarya|Particle Cannon Alt Fire": {
+   "_note": "Hard range, wiki: 15 meters. Without it the weapon reached as far as the slider goes.",
+   "damage": {
+    "maxRange": 15.0
    }
   }
  },

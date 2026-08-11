@@ -45,6 +45,8 @@ def index(rows: list[dict]) -> dict[tuple[str, str, str], dict]:
 
 
 def number(value) -> str:
+    if value is None:
+        return "none"
     if isinstance(value, float):
         return f"{value:g}"
     if isinstance(value, list):
@@ -68,6 +70,19 @@ def damage_of(row: dict) -> list | None:
     return damage
 
 
+def reach_of(row: dict) -> tuple:
+    """How far a weapon carries, which lives inside the damage block rather than beside it.
+
+    Missed twice: a change to a falloff or a hard range reported as "no change" because
+    only dpshot was ever read out of that block. A weapon suddenly reaching the whole map
+    is exactly the kind of thing this is meant to catch.
+    """
+    damage = row.get("damage")
+    if not isinstance(damage, dict):
+        return (None, None)
+    return (damage.get("falloff"), damage.get("maxRange"))
+
+
 def compare_rows(old: list[dict], new: list[dict], label: str, lines: list[str]) -> None:
     before, after = index(old), index(new)
 
@@ -85,6 +100,15 @@ def compare_rows(old: list[dict], new: list[dict], label: str, lines: list[str])
             lines.append(
                 f"~ {hero} - {name}: damage {number(old_damage)} -> {number(new_damage)}"
             )
+
+        old_falloff, old_max = reach_of(was)
+        new_falloff, new_max = reach_of(now)
+        if changed(old_falloff, new_falloff):
+            lines.append(
+                f"~ {hero} - {name}: falloff {number(old_falloff)} -> {number(new_falloff)}"
+            )
+        if changed(old_max, new_max):
+            lines.append(f"~ {hero} - {name}: max range {number(old_max)} -> {number(new_max)}")
 
         for field in WEAPON_FIELDS + ("healPerSecond", "healPerShot"):
             if field in was or field in now:

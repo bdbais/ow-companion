@@ -1177,7 +1177,10 @@
     "dpshot": [
      140.0
     ],
-    "falloff": null
+    "falloff": [
+     30.0,
+     50.0
+    ]
    },
    "spread": null,
    "velocity": 100.0,
@@ -1713,7 +1716,8 @@
     "dpshot": [
      27.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 40.0
    },
    "spread": {
     "angle": 0.0
@@ -1835,7 +1839,8 @@
     "dpshot": [
      60.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 30.0
    },
    "spread": null,
    "velocity": 90.0,
@@ -2071,7 +2076,8 @@
     "dpshot": [
      59.940059940059946
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 30.0
    },
    "spread": null,
    "velocity": 60.0,
@@ -2184,7 +2190,8 @@
     "dpshot": [
      5.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 35.0
    },
    "spread": null,
    "velocity": 80.0,
@@ -2334,7 +2341,10 @@
      162.504,
      48.7512
     ],
-    "falloff": null
+    "falloff": [
+     30.0,
+     50.0
+    ]
    },
    "spread": {
     "angle": 8.0
@@ -2424,7 +2434,8 @@
     "dpshot": [
      54.70149253731343
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 21.0
    },
    "spread": null,
    "velocity": 48.0,
@@ -2617,7 +2628,8 @@
      5.0,
      100.0
     ],
-    "chargeTime": 1.0
+    "chargeTime": 1.0,
+    "maxRange": 12.0
    },
    "spread": null,
    "velocity": 25.0,
@@ -2850,7 +2862,8 @@
     "dpshot": [
      74.85029940119762
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 16.0
    },
    "spread": null,
    "velocity": 50.0,
@@ -3097,7 +3110,8 @@
      55.0,
      11.0
     ],
-    "falloff": null
+    "falloff": null,
+    "maxRange": 15.0
    },
    "spread": null,
    "velocity": 25.0,
