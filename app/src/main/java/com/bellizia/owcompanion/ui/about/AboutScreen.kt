@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -185,6 +187,8 @@ fun AboutScreen(
             }
         }
 
+        ReportsSection()
+
         FeedbackSection()
 
         Section(R.string.about_art_title) {
@@ -326,6 +330,76 @@ private fun FeedbackSection() {
             }
             TextButton(onClick = feedback::openIssues) {
                 Text(stringResource(R.string.about_report))
+            }
+        }
+    }
+}
+
+/**
+ * What players reported, and what came of it.
+ *
+ * Shown to everyone rather than kept in the repository: the people who find a wrong number
+ * are not the people who read commit messages, and someone who took the trouble to report
+ * one should be able to see whether it was believed.
+ *
+ * Three states, and the third is the point. A report that turned out to be wrong is marked
+ * as such rather than left open, because pretending to agree is a worse answer than
+ * disagreeing with a reason.
+ */
+@Composable
+private fun ReportsSection() {
+    var open by rememberSaveable { mutableStateOf(false) }
+
+    Section(R.string.about_reports_title, onTitleClick = { open = !open }) {
+        Text(
+            text = stringResource(R.string.about_reports, fixedCount, Reports.size),
+            style = MaterialTheme.typography.bodyMedium,
+        )
+        Text(
+            text = stringResource(R.string.about_reports_note),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 2.dp, bottom = 4.dp),
+        )
+
+        if (!open) {
+            Text(
+                text = stringResource(R.string.about_reports_show),
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.clickable { open = true }.padding(vertical = 4.dp),
+            )
+            return@Section
+        }
+
+        Reports.forEach { report ->
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 3.dp),
+                verticalAlignment = Alignment.Top,
+            ) {
+                val (label, colour) = when (report.status) {
+                    Report.Status.Fixed -> stringResource(
+                        R.string.about_report_fixed,
+                        report.version.orEmpty(),
+                    ) to MaterialTheme.colorScheme.primary
+                    Report.Status.AsDesigned ->
+                        stringResource(R.string.about_report_as_designed) to
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                    Report.Status.Open ->
+                        stringResource(R.string.about_report_open) to
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                }
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.labelSmall,
+                    color = colour,
+                    modifier = Modifier.width(96.dp),
+                )
+                Text(
+                    text = stringResource(report.title),
+                    style = MaterialTheme.typography.bodySmall,
+                    modifier = Modifier.weight(1f),
+                )
             }
         }
     }

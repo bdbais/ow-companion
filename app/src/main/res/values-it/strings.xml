@@ -349,4 +349,24 @@
     <string name="rank_shots_note">Colpi per uccidere, a bruciapelo. Un numero intero che non cambia con quanto bene miri, ed è quello che decide un duello.</string>
     <string name="rank_shots_head">%1$d testa</string>
     <string name="patch_official">Note di Blizzard</string>
+    <string name="about_reports_title">Cosa hanno segnalato</string>
+    <string name="about_reports">%1$d segnalazioni su %2$d già affrontate.</string>
+    <string name="about_reports_note">I numeri di questa app si correggono perché chi gioca dice quando sono sbagliati. Una segnalazione è marcata come già corretta invece che risolta, con la motivazione nel repository.</string>
+    <string name="about_reports_show">Mostrale</string>
+    <string name="about_report_fixed">RISOLTO %1$s</string>
+    <string name="about_report_open">APERTO</string>
+    <string name="about_report_as_designed">COME DA FONTE</string>
+
+    <string name="report_1">Riduzione del danno assente per Doomfist, Hazard, Ramattra, Mauga</string>
+    <string name="report_2">Bersaglio in fiamme come modificatore</string>
+    <string name="report_3">Le due armi di Mauga che sparano insieme</string>
+    <string name="report_4">Le armi incendiarie non danno fuoco al bersaglio</string>
+    <string name="report_5">Vantaggi che cambiano i numeri di un\'arma</string>
+    <string name="report_6">Il colpo carico di Sojourn parte troppo spesso</string>
+    <string name="report_7">Il fuoco secondario di Symmetra spara a carica zero</string>
+    <string name="report_8">Armi classificate a torto come fucili a pompa</string>
+    <string name="report_9">Fan the Flames di Anran dovrebbe essere un raggio</string>
+    <string name="report_10">Danno mostrato a distanze irraggiungibili</string>
+    <string name="report_11">Gli eroi che combattono in mischia non avevano portata</string>
+    <string name="report_12">Eroi con più di un attacco in mischia</string>
 </resources>

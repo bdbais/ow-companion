@@ -350,4 +350,25 @@
     <string name="rank_shots_note">Shots to kill, at point blank. A whole number that does not move with how well you aim - which is what decides a duel.</string>
     <string name="rank_shots_head">%1$d head</string>
     <string name="patch_official">Blizzard\'s notes</string>
+    <string name="about_reports_title">What players reported</string>
+    <string name="about_reports">%1$d of %2$d reports acted on.</string>
+    <string name="about_reports_note">Numbers in this app get fixed because people who play the game say when they are wrong. One report is marked as correct-as-it-stood rather than fixed, with the reasoning in the repository.</string>
+    <string name="about_reports_show">Show them</string>
+    <string name="about_report_fixed">FIXED %1$s</string>
+    <string name="about_report_open">OPEN</string>
+    <string name="about_report_as_designed">AS RECORDED</string>
+
+    <!-- Player reports, shown in About. Wording follows what was reported, not the fix. -->
+    <string name="report_1">Damage reduction missing for Doomfist, Hazard, Ramattra, Mauga</string>
+    <string name="report_2">A burning target as a modifier</string>
+    <string name="report_3">Mauga\'s two guns firing together</string>
+    <string name="report_4">Incendiary weapons do not set the target alight</string>
+    <string name="report_5">Perks that change a weapon\'s numbers</string>
+    <string name="report_6">Sojourn\'s charged shot fires far too often</string>
+    <string name="report_7">Symmetra\'s secondary fires at zero charge</string>
+    <string name="report_8">Weapons wrongly classified as shotguns</string>
+    <string name="report_9">Anran\'s Fan the Flames should be a beam</string>
+    <string name="report_10">Damage shown at unreachable range</string>
+    <string name="report_11">Heroes who fight in melee had no reach</string>
+    <string name="report_12">Heroes with more than one melee attack</string>
 </resources>
