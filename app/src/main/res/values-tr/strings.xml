@@ -353,4 +353,19 @@
     <string name="social_no_matches">Bu adda bir şey yok. Aramayı temizleyin ya da başka bir platform seçin.</string>
     <string name="modifier_burning">Yanan hedef</string>
     <string name="chart_perks_note">Yetiler, adlarıyla ayrı satırlar olarak görünür. Yalnızca ne olursa olsun bir silahın sayılarını değiştirenler çizilir: menzil, mermi hızı, cephane maliyeti. Çatışmanın nasıl gittiğine bağlı olanlar tahmin edilmek yerine dışarıda bırakılır.</string>
+    <string name="rank_duel">Düello</string>
+    <string name="duel_attacker">Kim ateş ediyor</string>
+    <string name="duel_target">Kim vuruluyor</string>
+    <string name="duel_healer">Kim onu iyileştiriyor</string>
+    <string name="duel_no_healer">Kimse</string>
+    <string name="duel_working">Hesaplanıyor…</string>
+    <string name="duel_kills">Ölür.</string>
+    <string name="duel_stalemate">Bir şey değişmiyor. Hasar ve iyileştirme birbirini götürüyor.</string>
+    <string name="duel_outhealed">Ölmüyor. Daha uzun ateş etmek bunu değiştirmez.</string>
+    <string name="duel_shots">%1$d atış, hepsi isabet ederse ve kimse iyileştirmezse.</string>
+    <string name="duel_shots_head">%1$d atış, kafadan %2$d. Hepsi isabet ederse ve kimse iyileştirmezse.</string>
+    <string name="duel_rates">Saniyede %1$d hasara karşı %2$d iyileştirme.</string>
+    <string name="duel_seconds">Bu iyileştirmeye karşı %1$.1f saniyede ölür.</string>
+    <string name="duel_help_title">Saniyede %1$d hasar eksik. Kim getiriyor:</string>
+    <string name="duel_note">Bu şunu öldürebilir mi. İki cevap var, çünkü dürüst olanın iki yarısı var: hiçbir şey iyileştirmezken kaç atış gerekir - gerçek çatışmaların neredeyse hepsini bu belirler - ve hasar iyileştirmeyi geçiyor mu, uzayanları da bu belirler.</string>
 </resources>

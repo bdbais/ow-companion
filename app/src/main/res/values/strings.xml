@@ -361,6 +361,23 @@
     <string name="about_report_open">OPEN</string>
     <string name="about_report_as_designed">AS RECORDED</string>
 
+    <!-- Duel: one weapon against one hero. -->
+    <string name="rank_duel">Duel</string>
+    <string name="duel_note">Can this kill that. Two answers, because the honest one has two halves: how many shots it takes with nothing healing, which decides almost every real fight, and whether the damage out-paces the healing, which decides the ones that last.</string>
+    <string name="duel_attacker">Who is shooting</string>
+    <string name="duel_target">Who is being shot</string>
+    <string name="duel_healer">Who is healing them</string>
+    <string name="duel_no_healer">Nobody</string>
+    <string name="duel_working">Working it out…</string>
+    <string name="duel_kills">It dies.</string>
+    <string name="duel_stalemate">Nothing gives. The damage and the healing cancel out.</string>
+    <string name="duel_outhealed">It does not die. Firing longer will not change that.</string>
+    <string name="duel_shots">%1$d shots, if every one lands and nothing heals.</string>
+    <string name="duel_shots_head">%1$d shots, or %2$d to the head, if every one lands and nothing heals.</string>
+    <string name="duel_rates">%1$d damage a second against %2$d healing.</string>
+    <string name="duel_seconds">Dead in %1$.1f seconds against that healing.</string>
+    <string name="duel_help_title">Needs %1$d more damage a second. Who brings it:</string>
+
     <string name="modifier_burning">Burning target</string>
     <string name="chart_perks_note">Perks appear as separate rows, named after the perk. Only the ones that change a weapon\'s numbers whatever happens are drawn: a range, a projectile speed, an ammo cost. The ones that depend on the fight going a certain way, like landing two scoped shots in a row or catching an enemy below half health, are left out rather than guessed at.</string>
 

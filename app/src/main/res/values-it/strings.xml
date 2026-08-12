@@ -374,4 +374,19 @@
     <string name="social_no_matches">Niente con quel nome. Cancella la ricerca o scegli un\'altra piattaforma.</string>
     <string name="modifier_burning">Bersaglio in fiamme</string>
     <string name="chart_perks_note">I vantaggi compaiono come righe a parte, col nome del vantaggio. Vengono disegnati solo quelli che cambiano i numeri di un\'arma in ogni caso: una gittata, una velocità di proiettile, un costo in munizioni. Quelli che dipendono da come va lo scontro restano fuori invece che tirati a indovinare.</string>
+    <string name="rank_duel">Duello</string>
+    <string name="duel_attacker">Chi spara</string>
+    <string name="duel_target">A chi spara</string>
+    <string name="duel_healer">Chi lo cura</string>
+    <string name="duel_no_healer">Nessuno</string>
+    <string name="duel_working">Sto calcolando…</string>
+    <string name="duel_kills">Muore.</string>
+    <string name="duel_stalemate">Non si smuove niente. Danno e cura si annullano.</string>
+    <string name="duel_outhealed">Non muore. Continuare a sparare non lo cambia.</string>
+    <string name="duel_shots">%1$d colpi, se vanno tutti a segno e niente cura.</string>
+    <string name="duel_shots_head">%1$d colpi, o %2$d alla testa, se vanno tutti a segno e niente cura.</string>
+    <string name="duel_rates">%1$d danni al secondo contro %2$d di cura.</string>
+    <string name="duel_seconds">Muore in %1$.1f secondi contro quella cura.</string>
+    <string name="duel_help_title">Mancano %1$d danni al secondo. Chi li porta:</string>
+    <string name="duel_note">Questo riesce ad ammazzare quello? Due risposte, perché quella onesta ha due metà: quanti colpi servono se niente cura, che decide quasi ogni scontro vero, e se il danno supera la cura, che decide quelli che durano.</string>
 </resources>

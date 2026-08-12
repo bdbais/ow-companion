@@ -353,4 +353,19 @@
     <string name="social_no_matches">没有这个名字的房间。清空搜索，或换一个平台。</string>
     <string name="modifier_burning">燃烧中的目标</string>
     <string name="chart_perks_note">天赋会以单独的行出现，用天赋名标注。只画那些无论如何都会改变武器数值的：射程、弹速、弹药消耗。那些取决于战斗怎么打的，宁可不画也不猜。</string>
+    <string name="rank_duel">对决</string>
+    <string name="duel_attacker">谁在开枪</string>
+    <string name="duel_target">打谁</string>
+    <string name="duel_healer">谁在治疗他</string>
+    <string name="duel_no_healer">没有人</string>
+    <string name="duel_working">计算中…</string>
+    <string name="duel_kills">能打死。</string>
+    <string name="duel_stalemate">打不动。伤害和治疗互相抵消。</string>
+    <string name="duel_outhealed">打不死。一直打下去也不会变。</string>
+    <string name="duel_shots">%1$d 发，前提是全中且没有治疗。</string>
+    <string name="duel_shots_head">%1$d 发，爆头则 %2$d 发，前提是全中且没有治疗。</string>
+    <string name="duel_rates">每秒 %1$d 伤害对 %2$d 治疗。</string>
+    <string name="duel_seconds">面对这份治疗，%1$.1f 秒后死亡。</string>
+    <string name="duel_help_title">还差每秒 %1$d 伤害。谁能补上：</string>
+    <string name="duel_note">这个能不能打死那个。答案有两半：没有治疗时需要几发，这决定了几乎所有真实交战；以及伤害是否压过治疗，这决定了那些拖长的。</string>
 </resources>

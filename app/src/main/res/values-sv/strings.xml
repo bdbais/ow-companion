@@ -353,4 +353,19 @@
     <string name="social_no_matches">Inget med det namnet. Rensa sökningen eller välj en annan plattform.</string>
     <string name="modifier_burning">Brinnande mål</string>
     <string name="chart_perks_note">Perks står som egna rader, uppkallade efter perken. Bara de som ändrar ett vapens siffror vad som än händer ritas: en räckvidd, en projektilhastighet, en ammunitionskostnad. De som beror på hur striden går lämnas utanför i stället för att gissas.</string>
+    <string name="rank_duel">Duell</string>
+    <string name="duel_attacker">Vem skjuter</string>
+    <string name="duel_target">Vem blir beskjuten</string>
+    <string name="duel_healer">Vem läker dem</string>
+    <string name="duel_no_healer">Ingen</string>
+    <string name="duel_working">Räknar…</string>
+    <string name="duel_kills">Det dör.</string>
+    <string name="duel_stalemate">Inget ger vika. Skadan och läkningen tar ut varandra.</string>
+    <string name="duel_outhealed">Det dör inte. Att skjuta längre ändrar inte det.</string>
+    <string name="duel_shots">%1$d skott, om varje träffar och inget läker.</string>
+    <string name="duel_shots_head">%1$d skott, eller %2$d i huvudet, om varje träffar och inget läker.</string>
+    <string name="duel_rates">%1$d skada per sekund mot %2$d läkning.</string>
+    <string name="duel_seconds">Död på %1$.1f sekunder mot den läkningen.</string>
+    <string name="duel_help_title">Det fattas %1$d skada per sekund. Vem bidrar med den:</string>
+    <string name="duel_note">Kan det här döda det där? Två svar, för det ärliga har två halvor: hur många skott det tar när inget läker, vilket avgör nästan varje riktig strid, och om skadan överträffar läkningen, vilket avgör de som drar ut.</string>
 </resources>

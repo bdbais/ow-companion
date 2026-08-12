@@ -237,6 +237,11 @@ fun LeaderboardScreen(
                 return@Column
             }
 
+            RankingMode.Duel -> {
+                DuelView(state)
+                return@Column
+            }
+
             RankingMode.Weapons -> Unit
         }
 

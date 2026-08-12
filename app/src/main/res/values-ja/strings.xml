@@ -353,4 +353,19 @@
     <string name="social_no_matches">その名前では見つかりません。検索を消すか、別のプラットフォームを選んでください。</string>
     <string name="modifier_burning">燃えている対象</string>
     <string name="chart_perks_note">パークは、その名前を付けた別の行として並びます。描かれるのは、どんな場合でも武器の数値を変えるものだけです。射程、弾速、弾の消費。戦いの運び方に左右されるものは、推測せずに省いてあります。</string>
+    <string name="rank_duel">対決</string>
+    <string name="duel_attacker">撃つのは</string>
+    <string name="duel_target">撃たれるのは</string>
+    <string name="duel_healer">回復しているのは</string>
+    <string name="duel_no_healer">だれもいない</string>
+    <string name="duel_working">計算中…</string>
+    <string name="duel_kills">倒せます。</string>
+    <string name="duel_stalemate">決着がつきません。ダメージと回復が釣り合っています。</string>
+    <string name="duel_outhealed">倒せません。撃ち続けても変わりません。</string>
+    <string name="duel_shots">%1$d 発。すべて命中して、何も回復しない場合。</string>
+    <string name="duel_shots_head">%1$d 発、ヘッドショットなら %2$d 発。すべて命中して、何も回復しない場合。</string>
+    <string name="duel_rates">毎秒 %1$d ダメージ対 %2$d 回復。</string>
+    <string name="duel_seconds">その回復量に対して %1$.1f 秒で倒れます。</string>
+    <string name="duel_help_title">毎秒 %1$d ダメージ足りません。誰が補えるか:</string>
+    <string name="duel_note">これであれを倒せるか。答えは二つあります。何も回復しない場合に何発かかるか。これがほとんどの実戦を決めます。そしてダメージが回復を上回るか。こちらは長引く戦いを決めます。</string>
 </resources>

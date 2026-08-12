@@ -353,4 +353,19 @@
     <string name="social_no_matches">Nada con ese nombre. Borra la búsqueda o elige otra plataforma.</string>
     <string name="modifier_burning">Objetivo en llamas</string>
     <string name="chart_perks_note">Los vantajes aparecen como filas aparte, con su nombre. Solo se dibujan los que cambian los números de un arma pase lo que pase: un alcance, una velocidad de proyectil, un coste de munición. Los que dependen de que el combate salga de cierta manera se quedan fuera en vez de inventarlos.</string>
+    <string name="rank_duel">Duelo</string>
+    <string name="duel_attacker">Quién dispara</string>
+    <string name="duel_target">A quién dispara</string>
+    <string name="duel_healer">Quién lo cura</string>
+    <string name="duel_no_healer">Nadie</string>
+    <string name="duel_working">Calculando…</string>
+    <string name="duel_kills">Muere.</string>
+    <string name="duel_stalemate">No pasa nada. El daño y la curación se anulan.</string>
+    <string name="duel_outhealed">No muere. Seguir disparando no lo va a cambiar.</string>
+    <string name="duel_shots">%1$d disparos, si todos aciertan y nada cura.</string>
+    <string name="duel_shots_head">%1$d disparos, o %2$d a la cabeza, si todos aciertan y nada cura.</string>
+    <string name="duel_rates">%1$d de daño por segundo contra %2$d de curación.</string>
+    <string name="duel_seconds">Muere en %1$.1f segundos contra esa curación.</string>
+    <string name="duel_help_title">Faltan %1$d de daño por segundo. Quién lo aporta:</string>
+    <string name="duel_note">¿Puede esto matar a aquello? Dos respuestas, porque la honesta tiene dos mitades: cuántos disparos hacen falta sin nada que cure, que decide casi todos los combates reales, y si el daño supera la curación, que decide los que duran.</string>
 </resources>

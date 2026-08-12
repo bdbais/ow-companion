@@ -353,4 +353,19 @@
     <string name="social_no_matches">З такою назвою нічого немає. Очистіть пошук або виберіть інший майданчик.</string>
     <string name="modifier_burning">Ціль у вогні</string>
     <string name="chart_perks_note">Перки йдуть окремими рядками, названими за перком. Малюються лише ті, що змінюють числа зброї за будь-якого розкладу: дальність, швидкість снаряда, витрата набоїв. Ті, що залежать від перебігу бою, залишено осторонь, а не вгадано.</string>
+    <string name="rank_duel">Дуель</string>
+    <string name="duel_attacker">Хто стріляє</string>
+    <string name="duel_target">По кому стріляють</string>
+    <string name="duel_healer">Хто його лікує</string>
+    <string name="duel_no_healer">Ніхто</string>
+    <string name="duel_working">Рахуємо…</string>
+    <string name="duel_kills">Помирає.</string>
+    <string name="duel_stalemate">Нічого не вирішується: шкода й лікування врівноважені.</string>
+    <string name="duel_outhealed">Не помирає. Стріляти довше цього не змінить.</string>
+    <string name="duel_shots">%1$d пострілів, якщо всі влучають і ніхто не лікує.</string>
+    <string name="duel_shots_head">%1$d пострілів, або %2$d у голову, якщо всі влучають і ніхто не лікує.</string>
+    <string name="duel_rates">%1$d шкоди за секунду проти %2$d лікування.</string>
+    <string name="duel_seconds">Помирає за %1$.1f с за такого лікування.</string>
+    <string name="duel_help_title">Бракує %1$d шкоди за секунду. Хто її дає:</string>
+    <string name="duel_note">Чи вб\'є це те. Відповіді дві, бо чесна складається з двох половин: скільки пострілів треба, якщо ніхто не лікує — цим вирішується майже будь-який реальний бій — і чи перебиває шкода лікування, чим вирішуються затяжні.</string>
 </resources>

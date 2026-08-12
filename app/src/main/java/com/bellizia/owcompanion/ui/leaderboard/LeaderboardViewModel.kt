@@ -79,6 +79,15 @@ enum class RankingMode(@androidx.annotation.StringRes val labelRes: Int) {
     Healing(com.bellizia.owcompanion.R.string.rank_healing),
     Combos(com.bellizia.owcompanion.R.string.rank_combos),
     Shots(com.bellizia.owcompanion.R.string.rank_shots),
+
+    /**
+     * One weapon against one hero, with the healing they are getting.
+     *
+     * It lives here rather than in a tab of its own because it is the same kind of question
+     * as the ones beside it - a number you want, not a screen you browse - and the bottom
+     * bar has no room left that would not cost something else its place.
+     */
+    Duel(com.bellizia.owcompanion.R.string.rank_duel),
 }
 
 /** A hero's whole opening, totalled. */

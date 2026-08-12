@@ -353,4 +353,19 @@
     <string name="social_no_matches">Nichts unter diesem Namen. Lösche die Suche oder wähle eine andere Plattform.</string>
     <string name="modifier_burning">Brennendes Ziel</string>
     <string name="chart_perks_note">Perks stehen als eigene Zeilen da, benannt nach dem Perk. Gezeichnet werden nur die, die die Zahlen einer Waffe in jedem Fall ändern: eine Reichweite, eine Projektilgeschwindigkeit, ein Munitionsverbrauch. Die, die davon abhängen, wie der Kampf läuft, bleiben draußen statt geraten zu werden.</string>
+    <string name="rank_duel">Duell</string>
+    <string name="duel_attacker">Wer schießt</string>
+    <string name="duel_target">Auf wen</string>
+    <string name="duel_healer">Wer ihn heilt</string>
+    <string name="duel_no_healer">Niemand</string>
+    <string name="duel_working">Wird berechnet…</string>
+    <string name="duel_kills">Es stirbt.</string>
+    <string name="duel_stalemate">Nichts gibt nach. Schaden und Heilung heben sich auf.</string>
+    <string name="duel_outhealed">Es stirbt nicht. Weiterschießen ändert daran nichts.</string>
+    <string name="duel_shots">%1$d Schüsse, wenn jeder trifft und nichts heilt.</string>
+    <string name="duel_shots_head">%1$d Schüsse, oder %2$d auf den Kopf, wenn jeder trifft und nichts heilt.</string>
+    <string name="duel_rates">%1$d Schaden pro Sekunde gegen %2$d Heilung.</string>
+    <string name="duel_seconds">Tot in %1$.1f Sekunden gegen diese Heilung.</string>
+    <string name="duel_help_title">Es fehlen %1$d Schaden pro Sekunde. Wer sie bringt:</string>
+    <string name="duel_note">Kann das jenes töten? Zwei Antworten, weil die ehrliche zwei Hälften hat: wie viele Schüsse es braucht, wenn nichts heilt - was fast jeden echten Kampf entscheidet - und ob der Schaden die Heilung übertrifft, was die langen entscheidet.</string>
 </resources>

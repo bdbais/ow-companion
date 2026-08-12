@@ -353,4 +353,19 @@
     <string name="social_no_matches">Rien à ce nom. Effacez la recherche ou choisissez une autre plateforme.</string>
     <string name="modifier_burning">Cible en feu</string>
     <string name="chart_perks_note">Les atouts apparaissent comme des lignes à part, sous leur nom. Seuls ceux qui changent les chiffres d\'une arme quoi qu\'il arrive sont tracés : une portée, une vitesse de projectile, un coût en munitions. Ceux qui dépendent de la tournure du combat sont écartés plutôt que devinés.</string>
+    <string name="rank_duel">Duel</string>
+    <string name="duel_attacker">Qui tire</string>
+    <string name="duel_target">Sur qui</string>
+    <string name="duel_healer">Qui le soigne</string>
+    <string name="duel_no_healer">Personne</string>
+    <string name="duel_working">Calcul en cours…</string>
+    <string name="duel_kills">Il meurt.</string>
+    <string name="duel_stalemate">Rien ne bouge. Les dégâts et les soins s\'annulent.</string>
+    <string name="duel_outhealed">Il ne meurt pas. Continuer à tirer n\'y changera rien.</string>
+    <string name="duel_shots">%1$d tirs, si tous touchent et que rien ne soigne.</string>
+    <string name="duel_shots_head">%1$d tirs, ou %2$d à la tête, si tous touchent et que rien ne soigne.</string>
+    <string name="duel_rates">%1$d dégâts par seconde contre %2$d de soins.</string>
+    <string name="duel_seconds">Mort en %1$.1f secondes face à ces soins.</string>
+    <string name="duel_help_title">Il manque %1$d dégâts par seconde. Qui les apporte :</string>
+    <string name="duel_note">Est-ce que ça peut tuer ça ? Deux réponses, parce que l\'honnête en a deux moitiés : combien de tirs sans rien qui soigne, ce qui décide presque tous les vrais combats, et si les dégâts dépassent les soins, ce qui décide ceux qui durent.</string>
 </resources>

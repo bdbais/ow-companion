@@ -353,4 +353,19 @@
     <string name="social_no_matches">Nic o takiej nazwie. Wyczyść wyszukiwanie albo wybierz inną platformę.</string>
     <string name="modifier_burning">Płonący cel</string>
     <string name="chart_perks_note">Atuty pojawiają się jako osobne wiersze, nazwane po atucie. Rysowane są tylko te, które zmieniają liczby broni niezależnie od wszystkiego: zasięg, prędkość pocisku, koszt amunicji. Te zależne od przebiegu walki są pomijane, a nie zgadywane.</string>
+    <string name="rank_duel">Pojedynek</string>
+    <string name="duel_attacker">Kto strzela</string>
+    <string name="duel_target">Kto obrywa</string>
+    <string name="duel_healer">Kto go leczy</string>
+    <string name="duel_no_healer">Nikt</string>
+    <string name="duel_working">Liczenie…</string>
+    <string name="duel_kills">Ginie.</string>
+    <string name="duel_stalemate">Nic z tego. Obrażenia i leczenie się znoszą.</string>
+    <string name="duel_outhealed">Nie ginie. Dłuższe strzelanie tego nie zmieni.</string>
+    <string name="duel_shots">%1$d strzałów, jeśli każdy trafi i nic nie leczy.</string>
+    <string name="duel_shots_head">%1$d strzałów, albo %2$d w głowę, jeśli każdy trafi i nic nie leczy.</string>
+    <string name="duel_rates">%1$d obrażeń na sekundę przeciw %2$d leczenia.</string>
+    <string name="duel_seconds">Ginie w %1$.1f s przy takim leczeniu.</string>
+    <string name="duel_help_title">Brakuje %1$d obrażeń na sekundę. Kto je dorzuca:</string>
+    <string name="duel_note">Czy to zabije tamto. Dwie odpowiedzi, bo uczciwa ma dwie połowy: ile strzałów trzeba, gdy nic nie leczy - to rozstrzyga niemal każdą prawdziwą walkę - i czy obrażenia wyprzedzają leczenie, co rozstrzyga te dłuższe.</string>
 </resources>

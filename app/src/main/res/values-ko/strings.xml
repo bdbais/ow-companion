@@ -353,4 +353,19 @@
     <string name="social_no_matches">그 이름으로는 없습니다. 검색어를 지우거나 다른 플랫폼을 골라 보세요.</string>
     <string name="modifier_burning">불타는 대상</string>
     <string name="chart_perks_note">특성은 그 이름을 단 별도의 행으로 나옵니다. 어떤 상황에서도 무기의 수치를 바꾸는 것만 그립니다. 사거리, 발사체 속도, 탄약 소모량. 교전이 어떻게 풀리느냐에 달린 것들은 추측하지 않고 빼두었습니다.</string>
+    <string name="rank_duel">대결</string>
+    <string name="duel_attacker">쏘는 쪽</string>
+    <string name="duel_target">맞는 쪽</string>
+    <string name="duel_healer">치유해 주는 쪽</string>
+    <string name="duel_no_healer">아무도 없음</string>
+    <string name="duel_working">계산 중…</string>
+    <string name="duel_kills">죽습니다.</string>
+    <string name="duel_stalemate">결판이 나지 않습니다. 피해와 치유가 서로 상쇄됩니다.</string>
+    <string name="duel_outhealed">죽지 않습니다. 계속 쏴도 달라지지 않습니다.</string>
+    <string name="duel_shots">%1$d발. 전부 맞고 아무것도 치유하지 않을 때.</string>
+    <string name="duel_shots_head">%1$d발, 머리를 노리면 %2$d발. 전부 맞고 아무것도 치유하지 않을 때.</string>
+    <string name="duel_rates">초당 피해 %1$d 대 치유 %2$d.</string>
+    <string name="duel_seconds">그 치유량이면 %1$.1f초 만에 죽습니다.</string>
+    <string name="duel_help_title">초당 %1$d 피해가 모자랍니다. 누가 채워 주는가:</string>
+    <string name="duel_note">이걸로 저걸 죽일 수 있나. 답은 둘입니다. 아무것도 치유하지 않을 때 몇 발이 드는가 — 실제 교전은 거의 이것으로 갈립니다. 그리고 피해가 치유를 앞서는가 — 길어지는 싸움은 이것으로 갈립니다.</string>
 </resources>

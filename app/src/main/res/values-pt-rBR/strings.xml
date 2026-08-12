@@ -353,4 +353,19 @@
     <string name="social_no_matches">Nada com esse nome. Limpe a busca ou escolha outra plataforma.</string>
     <string name="modifier_burning">Alvo em chamas</string>
     <string name="chart_perks_note">As vantagens aparecem como linhas separadas, com o nome delas. Só entram as que mudam os números de uma arma aconteça o que acontecer: um alcance, uma velocidade de projétil, um custo de munição. As que dependem de o combate sair de certo jeito ficam de fora em vez de serem chutadas.</string>
+    <string name="rank_duel">Duelo</string>
+    <string name="duel_attacker">Quem atira</string>
+    <string name="duel_target">Em quem atira</string>
+    <string name="duel_healer">Quem o cura</string>
+    <string name="duel_no_healer">Ninguém</string>
+    <string name="duel_working">Calculando…</string>
+    <string name="duel_kills">Morre.</string>
+    <string name="duel_stalemate">Não acontece nada. O dano e a cura se anulam.</string>
+    <string name="duel_outhealed">Não morre. Continuar atirando não vai mudar isso.</string>
+    <string name="duel_shots">%1$d tiros, se todos acertarem e nada curar.</string>
+    <string name="duel_shots_head">%1$d tiros, ou %2$d na cabeça, se todos acertarem e nada curar.</string>
+    <string name="duel_rates">%1$d de dano por segundo contra %2$d de cura.</string>
+    <string name="duel_seconds">Morre em %1$.1f segundos contra essa cura.</string>
+    <string name="duel_help_title">Faltam %1$d de dano por segundo. Quem traz isso:</string>
+    <string name="duel_note">Isto mata aquilo? Duas respostas, porque a honesta tem duas metades: quantos tiros são precisos sem nada curando, o que decide quase todo combate real, e se o dano supera a cura, o que decide os que duram.</string>
 </resources>

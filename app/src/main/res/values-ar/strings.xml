@@ -353,4 +353,19 @@
     <string name="social_no_matches">لا شيء بهذا الاسم. امسح البحث أو اختر منصّة أخرى.</string>
     <string name="modifier_burning">هدف مشتعل</string>
     <string name="chart_perks_note">تظهر المزايا كصفوف منفصلة، باسم الميزة. ولا يُرسم منها إلا ما يغيّر أرقام السلاح مهما جرى: مدى، أو سرعة قذيفة، أو تكلفة ذخيرة. أما ما يتوقف على مجرى المعركة فمتروك بدل تخمينه.</string>
+    <string name="rank_duel">مبارزة</string>
+    <string name="duel_attacker">من يطلق النار</string>
+    <string name="duel_target">على من يطلق</string>
+    <string name="duel_healer">من يعالجه</string>
+    <string name="duel_no_healer">لا أحد</string>
+    <string name="duel_working">جارٍ الحساب…</string>
+    <string name="duel_kills">يموت.</string>
+    <string name="duel_stalemate">لا شيء يحسم. الضرر والشفاء يلغي أحدهما الآخر.</string>
+    <string name="duel_outhealed">لا يموت. الاستمرار في إطلاق النار لن يغيّر ذلك.</string>
+    <string name="duel_shots">%1$d طلقة، إن أصابت كلها ولم يعالجه أحد.</string>
+    <string name="duel_shots_head">%1$d طلقة، أو %2$d في الرأس، إن أصابت كلها ولم يعالجه أحد.</string>
+    <string name="duel_rates">%1$d ضرر في الثانية مقابل %2$d شفاء.</string>
+    <string name="duel_seconds">يموت خلال %1$.1f ثانية أمام هذا الشفاء.</string>
+    <string name="duel_help_title">ينقص %1$d ضرر في الثانية. من يوفّره:</string>
+    <string name="duel_note">هل يقتل هذا ذاك؟ إجابتان، لأن الصادقة منها نصفان: كم طلقة يلزم إن لم يعالجه شيء - وهذا يحسم كل اشتباك حقيقي تقريبًا - وهل يتجاوز الضرر الشفاء، وهذا يحسم الاشتباكات التي تطول.</string>
 </resources>

@@ -353,4 +353,19 @@
     <string name="social_no_matches">С таким названием ничего нет. Очистите поиск или выберите другую площадку.</string>
     <string name="modifier_burning">Горящая цель</string>
     <string name="chart_perks_note">Перки идут отдельными строками, названными по перку. Рисуются только те, что меняют числа оружия при любом раскладе: дальность, скорость снаряда, расход патронов. Те, что зависят от хода боя, оставлены за бортом, а не угаданы.</string>
+    <string name="rank_duel">Дуэль</string>
+    <string name="duel_attacker">Кто стреляет</string>
+    <string name="duel_target">По кому стреляют</string>
+    <string name="duel_healer">Кто его лечит</string>
+    <string name="duel_no_healer">Никто</string>
+    <string name="duel_working">Считаем…</string>
+    <string name="duel_kills">Умирает.</string>
+    <string name="duel_stalemate">Ничего не решается: урон и лечение уравновешены.</string>
+    <string name="duel_outhealed">Не умирает. Стрелять дольше это не изменит.</string>
+    <string name="duel_shots">%1$d выстрелов, если все попадают и никто не лечит.</string>
+    <string name="duel_shots_head">%1$d выстрелов, или %2$d в голову, если все попадают и никто не лечит.</string>
+    <string name="duel_rates">%1$d урона в секунду против %2$d лечения.</string>
+    <string name="duel_seconds">Умирает за %1$.1f с при таком лечении.</string>
+    <string name="duel_help_title">Не хватает %1$d урона в секунду. Кто его даёт:</string>
+    <string name="duel_note">Убьёт ли это то. Ответа два, потому что честный состоит из двух половин: сколько выстрелов нужно, если никто не лечит — этим решается почти любой реальный бой — и перебивает ли урон лечение, чем решаются затяжные.</string>
 </resources>
