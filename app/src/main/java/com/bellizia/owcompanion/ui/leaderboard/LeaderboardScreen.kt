@@ -116,6 +116,11 @@ fun LeaderboardScreen(
                     }
                 }
 
+                // The duel picks its own two heroes, so filtering the roster by role or by
+                // era says nothing about it. Leaving the rows there would be three controls
+                // that visibly do nothing, which is worse than a shorter screen.
+                if (state.mode == RankingMode.Duel) return@Column
+
                 Text(
                     text = stringResource(R.string.rank_era),
                     style = MaterialTheme.typography.labelSmall,
