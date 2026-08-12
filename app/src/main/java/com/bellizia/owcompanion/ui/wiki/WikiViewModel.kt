@@ -23,6 +23,12 @@ enum class HeroSort(@StringRes val labelRes: Int) {
     Changes(R.string.wiki_sort_changes),
 }
 
+/** The word. Nothing in the roster contains it. */
+internal const val TRIO_TERM = "duck"
+
+/** The order that matters, and the only order that does anything. */
+internal val TRIO = listOf("Widowmaker", "Ana", "Ashe")
+
 data class WikiUiState(
     val loading: Boolean = true,
     val heroes: List<HeroWiki> = emptyList(),
@@ -33,7 +39,22 @@ data class WikiUiState(
     /** Needed for the combo: a hero's own guns are half of any opening. */
     val weapons: List<WeaponSpec> = emptyList(),
 ) {
+    /**
+     * A search term that matches nothing in the roster and is not meant to.
+     *
+     * Typed in full it narrows the list to three marksmen and nothing else, which is not a
+     * result anybody arrives at by looking for a hero.
+     */
+    val narrowed: Boolean get() = query.trim().equals(TRIO_TERM, ignoreCase = true)
+
     val visible: List<HeroWiki>
+        get() = if (narrowed) {
+            TRIO.mapNotNull { name -> heroes.firstOrNull { it.name == name } }
+        } else {
+            broadlyVisible
+        }
+
+    private val broadlyVisible: List<HeroWiki>
         get() = heroes
             .filter { hero ->
                 val role = HeroRole.of(hero.role)
@@ -77,6 +98,7 @@ class WikiViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun setQuery(query: String) = _state.update { it.copy(query = query) }
+
 
     fun setSort(sort: HeroSort) = _state.update { it.copy(sort = sort) }
 

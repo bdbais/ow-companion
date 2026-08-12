@@ -49,6 +49,12 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.VerticalDivider
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.mutableStateListOf
+import com.bellizia.owcompanion.ui.common.RangeModel
+import com.bellizia.owcompanion.ui.common.RangePanel
+import com.bellizia.owcompanion.ui.common.RangeSounds
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -163,6 +169,53 @@ fun WikiScreen(
 /** Below this the grid and the detail take turns; at or above it they share the screen. */
 private const val WIDE_LAYOUT_DP = 600
 
+
+/**
+ * Keeps the order three cards were tapped in, and starts the range when it is the right one.
+ *
+ * Deliberately unforgiving: a wrong tap does not shuffle the sequence along, it starts it
+ * over. Somebody pressing all three out of curiosity gets a noise and nothing else, which
+ * is the point - the order has to be meant.
+ */
+@Composable
+private fun rememberTrio(active: Boolean): TrioTaps {
+    val context = LocalContext.current
+    val sounds = remember { RangeSounds(context) }
+    DisposableEffect(Unit) { onDispose { sounds.release() } }
+    val taps = remember(active) { TrioTaps(sounds) }
+    return taps
+}
+
+@Stable
+private class TrioTaps(private val sounds: RangeSounds) {
+    private val pressed = mutableStateListOf<String>()
+
+    /** Set once the order comes out right; the screen watches it. */
+    var opened by mutableStateOf(false)
+        private set
+
+    fun tap(name: String) {
+        // Every tap makes its noise, right or wrong. That is most of the joke.
+        sounds.quack()
+        sounds.miss()
+
+        val next = pressed.size
+        if (next < TRIO.size && TRIO[next] == name) {
+            pressed.add(name)
+            if (pressed.size == TRIO.size) opened = true
+        } else {
+            pressed.clear()
+            // A wrong one can still be the first of a fresh attempt.
+            if (TRIO.firstOrNull() == name) pressed.add(name)
+        }
+    }
+
+    fun close() {
+        opened = false
+        pressed.clear()
+    }
+}
+
 @Composable
 private fun HeroGrid(
     state: WikiUiState,
@@ -171,6 +224,12 @@ private fun HeroGrid(
     modifier: Modifier = Modifier,
 ) {
     val roleTaps = rememberFilterTaps<HeroRole>()
+    val marksmen = rememberTrio(state.narrowed)
+
+    if (marksmen.opened) {
+        RangePanel(shooter = RangeModel.Shooter.Rifle, onDismiss = marksmen::close)
+    }
+
     Column(modifier = modifier.fillMaxSize()) {
         Surface(tonalElevation = 2.dp) {
             Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp)) {
@@ -214,7 +273,13 @@ private fun HeroGrid(
             modifier = Modifier.fillMaxSize(),
         ) {
             items(state.visible, key = { it.key }) { hero ->
-                HeroCard(hero = hero, onClick = { viewModel.select(hero.key) })
+                HeroCard(
+                    hero = hero,
+                    onClick = {
+                        // While the list is narrowed to three, a tap is not a hero to open.
+                        if (state.narrowed) marksmen.tap(hero.name) else viewModel.select(hero.key)
+                    },
+                )
             }
             // The Lab, as a hero of its own. It used to be a tab, but it belongs with the
             // roster: it is a hero whose numbers happen to be yours to set.
