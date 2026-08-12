@@ -157,7 +157,7 @@ fun AboutScreen(
 
         Section(
             titleRes = R.string.about_thanks_title,
-            onTitleClick = if (LocalConfiguration.current.locales[0].language == "en") {
+            onTitleClick = if (LocalConfiguration.current.locales[0].language == "ko") {
                 { count += 1; if (count % SECTION_STEP == 0) panel = true }
             } else {
                 null
@@ -413,14 +413,6 @@ private fun SocialSection() {
                     contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp),
                 ) {
                     Text(text = link.name, style = MaterialTheme.typography.bodyMedium)
-                    if (link.mine) {
-                        Text(
-                            text = stringResource(R.string.social_mine_badge),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(start = 8.dp),
-                        )
-                    }
                 }
             }
         }

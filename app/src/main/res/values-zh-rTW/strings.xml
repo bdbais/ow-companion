@@ -348,8 +348,7 @@
     <string name="report_12">擁有一種以上近戰攻擊的英雄</string>
     <string name="social_title">找人一起玩</string>
     <string name="social_web">網站</string>
-    <string name="social_note">這個應用由一個人做，他也在玩《鬥陣特攻 2》並做直播。標著「我在」的房間裡真的能找到人；其餘是存在多年的公開場所。</string>
+    <string name="social_note">這個應用由一個人做，他也在玩《鬥陣特攻 2》並做直播。其中幾個房間裡能找到他；其餘是存在多年的公開場所。</string>
     <string name="social_search">搜尋房間</string>
     <string name="social_no_matches">沒有這個名字的房間。清空搜尋，或換一個平台。</string>
-    <string name="social_mine_badge">我在</string>
 </resources>

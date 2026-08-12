@@ -348,8 +348,7 @@
     <string name="report_12">Bohaterowie z więcej niż jednym atakiem wręcz</string>
     <string name="social_title">Znaleźć kogoś do gry</string>
     <string name="social_web">Strona</string>
-    <string name="social_note">Tę aplikację robi jedna osoba, która gra w Overwatch 2 i to streamuje. W pokojach oznaczonych jako moje naprawdę mnie zastaniesz; reszta to publiczne miejsca istniejące od lat.</string>
+    <string name="social_note">Tę aplikację robi jedna osoba, która gra w Overwatch 2 i to streamuje. W kilku z tych pokoi mnie zastaniesz; reszta to publiczne miejsca istniejące od lat.</string>
     <string name="social_search">Szukaj pokoi</string>
     <string name="social_no_matches">Nic o takiej nazwie. Wyczyść wyszukiwanie albo wybierz inną platformę.</string>
-    <string name="social_mine_badge">jestem tu</string>
 </resources>

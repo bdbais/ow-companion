@@ -29,13 +29,6 @@ data class SocialLink(
     /** What to call it: a proper name, so not a string resource. */
     val name: String,
     val url: String,
-    /**
-     * Somewhere the author of the app is personally, rather than a public room.
-     *
-     * Worth marking, because "come and play with me" and "here is where the game's players
-     * are" are different offers and it would be a small dishonesty to present them alike.
-     */
-    val mine: Boolean = false,
 )
 
 /**
@@ -47,14 +40,13 @@ data class SocialLink(
  * real to put in them.
  */
 val SocialLinks: List<SocialLink> = listOf(
-    SocialLink(Platform.Twitch, "bais73m", "https://www.twitch.tv/bais73m", mine = true),
+    SocialLink(Platform.Twitch, "bais73m", "https://www.twitch.tv/bais73m"),
     SocialLink(
         Platform.Discord,
         "Zero Hour Community",
         "https://discord.gg/VWz4HwZ5rM",
-        mine = true,
     ),
-    SocialLink(Platform.Discord, "Community 3.0", "https://discord.gg/pkPWQMbt7A", mine = true),
+    SocialLink(Platform.Discord, "Community 3.0", "https://discord.gg/8qsa7p44k5"),
     SocialLink(Platform.Reddit, "r/Overwatch", "https://www.reddit.com/r/Overwatch/"),
     SocialLink(
         Platform.Reddit,

@@ -348,8 +348,7 @@
     <string name="report_12">أبطال لديهم أكثر من هجمة التحام واحدة</string>
     <string name="social_title">إيجاد من تلعب معه</string>
     <string name="social_web">موقع</string>
-    <string name="social_note">يصنع هذا التطبيق شخص واحد، يلعب Overwatch 2 وينقله مباشرة. الغرف المعلَّمة بأنها لي ستجدني فيها فعلًا؛ وما تبقّى أماكن عامة قائمة منذ سنوات.</string>
+    <string name="social_note">يصنع هذا التطبيق شخص واحد، يلعب Overwatch 2 وينقله مباشرة. في بعض هذه الغرف ستجدني؛ وما تبقّى أماكن عامة قائمة منذ سنوات.</string>
     <string name="social_search">ابحث في الغرف</string>
     <string name="social_no_matches">لا شيء بهذا الاسم. امسح البحث أو اختر منصّة أخرى.</string>
-    <string name="social_mine_badge">أنا هنا</string>
 </resources>

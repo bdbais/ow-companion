@@ -348,8 +348,7 @@
     <string name="report_12">Heróis com mais de um ataque corpo a corpo</string>
     <string name="social_title">Encontrar com quem jogar</string>
     <string name="social_web">Site</string>
-    <string name="social_note">Este app é feito por uma pessoa só, que joga Overwatch 2 e transmite. Nas salas marcadas como minhas você me acha mesmo; o resto são lugares públicos que existem há anos.</string>
+    <string name="social_note">Este app é feito por uma pessoa só, que joga Overwatch 2 e transmite. Em algumas destas salas você me acha; o resto são lugares públicos que existem há anos.</string>
     <string name="social_search">Buscar salas</string>
     <string name="social_no_matches">Nada com esse nome. Limpe a busca ou escolha outra plataforma.</string>
-    <string name="social_mine_badge">estou aqui</string>
 </resources>

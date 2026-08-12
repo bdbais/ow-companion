@@ -348,8 +348,7 @@
     <string name="report_12">Helden mit mehr als einem Nahkampfangriff</string>
     <string name="social_title">Leute zum Spielen finden</string>
     <string name="social_web">Seite</string>
-    <string name="social_note">Diese App macht eine einzelne Person, die Overwatch 2 spielt und streamt. In den als meine markierten Räumen findest du mich wirklich; der Rest sind öffentliche Orte, die es seit Jahren gibt.</string>
+    <string name="social_note">Diese App macht eine einzelne Person, die Overwatch 2 spielt und streamt. In einigen dieser Räume findest du mich; der Rest sind öffentliche Orte, die es seit Jahren gibt.</string>
     <string name="social_search">Räume durchsuchen</string>
     <string name="social_no_matches">Nichts unter diesem Namen. Lösche die Suche oder wähle eine andere Plattform.</string>
-    <string name="social_mine_badge">ich bin hier</string>
 </resources>

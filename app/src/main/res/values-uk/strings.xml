@@ -348,8 +348,7 @@
     <string name="report_12">Герої з більш ніж однією атакою ближнього бою</string>
     <string name="social_title">Знайти, з ким пограти</string>
     <string name="social_web">Сайт</string>
-    <string name="social_note">Цей застосунок робить одна людина, яка грає в Overwatch 2 і веде стріми. У кімнатах із позначкою «я тут» мене справді можна застати; решта — публічні місця, що існують роками.</string>
+    <string name="social_note">Цей застосунок робить одна людина, яка грає в Overwatch 2 і веде стріми. У кількох із цих кімнат мене можна застати; решта — публічні місця, що існують роками.</string>
     <string name="social_search">Пошук кімнат</string>
     <string name="social_no_matches">З такою назвою нічого немає. Очистіть пошук або виберіть інший майданчик.</string>
-    <string name="social_mine_badge">я тут</string>
 </resources>

@@ -348,8 +348,7 @@
     <string name="report_12">근접 공격이 둘 이상인 영웅</string>
     <string name="social_title">같이 할 사람 찾기</string>
     <string name="social_web">사이트</string>
-    <string name="social_note">이 앱은 한 사람이 만듭니다. 오버워치 2를 하고 방송도 합니다. 제 방이라고 표시된 곳에는 실제로 있습니다. 나머지는 몇 년째 자리를 지키는 공개된 곳들입니다.</string>
+    <string name="social_note">이 앱은 한 사람이 만듭니다. 오버워치 2를 하고 방송도 합니다. 이 가운데 몇 곳에는 제가 있습니다. 나머지는 몇 년째 자리를 지키는 공개된 곳들입니다.</string>
     <string name="social_search">방 검색</string>
     <string name="social_no_matches">그 이름으로는 없습니다. 검색어를 지우거나 다른 플랫폼을 골라 보세요.</string>
-    <string name="social_mine_badge">제가 있음</string>
 </resources>

@@ -369,8 +369,7 @@
     <string name="report_12">Eroi con più di un attacco in mischia</string>
     <string name="social_title">Trovare gente con cui giocare</string>
     <string name="social_web">Sito</string>
-    <string name="social_note">Quest\'app la fa una persona sola, che gioca a Overwatch 2 e lo trasmette in streaming. Nelle stanze segnate come mie mi trovi davvero; le altre sono posti pubblici che esistono da anni.</string>
+    <string name="social_note">Quest\'app la fa una persona sola, che gioca a Overwatch 2 e lo trasmette in streaming. In alcune di queste stanze mi trovi; le altre sono posti pubblici che esistono da anni.</string>
     <string name="social_search">Cerca fra le stanze</string>
     <string name="social_no_matches">Niente con quel nome. Cancella la ricerca o scegli un\'altra piattaforma.</string>
-    <string name="social_mine_badge">ci sono io</string>
 </resources>

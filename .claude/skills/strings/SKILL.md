@@ -40,7 +40,7 @@ dataset, which is built from the English wiki. Ordinary words that arrive from t
 like `Weapon`, `Common` or a role, *are* translated: map them through the `vocab_*` keys
 rather than showing the raw value.
 
-A string only ever reachable in English — anything behind the seven-tap panel — is marked
+A string reachable in only one language — anything behind the seven-tap panel — is marked
 `translatable="false"` rather than translated into fourteen languages that can never show it.
 
 ## Formatting

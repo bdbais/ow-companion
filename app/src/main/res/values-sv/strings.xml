@@ -348,8 +348,7 @@
     <string name="report_12">Hjältar med mer än en närstridsattack</string>
     <string name="social_title">Hitta folk att spela med</string>
     <string name="social_web">Sida</string>
-    <string name="social_note">Den här appen görs av en enda person, som spelar Overwatch 2 och strömmar det. I rummen som är märkta som mina hittar du mig på riktigt; resten är öppna platser som funnits i åratal.</string>
+    <string name="social_note">Den här appen görs av en enda person, som spelar Overwatch 2 och strömmar det. I några av rummen hittar du mig; resten är öppna platser som funnits i åratal.</string>
     <string name="social_search">Sök bland rummen</string>
     <string name="social_no_matches">Inget med det namnet. Rensa sökningen eller välj en annan plattform.</string>
-    <string name="social_mine_badge">jag är här</string>
 </resources>

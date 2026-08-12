@@ -348,8 +348,7 @@
     <string name="report_12">拥有一种以上近战攻击的英雄</string>
     <string name="social_title">找人一起玩</string>
     <string name="social_web">网站</string>
-    <string name="social_note">这个应用由一个人做，他也在玩《守望先锋 2》并做直播。标着「我在」的房间里真的能找到人；其余是存在多年的公开场所。</string>
+    <string name="social_note">这个应用由一个人做，他也在玩《守望先锋 2》并做直播。其中几个房间里能找到他；其余是存在多年的公开场所。</string>
     <string name="social_search">搜索房间</string>
     <string name="social_no_matches">没有这个名字的房间。清空搜索，或换一个平台。</string>
-    <string name="social_mine_badge">我在</string>
 </resources>

@@ -348,8 +348,7 @@
     <string name="report_12">近接攻撃を二種類以上持つヒーロー</string>
     <string name="social_title">一緒に遊ぶ人を見つける</string>
     <string name="social_web">サイト</string>
-    <string name="social_note">このアプリは一人で作っています。オーバーウォッチ 2 を遊び、配信もしています。「わたしがいる」と付いた部屋には本当にいます。ほかは何年も続いている公開の場所です。</string>
+    <string name="social_note">このアプリは一人で作っています。オーバーウォッチ 2 を遊び、配信もしています。このうちいくつかの部屋にはわたしがいます。ほかは何年も続いている公開の場所です。</string>
     <string name="social_search">部屋を検索</string>
     <string name="social_no_matches">その名前では見つかりません。検索を消すか、別のプラットフォームを選んでください。</string>
-    <string name="social_mine_badge">わたしがいる</string>
 </resources>

@@ -362,10 +362,9 @@
     <string name="about_report_as_designed">AS RECORDED</string>
 
     <string name="social_title">Finding people to play with</string>
-    <string name="social_note">This app is built by one person, who plays Overwatch 2 and streams it. The rooms marked as mine are ones you will actually find me in; the rest are public places that have been around for years.</string>
+    <string name="social_note">This app is built by one person, who plays Overwatch 2 and streams it. In some of these rooms you will find me; the rest are public places that have been around for years.</string>
     <string name="social_search">Search the rooms</string>
     <string name="social_no_matches">Nothing here by that name. Clear the search or pick another platform.</string>
-    <string name="social_mine_badge">I\'m here</string>
     <!-- Platform names: the same word in every language. -->
     <string name="social_twitch" translatable="false">Twitch</string>
     <string name="social_discord" translatable="false">Discord</string>
