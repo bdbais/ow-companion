@@ -368,4 +368,7 @@
     <string name="duel_seconds">面对这份治疗，%1$.1f 秒后死亡。</string>
     <string name="duel_help_title">还差每秒 %1$d 伤害。谁能补上：</string>
     <string name="duel_note">这个能不能打死那个。答案有两半：没有治疗时需要几发，这决定了几乎所有真实交战；以及伤害是否压过治疗，这决定了那些拖长的。</string>
+    <string name="wiki_breakpoints">击杀所需枪数</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">贴脸、全部命中的情况。按血量分列而不是按英雄，因为 225 血的都死在同一个数上。决定一次对枪的是这个数字，不是每秒伤害：两发倒还是三发倒。</string>
 </resources>

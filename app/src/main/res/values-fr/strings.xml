@@ -368,4 +368,7 @@
     <string name="duel_seconds">Mort en %1$.1f secondes face à ces soins.</string>
     <string name="duel_help_title">Il manque %1$d dégâts par seconde. Qui les apporte :</string>
     <string name="duel_note">Est-ce que ça peut tuer ça ? Deux réponses, parce que l\'honnête en a deux moitiés : combien de tirs sans rien qui soigne, ce qui décide presque tous les vrais combats, et si les dégâts dépassent les soins, ce qui décide ceux qui durent.</string>
+    <string name="wiki_breakpoints">Tirs pour tuer</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">À bout portant, tous les plombs dedans. Une colonne par réserve de vie plutôt que par héros, parce que tous ceux à 225 tombent au même compte. C\'est le nombre qui décide un duel : pas les dégâts par seconde, mais s\'ils meurent en deux tirs ou en trois.</string>
 </resources>

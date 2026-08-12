@@ -368,4 +368,7 @@
     <string name="duel_seconds">يموت خلال %1$.1f ثانية أمام هذا الشفاء.</string>
     <string name="duel_help_title">ينقص %1$d ضرر في الثانية. من يوفّره:</string>
     <string name="duel_note">هل يقتل هذا ذاك؟ إجابتان، لأن الصادقة منها نصفان: كم طلقة يلزم إن لم يعالجه شيء - وهذا يحسم كل اشتباك حقيقي تقريبًا - وهل يتجاوز الضرر الشفاء، وهذا يحسم الاشتباكات التي تطول.</string>
+    <string name="wiki_breakpoints">طلقات حتى القتل</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">من مسافة لاصقة، وكل الطلقات تصيب. عمود لكل قدر من الصحة لا لكل بطل، لأن كل من لديه 225 يسقط بالعدد نفسه. هذا هو الرقم الذي يحسم المبارزة، لا الضرر في الثانية: أيسقط بطلقتين أم بثلاث.</string>
 </resources>

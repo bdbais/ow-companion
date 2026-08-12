@@ -368,4 +368,7 @@
     <string name="duel_seconds">Morre em %1$.1f segundos contra essa cura.</string>
     <string name="duel_help_title">Faltam %1$d de dano por segundo. Quem traz isso:</string>
     <string name="duel_note">Isto mata aquilo? Duas respostas, porque a honesta tem duas metades: quantos tiros são precisos sem nada curando, o que decide quase todo combate real, e se o dano supera a cura, o que decide os que duram.</string>
+    <string name="wiki_breakpoints">Tiros para matar</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">À queima-roupa, com todos os projéteis acertando. Uma coluna por reserva de vida e não por herói, porque todos os de 225 morrem com a mesma conta. Este é o número que decide um duelo: não o dano por segundo, mas se caem com dois tiros ou três.</string>
 </resources>

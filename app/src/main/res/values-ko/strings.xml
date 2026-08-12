@@ -368,4 +368,7 @@
     <string name="duel_seconds">그 치유량이면 %1$.1f초 만에 죽습니다.</string>
     <string name="duel_help_title">초당 %1$d 피해가 모자랍니다. 누가 채워 주는가:</string>
     <string name="duel_note">이걸로 저걸 죽일 수 있나. 답은 둘입니다. 아무것도 치유하지 않을 때 몇 발이 드는가 — 실제 교전은 거의 이것으로 갈립니다. 그리고 피해가 치유를 앞서는가 — 길어지는 싸움은 이것으로 갈립니다.</string>
+    <string name="wiki_breakpoints">처치까지 필요한 탄수</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">밀착 거리에서 전부 명중했을 때. 영웅별이 아니라 체력별로 한 칸입니다. 225인 상대는 모두 같은 발수에 죽기 때문입니다. 교전을 가르는 건 초당 피해가 아니라 이 숫자입니다. 두 발에 죽느냐 세 발이냐.</string>
 </resources>

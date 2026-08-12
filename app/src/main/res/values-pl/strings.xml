@@ -368,4 +368,7 @@
     <string name="duel_seconds">Ginie w %1$.1f s przy takim leczeniu.</string>
     <string name="duel_help_title">Brakuje %1$d obrażeń na sekundę. Kto je dorzuca:</string>
     <string name="duel_note">Czy to zabije tamto. Dwie odpowiedzi, bo uczciwa ma dwie połowy: ile strzałów trzeba, gdy nic nie leczy - to rozstrzyga niemal każdą prawdziwą walkę - i czy obrażenia wyprzedzają leczenie, co rozstrzyga te dłuższe.</string>
+    <string name="wiki_breakpoints">Strzały do zabicia</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">Z bliska, każdy śrut w celu. Kolumna na pulę zdrowia, a nie na bohatera, bo wszyscy z 225 giną przy tej samej liczbie. To ta liczba rozstrzyga pojedynek, nie obrażenia na sekundę: dwa strzały czy trzy.</string>
 </resources>

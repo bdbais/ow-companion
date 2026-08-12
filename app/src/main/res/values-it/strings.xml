@@ -389,4 +389,7 @@
     <string name="duel_seconds">Muore in %1$.1f secondi contro quella cura.</string>
     <string name="duel_help_title">Mancano %1$d danni al secondo. Chi li porta:</string>
     <string name="duel_note">Questo riesce ad ammazzare quello? Due risposte, perché quella onesta ha due metà: quanti colpi servono se niente cura, che decide quasi ogni scontro vero, e se il danno supera la cura, che decide quelli che durano.</string>
+    <string name="wiki_breakpoints">Colpi per uccidere</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">A bruciapelo, con tutti i pallini a segno. Una colonna per riserva di vita e non per eroe, perché tutti quelli da 225 cadono allo stesso numero. È questo il numero che decide un duello: non il danno al secondo, ma se muoiono in due colpi o in tre.</string>
 </resources>

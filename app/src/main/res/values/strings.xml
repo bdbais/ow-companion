@@ -90,6 +90,9 @@
     <string name="wiki_buffs">%1$d buff</string>
     <string name="wiki_nerfs">%1$d nerf</string>
     <string name="wiki_series_legend">%1$s: %2$s → %3$s  (%4$d changes)</string>
+    <string name="wiki_breakpoints">Shots to kill</string>
+    <string name="wiki_breakpoints_note">Point blank, every pellet landing. One column per health pool rather than per hero, because every 225 health hero dies to the same count. This is the number that settles a duel: not damage per second, but whether they die to two shots or three.</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
 
     <!-- About -->
     <string name="about_title" translatable="false">OW Companion</string>

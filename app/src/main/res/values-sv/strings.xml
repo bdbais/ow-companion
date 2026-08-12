@@ -368,4 +368,7 @@
     <string name="duel_seconds">Död på %1$.1f sekunder mot den läkningen.</string>
     <string name="duel_help_title">Det fattas %1$d skada per sekund. Vem bidrar med den:</string>
     <string name="duel_note">Kan det här döda det där? Två svar, för det ärliga har två halvor: hur många skott det tar när inget läker, vilket avgör nästan varje riktig strid, och om skadan överträffar läkningen, vilket avgör de som drar ut.</string>
+    <string name="wiki_breakpoints">Skott till kill</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">På nära håll, varje hagel i mål. En kolumn per livpool i stället för per hjälte, för alla med 225 faller på samma antal. Det är siffran som avgör en duell: inte skada per sekund, utan om de dör på två skott eller tre.</string>
 </resources>

@@ -368,4 +368,7 @@
     <string name="duel_seconds">Tot in %1$.1f Sekunden gegen diese Heilung.</string>
     <string name="duel_help_title">Es fehlen %1$d Schaden pro Sekunde. Wer sie bringt:</string>
     <string name="duel_note">Kann das jenes töten? Zwei Antworten, weil die ehrliche zwei Hälften hat: wie viele Schüsse es braucht, wenn nichts heilt - was fast jeden echten Kampf entscheidet - und ob der Schaden die Heilung übertrifft, was die langen entscheidet.</string>
+    <string name="wiki_breakpoints">Schüsse bis zum Kill</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">Aus nächster Nähe, jede Kugel im Ziel. Eine Spalte je Lebenspool statt je Held, weil alle mit 225 Leben bei derselben Zahl fallen. Das ist die Zahl, die ein Duell entscheidet: nicht Schaden pro Sekunde, sondern ob sie nach zwei Schüssen sterben oder nach drei.</string>
 </resources>

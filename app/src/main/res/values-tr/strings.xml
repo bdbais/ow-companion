@@ -368,4 +368,7 @@
     <string name="duel_seconds">Bu iyileştirmeye karşı %1$.1f saniyede ölür.</string>
     <string name="duel_help_title">Saniyede %1$d hasar eksik. Kim getiriyor:</string>
     <string name="duel_note">Bu şunu öldürebilir mi. İki cevap var, çünkü dürüst olanın iki yarısı var: hiçbir şey iyileştirmezken kaç atış gerekir - gerçek çatışmaların neredeyse hepsini bu belirler - ve hasar iyileştirmeyi geçiyor mu, uzayanları da bu belirler.</string>
+    <string name="wiki_breakpoints">Öldürmek için atış</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">Dip dibe, her saçma isabet ederek. Kahraman başına değil can havuzu başına bir sütun, çünkü 225 canı olanların hepsi aynı sayıda düşüyor. Bir düelloyu belirleyen bu sayıdır, saniyedeki hasar değil: iki atışta mı ölüyor, üçte mi.</string>
 </resources>

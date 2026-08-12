@@ -606,6 +606,9 @@ private fun HeroDetail(
             }
         }
 
+        // The engine's own answer, finally where it is asked for.
+        item { HeroBreakpoints(hero = hero, roster = roster, weapons = weapons) }
+
         if (hero.matchups.isNotEmpty()) {
             item {
                 Column(modifier = Modifier.padding(start = 12.dp, top = 16.dp, end = 12.dp)) {

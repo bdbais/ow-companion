@@ -368,4 +368,7 @@
     <string name="duel_seconds">その回復量に対して %1$.1f 秒で倒れます。</string>
     <string name="duel_help_title">毎秒 %1$d ダメージ足りません。誰が補えるか:</string>
     <string name="duel_note">これであれを倒せるか。答えは二つあります。何も回復しない場合に何発かかるか。これがほとんどの実戦を決めます。そしてダメージが回復を上回るか。こちらは長引く戦いを決めます。</string>
+    <string name="wiki_breakpoints">必要弾数</string>
+    <string name="wiki_breakpoints_head">%1$d</string>
+    <string name="wiki_breakpoints_note">ゼロ距離、すべて命中した場合。ヒーロー別ではなく体力別に一列です。225 の相手はみな同じ発数で倒れるからです。決闘を決めるのはこの数字で、毎秒ダメージではありません。二発で倒れるか三発か、それだけです。</string>
 </resources>
