@@ -46324,6 +46324,12 @@
     }
    ],
    "key": "zenyatta"
+  },
+  {
+   "hero": "D.Mon",
+   "patches": [],
+   "note": "no balance change log on the page",
+   "key": "dmon"
   }
  ]
 }

@@ -225,13 +225,17 @@ def parse_spread(raw: str, review_add) -> dict | None:
 def parse_shot_type(params: dict, pellets: float, review_add) -> tuple[str, bool]:
     shot_type = clean_value(params.get("shot_type", "")).lower()
     name = clean_value(params.get("ability_name", "")).lower()
+    # Editors filling in a brand-new hero often reach for the keyword list before the
+    # shot_type field, so "hitscan" can be stated there and nowhere else. Reading it saves
+    # guessing "projectile" about a weapon the wiki has already called hitscan.
+    keywords = clean_value(params.get("ability_keywords", "")).lower()
 
     if "beam" in shot_type or "beam" in name:
         return "beam", True
     if "melee" in shot_type:
         return "melee", False
 
-    hitscan = "hitscan" in shot_type
+    hitscan = "hitscan" in shot_type or "hitscan" in keywords
     base = "hitscan" if hitscan else "linear projectile"
     # The wiki says "shotgun" when a weapon is one - sixteen of them - so its word is used
     # rather than inferred from the pellet count. Firing several projectiles is not the same

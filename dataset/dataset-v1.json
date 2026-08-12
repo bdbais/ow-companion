@@ -891,6 +891,27 @@
     "Transcendence",
     "Snap Kick"
    ]
+  },
+  {
+   "key": "dmon",
+   "name": "D.Mon",
+   "color": "#cc9795",
+   "role": "tank",
+   "portrait": "portrait_dmon.png",
+   "health": 325,
+   "shields": 0,
+   "armor": 325,
+   "abilities": [
+    "Plasma Saber ",
+    "Portable Fusion Repeater",
+    "Power Barrier",
+    "Surging Strike",
+    "Fusion Repeater",
+    "Propulsors",
+    "Eject!",
+    "Limit Break ",
+    "Call Mech"
+   ]
   }
  ],
  "weapons": [
@@ -4556,6 +4577,32 @@
    "critFactor": 1.0,
    "dpsPeriodBase": 1.0,
    "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "D.Mon",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
   }
  ],
  "ultimates": [
@@ -5130,6 +5177,17 @@
    "duration": 6.0,
    "radius": 10.0,
    "description": "Become invulnerable, move faster, and heal nearby allies."
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Limit Break",
+   "damage": 125.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "125 (initial slash) / 90 (second slash)",
+   "duration": 2.0,
+   "radius": null,
+   "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   }
  ],
  "healing": [
@@ -67189,7 +67247,7 @@
      "opponent": "Cassidy",
      "key": "cassidy",
      "role": "damage",
-     "matchup": "While Cassidy poses a threat at greater distances, Jump Pack will allow you to quickly close the distance. Cassidy's Flashbang and Fan the Hammer combo can still prove dangerous to you, but your high health should usually help you withstand the combo. Barrier Projector provides ample protection from Cassidy's Peacekeeper, and in close-quarters combat you can go in and out of the barrier to make it difficult for Cassidy to land his shots on you. In an emergency situation, you can always use Jump Pack to flee from the fight; while you have to watch out for any Peacemaker shots he lands while you are midair, he has few means of pursuing you once you create some distance between the two of you. Take advantage of Cassidy's low mobility and your superior health, and you should do fairly well against him.",
+     "matchup": "While Cassidy poses a threat at greater distances, Jump Pack will allow you to quickly close the distance. Cassidy's Flashbang and Fan the Hammer combo can still prove dangerous to you, but your high health should usually help you withstand the combo. Barrier Projector provides ample protection from Cassidy's Peacekeeper, and in close-quarters combat you can go in and out of the barrier to make it difficult for Cassidy to land his shots on you. In an emergency situation, you cal always use Jump Pack to flee from the fight; while you have to watch out for any Peacemaker shots he lands while you are midair, he has few means of pursuing you once you create some distance between the two of you. Take advantage of Cassidy's low mobility and your superior health, and you should do fairly well against him.",
      "synergy": "",
      "rating": null,
      "stance": null,
@@ -67233,7 +67291,7 @@
      "opponent": "Junkrat",
      "key": "junkrat",
      "role": "damage",
-     "matchup": "Junkrat's Concussion Mine and Steel Trap can be easily destroyed by your Tesla Cannon, so long as you fire with your weapon before accidentally stepping on a trap. Jump Pack allows you to quickly approach Junkrat; without his Steel Trap to defend himself, Junkrat is forced to fight in close-range. Your Barrier Projector will allow you to deal consistent damage to Junkrat in relative safety; if your barrier is on cooldown, though, his grenades will easily hit you due to your large hitbox. A few direct hits will melt your health away quickly, so try to only fight Junkrat if your Barrier Projector is ready; if you're caught by surprise by him, don't hesitate to use Jump Pack to retreat to your team, as Junkrat's ability to chase after you is limited. If a wounded Junkrat is retreating, weigh whether or not you believe he'll have regrouped with his team before jumping after him to finish him off.",
+     "matchup": "Junkrat's Concussion Mine and Steel Trap can be easily destroyed by your Tesla Cannon, so long as you fire with your weapon before accidentally stepping on a trap. Jump Pack allows you to quickly approach Junkrat; without hus Steel Trap to defend himself, Junkrat is forced to fight in close-range. Your Barrier Projector will allow you to deal consistent damage to Junkrat in relative safety; if your barrier is on cooldown, though, his grenades will easily hit you due to your large hitbox. A few direct hits will melt your health away quickly, so try to only fight Junkrat if your Barrier Projector is ready; if you're caught by surprise by him, don't hesitate to use Jump Pack to retreat to your team, as Junkrat's ability to chase after you is limited. If a wounded Junkrat is retreating, weigh whether or not you believe he'll have regrouped with his team before jumping after him to finish him off.",
      "synergy": "",
      "rating": null,
      "stance": null,
@@ -67310,7 +67368,7 @@
      "opponent": "Widowmaker",
      "key": "widowmaker",
      "role": "damage",
-     "matchup": "With your ability to leap into the enemy lines and your barrier, you serve an excellent counter to Widowmaker, who can't hold herself as well in a close-range fight as you can. When you use Jump Pack to approach a Widowmaker on high ground, she will often fall to the ground expecting you to chase her, then use Grappling Hook to regain the high ground. Don't bother chasing her until Jump Pack is ready again; if she tries to be smart, you'll be able to just jump up in her face and heckle her again. At a distance, you have a clear disadvantage with your huge hitbox and low weapon range. Never peek around corners if a Widowmaker is nearby; instead, coordinate with your team so they know it's safe to push onto an objective when you dive in to heckle the enemy team's Widowmaker.",
+     "matchup": "With your ability to leap into the enemy lines and your barrier, you serve an an excellent counter to Widowmaker, who can't hold herself as well in a close-range fight as you can. When you use Jump Pack to approach a Widowmaker on high ground, she will often fall to the ground expecting you to chase her, then use Grappling Hook to regain the high ground. Don't bother chasing her until Jump Pack is ready again; if she tries to be smart, you'll be able to just jump up in her face and heckle her again. At a distance, you have a clear disadvantage with your huge hitbox and low weapon range. Never peek around corners if a Widowmaker is nearby; instead, coordinate with your team so they know it's safe to push onto an objective when you dive in to heckle the enemy team's Widowmaker.",
      "synergy": "Once your friendly Widowmaker activates Infra-Sight, you'll have a good idea of where all of your opponents are. This can make it easy for you to dive on lone Support heroes or snipers, and can also help you watch for enemy flankers such as Genji that you can easily fend away from your team.\n|}",
      "rating": null,
      "stance": null,
@@ -72577,6 +72635,124 @@
      "risk": null
     }
    ]
+  },
+  {
+   "key": "dmon",
+   "name": "D.Mon",
+   "color": "#cc9795",
+   "role": "tank",
+   "subrole": "stalwart",
+   "description": "As MEKA’s new leader, D.Mon uses unmatched game sense to call the shots and keep her team united through any fight.",
+   "location": "MEKA Base, Busan, Korea",
+   "age": 28,
+   "birthday": "Apr 21",
+   "health": 325,
+   "shields": 0,
+   "armor": 325,
+   "totalHitpoints": 650,
+   "portrait": "portrait_dmon.png",
+   "abilities": [
+    {
+     "name": "Plasma Saber ",
+     "description": "Fast energy melee weapon.",
+     "icon": "ability_dmon_0.png"
+    },
+    {
+     "name": "Portable Fusion Repeater",
+     "description": "Heavy machine gun.",
+     "icon": "ability_dmon_1.png"
+    },
+    {
+     "name": "Power Barrier",
+     "description": "Hold  to deploy a frontal energy barrier.",
+     "icon": "ability_dmon_2.png"
+    },
+    {
+     "name": "Surging Strike",
+     "description": "While Power Barrier is deployed, strike forward to damage and push enemies back.",
+     "icon": "ability_dmon_3.png",
+     "damage": 70.0,
+     "cooldown": 6.0,
+     "castTime": null,
+     "damageLines": [
+      "70"
+     ],
+     "damageUncertain": false
+    },
+    {
+     "name": "Fusion Repeater",
+     "description": "Activate a rapid-fire machine gun.",
+     "icon": "ability_dmon_4.png",
+     "damage": 15.0,
+     "cooldown": 6.0,
+     "castTime": null,
+     "damageLines": [
+      "15"
+     ],
+     "damageUncertain": false
+    },
+    {
+     "name": "Propulsors",
+     "description": "Consume fuel to surge in any horizontal direction.",
+     "icon": "ability_dmon_5.png"
+    },
+    {
+     "name": "Eject!",
+     "description": "Eject out of your mech when it is destroyed.",
+     "icon": "ability_dmon_6.png"
+    },
+    {
+     "name": "Limit Break ",
+     "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies.",
+     "icon": "ability_dmon_7.png"
+    },
+    {
+     "name": "Call Mech",
+     "description": "Reassemble mech.",
+     "icon": "ability_dmon_8.png"
+    }
+   ],
+   "extraAbilities": [
+    {
+     "hero": "D.Mon",
+     "name": "Focused Fusion",
+     "kind": "perk",
+     "damage": 15.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "15 → 42"
+     ],
+     "uncertain": false
+    }
+   ],
+   "releaseDate": null,
+   "heroNumber": 53,
+   "perks": [
+    {
+     "name": "Beast Within",
+     "tier": "minor",
+     "description": "Plasma Saber hits heal Power Shield by 40 health"
+    },
+    {
+     "name": "MEKA Mobility",
+     "tier": "minor",
+     "description": "While holding Power Shield, Propulsors fuel cost is reduced by 30%"
+    },
+    {
+     "name": "Overstrike",
+     "tier": "major",
+     "description": "Surging Strike gains 150% lifesteal"
+    },
+    {
+     "name": "Focused Fusion",
+     "tier": "major",
+     "description": "Fusion Repeater fires stronger shots with no spread at a slower rate"
+    }
+   ],
+   "patches": [],
+   "matchups": []
   }
  ]
 }

@@ -10,6 +10,11 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 { "weapons": { "Ana|Biotic Rifle": { "fireRate": 1.25, "reviewed": true } } }
 ```
 
+## Weapons excluded from the chart until corrected (2)
+
+- **D.Mon — Plasma Saber** missing fireRate
+- **D.Mon — Portable Fusion Repeater** missing fireRate
+
 ## Field-level warnings on weapons that are otherwise usable (67)
 
 - **Anran — Zhuque Fans** `damage`: derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet — `22 (per shot)`
@@ -81,7 +86,11 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Zarya — Particle Cannon Alt Fire** `reload`: reload of 1.50 s implies 54 dps overall, but the wiki states 40 — `1.5 seconds`
 - **Zenyatta — Orb of Destruction Alt Fire** `damage`: derived from the wiki's stated 78 dps: 50.0 -> 77.6 per pellet — `50 per orb`
 
-## Hero colours derived from a portrait (faces skew these towards skin tone) (20)
+## Release date not found on the wiki page (1)
+
+- D.Mon
+
+## Hero colours derived from a portrait (faces skew these towards skin tone) (21)
 
 - Anran
 - Domina
@@ -103,3 +112,4 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - Vendetta
 - Venture
 - Wuyang
+- D.Mon

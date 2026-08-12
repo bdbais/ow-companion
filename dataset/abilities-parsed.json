@@ -1384,6 +1384,45 @@
     "60 → 24 (splash, charged)"
    ],
    "uncertain": true
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Fusion Repeater",
+   "kind": "ability",
+   "damage": 15.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": null,
+   "lines": [
+    "15"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Surging Strike",
+   "kind": "ability",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": null,
+   "lines": [
+    "70"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Focused Fusion",
+   "kind": "perk",
+   "damage": 15.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "15 → 42"
+   ],
+   "uncertain": false
   }
  ]
 }

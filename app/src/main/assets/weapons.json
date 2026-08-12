@@ -891,6 +891,27 @@
     "Transcendence",
     "Snap Kick"
    ]
+  },
+  {
+   "key": "dmon",
+   "name": "D.Mon",
+   "color": "#cc9795",
+   "role": "tank",
+   "portrait": "portrait_dmon.png",
+   "health": 325,
+   "shields": 0,
+   "armor": 325,
+   "abilities": [
+    "Plasma Saber ",
+    "Portable Fusion Repeater",
+    "Power Barrier",
+    "Surging Strike",
+    "Fusion Repeater",
+    "Propulsors",
+    "Eject!",
+    "Limit Break ",
+    "Call Mech"
+   ]
   }
  ],
  "weapons": [
@@ -4556,6 +4577,32 @@
    "critFactor": 1.0,
    "dpsPeriodBase": 1.0,
    "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "D.Mon",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
   }
  ],
  "ultimates": [
@@ -5130,6 +5177,17 @@
    "duration": 6.0,
    "radius": 10.0,
    "description": "Become invulnerable, move faster, and heal nearby allies."
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Limit Break",
+   "damage": 125.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "125 (initial slash) / 90 (second slash)",
+   "duration": 2.0,
+   "radius": null,
+   "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   }
  ],
  "healing": [

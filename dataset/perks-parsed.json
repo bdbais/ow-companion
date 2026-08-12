@@ -1247,6 +1247,30 @@
    "name": "Dual Harmony",
    "tier": "major",
    "description": "Gain a 2nd Harmony Orb but they both heal for 70% effectiveness."
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Beast Within",
+   "tier": "minor",
+   "description": "Plasma Saber hits heal Power Shield by 40 health"
+  },
+  {
+   "hero": "D.Mon",
+   "name": "MEKA Mobility",
+   "tier": "minor",
+   "description": "While holding Power Shield, Propulsors fuel cost is reduced by 30%"
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Overstrike",
+   "tier": "major",
+   "description": "Surging Strike gains 150% lifesteal"
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Focused Fusion",
+   "tier": "major",
+   "description": "Fusion Repeater fires stronger shots with no spread at a slower rate"
   }
  ]
 }
