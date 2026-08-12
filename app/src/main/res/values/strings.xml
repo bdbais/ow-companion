@@ -211,7 +211,7 @@
     <string name="meta_offline">This is the one screen that needs a connection. The rest of the app works offline because a weapon\'s numbers and a patch that already happened do not change; which heroes are being banned changes every week, so it is fetched rather than shipped.</string>
     <string name="meta_retry">Try again</string>
     <string name="meta_open_source">Open the official page</string>
-    <string name="meta_credit">Figures published by Blizzard on overwatch.blizzard.com. Only Competitive has a ban phase, so ban rates read zero in Quick Play. Nothing here is stored on your phone.</string>
+    <string name="meta_credit">Figures published by Blizzard on overwatch.blizzard.com, one row per hero and broken down by region only. Their page offers filters for map, rank and queue; every one of them returns the same numbers, so this app no longer shows controls that would change nothing. It also means no win rate per map, and no win rate per team composition — Blizzard publish neither, and multiplying single-hero rates together would invent a figure rather than find one. Nothing here is stored on your phone.</string>
     <string name="wiki_matchups">Match-ups</string>
     <string name="wiki_matchups_note">Written by the wiki from the perspective of playing this hero. Where an editor graded the matchup, their wording is shown as-is; rows without a grade were never graded, and no verdict has been inferred for them. Tap a portrait to open that hero.</string>
     <string name="wiki_matchup_risk">%1$s risk</string>

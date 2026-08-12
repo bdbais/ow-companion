@@ -155,7 +155,7 @@
     <string name="meta_offline">Dies ist der einzige Bildschirm, der eine Verbindung braucht. Der Rest der App kommt ohne aus, denn die Werte einer Waffe und ein bereits erschienener Patch ändern sich nicht; welche Helden gebannt werden, ändert sich wöchentlich, also wird das geladen statt mitgeliefert.</string>
     <string name="meta_retry">Erneut versuchen</string>
     <string name="meta_open_source">Offizielle Seite öffnen</string>
-    <string name="meta_credit">Zahlen von Blizzard auf overwatch.blizzard.com. Nur der gewertete Modus hat eine Bannphase, in der Schnellsuche steht die Bannrate deshalb auf null. Nichts davon wird auf dem Gerät gespeichert.</string>
+    <string name="meta_credit">Zahlen von Blizzard auf overwatch.blizzard.com, eine Zeile pro Held und nur nach Region aufgeschlüsselt. Ihre Seite bietet Filter für Karte, Rang und Warteschlange; alle liefern dieselben Zahlen, deshalb zeigt diese App keine Bedienelemente mehr, die nichts ändern würden. Das heißt auch: keine Siegrate pro Karte und keine pro Teamzusammenstellung. Blizzard veröffentlicht beides nicht, und einzelne Heldenraten miteinander zu multiplizieren würde eine Zahl erfinden statt sie zu finden. Nichts davon wird auf deinem Telefon gespeichert.</string>
     <string name="wiki_matchups">Duelle</string>
     <string name="wiki_matchups_note">Vom Wiki aus der Sicht dessen geschrieben, der diesen Helden spielt. Wo jemand das Duell bewertet hat, steht seine Formulierung unverändert da; Zeilen ohne Bewertung haben nie eine bekommen, und es wurde kein Urteil für sie abgeleitet. Tippe auf ein Porträt, um den Helden zu öffnen.</string>
     <string name="wiki_matchup_risk">%1$s Risiko</string>

@@ -155,7 +155,7 @@
     <string name="meta_offline">这是唯一需要联网的页面。武器数值和已经发布的补丁不会改变，所以其他页面都能离线使用；但被禁用的英雄每周都在变，因此这部分是下载而非内置的。</string>
     <string name="meta_retry">重试</string>
     <string name="meta_open_source">打开官方页面</string>
-    <string name="meta_credit">数据由暴雪发布于 overwatch.blizzard.com。只有竞技比赛有禁用环节，因此快速比赛中禁用率为零。这些内容不会保存到你的手机上。</string>
+    <string name="meta_credit">数据由暴雪发布在 overwatch.blizzard.com，每位英雄一行，只按大区拆分。他们的页面提供地图、段位和队列筛选，但全都返回相同的数字，所以本应用不再显示什么都不会改变的控件。这也意味着没有分地图胜率，也没有阵容胜率：暴雪两者都不公布，而把单英雄胜率相乘只会造出一个数字，而不是找到它。这些内容都不会保存在你的手机上。</string>
     <string name="wiki_matchups">对位</string>
     <string name="wiki_matchups_note">由维基以使用该英雄的视角撰写。编辑给出评级的对位，原文照录；没有评级的条目本就没有被评过，我们也没有代为推断结论。点击头像可打开该英雄。</string>
     <string name="wiki_matchup_risk">%1$s 风险</string>

@@ -200,27 +200,6 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
         }
 
         if (expanded) {
-            ChipRow(stringResource(R.string.meta_queue)) {
-                MetaQueue.entries.forEach { queue ->
-                    FilterChip(
-                        selected = state.filters.queue == queue.value,
-                        onClick = { viewModel.queue(queue) },
-                        label = { Text(stringResource(queue.labelRes)) },
-                    )
-                }
-            }
-            // Quick Play has no ranks and no ban phase, so the tier chips would be lying.
-            if (state.filters.queue == MetaQueue.Competitive.value) {
-                ChipRow(stringResource(R.string.meta_tier)) {
-                    MetaTier.entries.forEach { tier ->
-                        FilterChip(
-                            selected = state.filters.tier == tier.value,
-                            onClick = { viewModel.tier(tier) },
-                            label = { Text(stringResource(tier.labelRes)) },
-                        )
-                    }
-                }
-            }
             ChipRow(stringResource(R.string.meta_region)) {
                 MetaRegion.entries.forEach { region ->
                     FilterChip(
@@ -249,10 +228,6 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
                     )
                 }
             }
-            // Thirty maps will not fit in a chip row, and grouping them by mode is what
-            // makes the list readable - nobody looks for Busan among the escort maps.
-            MapPicker(selected = state.map, onSelect = viewModel::map)
-
             ChipRow(stringResource(R.string.meta_role)) {
                 MetaRole.entries.forEach { role ->
                     FilterChip(
@@ -263,65 +238,6 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun MapPicker(selected: MetaMap?, onSelect: (MetaMap?) -> Unit) {
-    var open by remember { mutableStateOf(false) }
-
-    Text(
-        text = stringResource(R.string.meta_map),
-        style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.padding(top = 8.dp, bottom = 2.dp),
-    )
-    Box {
-        OutlinedButton(onClick = { open = true }) {
-            Text(selected?.label ?: stringResource(R.string.meta_map_all))
-            Icon(
-                imageVector = Icons.Filled.ArrowDropDown,
-                contentDescription = null,
-                modifier = Modifier.padding(start = 4.dp),
-            )
-        }
-        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-            DropdownMenuItem(
-                text = { Text(stringResource(R.string.meta_map_all)) },
-                onClick = {
-                    onSelect(null)
-                    open = false
-                },
-            )
-            var shown: String? = null
-            MetaMaps.forEach { map ->
-                if (map.mode != shown) {
-                    shown = map.mode
-                    HorizontalDivider()
-                    Text(
-                        text = map.mode.replaceFirstChar(Char::uppercase),
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
-                    )
-                }
-                DropdownMenuItem(
-                    text = { Text(map.label) },
-                    onClick = {
-                        onSelect(map)
-                        open = false
-                    },
-                )
-            }
-        }
-    }
-    if (selected != null) {
-        Text(
-            text = stringResource(R.string.meta_map_note),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.padding(top = 2.dp),
-        )
     }
 }
 

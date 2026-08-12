@@ -155,7 +155,7 @@
     <string name="meta_offline">接続が必要なのはこの画面だけです。武器の数値やすでに適用されたパッチは変わらないため、他の画面はオフラインで動きます。しかしBANされるヒーローは毎週変わるので、この情報だけは内蔵せずに取得しています。</string>
     <string name="meta_retry">再試行</string>
     <string name="meta_open_source">公式ページを開く</string>
-    <string name="meta_credit">数値は Blizzard が overwatch.blizzard.com で公開しているものです。BANフェーズがあるのはコンペティティブのみなので、クイックプレイではBAN率はゼロになります。これらの情報は端末に保存されません。</string>
+    <string name="meta_credit">Blizzard が overwatch.blizzard.com で公開している数値です。ヒーローごとに1行、地域別だけの内訳です。先方のページにはマップ・ランク・キューの絞り込みがありますが、どれも同じ数字を返すため、このアプリでは何も変わらない操作を出すのをやめました。つまりマップ別の勝率も、編成別の勝率もありません。Blizzard はどちらも公開しておらず、単体の勝率を掛け合わせても数字を見つけるのではなく作り出すだけです。これらは端末に保存されません。</string>
     <string name="wiki_matchups">対面相性</string>
     <string name="wiki_matchups_note">このヒーローを使う側の視点でウィキが書いたものです。編集者が相性を評価している場合はその表現をそのまま表示しています。評価のない行はもともと評価されていないだけで、こちらで判定を推測してはいません。ポートレートをタップするとそのヒーローを開きます。</string>
     <string name="wiki_matchup_risk">リスク %1$s</string>
