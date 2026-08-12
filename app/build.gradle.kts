@@ -60,8 +60,8 @@ android {
         targetSdk = 35
         // Kept in step with the git tag the release is published under: the in-app
         // update prompt compares this against the newest tag on GitHub.
-        versionCode = 38
-        versionName = "1.9.1"
+        versionCode = 39
+        versionName = "1.9.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 

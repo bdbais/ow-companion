@@ -25,6 +25,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.sim.Breakpoints
+import com.bellizia.owcompanion.sim.Crosshair
+import com.bellizia.owcompanion.sim.SelfHeal
+import com.bellizia.owcompanion.sim.Simulator
 import com.bellizia.owcompanion.sim.Duel
 import com.bellizia.owcompanion.sim.WeaponModel
 import kotlinx.coroutines.Dispatchers
@@ -64,14 +67,28 @@ internal fun DuelView(state: LeaderboardUiState) {
 
     val weapon = attackers[attacker.coerceIn(attackers.indices)]
     val chosen = targets[target.coerceIn(targets.indices)]
-    // Position zero is nobody healing, which is the honest default: assuming a pocket
-    // Mercy would make every tank look immortal.
+    // What this hero can do for themselves comes first, because it is the case people
+    // actually ask about and it needs no choosing: a Mauga heals himself whether or not
+    // anyone is pocketing him. Its rate can depend on his own output, so that is worked out
+    // from his own best weapon rather than assumed.
+    val own = remember(chosen, state.weapons) {
+        val best = state.weapons
+            .filter { it.hero == chosen.name && it.name != "Quick Melee" }
+            .maxOfOrNull { spec ->
+                Simulator().simulateMean(WeaponModel(spec), Crosshair(0.0, 1.0, 1.0)).dps
+            } ?: 0.0
+        SelfHeal.forHero(chosen.name).map { it to SelfHeal.rateOf(it, best) }
+    }
+
+    // Then everybody else's. Position zero is nobody healing, which is the honest default:
+    // assuming a pocket Mercy would make every tank look immortal.
     val healers = state.healing
-    val healing = healers.getOrNull(healer - 1)
-    val defender = Duel.Defender(
-        target = chosen,
-        healingPerSecond = healing?.healingPerSecond ?: 0.0,
-    )
+    val healingPerSecond = when {
+        healer == 0 -> 0.0
+        healer <= own.size -> own[healer - 1].second
+        else -> healers.getOrNull(healer - own.size - 1)?.healingPerSecond ?: 0.0
+    }
+    val defender = Duel.Defender(target = chosen, healingPerSecond = healingPerSecond)
 
     // Off the main thread: resolving is one simulation, but the list of who could help is
     // one per weapon in the game, and that is a second of work on a slow phone.
@@ -122,7 +139,9 @@ internal fun DuelView(state: LeaderboardUiState) {
                     itemsIndexed(targets) { index, option ->
                         FilterChip(
                             selected = index == target,
-                            onClick = { target = index },
+                            // A different target has different self-heals, so a kept
+                            // index would silently point at somebody else's ability.
+                            onClick = { target = index; healer = 0 },
                             label = {
                                 Text("${option.name} · ${option.total}", style = MaterialTheme.typography.labelSmall)
                             },
@@ -140,10 +159,25 @@ internal fun DuelView(state: LeaderboardUiState) {
                             },
                         )
                     }
-                    itemsIndexed(healers) { index, option ->
+                    // Their own first, named after the ability, so it reads as a fact
+                    // about this hero rather than another support to pick from.
+                    itemsIndexed(own) { index, (heal, rate) ->
                         FilterChip(
                             selected = healer == index + 1,
                             onClick = { healer = index + 1 },
+                            label = {
+                                Text(
+                                    "${heal.ability} · ${rate.roundToInt()} hps",
+                                    style = MaterialTheme.typography.labelSmall,
+                                )
+                            },
+                        )
+                    }
+                    itemsIndexed(healers) { index, option ->
+                        val slot = own.size + index + 1
+                        FilterChip(
+                            selected = healer == slot,
+                            onClick = { healer = slot },
                             label = {
                                 Text(
                                     "${option.source.hero} · ${option.healingPerSecond.roundToInt()} hps",
