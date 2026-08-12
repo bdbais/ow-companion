@@ -351,4 +351,6 @@
     <string name="social_note">このアプリは一人で作っています。オーバーウォッチ 2 を遊び、配信もしています。このうちいくつかの部屋にはわたしがいます。ほかは何年も続いている公開の場所です。</string>
     <string name="social_search">部屋を検索</string>
     <string name="social_no_matches">その名前では見つかりません。検索を消すか、別のプラットフォームを選んでください。</string>
+    <string name="modifier_burning">燃えている対象</string>
+    <string name="chart_perks_note">パークは、その名前を付けた別の行として並びます。描かれるのは、どんな場合でも武器の数値を変えるものだけです。射程、弾速、弾の消費。戦いの運び方に左右されるものは、推測せずに省いてあります。</string>
 </resources>

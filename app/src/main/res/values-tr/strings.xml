@@ -351,4 +351,6 @@
     <string name="social_note">Bu uygulamayı tek bir kişi yapıyor; Overwatch 2 oynuyor ve yayınlıyor. Bu odalardan birkaçında beni bulursun; gerisi yıllardır ayakta olan herkese açık yerler.</string>
     <string name="social_search">Odalarda ara</string>
     <string name="social_no_matches">Bu adda bir şey yok. Aramayı temizleyin ya da başka bir platform seçin.</string>
+    <string name="modifier_burning">Yanan hedef</string>
+    <string name="chart_perks_note">Yetiler, adlarıyla ayrı satırlar olarak görünür. Yalnızca ne olursa olsun bir silahın sayılarını değiştirenler çizilir: menzil, mermi hızı, cephane maliyeti. Çatışmanın nasıl gittiğine bağlı olanlar tahmin edilmek yerine dışarıda bırakılır.</string>
 </resources>

@@ -178,7 +178,7 @@
       "dpsPeriodAdd": 0.0
     },
     "Anran|Fan the Flames": {
-      "_note": "The wiki calls it a beam, but 6 damage per pellet for 36 a shot is a projectile shotgun and behaves like one.",
+      "_note": "The wiki calls it a beam, but 6 damage per pellet for 36 a shot is a projectile shotgun and behaves like one. Reports 2 and 4. Against a burning target it goes from 36 a volley to 72, and lifts the burn itself from 10 a second to 20. The wiki's dps lines follow exactly: 60 while firing when the target is not alight, 140 when it is.",
       "type": "projectile shotgun",
       "pellets": [
         6.0
@@ -197,7 +197,9 @@
       "reloadTime": 1.5,
       "critFactor": 1.0,
       "dpsPeriodBase": 0.6,
-      "dpsPeriodAdd": 0.15
+      "dpsPeriodAdd": 0.15,
+      "burningFactor": 2.0,
+      "burnDps": 20.0
     },
     "Domina|Photon Magnum": {
       "_note": "One weapon, not two: a beam that culminates in a hitscan shot, costing 10 of 100 rounds per cycle. The wiki's own damage lines (60 over time plus a 60 shot) cannot be reconciled with its stated rate - 120 per cycle would be far more than 90 dps - so the stated figures win, as everywhere else. 60 per cycle at 1.5 cycles per second gives the 90 dps it states while firing, and 73 against its stated ~72 overall with reload.",
@@ -420,6 +422,14 @@
       "damage": {
         "maxRange": 15.0
       }
+    },
+    "Mauga|Incendiary Chaingun": {
+      "burnDps": 15.0,
+      "_note": "Report 4. Gunny ignites a target after ten hits and then burns it for 15 a second over four seconds, refreshed by continued fire. The wiki's own figures check this: 4 damage at 17.36 shots/s is 69.44 dps, and it lists 84.44 with the burn."
+    },
+    "Mauga|Volatile Chaingun": {
+      "burningFactor": 2.0,
+      "_note": "Report 2. Cha-Cha scores a critical hit on anything already alight, whatever it hits, which is a doubling. The wiki lists 138.88 for both guns on a non-burning target and 208.32 on a burning one."
     }
   },
   "add": {
@@ -449,6 +459,238 @@
       "critFactor": 1.0,
       "dpsPeriodBase": 0.25,
       "dpsPeriodAdd": 0.0
+    },
+    "Mauga|Both Chainguns": {
+      "_note": "Report 3. Mauga is played with both barrels down, and the chart only ever showed them one at a time. Firing together is not simply twice one gun: the wiki gives a separate falloff of 15-20 metres instead of 30-40, a spread of 4 degrees instead of 1, and the 300 rounds are shared so they drain twice as fast. Burning is worth half again rather than double, because only Cha-Cha crits on a lit target - (4 + 8) / 8 = 1.5 - and Gunny's 15 a second of fire is on top. All three of the wiki's own figures come back out: 138.88 on a cold target, 208.32 on a burning one, 223.32 with the burn counted.",
+      "mousebutton": null,
+      "type": "hitscan",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          8.0,
+          2.4
+        ],
+        "falloff": [
+          15.0,
+          20.0
+        ]
+      },
+      "spread": {
+        "angle": 4.0
+      },
+      "velocity": null,
+      "fireRate": 17.36,
+      "shotTime": 0.0576,
+      "ammo": 300.0,
+      "ammoUsage": 2.0,
+      "reloadTime": 2.0,
+      "critFactor": 2.0,
+      "burningFactor": 1.5,
+      "burnDps": 15.0
+    },
+    "Junker Queen|Quick Melee (blade in hand)": {
+      "_note": "Report 12. Her melee is two different attacks and the dataset recorded one. With the blade in hand it wounds for 15 over three seconds on top of the swing; the wiki is explicit that 'melee attacks while the blade is thrown do not apply a wound'. Swinging again refreshes the wound rather than stacking it, so at a swing a second the wound contributes its full 15 each time. 55 a swing is the honest figure for the state this row is named after.",
+      "baseWeapon": "Quick Melee",
+      "mousebutton": null,
+      "type": "melee",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          55.0
+        ],
+        "falloff": null,
+        "maxRange": 2.5
+      },
+      "spread": null,
+      "velocity": null,
+      "fireRate": 1.0,
+      "shotTime": 1.0,
+      "ammo": null,
+      "reloadTime": 0.0,
+      "critFactor": 1.0
+    },
+    "Jetpack Cat|Quick Melee (Claws Out)": {
+      "_note": "Report 12. The Claws Out perk makes one melee in every six seconds an empowered one, wounding for 40 on top of the 40 swing. It is a separate row rather than a change to her melee because it is not every swing: the rate here is the rate the empowered swing actually comes round at, which is what makes the number comparable to anything else on the chart. Ordinary swings in between are the Quick Melee row.",
+      "perk": "Claws Out",
+      "baseWeapon": "Quick Melee",
+      "mousebutton": null,
+      "type": "melee",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          80.0
+        ],
+        "falloff": null,
+        "maxRange": 2.5
+      },
+      "spread": null,
+      "velocity": null,
+      "fireRate": 0.16667,
+      "shotTime": 6.0,
+      "ammo": null,
+      "reloadTime": 0.0,
+      "critFactor": 1.0
+    },
+    "Symmetra|Photon Projector (Perfect Alignment)": {
+      "perk": "Perfect Alignment",
+      "baseWeapon": "Photon Projector",
+      "mousebutton": "M1",
+      "type": "beam",
+      "behavior": "photonProjector",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          3.0
+        ],
+        "falloff": null,
+        "maxRange": 14.4,
+        "dps": 60.0,
+        "dpsFactors": [
+          1.0,
+          2.0,
+          3.0
+        ],
+        "levelChargingTime": 1.33
+      },
+      "spread": null,
+      "velocity": null,
+      "fireRate": 20.0,
+      "shotTime": 0.05,
+      "ammo": 200.0,
+      "reloadTime": 1.5,
+      "critFactor": 1.0,
+      "dpsPeriodBase": 0.05,
+      "dpsPeriodAdd": 0.0075,
+      "tickRate": 20.0,
+      "ammoUsage": 10.0,
+      "_note": "Report 5. 'Increase the range of Photon Projector's primary fire by 20%' - a change to a number that applies whenever the perk is taken, with no condition attached, so it is one of the ones worth drawing. 12 metres becomes 14.4."
+    },
+    "Domina|Photon Magnum (Extended Power)": {
+      "perk": "Extended Power",
+      "baseWeapon": "Photon Magnum",
+      "mousebutton": "M1",
+      "type": "hitscan",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          60.0
+        ],
+        "falloff": null,
+        "maxRange": 30.0
+      },
+      "spread": null,
+      "velocity": null,
+      "fireRate": 1.5,
+      "shotTime": 0.8,
+      "ammo": 10.0,
+      "reloadTime": 1.5,
+      "critFactor": 1.5,
+      "dpsPeriodBase": 0.6667,
+      "dpsPeriodAdd": 0.075,
+      "_note": "Report 5. 'Increase the range of Photon Magnum by 20%'. 25 metres becomes 30."
+    },
+    "Roadhog|Scrap Gun Alt Fire (Shrapnel Launcher)": {
+      "perk": "Shrapnel Launcher",
+      "baseWeapon": "Scrap Gun Alt Fire",
+      "mousebutton": "M2",
+      "type": "projectile shotgun",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          162.504,
+          48.7512
+        ],
+        "falloff": [
+          45.0,
+          75.0
+        ]
+      },
+      "spread": {
+        "angle": 6.0
+      },
+      "velocity": 60.0,
+      "fireRate": 1.25,
+      "shotTime": 0.8,
+      "ammo": 6.0,
+      "reloadTime": 1.75,
+      "critFactor": 2.0,
+      "dpsPeriodBase": 0.8,
+      "dpsPeriodAdd": 0.2916666666666667,
+      "_note": "Report 5. 'Extend the range of Scrap Gun's secondary fire by 50% and tighten its burst spread by 25%'. Both apply unconditionally: the falloff window moves from 30-50 metres to 45-75, and the spread cone loses a quarter of its angle."
+    },
+    "Junkrat|Frag Launcher (Frag Cannon)": {
+      "perk": "Frag Cannon",
+      "baseWeapon": "Frag Launcher",
+      "mousebutton": "M1",
+      "type": "linear projectile",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          120.0
+        ],
+        "falloff": null
+      },
+      "spread": null,
+      "velocity": 37.5,
+      "fireRate": 1.5,
+      "shotTime": 0.6666666666666666,
+      "ammo": 5.0,
+      "reloadTime": 1.5,
+      "critFactor": 1.0,
+      "dpsPeriodBase": 0.6666666666666666,
+      "dpsPeriodAdd": 0.3,
+      "_note": "Report 5. 'Frag Launcher's projectile speed is increased by 25%'. 30 m/s becomes 37.5, which shortens the lead a moving target needs rather than changing the damage."
+    },
+    "Widowmaker|Widow's Kiss (ADS) (Scoped Efficiency)": {
+      "perk": "Scoped Efficiency",
+      "baseWeapon": "Widow's Kiss (ADS)",
+      "mousebutton": "M2",
+      "type": "hitscan",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          160.0,
+          80.0
+        ],
+        "falloff": [
+          50.0,
+          70.0
+        ]
+      },
+      "spread": null,
+      "velocity": null,
+      "fireRate": 0.5,
+      "shotTime": 2.0,
+      "ammo": 35.0,
+      "reloadTime": 1.5,
+      "critFactor": 2.0,
+      "dpsPeriodBase": 2.0,
+      "dpsPeriodAdd": 0.21428571428571427,
+      "_note": "Report 5. 'Scoped shots cost 3 ammo instead of 5'. The magazine holds 35 rounds, so a scoped Widowmaker goes from 7 shots between reloads to 11 - the damage is untouched and the reload is amortised over half again as many shots.",
+      "ammoUsage": 3.0
     }
   }
 }

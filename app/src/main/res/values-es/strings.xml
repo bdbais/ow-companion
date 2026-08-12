@@ -351,4 +351,6 @@
     <string name="social_note">Esta app la hace una sola persona, que juega a Overwatch 2 y lo retransmite. En algunas de estas salas me vas a encontrar; el resto son sitios públicos que llevan años ahí.</string>
     <string name="social_search">Buscar salas</string>
     <string name="social_no_matches">Nada con ese nombre. Borra la búsqueda o elige otra plataforma.</string>
+    <string name="modifier_burning">Objetivo en llamas</string>
+    <string name="chart_perks_note">Los vantajes aparecen como filas aparte, con su nombre. Solo se dibujan los que cambian los números de un arma pase lo que pase: un alcance, una velocidad de proyectil, un coste de munición. Los que dependen de que el combate salga de cierta manera se quedan fuera en vez de inventarlos.</string>
 </resources>

@@ -361,6 +361,16 @@
     <string name="about_report_open">OPEN</string>
     <string name="about_report_as_designed">AS RECORDED</string>
 
+    <string name="modifier_burning">Burning target</string>
+    <string name="chart_perks_note">Perks appear as separate rows, named after the perk. Only the ones that change a weapon\'s numbers whatever happens are drawn: a range, a projectile speed, an ammo cost. The ones that depend on the fight going a certain way, like landing two scoped shots in a row or catching an enemy below half health, are left out rather than guessed at.</string>
+
+    <!-- Ability names, shown as chips beside the other modifiers. -->
+    <string name="modifier_power_block" translatable="false">Power Block</string>
+    <string name="modifier_nemesis_block" translatable="false">Block</string>
+    <string name="modifier_spike_guard" translatable="false">Spike Guard</string>
+    <string name="modifier_overrun" translatable="false">Overrun</string>
+    <string name="modifier_cardiac" translatable="false">Cardiac Overdrive</string>
+
     <string name="social_title">Finding people to play with</string>
     <string name="social_note">This app is built by one person, who plays Overwatch 2 and streams it. In some of these rooms you will find me; the rest are public places that have been around for years.</string>
     <string name="social_search">Search the rooms</string>

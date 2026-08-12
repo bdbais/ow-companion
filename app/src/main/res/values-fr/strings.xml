@@ -351,4 +351,6 @@
     <string name="social_note">Cette application est faite par une seule personne, qui joue à Overwatch 2 et le diffuse. Dans certains de ces salons vous me trouverez ; les autres sont des lieux publics installés depuis des années.</string>
     <string name="social_search">Chercher un salon</string>
     <string name="social_no_matches">Rien à ce nom. Effacez la recherche ou choisissez une autre plateforme.</string>
+    <string name="modifier_burning">Cible en feu</string>
+    <string name="chart_perks_note">Les atouts apparaissent comme des lignes à part, sous leur nom. Seuls ceux qui changent les chiffres d\'une arme quoi qu\'il arrive sont tracés : une portée, une vitesse de projectile, un coût en munitions. Ceux qui dépendent de la tournure du combat sont écartés plutôt que devinés.</string>
 </resources>

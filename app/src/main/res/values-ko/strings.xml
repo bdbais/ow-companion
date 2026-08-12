@@ -351,4 +351,6 @@
     <string name="social_note">이 앱은 한 사람이 만듭니다. 오버워치 2를 하고 방송도 합니다. 이 가운데 몇 곳에는 제가 있습니다. 나머지는 몇 년째 자리를 지키는 공개된 곳들입니다.</string>
     <string name="social_search">방 검색</string>
     <string name="social_no_matches">그 이름으로는 없습니다. 검색어를 지우거나 다른 플랫폼을 골라 보세요.</string>
+    <string name="modifier_burning">불타는 대상</string>
+    <string name="chart_perks_note">특성은 그 이름을 단 별도의 행으로 나옵니다. 어떤 상황에서도 무기의 수치를 바꾸는 것만 그립니다. 사거리, 발사체 속도, 탄약 소모량. 교전이 어떻게 풀리느냐에 달린 것들은 추측하지 않고 빼두었습니다.</string>
 </resources>

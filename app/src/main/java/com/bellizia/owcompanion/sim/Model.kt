@@ -271,6 +271,22 @@ data class WeaponSpec(
     val dpsPeriodBase: Double? = null,
     /** Reload time amortised across the magazine. */
     val dpsPeriodAdd: Double? = null,
+    /**
+     * What this weapon's damage is multiplied by when the target is already burning.
+     *
+     * Two weapons have it. Mauga's Volatile Chaingun scores a critical hit on anything
+     * alight, and Anran's Fan the Flames goes from 36 to 72 a volley - both a doubling, and
+     * both stated as such on the wiki.
+     */
+    val burningFactor: Double? = null,
+    /**
+     * Damage per second this weapon adds through fire, once the target is alight.
+     *
+     * Mauga's Incendiary Chaingun ignites after ten hits and then burns for 15 a second;
+     * Anran's Fan the Flames amplifies a burn from 10 a second to 20. Sustained fire keeps
+     * refreshing it, so over a long enough burst it is simply added to the rate.
+     */
+    val burnDps: Double? = null,
     /** Fraction of the inter-shot gap a drawn shot may occupy. */
     val filling: Double? = null,
 ) {

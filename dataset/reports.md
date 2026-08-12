@@ -1,8 +1,26 @@
-# Reported by players, not yet fixed
+# Reported by players
 
-Eight reports from someone who plays the game, triaged against the data. Kept here rather
-than in a message so none of it is lost, and so each one records what was actually checked
-rather than what was assumed.
+Twelve reports from someone who plays the game, triaged against the data and now all dealt
+with: eleven fixed, one recorded as correct as it stood. Kept here rather than in a message
+so none of it is lost, and so each one records what was actually checked rather than what
+was assumed.
+
+The last six went out in 1.8.0. What they turned out to be, in short:
+
+- **1** was three defects, not one. The four missing blocks were missing, but the three
+  mitigations already there shared a single flat 50% - the Overwatch 1 figure - where the
+  wiki gives 45, 40 and 50. Nothing failed when that was corrected because nothing tested
+  it; there are now nine tests that do.
+- **2 and 4** were one mechanism. Both weapons' behaviour against a burning target is
+  stated on the wiki as finished damage-per-second figures, so the model either reproduces
+  them or it is wrong. It reproduces all four.
+- **3** did not need a new simulator concept, only an honest reading: firing both of
+  Mauga's guns is not twice one gun, because the wiki gives the pair its own falloff,
+  its own spread and a shared magazine.
+- **5** was answered by drawing the line the reporter drew, and saying on screen where it
+  is.
+- **12** was answered the way the app answers everything else: record both, name the
+  condition, let the reader choose.
 
 ---
 

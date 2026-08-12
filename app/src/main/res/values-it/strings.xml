@@ -372,4 +372,6 @@
     <string name="social_note">Quest\'app la fa una persona sola, che gioca a Overwatch 2 e lo trasmette in streaming. In alcune di queste stanze mi trovi; le altre sono posti pubblici che esistono da anni.</string>
     <string name="social_search">Cerca fra le stanze</string>
     <string name="social_no_matches">Niente con quel nome. Cancella la ricerca o scegli un\'altra piattaforma.</string>
+    <string name="modifier_burning">Bersaglio in fiamme</string>
+    <string name="chart_perks_note">I vantaggi compaiono come righe a parte, col nome del vantaggio. Vengono disegnati solo quelli che cambiano i numeri di un\'arma in ogni caso: una gittata, una velocità di proiettile, un costo in munizioni. Quelli che dipendono da come va lo scontro restano fuori invece che tirati a indovinare.</string>
 </resources>

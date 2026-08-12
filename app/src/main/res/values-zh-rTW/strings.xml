@@ -351,4 +351,6 @@
     <string name="social_note">這個應用由一個人做，他也在玩《鬥陣特攻 2》並做直播。其中幾個房間裡能找到他；其餘是存在多年的公開場所。</string>
     <string name="social_search">搜尋房間</string>
     <string name="social_no_matches">沒有這個名字的房間。清空搜尋，或換一個平台。</string>
+    <string name="modifier_burning">燃燒中的目標</string>
+    <string name="chart_perks_note">天賦會以單獨的列出現，用天賦名標注。只畫那些無論如何都會改變武器數值的：射程、彈速、彈藥消耗。那些取決於戰鬥怎麼打的，寧可不畫也不猜。</string>
 </resources>

@@ -351,4 +351,6 @@
     <string name="social_note">يصنع هذا التطبيق شخص واحد، يلعب Overwatch 2 وينقله مباشرة. في بعض هذه الغرف ستجدني؛ وما تبقّى أماكن عامة قائمة منذ سنوات.</string>
     <string name="social_search">ابحث في الغرف</string>
     <string name="social_no_matches">لا شيء بهذا الاسم. امسح البحث أو اختر منصّة أخرى.</string>
+    <string name="modifier_burning">هدف مشتعل</string>
+    <string name="chart_perks_note">تظهر المزايا كصفوف منفصلة، باسم الميزة. ولا يُرسم منها إلا ما يغيّر أرقام السلاح مهما جرى: مدى، أو سرعة قذيفة، أو تكلفة ذخيرة. أما ما يتوقف على مجرى المعركة فمتروك بدل تخمينه.</string>
 </resources>

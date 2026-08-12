@@ -351,4 +351,6 @@
     <string name="social_note">这个应用由一个人做，他也在玩《守望先锋 2》并做直播。其中几个房间里能找到他；其余是存在多年的公开场所。</string>
     <string name="social_search">搜索房间</string>
     <string name="social_no_matches">没有这个名字的房间。清空搜索，或换一个平台。</string>
+    <string name="modifier_burning">燃烧中的目标</string>
+    <string name="chart_perks_note">天赋会以单独的行出现，用天赋名标注。只画那些无论如何都会改变武器数值的：射程、弹速、弹药消耗。那些取决于战斗怎么打的，宁可不画也不猜。</string>
 </resources>

@@ -273,8 +273,12 @@ class Simulator(
             return accountPhotonProjector(model, shots, outcomes, basicDamage, pellets, modifiers)
         }
 
+        // A target already alight takes more from the two weapons built around that, and
+        // nothing at all from the rest.
+        val burning =
+            if (modifiers.burning) model.spec.burningFactor ?: 1.0 else 1.0
         val amplification =
-            if (model.isBeamOrMelee) modifiers.factorMeleeBeam else modifiers.factor
+            (if (model.isBeamOrMelee) modifiers.factorMeleeBeam else modifiers.factor) * burning
         val hitDamage = modifiers.applyArmor(basicDamage * amplification, model.isBeam)
         val critDamage = modifiers.applyArmor(basicDamage * amplification * model.critFactor, model.isBeam)
 
@@ -302,7 +306,11 @@ class Simulator(
         val elapsed = last.time + (last.duration ?: 0.0)
         val meanDamage =
             (hitDamage * outcomes.hit + critDamage * outcomes.crit) * pellets * model.segmentsFactor
-        val dps = meanDamage / (model.dpsPeriodBase + model.dpsPeriodAdd)
+        // Fire keeps burning between shots, so it is a rate rather than a per-shot amount:
+        // it is added to the result instead of to the damage of each round. Only counted
+        // when the target is alight, which is what the modifier says.
+        val burn = if (modifiers.burning) model.spec.burnDps ?: 0.0 else 0.0
+        val dps = meanDamage / (model.dpsPeriodBase + model.dpsPeriodAdd) + burn
 
         return ShotTrain(
             weapon = model.spec,
@@ -312,7 +320,7 @@ class Simulator(
             critDamage = critDamage,
             pellets = pellets,
             dps = dps,
-            dpsWithoutReload = meanDamage / model.dpsPeriodBase,
+            dpsWithoutReload = meanDamage / model.dpsPeriodBase + burn,
             dpsRaw = totalDamage / elapsed,
             accuracy = if (totalDamage > 0) outcomes.hit + outcomes.crit else 0.0,
             critAccuracy = if (totalDamage > 0) outcomes.crit else 0.0,

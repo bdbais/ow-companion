@@ -351,4 +351,6 @@
     <string name="social_note">Este app é feito por uma pessoa só, que joga Overwatch 2 e transmite. Em algumas destas salas você me acha; o resto são lugares públicos que existem há anos.</string>
     <string name="social_search">Buscar salas</string>
     <string name="social_no_matches">Nada com esse nome. Limpe a busca ou escolha outra plataforma.</string>
+    <string name="modifier_burning">Alvo em chamas</string>
+    <string name="chart_perks_note">As vantagens aparecem como linhas separadas, com o nome delas. Só entram as que mudam os números de uma arma aconteça o que acontecer: um alcance, uma velocidade de projétil, um custo de munição. As que dependem de o combate sair de certo jeito ficam de fora em vez de serem chutadas.</string>
 </resources>

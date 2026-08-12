@@ -88,6 +88,16 @@ private val ModifierToggles = listOf(
     ModifierToggle(R.string.modifier_amplification_matrix, { it.amplificationMatrix }, { m, v -> m.copy(amplificationMatrix = v) }),
     ModifierToggle(R.string.modifier_fortify, { it.fortify }, { m, v -> m.copy(fortify = v) }),
     ModifierToggle(R.string.modifier_breather, { it.takeABreather }, { m, v -> m.copy(takeABreather = v) }),
+    // The blocks the tanks hold up. They were missing entirely, which flattered every
+    // weapon on the chart against the four heroes who spend a fight behind one.
+    ModifierToggle(R.string.modifier_power_block, { it.powerBlock }, { m, v -> m.copy(powerBlock = v) }),
+    ModifierToggle(R.string.modifier_nemesis_block, { it.nemesisBlock }, { m, v -> m.copy(nemesisBlock = v) }),
+    ModifierToggle(R.string.modifier_spike_guard, { it.spikeGuard }, { m, v -> m.copy(spikeGuard = v) }),
+    ModifierToggle(R.string.modifier_overrun, { it.overrun }, { m, v -> m.copy(overrun = v) }),
+    ModifierToggle(R.string.modifier_cardiac, { it.cardiacOverdrive }, { m, v -> m.copy(cardiacOverdrive = v) }),
+    // A state of the target rather than a buff on the shooter, which is why it sits with
+    // the modifiers instead of inside the two weapons that care about it.
+    ModifierToggle(R.string.modifier_burning, { it.burning }, { m, v -> m.copy(burning = v) }),
     ModifierToggle(R.string.modifier_kitsune_rush, { it.kitsuneRush }, { m, v -> m.copy(kitsuneRush = v) }),
 )
 
@@ -381,6 +391,16 @@ private fun ControlPanel(
                     )
                 }
             }
+
+            // Perked weapons appear as their own rows, named after the perk. Saying which
+            // ones are here matters as much as drawing them: a chart that quietly modelled
+            // half the perks would be less trustworthy than one that modelled none.
+            Text(
+                text = stringResource(R.string.chart_perks_note),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 10.dp),
+            )
         }
     }
 }

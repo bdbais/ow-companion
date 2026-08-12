@@ -351,4 +351,6 @@
     <string name="social_note">Den här appen görs av en enda person, som spelar Overwatch 2 och strömmar det. I några av rummen hittar du mig; resten är öppna platser som funnits i åratal.</string>
     <string name="social_search">Sök bland rummen</string>
     <string name="social_no_matches">Inget med det namnet. Rensa sökningen eller välj en annan plattform.</string>
+    <string name="modifier_burning">Brinnande mål</string>
+    <string name="chart_perks_note">Perks står som egna rader, uppkallade efter perken. Bara de som ändrar ett vapens siffror vad som än händer ritas: en räckvidd, en projektilhastighet, en ammunitionskostnad. De som beror på hur striden går lämnas utanför i stället för att gissas.</string>
 </resources>

@@ -1022,7 +1022,9 @@
    "reloadTime": 1.5,
    "critFactor": 1.0,
    "dpsPeriodBase": 0.6,
-   "dpsPeriodAdd": 0.15
+   "dpsPeriodAdd": 0.15,
+   "burningFactor": 2.0,
+   "burnDps": 20.0
   },
   {
    "name": "The Viper",
@@ -1961,7 +1963,8 @@
    "reloadTime": 2.0,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.0576036866359447,
-   "dpsPeriodAdd": 0.006666666666666667
+   "dpsPeriodAdd": 0.006666666666666667,
+   "burnDps": 15.0
   },
   {
    "name": "Volatile Chaingun",
@@ -1995,7 +1998,8 @@
    "reloadTime": 2.0,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.0576036866359447,
-   "dpsPeriodAdd": 0.006666666666666667
+   "dpsPeriodAdd": 0.006666666666666667,
+   "burningFactor": 2.0
   },
   {
    "name": "Endothermic Blaster",
@@ -3238,6 +3242,246 @@
    "dpsPeriodAdd": 0.0,
    "hero": "Torbjörn",
    "name": "Deploy Turret (Overloaded)"
+  },
+  {
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     8.0,
+     2.4
+    ],
+    "falloff": [
+     15.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 4.0
+   },
+   "velocity": null,
+   "fireRate": 17.36,
+   "shotTime": 0.0576,
+   "ammo": 300.0,
+   "ammoUsage": 2.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "burningFactor": 1.5,
+   "burnDps": 15.0,
+   "hero": "Mauga",
+   "name": "Both Chainguns"
+  },
+  {
+   "baseWeapon": "Quick Melee",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     55.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "hero": "Junker Queen",
+   "name": "Quick Melee (blade in hand)"
+  },
+  {
+   "perk": "Claws Out",
+   "baseWeapon": "Quick Melee",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     80.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.16667,
+   "shotTime": 6.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "hero": "Jetpack Cat",
+   "name": "Quick Melee (Claws Out)"
+  },
+  {
+   "perk": "Perfect Alignment",
+   "baseWeapon": "Photon Projector",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "photonProjector",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     3.0
+    ],
+    "falloff": null,
+    "maxRange": 14.4,
+    "dps": 60.0,
+    "dpsFactors": [
+     1.0,
+     2.0,
+     3.0
+    ],
+    "levelChargingTime": 1.33
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 200.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0075,
+   "tickRate": 20.0,
+   "ammoUsage": 10.0,
+   "hero": "Symmetra",
+   "name": "Photon Projector (Perfect Alignment)"
+  },
+  {
+   "perk": "Extended Power",
+   "baseWeapon": "Photon Magnum",
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null,
+    "maxRange": 30.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.5,
+   "shotTime": 0.8,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.5,
+   "dpsPeriodBase": 0.6667,
+   "dpsPeriodAdd": 0.075,
+   "hero": "Domina",
+   "name": "Photon Magnum (Extended Power)"
+  },
+  {
+   "perk": "Shrapnel Launcher",
+   "baseWeapon": "Scrap Gun Alt Fire",
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     162.504,
+     48.7512
+    ],
+    "falloff": [
+     45.0,
+     75.0
+    ]
+   },
+   "spread": {
+    "angle": 6.0
+   },
+   "velocity": 60.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.2916666666666667,
+   "hero": "Roadhog",
+   "name": "Scrap Gun Alt Fire (Shrapnel Launcher)"
+  },
+  {
+   "perk": "Frag Cannon",
+   "baseWeapon": "Frag Launcher",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     120.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 37.5,
+   "fireRate": 1.5,
+   "shotTime": 0.6666666666666666,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodAdd": 0.3,
+   "hero": "Junkrat",
+   "name": "Frag Launcher (Frag Cannon)"
+  },
+  {
+   "perk": "Scoped Efficiency",
+   "baseWeapon": "Widow's Kiss (ADS)",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     160.0,
+     80.0
+    ],
+    "falloff": [
+     50.0,
+     70.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.5,
+   "shotTime": 2.0,
+   "ammo": 35.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 2.0,
+   "dpsPeriodAdd": 0.21428571428571427,
+   "ammoUsage": 3.0,
+   "hero": "Widowmaker",
+   "name": "Widow's Kiss (ADS) (Scoped Efficiency)"
   },
   {
    "name": "Quick Melee",
