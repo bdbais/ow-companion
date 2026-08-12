@@ -54,6 +54,15 @@ class WeaponModel(
      * grenade burn faster.
      */
     val speedFactor: Double = 1.0,
+    /**
+     * How wound up the weapon is, 0 to 1, for the few that fire differently when charged.
+     *
+     * It belongs on the model rather than on each call because it changes the firing cycle,
+     * not just the damage: a half-charged orb leaves the barrel sooner than a full one, and
+     * the drawn shots, the ammo arithmetic and the damage per second all have to agree
+     * about that. Weapons that do not care ignore it.
+     */
+    val charge: Double = 0.0,
 ) {
 
     val isBeam: Boolean = spec.type == "beam"
@@ -64,12 +73,36 @@ class WeaponModel(
     /** Magazine size; infinite for weapons that never reload. */
     val magazine: Double = spec.ammo ?: Double.POSITIVE_INFINITY
 
+    /** Rounds one shot spends, which for a charged weapon grows with the charge. */
+    private val ammoPerShot: Double = run {
+        val ramp = spec.chargeAmmoUsage
+        if (ramp != null && ramp.size >= 2) {
+            ramp[0] + (ramp[1] - ramp[0]) * charge.coerceIn(0.0, 1.0)
+        } else {
+            spec.ammoUsage ?: 1.0
+        }
+    }
+
+    /** How many shots a full magazine is worth at this charge. */
+    private val shotsPerMagazine: Double =
+        if (magazine.isInfinite()) Double.POSITIVE_INFINITY
+        else (magazine / ammoPerShot).coerceAtLeast(1.0)
+
     // Unscaled values first, so each derived timing is divided by the speed factor exactly
     // once rather than inheriting a division from whatever it was derived from.
-    private val baseShotTime: Double = spec.shotTime ?: (1.0 / (spec.fireRate ?: 1.0))
+    private val baseShotTime: Double = run {
+        val ramp = spec.chargeShotTime
+        if (ramp != null && ramp.size >= 2) {
+            ramp[0] + (ramp[1] - ramp[0]) * charge.coerceIn(0.0, 1.0)
+        } else {
+            spec.shotTime ?: (1.0 / (spec.fireRate ?: 1.0))
+        }
+    }
     private val baseReloadTime: Double = spec.reloadTime ?: 0.0
 
-    val fireRate: Double = (spec.fireRate ?: 0.0) * speedFactor
+    val fireRate: Double =
+        if (spec.chargeShotTime != null) speedFactor / baseShotTime
+        else (spec.fireRate ?: 0.0) * speedFactor
     val shotTime: Double = baseShotTime / speedFactor
     val reloadTime: Double = baseReloadTime / speedFactor
     val chargeDelay: Double = (spec.chargeDelay ?: 0.0) / speedFactor
@@ -81,16 +114,21 @@ class WeaponModel(
     /** Damage-over-time weapons apply their per-shot damage this many times. */
     val segmentsFactor: Double = spec.damage.segments ?: 1.0
 
+    // A weapon whose cycle depends on charge cannot use the periods recorded in the
+    // dataset: those describe one charge level, and here the level is a setting. They are
+    // derived from the charge-adjusted shot time instead.
+    private val chargeDriven: Boolean = spec.chargeShotTime != null
+
     /** Seconds of the firing cycle one shot accounts for, ignoring reload. */
     val dpsPeriodBase: Double = (
-        spec.dpsPeriodBase
+        spec.dpsPeriodBase.takeUnless { chargeDriven }
             ?: (if (spec.burst != null) baseShotTime / spec.burst.ammo else baseShotTime)
         ) / speedFactor
 
     /** Reload time amortised over the magazine. */
     val dpsPeriodAdd: Double = (
-        spec.dpsPeriodAdd
-            ?: (if (magazine.isInfinite()) 0.0 else baseReloadTime / magazine)
+        spec.dpsPeriodAdd.takeUnless { chargeDriven }
+            ?: (if (magazine.isInfinite()) 0.0 else baseReloadTime / shotsPerMagazine)
         ) / speedFactor
 
     internal val accounting: DamageAccounting = when {
@@ -134,7 +172,13 @@ class WeaponModel(
             if (range != null && range.size >= 2) {
                 val scaled = range[0] + (range[1] - range[0]) * charge.coerceIn(0.0, 1.0)
                 val maxRange = spec.damage.maxRange
-                return if (maxRange != null && distance > maxRange) 0.0 else scaled
+                if (maxRange != null && distance > maxRange) return 0.0
+                // A weapon can be both charged and subject to falloff: Sojourn's railgun
+                // scales with stored energy and still halves between 40 and 60 metres.
+                // Charge sets the shot's power, distance then takes its share of it.
+                val ramp = falloffRamp ?: return scaled
+                val atMuzzle = ramp.at(0.0)
+                return if (atMuzzle <= 0.0) scaled else scaled * ramp.at(distance) / atMuzzle
             }
         }
         val energy = charge.coerceIn(0.0, 1.0) * 100.0

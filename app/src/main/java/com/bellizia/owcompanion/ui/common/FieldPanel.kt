@@ -40,6 +40,12 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.graphics.FilterQuality
+import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
+import kotlin.math.roundToInt
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
@@ -235,8 +241,39 @@ private fun Mono(
     )
 }
 
+/**
+ * Draws a named piece of the sheet centred on a point, at a height in field units.
+ *
+ * Width follows the piece's own proportions, so nothing is stretched. Pixel art is drawn
+ * with [FilterQuality.None] - smoothing it would turn deliberate blocks into mush.
+ */
+private fun DrawScope.piece(
+    art: FieldArt?,
+    name: String,
+    centreX: Float,
+    centreY: Float,
+    height: Float,
+    alpha: Float = 1f,
+) {
+    val box = art?.get(name) ?: return
+    val width = height * box.width / box.height
+    drawImage(
+        image = art.sheet,
+        srcOffset = box.offset,
+        srcSize = box.size,
+        dstOffset = IntOffset(
+            (centreX - width / 2f).roundToInt(),
+            (centreY - height / 2f).roundToInt(),
+        ),
+        dstSize = IntSize(width.roundToInt().coerceAtLeast(1), height.roundToInt().coerceAtLeast(1)),
+        alpha = alpha,
+        filterQuality = FilterQuality.None,
+    )
+}
+
 @Composable
 private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifier) {
+    val art = FieldArt.load(LocalContext.current)
     Canvas(modifier = modifier) {
         // Height sets the pace, so the width follows whatever space there actually is.
         model.reshape((FIELD_H * size.width / size.height).coerceIn(60f, 320f), FIELD_H)
@@ -272,77 +309,122 @@ private fun Playfield(model: FieldModel, frame: Int, modifier: Modifier = Modifi
             )
         }
 
-        for (ripple in model.ripples) {
-            val grow = ripple.age / 0.45f
-            drawCircle(
-                color = Color(0xFFDFFFC2).copy(alpha = (1f - grow).coerceIn(0f, 1f)),
-                radius = ripple.radius * grow * scale,
-                center = Offset(px(ripple.x), py(ripple.y)),
-            )
-        }
-
-        for (marker in model.markers) {
-            val tint = if (marker.heavy) HEAVY_TINT else MARKER_TINT
-            val shade = if (marker.flash > 0f) Color.White else tint
-            val side = marker.radius * scale
-            drawRect(
-                color = shade,
-                topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 0.7f),
-                size = Size(side * 2, side * 1.4f),
-            )
-            drawRect(
-                color = shade.copy(alpha = 0.75f),
-                topLeft = Offset(px(marker.x) - side * 0.5f, py(marker.y) + side * 0.7f),
-                size = Size(side, side * 0.5f),
-            )
-            if (marker.heavy) {
-                val width = side * 2
-                drawRect(
-                    color = Color(0xFF12401F),
-                    topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 1.5f),
-                    size = Size(width, scale * 1.6f),
+        // A burst grows and fades. Two drawings rather than one: the big fireball for the
+        // wide ones, which are a machine coming apart, and the small one for a hit.
+        // Everything that moves is clipped to the screen, so a machine flying in from
+        // above is cut off by the frame the way it would be in a cabinet rather than
+        // drawn over the border and out into the room.
+        clipRect(px(0f), py(0f), px(width), py(height)) {
+            for (ripple in model.ripples) {
+                val grow = (ripple.age / 0.45f).coerceIn(0f, 1f)
+                val fade = 1f - grow
+                val name = if (ripple.radius > 6f) "blast" else "burst"
+                piece(
+                    art = art,
+                    name = name,
+                    centreX = px(ripple.x),
+                    centreY = py(ripple.y),
+                    height = ripple.radius * scale * (1.4f + grow),
+                    alpha = fade,
                 )
+                if (art == null) {
+                    drawCircle(
+                        color = Color(0xFFDFFFC2).copy(alpha = fade),
+                        radius = ripple.radius * grow * scale,
+                        center = Offset(px(ripple.x), py(ripple.y)),
+                    )
+                }
+            }
+
+            for (marker in model.markers) {
+                val tint = if (marker.heavy) HEAVY_TINT else MARKER_TINT
+                val shade = if (marker.flash > 0f) Color.White else tint
+                val side = marker.radius * scale
+                // The heavy is always the same machine, whatever level it turns up on. An
+                // earlier version picked its drawing from its health, which meant it changed
+                // shape between levels for no reason a player could see.
+                //
+                // The lesser ones come in two shapes, alternated by where they entered, so a
+                // wave looks like a wave rather than one thing printed nine times. It is stable
+                // per enemy: nothing flickers between frames.
+                val name = when {
+                    marker.heavy -> "boss"
+                    marker.x.toInt() % 2 == 0 -> "drone"
+                    else -> "fighter"
+                }
+                val drawn = if (marker.heavy) side * 2.6f else side * 3.6f
+                if (art != null) {
+                    piece(art, name, px(marker.x), py(marker.y), drawn)
+                    // A hit reads as a white flash over the drawing, which is how the arcade
+                    // machines this borrows from did it.
+                    if (marker.flash > 0f) {
+                        piece(art, name, px(marker.x), py(marker.y), drawn, alpha = 0.75f)
+                    }
+                } else {
+                    drawRect(
+                        color = shade,
+                        topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 0.7f),
+                        size = Size(side * 2, side * 1.4f),
+                    )
+                }
+                if (marker.heavy) {
+                    val width = side * 2
+                    drawRect(
+                        color = Color(0xFF12401F),
+                        topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 1.5f),
+                        size = Size(width, scale * 1.6f),
+                    )
+                    drawRect(
+                        color = Color(0xFFFFFFFF),
+                        topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 1.5f),
+                        size = Size(width * marker.health / marker.maxHealth.toFloat(), scale * 1.6f),
+                    )
+                }
+            }
+
+            for (mote in model.motes) {
+                val tint = when (mote.kind) {
+                    Trace.Primary -> PRIMARY_TINT
+                    Trace.Secondary -> SECONDARY_TINT
+                    Trace.Incoming -> INCOMING_TINT
+                }
                 drawRect(
-                    color = Color(0xFFFFFFFF),
-                    topLeft = Offset(px(marker.x) - side, py(marker.y) - side * 1.5f),
-                    size = Size(width * marker.health / marker.maxHealth.toFloat(), scale * 1.6f),
+                    color = tint,
+                    topLeft = Offset(px(mote.x) - mote.radius * scale, py(mote.y) - mote.radius * scale * 1.6f),
+                    size = Size(mote.radius * 2 * scale, mote.radius * 3.2f * scale),
                 )
             }
-        }
 
-        for (mote in model.motes) {
-            val tint = when (mote.kind) {
-                Trace.Primary -> PRIMARY_TINT
-                Trace.Secondary -> SECONDARY_TINT
-                Trace.Incoming -> INCOMING_TINT
-            }
-            drawRect(
-                color = tint,
-                topLeft = Offset(px(mote.x) - mote.radius * scale, py(mote.y) - mote.radius * scale * 1.6f),
-                size = Size(mote.radius * 2 * scale, mote.radius * 3.2f * scale),
-            )
-        }
-
-        if (!model.flickering()) {
-            val x = px(model.ownX)
-            val y = py(model.ownY)
-            if (model.form == Form.Pilot) {
-                // Smaller, with the drone's rotors either side of her.
-                val unit = scale * 0.9f
-                drawRect(OWN_TINT, Offset(x - unit, y - unit * 1.5f), Size(unit * 2, unit * 3))
-                drawRect(OWN_TRIM, Offset(x - unit * 0.5f, y - unit * 2.5f), Size(unit, unit))
-                drawRect(ACCENT, Offset(x - unit * 3, y - unit), Size(unit * 1.6f, unit * 0.7f))
-                drawRect(ACCENT, Offset(x + unit * 1.4f, y - unit), Size(unit * 1.6f, unit * 0.7f))
-            } else {
-                val unit = scale * 1.4f
-                drawRect(OWN_TINT, Offset(x - unit * 3, y - unit), Size(unit * 6, unit * 3))
-                drawRect(OWN_TRIM, Offset(x - unit, y - unit * 3), Size(unit * 2, unit * 2))
-                drawRect(
-                    OWN_TINT, Offset(x - unit * 4.5f, y - unit * 0.5f), Size(unit * 1.5f, unit * 3),
-                )
-                drawRect(
-                    OWN_TINT, Offset(x + unit * 3, y - unit * 0.5f), Size(unit * 1.5f, unit * 3),
-                )
+            if (!model.flickering()) {
+                val x = px(model.ownX)
+                val y = py(model.ownY)
+                if (art != null) {
+                    // Losing the machine is drawn as the sequence it is: the moment before, the
+                    // pilot leaving, then her on the little drone. The middle one only shows for
+                    // the second the game gives you to press the button.
+                    when (model.form) {
+                        Form.Pilot -> piece(art, "flier", x, y, scale * 9f)
+                        Form.Ejecting -> piece(art, "eject_2", x, y, scale * 14f)
+                        Form.Suit -> piece(art, "ship", x, y, scale * 12f)
+                    }
+                } else if (model.form == Form.Pilot) {
+                    // Smaller, with the drone's rotors either side of her.
+                    val unit = scale * 0.9f
+                    drawRect(OWN_TINT, Offset(x - unit, y - unit * 1.5f), Size(unit * 2, unit * 3))
+                    drawRect(OWN_TRIM, Offset(x - unit * 0.5f, y - unit * 2.5f), Size(unit, unit))
+                    drawRect(ACCENT, Offset(x - unit * 3, y - unit), Size(unit * 1.6f, unit * 0.7f))
+                    drawRect(ACCENT, Offset(x + unit * 1.4f, y - unit), Size(unit * 1.6f, unit * 0.7f))
+                } else {
+                    val unit = scale * 1.4f
+                    drawRect(OWN_TINT, Offset(x - unit * 3, y - unit), Size(unit * 6, unit * 3))
+                    drawRect(OWN_TRIM, Offset(x - unit, y - unit * 3), Size(unit * 2, unit * 2))
+                    drawRect(
+                        OWN_TINT, Offset(x - unit * 4.5f, y - unit * 0.5f), Size(unit * 1.5f, unit * 3),
+                    )
+                    drawRect(
+                        OWN_TINT, Offset(x + unit * 3, y - unit * 0.5f), Size(unit * 1.5f, unit * 3),
+                    )
+                }
             }
         }
     }

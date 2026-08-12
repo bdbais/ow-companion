@@ -73,7 +73,7 @@ internal fun SegmentPanel(onDismiss: () -> Unit) {
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        confirmButton = { TextButton(onClick = onDismiss) { Text("Close") } },
+        confirmButton = { TextButton(onClick = onDismiss) { Text("닫기") } },
         dismissButton = {
             if (step == Step.Expired) {
                 TextButton(
@@ -82,17 +82,17 @@ internal fun SegmentPanel(onDismiss: () -> Unit) {
                         remaining = LIMIT_SECONDS
                         step = Step.Filling
                     },
-                ) { Text("Again") }
+                ) { Text("다시") }
             }
         },
-        title = { Text("Fill it in") },
+        title = { Text("채워 넣기") },
         text = {
             Column {
                 Text(
                     text = if (step == Step.Expired) {
-                        "Out of time. The pieces are still there."
+                        "시간이 지났습니다. 조각은 그대로 있습니다."
                     } else {
-                        "Tap all nine pieces within $LIMIT_SECONDS seconds."
+                        "${LIMIT_SECONDS}초 안에 아홉 조각을 모두 누르세요."
                     },
                     style = MaterialTheme.typography.bodySmall,
                 )

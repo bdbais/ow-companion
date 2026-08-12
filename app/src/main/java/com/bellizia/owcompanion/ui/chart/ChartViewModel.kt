@@ -29,15 +29,17 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
     private var weaponSet: WeaponSet? = null
     private var recomputeJob: Job? = null
 
-    // Rate-of-fire buffs are baked into the weapon's timing, so the models have to be
-    // rebuilt when one is toggled. Cheap enough to redo, worth caching between recomputes.
-    private var modelCache: Pair<Double, Map<String, WeaponModel>>? = null
+    // Rate-of-fire buffs are baked into the weapon's timing, and so is the charge for the
+    // few weapons that fire differently when wound up, so the models have to be rebuilt
+    // when either changes. Cheap enough to redo, worth caching between recomputes.
+    private var modelCache: Pair<Pair<Double, Double>, Map<String, WeaponModel>>? = null
 
-    private fun modelsFor(speedFactor: Double): Map<String, WeaponModel> {
-        modelCache?.let { (cachedFactor, cached) -> if (cachedFactor == speedFactor) return cached }
+    private fun modelsFor(speedFactor: Double, charge: Double): Map<String, WeaponModel> {
+        val key = speedFactor to charge
+        modelCache?.let { (cachedKey, cached) -> if (cachedKey == key) return cached }
         val set = weaponSet ?: return emptyMap()
-        val built = set.weapons.associate { it.id to WeaponModel(it, speedFactor) }
-        modelCache = speedFactor to built
+        val built = set.weapons.associate { it.id to WeaponModel(it, speedFactor, charge) }
+        modelCache = key to built
         return built
     }
 
@@ -116,7 +118,7 @@ class ChartViewModel(application: Application) : AndroidViewModel(application) {
             z = state.aimZ.toDouble(),
             distance = state.distance.toDouble(),
         )
-        val models = modelsFor(state.modifiers.attackSpeedFactor)
+        val models = modelsFor(state.modifiers.attackSpeedFactor, state.energy.toDouble() / 100.0)
         val cached = cacheFor(SimInputs(state))
 
         val visible = set.weapons.filter { spec ->

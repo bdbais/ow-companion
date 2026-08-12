@@ -237,8 +237,25 @@ data class WeaponSpec(
     val velocity: Double? = null,
     val fireRate: Double? = null,
     val shotTime: Double? = null,
+    /**
+     * `[atMinimumCharge, atFullCharge]` seconds per shot, for a weapon that takes longer to
+     * fire the more it is wound up.
+     *
+     * Symmetra's alt fire is the case that needed it: 0.256 s between uncharged orbs and
+     * 1.25 s between full ones. Recording only the second made the chart show her weakest
+     * orb fired at her slowest rate, which is neither of the two things she can do.
+     */
+    val chargeShotTime: List<Double>? = null,
     val tickRate: Double? = null,
     val ammoUsage: Double? = null,
+    /**
+     * `[atMinimumCharge, atFullCharge]` rounds spent per shot.
+     *
+     * Symmetra's alt fire drains 1 of its 100 ammo uncharged and 10 fully charged, so the
+     * magazine is a hundred quick orbs or ten heavy ones. Storing only the ten made the
+     * uncharged orb reload ten times too often.
+     */
+    val chargeAmmoUsage: List<Double>? = null,
     /** Magazine size; `null` means unlimited. */
     val ammo: Double? = null,
     val reloadTime: Double? = null,

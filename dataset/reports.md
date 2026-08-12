@@ -56,7 +56,7 @@ The conditional ones are not, and shipping half of them silently would make the 
 trustworthy rather than more. If this is done, the perks modelled must be named on screen
 and the rest listed as excluded - the same treatment ultimates already get.
 
-## 6. Sojourn's charged shot fires far too often
+## 6. Sojourn's charged shot fires far too often — fixed in 1.7.9
 
 It behaves as though her ultimate were permanently active.
 
@@ -64,13 +64,36 @@ It behaves as though her ultimate were permanently active.
 rather than in the model.** Her railgun charges from primary fire hits; if the spec carries
 the ultimate's rate as the base rate, the chart will show exactly this.
 
-The reporter's suggested fix is right and is the same shape as 3: a combined view that
-fires primary until charge reaches 100, spends it, and repeats.
+**What it turned out to be.** The 0.64 seconds in the dataset is the *recovery* after the
+shot, recorded as though it were a rate. Nothing gated it, so the chart fired a 120 damage
+railgun round six times in four seconds, forever.
 
-## 7. Symmetra fires her secondary at zero charge
+The energy has to come from somewhere, and the wiki says where: 5 per body hit from the
+primary, 100 for a full charge. Twenty hits from a 16 shot/s railgun is 1.25 s, and the
+0.64 s recovery follows, so 1.89 s is the fastest a charged shot can be repeated - and that
+assumes every single primary round lands on a body. The damage now scales with the charge
+the way the wiki describes it, 1 per point of energy over a base of 20, so 21 at one point
+and 120 at a hundred. Falloff still applies on top: a charged weapon that also falls off
+was not something the simulator could express before.
+
+The reporter's fuller suggestion - a combined view that fires primary until the charge
+fills, spends it, and repeats - is still the right end state, and is the same shape as 3.
+
+## 7. Symmetra fires her secondary at zero charge — fixed in 1.7.9
 
 **Assessment: likely the same class of defect as 6** - a charge-dependent weapon evaluated
 at the wrong charge level. Worth checking alongside it.
+
+**What it turned out to be.** Worse than reported, and in three more places. The orb was
+recorded at full charge only - 0.8 shots per second and a magazine of ten - while the wiki
+gives both ends: 3.9 shots/s uncharged with 0.256 s of recovery, 0.8 charged with a second
+of charging and 0.25 of recovery, and 100 ammo draining 1 to 10 a shot. Its projectile speed
+was recorded as 25 m/s where the wiki says 50.
+
+The charge setting now drives the rate of fire and the ammo as well as the damage, which
+needed a new idea in the simulator: a weapon whose firing cycle depends on how wound up it
+is. Uncharged she now spams cheap orbs quickly, charged she throws one heavy one - which is
+what the two lines on the wiki have always said.
 
 ## 8. Weapons wrongly classified as shotguns — verified
 

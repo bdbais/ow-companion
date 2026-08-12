@@ -2504,7 +2504,7 @@
    "baseWeapon": null,
    "mousebutton": "M2",
    "type": "hitscan",
-   "behavior": "standard",
+   "behavior": "chargeScaled",
    "pellets": [
     1.0
    ],
@@ -2516,16 +2516,21 @@
     "falloff": [
      40.0,
      60.0
-    ]
+    ],
+    "chargeDamage": [
+     21.0,
+     120.0
+    ],
+    "chargeTime": 1.25
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.5625,
-   "shotTime": 0.64,
+   "fireRate": 0.529,
+   "shotTime": 1.89,
    "ammo": null,
    "reloadTime": 0.0,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.64,
+   "dpsPeriodBase": 1.89,
    "dpsPeriodAdd": 0.0
   },
   {
@@ -2653,14 +2658,22 @@
     "maxRange": 12.0
    },
    "spread": null,
-   "velocity": 25.0,
-   "fireRate": 0.8,
-   "shotTime": 1.25,
-   "ammo": 10.0,
+   "velocity": 50.0,
+   "fireRate": 3.9,
+   "shotTime": 0.25641025641025644,
+   "ammo": 100.0,
    "reloadTime": 1.5,
    "critFactor": 2.0,
-   "dpsPeriodBase": 1.25,
-   "dpsPeriodAdd": 0.15
+   "dpsPeriodBase": 0.25641025641025644,
+   "dpsPeriodAdd": 0.015,
+   "chargeShotTime": [
+    0.256,
+    1.25
+   ],
+   "chargeAmmoUsage": [
+    1.0,
+    10.0
+   ]
   },
   {
    "name": "Sentry Turret",
