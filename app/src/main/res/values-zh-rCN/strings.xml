@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d 件物品</string>
     <string name="build_cancel">取消</string>
     <string name="build_confirm">保存</string>
+    <string name="about_downloads">已从 GitHub 下载 %1$s 次</string>
     <string name="about_intro">非商业性质的粉丝项目，与暴雪娱乐无关，也未获其认可。</string>
     <string name="about_data_title">数据来源</string>
     <string name="about_art_title">图像与名称</string>
@@ -163,6 +164,12 @@
     <string name="update_available">版本 %1$s 已发布</string>
     <string name="update_open">查看更新内容</string>
     <string name="update_dismiss">不再提示此版本</string>
+    <string name="update_available_reinstall">版本 %1$s 已发布，这一版需要手动安装</string>
+    <string name="update_reinstall_how">怎么做</string>
+    <string name="update_reinstall_title">版本 %1$s 需要重新安装</string>
+    <string name="update_reinstall_body">这一版用新的密钥签名，所以 Android 不会把它装在你现有的版本上，只会说应用未安装，却不说为什么。\n\n请先下载新文件，再卸载这一版，最后安装下载好的文件。先卸载再下载，你会既没有应用，也找不到取回它的页面。\n\n卸载后保存的战术板和设置不会保留，想留下的方案请先导出成 PDF。\n\n只有这一次，之后的更新会恢复正常安装。</string>
+    <string name="update_reinstall_uninstall">卸载这一版</string>
+    <string name="update_reinstall_later">以后再说</string>
     <string name="chart_section_fire_mode">开火方式</string>
     <string name="fire_primary">主要攻击</string>
     <string name="fire_secondary">次要攻击</string>

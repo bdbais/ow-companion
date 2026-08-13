@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 import java.net.HttpURLConnection
 import java.net.URL
@@ -25,7 +26,18 @@ import java.net.URL
  */
 class ReleaseChecker(private val context: Context) {
 
-    data class Release(val version: String, val url: String)
+    data class Release(
+        val version: String,
+        val url: String,
+        /**
+         * Whether this one cannot be installed over what is already here.
+         *
+         * True only when Android will refuse the update outright - a changed signing key -
+         * so the app can say "uninstall first" instead of leaving the reader staring at a
+         * bare "App not installed" with no idea why.
+         */
+        val needsReinstall: Boolean = false,
+    )
 
     /** The newer release, or null when there is nothing worth saying. */
     suspend fun newerRelease(): Release? = withContext(Dispatchers.IO) {
@@ -35,9 +47,57 @@ class ReleaseChecker(private val context: Context) {
             when {
                 !isNewer(tag, BuildConfig.VERSION_NAME) -> null
                 tag == dismissed() -> null
-                else -> Release(version = normalise(tag), url = latest.url.ifBlank { RELEASES })
+                else -> Release(
+                    version = normalise(tag),
+                    url = latest.url.ifBlank { RELEASES },
+                    needsReinstall = requiresReinstall(latest.body),
+                )
             }
         }.getOrNull()
+    }
+
+    /**
+     * How many times the published APKs have been downloaded, across every release.
+     *
+     * GitHub counts a download per file fetched from a release, which is not the same as a
+     * person and not the same as an install: one reader who tries three versions counts
+     * three, and a mirror that fetches the file counts too. The About screen says "downloads"
+     * rather than "players" for that reason.
+     *
+     * Cached for six hours. Unauthenticated GitHub allows sixty calls an hour from one
+     * address, and a number that changes by the minute is not worth spending them on.
+     */
+    suspend fun downloads(): Int? = withContext(Dispatchers.IO) {
+        val store = prefs()
+        val cached = store.getInt(KEY_DOWNLOADS, -1).takeIf { it >= 0 }
+        val age = System.currentTimeMillis() - store.getLong(KEY_DOWNLOADS_AT, 0L)
+        if (cached != null && age in 0 until CACHE_MILLIS) return@withContext cached
+
+        val fetched = runCatching { fetchDownloads() }.getOrNull()
+            ?: return@withContext cached
+        store.edit()
+            .putInt(KEY_DOWNLOADS, fetched)
+            .putLong(KEY_DOWNLOADS_AT, System.currentTimeMillis())
+            .apply()
+        fetched
+    }
+
+    private fun fetchDownloads(): Int? {
+        val connection = (URL(ALL_RELEASES).openConnection() as HttpURLConnection).apply {
+            connectTimeout = 8_000
+            readTimeout = 8_000
+            setRequestProperty("Accept", "application/vnd.github+json")
+            setRequestProperty("User-Agent", "ow-companion")
+        }
+        val body = try {
+            if (connection.responseCode !in 200..299) return null
+            connection.inputStream.bufferedReader().use { it.readText() }
+        } finally {
+            connection.disconnect()
+        }
+        return json.decodeFromString(ListSerializer(ReleaseAssets.serializer()), body)
+            .filterNot { it.draft }
+            .sumOf { release -> release.assets.sumOf { it.downloads } }
     }
 
     fun dismiss(version: String) {
@@ -50,9 +110,19 @@ class ReleaseChecker(private val context: Context) {
     private fun prefs() = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
     @Serializable
+    private data class ReleaseAssets(
+        val assets: List<Asset> = emptyList(),
+        val draft: Boolean = false,
+    )
+
+    @Serializable
+    private data class Asset(@SerialName("download_count") val downloads: Int = 0)
+
+    @Serializable
     private data class LatestRelease(
         @SerialName("tag_name") val tag: String = "",
         @SerialName("html_url") val url: String = "",
+        val body: String = "",
         val draft: Boolean = false,
         val prerelease: Boolean = false,
     )
@@ -77,11 +147,43 @@ class ReleaseChecker(private val context: Context) {
     companion object {
         private const val PREFS = "releases"
         private const val KEY_DISMISSED = "dismissed_version"
+        private const val KEY_DOWNLOADS = "downloads_total"
+        private const val KEY_DOWNLOADS_AT = "downloads_fetched_at"
+        private const val CACHE_MILLIS = 6 * 60 * 60 * 1000L
         const val RELEASES = "https://github.com/bdbais/ow-companion/releases"
         private const val API =
             "https://api.github.com/repos/bdbais/ow-companion/releases/latest"
 
+        /**
+         * Every release in one call. A hundred is far more than this project will have for
+         * years, and asking for one page keeps the count to a single request.
+         */
+        private const val ALL_RELEASES =
+            "https://api.github.com/repos/bdbais/ow-companion/releases?per_page=100"
+
         private val json = Json { ignoreUnknownKeys = true }
+
+        /**
+         * What a release says when it cannot be installed over the previous one.
+         *
+         * An HTML comment, so GitHub renders the notes without it and nobody reads a stray
+         * token where the changelog should be. Only its presence is ever used: no text from
+         * the release is shown or acted on, which keeps a field anyone with push access can
+         * edit from deciding anything but this one flag.
+         */
+        internal const val REINSTALL_MARKER = "<!-- reinstall -->"
+
+        /**
+         * Whether a release says it cannot be installed over the previous one.
+         *
+         * Whitespace-tolerant inside the comment, because the notes are written by hand and
+         * a stray space should not be the difference between a warning and a reader meeting
+         * "App not installed" with no explanation. Anything else in the body is ignored.
+         */
+        internal fun requiresReinstall(body: String): Boolean =
+            REINSTALL_PATTERN.containsMatchIn(body)
+
+        private val REINSTALL_PATTERN = Regex("<!--\\s*reinstall\\s*-->", RegexOption.IGNORE_CASE)
 
         internal fun normalise(tag: String) = tag.trim().removePrefix("v").removePrefix("V")
 

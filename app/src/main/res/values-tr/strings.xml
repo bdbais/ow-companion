@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d eşya</string>
     <string name="build_cancel">İptal</string>
     <string name="build_confirm">Kaydet</string>
+    <string name="about_downloads">GitHub\'dan %1$s kez indirildi</string>
     <string name="about_intro">Ticari olmayan bir hayran projesi. Blizzard Entertainment ile bağlantılı veya onaylı değildir.</string>
     <string name="about_data_title">Veriler nereden geliyor</string>
     <string name="about_art_title">Görseller ve isimler</string>
@@ -163,6 +164,12 @@
     <string name="update_available">Sürüm %1$s çıktı</string>
     <string name="update_open">Neler değişti</string>
     <string name="update_dismiss">Bu sürümü bir daha hatırlatma</string>
+    <string name="update_available_reinstall">Sürüm %1$s çıktı, ve bunu elle kurmak gerekiyor</string>
+    <string name="update_reinstall_how">Ne yapmalı</string>
+    <string name="update_reinstall_title">Sürüm %1$s temiz bir kurulum gerektiriyor</string>
+    <string name="update_reinstall_body">Bu sürüm yeni bir anahtarla imzalandı, bu yüzden Android onu elinizdekinin üzerine kurmaz: yalnızca uygulamanın kurulmadığını söyler, nedenini söylemez.\n\nÖnce yeni dosyayı indirin, sonra bu sürümü kaldırın, en son da indirdiğinizi kurun. İndirmeden önce kaldırırsanız ne uygulama kalır ne de onu alacağınız sayfa.\n\nKayıtlı tahtalar ve ayarlar kaldırma işlemini atlatamaz, saklamak istediğiniz planları önce PDF olarak dışa aktarın.\n\nBu bir kerelik. Bundan sonraki güncellemeler yine normal şekilde kurulur.</string>
+    <string name="update_reinstall_uninstall">Bu sürümü kaldır</string>
+    <string name="update_reinstall_later">Şimdi değil</string>
     <string name="chart_section_fire_mode">Ateş modu</string>
     <string name="fire_primary">Birincil</string>
     <string name="fire_secondary">İkincil</string>

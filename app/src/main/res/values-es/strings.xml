@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d objetos</string>
     <string name="build_cancel">Cancelar</string>
     <string name="build_confirm">Guardar</string>
+    <string name="about_downloads">Descargada %1$s veces desde GitHub</string>
     <string name="about_intro">Proyecto de fans, sin ánimo de lucro. No está afiliado a Blizzard Entertainment ni cuenta con su respaldo.</string>
     <string name="about_data_title">De dónde vienen los datos</string>
     <string name="about_art_title">Imágenes y nombres</string>
@@ -163,6 +164,12 @@
     <string name="update_available">La versión %1$s ya está disponible</string>
     <string name="update_open">Ver novedades</string>
     <string name="update_dismiss">No volver a avisar de esta versión</string>
+    <string name="update_available_reinstall">La versión %1$s ya está disponible, y esta hay que instalarla a mano</string>
+    <string name="update_reinstall_how">Qué hacer</string>
+    <string name="update_reinstall_title">La versión %1$s necesita una instalación limpia</string>
+    <string name="update_reinstall_body">Esta versión está firmada con una clave nueva, así que Android no la instalará sobre la que tienes: solo diría que la aplicación no se instaló, sin explicar por qué.\n\nDescarga primero el archivo nuevo, luego desinstala esta versión y después instala lo descargado. Si desinstalas antes de descargar te quedas sin la aplicación y sin la página de la que sacarla.\n\nLas pizarras guardadas y los ajustes no sobreviven a la desinstalación, así que exporta antes en PDF los planes que quieras conservar.\n\nEs por una vez. Las actualizaciones siguientes vuelven a instalarse con normalidad.</string>
+    <string name="update_reinstall_uninstall">Desinstalar esta versión</string>
+    <string name="update_reinstall_later">Ahora no</string>
     <string name="chart_section_fire_mode">Modo de disparo</string>
     <string name="fire_primary">Primario</string>
     <string name="fire_secondary">Secundario</string>

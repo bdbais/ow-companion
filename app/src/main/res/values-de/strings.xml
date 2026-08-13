@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d Gegenstände</string>
     <string name="build_cancel">Abbrechen</string>
     <string name="build_confirm">Speichern</string>
+    <string name="about_downloads">%1$s Mal von GitHub heruntergeladen</string>
     <string name="about_intro">Nicht kommerzielles Fanprojekt. Weder mit Blizzard Entertainment verbunden noch von ihnen unterstützt.</string>
     <string name="about_data_title">Woher die Daten stammen</string>
     <string name="about_art_title">Bilder und Namen</string>
@@ -163,6 +164,12 @@
     <string name="update_available">Version %1$s ist da</string>
     <string name="update_open">Was ist neu</string>
     <string name="update_dismiss">Diese Version nicht mehr erwähnen</string>
+    <string name="update_available_reinstall">Version %1$s ist da, und diese muss von Hand installiert werden</string>
+    <string name="update_reinstall_how">Was zu tun ist</string>
+    <string name="update_reinstall_title">Version %1$s braucht eine saubere Neuinstallation</string>
+    <string name="update_reinstall_body">Diese Version ist mit einem neuen Schlüssel signiert, also installiert Android sie nicht über die vorhandene: es würde nur sagen, die App sei nicht installiert worden, ohne zu sagen warum.\n\nLade zuerst die neue Datei herunter, deinstalliere dann diese Version und installiere erst danach das Heruntergeladene. Wer vor dem Download deinstalliert, steht ohne App und ohne die Seite da, von der sie kommt.\n\nGespeicherte Tafeln und Einstellungen überleben die Deinstallation nicht, exportiere also vorher als PDF, was du behalten willst.\n\nEs passiert nur dieses eine Mal. Spätere Updates installieren sich wieder normal.</string>
+    <string name="update_reinstall_uninstall">Diese Version deinstallieren</string>
+    <string name="update_reinstall_later">Jetzt nicht</string>
     <string name="chart_section_fire_mode">Feuermodus</string>
     <string name="fire_primary">Primär</string>
     <string name="fire_secondary">Sekundär</string>

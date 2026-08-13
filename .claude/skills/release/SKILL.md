@@ -22,9 +22,13 @@ without a bump makes every installed copy show the banner forever.
 
 ```bash
 JAVA_HOME="/c/Program Files/Android/Android Studio/jbr" ./gradlew \
-  assembleDebug lintVitalRelease testDebugUnitTest --console=plain -q 2>&1 \
+  assembleRelease testDebugUnitTest --console=plain -q 2>&1 \
   | grep -E "^e:|Error:" | head -5
 ```
+
+`assembleRelease` runs `lintVitalRelease` itself, so it does not need naming separately.
+It also takes about two and a half minutes rather than one: R8 and resource shrinking are
+the reason the APK is half the size, and they are not free.
 
 **Stop here if anything printed.** Do not chain the release onto this command with `&&` in
 a way that lets a failure fall through — that is exactly how v1.7.0 shipped the 1.6.0
@@ -72,24 +76,68 @@ tags a commit nobody else has.
 ## 5. Release
 
 ```bash
-cp app/build/outputs/apk/debug/app-debug.apk "$SCRATCH/ow-companion-vX.Y.Z.apk"
+cp app/build/outputs/apk/release/app-release.apk "$SCRATCH/ow-companion-vX.Y.Z.apk"
 gh release create vX.Y.Z "$SCRATCH/ow-companion-vX.Y.Z.apk" --title "vX.Y.Z — short phrase" --notes "..."
 ```
 
 Notes are for players, not for the changelog: say what is different and why it was worth
 doing. Name whoever reported the bug.
 
-Releases ship the **debug** APK. There is no keystore, and a release build would be
-unsigned; the debug key also keeps the app upgradable in place for everyone who already
-has it.
+Some things in this app are meant to be come across rather than read about. They never
+appear in release notes, in a commit subject, or in any file under `docs`. A release that
+contains one is described by everything else it contains.
+
+Check the APK is the signed release and not the debug one before it goes anywhere:
+
+```bash
+aapt dump badging "$SCRATCH/ow-companion-vX.Y.Z.apk" | grep -c application-debuggable
+```
+
+Zero, and roughly 16 MB rather than 33. Everything up to v1.10.3 shipped the **debug** APK,
+because there was no keystore and an unsigned release APK will not install — the two builds
+had the same SHA256, and nobody noticed for eleven releases. Twice the download, and
+`debuggable` lets anyone with adb read the app's data.
+
+Never fall back to the debug APK to get a release out. If signing fails, the fix is the
+keystore, not the other binary.
+
+### The one release that changes the signing key
+
+Android will not install an APK over one signed with a different key. It refuses with
+"App not installed" and no reason, which looks exactly like a corrupt download.
+
+So the switch takes two releases, and only the second is signed with the new key:
+
+1. **v1.10.4 — still the debug APK.** It installs over what everybody has, and it carries
+   the code that reads the marker below. Its own notes say nothing special.
+2. **The next one — the signed release APK**, with this line anywhere in its notes:
+
+   ```
+   <!-- reinstall -->
+   ```
+
+   An HTML comment, so GitHub renders the notes without it. `ReleaseChecker` looks for it
+   and the banner turns into "this one has to be installed by hand" plus a dialog that
+   explains the uninstall and warns that saved boards are lost. Say the same thing in plain
+   words at the top of the notes as well, for anyone who never installed v1.10.4.
+
+Marker on any release after that and everyone gets warned for nothing, so it belongs only
+on a release whose key actually changed.
 
 ## 6. Mirror, and prove it
 
 ```bash
 cp "$SCRATCH/ow-companion-vX.Y.Z.apk" "G:/googledrive/AI/ow-companion.apk"
 robocopy "G:\AI\ow_companion" "G:\googledrive\AI\ow_companion" /MIR \
-  /XD .git build .gradle .idea maps __pycache__ /XF *.apk /NFL /NDL /NJH /NP
+  /XD .git build .gradle .idea maps __pycache__ \
+  /XF *.apk keystore.properties /NFL /NDL /NJH /NP
 ```
+
+The key itself (`*.jks`) **is** mirrored, on purpose: it is the one file that cannot be
+rebuilt, and losing it ends updates for the app forever. `keystore.properties` is excluded
+just as deliberately — a key and its password sitting together in a synced folder means one
+leaked folder is a complete compromise, and the password is the half that lives in a
+password manager instead.
 
 Robocopy exits non-zero on success — anything under 8 is fine.
 
@@ -97,7 +145,7 @@ Then confirm the published asset and the local build are the same file:
 
 ```bash
 gh release view vX.Y.Z --json assets --jq '.assets[0].size'
-ls -la app/build/outputs/apk/debug/app-debug.apk
+ls -la app/build/outputs/apk/release/app-release.apk
 ```
 
 Only the standing rule matters more than the rest: **a full copy of the project always

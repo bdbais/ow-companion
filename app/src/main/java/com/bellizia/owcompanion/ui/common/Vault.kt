@@ -38,6 +38,14 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
 
+/** The two words on it, packed for the same reason as the panels'. See [Masked]. */
+private object Face {
+    private val all: List<String> by lazy { Masked.list("FfV5jXbUG+Z3") }
+
+    val open: String get() = all[0]
+    val back: String get() = all[1]
+}
+
 private val PLATE = Color(0xFF20242B)
 private val PLATE_DEEP = Color(0xFF14171C)
 private val BRUSHED = Color(0xFF8E99A6)
@@ -179,12 +187,12 @@ internal fun Vault(letters: List<Char>, onOpen: () -> Unit, onDismiss: () -> Uni
                         ),
                         modifier = Modifier.padding(top = 20.dp),
                     ) {
-                        Text("OPEN", fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
+                        Text(Face.open, fontFamily = FontFamily.Monospace, fontWeight = FontWeight.Bold)
                     }
                 }
 
                 TextButton(onClick = onDismiss, modifier = Modifier.padding(top = 6.dp)) {
-                    Text("BACK", color = BRUSHED, fontFamily = FontFamily.Monospace)
+                    Text(Face.back, color = BRUSHED, fontFamily = FontFamily.Monospace)
                 }
             }
         }
@@ -212,8 +220,8 @@ private val ARMS = listOf(0, 3, 6)
 /** Which arm is the pale one. */
 private const val PALE_ARM = 1
 
-/** Read off the arms in order: warm, pale, warm. */
-private val ANSWER = listOf('Y', 'B', 'Z')
+/** Read off the arms in order: warm, pale, warm. Masked, like everything else that opens. */
+private val ANSWER: List<Char> by lazy { Masked.text("A+dm").toList() }
 
 /** How many letters go round. */
 private const val RING = 9

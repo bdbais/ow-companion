@@ -10,6 +10,7 @@ import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.sim.WeaponSpec
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.ui.chart.HeroRole
+import com.bellizia.owcompanion.ui.common.Masked
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -23,11 +24,11 @@ enum class HeroSort(@StringRes val labelRes: Int) {
     Changes(R.string.wiki_sort_changes),
 }
 
-/** The word. Nothing in the roster contains it. */
-internal const val TRIO_TERM = "duck"
+/** A term the roster does not contain. Masked so that reading this file does not spend it. */
+internal val SHORTHAND: String by lazy { Masked.text("PtBfqA==") }
 
-/** The order that matters, and the only order that does anything. */
-internal val TRIO = listOf("Widowmaker", "Ana", "Ashe")
+/** What it resolves to, in the order it resolves to. */
+internal val SHORTLIST: List<String> by lazy { Masked.list("DcxYrB77O85ZsXbXNMQjghr+Pw==") }
 
 data class WikiUiState(
     val loading: Boolean = true,
@@ -40,16 +41,16 @@ data class WikiUiState(
     val weapons: List<WeaponSpec> = emptyList(),
 ) {
     /**
-     * A search term that matches nothing in the roster and is not meant to.
+     * Whether the query is the shorthand rather than a hero anybody is looking for.
      *
-     * Typed in full it narrows the list to three marksmen and nothing else, which is not a
-     * result anybody arrives at by looking for a hero.
+     * Typed in full it narrows the list to three names and nothing else, which is not a
+     * result a search for a hero ever reaches.
      */
-    val narrowed: Boolean get() = query.trim().equals(TRIO_TERM, ignoreCase = true)
+    val narrowed: Boolean get() = query.trim().equals(SHORTHAND, ignoreCase = true)
 
     val visible: List<HeroWiki>
         get() = if (narrowed) {
-            TRIO.mapNotNull { name -> heroes.firstOrNull { it.name == name } }
+            SHORTLIST.mapNotNull { name -> heroes.firstOrNull { it.name == name } }
         } else {
             broadlyVisible
         }

@@ -28,6 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -50,6 +51,7 @@ import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.data.DatasetRepository
 import com.bellizia.owcompanion.data.DatasetUpdater
 import com.bellizia.owcompanion.data.Feedback
+import com.bellizia.owcompanion.data.ReleaseChecker
 import com.bellizia.owcompanion.ui.common.SegmentPanel
 import java.text.NumberFormat
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -59,6 +61,34 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 private const val SECTION_STEP = 7
+
+/**
+ * How many times the app has been downloaded from GitHub.
+ *
+ * Nothing at all when the number cannot be had - no network, GitHub rate-limiting the
+ * address, a fork whose releases nobody has fetched. A line that said "0 downloads" because
+ * the request failed would be worse than no line.
+ *
+ * It counts files fetched from the releases page, which is not people and not installs: one
+ * reader trying three versions counts three. The wording says downloads for that reason.
+ */
+@Composable
+private fun Downloads() {
+    val context = LocalContext.current
+    var total by remember { mutableStateOf<Int?>(null) }
+
+    LaunchedEffect(Unit) {
+        total = ReleaseChecker(context).downloads()
+    }
+
+    val count = total?.takeIf { it > 0 } ?: return
+    Text(
+        text = stringResource(R.string.about_downloads, NumberFormat.getInstance().format(count)),
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(bottom = 8.dp),
+    )
+}
 
 data class AboutUiState(
     val datasetVersion: Int = 0,
@@ -143,6 +173,8 @@ fun AboutScreen(
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.padding(top = 4.dp, bottom = 8.dp),
         )
+
+        Downloads()
 
         LanguagePicker()
 

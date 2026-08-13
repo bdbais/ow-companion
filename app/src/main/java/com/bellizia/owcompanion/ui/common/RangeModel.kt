@@ -6,40 +6,40 @@ import kotlin.random.Random
 /**
  * A shooting range, stepped by elapsed seconds.
  *
- * Silhouettes rise, hold, and drop again. Hit one before it goes and it counts; let it go
+ * Figures rise, hold, and drop again. Hit one before it goes and it counts; let it go
  * and the streak breaks. That is the whole game, and the whole game is the point - it is
  * over in ninety seconds and it wants nothing from you but timing.
  *
  * Nothing here touches Android or Compose, so the result does not depend on the screen or
  * the frame rate and a whole round can be played out in a test.
  */
-internal class RangeModel(seed: Long = 0L, val shooter: Shooter = Shooter.Rifle) {
+internal class RangeModel(seed: Long = 0L, val preset: Preset = Preset.Slow) {
 
     /**
-     * Who is holding the gun.
+     * Who is holding the post.
      *
      * Three ways of being good at this, so the same range asks different things. The heavy
      * one hits hardest and punishes a miss hardest; the quick one forgives.
      */
-    enum class Shooter(
+    enum class Preset(
         /** Score for a clean hit. */
         val worth: Int,
         /** Seconds the round is frozen after a miss. */
         val penalty: Float,
-        /** How much of a silhouette counts as hit; a wider gun is easier to land. */
+        /** How much of a figure counts as hit; a wider post is easier to land. */
         val forgiveness: Float,
     ) {
         /** Slow, heavy, unforgiving. */
-        Rifle(worth = 300, penalty = 0.55f, forgiveness = 0.9f),
+        Slow(worth = 300, penalty = 0.55f, forgiveness = 0.9f),
 
         /** The middle: quicker, cheaper, steadier. */
-        Repeater(worth = 150, penalty = 0.3f, forgiveness = 1.15f),
+        Middling(worth = 150, penalty = 0.3f, forgiveness = 1.15f),
 
         /** Forgiving and fast, and worth the least. */
-        Dart(worth = 100, penalty = 0.15f, forgiveness = 1.45f),
+        Fast(worth = 100, penalty = 0.15f, forgiveness = 1.45f),
     }
 
-    /** One silhouette, somewhere on the boards. */
+    /** One figure, somewhere on the boards. */
     data class Mark(
         val id: Int,
         /** 0 to 1 across the range. */
@@ -52,7 +52,7 @@ internal class RangeModel(seed: Long = 0L, val shooter: Shooter = Shooter.Rifle)
         val life: Float,
         /** Which hero shape it wears; only the drawing cares. */
         val shape: Int,
-        /** A friendly silhouette costs you for shooting it, which is the whole trick. */
+        /** A friendly figure costs you for shooting it, which is the whole trick. */
         val friendly: Boolean = false,
         var struck: Boolean = false,
         /** Seconds left of its hit flash. */
@@ -115,7 +115,7 @@ internal class RangeModel(seed: Long = 0L, val shooter: Shooter = Shooter.Rifle)
             mark.age += dt
             if (mark.flash > 0f) mark.flash = max(0f, mark.flash - dt)
         }
-        // A silhouette that drops unhit breaks the streak. Friendlies are the exception:
+        // A figure that drops unhit breaks the streak. Friendlies are the exception:
         // letting one go is the correct play, so it costs nothing.
         marks.removeAll { mark ->
             val gone = mark.age >= mark.life
@@ -140,7 +140,7 @@ internal class RangeModel(seed: Long = 0L, val shooter: Shooter = Shooter.Rifle)
 
         val hit = marks.firstOrNull { mark ->
             if (mark.struck) return@firstOrNull false
-            val reach = mark.radius * shooter.forgiveness
+            val reach = mark.radius * preset.forgiveness
             val dx = mark.x - x
             val dy = mark.y - y
             dx * dx + dy * dy <= reach * reach
@@ -148,7 +148,7 @@ internal class RangeModel(seed: Long = 0L, val shooter: Shooter = Shooter.Rifle)
 
         if (hit == null) {
             streak = 0
-            frozen = shooter.penalty
+            frozen = preset.penalty
             return null
         }
 
@@ -157,20 +157,20 @@ internal class RangeModel(seed: Long = 0L, val shooter: Shooter = Shooter.Rifle)
 
         if (hit.friendly) {
             // Shooting one of your own is worse than missing: it takes the score back.
-            score = max(0, score - shooter.worth)
+            score = max(0, score - preset.worth)
             streak = 0
-            frozen = shooter.penalty
+            frozen = preset.penalty
             return hit
         }
 
-        score += shooter.worth * multiplier
+        score += preset.worth * multiplier
         streak += 1
         best = max(best, streak)
         return hit
     }
 
     private fun release() {
-        // The range speeds up as it goes, and holds each silhouette for less.
+        // The range speeds up as it goes, and holds each figure for less.
         val progress = 1f - remaining / ROUND_SECONDS
         spawnIn = (0.85f - progress * 0.45f).coerceAtLeast(0.22f)
         val life = (1.45f - progress * 0.65f).coerceAtLeast(0.55f)
@@ -197,7 +197,7 @@ internal class RangeModel(seed: Long = 0L, val shooter: Shooter = Shooter.Rifle)
         /** How many backdrops a round moves through. */
         const val STANDS = 5
 
-        /** Distinct silhouettes to draw. */
+        /** Distinct figures to draw. */
         const val SHAPES = 6
 
         private const val FRIENDLY_SHARE = 0.18f

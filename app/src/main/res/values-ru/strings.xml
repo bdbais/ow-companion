@@ -114,6 +114,7 @@
     <string name="build_item_count">предметов: %1$d</string>
     <string name="build_cancel">Отмена</string>
     <string name="build_confirm">Сохранить</string>
+    <string name="about_downloads">Скачано с GitHub %1$s раз</string>
     <string name="about_intro">Некоммерческий фанатский проект. Не связан с Blizzard Entertainment и не одобрен ею.</string>
     <string name="about_data_title">Откуда данные</string>
     <string name="about_art_title">Изображения и названия</string>
@@ -163,6 +164,12 @@
     <string name="update_available">Вышла версия %1$s</string>
     <string name="update_open">Что изменилось</string>
     <string name="update_dismiss">Больше не напоминать об этой версии</string>
+    <string name="update_available_reinstall">Вышла версия %1$s, и её нужно установить вручную</string>
+    <string name="update_reinstall_how">Что делать</string>
+    <string name="update_reinstall_title">Версию %1$s нужно установить заново</string>
+    <string name="update_reinstall_body">Эта версия подписана новым ключом, поэтому Android не поставит её поверх той, что у вас есть: он просто скажет, что приложение не установлено, и не объяснит почему.\n\nСначала скачайте новый файл, затем удалите эту версию и только потом установите скачанное. Если удалить до загрузки, вы останетесь без приложения и без страницы, откуда его взять.\n\nСохранённые доски и настройки удаления не переживут, так что заранее выгрузите в PDF те планы, которые хотите сохранить.\n\nЭто один раз. Следующие обновления снова будут ставиться как обычно.</string>
+    <string name="update_reinstall_uninstall">Удалить эту версию</string>
+    <string name="update_reinstall_later">Не сейчас</string>
     <string name="chart_section_fire_mode">Режим огня</string>
     <string name="fire_primary">Основной</string>
     <string name="fire_secondary">Альтернативный</string>

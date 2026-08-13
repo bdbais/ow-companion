@@ -171,23 +171,23 @@ private const val WIDE_LAYOUT_DP = 600
 
 
 /**
- * Keeps the order three cards were tapped in, and starts the range when it is the right one.
+ * Keeps the order the cards were tapped in.
  *
  * Deliberately unforgiving: a wrong tap does not shuffle the sequence along, it starts it
- * over. Somebody pressing all three out of curiosity gets a noise and nothing else, which
- * is the point - the order has to be meant.
+ * over, so pressing everything in turn gets you a noise and nothing else. The order has to
+ * be meant.
  */
 @Composable
-private fun rememberTrio(active: Boolean): TrioTaps {
+private fun rememberOrder(active: Boolean): TapOrder {
     val context = LocalContext.current
     val sounds = remember { RangeSounds(context) }
     DisposableEffect(Unit) { onDispose { sounds.release() } }
-    val taps = remember(active) { TrioTaps(sounds) }
+    val taps = remember(active) { TapOrder(sounds) }
     return taps
 }
 
 @Stable
-private class TrioTaps(private val sounds: RangeSounds) {
+private class TapOrder(private val sounds: RangeSounds) {
     private val pressed = mutableStateListOf<String>()
 
     /** Set once the order comes out right; the screen watches it. */
@@ -195,18 +195,18 @@ private class TrioTaps(private val sounds: RangeSounds) {
         private set
 
     fun tap(name: String) {
-        // Every tap makes its noise, right or wrong. That is most of the joke.
-        sounds.quack()
+        // Every tap answers, right or wrong.
+        sounds.note()
         sounds.miss()
 
         val next = pressed.size
-        if (next < TRIO.size && TRIO[next] == name) {
+        if (next < SHORTLIST.size && SHORTLIST[next] == name) {
             pressed.add(name)
-            if (pressed.size == TRIO.size) opened = true
+            if (pressed.size == SHORTLIST.size) opened = true
         } else {
             pressed.clear()
             // A wrong one can still be the first of a fresh attempt.
-            if (TRIO.firstOrNull() == name) pressed.add(name)
+            if (SHORTLIST.firstOrNull() == name) pressed.add(name)
         }
     }
 
@@ -224,10 +224,10 @@ private fun HeroGrid(
     modifier: Modifier = Modifier,
 ) {
     val roleTaps = rememberFilterTaps<HeroRole>()
-    val marksmen = rememberTrio(state.narrowed)
+    val order = rememberOrder(state.narrowed)
 
-    if (marksmen.opened) {
-        RangePanel(shooter = RangeModel.Shooter.Rifle, onDismiss = marksmen::close)
+    if (order.opened) {
+        RangePanel(preset = RangeModel.Preset.Slow, onDismiss = order::close)
     }
 
     Column(modifier = modifier.fillMaxSize()) {
@@ -277,7 +277,7 @@ private fun HeroGrid(
                     hero = hero,
                     onClick = {
                         // While the list is narrowed to three, a tap is not a hero to open.
-                        if (state.narrowed) marksmen.tap(hero.name) else viewModel.select(hero.key)
+                        if (state.narrowed) order.tap(hero.name) else viewModel.select(hero.key)
                     },
                 )
             }

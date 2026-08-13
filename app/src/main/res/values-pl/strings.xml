@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d przedmiotów</string>
     <string name="build_cancel">Anuluj</string>
     <string name="build_confirm">Zapisz</string>
+    <string name="about_downloads">Pobrano %1$s razy z GitHuba</string>
     <string name="about_intro">Niekomercyjny projekt fanowski. Niepowiązany z Blizzard Entertainment ani przez nią niewspierany.</string>
     <string name="about_data_title">Skąd pochodzą dane</string>
     <string name="about_art_title">Grafiki i nazwy</string>
@@ -163,6 +164,12 @@
     <string name="update_available">Jest już wersja %1$s</string>
     <string name="update_open">Zobacz zmiany</string>
     <string name="update_dismiss">Nie przypominaj o tej wersji</string>
+    <string name="update_available_reinstall">Jest już wersja %1$s, a tę trzeba zainstalować ręcznie</string>
+    <string name="update_reinstall_how">Co zrobić</string>
+    <string name="update_reinstall_title">Wersja %1$s wymaga czystej instalacji</string>
+    <string name="update_reinstall_body">Ta wersja jest podpisana nowym kluczem, więc Android nie zainstaluje jej na tej, którą masz: powie tylko, że aplikacja nie została zainstalowana, bez wyjaśnienia dlaczego.\n\nNajpierw pobierz nowy plik, potem odinstaluj tę wersję, a dopiero na końcu zainstaluj pobrane. Odinstalowanie przed pobraniem zostawia cię bez aplikacji i bez strony, z której ją wziąć.\n\nZapisane tablice i ustawienia nie przetrwają odinstalowania, więc wcześniej wyeksportuj do PDF plany, które chcesz zachować.\n\nTo jednorazowa sprawa. Kolejne aktualizacje instalują się już normalnie.</string>
+    <string name="update_reinstall_uninstall">Odinstaluj tę wersję</string>
+    <string name="update_reinstall_later">Nie teraz</string>
     <string name="chart_section_fire_mode">Tryb ognia</string>
     <string name="fire_primary">Podstawowy</string>
     <string name="fire_secondary">Dodatkowy</string>

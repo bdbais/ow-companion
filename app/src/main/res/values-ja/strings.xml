@@ -114,6 +114,7 @@
     <string name="build_item_count">アイテム %1$d 個</string>
     <string name="build_cancel">キャンセル</string>
     <string name="build_confirm">保存</string>
+    <string name="about_downloads">GitHub から %1$s 回ダウンロードされました</string>
     <string name="about_intro">非営利のファンプロジェクトです。Blizzard Entertainment とは無関係で、公認でもありません。</string>
     <string name="about_data_title">データの出典</string>
     <string name="about_art_title">画像と名称</string>
@@ -163,6 +164,12 @@
     <string name="update_available">バージョン %1$s が公開されました</string>
     <string name="update_open">変更点を見る</string>
     <string name="update_dismiss">このバージョンについて今後知らせない</string>
+    <string name="update_available_reinstall">バージョン %1$s が公開されました。今回は手動でのインストールが必要です</string>
+    <string name="update_reinstall_how">手順を見る</string>
+    <string name="update_reinstall_title">バージョン %1$s は新規インストールが必要です</string>
+    <string name="update_reinstall_body">このバージョンは新しい鍵で署名されているため、Android は今あるものに上書きできません。理由を告げずに「アプリをインストールできませんでした」とだけ表示されます。\n\nまず新しいファイルをダウンロードし、次にこのバージョンをアンインストールし、最後にダウンロードしたものをインストールしてください。先にアンインストールすると、アプリも入手先のページも手元から消えます。\n\n保存したボードと設定はアンインストールで消えるので、取っておきたい作戦は先に PDF に書き出してください。\n\n今回だけです。次からの更新はこれまでどおりインストールできます。</string>
+    <string name="update_reinstall_uninstall">このバージョンをアンインストール</string>
+    <string name="update_reinstall_later">あとで</string>
     <string name="chart_section_fire_mode">射撃モード</string>
     <string name="fire_primary">通常攻撃</string>
     <string name="fire_secondary">サブ攻撃</string>

@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d عنصر</string>
     <string name="build_cancel">إلغاء</string>
     <string name="build_confirm">حفظ</string>
+    <string name="about_downloads">جرى تنزيله %1$s مرة من GitHub</string>
     <string name="about_intro">مشروع من صنع المعجبين وغير تجاري. غير تابع لـBlizzard Entertainment ولا معتمد منها.</string>
     <string name="about_data_title">من أين تأتي البيانات</string>
     <string name="about_art_title">الصور والأسماء</string>
@@ -163,6 +164,12 @@
     <string name="update_available">صدر الإصدار %1$s</string>
     <string name="update_open">ما الجديد</string>
     <string name="update_dismiss">لا تذكر هذا الإصدار مرة أخرى</string>
+    <string name="update_available_reinstall">صدر الإصدار %1$s، وهذا الإصدار يجب تثبيته يدويًا</string>
+    <string name="update_reinstall_how">ما العمل</string>
+    <string name="update_reinstall_title">الإصدار %1$s يحتاج إلى تثبيت جديد</string>
+    <string name="update_reinstall_body">هذا الإصدار موقَّع بمفتاح جديد، لذلك لن يثبّته أندرويد فوق النسخة الموجودة لديك: سيقول فقط إن التطبيق لم يُثبَّت، دون أن يوضّح السبب.\n\nنزّل الملف الجديد أولًا، ثم أزل هذا الإصدار، ثم ثبّت ما نزّلته. إن أزلته قبل التنزيل تبقى بلا تطبيق وبلا الصفحة التي تجلبه منها.\n\nاللوحات المحفوظة والإعدادات لا تبقى بعد الإزالة، لذا صدّر إلى PDF أي خطة تريد الاحتفاظ بها أولًا.\n\nمرة واحدة فقط. التحديثات بعد هذا تُثبَّت كالمعتاد من جديد.</string>
+    <string name="update_reinstall_uninstall">إزالة هذا الإصدار</string>
+    <string name="update_reinstall_later">ليس الآن</string>
     <string name="chart_section_fire_mode">نمط إطلاق النار</string>
     <string name="fire_primary">أساسي</string>
     <string name="fire_secondary">ثانوي</string>

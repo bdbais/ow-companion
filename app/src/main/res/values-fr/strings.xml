@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d objets</string>
     <string name="build_cancel">Annuler</string>
     <string name="build_confirm">Enregistrer</string>
+    <string name="about_downloads">Téléchargée %1$s fois depuis GitHub</string>
     <string name="about_intro">Projet de fans non commercial. Ni affilié à Blizzard Entertainment, ni approuvé par elle.</string>
     <string name="about_data_title">D\'où viennent les données</string>
     <string name="about_art_title">Images et noms</string>
@@ -163,6 +164,12 @@
     <string name="update_available">La version %1$s est sortie</string>
     <string name="update_open">Voir les nouveautés</string>
     <string name="update_dismiss">Ne plus signaler cette version</string>
+    <string name="update_available_reinstall">La version %1$s est sortie, et celle-ci doit être installée à la main</string>
+    <string name="update_reinstall_how">Que faire</string>
+    <string name="update_reinstall_title">La version %1$s demande une installation propre</string>
+    <string name="update_reinstall_body">Cette version est signée avec une nouvelle clé, donc Android ne l\'installera pas par-dessus celle que vous avez : il dirait seulement que l\'application n\'a pas été installée, sans dire pourquoi.\n\nTéléchargez d\'abord le nouveau fichier, puis désinstallez cette version, puis installez ce que vous avez téléchargé. Désinstaller avant de télécharger vous laisse sans application et sans la page où la trouver.\n\nLes tableaux enregistrés et les réglages ne survivent pas à la désinstallation : exportez en PDF les plans que vous voulez garder.\n\nC\'est une seule fois. Les mises à jour suivantes s\'installent de nouveau normalement.</string>
+    <string name="update_reinstall_uninstall">Désinstaller cette version</string>
+    <string name="update_reinstall_later">Pas maintenant</string>
     <string name="chart_section_fire_mode">Mode de tir</string>
     <string name="fire_primary">Principal</string>
     <string name="fire_secondary">Secondaire</string>

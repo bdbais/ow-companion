@@ -830,6 +830,24 @@ TRANSLATIONS: dict[str, dict] = {
     ),
 
     # --- about ----------------------------------------------------------------------
+    # GitHub counts files fetched from the releases page, so this is downloads and not
+    # people: every language says the same modest thing rather than claiming players.
+    "about_downloads": t(
+        es="Descargada %1$s veces desde GitHub",
+        pt="Baixada %1$s vezes no GitHub",
+        fr="Téléchargée %1$s fois depuis GitHub",
+        de="%1$s Mal von GitHub heruntergeladen",
+        ja="GitHub から %1$s 回ダウンロードされました",
+        ko="GitHub에서 %1$s번 내려받았습니다",
+        zhCN="已从 GitHub 下载 %1$s 次",
+        zhTW="已從 GitHub 下載 %1$s 次",
+        ru="Скачано с GitHub %1$s раз",
+        uk="Завантажено з GitHub %1$s разів",
+        sv="Nedladdad %1$s gånger från GitHub",
+        ar="جرى تنزيله %1$s مرة من GitHub",
+        pl="Pobrano %1$s razy z GitHuba",
+        tr="GitHub\\'dan %1$s kez indirildi",
+    ),
     "about_intro": t(
         es="Proyecto de fans, sin ánimo de lucro. No está afiliado a Blizzard Entertainment ni cuenta con su respaldo.",
         pt="Projeto de fãs, sem fins lucrativos. Não é afiliado nem endossado pela Blizzard Entertainment.",
@@ -1221,6 +1239,168 @@ TRANSLATIONS: dict[str, dict] = {
         ar="لا تذكر هذا الإصدار مرة أخرى",
         pl="Nie przypominaj o tej wersji",
         tr="Bu sürümü bir daha hatırlatma",
+    ),
+    # An update that changes the signing key: Android refuses it with nothing but "App not
+    # installed", so the app has to say what happened and what it costs before the reader
+    # goes looking for the download.
+    "update_available_reinstall": t(
+        es="La versión %1$s ya está disponible, y esta hay que instalarla a mano",
+        pt="A versão %1$s já saiu, e esta precisa ser instalada à mão",
+        fr="La version %1$s est sortie, et celle-ci doit être installée à la main",
+        de="Version %1$s ist da, und diese muss von Hand installiert werden",
+        ja="バージョン %1$s が公開されました。今回は手動でのインストールが必要です",
+        ko="버전 %1$s이(가) 나왔습니다. 이번에는 직접 설치해야 합니다",
+        zhCN="版本 %1$s 已发布，这一版需要手动安装",
+        zhTW="版本 %1$s 已發布，這一版需要手動安裝",
+        ru="Вышла версия %1$s, и её нужно установить вручную",
+        uk="Вийшла версія %1$s, і її потрібно встановити вручну",
+        sv="Version %1$s har släppts, och den här måste installeras för hand",
+        ar="صدر الإصدار %1$s، وهذا الإصدار يجب تثبيته يدويًا",
+        pl="Jest już wersja %1$s, a tę trzeba zainstalować ręcznie",
+        tr="Sürüm %1$s çıktı, ve bunu elle kurmak gerekiyor",
+    ),
+    "update_reinstall_how": t(
+        es="Qué hacer", pt="O que fazer", fr="Que faire", de="Was zu tun ist",
+        ja="手順を見る", ko="설치 방법", zhCN="怎么做", zhTW="怎麼做",
+        ru="Что делать", uk="Що робити", sv="Vad du gör", ar="ما العمل",
+        pl="Co zrobić", tr="Ne yapmalı",
+    ),
+    "update_reinstall_title": t(
+        es="La versión %1$s necesita una instalación limpia",
+        pt="A versão %1$s precisa de uma instalação limpa",
+        fr="La version %1$s demande une installation propre",
+        de="Version %1$s braucht eine saubere Neuinstallation",
+        ja="バージョン %1$s は新規インストールが必要です",
+        ko="버전 %1$s은(는) 새로 설치해야 합니다",
+        zhCN="版本 %1$s 需要重新安装",
+        zhTW="版本 %1$s 需要重新安裝",
+        ru="Версию %1$s нужно установить заново",
+        uk="Версію %1$s потрібно встановити заново",
+        sv="Version %1$s kräver en ren installation",
+        ar="الإصدار %1$s يحتاج إلى تثبيت جديد",
+        pl="Wersja %1$s wymaga czystej instalacji",
+        tr="Sürüm %1$s temiz bir kurulum gerektiriyor",
+    ),
+    "update_reinstall_body": t(
+        es="Esta versión está firmada con una clave nueva, así que Android no la instalará "
+           "sobre la que tienes: solo diría que la aplicación no se instaló, sin explicar "
+           "por qué.\\n\\nDescarga primero el archivo nuevo, luego desinstala esta versión "
+           "y después instala lo descargado. Si desinstalas antes de descargar te quedas "
+           "sin la aplicación y sin la página de la que sacarla.\\n\\nLas pizarras "
+           "guardadas y los ajustes no sobreviven a la desinstalación, así que exporta "
+           "antes en PDF los planes que quieras conservar.\\n\\nEs por una vez. Las "
+           "actualizaciones siguientes vuelven a instalarse con normalidad.",
+        pt="Esta versão é assinada com uma chave nova, então o Android não a instala por "
+           "cima da que você tem: diria apenas que o app não foi instalado, sem explicar o "
+           "motivo.\\n\\nBaixe primeiro o arquivo novo, depois desinstale esta versão e só "
+           "então instale o que baixou. Se desinstalar antes de baixar, você fica sem o app "
+           "e sem a página de onde tirá-lo.\\n\\nAs lousas salvas e as configurações não "
+           "sobrevivem à desinstalação, então exporte antes em PDF os planos que quiser "
+           "guardar.\\n\\nÉ só desta vez. As próximas atualizações voltam a instalar "
+           "normalmente.",
+        fr="Cette version est signée avec une nouvelle clé, donc Android ne l\\'installera "
+           "pas par-dessus celle que vous avez : il dirait seulement que l\\'application "
+           "n\\'a pas été installée, sans dire pourquoi.\\n\\nTéléchargez d\\'abord le "
+           "nouveau fichier, puis désinstallez cette version, puis installez ce que vous "
+           "avez téléchargé. Désinstaller avant de télécharger vous laisse sans "
+           "application et sans la page où la trouver.\\n\\nLes tableaux enregistrés et les "
+           "réglages ne survivent pas à la désinstallation : exportez en PDF les plans que "
+           "vous voulez garder.\\n\\nC\\'est une seule fois. Les mises à jour suivantes "
+           "s\\'installent de nouveau normalement.",
+        de="Diese Version ist mit einem neuen Schlüssel signiert, also installiert Android "
+           "sie nicht über die vorhandene: es würde nur sagen, die App sei nicht "
+           "installiert worden, ohne zu sagen warum.\\n\\nLade zuerst die neue Datei "
+           "herunter, deinstalliere dann diese Version und installiere erst danach das "
+           "Heruntergeladene. Wer vor dem Download deinstalliert, steht ohne App und ohne "
+           "die Seite da, von der sie kommt.\\n\\nGespeicherte Tafeln und Einstellungen "
+           "überleben die Deinstallation nicht, exportiere also vorher als PDF, was du "
+           "behalten willst.\\n\\nEs passiert nur dieses eine Mal. Spätere Updates "
+           "installieren sich wieder normal.",
+        ja="このバージョンは新しい鍵で署名されているため、Android は今あるものに上書きできません。"
+           "理由を告げずに「アプリをインストールできませんでした」とだけ表示されます。"
+           "\\n\\nまず新しいファイルをダウンロードし、次にこのバージョンをアンインストールし、"
+           "最後にダウンロードしたものをインストールしてください。先にアンインストールすると、"
+           "アプリも入手先のページも手元から消えます。\\n\\n保存したボードと設定は"
+           "アンインストールで消えるので、取っておきたい作戦は先に PDF に書き出してください。"
+           "\\n\\n今回だけです。次からの更新はこれまでどおりインストールできます。",
+        ko="이 버전은 새 키로 서명되어 있어서 Android가 기존 앱 위에 설치하지 않습니다. "
+           "이유는 알려주지 않고 앱이 설치되지 않았다고만 표시됩니다.\\n\\n먼저 새 파일을 "
+           "내려받고, 그다음 이 버전을 삭제하고, 마지막으로 내려받은 파일을 설치하세요. "
+           "내려받기 전에 삭제하면 앱도, 앱을 받을 페이지도 남지 않습니다.\\n\\n저장한 "
+           "보드와 설정은 삭제하면 사라지니, 보관하고 싶은 작전은 미리 PDF로 "
+           "내보내세요.\\n\\n이번 한 번뿐입니다. 다음 업데이트부터는 다시 정상적으로 "
+           "설치됩니다.",
+        zhCN="这一版用新的密钥签名，所以 Android 不会把它装在你现有的版本上，只会说应用未安装，"
+             "却不说为什么。\\n\\n请先下载新文件，再卸载这一版，最后安装下载好的文件。先卸载"
+             "再下载，你会既没有应用，也找不到取回它的页面。\\n\\n卸载后保存的战术板和设置"
+             "不会保留，想留下的方案请先导出成 PDF。\\n\\n只有这一次，之后的更新会恢复"
+             "正常安装。",
+        zhTW="這一版用新的金鑰簽章，所以 Android 不會裝在你現有的版本上，只會說應用程式未安裝，"
+             "卻不說為什麼。\\n\\n請先下載新檔案，再解除安裝這一版，最後安裝下載好的檔案。"
+             "先解除安裝再下載，你會既沒有應用程式，也找不到取回它的頁面。\\n\\n解除安裝後"
+             "儲存的戰術板和設定不會保留，想留下的計畫請先匯出成 PDF。\\n\\n只有這一次，"
+             "之後的更新會恢復正常安裝。",
+        ru="Эта версия подписана новым ключом, поэтому Android не поставит её поверх той, "
+           "что у вас есть: он просто скажет, что приложение не установлено, и не объяснит "
+           "почему.\\n\\nСначала скачайте новый файл, затем удалите эту версию и только "
+           "потом установите скачанное. Если удалить до загрузки, вы останетесь без "
+           "приложения и без страницы, откуда его взять.\\n\\nСохранённые доски и "
+           "настройки удаления не переживут, так что заранее выгрузите в PDF те планы, "
+           "которые хотите сохранить.\\n\\nЭто один раз. Следующие обновления снова будут "
+           "ставиться как обычно.",
+        uk="Ця версія підписана новим ключем, тому Android не встановить її поверх наявної: "
+           "він лише скаже, що застосунок не встановлено, і не пояснить чому.\\n\\nСпершу "
+           "завантажте новий файл, потім видаліть цю версію і аж тоді встановіть "
+           "завантажене. Якщо видалити до завантаження, ви лишитеся без застосунку й без "
+           "сторінки, звідки його взяти.\\n\\nЗбережені дошки й налаштування видалення не "
+           "переживуть, тож заздалегідь експортуйте в PDF плани, які хочете "
+           "лишити.\\n\\nЦе один раз. Наступні оновлення знову встановлюватимуться "
+           "звично.",
+        sv="Den här versionen är signerad med en ny nyckel, så Android installerar den inte "
+           "ovanpå den du har: den säger bara att appen inte installerades, utan att säga "
+           "varför.\\n\\nLadda ner den nya filen först, avinstallera sedan den här "
+           "versionen och installera först därefter det du laddat ner. Avinstallerar du "
+           "före nedladdningen står du utan app och utan sidan att hämta den "
+           "från.\\n\\nSparade tavlor och inställningar överlever inte avinstallationen, så "
+           "exportera som PDF det du vill behålla först.\\n\\nDet är en engångsgrej. "
+           "Uppdateringar efter den här installeras som vanligt igen.",
+        ar="هذا الإصدار موقَّع بمفتاح جديد، لذلك لن يثبّته أندرويد فوق النسخة الموجودة "
+           "لديك: سيقول فقط إن التطبيق لم يُثبَّت، دون أن يوضّح السبب.\\n\\nنزّل الملف "
+           "الجديد أولًا، ثم أزل هذا الإصدار، ثم ثبّت ما نزّلته. إن أزلته قبل التنزيل "
+           "تبقى بلا تطبيق وبلا الصفحة التي تجلبه منها.\\n\\nاللوحات المحفوظة والإعدادات "
+           "لا تبقى بعد الإزالة، لذا صدّر إلى PDF أي خطة تريد الاحتفاظ بها "
+           "أولًا.\\n\\nمرة واحدة فقط. التحديثات بعد هذا تُثبَّت كالمعتاد من جديد.",
+        pl="Ta wersja jest podpisana nowym kluczem, więc Android nie zainstaluje jej na "
+           "tej, którą masz: powie tylko, że aplikacja nie została zainstalowana, bez "
+           "wyjaśnienia dlaczego.\\n\\nNajpierw pobierz nowy plik, potem odinstaluj tę "
+           "wersję, a dopiero na końcu zainstaluj pobrane. Odinstalowanie przed pobraniem "
+           "zostawia cię bez aplikacji i bez strony, z której ją wziąć.\\n\\nZapisane "
+           "tablice i ustawienia nie przetrwają odinstalowania, więc wcześniej "
+           "wyeksportuj do PDF plany, które chcesz zachować.\\n\\nTo jednorazowa sprawa. "
+           "Kolejne aktualizacje instalują się już normalnie.",
+        tr="Bu sürüm yeni bir anahtarla imzalandı, bu yüzden Android onu elinizdekinin "
+           "üzerine kurmaz: yalnızca uygulamanın kurulmadığını söyler, nedenini "
+           "söylemez.\\n\\nÖnce yeni dosyayı indirin, sonra bu sürümü kaldırın, en son da "
+           "indirdiğinizi kurun. İndirmeden önce kaldırırsanız ne uygulama kalır ne de onu "
+           "alacağınız sayfa.\\n\\nKayıtlı tahtalar ve ayarlar kaldırma işlemini "
+           "atlatamaz, saklamak istediğiniz planları önce PDF olarak dışa "
+           "aktarın.\\n\\nBu bir kerelik. Bundan sonraki güncellemeler yine normal şekilde "
+           "kurulur.",
+    ),
+    "update_reinstall_uninstall": t(
+        es="Desinstalar esta versión", pt="Desinstalar esta versão",
+        fr="Désinstaller cette version", de="Diese Version deinstallieren",
+        ja="このバージョンをアンインストール", ko="이 버전 삭제",
+        zhCN="卸载这一版", zhTW="解除安裝這一版",
+        ru="Удалить эту версию", uk="Видалити цю версію",
+        sv="Avinstallera den här versionen", ar="إزالة هذا الإصدار",
+        pl="Odinstaluj tę wersję", tr="Bu sürümü kaldır",
+    ),
+    "update_reinstall_later": t(
+        es="Ahora no", pt="Agora não", fr="Pas maintenant", de="Jetzt nicht",
+        ja="あとで", ko="나중에", zhCN="以后再说", zhTW="之後再說",
+        ru="Не сейчас", uk="Не зараз", sv="Inte nu", ar="ليس الآن",
+        pl="Nie teraz", tr="Şimdi değil",
     ),
     # --- fire mode and perks ----------------------------------------------------------
     "chart_section_fire_mode": t(

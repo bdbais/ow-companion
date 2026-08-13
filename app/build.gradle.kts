@@ -60,8 +60,8 @@ android {
         targetSdk = 35
         // Kept in step with the git tag the release is published under: the in-app
         // update prompt compares this against the newest tag on GitHub.
-        versionCode = 44
-        versionName = "1.10.3"
+        versionCode = 45
+        versionName = "1.10.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -91,6 +91,20 @@ android {
     val keystoreProperties = Properties().apply {
         val file = rootProject.file("keystore.properties")
         if (file.exists()) file.inputStream().use { stream -> load(stream) }
+    }
+
+    // A file still holding the placeholders is treated as no file at all. Left alone, the
+    // build gets as far as packaging and then fails with "keystore password was incorrect",
+    // which reads like a broken keystore rather than a line nobody has filled in yet.
+    val placeholders = keystoreProperties.stringPropertyNames().any { name ->
+        keystoreProperties.getProperty(name).orEmpty().startsWith("REPLACE_WITH_")
+    }
+    if (placeholders) {
+        logger.warn(
+            "keystore.properties still has its placeholder passwords, so this release will " +
+                "be unsigned and will not install. Fill in storePassword and keyPassword.",
+        )
+        keystoreProperties.clear()
     }
 
     signingConfigs {

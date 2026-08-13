@@ -6,17 +6,17 @@ import kotlin.random.Random
 /**
  * Holding a point against machines that keep coming, stepped by elapsed seconds.
  *
- * Emplacements sit beside a path; walkers follow it; anything that reaches the far end
+ * Kinds sit beside a path; movers follow it; anything that reaches the far end
  * costs you. The whole loop is place, watch, place better - and the interesting decision is
- * never which emplacement is strongest but where the path doubles back on itself, because
- * that is where one gun covers two stretches.
+ * never which post is strongest but where the path doubles back on itself, because
+ * that is where one post covers two stretches.
  *
  * Nothing here touches Android or Compose, so a whole defence can be played out in a test.
  */
 internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
 
     /** What can be put down, and what it costs. */
-    enum class Emplacement(
+    enum class Kind(
         val cost: Int,
         val reach: Float,
         val hit: Float,
@@ -24,18 +24,18 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
         val interval: Float,
     ) {
         /** Cheap, short, quick. The one you buy first and keep buying. */
-        Sentry(cost = 40, reach = 0.20f, hit = 9f, interval = 0.28f),
+        Quick(cost = 40, reach = 0.20f, hit = 9f, interval = 0.28f),
 
         /** Twice the reach and four times the punch, at four times the price. */
-        Emplaced(cost = 160, reach = 0.30f, hit = 42f, interval = 0.85f),
+        Heavy(cost = 160, reach = 0.30f, hit = 42f, interval = 0.85f),
 
         /** Slows everything it touches instead of killing it. */
-        Field(cost = 90, reach = 0.24f, hit = 3f, interval = 0.5f),
+        Slowing(cost = 90, reach = 0.24f, hit = 3f, interval = 0.5f),
     }
 
-    data class Gun(
+    data class Post(
         val id: Int,
-        val kind: Emplacement,
+        val kind: Kind,
         val x: Float,
         val y: Float,
         var cooldown: Float = 0f,
@@ -43,7 +43,7 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
         var flash: Float = 0f,
     )
 
-    data class Walker(
+    data class Mover(
         val id: Int,
         /** How far along the path, 0 to 1. */
         var along: Float,
@@ -65,11 +65,11 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
     private var releaseIn = 1.2f
     private var toRelease = 0
 
-    /** The lane, as points the walkers cross in order. Themed per ground, and nothing more. */
+    /** The lane, as points the movers cross in order. Themed per ground, and nothing more. */
     val path: List<Pair<Float, Float>> = LANES[ground % LANES.size]
 
-    val guns = mutableListOf<Gun>()
-    val walkers = mutableListOf<Walker>()
+    val posts = mutableListOf<Post>()
+    val movers = mutableListOf<Mover>()
 
     var stage: Stage = Stage.Placing
         private set
@@ -87,13 +87,13 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
     var downed: Int = 0
         private set
 
-    fun place(kind: Emplacement, x: Float, y: Float): Boolean {
+    fun place(kind: Kind, x: Float, y: Float): Boolean {
         if (scrap < kind.cost) return false
-        // Not on the lane itself, and not on top of another gun.
+        // Not on the lane itself, and not on top of another post.
         if (distanceToPath(x, y) < LANE_WIDTH) return false
-        if (guns.any { hypot((it.x - x).toDouble(), (it.y - y).toDouble()) < 0.06 }) return false
+        if (posts.any { hypot((it.x - x).toDouble(), (it.y - y).toDouble()) < 0.06 }) return false
 
-        guns += Gun(id = nextId++, kind = kind, x = x, y = y)
+        posts += Post(id = nextId++, kind = kind, x = x, y = y)
         scrap -= kind.cost
         return true
     }
@@ -110,32 +110,32 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
     fun step(dt: Float) {
         if (stage != Stage.Running) return
 
-        guns.forEach { gun ->
-            gun.cooldown -= dt
-            if (gun.flash > 0f) gun.flash = (gun.flash - dt).coerceAtLeast(0f)
+        posts.forEach { post ->
+            post.cooldown -= dt
+            if (post.flash > 0f) post.flash = (post.flash - dt).coerceAtLeast(0f)
         }
-        walkers.forEach { walker ->
-            if (walker.flash > 0f) walker.flash = (walker.flash - dt).coerceAtLeast(0f)
-            if (walker.slowed > 0f) walker.slowed = (walker.slowed - dt).coerceAtLeast(0f)
+        movers.forEach { mover ->
+            if (mover.flash > 0f) mover.flash = (mover.flash - dt).coerceAtLeast(0f)
+            if (mover.slowed > 0f) mover.slowed = (mover.slowed - dt).coerceAtLeast(0f)
 
-            val pace = if (walker.slowed > 0f) walker.speed * SLOW_FACTOR else walker.speed
-            walker.along += pace * dt
-            locate(walker)
+            val pace = if (mover.slowed > 0f) mover.speed * SLOW_FACTOR else mover.speed
+            mover.along += pace * dt
+            locate(mover)
         }
 
         fire(dt)
 
         // Anything that reaches the end costs a point of the line.
-        walkers.removeAll { walker ->
-            val through = walker.along >= 1f
+        movers.removeAll { mover ->
+            val through = mover.along >= 1f
             if (through) integrity -= 1
             through
         }
-        walkers.removeAll { walker ->
-            val dead = walker.health <= 0f
+        movers.removeAll { mover ->
+            val dead = mover.health <= 0f
             if (dead) {
                 downed += 1
-                scrap += if (walker.heavy) 45 else 12
+                scrap += if (mover.heavy) 45 else 12
             }
             dead
         }
@@ -149,25 +149,25 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
         if (toRelease > 0) {
             releaseIn -= dt
             if (releaseIn <= 0f) release()
-        } else if (walkers.isEmpty()) {
+        } else if (movers.isEmpty()) {
             // Wave cleared: back to building, and the pause is the reward.
             stage = Stage.Placing
         }
     }
 
     private fun fire(dt: Float) {
-        guns.forEach { gun ->
-            if (gun.cooldown > 0f) return@forEach
-            val target = walkers
-                .filter { hypot((it.x - gun.x).toDouble(), (it.y - gun.y).toDouble()) <= gun.kind.reach }
+        posts.forEach { post ->
+            if (post.cooldown > 0f) return@forEach
+            val target = movers
+                .filter { hypot((it.x - post.x).toDouble(), (it.y - post.y).toDouble()) <= post.kind.reach }
                 // The one furthest along is the one about to cost you something.
                 .maxByOrNull { it.along } ?: return@forEach
 
-            target.health -= gun.kind.hit
+            target.health -= post.kind.hit
             target.flash = FLASH
-            if (gun.kind == Emplacement.Field) target.slowed = SLOW_SECONDS
-            gun.cooldown = gun.kind.interval
-            gun.flash = FLASH
+            if (post.kind == Kind.Slowing) target.slowed = SLOW_SECONDS
+            post.cooldown = post.kind.interval
+            post.flash = FLASH
         }
     }
 
@@ -177,7 +177,7 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
         // One in five is a heavy, from the third wave on.
         val heavy = wave >= 3 && random.nextFloat() < 0.2f
         val health = if (heavy) 120f + wave * 30f else 34f + wave * 11f
-        val walker = Walker(
+        val mover = Mover(
             id = nextId++,
             along = 0f,
             health = health,
@@ -185,20 +185,20 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
             speed = (if (heavy) 0.035f else 0.055f) + wave * 0.002f,
             heavy = heavy,
         )
-        locate(walker)
-        walkers += walker
+        locate(mover)
+        movers += mover
     }
 
-    /** Puts a walker where its progress says it is, between two points of the lane. */
-    private fun locate(walker: Walker) {
-        val clamped = walker.along.coerceIn(0f, 1f)
+    /** Puts a mover where its progress says it is, between two points of the lane. */
+    private fun locate(mover: Mover) {
+        val clamped = mover.along.coerceIn(0f, 1f)
         val span = 1f / (path.size - 1)
         val leg = (clamped / span).toInt().coerceIn(0, path.size - 2)
         val within = (clamped - leg * span) / span
         val (ax, ay) = path[leg]
         val (bx, by) = path[leg + 1]
-        walker.x = ax + (bx - ax) * within
-        walker.y = ay + (by - ay) * within
+        mover.x = ax + (bx - ax) * within
+        mover.y = ay + (by - ay) * within
     }
 
     /** Distance from a point to the nearest leg of the lane, roughly enough to forbid it. */
@@ -207,7 +207,7 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
         for (index in 0 until path.size - 1) {
             val (ax, ay) = path[index]
             val (bx, by) = path[index + 1]
-            // Sampled rather than solved: a dozen points a leg is plenty to keep a gun off
+            // Sampled rather than solved: a dozen points a leg is plenty to keep a post off
             // the road, and the arithmetic stays something a reader can check.
             repeat(12) { step ->
                 val t = step / 11f
@@ -229,7 +229,7 @@ internal class HoldModel(seed: Long = 0L, val ground: Int = 0) {
         /**
          * Three lanes, each a different shape of problem.
          *
-         * The first doubles back so one gun covers two stretches; the second is long and
+         * The first doubles back so one post covers two stretches; the second is long and
          * open and wants reach; the third is a spiral that rewards a single strong corner.
          */
         val LANES: List<List<Pair<Float, Float>>> = listOf(

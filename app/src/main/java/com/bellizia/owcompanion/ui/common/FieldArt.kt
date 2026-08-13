@@ -35,7 +35,7 @@ internal class FieldArt private constructor(
      * Where a named piece sits in the sheet.
      *
      * An unknown name gives back null rather than throwing: a missing piece should leave a
-     * gap in a hidden panel, not take the app down.
+     * gap in a panel, not take the app down.
      */
     operator fun get(name: String): Box? = boxes[name]
 

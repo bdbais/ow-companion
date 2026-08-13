@@ -89,6 +89,7 @@
 
     <!-- Info -->
     <string name="about_intro">Progetto amatoriale non commerciale. Non affiliato né approvato da Blizzard Entertainment.</string>
+    <string name="about_downloads">Scaricata %1$s volte da GitHub</string>
     <string name="about_data_title">Da dove vengono i dati</string>
     <string name="about_data_wiki">Statistiche, abilità, date di rilascio e cronologia di bilanciamento vengono dalla Overwatch Wiki, licenza CC BY-SA.</string>
     <string name="about_data_overfast">Ritratti, icone delle abilità e l\'elenco degli eroi vengono dal sito ufficiale Blizzard tramite l\'API OverFast.</string>
@@ -216,6 +217,12 @@
     <string name="update_available">È uscita la versione %1$s</string>
     <string name="update_open">Vedi le novità</string>
     <string name="update_dismiss">Non segnalare più questa versione</string>
+    <string name="update_available_reinstall">È uscita la versione %1$s, e questa va installata a mano</string>
+    <string name="update_reinstall_how">Cosa fare</string>
+    <string name="update_reinstall_title">La versione %1$s richiede una nuova installazione</string>
+    <string name="update_reinstall_body">Questa versione è firmata con una chiave nuova, quindi Android non la installa sopra quella che hai: direbbe soltanto che l\'app non è stata installata, senza spiegare perché.\n\nScarica prima il file nuovo, poi disinstalla questa versione, poi installa quello che hai scaricato. Se disinstalli prima di scaricare resti senza app e senza la pagina da cui prenderla.\n\nLe lavagne salvate e le impostazioni non sopravvivono alla disinstallazione, quindi esporta prima in PDF i piani che vuoi tenere.\n\nSuccede una volta sola. Gli aggiornamenti dopo questo si installano di nuovo normalmente.</string>
+    <string name="update_reinstall_uninstall">Disinstalla questa versione</string>
+    <string name="update_reinstall_later">Non ora</string>
     <string name="chart_section_fire_mode">Modo di fuoco</string>
     <string name="fire_primary">Primario</string>
     <string name="fire_secondary">Secondario</string>

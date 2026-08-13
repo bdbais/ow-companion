@@ -40,4 +40,21 @@ class ReleaseVersionTest {
         // Shorter is not older: 1.0 and 1.0.0 are the same release.
         assertFalse(ReleaseChecker.isNewer("1.0", "1.0.0"))
     }
+
+    @Test
+    fun `a release marked for reinstall is recognised`() {
+        assertTrue(ReleaseChecker.requiresReinstall("<!-- reinstall -->"))
+        assertTrue(ReleaseChecker.requiresReinstall("New numbers.\n\n<!-- reinstall -->\n"))
+        // Written by hand, so spacing and case must not be what decides it.
+        assertTrue(ReleaseChecker.requiresReinstall("<!--reinstall-->"))
+        assertTrue(ReleaseChecker.requiresReinstall("<!--   Reinstall   -->"))
+    }
+
+    @Test
+    fun `an ordinary release is not`() {
+        assertFalse(ReleaseChecker.requiresReinstall(""))
+        assertFalse(ReleaseChecker.requiresReinstall("Fixed Ana's damage falloff."))
+        // The word alone is not the marker: release notes are allowed to discuss it.
+        assertFalse(ReleaseChecker.requiresReinstall("You may have to reinstall the app."))
+    }
 }

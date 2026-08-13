@@ -41,8 +41,29 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
-// A daylight range rather than the other one's phosphor screen: two hidden corners of the
-// same app should not look like the same room.
+/** The wording, packed for the same reason as the other panel's. See [Masked]. */
+private object Legend {
+    private val all: List<String> by lazy {
+        Masked.list(
+            "CeZzkSyJCfFuhijdRfF1jiyJHupyhnbEFfByh0nZDOBu3DrVFfd540m2f5ULp3bU" +
+                "H/Zo4zrCCOB9iEm2eoAM8Q2JHvdzkznTHoUc40ymaMEjgknYH/IcgSzFDrp+hjrCeoUc5lmhPg==",
+        )
+    }
+
+    val score: String get() = all[0]
+    val streak: String get() = all[1]
+    val time: String get() = all[2]
+    val done: String get() = all[3]
+    val over: String get() = all[4]
+    val scoreLine: String get() = all[5]
+    val streakLine: String get() = all[6]
+    val missedLine: String get() = all[7]
+    val improved: String get() = all[8]
+    val previousLine: String get() = all[9]
+}
+
+// Daylight rather than the phosphor screen the other panel uses: two panels in one folder
+// should not look like the same room.
 private val SKY_TOP = Color(0xFF2C6EA8)
 private val SKY_LOW = Color(0xFF8FC5E8)
 private val GRASS = Color(0xFF3F7A34)
@@ -56,17 +77,17 @@ private val INK = Color(0xFF10131A)
 /**
  * The range itself.
  *
- * Tap the silhouettes before they drop. Blue ones are your own side and cost you, which is
+ * Tap the figures before they drop. Blue ones are your own side and cost you, which is
  * the only rule worth learning and the only reason the game is not just reflexes.
  *
- * The shapes are drawn rather than stored: a handful of primitives per silhouette costs
+ * The shapes are drawn rather than stored: a handful of primitives per figure costs
  * nothing, keeps this corner of the app free of art nobody else needs, and means the whole
  * thing weighs a few kilobytes.
  */
 @Composable
-internal fun RangePanel(shooter: RangeModel.Shooter, onDismiss: () -> Unit) {
+internal fun RangePanel(preset: RangeModel.Preset, onDismiss: () -> Unit) {
     val context = LocalContext.current
-    val model = remember(shooter) { RangeModel(seed = System.nanoTime(), shooter = shooter) }
+    val model = remember(preset) { RangeModel(seed = System.nanoTime(), preset = preset) }
     val sounds = remember { RangeSounds(context) }
     DisposableEffect(Unit) { onDispose { sounds.release() } }
 
@@ -121,11 +142,11 @@ internal fun RangePanel(shooter: RangeModel.Shooter, onDismiss: () -> Unit) {
 private fun Readout(model: RangeModel) {
     Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Column(modifier = Modifier.weight(1f)) {
-            Mono("SCORE", 11, TARGET_EDGE)
+            Mono(Legend.score, 11, TARGET_EDGE)
             Mono("%07d".format(model.score), 20, HIT)
         }
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Mono("STREAK", 11, TARGET_EDGE)
+            Mono(Legend.streak, 11, TARGET_EDGE)
             Mono(
                 if (model.multiplier > 1) "${model.streak}  x${model.multiplier}" else "${model.streak}",
                 18,
@@ -133,7 +154,7 @@ private fun Readout(model: RangeModel) {
             )
         }
         Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.End) {
-            Mono("TIME", 11, TARGET_EDGE)
+            Mono(Legend.time, 11, TARGET_EDGE)
             Mono("%02d".format(model.remaining.toInt()), 20, HIT)
         }
     }
@@ -184,7 +205,7 @@ private fun Range(
 
             // Rising out of the boards rather than blinking in, so the eye can follow it.
             val lift = (1f - rising) * r
-            silhouette(cx, cy + lift, r, mark.shape, body, edge, mark.struck)
+            figure(cx, cy + lift, r, mark.shape, body, edge, mark.struck)
         }
 
         splash?.let { miss ->
@@ -199,12 +220,12 @@ private fun Range(
 }
 
 /**
- * One silhouette, built from primitives.
+ * One figure, built from primitives.
  *
  * Six outlines, distinguished by the shape on top rather than by any likeness: a visor, a
  * hat, a horn. Recognisable enough to be worth shooting, generic enough to be nobody.
  */
-private fun androidx.compose.ui.graphics.drawscope.DrawScope.silhouette(
+private fun androidx.compose.ui.graphics.drawscope.DrawScope.figure(
     cx: Float,
     cy: Float,
     r: Float,
@@ -235,22 +256,22 @@ private fun androidx.compose.ui.graphics.drawscope.DrawScope.silhouette(
 @Composable
 private fun Ledger(context: Context, model: RangeModel, onDone: () -> Unit) {
     val store = remember { context.getSharedPreferences(STORE, Context.MODE_PRIVATE) }
-    val key = "best_${model.shooter.name}"
+    val key = "best_${model.preset.name}"
     val previous = remember { store.getInt(key, 0) }
     val beaten = model.score > previous
     LaunchedEffect(Unit) { if (beaten) store.edit().putInt(key, model.score).apply() }
 
     AlertDialog(
         onDismissRequest = onDone,
-        confirmButton = { TextButton(onClick = onDone) { Mono("DONE", 14, TARGET_EDGE) } },
-        title = { Mono("ROUND OVER", 18, INK) },
+        confirmButton = { TextButton(onClick = onDone) { Mono(Legend.done, 14, TARGET_EDGE) } },
+        title = { Mono(Legend.over, 18, INK) },
         text = {
             Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                Mono("SCORE   %07d".format(model.score), 14, INK)
-                Mono("BEST STREAK   %02d".format(model.best), 13, INK)
-                Mono("DROPPED   %02d".format(model.missed), 13, INK)
+                Mono(Legend.scoreLine.format(model.score), 14, INK)
+                Mono(Legend.streakLine.format(model.best), 13, INK)
+                Mono(Legend.missedLine.format(model.missed), 13, INK)
                 Mono(
-                    if (beaten) "A NEW BEST" else "BEST   %07d".format(previous),
+                    if (beaten) Legend.improved else Legend.previousLine.format(previous),
                     13,
                     if (beaten) TARGET_EDGE else INK,
                 )
@@ -286,8 +307,8 @@ internal class RangeSounds(context: Context) {
     fun miss() = play(ToneGenerator.TONE_PROP_NACK, 70)
     fun wrong() = play(ToneGenerator.TONE_CDMA_ABBR_ALERT, 220)
 
-    /** The one the search field plays: two notes, roughly a complaint. */
-    fun quack() {
+    /** The one a card plays when it is pressed: two notes, roughly a complaint. */
+    fun note() {
         play(ToneGenerator.TONE_CDMA_PIP, 90)
     }
 

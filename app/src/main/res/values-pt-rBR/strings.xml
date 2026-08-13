@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d itens</string>
     <string name="build_cancel">Cancelar</string>
     <string name="build_confirm">Salvar</string>
+    <string name="about_downloads">Baixada %1$s vezes no GitHub</string>
     <string name="about_intro">Projeto de fãs, sem fins lucrativos. Não é afiliado nem endossado pela Blizzard Entertainment.</string>
     <string name="about_data_title">De onde vêm os dados</string>
     <string name="about_art_title">Imagens e nomes</string>
@@ -163,6 +164,12 @@
     <string name="update_available">A versão %1$s já saiu</string>
     <string name="update_open">Ver novidades</string>
     <string name="update_dismiss">Não avisar mais sobre esta versão</string>
+    <string name="update_available_reinstall">A versão %1$s já saiu, e esta precisa ser instalada à mão</string>
+    <string name="update_reinstall_how">O que fazer</string>
+    <string name="update_reinstall_title">A versão %1$s precisa de uma instalação limpa</string>
+    <string name="update_reinstall_body">Esta versão é assinada com uma chave nova, então o Android não a instala por cima da que você tem: diria apenas que o app não foi instalado, sem explicar o motivo.\n\nBaixe primeiro o arquivo novo, depois desinstale esta versão e só então instale o que baixou. Se desinstalar antes de baixar, você fica sem o app e sem a página de onde tirá-lo.\n\nAs lousas salvas e as configurações não sobrevivem à desinstalação, então exporte antes em PDF os planos que quiser guardar.\n\nÉ só desta vez. As próximas atualizações voltam a instalar normalmente.</string>
+    <string name="update_reinstall_uninstall">Desinstalar esta versão</string>
+    <string name="update_reinstall_later">Agora não</string>
     <string name="chart_section_fire_mode">Modo de disparo</string>
     <string name="fire_primary">Primário</string>
     <string name="fire_secondary">Secundário</string>

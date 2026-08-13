@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d föremål</string>
     <string name="build_cancel">Avbryt</string>
     <string name="build_confirm">Spara</string>
+    <string name="about_downloads">Nedladdad %1$s gånger från GitHub</string>
     <string name="about_intro">Icke-kommersiellt fanprojekt. Varken knutet till eller godkänt av Blizzard Entertainment.</string>
     <string name="about_data_title">Var data kommer ifrån</string>
     <string name="about_art_title">Bilder och namn</string>
@@ -163,6 +164,12 @@
     <string name="update_available">Version %1$s har släppts</string>
     <string name="update_open">Se vad som ändrats</string>
     <string name="update_dismiss">Nämn inte den här versionen igen</string>
+    <string name="update_available_reinstall">Version %1$s har släppts, och den här måste installeras för hand</string>
+    <string name="update_reinstall_how">Vad du gör</string>
+    <string name="update_reinstall_title">Version %1$s kräver en ren installation</string>
+    <string name="update_reinstall_body">Den här versionen är signerad med en ny nyckel, så Android installerar den inte ovanpå den du har: den säger bara att appen inte installerades, utan att säga varför.\n\nLadda ner den nya filen först, avinstallera sedan den här versionen och installera först därefter det du laddat ner. Avinstallerar du före nedladdningen står du utan app och utan sidan att hämta den från.\n\nSparade tavlor och inställningar överlever inte avinstallationen, så exportera som PDF det du vill behålla först.\n\nDet är en engångsgrej. Uppdateringar efter den här installeras som vanligt igen.</string>
+    <string name="update_reinstall_uninstall">Avinstallera den här versionen</string>
+    <string name="update_reinstall_later">Inte nu</string>
     <string name="chart_section_fire_mode">Eldläge</string>
     <string name="fire_primary">Primär</string>
     <string name="fire_secondary">Sekundär</string>

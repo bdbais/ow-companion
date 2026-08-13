@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.TextButton
@@ -166,6 +167,7 @@ private fun AppRoot() {
 private fun UpdateBanner() {
     val context = LocalContext.current
     var release by remember { mutableStateOf<ReleaseChecker.Release?>(null) }
+    var explaining by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         release = ReleaseChecker(context).newerRelease()
@@ -173,7 +175,42 @@ private fun UpdateBanner() {
 
     val newer = release ?: return
 
-    Surface(color = MaterialTheme.colorScheme.primaryContainer) {
+    val open = {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(newer.url))
+        runCatching { context.startActivity(intent) }
+            .onFailure { if (it !is ActivityNotFoundException) throw it }
+        Unit
+    }
+
+    // An update that changes the signing key cannot be installed over this one, and Android
+    // says so with "App not installed" and nothing else. Explaining it before the reader
+    // meets that message is the whole point of the extra tap.
+    if (explaining) {
+        ReinstallDialog(
+            version = newer.version,
+            onOpen = { explaining = false; open() },
+            onUninstall = {
+                // The system uninstaller, which asks for its own confirmation. Nothing is
+                // removed by this alone, and an Android without one is not a thing that
+                // exists - but the app should not die here if it somehow is.
+                val intent = Intent(
+                    Intent.ACTION_DELETE,
+                    Uri.parse("package:${context.packageName}"),
+                )
+                runCatching { context.startActivity(intent) }
+                    .onFailure { if (it !is ActivityNotFoundException) throw it }
+            },
+            onDismiss = { explaining = false },
+        )
+    }
+
+    Surface(
+        color = if (newer.needsReinstall) {
+            MaterialTheme.colorScheme.tertiaryContainer
+        } else {
+            MaterialTheme.colorScheme.primaryContainer
+        },
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -182,16 +219,27 @@ private fun UpdateBanner() {
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = stringResource(R.string.update_available, newer.version),
+                text = stringResource(
+                    if (newer.needsReinstall) R.string.update_available_reinstall
+                    else R.string.update_available,
+                    newer.version,
+                ),
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                color = if (newer.needsReinstall) {
+                    MaterialTheme.colorScheme.onTertiaryContainer
+                } else {
+                    MaterialTheme.colorScheme.onPrimaryContainer
+                },
                 modifier = Modifier.weight(1f),
             )
-            TextButton(onClick = {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(newer.url))
-                runCatching { context.startActivity(intent) }
-                    .onFailure { if (it !is ActivityNotFoundException) throw it }
-            }) { Text(stringResource(R.string.update_open)) }
+            TextButton(onClick = { if (newer.needsReinstall) explaining = true else open() }) {
+                Text(
+                    stringResource(
+                        if (newer.needsReinstall) R.string.update_reinstall_how
+                        else R.string.update_open,
+                    ),
+                )
+            }
             IconButton(onClick = {
                 ReleaseChecker(context).dismiss(newer.version)
                 release = null
@@ -199,9 +247,52 @@ private fun UpdateBanner() {
                 Icon(
                     imageVector = Icons.Filled.Close,
                     contentDescription = stringResource(R.string.update_dismiss),
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                    tint = if (newer.needsReinstall) {
+                        MaterialTheme.colorScheme.onTertiaryContainer
+                    } else {
+                        MaterialTheme.colorScheme.onPrimaryContainer
+                    },
                 )
             }
         }
     }
+}
+
+/**
+ * What has to happen, in what order, and what it costs.
+ *
+ * The order is the part worth insisting on: uninstalling before the new file is downloaded
+ * leaves the reader with no app and no obvious way back to the page it came from. So the
+ * download is the button that looks like the action, and the shortcut to the system
+ * uninstaller sits below the explanation rather than beside it.
+ *
+ * It also says plainly that saved boards do not survive, because finding that out afterwards
+ * is worse than being warned, and the board's export buttons are right there.
+ */
+@Composable
+private fun ReinstallDialog(
+    version: String,
+    onOpen: () -> Unit,
+    onUninstall: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.update_reinstall_title, version)) },
+        text = {
+            Column {
+                Text(stringResource(R.string.update_reinstall_body))
+                TextButton(
+                    onClick = onUninstall,
+                    modifier = Modifier.padding(top = 12.dp),
+                ) { Text(stringResource(R.string.update_reinstall_uninstall)) }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onOpen) { Text(stringResource(R.string.update_open)) }
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss) { Text(stringResource(R.string.update_reinstall_later)) }
+        },
+    )
 }

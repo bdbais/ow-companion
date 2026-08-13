@@ -114,6 +114,7 @@
     <string name="build_item_count">предметів: %1$d</string>
     <string name="build_cancel">Скасувати</string>
     <string name="build_confirm">Зберегти</string>
+    <string name="about_downloads">Завантажено з GitHub %1$s разів</string>
     <string name="about_intro">Некомерційний фанатський проєкт. Не пов\'язаний із Blizzard Entertainment і не схвалений нею.</string>
     <string name="about_data_title">Звідки дані</string>
     <string name="about_art_title">Зображення та назви</string>
@@ -163,6 +164,12 @@
     <string name="update_available">Вийшла версія %1$s</string>
     <string name="update_open">Що змінилося</string>
     <string name="update_dismiss">Більше не нагадувати про цю версію</string>
+    <string name="update_available_reinstall">Вийшла версія %1$s, і її потрібно встановити вручну</string>
+    <string name="update_reinstall_how">Що робити</string>
+    <string name="update_reinstall_title">Версію %1$s потрібно встановити заново</string>
+    <string name="update_reinstall_body">Ця версія підписана новим ключем, тому Android не встановить її поверх наявної: він лише скаже, що застосунок не встановлено, і не пояснить чому.\n\nСпершу завантажте новий файл, потім видаліть цю версію і аж тоді встановіть завантажене. Якщо видалити до завантаження, ви лишитеся без застосунку й без сторінки, звідки його взяти.\n\nЗбережені дошки й налаштування видалення не переживуть, тож заздалегідь експортуйте в PDF плани, які хочете лишити.\n\nЦе один раз. Наступні оновлення знову встановлюватимуться звично.</string>
+    <string name="update_reinstall_uninstall">Видалити цю версію</string>
+    <string name="update_reinstall_later">Не зараз</string>
     <string name="chart_section_fire_mode">Режим вогню</string>
     <string name="fire_primary">Основний</string>
     <string name="fire_secondary">Альтернативний</string>

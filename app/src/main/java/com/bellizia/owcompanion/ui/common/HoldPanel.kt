@@ -43,6 +43,32 @@ import kotlin.math.atan2
 import kotlin.math.cos
 import kotlin.math.sin
 
+/**
+ * The wording, packed rather than written out.
+ *
+ * R8 renames every class and member on the way into the APK but never touches a string
+ * literal, so the labels are the one part of this that a reader of the shipped file would
+ * still be handed in full. See [Masked]: the same reasoning, applied to the same problem.
+ */
+private object Labels {
+    private val all: List<String> by lazy {
+        Masked.list(
+            "CeZugjmJDeRqhnbaE+t53CXTG/N53DrTFOEclyHTevJ9lSyJDu154yXfFOAcgTvZ" +
+                "EeAc46sheoUZ81vyevJ9lSzFRfRpiirdRe15gj/PRfZwjD7fFOI=",
+        )
+    }
+
+    val bank: String get() = all[0]
+    val round: String get() = all[1]
+    val line: String get() = all[2]
+    val leave: String get() = all[3]
+    val begin: String get() = all[4]
+    val over: String get() = all[5]
+
+    /** One label per entry of [HoldModel.Kind], in declaration order. */
+    fun kind(ordinal: Int): String = all[6 + ordinal]
+}
+
 // Concrete and rust: a fortified position rather than a screen or a range.
 private val GROUND = Color(0xFF23262B)
 private val LANE = Color(0xFF3A3F47)
@@ -56,15 +82,15 @@ private val PAPER = Color(0xFFF2ECE2)
 /**
  * The defence.
  *
- * Pick an emplacement, tap somewhere off the lane, start the wave. Everything about it is
- * meant to be read at a glance: the lane is a road, the reach of a gun is a ring, and the
+ * Pick an post, tap somewhere off the lane, start the wave. Everything about it is
+ * meant to be read at a glance: the lane is a road, the reach of a post is a ring, and the
  * only number that matters is how many more can get past you.
  */
 @Composable
 internal fun HoldPanel(ground: Int, onDismiss: () -> Unit) {
     val model = remember(ground) { HoldModel(seed = System.nanoTime(), ground = ground) }
     var frame by remember { mutableIntStateOf(0) }
-    var chosen by remember { mutableStateOf(HoldModel.Emplacement.Sentry) }
+    var chosen by remember { mutableStateOf(HoldModel.Kind.Quick) }
 
     LaunchedEffect(Unit) {
         var previous = 0L
@@ -84,29 +110,29 @@ internal fun HoldPanel(ground: Int, onDismiss: () -> Unit) {
             Column(modifier = Modifier.fillMaxSize()) {
                 Row(modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                     Column(modifier = Modifier.weight(1f)) {
-                        Mono("SCRAP", 11, RUST)
+                        Mono(Labels.bank, 11, RUST)
                         Mono("%05d".format(model.scrap), 19, PAPER)
                     }
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Mono("WAVE", 11, RUST)
+                        Mono(Labels.round, 11, RUST)
                         Mono("%02d".format(model.wave), 19, PAPER)
                     }
                     Column(modifier = Modifier.weight(1f), horizontalAlignment = Alignment.End) {
-                        Mono("LINE", 11, RUST)
+                        Mono(Labels.line, 11, RUST)
                         Mono("${model.integrity}", 19, if (model.integrity <= 2) WARN else PAPER)
                     }
                 }
 
                 Box(modifier = Modifier.fillMaxWidth().weight(1f).padding(vertical = 6.dp)) {
-                    Field(model, chosen, frame, Modifier.fillMaxSize())
+                    Plot(model, chosen, frame, Modifier.fillMaxSize())
                 }
 
                 Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-                    HoldModel.Emplacement.entries.forEach { kind ->
+                    HoldModel.Kind.entries.forEach { kind ->
                         val affordable = model.scrap >= kind.cost
                         TextButton(onClick = { chosen = kind }) {
                             Mono(
-                                "${kind.name.uppercase()} ${kind.cost}",
+                                "${Labels.kind(kind.ordinal)} ${kind.cost}",
                                 12,
                                 when {
                                     kind == chosen -> RUST
@@ -119,12 +145,12 @@ internal fun HoldPanel(ground: Int, onDismiss: () -> Unit) {
                 }
 
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                    TextButton(onClick = onDismiss) { Mono("LEAVE", 13, STEEL) }
+                    TextButton(onClick = onDismiss) { Mono(Labels.leave, 13, STEEL) }
                     if (model.stage == HoldModel.Stage.Placing) {
-                        TextButton(onClick = model::advance) { Mono("SEND THE WAVE", 14, RUST) }
+                        TextButton(onClick = model::advance) { Mono(Labels.begin, 14, RUST) }
                     }
                     if (model.stage == HoldModel.Stage.Lost) {
-                        Mono("THE LINE BROKE  ·  %02d WAVES".format(model.wave), 14, WARN)
+                        Mono(Labels.over.format(model.wave), 14, WARN)
                     }
                 }
             }
@@ -133,9 +159,9 @@ internal fun HoldPanel(ground: Int, onDismiss: () -> Unit) {
 }
 
 @Composable
-private fun Field(
+private fun Plot(
     model: HoldModel,
-    chosen: HoldModel.Emplacement,
+    chosen: HoldModel.Kind,
     frame: Int,
     modifier: Modifier = Modifier,
 ) {
@@ -166,46 +192,46 @@ private fun Field(
         drawCircle(COOL, radius = minOf(w, h) * 0.03f, center = Offset(lane.first().first * w, lane.first().second * h))
         drawCircle(WARN, radius = minOf(w, h) * 0.03f, center = Offset(lane.last().first * w, lane.last().second * h))
 
-        model.guns.forEach { gun ->
-            val cx = gun.x * w
-            val cy = gun.y * h
-            val tint = when (gun.kind) {
-                HoldModel.Emplacement.Sentry -> RUST
-                HoldModel.Emplacement.Emplaced -> STEEL
-                HoldModel.Emplacement.Field -> COOL
+        model.posts.forEach { post ->
+            val cx = post.x * w
+            val cy = post.y * h
+            val tint = when (post.kind) {
+                HoldModel.Kind.Quick -> RUST
+                HoldModel.Kind.Heavy -> STEEL
+                HoldModel.Kind.Slowing -> COOL
             }
             drawCircle(
                 color = tint.copy(alpha = 0.16f),
-                radius = gun.kind.reach * minOf(w, h),
+                radius = post.kind.reach * minOf(w, h),
                 center = Offset(cx, cy),
                 style = Stroke(width = 1.5f),
             )
             val side = minOf(w, h) * 0.028f
             drawRect(tint, topLeft = Offset(cx - side, cy - side), size = Size(side * 2, side * 2))
-            if (gun.flash > 0f) {
+            if (post.flash > 0f) {
                 drawCircle(PAPER, radius = side * 1.5f, center = Offset(cx, cy), style = Stroke(2f))
             }
         }
 
-        model.walkers.forEach { walker ->
-            val cx = walker.x * w
-            val cy = walker.y * h
-            val r = minOf(w, h) * (if (walker.heavy) 0.028f else 0.018f)
+        model.movers.forEach { mover ->
+            val cx = mover.x * w
+            val cy = mover.y * h
+            val r = minOf(w, h) * (if (mover.heavy) 0.028f else 0.018f)
             val body = when {
-                walker.flash > 0f -> PAPER
-                walker.slowed > 0f -> COOL
-                walker.heavy -> WARN
+                mover.flash > 0f -> PAPER
+                mover.slowed > 0f -> COOL
+                mover.heavy -> WARN
                 else -> STEEL
             }
             drawCircle(body, radius = r, center = Offset(cx, cy))
             // A bar only while it is hurt, so a full field is not all bars.
-            if (walker.health < walker.maxHealth) {
+            if (mover.health < mover.maxHealth) {
                 val width = r * 2.4f
                 drawRect(WALL, topLeft = Offset(cx - width / 2, cy - r * 2f), size = Size(width, r * 0.4f))
                 drawRect(
                     color = RUST,
                     topLeft = Offset(cx - width / 2, cy - r * 2f),
-                    size = Size(width * (walker.health / walker.maxHealth), r * 0.4f),
+                    size = Size(width * (mover.health / mover.maxHealth), r * 0.4f),
                 )
             }
         }

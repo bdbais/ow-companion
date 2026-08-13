@@ -47,6 +47,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import com.bellizia.owcompanion.ui.common.Vault
 import com.bellizia.owcompanion.ui.common.HoldPanel
+import com.bellizia.owcompanion.ui.common.Masked
 import com.bellizia.owcompanion.ui.common.vaultLetters
 import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.Composable
@@ -103,18 +104,18 @@ private val GreyedOut = ColorFilter.colorMatrix(ColorMatrix().apply { setToSatur
  */
 
 /**
- * Both of the ones who put guns on the ground, on the board at the same time.
+ * A pair the board watches for, masked so that reading this file does not spend it.
  *
- * Not a state anybody reaches by accident - two particular heroes and nobody else matters -
+ * Not a state anybody reaches by accident - two particular keys and nobody else matters -
  * and not one the board reacts to in any other way.
  */
-private val EMPLACERS = setOf("torbjorn", "symmetra")
+private val PAIR: Set<String> by lazy { Masked.list("LspOoQP5KMsjsBD7N8BIsQg=").toSet() }
 
 @Composable
 private fun BoardLock(tokens: List<Token>, modifier: Modifier = Modifier) {
     val ready = remember(tokens) {
         val placed = tokens.map { it.heroKey.lowercase() }.toSet()
-        EMPLACERS.all { it in placed }
+        PAIR.all { it in placed }
     }
     if (!ready) return
 

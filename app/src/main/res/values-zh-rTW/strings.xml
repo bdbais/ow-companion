@@ -114,6 +114,7 @@
     <string name="build_item_count">%1$d 件物品</string>
     <string name="build_cancel">取消</string>
     <string name="build_confirm">儲存</string>
+    <string name="about_downloads">已從 GitHub 下載 %1$s 次</string>
     <string name="about_intro">非商業性質的粉絲專案，與暴雪娛樂無關，也未獲其認可。</string>
     <string name="about_data_title">資料來源</string>
     <string name="about_art_title">圖像與名稱</string>
@@ -163,6 +164,12 @@
     <string name="update_available">版本 %1$s 已發布</string>
     <string name="update_open">查看更新內容</string>
     <string name="update_dismiss">不再提示此版本</string>
+    <string name="update_available_reinstall">版本 %1$s 已發布，這一版需要手動安裝</string>
+    <string name="update_reinstall_how">怎麼做</string>
+    <string name="update_reinstall_title">版本 %1$s 需要重新安裝</string>
+    <string name="update_reinstall_body">這一版用新的金鑰簽章，所以 Android 不會裝在你現有的版本上，只會說應用程式未安裝，卻不說為什麼。\n\n請先下載新檔案，再解除安裝這一版，最後安裝下載好的檔案。先解除安裝再下載，你會既沒有應用程式，也找不到取回它的頁面。\n\n解除安裝後儲存的戰術板和設定不會保留，想留下的計畫請先匯出成 PDF。\n\n只有這一次，之後的更新會恢復正常安裝。</string>
+    <string name="update_reinstall_uninstall">解除安裝這一版</string>
+    <string name="update_reinstall_later">之後再說</string>
     <string name="chart_section_fire_mode">開火方式</string>
     <string name="fire_primary">主要攻擊</string>
     <string name="fire_secondary">次要攻擊</string>

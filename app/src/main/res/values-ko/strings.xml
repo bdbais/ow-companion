@@ -114,6 +114,7 @@
     <string name="build_item_count">아이템 %1$d개</string>
     <string name="build_cancel">취소</string>
     <string name="build_confirm">저장</string>
+    <string name="about_downloads">GitHub에서 %1$s번 내려받았습니다</string>
     <string name="about_intro">비영리 팬 프로젝트입니다. Blizzard Entertainment와 제휴하거나 승인받지 않았습니다.</string>
     <string name="about_data_title">데이터 출처</string>
     <string name="about_art_title">이미지와 이름</string>
@@ -163,6 +164,12 @@
     <string name="update_available">버전 %1$s이(가) 나왔습니다</string>
     <string name="update_open">변경 사항 보기</string>
     <string name="update_dismiss">이 버전은 다시 알리지 않기</string>
+    <string name="update_available_reinstall">버전 %1$s이(가) 나왔습니다. 이번에는 직접 설치해야 합니다</string>
+    <string name="update_reinstall_how">설치 방법</string>
+    <string name="update_reinstall_title">버전 %1$s은(는) 새로 설치해야 합니다</string>
+    <string name="update_reinstall_body">이 버전은 새 키로 서명되어 있어서 Android가 기존 앱 위에 설치하지 않습니다. 이유는 알려주지 않고 앱이 설치되지 않았다고만 표시됩니다.\n\n먼저 새 파일을 내려받고, 그다음 이 버전을 삭제하고, 마지막으로 내려받은 파일을 설치하세요. 내려받기 전에 삭제하면 앱도, 앱을 받을 페이지도 남지 않습니다.\n\n저장한 보드와 설정은 삭제하면 사라지니, 보관하고 싶은 작전은 미리 PDF로 내보내세요.\n\n이번 한 번뿐입니다. 다음 업데이트부터는 다시 정상적으로 설치됩니다.</string>
+    <string name="update_reinstall_uninstall">이 버전 삭제</string>
+    <string name="update_reinstall_later">나중에</string>
     <string name="chart_section_fire_mode">사격 방식</string>
     <string name="fire_primary">기본 공격</string>
     <string name="fire_secondary">보조 공격</string>

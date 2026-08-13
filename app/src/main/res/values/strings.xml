@@ -97,6 +97,7 @@
     <!-- About -->
     <string name="about_title" translatable="false">OW Companion</string>
     <string name="about_intro">A non-commercial fan project. Not affiliated with or endorsed by Blizzard Entertainment.</string>
+    <string name="about_downloads">Downloaded %1$s times from GitHub</string>
     <string name="about_data_title">Where the data comes from</string>
     <string name="about_data_wiki">Hero statistics, abilities, release dates and the full balance history come from the Overwatch Wiki, licensed CC BY-SA.</string>
     <string name="about_data_overfast">Portraits, ability icons and the hero roster come from Blizzard\'s own site through the OverFast API.</string>
@@ -222,6 +223,12 @@
     <string name="update_available">Version %1$s is out</string>
     <string name="update_open">See what changed</string>
     <string name="update_dismiss">Do not mention this version again</string>
+    <string name="update_available_reinstall">Version %1$s is out, and this one has to be installed by hand</string>
+    <string name="update_reinstall_how">What to do</string>
+    <string name="update_reinstall_title">Version %1$s needs a fresh install</string>
+    <string name="update_reinstall_body">This version is signed with a new key, so Android will not install it over the copy you have: it would just say the app was not installed, without saying why.\n\nDownload the new file first, then uninstall this one, then install what you downloaded. Uninstalling before the download leaves you with no app and nowhere to get it from.\n\nSaved boards and settings do not survive the uninstall, so export any plan you want to keep as a PDF first.\n\nIt is a one-off. Updates after this one install normally again.</string>
+    <string name="update_reinstall_uninstall">Uninstall this version</string>
+    <string name="update_reinstall_later">Not now</string>
     <string name="chart_with_perk">with %1$s</string>
     <string name="chart_section_fire_mode">Fire mode</string>
     <string name="fire_primary">Primary</string>
