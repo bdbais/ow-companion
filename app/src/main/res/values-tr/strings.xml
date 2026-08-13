@@ -114,6 +114,10 @@
     <string name="build_item_count">%1$d eşya</string>
     <string name="build_cancel">İptal</string>
     <string name="build_confirm">Kaydet</string>
+    <string name="about_translators_title">Gönüllü çevirmenler</string>
+    <string name="about_translators">Kahraman, yetenek ve avantaj adları Blizzard\'dan geliyor; oyun bu uygulamanın on beş dilinden yalnızca onunda yayımlanıyor. Kalanlarda İngilizce kalıyorlar ve buradan düzeltilemez: o kelimelerin, o dilde oynayan birinden gelmesi gerekiyor.</string>
+    <string name="about_translators_missing">Hâlâ İngilizce: Basitleştirilmiş Çince, Ukraynaca, İsveççe, Arapça, Türkçe. Ayrıca Stadyum cephaneliği, bütün dillerde, çünkü Blizzard o adları hiç yayımlamıyor. Kısmi yardım da işe yarar: çevirisi olmayan bir ad İngilizce görünür, kimsenin bir dili bitirmesi gerekmez.</string>
+    <string name="about_translators_open">GitHub\'da tek bir dosya ve nasıl ekleneceği</string>
     <string name="about_downloads">GitHub\'dan %1$s kez indirildi</string>
     <string name="about_intro">Ticari olmayan bir hayran projesi. Blizzard Entertainment ile bağlantılı veya onaylı değildir.</string>
     <string name="about_data_title">Veriler nereden geliyor</string>

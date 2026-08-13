@@ -52,6 +52,7 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.mutableStateListOf
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.ui.common.RangeModel
 import com.bellizia.owcompanion.ui.common.RangePanel
 import com.bellizia.owcompanion.ui.common.RangeSounds
@@ -424,7 +425,7 @@ private fun HeroDetail(
                             .clip(CircleShape),
                     )
                     Column(modifier = Modifier.padding(start = 12.dp)) {
-                        Text(hero.name, style = MaterialTheme.typography.headlineMedium)
+                        Text(localised(hero.name), style = MaterialTheme.typography.headlineMedium)
                         Text(
                             text = listOfNotNull(
                                 hero.subrole?.replaceFirstChar(Char::uppercase),
@@ -435,7 +436,7 @@ private fun HeroDetail(
                         )
                         hero.location?.let {
                             Text(
-                                text = it,
+                                text = localised(it),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 maxLines = 2,
@@ -510,7 +511,7 @@ private fun HeroDetail(
         hero.description?.takeIf { it.isNotBlank() }?.let { description ->
             item {
                 Text(
-                    text = description,
+                    text = localised(description),
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp),
                 )
@@ -548,12 +549,12 @@ private fun HeroDetail(
                 )
                 Column(modifier = Modifier.padding(start = 10.dp)) {
                     Text(
-                        text = ability.name ?: "",
+                        text = localised(ability.name),
                         style = MaterialTheme.typography.titleSmall,
                         fontWeight = FontWeight.SemiBold,
                     )
                     Text(
-                        text = ability.description,
+                        text = localised(ability.description),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -592,12 +593,12 @@ private fun HeroDetail(
                     )
                     Column {
                         Text(
-                            text = perk.name,
+                            text = localised(perk.name),
                             style = MaterialTheme.typography.titleSmall,
                             fontWeight = FontWeight.SemiBold,
                         )
                         Text(
-                            text = perk.description,
+                            text = localised(perk.description),
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )

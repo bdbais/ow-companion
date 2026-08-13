@@ -114,6 +114,10 @@
     <string name="build_item_count">아이템 %1$d개</string>
     <string name="build_cancel">취소</string>
     <string name="build_confirm">저장</string>
+    <string name="about_translators_title">자원 번역자</string>
+    <string name="about_translators">영웅과 기술, 특성의 이름은 Blizzard에서 가져옵니다. 이 앱이 지원하는 열다섯 언어 중 열 개로만 공개되어 있어서 나머지는 영어로 남습니다. 이쪽에서 고칠 수 있는 일이 아니라, 그 언어로 플레이하는 사람의 말이 필요합니다.</string>
+    <string name="about_translators_missing">아직 영어: 중국어 간체, 우크라이나어, 스웨덴어, 아랍어, 튀르키예어. 그리고 스타디움 장비고는 모든 언어에서 영어입니다. Blizzard가 그 이름들을 어디에도 공개하지 않기 때문입니다. 일부만 도와도 됩니다. 번역이 없는 이름은 영어로 나오니, 한 언어를 끝낼 필요는 없습니다.</string>
+    <string name="about_translators_open">GitHub의 파일 하나와 보태는 방법</string>
     <string name="about_downloads">GitHub에서 %1$s번 내려받았습니다</string>
     <string name="about_intro">비영리 팬 프로젝트입니다. Blizzard Entertainment와 제휴하거나 승인받지 않았습니다.</string>
     <string name="about_data_title">데이터 출처</string>

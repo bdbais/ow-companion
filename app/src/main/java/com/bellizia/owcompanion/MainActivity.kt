@@ -56,6 +56,7 @@ import com.bellizia.owcompanion.ui.stadium.StadiumScreen
 import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
 import com.bellizia.owcompanion.ui.meta.MetaTab
 import com.bellizia.owcompanion.ui.wiki.WikiScreen
+import com.bellizia.owcompanion.ui.common.ProvideNames
 import com.bellizia.owcompanion.ui.theme.OwCompanionTheme
 
 class MainActivity : AppCompatActivity() {
@@ -64,7 +65,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContent {
             OwCompanionTheme {
-                AppRoot()
+                // Around everything, because a hero's name is wanted on six screens and the
+                // answer depends only on the locale.
+                ProvideNames {
+                    AppRoot()
+                }
             }
         }
     }

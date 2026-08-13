@@ -114,6 +114,10 @@
     <string name="build_item_count">アイテム %1$d 個</string>
     <string name="build_cancel">キャンセル</string>
     <string name="build_confirm">保存</string>
+    <string name="about_translators_title">翻訳ボランティア</string>
+    <string name="about_translators">ヒーロー名、アビリティ名、パーク名は Blizzard のものです。このアプリが話す十五言語のうち十言語でしか公開されていないため、残りは英語のままになります。ここでは直せません。その言語でプレイしている人の言葉が必要です。</string>
+    <string name="about_translators_missing">まだ英語のまま: 簡体字中国語、ウクライナ語、スウェーデン語、アラビア語、トルコ語。スタジアムの武器庫はすべての言語で英語のままです。Blizzard がその名前を一切公開していないためです。一部だけでも助かります。訳のない名前は英語で表示されるので、言語をひとつ仕上げる必要はありません。</string>
+    <string name="about_translators_open">GitHub のファイルひとつと、その足しかた</string>
     <string name="about_downloads">GitHub から %1$s 回ダウンロードされました</string>
     <string name="about_intro">非営利のファンプロジェクトです。Blizzard Entertainment とは無関係で、公認でもありません。</string>
     <string name="about_data_title">データの出典</string>

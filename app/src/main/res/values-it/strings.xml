@@ -90,6 +90,10 @@
     <!-- Info -->
     <string name="about_intro">Progetto amatoriale non commerciale. Non affiliato né approvato da Blizzard Entertainment.</string>
     <string name="about_downloads">Scaricata %1$s volte da GitHub</string>
+    <string name="about_translators_title">Traduttori volontari</string>
+    <string name="about_translators">I nomi di eroi, abilità e potenziamenti vengono da Blizzard, che pubblica il gioco in dieci delle quindici lingue di quest\'app. Nelle altre restano in inglese, e da qui non c\'è modo di rimediare: quelle parole devono arrivare da chi gioca in quella lingua.</string>
+    <string name="about_translators_missing">Ancora in inglese: cinese semplificato, ucraino, svedese, arabo, turco. E l\'armeria dello Stadium, in tutte le lingue, perché Blizzard non pubblica quei nomi da nessuna parte. Va bene anche un contributo parziale: un nome senza traduzione ricade sull\'inglese, quindi non serve finire una lingua per essere utili.</string>
+    <string name="about_translators_open">Un file su GitHub, e come aggiungerci qualcosa</string>
     <string name="about_data_title">Da dove vengono i dati</string>
     <string name="about_data_wiki">Statistiche, abilità, date di rilascio e cronologia di bilanciamento vengono dalla Overwatch Wiki, licenza CC BY-SA.</string>
     <string name="about_data_overfast">Ritratti, icone delle abilità e l\'elenco degli eroi vengono dal sito ufficiale Blizzard tramite l\'API OverFast.</string>

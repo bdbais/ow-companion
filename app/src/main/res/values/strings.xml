@@ -98,6 +98,10 @@
     <string name="about_title" translatable="false">OW Companion</string>
     <string name="about_intro">A non-commercial fan project. Not affiliated with or endorsed by Blizzard Entertainment.</string>
     <string name="about_downloads">Downloaded %1$s times from GitHub</string>
+    <string name="about_translators_title">Volunteer translators</string>
+    <string name="about_translators">Hero, ability and perk names come from Blizzard, who publish the game in ten of the fifteen languages this app speaks. In the rest they stay in English, and nothing on this end can change that: the words have to come from somebody who plays the game in that language.</string>
+    <string name="about_translators_missing">Still in English: Simplified Chinese, Ukrainian, Swedish, Arabic, Turkish. Also the Stadium armoury, in every language, because Blizzard do not publish those names at all. Partial help is welcome — a name with no translation falls back to English, so nobody has to finish a language to be useful.</string>
+    <string name="about_translators_open">One file on GitHub, and how to add to it</string>
     <string name="about_data_title">Where the data comes from</string>
     <string name="about_data_wiki">Hero statistics, abilities, release dates and the full balance history come from the Overwatch Wiki, licensed CC BY-SA.</string>
     <string name="about_data_overfast">Portraits, ability icons and the hero roster come from Blizzard\'s own site through the OverFast API.</string>

@@ -114,6 +114,10 @@
     <string name="build_item_count">%1$d Gegenstände</string>
     <string name="build_cancel">Abbrechen</string>
     <string name="build_confirm">Speichern</string>
+    <string name="about_translators_title">Freiwillige Übersetzer</string>
+    <string name="about_translators">Namen von Helden, Fähigkeiten und Talenten kommen von Blizzard, die das Spiel in zehn der fünfzehn Sprachen dieser App veröffentlichen. In den übrigen bleiben sie englisch, und von hier aus lässt sich das nicht ändern: diese Wörter müssen von jemandem kommen, der in dieser Sprache spielt.</string>
+    <string name="about_translators_missing">Noch englisch: Vereinfachtes Chinesisch, Ukrainisch, Schwedisch, Arabisch, Türkisch. Dazu die Rüstkammer des Stadions, in jeder Sprache, weil Blizzard diese Namen überhaupt nicht veröffentlichen. Teilweise Hilfe zählt: ein Name ohne Übersetzung erscheint englisch, niemand muss eine Sprache fertigstellen.</string>
+    <string name="about_translators_open">Eine Datei auf GitHub, und wie man ergänzt</string>
     <string name="about_downloads">%1$s Mal von GitHub heruntergeladen</string>
     <string name="about_intro">Nicht kommerzielles Fanprojekt. Weder mit Blizzard Entertainment verbunden noch von ihnen unterstützt.</string>
     <string name="about_data_title">Woher die Daten stammen</string>

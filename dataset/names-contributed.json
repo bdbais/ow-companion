@@ -1,0 +1,28 @@
+{
+ "_readme": [
+  "Translations of in-game names contributed by people who speak the language.",
+  "",
+  "tools/fetch_names.py collects the official ones from Blizzard, who publish the game in",
+  "ten of the fifteen languages this app speaks. The other five - Chinese (Simplified),",
+  "Ukrainian, Swedish, Arabic and Turkish - have no official source, so the app shows the",
+  "English name inside an otherwise translated screen. This file is where that gets fixed.",
+  "",
+  "The shape is { \"<language>\": { \"<English>\": \"<your translation>\" } }, where the",
+  "English side must match the dataset exactly, including capitals. Language tags are the",
+  "ones below: zhCN, uk, sv, ar, tr - and any of the ten official ones too, if the official",
+  "wording is wrong. Anything here wins over what Blizzard published.",
+  "",
+  "Partial is fine and expected. A name with no entry falls back to English, so ten good",
+  "translations help ten screens; nobody has to finish a language to contribute to it.",
+  "",
+  "Names only, please. Ability descriptions are a paragraph each and there are thousands;",
+  "if you want to take those on as well, open an issue first so two people do not translate",
+  "the same hero twice."
+ ],
+
+ "zhCN": {},
+ "uk": {},
+ "sv": {},
+ "ar": {},
+ "tr": {}
+}

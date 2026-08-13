@@ -830,6 +830,142 @@ TRANSLATIONS: dict[str, dict] = {
     ),
 
     # --- about ----------------------------------------------------------------------
+    # The five languages Blizzard do not publish the game in, named rather than hidden
+    # behind a generic "help translate": somebody who speaks Ukrainian should see in one
+    # line that Ukrainian is the one missing.
+    "about_translators_title": t(
+        es="Traductores voluntarios", pt="Tradutores voluntários",
+        fr="Traducteurs bénévoles", de="Freiwillige Übersetzer",
+        ja="翻訳ボランティア", ko="자원 번역자",
+        zhCN="志愿翻译", zhTW="志願翻譯",
+        ru="Переводчики-волонтёры", uk="Перекладачі-волонтери",
+        sv="Frivilliga översättare", ar="مترجمون متطوعون",
+        pl="Tłumacze-ochotnicy", tr="Gönüllü çevirmenler",
+    ),
+    "about_translators": t(
+        es="Los nombres de héroes, habilidades y ventajas vienen de Blizzard, que publica "
+           "el juego en diez de los quince idiomas de esta app. En el resto se quedan en "
+           "inglés, y desde aquí no hay forma de arreglarlo: esas palabras tienen que "
+           "venir de alguien que juegue en ese idioma.",
+        pt="Os nomes de heróis, habilidades e vantagens vêm da Blizzard, que publica o "
+           "jogo em dez dos quinze idiomas deste app. Nos outros eles ficam em inglês, e "
+           "daqui não há como resolver: essas palavras precisam vir de quem joga naquele "
+           "idioma.",
+        fr="Les noms des héros, des capacités et des atouts viennent de Blizzard, qui "
+           "publie le jeu dans dix des quinze langues de cette application. Dans les "
+           "autres ils restent en anglais, et rien ici n\\'y changera : ces mots doivent "
+           "venir de quelqu\\'un qui joue dans cette langue.",
+        de="Namen von Helden, Fähigkeiten und Talenten kommen von Blizzard, die das Spiel "
+           "in zehn der fünfzehn Sprachen dieser App veröffentlichen. In den übrigen "
+           "bleiben sie englisch, und von hier aus lässt sich das nicht ändern: diese "
+           "Wörter müssen von jemandem kommen, der in dieser Sprache spielt.",
+        ja="ヒーロー名、アビリティ名、パーク名は Blizzard のものです。このアプリが話す十五言語のうち"
+           "十言語でしか公開されていないため、残りは英語のままになります。ここでは直せません。"
+           "その言語でプレイしている人の言葉が必要です。",
+        ko="영웅과 기술, 특성의 이름은 Blizzard에서 가져옵니다. 이 앱이 지원하는 열다섯 언어 중 "
+           "열 개로만 공개되어 있어서 나머지는 영어로 남습니다. 이쪽에서 고칠 수 있는 일이 "
+           "아니라, 그 언어로 플레이하는 사람의 말이 필요합니다.",
+        zhCN="英雄、技能和特长的名称来自暴雪，而暴雪只以本应用十五种语言中的十种发布游戏。其余的"
+             "只能保持英文，这边无从修改：那些词必须来自用那种语言玩游戏的人。",
+        zhTW="英雄、技能和特長的名稱來自暴雪，而暴雪只以本應用十五種語言中的十種發行遊戲。其餘的"
+             "只能維持英文，這邊無從修改：那些詞必須來自用那種語言玩遊戲的人。",
+        ru="Имена героев, способностей и умений берутся у Blizzard, а игра выходит на "
+           "десяти из пятнадцати языков этого приложения. На остальных они остаются "
+           "английскими, и отсюда это не исправить: такие слова должны прийти от того, кто "
+           "играет на этом языке.",
+        uk="Імена героїв, здібностей і вмінь беруться в Blizzard, а гра виходить десятьма "
+           "з п\\'ятнадцяти мов цього застосунку. Рештою вони лишаються англійськими, і "
+           "звідси цього не виправити: такі слова мають прийти від того, хто грає цією "
+           "мовою.",
+        sv="Namn på hjältar, förmågor och talanger kommer från Blizzard, som ger ut spelet "
+           "på tio av den här appens femton språk. På de övriga förblir de engelska, och "
+           "det går inte att lösa härifrån: orden måste komma från någon som spelar på det "
+           "språket.",
+        ar="أسماء الأبطال والقدرات والمزايا تأتي من Blizzard، التي تنشر اللعبة بعشر من "
+           "اللغات الخمس عشرة التي يتحدثها هذا التطبيق. في الباقي تبقى بالإنجليزية، ولا "
+           "سبيل لإصلاح ذلك من هنا: هذه الكلمات يجب أن تأتي ممن يلعب بتلك اللغة.",
+        pl="Nazwy bohaterów, umiejętności i atutów pochodzą od Blizzarda, który wydaje grę "
+           "w dziesięciu z piętnastu języków tej aplikacji. W pozostałych zostają "
+           "angielskie i stąd nie da się tego naprawić: te słowa muszą przyjść od kogoś, "
+           "kto gra w tym języku.",
+        tr="Kahraman, yetenek ve avantaj adları Blizzard\\'dan geliyor; oyun bu "
+           "uygulamanın on beş dilinden yalnızca onunda yayımlanıyor. Kalanlarda İngilizce "
+           "kalıyorlar ve buradan düzeltilemez: o kelimelerin, o dilde oynayan birinden "
+           "gelmesi gerekiyor.",
+    ),
+    "about_translators_missing": t(
+        es="Siguen en inglés: chino simplificado, ucraniano, sueco, árabe, turco. También "
+           "la armería del Estadio, en todos los idiomas, porque Blizzard no publica esos "
+           "nombres en ninguna parte. La ayuda parcial vale: un nombre sin traducir "
+           "aparece en inglés, así que nadie tiene que terminar un idioma para ser útil.",
+        pt="Ainda em inglês: chinês simplificado, ucraniano, sueco, árabe, turco. E o "
+           "arsenal do Estádio, em todos os idiomas, porque a Blizzard não publica esses "
+           "nomes em lugar nenhum. Ajuda parcial serve: um nome sem tradução aparece em "
+           "inglês, então ninguém precisa terminar um idioma para ser útil.",
+        fr="Encore en anglais : chinois simplifié, ukrainien, suédois, arabe, turc. Et "
+           "l\\'arsenal du Stade, dans toutes les langues, parce que Blizzard ne publie "
+           "pas ces noms du tout. Une aide partielle compte : un nom sans traduction "
+           "s\\'affiche en anglais, personne n\\'a besoin de finir une langue pour être "
+           "utile.",
+        de="Noch englisch: Vereinfachtes Chinesisch, Ukrainisch, Schwedisch, Arabisch, "
+           "Türkisch. Dazu die Rüstkammer des Stadions, in jeder Sprache, weil Blizzard "
+           "diese Namen überhaupt nicht veröffentlichen. Teilweise Hilfe zählt: ein Name "
+           "ohne Übersetzung erscheint englisch, niemand muss eine Sprache fertigstellen.",
+        ja="まだ英語のまま: 簡体字中国語、ウクライナ語、スウェーデン語、アラビア語、トルコ語。"
+           "スタジアムの武器庫はすべての言語で英語のままです。Blizzard がその名前を一切"
+           "公開していないためです。一部だけでも助かります。訳のない名前は英語で表示されるので、"
+           "言語をひとつ仕上げる必要はありません。",
+        ko="아직 영어: 중국어 간체, 우크라이나어, 스웨덴어, 아랍어, 튀르키예어. 그리고 스타디움 "
+           "장비고는 모든 언어에서 영어입니다. Blizzard가 그 이름들을 어디에도 공개하지 않기 "
+           "때문입니다. 일부만 도와도 됩니다. 번역이 없는 이름은 영어로 나오니, 한 언어를 "
+           "끝낼 필요는 없습니다.",
+        zhCN="仍是英文：简体中文、乌克兰语、瑞典语、阿拉伯语、土耳其语。还有斗兽场军械库，所有语言"
+             "都是英文，因为暴雪根本没有公布那些名称。部分帮助也有用：没有译名的条目会显示英文，"
+             "不必把一种语言做完才算数。",
+        zhTW="仍是英文：簡體中文、烏克蘭語、瑞典語、阿拉伯語、土耳其語。還有鬥獸場軍械庫，所有語言"
+             "都是英文，因為暴雪根本沒有公布那些名稱。部分幫助也有用：沒有譯名的項目會顯示英文，"
+             "不必把一種語言做完才算數。",
+        ru="Всё ещё по-английски: китайский упрощённый, украинский, шведский, арабский, "
+           "турецкий. И оружейная Стадиона — на всех языках, потому что Blizzard эти "
+           "названия не публикуют вовсе. Частичная помощь годится: имя без перевода "
+           "показывается по-английски, доводить язык до конца не нужно.",
+        uk="Досі англійською: китайська спрощена, українська, шведська, арабська, "
+           "турецька. І збройова Стадіону — усіма мовами, бо Blizzard цих назв не "
+           "публікують узагалі. Часткова допомога годиться: назва без перекладу "
+           "показується англійською, доводити мову до кінця не треба.",
+        sv="Fortfarande på engelska: förenklad kinesiska, ukrainska, svenska, arabiska, "
+           "turkiska. Och Stadions vapenförråd, på alla språk, eftersom Blizzard inte ger "
+           "ut de namnen alls. Delvis hjälp räknas: ett namn utan översättning visas på "
+           "engelska, ingen behöver göra klart ett språk.",
+        ar="ما زالت بالإنجليزية: الصينية المبسطة والأوكرانية والسويدية والعربية والتركية. "
+           "وكذلك مستودع الملعب بكل اللغات، لأن Blizzard لا تنشر تلك الأسماء إطلاقًا. "
+           "المساعدة الجزئية مفيدة: الاسم بلا ترجمة يظهر بالإنجليزية، فلا يلزم إنهاء لغة "
+           "كاملة.",
+        pl="Wciąż po angielsku: chiński uproszczony, ukraiński, szwedzki, arabski, "
+           "turecki. Oraz zbrojownia Stadionu, we wszystkich językach, bo Blizzard w ogóle "
+           "nie publikuje tych nazw. Częściowa pomoc się liczy: nazwa bez tłumaczenia "
+           "pokazuje się po angielsku, nikt nie musi kończyć języka.",
+        tr="Hâlâ İngilizce: Basitleştirilmiş Çince, Ukraynaca, İsveççe, Arapça, Türkçe. "
+           "Ayrıca Stadyum cephaneliği, bütün dillerde, çünkü Blizzard o adları hiç "
+           "yayımlamıyor. Kısmi yardım da işe yarar: çevirisi olmayan bir ad İngilizce "
+           "görünür, kimsenin bir dili bitirmesi gerekmez.",
+    ),
+    "about_translators_open": t(
+        es="Un archivo en GitHub, y cómo añadir cosas",
+        pt="Um arquivo no GitHub, e como acrescentar",
+        fr="Un fichier sur GitHub, et comment y ajouter",
+        de="Eine Datei auf GitHub, und wie man ergänzt",
+        ja="GitHub のファイルひとつと、その足しかた",
+        ko="GitHub의 파일 하나와 보태는 방법",
+        zhCN="GitHub 上的一个文件，以及怎么添加",
+        zhTW="GitHub 上的一個檔案，以及怎麼新增",
+        ru="Один файл на GitHub и как в него добавить",
+        uk="Один файл на GitHub і як до нього додати",
+        sv="En fil på GitHub, och hur man fyller på",
+        ar="ملف واحد على GitHub وكيفية الإضافة إليه",
+        pl="Jeden plik na GitHubie i jak go uzupełnić",
+        tr="GitHub\\'da tek bir dosya ve nasıl ekleneceği",
+    ),
     # GitHub counts files fetched from the releases page, so this is downloads and not
     # people: every language says the same modest thing rather than claiming players.
     "about_downloads": t(

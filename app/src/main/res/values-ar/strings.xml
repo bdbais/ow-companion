@@ -114,6 +114,10 @@
     <string name="build_item_count">%1$d عنصر</string>
     <string name="build_cancel">إلغاء</string>
     <string name="build_confirm">حفظ</string>
+    <string name="about_translators_title">مترجمون متطوعون</string>
+    <string name="about_translators">أسماء الأبطال والقدرات والمزايا تأتي من Blizzard، التي تنشر اللعبة بعشر من اللغات الخمس عشرة التي يتحدثها هذا التطبيق. في الباقي تبقى بالإنجليزية، ولا سبيل لإصلاح ذلك من هنا: هذه الكلمات يجب أن تأتي ممن يلعب بتلك اللغة.</string>
+    <string name="about_translators_missing">ما زالت بالإنجليزية: الصينية المبسطة والأوكرانية والسويدية والعربية والتركية. وكذلك مستودع الملعب بكل اللغات، لأن Blizzard لا تنشر تلك الأسماء إطلاقًا. المساعدة الجزئية مفيدة: الاسم بلا ترجمة يظهر بالإنجليزية، فلا يلزم إنهاء لغة كاملة.</string>
+    <string name="about_translators_open">ملف واحد على GitHub وكيفية الإضافة إليه</string>
     <string name="about_downloads">جرى تنزيله %1$s مرة من GitHub</string>
     <string name="about_intro">مشروع من صنع المعجبين وغير تجاري. غير تابع لـBlizzard Entertainment ولا معتمد منها.</string>
     <string name="about_data_title">من أين تأتي البيانات</string>

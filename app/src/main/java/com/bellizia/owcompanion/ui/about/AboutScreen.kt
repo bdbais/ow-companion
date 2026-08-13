@@ -63,6 +63,42 @@ import kotlinx.coroutines.launch
 private const val SECTION_STEP = 7
 
 /**
+ * The languages the game itself is not published in, and an invitation to fix them.
+ *
+ * Hero, ability and perk names come from Blizzard, who publish the game in ten of the
+ * fifteen languages this app speaks. In the other five those names stay English inside an
+ * otherwise translated screen, and no amount of work on this end changes that - the words
+ * have to come from somebody who plays the game in that language.
+ *
+ * Named plainly rather than hidden behind a generic "help translate": somebody who speaks
+ * Ukrainian should be able to see, in one line, that Ukrainian is what is missing.
+ */
+@Composable
+private fun Translators() {
+    val context = LocalContext.current
+    Section(R.string.about_translators_title) {
+        Paragraph(R.string.about_translators)
+        Text(
+            text = stringResource(R.string.about_translators_missing),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.padding(top = 6.dp),
+        )
+        TextButton(
+            onClick = {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(TRANSLATIONS_FILE))
+                runCatching { context.startActivity(intent) }
+            },
+            contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp),
+        ) { Text(stringResource(R.string.about_translators_open)) }
+    }
+}
+
+/** Where a contributed translation goes, which is one file and not a build system. */
+private const val TRANSLATIONS_FILE =
+    "https://github.com/bdbais/ow-companion/blob/master/dataset/names-contributed.json"
+
+/**
  * How many times the app has been downloaded from GitHub.
  *
  * Nothing at all when the number cannot be had - no network, GitHub rate-limiting the
@@ -201,6 +237,8 @@ fun AboutScreen(
         if (panel) {
             SegmentPanel(onDismiss = { panel = false })
         }
+
+        Translators()
 
         // Only when there is something measured to show: a build made from a checkout with
         // no transcripts to count would otherwise claim the work cost nothing.

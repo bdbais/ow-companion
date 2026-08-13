@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.sim.StadiumItem
 import com.bellizia.owcompanion.sim.StadiumStats
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
@@ -321,7 +322,10 @@ private fun ItemRow(
     ) {
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = item.name,
+                // The armoury's own items have no official translation - Blizzard publish
+                // hero powers per locale but not these - so most of them stay English until
+                // somebody contributes them. The lookup costs nothing and is ready for it.
+                text = localised(item.name),
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
                 // An item that cannot be paid for is dimmed, not hidden: knowing what is

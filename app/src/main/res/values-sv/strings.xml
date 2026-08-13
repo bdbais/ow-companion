@@ -114,6 +114,10 @@
     <string name="build_item_count">%1$d föremål</string>
     <string name="build_cancel">Avbryt</string>
     <string name="build_confirm">Spara</string>
+    <string name="about_translators_title">Frivilliga översättare</string>
+    <string name="about_translators">Namn på hjältar, förmågor och talanger kommer från Blizzard, som ger ut spelet på tio av den här appens femton språk. På de övriga förblir de engelska, och det går inte att lösa härifrån: orden måste komma från någon som spelar på det språket.</string>
+    <string name="about_translators_missing">Fortfarande på engelska: förenklad kinesiska, ukrainska, svenska, arabiska, turkiska. Och Stadions vapenförråd, på alla språk, eftersom Blizzard inte ger ut de namnen alls. Delvis hjälp räknas: ett namn utan översättning visas på engelska, ingen behöver göra klart ett språk.</string>
+    <string name="about_translators_open">En fil på GitHub, och hur man fyller på</string>
     <string name="about_downloads">Nedladdad %1$s gånger från GitHub</string>
     <string name="about_intro">Icke-kommersiellt fanprojekt. Varken knutet till eller godkänt av Blizzard Entertainment.</string>
     <string name="about_data_title">Var data kommer ifrån</string>

@@ -114,6 +114,10 @@
     <string name="build_item_count">предметів: %1$d</string>
     <string name="build_cancel">Скасувати</string>
     <string name="build_confirm">Зберегти</string>
+    <string name="about_translators_title">Перекладачі-волонтери</string>
+    <string name="about_translators">Імена героїв, здібностей і вмінь беруться в Blizzard, а гра виходить десятьма з п\'ятнадцяти мов цього застосунку. Рештою вони лишаються англійськими, і звідси цього не виправити: такі слова мають прийти від того, хто грає цією мовою.</string>
+    <string name="about_translators_missing">Досі англійською: китайська спрощена, українська, шведська, арабська, турецька. І збройова Стадіону — усіма мовами, бо Blizzard цих назв не публікують узагалі. Часткова допомога годиться: назва без перекладу показується англійською, доводити мову до кінця не треба.</string>
+    <string name="about_translators_open">Один файл на GitHub і як до нього додати</string>
     <string name="about_downloads">Завантажено з GitHub %1$s разів</string>
     <string name="about_intro">Некомерційний фанатський проєкт. Не пов\'язаний із Blizzard Entertainment і не схвалений нею.</string>
     <string name="about_data_title">Звідки дані</string>

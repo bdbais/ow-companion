@@ -114,6 +114,10 @@
     <string name="build_item_count">%1$d 件物品</string>
     <string name="build_cancel">取消</string>
     <string name="build_confirm">儲存</string>
+    <string name="about_translators_title">志願翻譯</string>
+    <string name="about_translators">英雄、技能和特長的名稱來自暴雪，而暴雪只以本應用十五種語言中的十種發行遊戲。其餘的只能維持英文，這邊無從修改：那些詞必須來自用那種語言玩遊戲的人。</string>
+    <string name="about_translators_missing">仍是英文：簡體中文、烏克蘭語、瑞典語、阿拉伯語、土耳其語。還有鬥獸場軍械庫，所有語言都是英文，因為暴雪根本沒有公布那些名稱。部分幫助也有用：沒有譯名的項目會顯示英文，不必把一種語言做完才算數。</string>
+    <string name="about_translators_open">GitHub 上的一個檔案，以及怎麼新增</string>
     <string name="about_downloads">已從 GitHub 下載 %1$s 次</string>
     <string name="about_intro">非商業性質的粉絲專案，與暴雪娛樂無關，也未獲其認可。</string>
     <string name="about_data_title">資料來源</string>
