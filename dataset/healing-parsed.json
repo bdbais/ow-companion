@@ -182,18 +182,6 @@
   },
   {
    "hero": "Cassidy",
-   "name": "Even the Odds",
-   "kind": "weapon",
-   "healPerShot": 40.0,
-   "healPerSecond": null,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "40/s per target"
-  },
-  {
-   "hero": "Cassidy",
    "name": "Rollin' Round-Up",
    "kind": "weapon",
    "healPerShot": 15.0,
@@ -989,12 +977,12 @@
    "name": "Revitalizing Barrier",
    "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 30.0,
+   "healPerSecond": 35.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "30 per second"
+   "detail": "35 per second"
   },
   {
    "hero": "Wuyang",
@@ -1072,13 +1060,13 @@
    "hero": "Zenyatta",
    "name": "Discordant Repair",
    "kind": "weapon",
-   "healPerShot": 6.5,
+   "healPerShot": 9.75,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "6.5 (bodyshot, per orb) / 13 (headshot, per orb)"
+   "detail": "9.75 (bodyshot, per orb) / 19.5 (headshot, per orb)"
   },
   {
    "hero": "Zenyatta",

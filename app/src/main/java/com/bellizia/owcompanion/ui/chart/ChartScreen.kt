@@ -269,8 +269,16 @@ private fun ControlPanel(
                         valueRange = 0f..60f,
                     )
                     Text(
-                        text = "Aim ${"%.2f".format(state.aimX)}, ${"%.2f".format(state.aimZ)} m" +
-                            "  ·  ${state.rows.size} weapons  ·  ${state.lastComputeMillis} ms",
+                        // Built by hand once, in English, on the screen the app opens on.
+                        // The resource it should have been using was already translated into
+                        // every language and sitting unread, which is why lint called it dead.
+                        text = stringResource(
+                            R.string.chart_summary,
+                            "%.2f".format(state.aimX),
+                            "%.2f".format(state.aimZ),
+                            state.rows.size,
+                            state.lastComputeMillis,
+                        ),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         maxLines = 1,

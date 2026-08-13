@@ -150,7 +150,7 @@ fun LazyListScope.patchTimeline(
 
     item {
         Text(
-            text = "Damage over time",
+            text = stringResource(R.string.wiki_damage_over_time),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(start = 12.dp, top = 16.dp, bottom = 2.dp),
         )
@@ -159,8 +159,7 @@ fun LazyListScope.patchTimeline(
     if (series.isEmpty()) {
         item {
             Text(
-                text = "The patch notes never restated a damage value for this hero more " +
-                    "than once, so there is nothing to plot.",
+                text = stringResource(R.string.wiki_no_series),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
@@ -173,7 +172,7 @@ fun LazyListScope.patchTimeline(
     item {
         Column {
             Text(
-                text = "Balance history",
+                text = stringResource(R.string.wiki_balance_history),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(start = 12.dp, top = 16.dp, bottom = 4.dp),
             )
@@ -195,7 +194,7 @@ fun LazyListScope.patchTimeline(
     if (patches.isEmpty()) {
         item {
             Text(
-                text = "No recorded changes for this ability.",
+                text = stringResource(R.string.wiki_no_changes_for_ability),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(12.dp),

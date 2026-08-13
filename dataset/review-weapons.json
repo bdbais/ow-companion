@@ -43,6 +43,20 @@
    "raw": "45"
   },
   {
+   "hero": "D.Mon",
+   "weapon": "Plasma Saber",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
+  },
+  {
+   "hero": "D.Mon",
+   "weapon": "Portable Fusion Repeater",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
+  },
+  {
    "hero": "Domina",
    "weapon": "Photon Magnum",
    "field": "damage",
@@ -468,20 +482,6 @@
    "field": "damage",
    "reason": "derived from the wiki's stated 78 dps: 50.0 -> 77.6 per pellet",
    "raw": "50 per orb"
-  },
-  {
-   "hero": "D.Mon",
-   "weapon": "Plasma Saber",
-   "field": "required",
-   "reason": "missing fireRate",
-   "raw": ""
-  },
-  {
-   "hero": "D.Mon",
-   "weapon": "Portable Fusion Repeater",
-   "field": "required",
-   "reason": "missing fireRate",
-   "raw": ""
   }
  ]
 }

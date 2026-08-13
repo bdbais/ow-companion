@@ -5459,6 +5459,26 @@
    "hero": "Cassidy",
    "patches": [
     {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Even the Odds (Minor Perk)",
+       "text": "Removed."
+      },
+      {
+       "ability": "Giddy Up (Minor Perk)",
+       "text": "New"
+      },
+      {
+       "ability": "Giddy Up (Minor Perk)",
+       "text": "After using Combat Roll, Cassidy gains a 60% movement speed boost that decays over 1.5 seconds."
+      }
+     ],
+     "stats": [],
+     "comments": []
+    },
+    {
      "date": "2026-07-14",
      "mode": "owpvp",
      "changes": [
@@ -6857,6 +6877,12 @@
     }
    ],
    "key": "cassidy"
+  },
+  {
+   "hero": "D.Mon",
+   "patches": [],
+   "note": "no balance change log on the page",
+   "key": "dmon"
   },
   {
    "hero": "Domina",
@@ -46324,12 +46350,6 @@
     }
    ],
    "key": "zenyatta"
-  },
-  {
-   "hero": "D.Mon",
-   "patches": [],
-   "note": "no balance change log on the page",
-   "key": "dmon"
   }
  ]
 }

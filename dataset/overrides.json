@@ -39,6 +39,49 @@
     "Widowmaker|Venom Mine"
   ],
   "weapons": {
+    "D.Mon|Portable Fusion Repeater": {
+      "_note": "The Fandom page is still a stub - no Ability_details block at all - so the parser saw only damage and ammo and held the weapon back. These come from the community wiki at overwatch.weirdgloop.org: 12 damage, 7.813 shots/s (one every 0.128 s), 30 rounds, 1.5 s reload, 30-40 m falloff, 2 degrees of spread at most. Both figures that wiki publishes come back exactly: 93.75 dps firing, 67.42 with reload. Far damage is the one number nobody states; 30% of base is the game's floor and what 22 of the 28 falloff weapons in this dataset already use.",
+      "type": "hitscan",
+      "damage": {
+        "dpshot": [
+          12.0,
+          3.6
+        ],
+        "falloff": [
+          30.0,
+          40.0
+        ]
+      },
+      "spread": {
+        "angle": 2.0
+      },
+      "fireRate": 7.813,
+      "shotTime": 0.128,
+      "ammo": 30.0,
+      "reloadTime": 1.5,
+      "critFactor": 2.0,
+      "dpsPeriodBase": 0.128,
+      "dpsPeriodAdd": 0.05
+    },
+    "D.Mon|Plasma Saber": {
+      "_note": "Community wiki: 65 damage, 4 m reach, and swings that alternate 0.72 s and 0.592 s - 0.656 s on average, which is the interval it publishes and the 99.09 dps that follows. It carries no headshot field and is keyworded melee, so it cannot crit; that is stated by absence rather than assumed.",
+      "type": "melee",
+      "damage": {
+        "dpshot": [
+          65.0
+        ],
+        "falloff": null,
+        "maxRange": 4.0
+      },
+      "spread": null,
+      "fireRate": 1.5244,
+      "shotTime": 0.656,
+      "ammo": null,
+      "reloadTime": null,
+      "critFactor": 1.0,
+      "dpsPeriodBase": 0.656,
+      "dpsPeriodAdd": 0.0
+    },
     "Symmetra|Photon Projector": {
       "_note": "60/120/180 dps by charge level. Charge time per level is not stated on the wiki; 1.33 s carried over from the owdmgchart reference dataset.",
       "type": "beam",
@@ -433,6 +476,38 @@
     }
   },
   "add": {
+    "D.Mon|Fusion Repeater": {
+      "_note": "The mech's own gun, and the parser never saw it at all: it is an ability rather than a weapon, so nothing on the Fandom page carries it. The community wiki states 16 damage, 8.9 shots/s (one every 0.112 s), 30-40 m falloff, 1.3 degrees of spread, and 4 seconds of firing on a 4 second cooldown - 142.86 dps while it lasts. Ammo and reload are the Bastion treatment: 4 s at 0.112 s a shot is 35 rounds, and what follows is not a reload but the 0.288 s of recovery before anything else can happen. Far damage is the game's 30% floor, as above.",
+      "perk": null,
+      "baseWeapon": null,
+      "mousebutton": null,
+      "type": "hitscan",
+      "behavior": "standard",
+      "pellets": [
+        1.0
+      ],
+      "damage": {
+        "dpshot": [
+          16.0,
+          4.8
+        ],
+        "falloff": [
+          30.0,
+          40.0
+        ]
+      },
+      "spread": {
+        "angle": 1.3
+      },
+      "velocity": null,
+      "fireRate": 8.9,
+      "shotTime": 0.112,
+      "ammo": 35.0,
+      "reloadTime": 0.288,
+      "critFactor": 2.0,
+      "dpsPeriodBase": 0.112,
+      "dpsPeriodAdd": 0.0082
+    },
     "Torbjörn|Deploy Turret (Overloaded)": {
       "_note": "The Overloaded Turret perk. Its missiles are only described in prose - 'a burst of 3 missiles every 1.5 seconds', 30 damage each - so no field carries the rate and the parser cannot see it. That is 60 dps of missiles on top of the turret's own 48, modelled here as one 27-damage shot at 4/s: 108 dps combined, which is what the two together produce.",
       "perk": "Overloaded Turret",

@@ -92,12 +92,19 @@ internal fun DuelView(state: LeaderboardUiState) {
 
     // Off the main thread: resolving is one simulation, but the list of who could help is
     // one per weapon in the game, and that is a second of work on a slow phone.
+    //
+    // Lint reports both of these as never assigning `value`, and it is simply wrong: the
+    // assignment is the first statement of one and the only statement of the other. Left
+    // alone it fails lintDebug at error severity, which buries every real finding under a
+    // build failure - so it is silenced here rather than in a config file nobody reads.
+    @Suppress("ProduceStateDoesNotAssignValue")
     val outcome by produceState<Duel.Outcome?>(null, weapon, chosen, defender.healingPerSecond) {
         value = null
         value = withContext(Dispatchers.Default) {
             Duel.resolve(weapon, WeaponModel(weapon), defender)
         }
     }
+    @Suppress("ProduceStateDoesNotAssignValue")
     val help by produceState<List<Duel.Contributor>>(emptyList(), outcome) {
         val current = outcome
         value = if (current == null || current.verdict == Duel.Verdict.Kills) {

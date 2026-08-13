@@ -127,6 +127,27 @@
    ]
   },
   {
+   "key": "dmon",
+   "name": "D.Mon",
+   "color": "#cc9795",
+   "role": "tank",
+   "portrait": "portrait_dmon.png",
+   "health": 325,
+   "shields": 0,
+   "armor": 325,
+   "abilities": [
+    "Plasma Saber ",
+    "Portable Fusion Repeater",
+    "Power Barrier",
+    "Surging Strike",
+    "Fusion Repeater",
+    "Propulsors",
+    "Eject!",
+    "Limit Break ",
+    "Call Mech"
+   ]
+  },
+  {
    "key": "domina",
    "name": "Domina",
    "color": "#b88361",
@@ -891,27 +912,6 @@
     "Transcendence",
     "Snap Kick"
    ]
-  },
-  {
-   "key": "dmon",
-   "name": "D.Mon",
-   "color": "#cc9795",
-   "role": "tank",
-   "portrait": "portrait_dmon.png",
-   "health": 325,
-   "shields": 0,
-   "armor": 325,
-   "abilities": [
-    "Plasma Saber ",
-    "Portable Fusion Repeater",
-    "Power Barrier",
-    "Surging Strike",
-    "Fusion Repeater",
-    "Propulsors",
-    "Eject!",
-    "Limit Break ",
-    "Call Mech"
-   ]
   }
  ],
  "weapons": [
@@ -1306,6 +1306,67 @@
    "critFactor": 1.0,
    "dpsPeriodBase": 0.12004801920768307,
    "dpsPeriodAdd": 0.25
+  },
+  {
+   "name": "Plasma Saber",
+   "hero": "D.Mon",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     65.0
+    ],
+    "falloff": null,
+    "maxRange": 4.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.5244,
+   "shotTime": 0.656,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.656,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Portable Fusion Repeater",
+   "hero": "D.Mon",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0,
+     3.6
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 2.0
+   },
+   "velocity": null,
+   "fireRate": 7.813,
+   "shotTime": 0.128,
+   "ammo": 30.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.128,
+   "dpsPeriodAdd": 0.05
   },
   {
    "name": "Photon Magnum",
@@ -3216,6 +3277,39 @@
    "dpsPeriodAdd": 0.3
   },
   {
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     16.0,
+     4.8
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 1.3
+   },
+   "velocity": null,
+   "fireRate": 8.9,
+   "shotTime": 0.112,
+   "ammo": 35.0,
+   "reloadTime": 0.288,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.112,
+   "dpsPeriodAdd": 0.0082,
+   "hero": "D.Mon",
+   "name": "Fusion Repeater"
+  },
+  {
    "perk": "Overloaded Turret",
    "baseWeapon": "Deploy Turret",
    "mousebutton": null,
@@ -3642,6 +3736,32 @@
   {
    "name": "Quick Melee",
    "hero": "Cassidy",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "D.Mon",
    "mousebutton": null,
    "type": "melee",
    "behavior": "standard",
@@ -4834,32 +4954,6 @@
    "critFactor": 1.0,
    "dpsPeriodBase": 1.0,
    "dpsPeriodAdd": 0.0
-  },
-  {
-   "name": "Quick Melee",
-   "hero": "D.Mon",
-   "mousebutton": null,
-   "type": "melee",
-   "behavior": "standard",
-   "pellets": [
-    1.0
-   ],
-   "damage": {
-    "dpshot": [
-     40.0
-    ],
-    "falloff": null,
-    "maxRange": 2.5
-   },
-   "spread": null,
-   "velocity": null,
-   "fireRate": 1.0,
-   "shotTime": 1.0,
-   "ammo": null,
-   "reloadTime": 0.0,
-   "critFactor": 1.0,
-   "dpsPeriodBase": 1.0,
-   "dpsPeriodAdd": 0.0
   }
  ],
  "ultimates": [
@@ -4939,6 +5033,17 @@
    "duration": 2.0,
    "radius": null,
    "description": "Face off against your enemies. Press {{key|ultimate}} to lock on, then {{key|ultimate}} or {{key|primary fire}} to fire."
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Limit Break",
+   "damage": 125.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "125 (initial slash) / 90 (second slash)",
+   "duration": 2.0,
+   "radius": null,
+   "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   },
   {
    "hero": "Domina",
@@ -5434,17 +5539,6 @@
    "duration": 6.0,
    "radius": 10.0,
    "description": "Become invulnerable, move faster, and heal nearby allies."
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Limit Break",
-   "damage": 125.0,
-   "sustained": false,
-   "unrankable": false,
-   "detail": "125 (initial slash) / 90 (second slash)",
-   "duration": 2.0,
-   "radius": null,
-   "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   }
  ],
  "healing": [
@@ -5627,18 +5721,6 @@
    "reloadTime": null,
    "statedHps": false,
    "detail": "25 (instantly) / 100 over 2 seconds (over time)"
-  },
-  {
-   "hero": "Cassidy",
-   "name": "Even the Odds",
-   "kind": "weapon",
-   "healPerShot": 40.0,
-   "healPerSecond": null,
-   "fireRate": null,
-   "ammo": null,
-   "reloadTime": null,
-   "statedHps": false,
-   "detail": "40/s per target"
   },
   {
    "hero": "Cassidy",
@@ -6437,12 +6519,12 @@
    "name": "Revitalizing Barrier",
    "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 30.0,
+   "healPerSecond": 35.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "30 per second"
+   "detail": "35 per second"
   },
   {
    "hero": "Wuyang",
@@ -6520,13 +6602,13 @@
    "hero": "Zenyatta",
    "name": "Discordant Repair",
    "kind": "weapon",
-   "healPerShot": 6.5,
+   "healPerShot": 9.75,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "6.5 (bodyshot, per orb) / 13 (headshot, per orb)"
+   "detail": "9.75 (bodyshot, per orb) / 19.5 (headshot, per orb)"
   },
   {
    "hero": "Zenyatta",

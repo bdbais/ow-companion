@@ -152,9 +152,9 @@
   },
   {
    "hero": "Cassidy",
-   "name": "Even the Odds",
+   "name": "Giddy Up",
    "tier": "minor",
-   "description": "Regenerate 40 health per second for each enemy targeted by Deadeye."
+   "description": "After using Combat Roll, Cassidy gains a 60% movement speed boost that decays over 1.5 seconds."
   },
   {
    "hero": "Cassidy",
@@ -167,6 +167,30 @@
    "name": "Silver Bullet",
    "tier": "major",
    "description": "Peacekeeper's secondary fire is replaced with a piercing shot that inflicts bleeding. Combat Roll and Deadeye reset its cooldown."
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Beast Within",
+   "tier": "minor",
+   "description": "Plasma Saber hits heal Power Shield by 40 health"
+  },
+  {
+   "hero": "D.Mon",
+   "name": "MEKA Mobility",
+   "tier": "minor",
+   "description": "While holding Power Shield, Propulsors fuel cost is reduced by 30%"
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Overstrike",
+   "tier": "major",
+   "description": "Surging Strike gains 150% lifesteal"
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Focused Fusion",
+   "tier": "major",
+   "description": "Fusion Repeater fires stronger shots with no spread at a slower rate"
   },
   {
    "hero": "Domina",
@@ -268,7 +292,7 @@
    "hero": "Emre",
    "name": "Suppressive Security",
    "tier": "minor",
-   "description": "Override Protocol's light rounds slow enemies by 30% for 1 second."
+   "description": "Override Protocol's light rounds slow enemies by 30% for 1.5 second."
   },
   {
    "hero": "Emre",
@@ -670,7 +694,7 @@
    "hero": "Mizuki",
    "name": "Quickstep",
    "tier": "major",
-   "description": "While Katashiro Return is active, allies within Remedy Aura gain 25% increased movement speed."
+   "description": "While Katashiro Return is active, allies within Remedy Aura gain 20% increased movement speed."
   },
   {
    "hero": "Moira",
@@ -1084,7 +1108,7 @@
    "hero": "Venture",
    "name": "Deep Burrow",
    "tier": "minor",
-   "description": "Drill Dash distance is 50% longer while while burrowing."
+   "description": "Drill Dash distance is 75% longer while while burrowing."
   },
   {
    "hero": "Venture",
@@ -1102,7 +1126,7 @@
    "hero": "Venture",
    "name": "Covered in Dirt",
    "tier": "major",
-   "description": "Dealing damage with Clobber grants up to 30 Explorer's Resolve shields."
+   "description": "Dealing damage with Clobber grants up to 40 Explorer's Resolve shields."
   },
   {
    "hero": "Widowmaker",
@@ -1150,7 +1174,7 @@
    "hero": "Winston",
    "name": "Revitalizing Barrier",
    "tier": "major",
-   "description": "Barrier Projector heals allies within it for 30 health per second."
+   "description": "Barrier Projector heals allies within it for 35 health per second."
   },
   {
    "hero": "Wrecking Ball",
@@ -1228,7 +1252,7 @@
    "hero": "Zenyatta",
    "name": "Discordant Repair",
    "tier": "minor",
-   "description": "Zenyatta gains 10% lifesteal against enemies affected by Discord Orb."
+   "description": "Zenyatta gains 15% lifesteal against enemies affected by Discord Orb."
   },
   {
    "hero": "Zenyatta",
@@ -1247,30 +1271,6 @@
    "name": "Dual Harmony",
    "tier": "major",
    "description": "Gain a 2nd Harmony Orb but they both heal for 70% effectiveness."
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Beast Within",
-   "tier": "minor",
-   "description": "Plasma Saber hits heal Power Shield by 40 health"
-  },
-  {
-   "hero": "D.Mon",
-   "name": "MEKA Mobility",
-   "tier": "minor",
-   "description": "While holding Power Shield, Propulsors fuel cost is reduced by 30%"
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Overstrike",
-   "tier": "major",
-   "description": "Surging Strike gains 150% lifesteal"
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Focused Fusion",
-   "tier": "major",
-   "description": "Fusion Repeater fires stronger shots with no spread at a slower rate"
   }
  ]
 }

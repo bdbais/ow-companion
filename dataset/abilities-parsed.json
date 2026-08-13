@@ -231,6 +231,45 @@
    "uncertain": true
   },
   {
+   "hero": "D.Mon",
+   "name": "Fusion Repeater",
+   "kind": "ability",
+   "damage": 16.0,
+   "damagePerSecond": null,
+   "cooldown": 4.0,
+   "castTime": null,
+   "lines": [
+    "16"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Surging Strike",
+   "kind": "ability",
+   "damage": 70.0,
+   "damagePerSecond": null,
+   "cooldown": 6.0,
+   "castTime": null,
+   "lines": [
+    "70"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Focused Fusion",
+   "kind": "perk",
+   "damage": 15.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "15 → 42"
+   ],
+   "uncertain": false
+  },
+  {
    "hero": "Domina",
    "name": "Sonic Repulsors",
    "kind": "ability",
@@ -278,12 +317,12 @@
    "hero": "Doomfist",
    "name": "Seismic Slam",
    "kind": "ability",
-   "damage": 50.0,
+   "damage": 60.0,
    "damagePerSecond": null,
    "cooldown": 6.5,
    "castTime": null,
    "lines": [
-    "50"
+    "60"
    ],
    "uncertain": false
   },
@@ -722,7 +761,7 @@
    "kind": "ability",
    "damage": 150.0,
    "damagePerSecond": null,
-   "cooldown": 5.0,
+   "cooldown": 6.0,
    "castTime": 0.21,
    "lines": [
     "30 (collision)",
@@ -830,7 +869,7 @@
    "kind": "ability",
    "damage": 30.0,
    "damagePerSecond": null,
-   "cooldown": 7.0,
+   "cooldown": 8.0,
    "castTime": 0.16,
    "lines": [
     "30 (direct hit only)"
@@ -1384,45 +1423,6 @@
     "60 → 24 (splash, charged)"
    ],
    "uncertain": true
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Fusion Repeater",
-   "kind": "ability",
-   "damage": 15.0,
-   "damagePerSecond": null,
-   "cooldown": 6.0,
-   "castTime": null,
-   "lines": [
-    "15"
-   ],
-   "uncertain": false
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Surging Strike",
-   "kind": "ability",
-   "damage": 70.0,
-   "damagePerSecond": null,
-   "cooldown": 6.0,
-   "castTime": null,
-   "lines": [
-    "70"
-   ],
-   "uncertain": false
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Focused Fusion",
-   "kind": "perk",
-   "damage": 15.0,
-   "damagePerSecond": null,
-   "cooldown": null,
-   "castTime": null,
-   "lines": [
-    "15 → 42"
-   ],
-   "uncertain": false
   }
  ]
 }

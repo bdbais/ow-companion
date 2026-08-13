@@ -78,6 +78,17 @@
    "description": "Face off against your enemies. Press {{key|ultimate}} to lock on, then {{key|ultimate}} or {{key|primary fire}} to fire."
   },
   {
+   "hero": "D.Mon",
+   "name": "Limit Break",
+   "damage": 125.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "125 (initial slash) / 90 (second slash)",
+   "duration": 2.0,
+   "radius": null,
+   "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
+  },
+  {
    "hero": "Domina",
    "name": "Panopticon",
    "damage": 300.0,
@@ -571,17 +582,6 @@
    "duration": 6.0,
    "radius": 10.0,
    "description": "Become invulnerable, move faster, and heal nearby allies."
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Limit Break",
-   "damage": 125.0,
-   "sustained": false,
-   "unrankable": false,
-   "detail": "125 (initial slash) / 90 (second slash)",
-   "duration": 2.0,
-   "radius": null,
-   "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   }
  ]
 }
