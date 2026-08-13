@@ -15,9 +15,13 @@ silently dropped.
 
 from __future__ import annotations
 
+import re
 import sys
 
 from common import DATASET, RAW, overfast, wiki_api, wikitext, write_json
+
+# How a hero page names the season it arrived in, when it does not name a date.
+SEASON_LINK = re.compile(r"\[\[Season/(\d{4})#")
 
 # Hero names that differ between Blizzard's roster and the wiki's page titles. Anything not
 # listed here is looked up under its own name, with wiki redirects doing the rest.
@@ -56,6 +60,30 @@ def wiki_roster(refresh: bool = False) -> list[str]:
     return sorted(name for name in names if name not in NOT_HEROES)
 
 
+def season_pages(pages_dir, texts: dict[str, str], refresh: bool = False) -> list[str]:
+    """The season articles any hero points at, fetched so a date can be read off them.
+
+    A hero page written the week the hero shipped says "released in Season 4: Heroes of
+    Busan" and nothing more - the sentence with a date in it gets written later, once
+    somebody gets round to it. The season article has the date from the start, because it
+    is a date about the season rather than about the hero.
+
+    So this follows the link. Only years actually referenced are fetched, which is one or
+    two pages, and a year that cannot be had is skipped rather than fatal: a missing season
+    page costs one release date, not the build.
+    """
+    years = sorted({m for text in texts.values() for m in SEASON_LINK.findall(text)})
+    fetched = []
+    for year in years:
+        text = wikitext(f"Season/{year}", refresh=refresh)
+        if text is None:
+            print(f"  no Season/{year} page; heroes released then will have no date")
+            continue
+        (pages_dir / f"season-{year}.wiki").write_text(text, encoding="utf-8")
+        fetched.append(year)
+    return fetched
+
+
 def main(refresh: bool = False) -> int:
     heroes = list(overfast("/heroes", refresh=refresh))
     print(f"roster: {len(heroes)} heroes from Blizzard")
@@ -82,6 +110,7 @@ def main(refresh: bool = False) -> int:
 
     roster = []
     missing = []
+    texts: dict[str, str] = {}
 
     for hero in heroes:
         name = hero["name"]
@@ -93,6 +122,7 @@ def main(refresh: bool = False) -> int:
             continue
 
         slug = hero["key"]
+        texts[slug] = text
         (pages_dir / f"{slug}.wiki").write_text(text, encoding="utf-8")
         roster.append(
             {
@@ -105,6 +135,10 @@ def main(refresh: bool = False) -> int:
             }
         )
         print(f"  {name:<16} {slug:<16} {len(text):>7} bytes")
+
+    seasons = season_pages(pages_dir, texts, refresh=refresh)
+    if seasons:
+        print(f"\nseason pages: {', '.join(seasons)}")
 
     write_json(DATASET / "roster.json", {"heroes": roster, "missing": missing})
     print(f"\nwrote {DATASET / 'roster.json'}: {len(roster)} pages, {len(missing)} missing")

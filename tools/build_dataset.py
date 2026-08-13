@@ -64,6 +64,44 @@ def iso_date(text: str) -> str | None:
     return f"{year}-{number:02d}-{int(day):02d}" if number else None
 
 
+# A hero page that names a season instead of a date, and the heading that answers it.
+SEASON_REF = re.compile(r"\[\[Season/(\d{4})#Season (\d+)")
+# Matched as a whole line rather than with one expression that also reaches the date: the
+# heading carries an anchor span, and `class="anchor"` puts equals signs inside a heading
+# whose own delimiter is equals signs. Anything clever enough to span both stops there.
+SEASON_HEADING = re.compile(r"^=+\s*Season (\d+)\b[^\n]*$", re.MULTILINE)
+
+
+def season_start(year: str, number: str) -> str | None:
+    """When a numbered season began, off the wiki's own season article.
+
+    Heroes shipped in the last week or two have a page that says which season they arrived
+    in and no more; the date sentence is written later. The season article carries the date
+    from the day it is created, so following the link is the difference between a hero
+    having a release date and not having one for a month.
+
+    Reads only what fetch_wiki cached. No page, no date, no complaint - the caller already
+    reports heroes whose date could not be found.
+    """
+    page = RAW / "wiki" / f"season-{year}.wiki"
+    if not page.exists():
+        return None
+
+    text = page.read_text(encoding="utf-8")
+    for heading in SEASON_HEADING.finditer(text):
+        if heading.group(1) != number:
+            continue
+        # The range follows the heading, sometimes past a roadmap image: "(11 August 2026 -
+        # October 2026)". The first date in it is the start, and that is the one wanted.
+        window = text[heading.end() : heading.end() + 400]
+        opening = window.find("(")
+        if opening < 0:
+            return None
+        found = DATE_RE.search(window[opening : opening + 60])
+        return iso_date(found.group(0)) if found else None
+    return None
+
+
 def release_info(wiki_text: str) -> tuple[str | None, int | None]:
     head = wiki_text[:9000]
     # Self-closing refs first: `<ref[^>]*>` also matches `<ref name="x"/>`, so stripping
@@ -78,6 +116,13 @@ def release_info(wiki_text: str) -> tuple[str | None, int | None]:
     intro = intro_match.group(1) if intro_match else head[:1500]
     dates = DATE_RE.findall(intro)
     date = iso_date(dates[-1] if BETA_FIRST.search(intro) else dates[0]) if dates else None
+
+    if date is None:
+        # No date in the paragraph, but perhaps a season. Searched in the original text
+        # rather than in `head`, whose links have already been flattened to their labels.
+        reference = SEASON_REF.search(wiki_text[:9000])
+        if reference:
+            date = season_start(*reference.groups())
 
     order_match = HERO_ORDER.search(head)
     order = int(order_match.group(1)) if order_match else None

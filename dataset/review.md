@@ -83,10 +83,6 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Zarya — Particle Cannon Alt Fire** `reload`: reload of 1.50 s implies 54 dps overall, but the wiki states 40 — `1.5 seconds`
 - **Zenyatta — Orb of Destruction Alt Fire** `damage`: derived from the wiki's stated 78 dps: 50.0 -> 77.6 per pellet — `50 per orb`
 
-## Release date not found on the wiki page (1)
-
-- D.Mon
-
 ## Hero colours derived from a portrait (faces skew these towards skin tone) (21)
 
 - Anran
