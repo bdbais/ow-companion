@@ -45,6 +45,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import com.bellizia.owcompanion.ui.common.Dial
+import com.bellizia.owcompanion.ui.common.HoldPanel
+import com.bellizia.owcompanion.ui.common.dialLetters
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -97,6 +100,36 @@ private val GreyedOut = ColorFilter.colorMatrix(ColorMatrix().apply { setToSatur
  * community ones belong to the people who drew them, so rather than shipping someone else's
  * pictures the app takes whichever view you already have and puts your plan on top.
  */
+
+/**
+ * Both of the ones who put guns on the ground, on the board at the same time.
+ *
+ * Not a state anybody reaches by accident - two particular heroes and nobody else matters -
+ * and not one the board reacts to in any other way.
+ */
+private val EMPLACERS = setOf("torbjorn", "symmetra")
+
+@Composable
+private fun BoardLock(tokens: List<Token>, modifier: Modifier = Modifier) {
+    val ready = remember(tokens) {
+        val placed = tokens.map { it.heroKey.lowercase() }.toSet()
+        EMPLACERS.all { it in placed }
+    }
+    if (!ready) return
+
+    val letters = remember(tokens.size) { dialLetters(seed = tokens.size.toLong() * 31) }
+    var held by remember { mutableStateOf(false) }
+
+    if (held) {
+        HoldPanel(ground = tokens.size % 3, onDismiss = { held = false })
+        return
+    }
+
+    Box(modifier = modifier.size(96.dp)) {
+        Dial(letters = letters, onOpen = { held = true }, modifier = Modifier.fillMaxSize())
+    }
+}
+
 @Composable
 fun BoardScreen(
     modifier: Modifier = Modifier,
@@ -440,6 +473,12 @@ private fun BoardSurface(
                     )
                 }
             }
+
+            // Sits in the corner of the board, and only when both of them are down.
+            BoardLock(
+                tokens = state.frame.tokens,
+                modifier = Modifier.align(Alignment.BottomEnd).padding(8.dp),
+            )
 
             state.frame.tokens.forEach { token ->
                 TokenView(
