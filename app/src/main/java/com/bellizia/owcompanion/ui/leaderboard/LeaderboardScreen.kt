@@ -560,18 +560,33 @@ private fun LeaderboardCard(entry: LeaderboardEntry) {
     }
 }
 
-private fun conditionsOf(peak: DamagePeak): String = buildString {
-    append("at %.1f m".format(peak.distance))
-    append(if (peak.onHead) " · aimed at the head" else " · centre mass")
-    if (peak.critAccuracy > 0.01) {
-        append(" · %.0f%% crits".format(peak.critAccuracy * 100))
-    }
-    if (peak.timeToKill.isFinite()) {
-        // At the top of this ranking the first shot already kills, and "0.0 s" reads like
-        // a bug rather than like a one-shot.
-        val kill = if (peak.timeToKill < 0.05) "instantly" else "in %.1f s".format(peak.timeToKill)
-        append(" · kills a 600 hp target $kill")
-    }
+/**
+ * The line under a ranked weapon: how far, where aimed, and how long the kill took.
+ *
+ * Every piece of it had a translation in fifteen languages and was being written out in
+ * English here instead, on a line that appears under all ten rows. Each part is resolved
+ * whether or not it ends up used, because a resource cannot be looked up inside the
+ * conditionals that decide which ones apply.
+ */
+@Composable
+private fun conditionsOf(peak: DamagePeak): String {
+    val distance = stringResource(R.string.leaderboard_at_distance, "%.1f".format(peak.distance))
+    val aim = stringResource(
+        if (peak.onHead) R.string.leaderboard_head else R.string.leaderboard_body,
+    )
+    val crits = stringResource(
+        R.string.leaderboard_crits,
+        "%.0f".format(peak.critAccuracy * 100),
+    )
+    // At the top of this ranking the first shot already kills, and "0.0 s" reads like a bug
+    // rather than like a one-shot.
+    val instantly = stringResource(R.string.leaderboard_kill_instant)
+    val within = stringResource(R.string.leaderboard_kill_in, "%.1f".format(peak.timeToKill))
+
+    val parts = mutableListOf(distance, aim)
+    if (peak.critAccuracy > 0.01) parts += crits
+    if (peak.timeToKill.isFinite()) parts += if (peak.timeToKill < 0.05) instantly else within
+    return parts.joinToString("  ·  ")
 }
 
 /**
