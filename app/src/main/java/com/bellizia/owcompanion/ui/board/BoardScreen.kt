@@ -45,9 +45,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import com.bellizia.owcompanion.ui.common.Dial
+import com.bellizia.owcompanion.ui.common.Vault
 import com.bellizia.owcompanion.ui.common.HoldPanel
-import com.bellizia.owcompanion.ui.common.dialLetters
+import com.bellizia.owcompanion.ui.common.vaultLetters
+import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -117,16 +118,26 @@ private fun BoardLock(tokens: List<Token>, modifier: Modifier = Modifier) {
     }
     if (!ready) return
 
-    val letters = remember(tokens.size) { dialLetters(seed = tokens.size.toLong() * 31) }
+    val letters = remember(tokens.size) { vaultLetters(seed = System.nanoTime()) }
+    var showing by remember { mutableStateOf(false) }
     var held by remember { mutableStateOf(false) }
 
     if (held) {
         HoldPanel(ground = tokens.size % 3, onDismiss = { held = false })
         return
     }
+    if (showing) {
+        Vault(
+            letters = letters,
+            onOpen = { showing = false; held = true },
+            onDismiss = { showing = false },
+        )
+        return
+    }
 
-    Box(modifier = modifier.size(96.dp)) {
-        Dial(letters = letters, onOpen = { held = true }, modifier = Modifier.fillMaxSize())
+    // Only a plate on the board until it is pressed; the lock itself takes the screen.
+    TextButton(onClick = { showing = true }, modifier = modifier) {
+        Text("◉", color = Color(0xFF8E99A6), fontSize = 30.sp)
     }
 }
 

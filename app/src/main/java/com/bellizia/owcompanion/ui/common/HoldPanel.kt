@@ -212,86 +212,6 @@ private fun Field(
     }
 }
 
-/**
- * The lock on the tactics board.
- *
- * A triangle that turns, and a ring of letters around it. Two of the triangle's points are
- * the warm colour and one is the pale one - the same three the game's own mark uses, in the
- * same order - and the lock opens when the letters those points touch spell the right thing.
- *
- * Only one rotation in the ring works, which is the whole puzzle: the letters are shuffled
- * on every appearance, so it cannot be learned as an angle.
- */
-@Composable
-internal fun Dial(letters: List<Char>, onOpen: () -> Unit, modifier: Modifier = Modifier) {
-    var angle by remember { mutableFloatStateOf(0.35f) }
-    var open by remember { mutableStateOf(false) }
-
-    // Which letter each point of the triangle is nearest, and whether that is the answer.
-    val solved = remember(angle, letters) {
-        val step = (2 * PI / letters.size).toFloat()
-        val reading = POINTS.map { offset ->
-            val at = angle + offset
-            val index = Math.floorMod(Math.round(at / step).toInt(), letters.size)
-            letters[index]
-        }
-        reading == ANSWER
-    }
-    if (solved && !open) open = true
-
-    Box(modifier = modifier.aspectRatio(1f), contentAlignment = Alignment.Center) {
-        Canvas(
-            modifier = Modifier.fillMaxSize().pointerInput(letters) {
-                detectDragGestures { change, _ ->
-                    val cx = size.width / 2f
-                    val cy = size.height / 2f
-                    angle = atan2(change.position.y - cy, change.position.x - cx)
-                }
-            },
-        ) {
-            val radius = minOf(size.width, size.height) * 0.38f
-            val middle = Offset(size.width / 2f, size.height / 2f)
-
-            drawCircle(WALL, radius = radius * 1.25f, center = middle)
-            drawCircle(STEEL, radius = radius * 1.25f, center = middle, style = Stroke(2f))
-
-            // The ring of letters is drawn as marks rather than glyphs: a Canvas has no
-            // text without a measurer, and the shape of the puzzle survives either way.
-            val step = (2 * PI / letters.size).toFloat()
-            repeat(letters.size) { index ->
-                val at = index * step
-                drawCircle(
-                    color = STEEL.copy(alpha = 0.55f),
-                    radius = radius * 0.06f,
-                    center = middle + Offset(cos(at) * radius * 1.05f, sin(at) * radius * 1.05f),
-                )
-            }
-
-            POINTS.forEachIndexed { index, offset ->
-                val at = angle + offset
-                drawLine(
-                    color = if (index == WHITE_POINT) PAPER else RUST,
-                    start = middle,
-                    end = middle + Offset(cos(at) * radius, sin(at) * radius),
-                    strokeWidth = radius * 0.10f,
-                )
-            }
-
-            // The centre only looks like a button once it is worth pressing.
-            drawCircle(
-                color = if (open) STEEL else WALL,
-                radius = radius * 0.22f,
-                center = middle,
-            )
-            drawCircle(STEEL, radius = radius * 0.22f, center = middle, style = Stroke(2f))
-        }
-
-        if (open) {
-            TextButton(onClick = onOpen) { Mono("", 1, STEEL) }
-        }
-    }
-}
-
 @Composable
 private fun Mono(text: String, size: Int, tint: Color) {
     Text(
@@ -304,22 +224,3 @@ private fun Mono(text: String, size: Int, tint: Color) {
         style = MaterialTheme.typography.labelLarge,
     )
 }
-
-/** Where the three points sit relative to the dial's rotation. */
-private val POINTS = listOf(0f, (2 * PI / 3).toFloat(), (4 * PI / 3).toFloat())
-
-/** The pale point, which the odd letter has to meet. */
-private const val WHITE_POINT = 1
-
-/** Read off the points in order. Nothing else opens it. */
-private val ANSWER = listOf('Y', 'B', 'Z')
-
-/** The letters that go in the ring, shuffled on every appearance. */
-internal fun dialLetters(seed: Long): List<Char> =
-    ('A'..'L').toMutableList().apply { shuffle(kotlin.random.Random(seed)) }
-        .let { pool ->
-            val kept = pool.filterNot { it in ANSWER }.take(RING - ANSWER.size)
-            (kept + ANSWER).shuffled(kotlin.random.Random(seed))
-        }
-
-private const val RING = 9
