@@ -153,6 +153,7 @@
     <string name="meta_role">定位</string>
     <string name="meta_role_all">全部定位</string>
     <string name="meta_row_detail">禁用 %1$.1f%%  ·  選取 %2$.1f%%  ·  勝率 %3$.1f%%</string>
+    <string name="meta_row_detail_no_bans">選取 %1$.1f%%  ·  勝率 %2$.1f%%</string>
     <string name="meta_offline">這是唯一需要連線的頁面。武器數值和已經發布的更新不會改變，所以其他頁面都能離線使用；但被禁用的英雄每週都在變，因此這部分是下載而非內建的。</string>
     <string name="meta_retry">重試</string>
     <string name="meta_open_source">開啟官方頁面</string>

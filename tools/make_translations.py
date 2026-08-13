@@ -1127,6 +1127,24 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Ban %1$.1f%%  ·  Wybór %2$.1f%%  ·  Wygrane %3$.1f%%",
         tr="Ban %1$.1f%%  ·  Seçim %2$.1f%%  ·  Kazanma %3$.1f%%",
     ),
+    # The same line for a season with no bans in it, where Blizzard still publishes the
+    # column and fills it with zeroes for every hero in the game.
+    "meta_row_detail_no_bans": t(
+        es="Elección %1$.1f%%  ·  Victoria %2$.1f%%",
+        pt="Escolha %1$.1f%%  ·  Vitória %2$.1f%%",
+        fr="Choix %1$.1f%%  ·  Victoire %2$.1f%%",
+        de="Wahl %1$.1f%%  ·  Sieg %2$.1f%%",
+        ja="ピック %1$.1f%%  ·  勝率 %2$.1f%%",
+        ko="픽 %1$.1f%%  ·  승률 %2$.1f%%",
+        zhCN="选取 %1$.1f%%  ·  胜率 %2$.1f%%",
+        zhTW="選取 %1$.1f%%  ·  勝率 %2$.1f%%",
+        ru="Пик %1$.1f%%  ·  Победы %2$.1f%%",
+        uk="Пік %1$.1f%%  ·  Перемоги %2$.1f%%",
+        sv="Val %1$.1f%%  ·  Vinst %2$.1f%%",
+        ar="اختيار %1$.1f%%  ·  فوز %2$.1f%%",
+        pl="Wybór %1$.1f%%  ·  Wygrane %2$.1f%%",
+        tr="Seçim %1$.1f%%  ·  Kazanma %2$.1f%%",
+    ),
     "meta_offline": t(
         es="Esta es la única pantalla que necesita conexión. El resto de la app funciona sin ella porque los números de un arma y un parche que ya salió no cambian; qué héroes se banean cambia cada semana, así que se descarga en vez de viajar dentro de la app.",
         pt="Esta é a única tela que precisa de conexão. O resto do app funciona sem ela porque os números de uma arma e um patch que já saiu não mudam; quais heróis são banidos muda toda semana, então isso é baixado em vez de embarcado.",

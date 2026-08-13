@@ -153,6 +153,7 @@
     <string name="meta_role">Função</string>
     <string name="meta_role_all">Todas as funções</string>
     <string name="meta_row_detail">Banimento %1$.1f%%  ·  Escolha %2$.1f%%  ·  Vitória %3$.1f%%</string>
+    <string name="meta_row_detail_no_bans">Escolha %1$.1f%%  ·  Vitória %2$.1f%%</string>
     <string name="meta_offline">Esta é a única tela que precisa de conexão. O resto do app funciona sem ela porque os números de uma arma e um patch que já saiu não mudam; quais heróis são banidos muda toda semana, então isso é baixado em vez de embarcado.</string>
     <string name="meta_retry">Tentar de novo</string>
     <string name="meta_open_source">Abrir a página oficial</string>

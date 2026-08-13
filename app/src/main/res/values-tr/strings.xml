@@ -153,6 +153,7 @@
     <string name="meta_role">Rol</string>
     <string name="meta_role_all">Tüm roller</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Seçim %2$.1f%%  ·  Kazanma %3$.1f%%</string>
+    <string name="meta_row_detail_no_bans">Seçim %1$.1f%%  ·  Kazanma %2$.1f%%</string>
     <string name="meta_offline">Bağlantı gerektiren tek ekran budur. Uygulamanın geri kalanı bağlantısız çalışır, çünkü bir silahın sayıları ve çıkmış bir yama değişmez; hangi kahramanların banlandığı ise her hafta değişir, bu yüzden bu veri gömülmek yerine indirilir.</string>
     <string name="meta_retry">Yeniden dene</string>
     <string name="meta_open_source">Resmî sayfayı aç</string>

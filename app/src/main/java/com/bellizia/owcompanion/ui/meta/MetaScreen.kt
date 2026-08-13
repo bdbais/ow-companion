@@ -120,12 +120,13 @@ fun MetaScreen(
 
             else -> {
                 val heroes = state.sorted
-                val peak = heroes.maxOfOrNull { state.sort.valueOf(it) } ?: 1.0
+                val peak = heroes.maxOfOrNull { state.effectiveSort.valueOf(it) } ?: 1.0
                 items(heroes, key = { it.slug }) { hero ->
                     HeroRateRow(
                         hero = hero,
-                        sort = state.sort,
+                        sort = state.effectiveSort,
                         peak = peak,
+                        bans = state.hasBans,
                     )
                 }
             }
@@ -162,9 +163,9 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
         // Sorting is the question being asked - "who is banned most?" - so it stays out
         // where it can be seen. The rest only narrow who is being asked about.
         ChipRow(stringResource(R.string.meta_sort)) {
-            MetaSort.entries.forEach { sort ->
+            state.sorts.forEach { sort ->
                 FilterChip(
-                    selected = state.sort == sort,
+                    selected = state.effectiveSort == sort,
                     onClick = { viewModel.sortBy(sort) },
                     label = { Text(stringResource(sort.labelRes)) },
                 )
@@ -255,7 +256,7 @@ private fun ChipRow(title: String, content: @Composable () -> Unit) {
 }
 
 @Composable
-private fun HeroRateRow(hero: MetaRepository.HeroRate, sort: MetaSort, peak: Double) {
+private fun HeroRateRow(hero: MetaRepository.HeroRate, sort: MetaSort, peak: Double, bans: Boolean) {
     val value = sort.valueOf(hero)
     Row(verticalAlignment = Alignment.CenterVertically) {
         AsyncImage(
@@ -296,10 +297,12 @@ private fun HeroRateRow(hero: MetaRepository.HeroRate, sort: MetaSort, peak: Dou
                 )
             }
             Text(
-                text = stringResource(
-                    R.string.meta_row_detail,
-                    hero.ban, hero.pick, hero.win,
-                ),
+                // A ban figure on every row is worth reading; fifty-three zeroes are not.
+                text = if (bans) {
+                    stringResource(R.string.meta_row_detail, hero.ban, hero.pick, hero.win)
+                } else {
+                    stringResource(R.string.meta_row_detail_no_bans, hero.pick, hero.win)
+                },
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = 2.dp),

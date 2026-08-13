@@ -63,13 +63,34 @@ enum class MetaRole(val value: String, val labelRes: Int) {
 
 data class MetaUiState(
     val filters: MetaRepository.Filters = MetaRepository.Filters(),
-    val sort: MetaSort = MetaSort.Ban,
+    val sort: MetaSort = MetaSort.Pick,
     val heroes: List<MetaRepository.HeroRate> = emptyList(),
     val loading: Boolean = true,
     val error: String? = null,
 ) {
+    /**
+     * Whether ban rates are worth offering at all.
+     *
+     * Blizzard publishes the column whether or not the mode has bans in it, and right now it
+     * reports zero for every hero in the game. Sorting by it put the page's opening view in
+     * a state where every figure read 0.0% and every bar was empty, which looks like the app
+     * failing to load rather than like a season without bans.
+     *
+     * Decided from the data rather than from a season number, so the day bans come back the
+     * sort returns on its own.
+     */
+    val hasBans: Boolean get() = heroes.any { it.ban > 0.0 }
+
+    /** The sorts there is something to sort by. */
+    val sorts: List<MetaSort>
+        get() = MetaSort.entries.filter { it != MetaSort.Ban || hasBans }
+
     val sorted: List<MetaRepository.HeroRate>
-        get() = heroes.sortedByDescending { sort.valueOf(it) }
+        get() = heroes.sortedByDescending { effectiveSort.valueOf(it) }
+
+    /** Falls back rather than showing a ranking of zeroes if the chosen sort has emptied. */
+    val effectiveSort: MetaSort
+        get() = if (sort == MetaSort.Ban && !hasBans) MetaSort.Pick else sort
 
     /** The labels the folded filter row shows, so collapsing does not hide the selection. */
     val summaryLabels: List<Int>

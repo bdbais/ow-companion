@@ -153,6 +153,7 @@
     <string name="meta_role">Rola</string>
     <string name="meta_role_all">Wszystkie role</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Wybór %2$.1f%%  ·  Wygrane %3$.1f%%</string>
+    <string name="meta_row_detail_no_bans">Wybór %1$.1f%%  ·  Wygrane %2$.1f%%</string>
     <string name="meta_offline">To jedyny ekran, który potrzebuje połączenia. Reszta aplikacji działa bez niego, bo liczby broni i wydana już łatka się nie zmieniają; to, których bohaterów się banuje, zmienia się co tydzień, więc te dane są pobierane, a nie zaszyte.</string>
     <string name="meta_retry">Spróbuj ponownie</string>
     <string name="meta_open_source">Otwórz oficjalną stronę</string>

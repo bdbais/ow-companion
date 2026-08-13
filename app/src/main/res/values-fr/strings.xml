@@ -153,6 +153,7 @@
     <string name="meta_role">Rôle</string>
     <string name="meta_role_all">Tous les rôles</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Choix %2$.1f%%  ·  Victoire %3$.1f%%</string>
+    <string name="meta_row_detail_no_bans">Choix %1$.1f%%  ·  Victoire %2$.1f%%</string>
     <string name="meta_offline">C\'est le seul écran qui a besoin d\'une connexion. Le reste de l\'appli fonctionne sans, parce que les chiffres d\'une arme et un correctif déjà sorti ne changent pas ; les héros bannis, eux, changent chaque semaine, donc ces données sont téléchargées plutôt qu\'embarquées.</string>
     <string name="meta_retry">Réessayer</string>
     <string name="meta_open_source">Ouvrir la page officielle</string>
