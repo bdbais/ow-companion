@@ -37,7 +37,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -115,8 +114,7 @@ internal fun FieldPanel(onDismiss: () -> Unit) {
                 .background(BACKDROP)
                 .padding(8.dp),
         ) {
-            val config = LocalConfiguration.current
-            if (config.screenWidthDp > config.screenHeightDp) {
+            if (isLandscape()) {
                 // Wide: the controls flank the screen, the way a cabinet is laid out.
                 Row(
                     modifier = Modifier.fillMaxSize(),

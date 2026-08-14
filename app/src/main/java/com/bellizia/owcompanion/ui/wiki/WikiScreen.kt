@@ -68,7 +68,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -78,6 +77,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.isWide
 import com.bellizia.owcompanion.data.WikiRepository
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.data.model.MatchupWiki
@@ -112,7 +112,7 @@ fun WikiScreen(
 
     // Wide enough to hold both: the grid keeps its place while a hero is open, so moving
     // between heroes does not mean going back and hunting for the next one.
-    if (LocalConfiguration.current.screenWidthDp >= WIDE_LAYOUT_DP) {
+    if (isWide(WIDE_LAYOUT_DP)) {
         Row(modifier = modifier.fillMaxSize()) {
             Box(modifier = Modifier.weight(1f)) {
                 HeroGrid(state = state, viewModel = viewModel, onOpenLab = { lab = true })
@@ -168,7 +168,7 @@ fun WikiScreen(
 }
 
 /** Below this the grid and the detail take turns; at or above it they share the screen. */
-private const val WIDE_LAYOUT_DP = 600
+private val WIDE_LAYOUT_DP = 600.dp
 
 
 /**

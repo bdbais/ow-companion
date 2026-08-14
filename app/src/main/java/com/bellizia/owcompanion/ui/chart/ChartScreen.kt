@@ -29,7 +29,6 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.VerticalDivider
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ExpandLess
 import androidx.compose.material.icons.filled.ExpandMore
@@ -67,6 +66,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.isWide
 import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.sim.Modifiers
@@ -119,7 +119,7 @@ fun ChartScreen(
 
     // On a wide screen the controls sit beside the chart instead of stacking above it: a
     // landscape phone has almost no vertical room, and stacking leaves two visible rows.
-    val wide = LocalConfiguration.current.screenWidthDp >= WIDE_LAYOUT_DP
+    val wide = isWide(WIDE_LAYOUT_DP)
 
     if (wide) {
         Row(modifier = modifier.fillMaxSize()) {
@@ -208,7 +208,7 @@ private fun ColumnScope.ChartBody(
 }
 
 /** Below this the controls stack above the chart; at or above it they sit beside it. */
-private const val WIDE_LAYOUT_DP = 600
+private val WIDE_LAYOUT_DP = 600.dp
 private val SIDE_PANEL_WIDTH = 320.dp
 
 /** Which control sections are open. Filters start closed; the rest start open. */
