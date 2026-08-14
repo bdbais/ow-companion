@@ -67,6 +67,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.sim.Modifiers
 import com.bellizia.owcompanion.sim.Simulator
@@ -332,7 +333,13 @@ private fun ControlPanel(
             ) {
                 ModifierToggles.forEach { toggle ->
                     Chip(
-                        label = stringResource(toggle.labelRes),
+                        // Five of these are ability names rather than words, and were frozen
+                        // as English on the grounds that the app could not translate a name.
+                        // It can now, so the resource resolves to the English name and the
+                        // lookup turns it into the game's own. The ones that are ordinary
+                        // words are already translated by then and the lookup passes them
+                        // through untouched.
+                        label = localised(stringResource(toggle.labelRes)),
                         selected = toggle.isOn(state.modifiers),
                         onClick = {
                             viewModel.setModifiers(
