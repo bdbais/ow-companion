@@ -6,7 +6,6 @@
 
     <!-- Navigation -->
     <string name="tab_chart">Chart</string>
-    <string name="tab_leaderboard">Max damage</string>
     <string name="tab_wiki">Heroes</string>
     <string name="tab_about">About</string>
 
@@ -14,7 +13,6 @@
     <string name="chart_distance">Distance %1$d m</string>
     <string name="chart_summary">Aim %1$s, %2$s m  ·  %3$d weapons  ·  %4$d ms</string>
     <string name="chart_time_axis">time (s)</string>
-    <string name="chart_dps">%1$s dps</string>
     <string name="chart_collapse">Collapse the controls</string>
     <string name="chart_expand">Show the controls</string>
     <string name="chart_energy">Weapon charge %1$d%%</string>
@@ -84,12 +82,7 @@
     <string name="wiki_damage_over_time">Damage over time</string>
     <string name="wiki_no_series">The patch notes never restated a damage value for this hero more than once, so there is nothing to plot.</string>
     <string name="wiki_balance_history">Balance history</string>
-    <string name="wiki_filter_all">All</string>
     <string name="wiki_no_changes_for_ability">No recorded changes for this ability.</string>
-    <string name="wiki_more_changes">+%1$d more</string>
-    <string name="wiki_buffs">%1$d buff</string>
-    <string name="wiki_nerfs">%1$d nerf</string>
-    <string name="wiki_series_legend">%1$s: %2$s → %3$s  (%4$d changes)</string>
     <string name="wiki_breakpoints">Shots to kill</string>
     <string name="wiki_breakpoints_note">Point blank, every pellet landing. One column per health pool rather than per hero, because every 225 health hero dies to the same count. This is the number that settles a duel: not damage per second, but whether they die to two shots or three.</string>
     <string name="wiki_breakpoints_head">%1$d</string>
@@ -119,7 +112,6 @@
     <string name="about_update_failed">Could not reach the update server. The app works offline regardless.</string>
     <string name="about_updates_unconfigured">No update server is configured for this build.</string>
     <!-- Custom hero -->
-    <string name="tab_custom">Lab</string>
     <string name="custom_pick_hero">Hero</string>
     <string name="custom_pick_weapon">Weapon</string>
     <string name="custom_stat_damage">Damage per pellet</string>
@@ -128,7 +120,6 @@
     <string name="custom_stat_reload">Reload seconds</string>
     <string name="custom_stat_pellets">Pellets per shot</string>
     <string name="custom_reset">Reset to the real values</string>
-    <string name="custom_result">%1$s dps at its best</string>
     <string name="custom_rank">Rank %1$d of %2$d</string>
     <string name="custom_rank_was">was %1$d</string>
     <string name="custom_delta">%1$s%% vs the real hero</string>
@@ -142,29 +133,21 @@
     <string name="ultimate_no_damage">%1$d ultimates deal no damage and are left out.</string>
     <string name="ultimate_footer">Ranked by the damage one cast can deal. An ultimate is burst, not sustained fire, so this is not a damage-per-second figure.</string>
     <string name="rank_healing">Healing</string>
-    <string name="healing_per_second">%1$s hps</string>
     <string name="healing_footer">Healing per second, reload included. An ally being healed is not dodging, so this is arithmetic rather than simulated.</string>
     <string name="ultimate_duration">over %1$s s</string>
-    <string name="ultimate_radius">%1$s m radius</string>
     <string name="wiki_perks">Perks</string>
     <string name="wiki_perk_minor">MINOR</string>
     <string name="wiki_perk_major">MAJOR</string>
     <string name="wiki_pick_a_hero">Pick a hero to see their details.</string>
     <string name="tab_stadium">Stadium</string>
-    <string name="stadium_budget">Budget %1$d</string>
-    <string name="stadium_gain">From %1$s dps, %2$s%% for %3$d cash</string>
-    <string name="stadium_footer">Built greedily: at each slot, whichever affordable item adds the most. Only %1$d of the %2$d items change what the damage model computes - Weapon Power and Attack Speed. Survival and ability items are real and often the better buy; they are simply not what this ranks.</string>
     <string name="build_saved">Saved builds</string>
     <string name="build_save">Save this build</string>
     <string name="build_name">Build name</string>
-    <string name="build_rename">Rename</string>
     <string name="build_clone">Duplicate</string>
     <string name="build_delete">Delete</string>
     <string name="build_none">No saved builds for this hero yet.</string>
-    <string name="build_items">%1$d items · %2$s dps</string>
     <string name="build_cancel">Cancel</string>
     <string name="build_confirm">Save</string>
-    <string name="build_edit_items">Tap an item to add or remove it</string>
     <string name="rank_buffs_weapons_only">Buffs apply to weapons only: an ultimate deals what it deals, and damage boost is not what multiplies healing.</string>
     <string name="stadium_spent">%1$d of %2$d spent</string>
     <string name="stadium_suggest">Suggest a build</string>
@@ -192,10 +175,8 @@
     <string name="meta_sort_ban">Most banned</string>
     <string name="meta_sort_pick">Most picked</string>
     <string name="meta_sort_win">Highest win rate</string>
-    <string name="meta_queue">Queue</string>
     <string name="meta_queue_comp">Competitive</string>
     <string name="meta_queue_qp">Quick Play</string>
-    <string name="meta_tier">Rank</string>
     <string name="meta_tier_all">All ranks</string>
     <string name="meta_tier_bronze">Bronze</string>
     <string name="meta_tier_silver">Silver</string>
@@ -238,9 +219,6 @@
     <string name="chart_section_fire_mode">Fire mode</string>
     <string name="fire_primary">Primary</string>
     <string name="fire_secondary">Secondary</string>
-    <string name="meta_map">Map</string>
-    <string name="meta_map_all">All maps</string>
-    <string name="meta_map_note">Scoped to one map, these are the heroes people actually pick there.</string>
     <!-- Player profile -->
     <string name="meta_tab_everyone">Everyone</string>
     <string name="meta_tab_you">You</string>

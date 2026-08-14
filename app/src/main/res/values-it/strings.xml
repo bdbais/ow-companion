@@ -2,7 +2,6 @@
 <resources>
     <!-- Navigazione -->
     <string name="tab_chart">Grafico</string>
-    <string name="tab_leaderboard">Danno massimo</string>
     <string name="tab_wiki">Eroi</string>
     <string name="tab_about">Info</string>
 
@@ -10,7 +9,6 @@
     <string name="chart_distance">Distanza %1$d m</string>
     <string name="chart_summary">Mira %1$s, %2$s m  ·  %3$d armi  ·  %4$d ms</string>
     <string name="chart_time_axis">tempo (s)</string>
-    <string name="chart_dps">%1$s dps</string>
     <string name="chart_collapse">Comprimi i controlli</string>
     <string name="chart_expand">Mostra i controlli</string>
     <string name="chart_energy">Carica dell\'arma %1$d%%</string>
@@ -80,12 +78,7 @@
     <string name="wiki_damage_over_time">Danno nel tempo</string>
     <string name="wiki_no_series">Le note di patch non hanno mai ripetuto un valore di danno per questo eroe, quindi non c\'è nulla da tracciare.</string>
     <string name="wiki_balance_history">Cronologia bilanciamento</string>
-    <string name="wiki_filter_all">Tutte</string>
     <string name="wiki_no_changes_for_ability">Nessuna modifica registrata per questa abilità.</string>
-    <string name="wiki_more_changes">+%1$d altre</string>
-    <string name="wiki_buffs">%1$d buff</string>
-    <string name="wiki_nerfs">%1$d nerf</string>
-    <string name="wiki_series_legend">%1$s: %2$s → %3$s  (%4$d modifiche)</string>
 
     <!-- Info -->
     <string name="about_intro">Progetto amatoriale non commerciale. Non affiliato né approvato da Blizzard Entertainment.</string>
@@ -111,7 +104,6 @@
     <string name="about_update_failed">Server di aggiornamento non raggiungibile. L\'app funziona comunque offline.</string>
     <string name="about_updates_unconfigured">Nessun server di aggiornamento configurato per questa build.</string>
     <!-- Eroe personalizzato -->
-    <string name="tab_custom">Lab</string>
     <string name="custom_pick_hero">Eroe</string>
     <string name="custom_pick_weapon">Arma</string>
     <string name="custom_stat_damage">Danno per pallino</string>
@@ -120,7 +112,6 @@
     <string name="custom_stat_reload">Secondi di ricarica</string>
     <string name="custom_stat_pellets">Pallini per colpo</string>
     <string name="custom_reset">Ripristina i valori reali</string>
-    <string name="custom_result">%1$s dps al massimo</string>
     <string name="custom_rank">Posizione %1$d su %2$d</string>
     <string name="custom_rank_was">era %1$d</string>
     <string name="custom_delta">%1$s%% rispetto all\'eroe reale</string>
@@ -134,29 +125,21 @@
     <string name="ultimate_no_damage">%1$d ultimate non fanno danno e restano fuori.</string>
     <string name="ultimate_footer">Ordinate per il danno di una singola attivazione. Un\'ultimate è un colpo secco, non fuoco sostenuto, quindi non è un valore di danno al secondo.</string>
     <string name="rank_healing">Cura</string>
-    <string name="healing_per_second">%1$s cps</string>
     <string name="healing_footer">Cura al secondo, ricarica inclusa. Un alleato che viene curato non schiva, quindi qui il calcolo e aritmetico, non simulato.</string>
     <string name="ultimate_duration">in %1$s s</string>
-    <string name="ultimate_radius">raggio %1$s m</string>
     <string name="wiki_perks">Perk</string>
     <string name="wiki_perk_minor">MINORE</string>
     <string name="wiki_perk_major">MAGGIORE</string>
     <string name="wiki_pick_a_hero">Scegli un eroe per vederne i dettagli.</string>
     <string name="tab_stadium">Stadium</string>
-    <string name="stadium_budget">Budget %1$d</string>
-    <string name="stadium_gain">Da %1$s dps, %2$s%% per %3$d di cash</string>
-    <string name="stadium_footer">Costruita per passi: a ogni slot si prende l\'oggetto acquistabile che rende di più. Solo %1$d dei %2$d oggetti cambiano ciò che il modello dei danni calcola, cioè Weapon Power e Attack Speed. Gli oggetti di sopravvivenza e abilità sono reali e spesso convengono di più: semplicemente non sono ciò che questa scheda ordina.</string>
     <string name="build_saved">Build salvate</string>
     <string name="build_save">Salva questa build</string>
     <string name="build_name">Nome della build</string>
-    <string name="build_rename">Rinomina</string>
     <string name="build_clone">Duplica</string>
     <string name="build_delete">Elimina</string>
     <string name="build_none">Nessuna build salvata per questo eroe.</string>
-    <string name="build_items">%1$d oggetti · %2$s dps</string>
     <string name="build_cancel">Annulla</string>
     <string name="build_confirm">Salva</string>
-    <string name="build_edit_items">Tocca un oggetto per aggiungerlo o toglierlo</string>
     <string name="rank_buffs_weapons_only">I potenziamenti valgono solo per le armi: un\'ultimate fa quello che fa, e il potenziamento danno non moltiplica la cura.</string>
     <string name="stadium_spent">%1$d di %2$d spesi</string>
     <string name="stadium_suggest">Proponi una build</string>
@@ -186,10 +169,8 @@
     <string name="meta_sort_ban">Più bannati</string>
     <string name="meta_sort_pick">Più scelti</string>
     <string name="meta_sort_win">Più vittorie</string>
-    <string name="meta_queue">Coda</string>
     <string name="meta_queue_comp">Competitiva</string>
     <string name="meta_queue_qp">Partita rapida</string>
-    <string name="meta_tier">Grado</string>
     <string name="meta_tier_all">Tutti i gradi</string>
     <string name="meta_tier_bronze">Bronzo</string>
     <string name="meta_tier_silver">Argento</string>
@@ -234,9 +215,6 @@
     <string name="chart_with_perk">con %1$s</string>
 
     <!-- Map filter and player profile -->
-    <string name="meta_map">Mappa</string>
-    <string name="meta_map_all">Tutte le mappe</string>
-    <string name="meta_map_note">Ristretto a una mappa, questi sono gli eroi che la gente sceglie davvero lì.</string>
     <string name="meta_tab_everyone">Tutti</string>
     <string name="meta_tab_you">Tu</string>
     <string name="player_intro">La tua carriera, cercata per BattleTag. Non c\'è nessun accesso: Blizzard pubblica già il profilo di chi lo ha reso pubblico, quindi basta un nome e questa app non vede mai una password.</string>
