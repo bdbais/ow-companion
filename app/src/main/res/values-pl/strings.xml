@@ -149,6 +149,7 @@
     <string name="meta_role">Rola</string>
     <string name="meta_role_all">Wszystkie role</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Wybór %2$.1f%%  ·  Wygrane %3$.1f%%</string>
+    <string name="weapon_alt_fire">%1$s (ogień alternatywny)</string>
     <string name="meta_tier">Ranga</string>
     <string name="meta_map">Mapa</string>
     <string name="meta_map_all">Wszystkie mapy</string>

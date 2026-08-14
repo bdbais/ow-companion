@@ -40,6 +40,10 @@
     <string name="weapon_shotgun">Shotgun</string>
     <string name="weapon_beam">Beam</string>
     <string name="weapon_melee">Melee</string>
+    <!-- Nine weapons are named by this app rather than by the game: the alternate fire has
+         no name of its own, so the primary's is borrowed and this is added. A format rather
+         than a suffix, because not every language puts it after. -->
+    <string name="weapon_alt_fire">%1$s Alt Fire</string>
 
     <!-- Modifiers -->
     <string name="modifier_armor">Armor</string>

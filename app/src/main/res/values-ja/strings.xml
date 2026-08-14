@@ -149,6 +149,7 @@
     <string name="meta_role">ロール</string>
     <string name="meta_role_all">全ロール</string>
     <string name="meta_row_detail">BAN %1$.1f%%  ·  ピック %2$.1f%%  ·  勝率 %3$.1f%%</string>
+    <string name="weapon_alt_fire">%1$s（セカンダリ）</string>
     <string name="meta_tier">ランク</string>
     <string name="meta_map">マップ</string>
     <string name="meta_map_all">すべてのマップ</string>

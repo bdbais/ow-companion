@@ -1219,6 +1219,17 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Ban %1$.1f%%  ·  Wybór %2$.1f%%  ·  Wygrane %3$.1f%%",
         tr="Ban %1$.1f%%  ·  Seçim %2$.1f%%  ·  Kazanma %3$.1f%%",
     ),
+    # The alternate fire has no name in the game, so the app borrows the primary's and adds
+    # this. A format rather than a suffix: not every language puts it after the noun.
+    "weapon_alt_fire": t(
+        es="%1$s (fuego alternativo)", pt="%1$s (disparo alternativo)",
+        fr="%1$s (tir secondaire)", de="%1$s (Sekundärfeuer)",
+        ja="%1$s（セカンダリ）", ko="%1$s (보조 공격)",
+        zhCN="%1$s（副武器）", zhTW="%1$s（副武器）",
+        ru="%1$s (альт. огонь)", uk="%1$s (альт. вогонь)",
+        sv="%1$s (sekundär eld)", ar="%1$s (الإطلاق البديل)",
+        pl="%1$s (ogień alternatywny)", tr="%1$s (alternatif ateş)",
+    ),
     # Rank and map, back on the screen after a source turned up that honours them.
     "meta_tier": t(
         es="Rango", pt="Patente", fr="Rang", de="Rang", ja="ランク", ko="티어",

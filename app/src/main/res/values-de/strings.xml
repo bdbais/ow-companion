@@ -149,6 +149,7 @@
     <string name="meta_role">Rolle</string>
     <string name="meta_role_all">Alle Rollen</string>
     <string name="meta_row_detail">Bann %1$.1f%%  ·  Wahl %2$.1f%%  ·  Sieg %3$.1f%%</string>
+    <string name="weapon_alt_fire">%1$s (Sekundärfeuer)</string>
     <string name="meta_tier">Rang</string>
     <string name="meta_map">Karte</string>
     <string name="meta_map_all">Alle Karten</string>

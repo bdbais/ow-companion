@@ -36,6 +36,7 @@
     <string name="weapon_shotgun">Fucile a pompa</string>
     <string name="weapon_beam">Raggio</string>
     <string name="weapon_melee">Corpo a corpo</string>
+    <string name="weapon_alt_fire">%1$s (fuoco secondario)</string>
 
     <!-- Modificatori -->
     <string name="modifier_armor">Armatura</string>

@@ -149,6 +149,7 @@
     <string name="meta_role">定位</string>
     <string name="meta_role_all">全部定位</string>
     <string name="meta_row_detail">禁用 %1$.1f%%  ·  选取 %2$.1f%%  ·  胜率 %3$.1f%%</string>
+    <string name="weapon_alt_fire">%1$s（副武器）</string>
     <string name="meta_tier">段位</string>
     <string name="meta_map">地图</string>
     <string name="meta_map_all">所有地图</string>

@@ -149,6 +149,7 @@
     <string name="meta_role">Rol</string>
     <string name="meta_role_all">Todos los roles</string>
     <string name="meta_row_detail">Baneo %1$.1f%%  ·  Elección %2$.1f%%  ·  Victoria %3$.1f%%</string>
+    <string name="weapon_alt_fire">%1$s (fuego alternativo)</string>
     <string name="meta_tier">Rango</string>
     <string name="meta_map">Mapa</string>
     <string name="meta_map_all">Todos los mapas</string>

@@ -149,6 +149,7 @@
     <string name="meta_role">Função</string>
     <string name="meta_role_all">Todas as funções</string>
     <string name="meta_row_detail">Banimento %1$.1f%%  ·  Escolha %2$.1f%%  ·  Vitória %3$.1f%%</string>
+    <string name="weapon_alt_fire">%1$s (disparo alternativo)</string>
     <string name="meta_tier">Patente</string>
     <string name="meta_map">Mapa</string>
     <string name="meta_map_all">Todos os mapas</string>

@@ -149,6 +149,7 @@
     <string name="meta_role">Роль</string>
     <string name="meta_role_all">Усі ролі</string>
     <string name="meta_row_detail">Бан %1$.1f%%  ·  Пік %2$.1f%%  ·  Перемоги %3$.1f%%</string>
+    <string name="weapon_alt_fire">%1$s (альт. вогонь)</string>
     <string name="meta_tier">Ранг</string>
     <string name="meta_map">Карта</string>
     <string name="meta_map_all">Усі карти</string>

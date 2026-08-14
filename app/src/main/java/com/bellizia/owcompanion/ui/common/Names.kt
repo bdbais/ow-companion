@@ -8,6 +8,8 @@ import androidx.compose.runtime.produceState
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.data.NamesRepository
 
 /**
@@ -32,6 +34,10 @@ class Names(private val exact: Map<String, String>) {
         // Translated where there is one; otherwise at least the spelling the app uses.
         return translated.ifBlank { canonical }
     }
+
+    /** Whether this is a string the game itself names, rather than one the app composed. */
+    fun knows(text: String): Boolean =
+        exact.containsKey(text) || loose.containsKey(text.lowercase())
 
     companion object {
         val Empty = Names(emptyMap())
@@ -68,6 +74,26 @@ fun ProvideNames(content: @Composable () -> Unit) {
     CompositionLocalProvider(LocalNames provides names, content = content)
 }
 
-/** The translated form, or the English one when there is no translation for it. */
+/**
+ * The translated form, or the English one when there is no translation for it.
+ *
+ * One shape needs unpicking first. Nine weapons are called "<primary> Alt Fire", and that is
+ * this app's name for them rather than the game's - an alternate fire has no name of its
+ * own, so the primary's is borrowed and a suffix added. The whole string therefore matches
+ * nothing official, while the half in front of it matches perfectly.
+ */
 @Composable
-fun localised(english: String?): String = LocalNames.current[english.orEmpty()]
+fun localised(english: String?): String {
+    val text = english.orEmpty()
+    val names = LocalNames.current
+    if (text.endsWith(ALT_FIRE) && !names.knows(text)) {
+        return stringResource(
+            R.string.weapon_alt_fire,
+            names[text.removeSuffix(ALT_FIRE)],
+        )
+    }
+    return names[text]
+}
+
+/** The suffix the pipeline appends, and the only composed name worth unpicking. */
+private const val ALT_FIRE = " Alt Fire"
