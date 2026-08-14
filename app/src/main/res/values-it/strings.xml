@@ -150,12 +150,12 @@
     <string name="stadium_suggest">Proponi una build</string>
     <string name="stadium_clear">Azzera</string>
     <string name="stadium_armory">Armeria</string>
-    <string name="stadium_boosted">Abilita potenziate</string>
+    <string name="stadium_boosted">Abilità potenziate</string>
     <string name="stat_weapon_power">Potenza arma</string>
-    <string name="stat_attack_speed">Velocita di attacco</string>
+    <string name="stat_attack_speed">Velocità di attacco</string>
     <string name="stat_ability_power">Potenza abilità</string>
     <string name="stat_cooldown">Riduzione cooldown</string>
-    <string name="stat_move_speed">Velocita di movimento</string>
+    <string name="stat_move_speed">Velocità di movimento</string>
     <string name="stat_weapon_lifesteal">Furto vita arma</string>
     <string name="stat_ability_lifesteal">Furto vita abilità</string>
     <string name="stat_max_ammo">Munizioni max</string>
