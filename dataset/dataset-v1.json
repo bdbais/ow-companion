@@ -8723,7 +8723,7 @@
      "stats": [
       {
        "ability": "Hero updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -17346,7 +17346,7 @@
      "stats": [
       {
        "ability": "General",
-       "stat": "seconds",
+       "stat": "Damage accumulated over the first 1.0 seconds",
        "from": 20.0,
        "to": 80.0,
        "unit": null,
@@ -21069,7 +21069,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -22904,7 +22904,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -24843,7 +24843,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -26198,7 +26198,7 @@
      "stats": [
       {
        "ability": "Hero",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -34167,7 +34167,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -35659,7 +35659,7 @@
      "stats": [
       {
        "ability": "Hero updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -39851,7 +39851,7 @@
      "stats": [
       {
        "ability": "Hero updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -41366,7 +41366,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -44783,7 +44783,7 @@
      "stats": [
       {
        "ability": "Hero updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -46571,7 +46571,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -48223,7 +48223,7 @@
      "stats": [
       {
        "ability": "Hero updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -56498,7 +56498,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -60420,7 +60420,7 @@
      "stats": [
       {
        "ability": "Hero updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -62081,7 +62081,7 @@
      "stats": [
       {
        "ability": "Hero updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,
@@ -72288,7 +72288,7 @@
      "stats": [
       {
        "ability": "General updates",
-       "stat": "meters per second",
+       "stat": "Global projectile size modifier",
        "from": 0.1,
        "to": 0.075,
        "unit": null,

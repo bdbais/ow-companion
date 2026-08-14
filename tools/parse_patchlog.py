@@ -185,6 +185,60 @@ def classify(stat: str, before: float, after: float) -> str:
     return "buff" if went_up else "nerf"
 
 
+# Where a qualifying clause begins. Everything from here on describes *which* case the
+# change applies to, not what changed.
+SUBORDINATOR = re.compile(
+    r"\s+(?:for|with|when|while|that|which|if|after|before|above|below|against)\s+",
+    re.IGNORECASE,
+)
+
+DIGITS = tuple("0123456789")
+
+
+def rejoin_subject(text: str, start: int, captured: str) -> str | None:
+    """The whole phrase that changed, when a number truncated the captured stat name.
+
+    The stat pattern cannot contain digits, so a number in the middle of a sentence cuts the
+    capture short and what survives is only the tail of the phrase:
+
+        "Global projectile size modifier for travel time projectiles with a speed greater
+         than 50 meters per second reduced from 0.1 to 0.075 meters."
+
+    captured "meters per second" - a unit, not a stat - on sixteen heroes.
+
+    Nothing displays it today: the damage timeline only plots stats whose name contains
+    "damage", and everywhere else these rows are counted by direction rather than read. So
+    this is a correctness fix in published data, not a fix to something anyone saw. It is
+    worth making anyway - the dataset ships as a file other people can use, the name is
+    simply wrong, and the next filter that reaches for stat names inherits the mistake.
+
+    The tell is the character just before the capture: a digit there means a number ended the
+    phrase early. The repair is to put the sentence back together from its start through the
+    captured tail, then cut it at the first qualifying clause - what follows one of those says
+    *which case* the change applies to, not what changed.
+
+    Both halves of that matter. Cutting alone would have mangled
+
+        "Damage accumulated over the first 1.0 seconds increased from 20 to 80"
+
+    where the number belongs to the name; rejoining keeps "seconds" attached and the sentence
+    has no qualifying clause to cut. Rejoining alone would have labelled the projectile change
+    with its entire twenty-word qualifier.
+
+    Returns None when the capture was not truncated, or when the result is too thin to be an
+    improvement - a bad name is not worth replacing with a worse one.
+    """
+    before = text[:start]
+    if not before.rstrip().endswith(DIGITS):
+        return None
+    sentence = re.split(r"(?<=[.;:])\s+", before)[-1]
+    whole = sentence + captured
+    head = SUBORDINATOR.split(whole, maxsplit=1)[0].strip(" .,([")
+    if len(head) < 3 or not re.search(r"[A-Za-z]", head):
+        return None
+    return head
+
+
 def numeric_changes(ability: str, text: str) -> list[dict]:
     """Statements of the form "X went from A to B", as structured values."""
     results = []
@@ -192,6 +246,7 @@ def numeric_changes(ability: str, text: str) -> list[dict]:
     for pattern in (CHANGE, PARENTHETICAL):
         for match in pattern.finditer(normalised):
             stat = match.group("stat").strip(" .,")
+            stat = rejoin_subject(normalised, match.start("stat"), stat) or stat
             # Strip leading filler so "Now the cooldown" and "Cooldown" agree.
             stat = re.sub(
                 r"^(now|also|the|its|his|her|their)\s+", "", stat, flags=re.IGNORECASE
@@ -250,7 +305,35 @@ def parse_hero(name: str, text: str) -> dict:
     return {"hero": name, "patches": patches}
 
 
+# The two sentences that taught [rejoin_subject] what it has to do, one for each half of the
+# rule. Asserted on every run: this parser is re-run whenever the wiki moves, and a quiet
+# regression here does not crash anything - it just puts a unit where a stat name belongs.
+SELF_CHECK = [
+    (
+        "Global projectile size modifier for travel time projectiles with a speed greater "
+        "than 50 meters per second reduced from 0.1 to 0.075 meters.",
+        "Global projectile size modifier",
+    ),
+    (
+        "Damage accumulated over the first 1.0 seconds increased from 20 to 80 "
+        "(damage per second after the first 1.0 seconds is unchanged)",
+        "Damage accumulated over the first 1.0 seconds",
+    ),
+    # Untouched: nothing truncated these, so they must come through exactly as before.
+    ("Cooldown increased from 6 to 8 seconds.", "Cooldown"),
+    ("Explosion damage increased from 60 to 90.", "Explosion damage"),
+]
+
+
+def self_check() -> None:
+    for sentence, expected in SELF_CHECK:
+        found = [c["stat"] for c in numeric_changes("", sentence)]
+        if expected not in found:
+            raise AssertionError(f"{sentence!r} gave {found}, expected {expected!r}")
+
+
 def main() -> int:
+    self_check()
     roster = read_json(DATASET / "roster.json")["heroes"]
     history = []
     total_patches = 0
