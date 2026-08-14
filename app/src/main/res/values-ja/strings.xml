@@ -149,6 +149,7 @@
     <string name="meta_role">ロール</string>
     <string name="meta_role_all">全ロール</string>
     <string name="meta_row_detail">BAN %1$.1f%%  ·  ピック %2$.1f%%  ·  勝率 %3$.1f%%</string>
+    <string name="player_gone">その BattleTag のプロフィールはありません。プレイヤーは改名でき、保存したお気に入りは古い名前を指したままになります。待っても戻りません。いまゲームで表示されている名前でもう一度検索してください。</string>
     <string name="weapon_alt_fire">%1$s（セカンダリ）</string>
     <string name="meta_tier">ランク</string>
     <string name="meta_map">マップ</string>

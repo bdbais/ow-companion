@@ -149,6 +149,7 @@
     <string name="meta_role">Роль</string>
     <string name="meta_role_all">Все роли</string>
     <string name="meta_row_detail">Бан %1$.1f%%  ·  Пик %2$.1f%%  ·  Победы %3$.1f%%</string>
+    <string name="player_gone">Профиля с таким BattleTag нет. Имя можно сменить, а сохранённое избранное продолжает указывать на старое, так что ожидание не поможет. Поищите имя в том виде, в каком оно сейчас в игре.</string>
     <string name="weapon_alt_fire">%1$s (альт. огонь)</string>
     <string name="meta_tier">Ранг</string>
     <string name="meta_map">Карта</string>

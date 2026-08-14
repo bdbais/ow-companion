@@ -149,6 +149,7 @@
     <string name="meta_role">Rolle</string>
     <string name="meta_role_all">Alle Rollen</string>
     <string name="meta_row_detail">Bann %1$.1f%%  ·  Wahl %2$.1f%%  ·  Sieg %3$.1f%%</string>
+    <string name="player_gone">Unter diesem BattleTag gibt es kein Profil. Man kann sich umbenennen, und ein gespeicherter Favorit zeigt weiter auf den alten Namen - Warten hilft also nicht. Suche noch einmal nach dem Namen, wie er jetzt im Spiel steht.</string>
     <string name="weapon_alt_fire">%1$s (Sekundärfeuer)</string>
     <string name="meta_tier">Rang</string>
     <string name="meta_map">Karte</string>

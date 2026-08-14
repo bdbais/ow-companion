@@ -149,6 +149,7 @@
     <string name="meta_role">Rôle</string>
     <string name="meta_role_all">Tous les rôles</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Choix %2$.1f%%  ·  Victoire %3$.1f%%</string>
+    <string name="player_gone">Aucun profil sous ce BattleTag. On peut changer de nom, et un favori enregistré continue de pointer vers l\'ancien : attendre ne le ramènera pas. Cherchez à nouveau le nom tel qu\'il s\'écrit maintenant dans le jeu.</string>
     <string name="weapon_alt_fire">%1$s (tir secondaire)</string>
     <string name="meta_tier">Rang</string>
     <string name="meta_map">Carte</string>

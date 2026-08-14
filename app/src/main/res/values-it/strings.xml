@@ -240,6 +240,7 @@
     <string name="player_remove">Rimuovi questo account</string>
     <string name="player_hit_line">%1$d partite  ·  %2$.1f%% vinte</string>
     <string name="player_private">Questo profilo esiste, ma le sue statistiche non sono pubbliche. È un\'impostazione dentro Overwatch — Opzioni, Sociale, Profilo carriera — e non qualcosa che questa app possa fare da fuori.</string>
+    <string name="player_gone">Non esiste nessun profilo con quel BattleTag. Chi gioca può cambiare nome, e un preferito salvato continua a puntare a quello vecchio — quindi aspettando non torna. Cerca di nuovo il nome com\'è scritto adesso nel gioco.</string>
     <string name="player_failed">Impossibile raggiungere il profilo.</string>
     <string name="player_games">Partite</string>
     <string name="player_winrate">Vittorie</string>

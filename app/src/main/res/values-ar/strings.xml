@@ -149,6 +149,7 @@
     <string name="meta_role">الدور</string>
     <string name="meta_role_all">كل الأدوار</string>
     <string name="meta_row_detail">حظر %1$.1f%%  ·  اختيار %2$.1f%%  ·  فوز %3$.1f%%</string>
+    <string name="player_gone">لا يوجد ملف بهذا الـBattleTag. يمكن للاعبين تغيير أسمائهم، ويظل المفضّل المحفوظ يشير إلى الاسم القديم، فالانتظار لن يعيده. ابحث مجددًا عن الاسم كما هو مكتوب الآن في اللعبة.</string>
     <string name="weapon_alt_fire">%1$s (الإطلاق البديل)</string>
     <string name="meta_tier">الرتبة</string>
     <string name="meta_map">الخريطة</string>

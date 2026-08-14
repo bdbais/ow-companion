@@ -149,6 +149,7 @@
     <string name="meta_role">Rola</string>
     <string name="meta_role_all">Wszystkie role</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Wybór %2$.1f%%  ·  Wygrane %3$.1f%%</string>
+    <string name="player_gone">Nie ma profilu o tym BattleTagu. Gracze mogą zmienić nazwę, a zapisany ulubiony wciąż wskazuje starą, więc czekanie nic nie da. Poszukaj nazwy w takiej postaci, w jakiej widnieje teraz w grze.</string>
     <string name="weapon_alt_fire">%1$s (ogień alternatywny)</string>
     <string name="meta_tier">Ranga</string>
     <string name="meta_map">Mapa</string>

@@ -149,6 +149,7 @@
     <string name="meta_role">Rol</string>
     <string name="meta_role_all">Tüm roller</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Seçim %2$.1f%%  ·  Kazanma %3$.1f%%</string>
+    <string name="player_gone">Bu BattleTag ile bir profil yok. Oyuncular adlarını değiştirebilir ve kayıtlı bir favori eskisini göstermeye devam eder; beklemek geri getirmez. Adı, oyunda şu an yazdığı hâliyle yeniden aratın.</string>
     <string name="weapon_alt_fire">%1$s (alternatif ateş)</string>
     <string name="meta_tier">Rütbe</string>
     <string name="meta_map">Harita</string>

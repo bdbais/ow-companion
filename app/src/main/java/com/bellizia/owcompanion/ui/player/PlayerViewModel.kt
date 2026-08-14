@@ -47,6 +47,14 @@ data class PlayerUiState(
     val summary: PlayerRepository.Summary? = null,
     /** Set when the profile is real but Blizzard is not publishing its numbers. */
     val isPrivate: Boolean = false,
+    /**
+     * Set when there is no profile under that BattleTag at all.
+     *
+     * Different from every other failure, and worth saying so: a saved favourite that
+     * answers this will answer it forever, because the player renamed or the tag was saved
+     * wrong. "Try again" is the wrong advice; "check the name" is the right one.
+     */
+    val isGone: Boolean = false,
     val error: String? = null,
     /** The hero whose full figures are open, and what they are. */
     val openHero: HeroStat? = null,
@@ -137,7 +145,7 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                 is PlayerRepository.Result.Failed -> _state.update {
                     it.copy(searching = false, error = result.cause, searched = true)
                 }
-                PlayerRepository.Result.Private ->
+                PlayerRepository.Result.Private, PlayerRepository.Result.Gone ->
                     _state.update { it.copy(searching = false, searched = true) }
             }
         }
@@ -168,6 +176,8 @@ class PlayerViewModel(application: Application) : AndroidViewModel(application) 
                     _state.update { it.copy(loading = false, summary = result.value) }
                 PlayerRepository.Result.Private ->
                     _state.update { it.copy(loading = false, isPrivate = true) }
+                PlayerRepository.Result.Gone ->
+                    _state.update { it.copy(loading = false, isGone = true) }
                 is PlayerRepository.Result.Failed ->
                     _state.update { it.copy(loading = false, error = result.cause) }
             }

@@ -1219,6 +1219,49 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Ban %1$.1f%%  ·  Wybór %2$.1f%%  ·  Wygrane %3$.1f%%",
         tr="Ban %1$.1f%%  ·  Seçim %2$.1f%%  ·  Kazanma %3$.1f%%",
     ),
+    # A 404 from the career API, which is the one failure that will not fix itself.
+    "player_gone": t(
+        es="No hay ningún perfil con ese BattleTag. La gente puede cambiarse el nombre, y un "
+           "favorito guardado sigue apuntando al antiguo, así que esperar no lo devolverá. "
+           "Busca otra vez el nombre tal como aparece ahora en el juego.",
+        pt="Não existe perfil com essa BattleTag. Quem joga pode mudar de nome, e um favorito "
+           "salvo continua apontando para o antigo, então esperar não resolve. Procure de "
+           "novo pelo nome como ele aparece agora no jogo.",
+        fr="Aucun profil sous ce BattleTag. On peut changer de nom, et un favori enregistré "
+           "continue de pointer vers l\\'ancien : attendre ne le ramènera pas. Cherchez à "
+           "nouveau le nom tel qu\\'il s\\'écrit maintenant dans le jeu.",
+        de="Unter diesem BattleTag gibt es kein Profil. Man kann sich umbenennen, und ein "
+           "gespeicherter Favorit zeigt weiter auf den alten Namen - Warten hilft also "
+           "nicht. Suche noch einmal nach dem Namen, wie er jetzt im Spiel steht.",
+        ja="その BattleTag のプロフィールはありません。プレイヤーは改名でき、保存したお気に入りは"
+           "古い名前を指したままになります。待っても戻りません。いまゲームで表示されている名前で"
+           "もう一度検索してください。",
+        ko="그 BattleTag로 된 프로필이 없습니다. 이름은 바꿀 수 있고, 저장한 즐겨찾기는 예전 "
+           "이름을 계속 가리킵니다. 기다린다고 돌아오지 않습니다. 지금 게임에 표시된 이름으로 "
+           "다시 검색하세요.",
+        zhCN="没有使用该 BattleTag 的档案。玩家可以改名，而收藏仍指向旧名字，所以等下去也不会回来。"
+             "请用游戏里现在显示的名字重新搜索。",
+        zhTW="沒有使用該 BattleTag 的檔案。玩家可以改名，而收藏仍指向舊名字，所以等下去也不會回來。"
+             "請用遊戲裡現在顯示的名字重新搜尋。",
+        ru="Профиля с таким BattleTag нет. Имя можно сменить, а сохранённое избранное "
+           "продолжает указывать на старое, так что ожидание не поможет. Поищите имя в том "
+           "виде, в каком оно сейчас в игре.",
+        uk="Профілю з таким BattleTag немає. Ім\\'я можна змінити, а збережене обране далі "
+           "вказує на старе, тож чекати марно. Пошукайте ім\\'я в тому вигляді, як воно "
+           "зараз у грі.",
+        sv="Det finns ingen profil under den BattleTaggen. Man kan byta namn, och en sparad "
+           "favorit pekar kvar på det gamla - att vänta hjälper alltså inte. Sök igen på "
+           "namnet så som det står i spelet nu.",
+        ar="لا يوجد ملف بهذا الـBattleTag. يمكن للاعبين تغيير أسمائهم، ويظل المفضّل المحفوظ "
+           "يشير إلى الاسم القديم، فالانتظار لن يعيده. ابحث مجددًا عن الاسم كما هو مكتوب "
+           "الآن في اللعبة.",
+        pl="Nie ma profilu o tym BattleTagu. Gracze mogą zmienić nazwę, a zapisany ulubiony "
+           "wciąż wskazuje starą, więc czekanie nic nie da. Poszukaj nazwy w takiej "
+           "postaci, w jakiej widnieje teraz w grze.",
+        tr="Bu BattleTag ile bir profil yok. Oyuncular adlarını değiştirebilir ve kayıtlı "
+           "bir favori eskisini göstermeye devam eder; beklemek geri getirmez. Adı, oyunda "
+           "şu an yazdığı hâliyle yeniden aratın.",
+    ),
     # The alternate fire has no name in the game, so the app borrows the primary's and adds
     # this. A format rather than a suffix: not every language puts it after the noun.
     "weapon_alt_fire": t(

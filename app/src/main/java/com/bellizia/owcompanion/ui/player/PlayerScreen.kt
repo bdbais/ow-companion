@@ -141,6 +141,14 @@ fun PlayerScreen(
                 ) { CircularProgressIndicator() }
             }
 
+            state.isGone -> item {
+                Text(
+                    text = stringResource(R.string.player_gone),
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(vertical = 16.dp),
+                )
+            }
+
             state.isPrivate -> item {
                 Text(
                     text = stringResource(R.string.player_private),

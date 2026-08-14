@@ -149,6 +149,7 @@
     <string name="meta_role">定位</string>
     <string name="meta_role_all">全部定位</string>
     <string name="meta_row_detail">禁用 %1$.1f%%  ·  选取 %2$.1f%%  ·  胜率 %3$.1f%%</string>
+    <string name="player_gone">没有使用该 BattleTag 的档案。玩家可以改名，而收藏仍指向旧名字，所以等下去也不会回来。请用游戏里现在显示的名字重新搜索。</string>
     <string name="weapon_alt_fire">%1$s（副武器）</string>
     <string name="meta_tier">段位</string>
     <string name="meta_map">地图</string>

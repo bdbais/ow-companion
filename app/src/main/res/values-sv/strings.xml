@@ -149,6 +149,7 @@
     <string name="meta_role">Roll</string>
     <string name="meta_role_all">Alla roller</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Val %2$.1f%%  ·  Vinst %3$.1f%%</string>
+    <string name="player_gone">Det finns ingen profil under den BattleTaggen. Man kan byta namn, och en sparad favorit pekar kvar på det gamla - att vänta hjälper alltså inte. Sök igen på namnet så som det står i spelet nu.</string>
     <string name="weapon_alt_fire">%1$s (sekundär eld)</string>
     <string name="meta_tier">Rang</string>
     <string name="meta_map">Karta</string>

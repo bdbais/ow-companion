@@ -127,6 +127,8 @@ class PlayerRepository(private val context: Context) {
         data class Ok<T>(val value: T) : Result<T>
         /** The profile exists but Blizzard is not publishing it. */
         data object Private : Result<Nothing>
+        /** No profile under that BattleTag: renamed, or saved with a typo. */
+        data object Gone : Result<Nothing>
         data class Failed(val cause: String) : Result<Nothing>
     }
 
@@ -177,7 +179,7 @@ class PlayerRepository(private val context: Context) {
                     }
                 }.awaitAll()
             }
-        }.fold({ Result.Ok(it) }, { Result.Failed(it.message ?: "search failed") })
+        }.fold({ Result.Ok(it) }, { if (it is NoSuchPlayer) Result.Gone else Result.Failed(it.message ?: "search failed") })
     }
 
     private fun hitsFor(query: String): List<Hit> {
@@ -306,7 +308,7 @@ class PlayerRepository(private val context: Context) {
                 if (summary.general == null || summary.general.games == 0) Result.Private
                 else Result.Ok(summary)
             },
-            onFailure = { Result.Failed(it.message ?: "lookup failed") },
+            onFailure = { if (it is NoSuchPlayer) Result.Gone else Result.Failed(it.message ?: "lookup failed") },
         )
     }
 
@@ -349,12 +351,21 @@ class PlayerRepository(private val context: Context) {
             setRequestProperty("Accept", "application/json")
         }
         return try {
-            if (connection.responseCode !in 200..299) error("HTTP ${connection.responseCode}")
+            val code = connection.responseCode
+            // A 404 is not a failure to reach anything - it is an answer, and a different
+            // one from the rest. The BattleTag is gone: renamed, or typed wrong once and
+            // saved. Everything else is worth retrying; this is worth correcting, and the
+            // screen can only say which if the two arrive differently.
+            if (code == 404) throw NoSuchPlayer()
+            if (code !in 200..299) error("HTTP $code")
             connection.inputStream.bufferedReader().use { it.readText() }
         } finally {
             connection.disconnect()
         }
     }
+
+    /** Thrown for the one status that means "no such player" rather than "not now". */
+    class NoSuchPlayer : RuntimeException()
 
     companion object {
         private const val API = "https://overfast-api.tekrop.fr"

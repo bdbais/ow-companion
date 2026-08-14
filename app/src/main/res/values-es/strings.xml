@@ -149,6 +149,7 @@
     <string name="meta_role">Rol</string>
     <string name="meta_role_all">Todos los roles</string>
     <string name="meta_row_detail">Baneo %1$.1f%%  ·  Elección %2$.1f%%  ·  Victoria %3$.1f%%</string>
+    <string name="player_gone">No hay ningún perfil con ese BattleTag. La gente puede cambiarse el nombre, y un favorito guardado sigue apuntando al antiguo, así que esperar no lo devolverá. Busca otra vez el nombre tal como aparece ahora en el juego.</string>
     <string name="weapon_alt_fire">%1$s (fuego alternativo)</string>
     <string name="meta_tier">Rango</string>
     <string name="meta_map">Mapa</string>
