@@ -351,6 +351,16 @@
     <string name="rank_shots_note">Colpi per uccidere, a bruciapelo. Un numero intero che non cambia con quanto bene miri, ed è quello che decide un duello.</string>
     <string name="rank_shots_head">%1$d testa</string>
     <string name="patch_official">Note di Blizzard</string>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d altra</item>
+        <item quantity="many">+%1$d altre</item>
+        <item quantity="other">+%1$d altre</item>
+    </plurals>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d modifica</item>
+        <item quantity="many">%1$d modifiche</item>
+        <item quantity="other">%1$d modifiche</item>
+    </plurals>
     <string name="about_reports_title">Cosa hanno segnalato</string>
     <string name="about_reports">%1$d segnalazioni su %2$d già affrontate.</string>
     <string name="about_reports_note">I numeri di questa app si correggono perché chi gioca dice quando sono sbagliati. Una segnalazione è marcata come già corretta invece che risolta, con la motivazione nel repository.</string>

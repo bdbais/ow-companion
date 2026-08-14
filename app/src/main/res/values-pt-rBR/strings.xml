@@ -364,6 +364,16 @@
     <string name="wiki_breakpoints">Tiros para matar</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">À queima-roupa, com todos os projéteis acertando. Uma coluna por reserva de vida e não por herói, porque todos os de 225 morrem com a mesma conta. Este é o número que decide um duelo: não o dano por segundo, mas se caem com dois tiros ou três.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d alteração</item>
+        <item quantity="many">%1$d alterações</item>
+        <item quantity="other">%1$d alterações</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d mais</item>
+        <item quantity="many">+%1$d mais</item>
+        <item quantity="other">+%1$d mais</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="one">%1$d item</item>
         <item quantity="many">%1$d itens</item>

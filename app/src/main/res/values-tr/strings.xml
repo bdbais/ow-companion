@@ -364,6 +364,14 @@
     <string name="wiki_breakpoints">Öldürmek için atış</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">Dip dibe, her saçma isabet ederek. Kahraman başına değil can havuzu başına bir sütun, çünkü 225 canı olanların hepsi aynı sayıda düşüyor. Bir düelloyu belirleyen bu sayıdır, saniyedeki hasar değil: iki atışta mı ölüyor, üçte mi.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d değişiklik</item>
+        <item quantity="other">%1$d değişiklik</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d daha</item>
+        <item quantity="other">+%1$d daha</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="one">%1$d eşya</item>
         <item quantity="other">%1$d eşya</item>

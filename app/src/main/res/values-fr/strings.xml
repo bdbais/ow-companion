@@ -364,6 +364,16 @@
     <string name="wiki_breakpoints">Tirs pour tuer</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">À bout portant, tous les plombs dedans. Une colonne par réserve de vie plutôt que par héros, parce que tous ceux à 225 tombent au même compte. C\'est le nombre qui décide un duel : pas les dégâts par seconde, mais s\'ils meurent en deux tirs ou en trois.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d modification</item>
+        <item quantity="many">%1$d de modifications</item>
+        <item quantity="other">%1$d modifications</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d de plus</item>
+        <item quantity="many">+%1$d de plus</item>
+        <item quantity="other">+%1$d de plus</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="one">%1$d objet</item>
         <item quantity="many">%1$d d\'objets</item>

@@ -364,6 +364,14 @@
     <string name="wiki_breakpoints">Skott till kill</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">På nära håll, varje hagel i mål. En kolumn per livpool i stället för per hjälte, för alla med 225 faller på samma antal. Det är siffran som avgör en duell: inte skada per sekund, utan om de dör på två skott eller tre.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d ändring</item>
+        <item quantity="other">%1$d ändringar</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d till</item>
+        <item quantity="other">+%1$d till</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="one">%1$d föremål</item>
         <item quantity="other">%1$d föremål</item>

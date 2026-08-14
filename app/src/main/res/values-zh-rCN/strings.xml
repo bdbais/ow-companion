@@ -364,6 +364,12 @@
     <string name="wiki_breakpoints">击杀所需枪数</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">贴脸、全部命中的情况。按血量分列而不是按英雄，因为 225 血的都死在同一个数上。决定一次对枪的是这个数字，不是每秒伤害：两发倒还是三发倒。</string>
+    <plurals name="timeline_change_count">
+        <item quantity="other">%1$d 项改动</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="other">还有 %1$d 项</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="other">%1$d 件物品</item>
     </plurals>

@@ -364,6 +364,18 @@
     <string name="wiki_breakpoints">Strzały do zabicia</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">Z bliska, każdy śrut w celu. Kolumna na pulę zdrowia, a nie na bohatera, bo wszyscy z 225 giną przy tej samej liczbie. To ta liczba rozstrzyga pojedynek, nie obrażenia na sekundę: dwa strzały czy trzy.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d zmiana</item>
+        <item quantity="few">%1$d zmiany</item>
+        <item quantity="many">%1$d zmian</item>
+        <item quantity="other">%1$d zmian</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d więcej</item>
+        <item quantity="few">+%1$d więcej</item>
+        <item quantity="many">+%1$d więcej</item>
+        <item quantity="other">+%1$d więcej</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="one">%1$d przedmiot</item>
         <item quantity="few">%1$d przedmioty</item>

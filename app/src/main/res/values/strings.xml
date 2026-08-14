@@ -361,6 +361,14 @@
     <string name="rank_shots_note">Shots to kill, at point blank. A whole number that does not move with how well you aim - which is what decides a duel.</string>
     <string name="rank_shots_head">%1$d head</string>
     <string name="patch_official">Blizzard\'s notes</string>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d more</item>
+        <item quantity="other">+%1$d more</item>
+    </plurals>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d change</item>
+        <item quantity="other">%1$d changes</item>
+    </plurals>
     <string name="about_reports_title">What players reported</string>
     <string name="about_reports">%1$d of %2$d reports acted on.</string>
     <string name="about_reports_note">Numbers in this app get fixed because people who play the game say when they are wrong. One report is marked as correct-as-it-stood rather than fixed, with the reasoning in the repository.</string>

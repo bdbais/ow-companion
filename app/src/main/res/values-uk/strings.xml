@@ -364,6 +364,18 @@
     <string name="wiki_breakpoints">Пострілів до вбивства</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">Впритул, усі влучання в ціль. Стовпець на запас здоров\'я, а не на героя: усі з 225 гинуть від того самого числа. Дуель вирішує саме воно, а не шкода за секунду — з двох пострілів чи з трьох.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d зміна</item>
+        <item quantity="few">%1$d зміни</item>
+        <item quantity="many">%1$d змін</item>
+        <item quantity="other">%1$d змін</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="one">ще %1$d</item>
+        <item quantity="few">ще %1$d</item>
+        <item quantity="many">ще %1$d</item>
+        <item quantity="other">ще %1$d</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="one">%1$d предмет</item>
         <item quantity="few">%1$d предмети</item>

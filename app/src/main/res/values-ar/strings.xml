@@ -364,6 +364,22 @@
     <string name="wiki_breakpoints">طلقات حتى القتل</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">من مسافة لاصقة، وكل الطلقات تصيب. عمود لكل قدر من الصحة لا لكل بطل، لأن كل من لديه 225 يسقط بالعدد نفسه. هذا هو الرقم الذي يحسم المبارزة، لا الضرر في الثانية: أيسقط بطلقتين أم بثلاث.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="zero">التغييرات: %1$d</item>
+        <item quantity="one">التغييرات: %1$d</item>
+        <item quantity="two">التغييرات: %1$d</item>
+        <item quantity="few">التغييرات: %1$d</item>
+        <item quantity="many">التغييرات: %1$d</item>
+        <item quantity="other">التغييرات: %1$d</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="zero">المزيد: %1$d</item>
+        <item quantity="one">المزيد: %1$d</item>
+        <item quantity="two">المزيد: %1$d</item>
+        <item quantity="few">المزيد: %1$d</item>
+        <item quantity="many">المزيد: %1$d</item>
+        <item quantity="other">المزيد: %1$d</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="zero">العناصر: %1$d</item>
         <item quantity="one">العناصر: %1$d</item>

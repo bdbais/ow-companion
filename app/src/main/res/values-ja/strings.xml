@@ -364,6 +364,12 @@
     <string name="wiki_breakpoints">必要弾数</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">ゼロ距離、すべて命中した場合。ヒーロー別ではなく体力別に一列です。225 の相手はみな同じ発数で倒れるからです。決闘を決めるのはこの数字で、毎秒ダメージではありません。二発で倒れるか三発か、それだけです。</string>
+    <plurals name="timeline_change_count">
+        <item quantity="other">%1$d 件の変更</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="other">他 %1$d 件</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="other">アイテム %1$d 個</item>
     </plurals>

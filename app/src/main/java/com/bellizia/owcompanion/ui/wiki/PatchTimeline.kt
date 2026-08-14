@@ -6,6 +6,7 @@ import android.net.Uri
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import com.bellizia.owcompanion.R
 import com.bellizia.owcompanion.data.OfficialNotes
@@ -345,8 +346,16 @@ private fun DamageChart(series: List<StatSeries>, color: Color) {
                         .background(color.copy(alpha = 1f - index * 0.3f)),
                 )
                 Text(
+                    // The stat name itself stays as the patch notes wrote it: those are 646
+                    // distinct free-form English phrases, not a vocabulary, and half a
+                    // translation would read worse than none.
                     text = "${entry.stat}: ${trim(entry.first)} → ${trim(entry.last)}" +
-                        "  (${entry.changes} changes)",
+                        "  (" +
+                        pluralStringResource(
+                            R.plurals.timeline_change_count,
+                            entry.changes,
+                            entry.changes,
+                        ) + ")",
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.padding(start = 6.dp),
@@ -418,7 +427,11 @@ private fun PatchCard(patch: PatchEntry, color: Color) {
         }
         if (!expanded && patch.changes.size > 2) {
             Text(
-                text = "+${patch.changes.size - 2} more",
+                text = pluralStringResource(
+                    R.plurals.patch_more_changes,
+                    patch.changes.size - 2,
+                    patch.changes.size - 2,
+                ),
                 style = MaterialTheme.typography.labelSmall,
                 color = color,
                 modifier = Modifier.padding(top = 4.dp),

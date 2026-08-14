@@ -364,6 +364,14 @@
     <string name="wiki_breakpoints">Schüsse bis zum Kill</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">Aus nächster Nähe, jede Kugel im Ziel. Eine Spalte je Lebenspool statt je Held, weil alle mit 225 Leben bei derselben Zahl fallen. Das ist die Zahl, die ein Duell entscheidet: nicht Schaden pro Sekunde, sondern ob sie nach zwei Schüssen sterben oder nach drei.</string>
+    <plurals name="timeline_change_count">
+        <item quantity="one">%1$d Änderung</item>
+        <item quantity="other">%1$d Änderungen</item>
+    </plurals>
+    <plurals name="patch_more_changes">
+        <item quantity="one">+%1$d weitere</item>
+        <item quantity="other">+%1$d weitere</item>
+    </plurals>
     <plurals name="build_item_count">
         <item quantity="one">%1$d Gegenstand</item>
         <item quantity="other">%1$d Gegenstände</item>

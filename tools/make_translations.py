@@ -4570,9 +4570,14 @@ def p(**kwargs) -> dict:
 
 # Strings whose noun changes with the number in front of it.
 #
-# Only three, and deliberately: most counted strings in this app carry two numbers at once
+# Only five, and deliberately: most counted strings in this app carry two numbers at once
 # ("%1$d of %2$d spent", "%1$d weapons · %2$d ms"), and an Android plural agrees with one
 # quantity, so those cannot become plurals however wrong they read.
+#
+# `patch_more_changes` is the odd one: "+3 more" names no noun, so nearly every language is
+# invariant here and both forms are the same text. It is a plural anyway because English and
+# German would otherwise be the only ones anybody noticed, and because a translator adding a
+# noun later needs the slot to exist.
 #
 # What each language gets is what can be written correctly rather than what CLDR permits:
 #
@@ -4593,6 +4598,86 @@ def p(**kwargs) -> dict:
 # all-or-nothing per language: a language absent from an entry falls back to English, which
 # is why none of them are.
 PLURALS: dict[str, dict] = {
+    "timeline_change_count": p(
+        es={"one": "%1$d cambio", "many": "%1$d cambios", "other": "%1$d cambios"},
+        pt={
+            "one": "%1$d alteração",
+            "many": "%1$d alterações",
+            "other": "%1$d alterações",
+        },
+        fr={
+            "one": "%1$d modification",
+            "many": "%1$d de modifications",
+            "other": "%1$d modifications",
+        },
+        de={"one": "%1$d Änderung", "other": "%1$d Änderungen"},
+        ja={"other": "%1$d 件の変更"},
+        ko={"other": "변경 %1$d건"},
+        zhCN={"other": "%1$d 项改动"},
+        zhTW={"other": "%1$d 項改動"},
+        ru={
+            "one": "%1$d изменение",
+            "few": "%1$d изменения",
+            "many": "%1$d изменений",
+            "other": "%1$d изменений",
+        },
+        uk={
+            "one": "%1$d зміна",
+            "few": "%1$d зміни",
+            "many": "%1$d змін",
+            "other": "%1$d змін",
+        },
+        sv={"one": "%1$d ändring", "other": "%1$d ändringar"},
+        ar={
+            "zero": "التغييرات: %1$d",
+            "one": "التغييرات: %1$d",
+            "two": "التغييرات: %1$d",
+            "few": "التغييرات: %1$d",
+            "many": "التغييرات: %1$d",
+            "other": "التغييرات: %1$d",
+        },
+        pl={
+            "one": "%1$d zmiana",
+            "few": "%1$d zmiany",
+            "many": "%1$d zmian",
+            "other": "%1$d zmian",
+        },
+        tr={"one": "%1$d değişiklik", "other": "%1$d değişiklik"},
+    ),
+    # No noun to agree with, so almost every language repeats itself here. See the note above.
+    "patch_more_changes": p(
+        es={"one": "+%1$d más", "many": "+%1$d más", "other": "+%1$d más"},
+        pt={"one": "+%1$d mais", "many": "+%1$d mais", "other": "+%1$d mais"},
+        fr={"one": "+%1$d de plus", "many": "+%1$d de plus", "other": "+%1$d de plus"},
+        de={"one": "+%1$d weitere", "other": "+%1$d weitere"},
+        ja={"other": "他 %1$d 件"},
+        ko={"other": "외 %1$d개"},
+        zhCN={"other": "还有 %1$d 项"},
+        zhTW={"other": "還有 %1$d 項"},
+        ru={
+            "one": "ещё %1$d",
+            "few": "ещё %1$d",
+            "many": "ещё %1$d",
+            "other": "ещё %1$d",
+        },
+        uk={"one": "ще %1$d", "few": "ще %1$d", "many": "ще %1$d", "other": "ще %1$d"},
+        sv={"one": "+%1$d till", "other": "+%1$d till"},
+        ar={
+            "zero": "المزيد: %1$d",
+            "one": "المزيد: %1$d",
+            "two": "المزيد: %1$d",
+            "few": "المزيد: %1$d",
+            "many": "المزيد: %1$d",
+            "other": "المزيد: %1$d",
+        },
+        pl={
+            "one": "+%1$d więcej",
+            "few": "+%1$d więcej",
+            "many": "+%1$d więcej",
+            "other": "+%1$d więcej",
+        },
+        tr={"one": "+%1$d daha", "other": "+%1$d daha"},
+    ),
     "build_item_count": p(
         es={"one": "%1$d objeto", "many": "%1$d objetos", "other": "%1$d objetos"},
         pt={"one": "%1$d item", "many": "%1$d itens", "other": "%1$d itens"},
