@@ -360,14 +360,17 @@
     <string name="wiki_breakpoints_note">À queima-roupa, com todos os projéteis acertando. Uma coluna por reserva de vida e não por herói, porque todos os de 225 morrem com a mesma conta. Este é o número que decide um duelo: não o dano por segundo, mas se caem com dois tiros ou três.</string>
     <plurals name="build_item_count">
         <item quantity="one">%1$d item</item>
+        <item quantity="many">%1$d itens</item>
         <item quantity="other">%1$d itens</item>
     </plurals>
     <plurals name="duel_shots">
         <item quantity="one">%1$d tiro, se acertar e nada curar.</item>
+        <item quantity="many">%1$d tiros, se todos acertarem e nada curar.</item>
         <item quantity="other">%1$d tiros, se todos acertarem e nada curar.</item>
     </plurals>
     <plurals name="ultimate_no_damage">
         <item quantity="one">%1$d suprema não causa dano e fica de fora.</item>
+        <item quantity="many">%1$d supremas não causam dano e ficam de fora.</item>
         <item quantity="other">%1$d supremas não causam dano e ficam de fora.</item>
     </plurals>
 </resources>

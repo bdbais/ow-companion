@@ -360,14 +360,17 @@
     <string name="wiki_breakpoints_note">À bout portant, tous les plombs dedans. Une colonne par réserve de vie plutôt que par héros, parce que tous ceux à 225 tombent au même compte. C\'est le nombre qui décide un duel : pas les dégâts par seconde, mais s\'ils meurent en deux tirs ou en trois.</string>
     <plurals name="build_item_count">
         <item quantity="one">%1$d objet</item>
+        <item quantity="many">%1$d d\'objets</item>
         <item quantity="other">%1$d objets</item>
     </plurals>
     <plurals name="duel_shots">
         <item quantity="one">%1$d tir, s\'il touche et que rien ne soigne.</item>
+        <item quantity="many">%1$d de tirs, si tous touchent et que rien ne soigne.</item>
         <item quantity="other">%1$d tirs, si tous touchent et que rien ne soigne.</item>
     </plurals>
     <plurals name="ultimate_no_damage">
         <item quantity="one">%1$d ultime n\'inflige aucun dégât et est écartée.</item>
+        <item quantity="many">%1$d d\'ultimes n\'infligent aucun dégât et sont écartées.</item>
         <item quantity="other">%1$d ultimes n\'infligent aucun dégât et sont écartées.</item>
     </plurals>
 </resources>

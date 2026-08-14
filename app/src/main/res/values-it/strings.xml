@@ -124,6 +124,7 @@
     <string name="ultimate_damage">%1$s danni</string>
     <plurals name="ultimate_no_damage">
         <item quantity="one">%1$d ultimate non fa danno e resta fuori.</item>
+        <item quantity="many">%1$d ultimate non fanno danno e restano fuori.</item>
         <item quantity="other">%1$d ultimate non fanno danno e restano fuori.</item>
     </plurals>
     <string name="ultimate_footer">Ordinate per il danno di una singola attivazione. Un\'ultimate è un colpo secco, non fuoco sostenuto, quindi non è un valore di danno al secondo.</string>
@@ -159,6 +160,7 @@
     <string name="stat_max_ammo">Munizioni max</string>
     <plurals name="build_item_count">
         <item quantity="one">%1$d oggetto</item>
+        <item quantity="many">%1$d oggetti</item>
         <item quantity="other">%1$d oggetti</item>
     </plurals>
     <string name="stadium_footer_v2">Le statistiche sono esatte per ogni oggetto. Il valore di danno viene da una simulazione completa, ma ci entrano solo Weapon Power e Attack Speed: il modello non sa calcolare quanto valgano potenza delle abilità o cooldown, quindi una build costruita su quelli qui viene sottostimata.</string>
@@ -381,6 +383,7 @@
     <string name="duel_outhealed">Non muore. Continuare a sparare non lo cambia.</string>
     <plurals name="duel_shots">
         <item quantity="one">%1$d colpo, se va a segno e niente cura.</item>
+        <item quantity="many">%1$d colpi, se vanno tutti a segno e niente cura.</item>
         <item quantity="other">%1$d colpi, se vanno tutti a segno e niente cura.</item>
     </plurals>
     <string name="duel_shots_head">%1$d colpi, o %2$d alla testa, se vanno tutti a segno e niente cura.</string>

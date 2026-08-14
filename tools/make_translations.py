@@ -4400,9 +4400,9 @@ def p(**kwargs) -> dict:
 # is why none of them are.
 PLURALS: dict[str, dict] = {
     "build_item_count": p(
-        es={"one": "%1$d objeto", "other": "%1$d objetos"},
-        pt={"one": "%1$d item", "other": "%1$d itens"},
-        fr={"one": "%1$d objet", "other": "%1$d objets"},
+        es={"one": "%1$d objeto", "many": "%1$d objetos", "other": "%1$d objetos"},
+        pt={"one": "%1$d item", "many": "%1$d itens", "other": "%1$d itens"},
+        fr={"one": "%1$d objet", "many": "%1$d d\\'objets", "other": "%1$d objets"},
         de={"one": "%1$d Gegenstand", "other": "%1$d Gegenstände"},
         ja={"other": "アイテム %1$d 個"},
         ko={"other": "아이템 %1$d개"},
@@ -4440,14 +4440,17 @@ PLURALS: dict[str, dict] = {
     "duel_shots": p(
         es={
             "one": "%1$d disparo, si acierta y nada cura.",
+            "many": "%1$d disparos, si todos aciertan y nada cura.",
             "other": "%1$d disparos, si todos aciertan y nada cura.",
         },
         pt={
             "one": "%1$d tiro, se acertar e nada curar.",
+            "many": "%1$d tiros, se todos acertarem e nada curar.",
             "other": "%1$d tiros, se todos acertarem e nada curar.",
         },
         fr={
             "one": "%1$d tir, s\\'il touche et que rien ne soigne.",
+            "many": "%1$d de tirs, si tous touchent et que rien ne soigne.",
             "other": "%1$d tirs, si tous touchent et que rien ne soigne.",
         },
         de={
@@ -4496,14 +4499,17 @@ PLURALS: dict[str, dict] = {
     "ultimate_no_damage": p(
         es={
             "one": "%1$d definitiva no hace daño y se queda fuera.",
+            "many": "%1$d definitivas no hacen daño y se quedan fuera.",
             "other": "%1$d definitivas no hacen daño y se quedan fuera.",
         },
         pt={
             "one": "%1$d suprema não causa dano e fica de fora.",
+            "many": "%1$d supremas não causam dano e ficam de fora.",
             "other": "%1$d supremas não causam dano e ficam de fora.",
         },
         fr={
             "one": "%1$d ultime n\\'inflige aucun dégât et est écartée.",
+            "many": "%1$d d\\'ultimes n\\'infligent aucun dégât et sont écartées.",
             "other": "%1$d ultimes n\\'infligent aucun dégât et sont écartées.",
         },
         de={
