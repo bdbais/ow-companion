@@ -137,6 +137,17 @@ So the switch takes two releases, and only the second is signed with the new key
 Marker on any release after that and everyone gets warned for nothing, so it belongs only
 on a release whose key actually changed.
 
+**Where this stands: step 2 has not happened yet.** v1.10.4 carried the reader as planned,
+but v1.11.0 shipped debug too — a deliberate call on 2026-08-14, because the keystore
+password was not available and the choice was between a debuggable APK and no release.
+Federico picked the release, knowing the cost: 35 MB instead of 17, and `debuggable` means
+anyone with adb can read the app's data.
+
+So the transition is still owed, and the marker still belongs on **the first release built
+with a real password in `keystore.properties`** — whichever number that turns out to be.
+Until then every release keeps installing over the last one, which is the one upside of
+having stayed on the debug key.
+
 ## 6. Mirror, and prove it
 
 ```bash
