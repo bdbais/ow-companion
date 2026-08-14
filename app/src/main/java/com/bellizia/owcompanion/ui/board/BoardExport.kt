@@ -268,9 +268,28 @@ object BoardExport {
         return out
     }
 
+    /**
+     * The exported file, named after the plan.
+     *
+     * Letters and digits in any script survive; everything else becomes a dash. The rule
+     * used to be `[^A-Za-z0-9-]`, which is fine for a plan called "Busan attack" and throws
+     * away the whole of one called 釜山の攻め or Атака на Пусан - the app speaks fifteen
+     * languages and five of them write in none of those characters. Kotlin's letter test is
+     * Unicode-aware, so it keeps what a filename can legally hold.
+     *
+     * A name that survives as nothing but dashes falls back to "board", which is what
+     * happens to a plan titled entirely in punctuation and is better than a file called
+     * "-----".
+     */
     private fun outputFile(context: Context, board: Board, extension: String): File {
         val directory = File(context.cacheDir, "boards").apply { mkdirs() }
-        val name = board.name.ifBlank { "board" }.replace(Regex("[^A-Za-z0-9-]"), "-")
+        val cleaned = board.name
+            .map { if (it.isLetterOrDigit() || it == '-') it else '-' }
+            .joinToString("")
+            // A run of them collapses: "Busan / attack" is one separator, not three.
+            .replace(Regex("-{2,}"), "-")
+            .trim('-')
+        val name = cleaned.ifBlank { "board" }
         return File(directory, "$name.$extension")
     }
 
