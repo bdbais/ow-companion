@@ -57,6 +57,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.data.MetaRepository
 import kotlin.math.roundToInt
 
@@ -261,14 +262,14 @@ private fun HeroRateRow(hero: MetaRepository.HeroRate, sort: MetaSort, peak: Dou
     Row(verticalAlignment = Alignment.CenterVertically) {
         AsyncImage(
             model = hero.portrait,
-            contentDescription = hero.name,
+            contentDescription = localised(hero.name),
             contentScale = ContentScale.Crop,
             modifier = Modifier.size(40.dp).clip(CircleShape),
         )
         Column(modifier = Modifier.weight(1f).padding(start = 10.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text(
-                    text = hero.name,
+                    text = localised(hero.name),
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Medium,
                     maxLines = 1,

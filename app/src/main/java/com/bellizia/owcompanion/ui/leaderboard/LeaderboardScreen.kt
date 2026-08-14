@@ -53,6 +53,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import kotlin.math.roundToInt
 import com.bellizia.owcompanion.ui.rememberFilterTaps
 import com.bellizia.owcompanion.sim.DamagePeak
@@ -353,7 +354,7 @@ private fun ComboList(state: LeaderboardUiState) {
                         modifier = Modifier.width(28.dp),
                     )
                     Text(
-                        text = entry.heroName,
+                        text = localised(entry.heroName),
                         style = MaterialTheme.typography.titleSmall,
                         modifier = Modifier.weight(1f),
                     )
@@ -661,9 +662,9 @@ private fun ShotsList(state: LeaderboardUiState) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text(text = weapon.hero, style = MaterialTheme.typography.titleSmall)
+                    Text(text = localised(weapon.hero), style = MaterialTheme.typography.titleSmall)
                     Text(
-                        text = weapon.name,
+                        text = localised(weapon.name),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )

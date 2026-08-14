@@ -81,6 +81,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.data.WikiRepository
 
 /** Blue for your side, red for theirs - the same way the game colours them. */
@@ -572,7 +573,7 @@ private fun TokenView(
     ) {
         AsyncImage(
             model = WikiRepository.imageUri(token.portrait),
-            contentDescription = token.heroName,
+            contentDescription = localised(token.heroName),
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxSize().clip(CircleShape),
         )
@@ -601,7 +602,7 @@ private fun HeroStrip(state: BoardUiState, viewModel: BoardViewModel) {
                 ) {
                     AsyncImage(
                         model = WikiRepository.imageUri(hero.portrait),
-                        contentDescription = hero.name,
+                        contentDescription = localised(hero.name),
                         contentScale = ContentScale.Crop,
                         // Greyed and flattened rather than hidden: a hero vanishing from the
                         // strip would look like the app had lost them.
@@ -618,7 +619,7 @@ private fun HeroStrip(state: BoardUiState, viewModel: BoardViewModel) {
                             ),
                     )
                     Text(
-                        text = hero.name,
+                        text = localised(hero.name),
                         style = MaterialTheme.typography.labelSmall,
                         color = if (taken) {
                             MaterialTheme.colorScheme.onSurfaceVariant

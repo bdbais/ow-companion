@@ -27,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.data.WikiRepository
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -120,7 +121,7 @@ fun ChartRowView(
                     modifier = Modifier.size(24.dp).clip(CircleShape).background(color),
                 )
                 Text(
-                    text = row.spec.hero,
+                    text = localised(row.spec.hero),
                     style = MaterialTheme.typography.labelLarge,
                     color = if (outOfRange) MaterialTheme.colorScheme.onSurfaceVariant
                     else MaterialTheme.colorScheme.onSurface,
@@ -141,7 +142,7 @@ fun ChartRowView(
                 )
             }
             Text(
-                text = row.spec.baseWeapon ?: row.spec.name,
+                text = localised(row.spec.baseWeapon ?: row.spec.name),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 maxLines = 1,

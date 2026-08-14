@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.data.model.HeroWiki
 import com.bellizia.owcompanion.sim.Breakpoints
 import com.bellizia.owcompanion.sim.WeaponSpec
@@ -80,7 +81,7 @@ internal fun HeroBreakpoints(
             if (counts.isEmpty()) return@forEach
 
             Text(
-                text = weapon.name,
+                text = localised(weapon.name),
                 style = MaterialTheme.typography.labelLarge,
                 modifier = Modifier.padding(top = 8.dp, bottom = 3.dp),
             )

@@ -362,13 +362,13 @@ private fun HeroCard(hero: HeroWiki, onClick: () -> Unit) {
         ) {
             AsyncImage(
                 model = WikiRepository.imageUri(hero.portrait),
-                contentDescription = hero.name,
+                contentDescription = localised(hero.name),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxSize(),
             )
         }
         Text(
-            text = hero.name,
+            text = localised(hero.name),
             style = MaterialTheme.typography.titleSmall,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
@@ -419,7 +419,7 @@ private fun HeroDetail(
                 ) {
                     AsyncImage(
                         model = WikiRepository.imageUri(hero.portrait),
-                        contentDescription = hero.name,
+                        contentDescription = localised(hero.name),
                         modifier = Modifier
                             .size(88.dp)
                             .clip(CircleShape),

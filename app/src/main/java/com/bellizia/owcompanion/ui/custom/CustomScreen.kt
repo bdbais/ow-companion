@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.ui.chart.parseHeroColor
 import com.bellizia.owcompanion.ui.theme.StatNumber
 import kotlin.math.abs
@@ -190,7 +191,7 @@ fun CustomScreen(
                     modifier = Modifier.width(32.dp),
                 )
                 Text(
-                    text = entry.name,
+                    text = localised(entry.name),
                     style = MaterialTheme.typography.titleSmall,
                     color = parseHeroColor(entry.color, MaterialTheme.colorScheme.onSurface),
                     modifier = Modifier.weight(1f),
