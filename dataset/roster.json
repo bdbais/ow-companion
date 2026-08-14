@@ -14,7 +14,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2c38b41d79a1ce9a08b9ad8eb7edf3ff819bd448af16a5815be8c7fdb7203aa0.png",
    "wikiTitle": "Anran",
-   "wikiBytes": 48745
+   "wikiBytes": 48944
   },
   {
    "key": "ashe",
@@ -62,7 +62,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a46c60b8562fdbd0b8308396d0808f7606fba208bc67cccf3f82fe56d2c73b9d.png",
    "wikiTitle": "D.Mon",
-   "wikiBytes": 11190
+   "wikiBytes": 12445
   },
   {
    "key": "domina",
@@ -70,7 +70,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1161c112292c56c052c0ae711792fcde06e3251b98bc9709e582dd7585b5dcd6.png",
    "wikiTitle": "Domina",
-   "wikiBytes": 37262
+   "wikiBytes": 37330
   },
   {
    "key": "doomfist",
@@ -150,7 +150,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/03a184cd0de27091e0099ac22635ad9615a8f6997881a5c25cc5f2444764f729.png",
    "wikiTitle": "Jetpack Cat",
-   "wikiBytes": 57336
+   "wikiBytes": 57516
   },
   {
    "key": "junker-queen",

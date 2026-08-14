@@ -5040,8 +5040,8 @@
    "damage": 125.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "125 (initial slash) / 90 (second slash)",
-   "duration": 2.0,
+   "detail": "125",
+   "duration": 3.0,
    "radius": null,
    "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   },
@@ -17902,7 +17902,14 @@
     {
      "name": "Propulsors",
      "description": "Consume fuel to surge in any horizontal direction.",
-     "icon": "ability_dmon_5.png"
+     "icon": "ability_dmon_5.png",
+     "damage": 15.0,
+     "cooldown": 1.0,
+     "castTime": null,
+     "damageLines": [
+      "15"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Eject!",

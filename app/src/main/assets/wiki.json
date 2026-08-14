@@ -9691,7 +9691,14 @@
     {
      "name": "Propulsors",
      "description": "Consume fuel to surge in any horizontal direction.",
-     "icon": "ability_dmon_5.png"
+     "icon": "ability_dmon_5.png",
+     "damage": 15.0,
+     "cooldown": 1.0,
+     "castTime": null,
+     "damageLines": [
+      "15"
+     ],
+     "damageUncertain": false
     },
     {
      "name": "Eject!",

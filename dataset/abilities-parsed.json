@@ -232,6 +232,19 @@
   },
   {
    "hero": "D.Mon",
+   "name": "Propulsors",
+   "kind": "ability",
+   "damage": 15.0,
+   "damagePerSecond": null,
+   "cooldown": 1.0,
+   "castTime": null,
+   "lines": [
+    "15"
+   ],
+   "uncertain": false
+  },
+  {
+   "hero": "D.Mon",
    "name": "Fusion Repeater",
    "kind": "ability",
    "damage": 16.0,

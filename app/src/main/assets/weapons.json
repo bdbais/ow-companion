@@ -5040,8 +5040,8 @@
    "damage": 125.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "125 (initial slash) / 90 (second slash)",
-   "duration": 2.0,
+   "detail": "125",
+   "duration": 3.0,
    "radius": null,
    "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   },

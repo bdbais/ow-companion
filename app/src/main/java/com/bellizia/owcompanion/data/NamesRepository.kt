@@ -30,27 +30,34 @@ class NamesRepository(private val context: Context) {
         val language = key(locale)
         cached[language]?.let { return it }
         return withContext(Dispatchers.IO) {
-            val all = everything() ?: return@withContext emptyMap()
-            (all[language] ?: emptyMap()).also { cached[language] = it }
+            val found = read(language) ?: emptyMap()
+            synchronized(cached) { cached[language] = found }
+            found
         }
     }
 
-    private fun everything(): Map<String, Map<String, String>>? = loaded ?: synchronized(this) {
-        loaded ?: runCatching {
-            json.decodeFromString(
-                MapSerializer(String.serializer(), MapSerializer(String.serializer(), String.serializer())),
-                context.assets.open(ASSET).bufferedReader().use { it.readText() },
-            )
-        }.getOrNull()?.also { loaded = it }
-    }
+    /**
+     * One language out of the file, and only one.
+     *
+     * The whole thing is fifteen languages and eighteen thousand strings, and a phone shows
+     * one of them. Parsing it all and keeping it would hold about fourteen times more than
+     * is ever read - so the parse is thrown away and only the language in use survives.
+     *
+     * Re-parsed if the reader changes language, which costs a couple of megabytes of work
+     * once, on a background thread, in exchange for not carrying them for the whole session.
+     */
+    private fun read(language: String): Map<String, String>? = runCatching {
+        val all = json.decodeFromString(
+            MapSerializer(String.serializer(), MapSerializer(String.serializer(), String.serializer())),
+            context.assets.open(ASSET).bufferedReader().use { it.readText() },
+        )
+        all[language]
+    }.getOrNull()
 
     companion object {
         private const val ASSET = "names.json"
 
         private val json = Json { ignoreUnknownKeys = true }
-
-        @Volatile
-        private var loaded: Map<String, Map<String, String>>? = null
 
         private val cached = mutableMapOf<String, Map<String, String>>()
 
