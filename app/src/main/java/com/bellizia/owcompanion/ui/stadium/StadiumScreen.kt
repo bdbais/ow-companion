@@ -29,6 +29,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -338,16 +339,14 @@ private fun ItemRow(
                 },
             )
             Text(
-                text = item.buffs.joinToString(" · ") { buff ->
-                    buildString {
-                        append(buff.stat)
-                        buff.value?.let {
-                            append(' ')
-                            append("%.0f".format(it))
-                            if (buff.percent) append('%')
-                        }
-                    }
-                },
+                // Each label is resolved before the join rather than inside it: the
+                // joinToString transform is not an inline lambda, so a string lookup
+                // cannot happen there.
+                text = item.buffs.map { buff ->
+                    val label = vocab(buff.stat)
+                    val amount = buff.value ?: return@map label
+                    "$label ${"%.0f".format(amount)}${if (buff.percent) "%" else ""}"
+                }.joinToString(" · "),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -464,19 +463,50 @@ private fun SavedBuilds(state: StadiumUiState, viewModel: StadiumViewModel, colo
  * Item and hero names are proper nouns and stay as they are, but "Weapon" and "Common" are
  * not names - reading them in English inside an Italian screen is an omission rather than a
  * decision. Anything not in this short list is passed through untouched.
+ *
+ * The stat names are here for the same reason and were missed at first, which showed: an item
+ * row read "Health 10" on the left and "Comune" on the right, one line, two languages. Every
+ * one of them already had a translated string, used by the stats panel a few hundred lines
+ * up; the row simply printed the raw field instead. There are eleven distinct stats in the
+ * whole armoury, so this covers all of them rather than most.
+ *
+ * Matching on `lowercase()` also settles a blemish in the data: one item spells its stat
+ * "shields" while the other twelve spell it "Shields", which on screen is a lower-case word
+ * in a column of capitalised ones.
  */
 @Composable
 private fun vocab(word: String): String {
-    val id = when (word.lowercase()) {
-        "weapon" -> R.string.vocab_weapon
-        "ability" -> R.string.vocab_ability
-        "survival" -> R.string.vocab_survival
-        "gadget" -> R.string.vocab_gadget
-        "common" -> R.string.vocab_common
-        "rare" -> R.string.vocab_rare
-        "epic" -> R.string.vocab_epic
-        "legendary" -> R.string.vocab_legendary
-        else -> return word
-    }
+    val id = vocabId(word) ?: return word
     return stringResource(id)
+}
+
+/**
+ * The table behind [vocab], kept out of the composable so a test can ask it questions.
+ *
+ * The one worth asking is whether the dataset has grown a word this does not know - a new
+ * armoury stat would otherwise appear in English on an Italian screen and nobody would find
+ * out until they looked.
+ */
+@StringRes
+internal fun vocabId(word: String): Int? = when (word.lowercase()) {
+    "weapon" -> R.string.vocab_weapon
+    "ability" -> R.string.vocab_ability
+    "survival" -> R.string.vocab_survival
+    "gadget" -> R.string.vocab_gadget
+    "common" -> R.string.vocab_common
+    "rare" -> R.string.vocab_rare
+    "epic" -> R.string.vocab_epic
+    "legendary" -> R.string.vocab_legendary
+    "health" -> R.string.wiki_health
+    "armor" -> R.string.wiki_armor
+    "shields" -> R.string.wiki_shields
+    "weapon power" -> R.string.stat_weapon_power
+    "attack speed" -> R.string.stat_attack_speed
+    "ability power" -> R.string.stat_ability_power
+    "move speed" -> R.string.stat_move_speed
+    "weapon lifesteal" -> R.string.stat_weapon_lifesteal
+    "ability lifesteal" -> R.string.stat_ability_lifesteal
+    "max ammo" -> R.string.stat_max_ammo
+    "cooldown reduction" -> R.string.stat_cooldown
+    else -> null
 }
