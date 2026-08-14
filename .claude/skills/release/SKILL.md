@@ -101,6 +101,19 @@ had the same SHA256, and nobody noticed for eleven releases. Twice the download,
 Never fall back to the debug APK to get a release out. If signing fails, the fix is the
 keystore, not the other binary.
 
+**The signing path itself is proven.** It had never once run in this project — that is why
+eleven releases shipped debug — so on 2026-08-14 it was exercised end to end with a
+throwaway key, which was then deleted along with the APK it signed. With a real password in
+`keystore.properties` the build produces `app-release.apk` (not `-unsigned`) at **17.1 MB**,
+`application-debuggable` count **0**, `apksigner verify` reporting one signer, and it
+installs and runs on a clean device with R8 and resource shrinking active. So a failure here
+is a wrong password or a wrong `storeFile`, not a broken configuration.
+
+`storeFile` is resolved by `rootProject.file()`: keep it relative to the repository root
+(`ow-companion.jks`) or absolute with forward slashes. A `../` path silently resolves to a
+drive root and fails with "Keystore file 'G:\' not found", which reads like a missing file
+rather than a bad path.
+
 ### The one release that changes the signing key
 
 Android will not install an APK over one signed with a different key. It refuses with
