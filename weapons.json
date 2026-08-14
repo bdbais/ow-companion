@@ -1,0 +1,8213 @@
+{
+ "meta": {
+  "source": "Overwatch Wiki (CC BY-SA) and the OverFast API",
+  "patch": "live as of build",
+  "generatedBy": "tools/build_dataset.py",
+  "normalized": true,
+  "version": 1
+ },
+ "heroes": [
+  {
+   "key": "ana",
+   "name": "Ana",
+   "color": "#718ab3",
+   "role": "support",
+   "portrait": "portrait_ana.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Rifle",
+    "Sleep Dart",
+    "Biotic Grenade",
+    "Nano Boost"
+   ]
+  },
+  {
+   "key": "anran",
+   "name": "Anran",
+   "color": "#d19a83",
+   "role": "damage",
+   "portrait": "portrait_anran.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Zhuque Fans",
+    "Fan the Flames",
+    "Dancing Blaze",
+    "Inferno Rush",
+    "Vermillion Ascent",
+    "Vermillion Revival",
+    "Ignition"
+   ]
+  },
+  {
+   "key": "ashe",
+   "name": "Ashe",
+   "color": "#982020",
+   "role": "damage",
+   "portrait": "portrait_ashe.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "The Viper",
+    "Coach Gun",
+    "Dynamite",
+    "B.O.B."
+   ]
+  },
+  {
+   "key": "baptiste",
+   "name": "Baptiste",
+   "color": "#5f9985",
+   "role": "support",
+   "portrait": "portrait_baptiste.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Launcher",
+    "Regenerative Burst",
+    "Immortality Field",
+    "Amplification Matrix",
+    "Exo Boots"
+   ]
+  },
+  {
+   "key": "bastion",
+   "name": "Bastion",
+   "color": "#7c8f7b",
+   "role": "damage",
+   "portrait": "portrait_bastion.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 100,
+   "abilities": [
+    "Configuration: Assault",
+    "Configuration: Recon",
+    "A-36 Tactical Grenade",
+    "Reconfigure",
+    "Configuration: Artillery"
+   ]
+  },
+  {
+   "key": "brigitte",
+   "name": "Brigitte",
+   "color": "#be736e",
+   "role": "support",
+   "portrait": "portrait_brigitte.png",
+   "health": 200,
+   "shields": 0,
+   "armor": 50,
+   "abilities": [
+    "Rocket Flail",
+    "Repair Pack",
+    "Whip Shot",
+    "Barrier Shield",
+    "Shield Bash",
+    "Rally",
+    "Inspire"
+   ]
+  },
+  {
+   "key": "cassidy",
+   "name": "Cassidy",
+   "color": "#ae595c",
+   "role": "damage",
+   "portrait": "portrait_cassidy.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Peacekeeper",
+    "Combat Roll",
+    "Deadeye"
+   ]
+  },
+  {
+   "key": "dmon",
+   "name": "D.Mon",
+   "color": "#cc9795",
+   "role": "tank",
+   "portrait": "portrait_dmon.png",
+   "health": 325,
+   "shields": 0,
+   "armor": 325,
+   "abilities": [
+    "Plasma Saber ",
+    "Portable Fusion Repeater",
+    "Power Barrier",
+    "Surging Strike",
+    "Fusion Repeater",
+    "Propulsors",
+    "Eject!",
+    "Limit Break ",
+    "Call Mech"
+   ]
+  },
+  {
+   "key": "domina",
+   "name": "Domina",
+   "color": "#b88361",
+   "role": "tank",
+   "portrait": "portrait_domina.png",
+   "health": 250,
+   "shields": 400,
+   "armor": 0,
+   "abilities": [
+    "Photon Magnum",
+    "Barrier Array",
+    "Sonic Repulsors",
+    "Crystal Charge",
+    "Panopticon"
+   ]
+  },
+  {
+   "key": "doomfist",
+   "name": "Doomfist",
+   "color": "#815049",
+   "role": "tank",
+   "portrait": "portrait_doomfist.png",
+   "health": 525,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Hand Cannon",
+    "Rocket Punch",
+    "Seismic Slam",
+    "Power Block",
+    "Meteor Strike"
+   ]
+  },
+  {
+   "key": "dva",
+   "name": "D.Va",
+   "color": "#ed93c7",
+   "role": "tank",
+   "portrait": "portrait_dva.png",
+   "health": 325,
+   "shields": 0,
+   "armor": 325,
+   "abilities": [
+    "Fusion Cannons",
+    "Light Gun",
+    "Boosters",
+    "Defense Matrix",
+    "Micro Missiles",
+    "Self-Destruct",
+    "Call Mech",
+    "Eject!"
+   ]
+  },
+  {
+   "key": "echo",
+   "name": "Echo",
+   "color": "#4cc4e8",
+   "role": "damage",
+   "portrait": "portrait_echo.png",
+   "health": 150,
+   "shields": 75,
+   "armor": 0,
+   "abilities": [
+    "Tri-Shot",
+    "Sticky Bombs",
+    "Flight",
+    "Focusing Beam",
+    "Duplicate",
+    "Glide"
+   ]
+  },
+  {
+   "key": "emre",
+   "name": "Emre",
+   "color": "#b47f64",
+   "role": "damage",
+   "portrait": "portrait_emre.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Synthetic Burst Rifle",
+    "Cyber Frag",
+    "Override Protocol",
+    "Altered Vitals"
+   ]
+  },
+  {
+   "key": "freja",
+   "name": "Freja",
+   "color": "#b8846c",
+   "role": "damage",
+   "portrait": "portrait_freja.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Bola Shot",
+    "Quick Dash",
+    "Take Aim",
+    "Updraft"
+   ]
+  },
+  {
+   "key": "genji",
+   "name": "Genji",
+   "color": "#97ef43",
+   "role": "damage",
+   "portrait": "portrait_genji.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Shuriken",
+    "Deflect",
+    "Swift Strike",
+    "Dragonblade",
+    "Cyber-Agility"
+   ]
+  },
+  {
+   "key": "hanzo",
+   "name": "Hanzo",
+   "color": "#b9b48a",
+   "role": "damage",
+   "portrait": "portrait_hanzo.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Storm Bow",
+    "Storm Arrows",
+    "Sonic Arrow",
+    "Lunge",
+    "Dragonstrike",
+    "Wall Climb"
+   ]
+  },
+  {
+   "key": "hazard",
+   "name": "Hazard",
+   "color": "#b46d64",
+   "role": "tank",
+   "portrait": "portrait_hazard.png",
+   "health": 425,
+   "shields": 0,
+   "armor": 225,
+   "abilities": [
+    "Bonespur",
+    "Spike Guard",
+    "Violent Leap",
+    "Jagged Wall",
+    "Downpour",
+    "Vault"
+   ]
+  },
+  {
+   "key": "illari",
+   "name": "Illari",
+   "color": "#b48364",
+   "role": "support",
+   "portrait": "portrait_illari.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Solar Rifle",
+    "Captive Sun",
+    "Healing Pylon",
+    "Outburst"
+   ]
+  },
+  {
+   "key": "jetpack-cat",
+   "name": "Jetpack Cat",
+   "color": "#be966c",
+   "role": "support",
+   "portrait": "portrait_jetpack-cat.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Pawjectiles",
+    "Frenetic Flight",
+    "Lifeline",
+    "Purr",
+    "Catnapper"
+   ]
+  },
+  {
+   "key": "junker-queen",
+   "name": "Junker Queen",
+   "color": "#db9d7e",
+   "role": "tank",
+   "portrait": "portrait_junker-queen.png",
+   "health": 525,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Scattergun",
+    "Commanding Shout",
+    "Carnage",
+    "Rampage",
+    "Adrenaline Rush"
+   ]
+  },
+  {
+   "key": "junkrat",
+   "name": "Junkrat",
+   "color": "#ecbd53",
+   "role": "damage",
+   "portrait": "portrait_junkrat.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Frag Launcher",
+    "Concussion Mine",
+    "Steel Trap",
+    "RIP-Tire",
+    "Total Mayhem"
+   ]
+  },
+  {
+   "key": "juno",
+   "name": "Juno",
+   "color": "#6664b4",
+   "role": "support",
+   "portrait": "portrait_juno.png",
+   "health": 75,
+   "shields": 150,
+   "armor": 0,
+   "abilities": [
+    "Mediblaster",
+    "Pulsar Torpedoes",
+    "Orbital Ray",
+    "Hyper Ring",
+    "Glide Boost",
+    "Martian Overboots"
+   ]
+  },
+  {
+   "key": "kiriko",
+   "name": "Kiriko",
+   "color": "#cc8278",
+   "role": "support",
+   "portrait": "portrait_kiriko.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Healing Ofuda",
+    "Kunai",
+    "Swift Step",
+    "Protection Suzu",
+    "Kitsune Rush"
+   ]
+  },
+  {
+   "key": "lifeweaver",
+   "name": "Lifeweaver",
+   "color": "#b98869",
+   "role": "support",
+   "portrait": "portrait_lifeweaver.png",
+   "health": 200,
+   "shields": 50,
+   "armor": 0,
+   "abilities": [
+    "Healing Blossom",
+    "Thorn Volley",
+    "Petal Platform",
+    "Rejuvenating Dash",
+    "Life Grip",
+    "Tree of Life"
+   ]
+  },
+  {
+   "key": "lucio",
+   "name": "Lúcio",
+   "color": "#85c952",
+   "role": "support",
+   "portrait": "portrait_lucio.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Sonic Amplifier",
+    "Crossfade",
+    "Amp It Up",
+    "Soundwave",
+    "Sound Barrier",
+    "Wall Ride"
+   ]
+  },
+  {
+   "key": "mauga",
+   "name": "Mauga",
+   "color": "#c78c6f",
+   "role": "tank",
+   "portrait": "portrait_mauga.png",
+   "health": 575,
+   "shields": 0,
+   "armor": 150,
+   "abilities": [
+    "Overrun",
+    "Cardiac Overdrive",
+    "Berserker",
+    "Cage Fight"
+   ]
+  },
+  {
+   "key": "mei",
+   "name": "Mei",
+   "color": "#6faced",
+   "role": "damage",
+   "portrait": "portrait_mei.png",
+   "health": 300,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Endothermic Blaster",
+    "Cryo-Freeze",
+    "Ice Wall",
+    "Blizzard"
+   ]
+  },
+  {
+   "key": "mercy",
+   "name": "Mercy",
+   "color": "#ebe8bb",
+   "role": "support",
+   "portrait": "portrait_mercy.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Caduceus Staff",
+    "Caduceus Blaster",
+    "Guardian Angel",
+    "Resurrect",
+    "Angelic Descent",
+    "Valkyrie"
+   ]
+  },
+  {
+   "key": "mizuki",
+   "name": "Mizuki",
+   "color": "#64b48a",
+   "role": "support",
+   "portrait": "portrait_mizuki.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Spirit Glaive",
+    "Healing Kasa",
+    "Binding Chain",
+    "Katashiro Return",
+    "Kekkai Sanctuary",
+    "Remedy Aura"
+   ]
+  },
+  {
+   "key": "moira",
+   "name": "Moira",
+   "color": "#803c51",
+   "role": "support",
+   "portrait": "portrait_moira.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Biotic Grasp",
+    "Biotic Orb",
+    "Fade",
+    "Coalescence"
+   ]
+  },
+  {
+   "key": "orisa",
+   "name": "Orisa",
+   "color": "#468c43",
+   "role": "tank",
+   "portrait": "portrait_orisa.png",
+   "health": 300,
+   "shields": 0,
+   "armor": 300,
+   "abilities": [
+    "Augmented Fusion Driver",
+    "Energy Javelin",
+    "Fortify",
+    "Javelin Spin",
+    "Terra Surge"
+   ]
+  },
+  {
+   "key": "pharah",
+   "name": "Pharah",
+   "color": "#3e7dca",
+   "role": "damage",
+   "portrait": "portrait_pharah.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Rocket Launcher",
+    "Jet Dash",
+    "Jump Jet",
+    "Concussive Blast",
+    "Barrage",
+    "Hover Jets"
+   ]
+  },
+  {
+   "key": "ramattra",
+   "name": "Ramattra",
+   "color": "#b46487",
+   "role": "tank",
+   "portrait": "portrait_ramattra.png",
+   "health": 425,
+   "shields": 0,
+   "armor": 100,
+   "abilities": [
+    "Void Accelerator (Omnic Form)",
+    "Void Barrier (Omnic Form)",
+    "Pummel (Nemesis Form)",
+    "Ravenous Vortex",
+    "Annihilation"
+   ]
+  },
+  {
+   "key": "reaper",
+   "name": "Reaper",
+   "color": "#7d3e51",
+   "role": "damage",
+   "portrait": "portrait_reaper.png",
+   "health": 300,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Hellfire Shotguns",
+    "Shadow Step",
+    "Wraith Form",
+    "Death Blossom",
+    "The Reaping"
+   ]
+  },
+  {
+   "key": "reinhardt",
+   "name": "Reinhardt",
+   "color": "#929da3",
+   "role": "tank",
+   "portrait": "portrait_reinhardt.png",
+   "health": 400,
+   "shields": 0,
+   "armor": 300,
+   "abilities": [
+    "Rocket Hammer",
+    "Charge",
+    "Fire Strike",
+    "Barrier Field",
+    "Earthshatter"
+   ]
+  },
+  {
+   "key": "roadhog",
+   "name": "Roadhog",
+   "color": "#b68c52",
+   "role": "tank",
+   "portrait": "portrait_roadhog.png",
+   "health": 750,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Scrap Gun",
+    "Chain Hook",
+    "Take a Breather",
+    "Whole Hog"
+   ]
+  },
+  {
+   "key": "shion",
+   "name": "Shion",
+   "color": "#b86360",
+   "role": "damage",
+   "portrait": "portrait_shion.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Kira Pistols",
+    "Execution",
+    "Joyride",
+    "Evade",
+    "Satsuriku Spree"
+   ]
+  },
+  {
+   "key": "sierra",
+   "name": "Sierra",
+   "color": "#bb5e5d",
+   "role": "damage",
+   "portrait": "portrait_sierra.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Helix Rifle",
+    "Tracking Shot",
+    "Tremor Charge",
+    "Anchor Drone",
+    "Trailblazer"
+   ]
+  },
+  {
+   "key": "sigma",
+   "name": "Sigma",
+   "color": "#929a9d",
+   "role": "tank",
+   "portrait": "portrait_sigma.png",
+   "health": 350,
+   "shields": 275,
+   "armor": 0,
+   "abilities": [
+    "Hyperspheres",
+    "Kinetic Grasp",
+    "Accretion",
+    "Experimental Barrier",
+    "Gravitic Flux"
+   ]
+  },
+  {
+   "key": "sojourn",
+   "name": "Sojourn",
+   "color": "#b47b64",
+   "role": "damage",
+   "portrait": "portrait_sojourn.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Railgun",
+    "Power Slide",
+    "Disruptor Shot",
+    "Overclock"
+   ]
+  },
+  {
+   "key": "soldier-76",
+   "name": "Soldier: 76",
+   "color": "#697794",
+   "role": "damage",
+   "portrait": "portrait_soldier-76.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Heavy Pulse Rifle",
+    "Sprint",
+    "Biotic Field",
+    "Helix Rockets",
+    "Tactical Visor"
+   ]
+  },
+  {
+   "key": "sombra",
+   "name": "Sombra",
+   "color": "#7359ba",
+   "role": "damage",
+   "portrait": "portrait_sombra.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Machine Pistol",
+    "Hack",
+    "Translocator",
+    "Virus",
+    "EMP"
+   ]
+  },
+  {
+   "key": "symmetra",
+   "name": "Symmetra",
+   "color": "#8ebccc",
+   "role": "damage",
+   "portrait": "portrait_symmetra.png",
+   "health": 125,
+   "shields": 150,
+   "armor": 0,
+   "abilities": [
+    "Photon Projector",
+    "Sentry Turret",
+    "Teleporter",
+    "Photon Barrier"
+   ]
+  },
+  {
+   "key": "torbjorn",
+   "name": "Torbjörn",
+   "color": "#c0726e",
+   "role": "damage",
+   "portrait": "portrait_torbjorn.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 75,
+   "abilities": [
+    "Rivet Gun",
+    "Forge Hammer",
+    "Deploy Turret",
+    "Overload",
+    "Molten Core"
+   ]
+  },
+  {
+   "key": "tracer",
+   "name": "Tracer",
+   "color": "#d79342",
+   "role": "damage",
+   "portrait": "portrait_tracer.png",
+   "health": 175,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Pulse Pistols",
+    "Blink",
+    "Recall",
+    "Pulse Bomb"
+   ]
+  },
+  {
+   "key": "vendetta",
+   "name": "Vendetta",
+   "color": "#b97b5f",
+   "role": "damage",
+   "portrait": "portrait_vendetta.png",
+   "health": 175,
+   "shields": 0,
+   "armor": 100,
+   "abilities": [
+    "Palatine Fang",
+    "Warding Stance",
+    "Whirlwind Dash",
+    "Soaring Slice",
+    "Projected Edge",
+    "Sundering Blade"
+   ]
+  },
+  {
+   "key": "venture",
+   "name": "Venture",
+   "color": "#bd8a60",
+   "role": "damage",
+   "portrait": "portrait_venture.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "SMART Excavator",
+    "Drill Dash",
+    "Burrow",
+    "Tectonic Shock"
+   ]
+  },
+  {
+   "key": "widowmaker",
+   "name": "Widowmaker",
+   "color": "#9e6aa8",
+   "role": "damage",
+   "portrait": "portrait_widowmaker.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Widow's Kiss",
+    "Grappling Hook",
+    "Venom Mine",
+    "Infra-Sight"
+   ]
+  },
+  {
+   "key": "winston",
+   "name": "Winston",
+   "color": "#a2a6bf",
+   "role": "tank",
+   "portrait": "portrait_winston.png",
+   "health": 425,
+   "shields": 0,
+   "armor": 200,
+   "abilities": [
+    "Tesla Cannon",
+    "Jump Pack",
+    "Barrier Projector",
+    "Primal Rage"
+   ]
+  },
+  {
+   "key": "wrecking-ball",
+   "name": "Wrecking Ball",
+   "color": "#e6a027",
+   "role": "tank",
+   "portrait": "portrait_wrecking-ball.png",
+   "health": 450,
+   "shields": 150,
+   "armor": 125,
+   "abilities": [
+    "Quad Cannons",
+    "Grappling Claw",
+    "Roll",
+    "Piledriver",
+    "Adaptive Shield",
+    "Minefield"
+   ]
+  },
+  {
+   "key": "wuyang",
+   "name": "Wuyang",
+   "color": "#dea68c",
+   "role": "support",
+   "portrait": "portrait_wuyang.png",
+   "health": 225,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Xuanwu Staff",
+    "Restorative Stream",
+    "Rushing Torrent",
+    "Tidal Blast",
+    "Guardian Wave"
+   ]
+  },
+  {
+   "key": "zarya",
+   "name": "Zarya",
+   "color": "#e77eb6",
+   "role": "tank",
+   "portrait": "portrait_zarya.png",
+   "health": 325,
+   "shields": 225,
+   "armor": 0,
+   "abilities": [
+    "Particle Cannon",
+    "Particle Barrier",
+    "Projected Barrier",
+    "Graviton Surge",
+    "Energy"
+   ]
+  },
+  {
+   "key": "zenyatta",
+   "name": "Zenyatta",
+   "color": "#ede582",
+   "role": "support",
+   "portrait": "portrait_zenyatta.png",
+   "health": 75,
+   "shields": 175,
+   "armor": 0,
+   "abilities": [
+    "Orb of Destruction",
+    "Orb of Discord",
+    "Orb of Harmony",
+    "Transcendence",
+    "Snap Kick"
+   ]
+  }
+ ],
+ "weapons": [
+  {
+   "name": "Biotic Rifle",
+   "hero": "Ana",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 125.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.1
+  },
+  {
+   "name": "Zoom (ADS)",
+   "hero": "Ana",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.1
+  },
+  {
+   "name": "Zhuque Fans",
+   "hero": "Anran",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     43.992081583683266
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 1.667,
+   "shotTime": 0.5998800239952009,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5998800239952009,
+   "dpsPeriodAdd": 0.15
+  },
+  {
+   "name": "Fan the Flames",
+   "hero": "Anran",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    6.0
+   ],
+   "damage": {
+    "dpshot": [
+     6.0
+    ],
+    "falloff": null,
+    "maxRange": 10.0
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 1.66667,
+   "shotTime": 0.6,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.6,
+   "dpsPeriodAdd": 0.15,
+   "burningFactor": 2.0,
+   "burnDps": 20.0
+  },
+  {
+   "name": "The Viper",
+   "hero": "Ashe",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     35.0,
+     10.5
+    ],
+    "falloff": [
+     20.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 1.85
+   },
+   "velocity": null,
+   "fireRate": 3.9,
+   "shotTime": 0.25641025641025644,
+   "ammo": 12.0,
+   "reloadTime": 3.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.25641025641025644,
+   "dpsPeriodAdd": 0.2916666666666667
+  },
+  {
+   "name": "Take Aim (ADS)",
+   "hero": "Ashe",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0,
+     22.5
+    ],
+    "falloff": [
+     35.0,
+     55.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.52,
+   "shotTime": 0.6578947368421053,
+   "ammo": 12.0,
+   "reloadTime": 2.9,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6578947368421053,
+   "dpsPeriodAdd": 0.24166666666666667
+  },
+  {
+   "name": "Biotic Launcher",
+   "hero": "Baptiste",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     25.0,
+     7.2
+    ],
+    "falloff": [
+     25.0,
+     45.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.7,
+   "shotTime": 0.5882352941176471,
+   "ammo": 12.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5882352941176471,
+   "dpsPeriodAdd": 0.125
+  },
+  {
+   "name": "Configuration: Recon",
+   "hero": "Bastion",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     23.0,
+     7.5
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 6.0,
+   "shotTime": 0.16666666666666666,
+   "ammo": 25.0,
+   "reloadTime": 1.2,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.16666666666666666,
+   "dpsPeriodAdd": 0.048
+  },
+  {
+   "name": "Configuration: Assault",
+   "hero": "Bastion",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0,
+     3.6
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": {
+    "angle": 2.0
+   },
+   "velocity": null,
+   "fireRate": 30.0,
+   "shotTime": 0.03333333333333333,
+   "ammo": 180.0,
+   "reloadTime": 7.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.03333333333333333,
+   "dpsPeriodAdd": 0.041666666666666664
+  },
+  {
+   "name": "Configuration: Assault (Lindholm Explosives)",
+   "hero": "Bastion",
+   "perk": "Lindholm Explosives",
+   "baseWeapon": "Configuration: Assault",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     140.0
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": 100.0,
+   "fireRate": 1.33,
+   "shotTime": 0.7518796992481203,
+   "ammo": 8.0,
+   "reloadTime": 7.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.7518796992481203,
+   "dpsPeriodAdd": 0.9375
+  },
+  {
+   "name": "Rocket Flail",
+   "hero": "Brigitte",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0
+    ],
+    "falloff": null,
+    "maxRange": 6.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Peacekeeper",
+   "hero": "Cassidy",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     70.0,
+     21.0
+    ],
+    "falloff": [
+     25.0,
+     35.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 2.0,
+   "shotTime": 0.5,
+   "ammo": 6.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5,
+   "dpsPeriodAdd": 0.25
+  },
+  {
+   "name": "Fan the Hammer",
+   "hero": "Cassidy",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     50.0,
+     15.0
+    ],
+    "falloff": [
+     20.0,
+     30.0
+    ]
+   },
+   "spread": {
+    "angle": 6.0
+   },
+   "velocity": null,
+   "fireRate": 8.33,
+   "shotTime": 0.12004801920768307,
+   "ammo": 6.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.12004801920768307,
+   "dpsPeriodAdd": 0.25
+  },
+  {
+   "name": "Plasma Saber",
+   "hero": "D.Mon",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     65.0
+    ],
+    "falloff": null,
+    "maxRange": 4.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.5244,
+   "shotTime": 0.656,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.656,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Portable Fusion Repeater",
+   "hero": "D.Mon",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0,
+     3.6
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 2.0
+   },
+   "velocity": null,
+   "fireRate": 7.813,
+   "shotTime": 0.128,
+   "ammo": 30.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.128,
+   "dpsPeriodAdd": 0.05
+  },
+  {
+   "name": "Photon Magnum",
+   "hero": "Domina",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null,
+    "maxRange": 25.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.5,
+   "shotTime": 0.8,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.5,
+   "dpsPeriodBase": 0.6667,
+   "dpsPeriodAdd": 0.075
+  },
+  {
+   "name": "Hand Cannon",
+   "hero": "Doomfist",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    11.0
+   ],
+   "damage": {
+    "dpshot": [
+     2.221212121212121,
+     0.6663636363636363
+    ],
+    "falloff": [
+     15.0,
+     30.0
+    ]
+   },
+   "spread": {
+    "angle": 2.5
+   },
+   "velocity": 80.0,
+   "fireRate": 3.0,
+   "shotTime": 0.3333333333333333,
+   "ammo": 4.0,
+   "reloadTime": 1.6,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.3333333333333333,
+   "dpsPeriodAdd": 0.4
+  },
+  {
+   "name": "Fusion Cannons",
+   "hero": "D.Va",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    11.0
+   ],
+   "damage": {
+    "dpshot": [
+     2.0,
+     0.6
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 3.375
+   },
+   "velocity": null,
+   "fireRate": 6.67,
+   "shotTime": 0.14992503748125938,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.14992503748125938,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Light Gun",
+   "hero": "D.Va",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     14.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 7.0,
+   "shotTime": 0.14285714285714285,
+   "ammo": 20.0,
+   "reloadTime": 1.4,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.14285714285714285,
+   "dpsPeriodAdd": 0.06999999999999999
+  },
+  {
+   "name": "Tri-Shot",
+   "hero": "Echo",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     17.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.1
+   },
+   "velocity": 75.0,
+   "fireRate": 2.97,
+   "shotTime": 0.33670033670033667,
+   "ammo": 12.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.33670033670033667,
+   "dpsPeriodAdd": 0.125
+  },
+  {
+   "name": "Synthetic Burst Rifle",
+   "hero": "Emre",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     22.0,
+     6.67
+    ],
+    "falloff": [
+     25.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 0.45
+   },
+   "velocity": null,
+   "fireRate": 2.08,
+   "shotTime": 0.4807692307692307,
+   "ammo": 12.0,
+   "reloadTime": 1.8,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4807692307692307,
+   "dpsPeriodAdd": 0.15
+  },
+  {
+   "name": "Synthetic Burst Rifle (ADS)",
+   "hero": "Emre",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     22.0,
+     6.67
+    ],
+    "falloff": [
+     35.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 2.08,
+   "shotTime": 0.4807692307692307,
+   "ammo": 12.0,
+   "reloadTime": 1.8,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4807692307692307,
+   "dpsPeriodAdd": 0.15
+  },
+  {
+   "name": "Revdraw Crossbow",
+   "hero": "Freja",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     30.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.5
+   },
+   "velocity": 125.0,
+   "fireRate": 5.5,
+   "shotTime": 0.18181818181818182,
+   "ammo": 15.0,
+   "reloadTime": 1.6,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.18181818181818182,
+   "dpsPeriodAdd": 0.10666666666666667
+  },
+  {
+   "name": "Take Aim",
+   "hero": "Freja",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     35.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 125.0,
+   "fireRate": 2.5,
+   "shotTime": 0.4,
+   "ammo": 1.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4,
+   "dpsPeriodAdd": 1.5
+  },
+  {
+   "name": "Shuriken",
+   "hero": "Genji",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 75.0,
+   "fireRate": 1.14,
+   "shotTime": 0.8771929824561404,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8771929824561404,
+   "dpsPeriodAdd": 0.15
+  },
+  {
+   "name": "Shuriken Alt Fire",
+   "hero": "Genji",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    3.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 4.5
+   },
+   "velocity": 75.0,
+   "fireRate": 1.47,
+   "shotTime": 0.6802721088435374,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6802721088435374,
+   "dpsPeriodAdd": 0.15
+  },
+  {
+   "name": "Storm Bow",
+   "hero": "Hanzo",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     125.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 110.0,
+   "fireRate": 0.82,
+   "shotTime": 1.2195121951219512,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.2195121951219512,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Bonespur",
+   "hero": "Hazard",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    10.0
+   ],
+   "damage": {
+    "dpshot": [
+     7.5,
+     2.25
+    ],
+    "falloff": [
+     15.0,
+     35.0
+    ]
+   },
+   "spread": {
+    "angle": 0.0
+   },
+   "velocity": 140.0,
+   "fireRate": 1.75,
+   "shotTime": 0.5714285714285714,
+   "ammo": 8.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5714285714285714,
+   "dpsPeriodAdd": 0.21875
+  },
+  {
+   "name": "Solar Rifle",
+   "hero": "Illari",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     75.0,
+     22.5
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.11,
+   "shotTime": 0.9009009009009008,
+   "ammo": 14.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.9009009009009008,
+   "dpsPeriodAdd": 0.10714285714285714
+  },
+  {
+   "name": "Biotic Pawjectiles",
+   "hero": "Jetpack Cat",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": {
+    "angle": 0.0
+   },
+   "velocity": 60.0,
+   "fireRate": 4.48,
+   "shotTime": 0.2232142857142857,
+   "ammo": 24.0,
+   "reloadTime": 1.25,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.2232142857142857,
+   "dpsPeriodAdd": 0.052083333333333336
+  },
+  {
+   "name": "Scattergun",
+   "hero": "Junker Queen",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    10.0
+   ],
+   "damage": {
+    "dpshot": [
+     8.0,
+     2.4
+    ],
+    "falloff": [
+     15.0,
+     25.0
+    ]
+   },
+   "spread": {
+    "angle": 2.75
+   },
+   "velocity": null,
+   "fireRate": 1.33,
+   "shotTime": 0.7518796992481203,
+   "ammo": 8.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.7518796992481203,
+   "dpsPeriodAdd": 0.1875
+  },
+  {
+   "name": "Frag Launcher",
+   "hero": "Junkrat",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     120.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 30.0,
+   "fireRate": 1.5,
+   "shotTime": 0.6666666666666666,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodAdd": 0.3
+  },
+  {
+   "name": "Mediblaster",
+   "hero": "Juno",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    12.0
+   ],
+   "damage": {
+    "dpshot": [
+     7.5,
+     2.25
+    ],
+    "falloff": [
+     25.0,
+     35.0
+    ]
+   },
+   "spread": {
+    "angle": 0.85
+   },
+   "velocity": null,
+   "fireRate": 1.29,
+   "shotTime": 0.7751937984496123,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.7751937984496123,
+   "dpsPeriodAdd": 0.1
+  },
+  {
+   "name": "Kunai",
+   "hero": "Kiriko",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null,
+    "maxRange": 30.0
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 2.0,
+   "shotTime": 0.5,
+   "ammo": 15.0,
+   "reloadTime": 1.3,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5,
+   "dpsPeriodAdd": 0.08666666666666667
+  },
+  {
+   "name": "Thorn Volley",
+   "hero": "Lifeweaver",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     6.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.2
+   },
+   "velocity": 100.0,
+   "fireRate": 11.0,
+   "shotTime": 0.09090909090909091,
+   "ammo": 50.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.09090909090909091,
+   "dpsPeriodAdd": 0.03
+  },
+  {
+   "name": "Sonic Amplifier",
+   "hero": "Lúcio",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    4.0
+   ],
+   "damage": {
+    "dpshot": [
+     22.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 1.07,
+   "shotTime": 0.9345794392523364,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.9345794392523364,
+   "dpsPeriodAdd": 0.3
+  },
+  {
+   "name": "Incendiary Chaingun",
+   "hero": "Mauga",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     4.0,
+     1.2
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "maxAngle": 1.5,
+    "minAngle": 1.0
+   },
+   "velocity": null,
+   "fireRate": 17.36,
+   "shotTime": 0.0576036866359447,
+   "ammo": 300.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.0576036866359447,
+   "dpsPeriodAdd": 0.006666666666666667,
+   "burnDps": 15.0
+  },
+  {
+   "name": "Volatile Chaingun",
+   "hero": "Mauga",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     4.0,
+     1.2
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "maxAngle": 1.5,
+    "minAngle": 1.0
+   },
+   "velocity": null,
+   "fireRate": 17.36,
+   "shotTime": 0.0576036866359447,
+   "ammo": 300.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.0576036866359447,
+   "dpsPeriodAdd": 0.006666666666666667,
+   "burningFactor": 2.0
+  },
+  {
+   "name": "Endothermic Blaster",
+   "hero": "Mei",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.5
+    ],
+    "falloff": null,
+    "maxRange": 12.0,
+    "dps": 110.0
+   },
+   "spread": null,
+   "velocity": 40.0,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 140.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0107,
+   "tickRate": 20.0,
+   "ammoUsage": 20.0
+  },
+  {
+   "name": "Icicle",
+   "hero": "Mei",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     85.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 115.0,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": 14.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.10714285714285714
+  },
+  {
+   "name": "Caduceus Blaster",
+   "hero": "Mercy",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     20.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 5.0,
+   "shotTime": 0.2,
+   "ammo": 25.0,
+   "reloadTime": 1.4,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.2,
+   "dpsPeriodAdd": 0.055999999999999994
+  },
+  {
+   "name": "Spirit Glaive",
+   "hero": "Mizuki",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     59.940059940059946
+    ],
+    "falloff": null,
+    "maxRange": 30.0
+   },
+   "spread": null,
+   "velocity": 60.0,
+   "fireRate": 1.43,
+   "shotTime": 0.6993006993006994,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6993006993006994,
+   "dpsPeriodAdd": 0.1
+  },
+  {
+   "name": "Biotic Grasp Alt Fire",
+   "hero": "Moira",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     3.25
+    ],
+    "falloff": null,
+    "maxRange": 20.0,
+    "dps": 65.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 340.0,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0,
+   "tickRate": 20.0
+  },
+  {
+   "name": "Augmented Fusion Driver",
+   "hero": "Orisa",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     14.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 0.75
+   },
+   "velocity": 100.0,
+   "fireRate": 10.0,
+   "shotTime": 0.1,
+   "ammo": null,
+   "reloadTime": 3.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.1,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Rocket Launcher",
+   "hero": "Pharah",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     120.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 40.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.25
+  },
+  {
+   "name": "Void Accelerator",
+   "hero": "Ramattra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.0
+    ],
+    "falloff": null,
+    "maxRange": 35.0
+   },
+   "spread": null,
+   "velocity": 80.0,
+   "fireRate": 25.0,
+   "shotTime": 0.04,
+   "ammo": 100.0,
+   "reloadTime": 1.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.04,
+   "dpsPeriodAdd": 0.01
+  },
+  {
+   "name": "Pummel",
+   "hero": "Ramattra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     65.0
+    ],
+    "falloff": null,
+    "maxRange": 10.0
+   },
+   "spread": null,
+   "velocity": 105.0,
+   "fireRate": 1.67,
+   "shotTime": 0.5988023952095809,
+   "ammo": 13.0,
+   "reloadTime": 8.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.5988023952095809,
+   "dpsPeriodAdd": 0.6538461538461539
+  },
+  {
+   "name": "Hellfire Shotguns",
+   "hero": "Reaper",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan shotgun",
+   "behavior": "standard",
+   "pellets": [
+    20.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.75,
+     1.725
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 6.0
+   },
+   "velocity": null,
+   "fireRate": 2.0,
+   "shotTime": 0.5,
+   "ammo": 8.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5,
+   "dpsPeriodAdd": 0.1875
+  },
+  {
+   "name": "Rocket Hammer",
+   "hero": "Reinhardt",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     100.0
+    ],
+    "falloff": null,
+    "maxRange": 4.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.04,
+   "shotTime": 0.9615384615384615,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.9615384615384615,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Scrap Gun",
+   "hero": "Roadhog",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    25.0
+   ],
+   "damage": {
+    "dpshot": [
+     7.0,
+     2.1
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": {
+    "angle": 8.0
+   },
+   "velocity": 80.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.2916666666666667
+  },
+  {
+   "name": "Scrap Gun Alt Fire",
+   "hero": "Roadhog",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     162.504,
+     48.7512
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": {
+    "angle": 8.0
+   },
+   "velocity": 60.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.2916666666666667
+  },
+  {
+   "name": "Kira Pistols",
+   "hero": "Shion",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     35.0,
+     10.5
+    ],
+    "falloff": [
+     20.0,
+     30.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": 18.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.25,
+   "dpsPeriodAdd": 0.08333333333333333
+  },
+  {
+   "name": "Helix Rifle",
+   "hero": "Sierra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     9.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "maxAngle": 3.0,
+    "minAngle": 0.5
+   },
+   "velocity": 85.0,
+   "fireRate": 10.89,
+   "shotTime": 0.09182736455463728,
+   "ammo": 40.0,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.09182736455463728,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Hyperspheres",
+   "hero": "Sigma",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     54.70149253731343
+    ],
+    "falloff": null,
+    "maxRange": 21.0
+   },
+   "spread": null,
+   "velocity": 48.0,
+   "fireRate": 0.67,
+   "shotTime": 1.4925373134328357,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.4925373134328357,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Railgun",
+   "hero": "Sojourn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     9.0
+    ],
+    "falloff": null
+   },
+   "spread": {
+    "angle": 1.6
+   },
+   "velocity": 150.0,
+   "fireRate": 16.0,
+   "shotTime": 0.0625,
+   "ammo": 45.0,
+   "reloadTime": 1.2,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.0625,
+   "dpsPeriodAdd": 0.026666666666666665
+  },
+  {
+   "name": "Charged Shot",
+   "hero": "Sojourn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "chargeScaled",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     120.0,
+     60.0
+    ],
+    "falloff": [
+     40.0,
+     60.0
+    ],
+    "chargeDamage": [
+     21.0,
+     120.0
+    ],
+    "chargeTime": 1.25
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.529,
+   "shotTime": 1.89,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.89,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Heavy Pulse Rifle",
+   "hero": "Soldier: 76",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     19.0,
+     5.7
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 9.0,
+   "shotTime": 0.1111111111111111,
+   "ammo": 30.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.1111111111111111,
+   "dpsPeriodAdd": 0.05
+  },
+  {
+   "name": "Machine Pistol",
+   "hero": "Sombra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     8.0,
+     2.4
+    ],
+    "falloff": [
+     15.0,
+     35.0
+    ]
+   },
+   "spread": {
+    "angle": 2.3
+   },
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 60.0,
+   "reloadTime": 1.2,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.02
+  },
+  {
+   "name": "Photon Projector",
+   "hero": "Symmetra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "photonProjector",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     3.0
+    ],
+    "falloff": null,
+    "maxRange": 12.0,
+    "dps": 60.0,
+    "dpsFactors": [
+     1.0,
+     2.0,
+     3.0
+    ],
+    "levelChargingTime": 1.33
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 200.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0075,
+   "tickRate": 20.0,
+   "ammoUsage": 10.0
+  },
+  {
+   "name": "Photon Projector Alt Fire",
+   "hero": "Symmetra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "chargeScaled",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.0
+    ],
+    "falloff": null,
+    "chargeDamage": [
+     5.0,
+     100.0
+    ],
+    "chargeTime": 1.0,
+    "maxRange": 12.0
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 3.9,
+   "shotTime": 0.25641025641025644,
+   "ammo": 100.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.25641025641025644,
+   "dpsPeriodAdd": 0.015,
+   "chargeShotTime": [
+    0.256,
+    1.25
+   ],
+   "chargeAmmoUsage": [
+    1.0,
+    10.0
+   ]
+  },
+  {
+   "name": "Sentry Turret",
+   "hero": "Symmetra",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     1.5
+    ],
+    "falloff": null,
+    "maxRange": 10.0
+   },
+   "spread": null,
+   "velocity": 20.0,
+   "fireRate": 20.0,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0,
+   "tickRate": 20.0
+  },
+  {
+   "name": "Rivet Gun",
+   "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     70.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 70.0,
+   "fireRate": 1.96,
+   "shotTime": 0.5102040816326531,
+   "ammo": 18.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5102040816326531,
+   "dpsPeriodAdd": 0.1111111111111111
+  },
+  {
+   "name": "Rivet Gun Alt Fire",
+   "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    10.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.5,
+     3.75
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 4.5
+   },
+   "velocity": 120.0,
+   "fireRate": 1.43,
+   "shotTime": 0.6993006993006994,
+   "ammo": 9.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6993006993006994,
+   "dpsPeriodAdd": 0.2222222222222222
+  },
+  {
+   "name": "Forge Hammer",
+   "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     100.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Deploy Turret",
+   "hero": "Torbjörn",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     12.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": null,
+   "velocity": 17.0,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.25,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Pulse Pistols",
+   "hero": "Tracer",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    2.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.75,
+     1.725
+    ],
+    "falloff": [
+     10.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 3.5
+   },
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 20.0,
+   "reloadTime": 1.0,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.05
+  },
+  {
+   "name": "Palatine Fang",
+   "hero": "Vendetta",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     45.0
+    ],
+    "falloff": null,
+    "maxRange": 4.3
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.18,
+   "shotTime": 0.8474576271186441,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8474576271186441,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Smart Excavator",
+   "hero": "Venture",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     74.85029940119762
+    ],
+    "falloff": null,
+    "maxRange": 16.0
+   },
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": 1.67,
+   "shotTime": 0.5988023952095809,
+   "ammo": 8.0,
+   "reloadTime": 1.75,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.5988023952095809,
+   "dpsPeriodAdd": 0.21875
+  },
+  {
+   "name": "Widow's Kiss",
+   "hero": "Widowmaker",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     14.0,
+     4.2
+    ],
+    "falloff": [
+     20.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 3.0
+   },
+   "velocity": null,
+   "fireRate": 10.0,
+   "shotTime": 0.1,
+   "ammo": 35.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.1,
+   "dpsPeriodAdd": 0.04285714285714286
+  },
+  {
+   "name": "Widow's Kiss (ADS)",
+   "hero": "Widowmaker",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     160.0,
+     80.0
+    ],
+    "falloff": [
+     50.0,
+     70.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.5,
+   "shotTime": 2.0,
+   "ammo": 7.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 2.0,
+   "dpsPeriodAdd": 0.21428571428571427
+  },
+  {
+   "name": "Tesla Cannon",
+   "hero": "Winston",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     3.5
+    ],
+    "falloff": null,
+    "maxRange": 8.0,
+    "dps": 70.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 120.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0125,
+   "tickRate": 20.0,
+   "ammoUsage": 20.0
+  },
+  {
+   "name": "Tesla Cannon Alt Fire",
+   "hero": "Winston",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.625,
+   "shotTime": 1.6,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.6,
+   "dpsPeriodAdd": 0.15
+  },
+  {
+   "name": "Quad Cannons",
+   "hero": "Wrecking Ball",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     5.0,
+     1.5
+    ],
+    "falloff": [
+     15.0,
+     25.0
+    ]
+   },
+   "spread": {
+    "angle": 2.0
+   },
+   "velocity": null,
+   "fireRate": 25.0,
+   "shotTime": 0.04,
+   "ammo": 80.0,
+   "reloadTime": 1.6,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.04,
+   "dpsPeriodAdd": 0.02
+  },
+  {
+   "name": "Xuanwu Staff",
+   "hero": "Wuyang",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     30.30333333333333
+    ],
+    "falloff": [
+     0.8,
+     1.3
+    ]
+   },
+   "spread": null,
+   "velocity": 25.0,
+   "fireRate": 3.0,
+   "shotTime": 0.3333333333333333,
+   "ammo": 20.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.3333333333333333,
+   "dpsPeriodAdd": 0.075
+  },
+  {
+   "name": "Particle Cannon",
+   "hero": "Zarya",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "particleCannon",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     4.75
+    ],
+    "falloff": null,
+    "maxRange": 15.0,
+    "dps": 95.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 100.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.015,
+   "tickRate": 20.0,
+   "ammoUsage": 20.0,
+   "energy": 0.0,
+   "energyFactor": 0.8421
+  },
+  {
+   "name": "Particle Cannon Alt Fire",
+   "hero": "Zarya",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     55.0,
+     11.0
+    ],
+    "falloff": null,
+    "maxRange": 15.0
+   },
+   "spread": null,
+   "velocity": 25.0,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": 4.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.375
+  },
+  {
+   "name": "Orb of Destruction",
+   "hero": "Zenyatta",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     50.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 2.5,
+   "shotTime": 0.4,
+   "ammo": 25.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.4,
+   "dpsPeriodAdd": 0.06
+  },
+  {
+   "name": "Orb of Destruction Alt Fire",
+   "hero": "Zenyatta",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     77.64
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 90.0,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.3
+  },
+  {
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     16.0,
+     4.8
+    ],
+    "falloff": [
+     30.0,
+     40.0
+    ]
+   },
+   "spread": {
+    "angle": 1.3
+   },
+   "velocity": null,
+   "fireRate": 8.9,
+   "shotTime": 0.112,
+   "ammo": 35.0,
+   "reloadTime": 0.288,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.112,
+   "dpsPeriodAdd": 0.0082,
+   "hero": "D.Mon",
+   "name": "Fusion Repeater"
+  },
+  {
+   "perk": "Overloaded Turret",
+   "baseWeapon": "Deploy Turret",
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     27.0
+    ],
+    "falloff": null,
+    "maxRange": 40.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 4.0,
+   "shotTime": 0.25,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.25,
+   "dpsPeriodAdd": 0.0,
+   "hero": "Torbjörn",
+   "name": "Deploy Turret (Overloaded)"
+  },
+  {
+   "mousebutton": null,
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     8.0,
+     2.4
+    ],
+    "falloff": [
+     15.0,
+     20.0
+    ]
+   },
+   "spread": {
+    "angle": 4.0
+   },
+   "velocity": null,
+   "fireRate": 17.36,
+   "shotTime": 0.0576,
+   "ammo": 300.0,
+   "ammoUsage": 2.0,
+   "reloadTime": 2.0,
+   "critFactor": 2.0,
+   "burningFactor": 1.5,
+   "burnDps": 15.0,
+   "hero": "Mauga",
+   "name": "Both Chainguns"
+  },
+  {
+   "baseWeapon": "Quick Melee",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     55.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "hero": "Junker Queen",
+   "name": "Quick Melee (blade in hand)"
+  },
+  {
+   "perk": "Claws Out",
+   "baseWeapon": "Quick Melee",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     80.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.16667,
+   "shotTime": 6.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "hero": "Jetpack Cat",
+   "name": "Quick Melee (Claws Out)"
+  },
+  {
+   "perk": "Perfect Alignment",
+   "baseWeapon": "Photon Projector",
+   "mousebutton": "M1",
+   "type": "beam",
+   "behavior": "photonProjector",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     3.0
+    ],
+    "falloff": null,
+    "maxRange": 14.4,
+    "dps": 60.0,
+    "dpsFactors": [
+     1.0,
+     2.0,
+     3.0
+    ],
+    "levelChargingTime": 1.33
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 20.0,
+   "shotTime": 0.05,
+   "ammo": 200.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.05,
+   "dpsPeriodAdd": 0.0075,
+   "tickRate": 20.0,
+   "ammoUsage": 10.0,
+   "hero": "Symmetra",
+   "name": "Photon Projector (Perfect Alignment)"
+  },
+  {
+   "perk": "Extended Power",
+   "baseWeapon": "Photon Magnum",
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0
+    ],
+    "falloff": null,
+    "maxRange": 30.0
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.5,
+   "shotTime": 0.8,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.5,
+   "dpsPeriodBase": 0.6667,
+   "dpsPeriodAdd": 0.075,
+   "hero": "Domina",
+   "name": "Photon Magnum (Extended Power)"
+  },
+  {
+   "perk": "Shrapnel Launcher",
+   "baseWeapon": "Scrap Gun Alt Fire",
+   "mousebutton": "M2",
+   "type": "projectile shotgun",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     162.504,
+     48.7512
+    ],
+    "falloff": [
+     45.0,
+     75.0
+    ]
+   },
+   "spread": {
+    "angle": 6.0
+   },
+   "velocity": 60.0,
+   "fireRate": 1.25,
+   "shotTime": 0.8,
+   "ammo": 6.0,
+   "reloadTime": 1.75,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.8,
+   "dpsPeriodAdd": 0.2916666666666667,
+   "hero": "Roadhog",
+   "name": "Scrap Gun Alt Fire (Shrapnel Launcher)"
+  },
+  {
+   "perk": "Frag Cannon",
+   "baseWeapon": "Frag Launcher",
+   "mousebutton": "M1",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     120.0
+    ],
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": 37.5,
+   "fireRate": 1.5,
+   "shotTime": 0.6666666666666666,
+   "ammo": 5.0,
+   "reloadTime": 1.5,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodAdd": 0.3,
+   "hero": "Junkrat",
+   "name": "Frag Launcher (Frag Cannon)"
+  },
+  {
+   "perk": "Scoped Efficiency",
+   "baseWeapon": "Widow's Kiss (ADS)",
+   "mousebutton": "M2",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     160.0,
+     80.0
+    ],
+    "falloff": [
+     50.0,
+     70.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 0.5,
+   "shotTime": 2.0,
+   "ammo": 35.0,
+   "reloadTime": 1.5,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 2.0,
+   "dpsPeriodAdd": 0.21428571428571427,
+   "ammoUsage": 3.0,
+   "hero": "Widowmaker",
+   "name": "Widow's Kiss (ADS) (Scoped Efficiency)"
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Ana",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Anran",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Ashe",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Baptiste",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Bastion",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Brigitte",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Cassidy",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "D.Mon",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Domina",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Doomfist",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "D.Va",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Echo",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Emre",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Freja",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Genji",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Hanzo",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Hazard",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Illari",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Jetpack Cat",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Junker Queen",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Junkrat",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Juno",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Kiriko",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Lifeweaver",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Lúcio",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Mauga",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Mei",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Mercy",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Mizuki",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Moira",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Orisa",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Pharah",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Ramattra",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Reaper",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Reinhardt",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Roadhog",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Shion",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Sierra",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Sigma",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Sojourn",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Soldier: 76",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Sombra",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Symmetra",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Torbjörn",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Tracer",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Vendetta",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Venture",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Widowmaker",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Winston",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Wrecking Ball",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Wuyang",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Zarya",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Zenyatta",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  }
+ ],
+ "ultimates": [
+  {
+   "hero": "Ana",
+   "name": "Nano Boost",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 8.0,
+   "radius": null,
+   "description": "Increases an ally's damage, while reducing damage taken."
+  },
+  {
+   "hero": "Anran",
+   "name": "Vermillion Ascent",
+   "damage": 165.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "165 - 90",
+   "duration": 3.0,
+   "radius": 2.5,
+   "description": "Charge forward, exploding on impact and instantly igniting enemies."
+  },
+  {
+   "hero": "Ashe",
+   "name": "B.O.B.",
+   "damage": 120.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "120 (charge) / 17 (arm cannons)",
+   "duration": 1.5,
+   "radius": null,
+   "description": "Deploy Bob. He charges forward and knocks enemies into the air, then attacks with his arm cannons."
+  },
+  {
+   "hero": "Baptiste",
+   "name": "Amplification Matrix",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 10.0,
+   "radius": null,
+   "description": "Project a matrix that doubles the damage and healing of allied projectiles."
+  },
+  {
+   "hero": "Bastion",
+   "name": "Configuration: Artillery",
+   "damage": 550.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "550 (center) / 250 – 50 (area of effect)",
+   "duration": 8.0,
+   "radius": 1.0,
+   "description": "Become immobile and fire up to three powerful artillery shells."
+  },
+  {
+   "hero": "Brigitte",
+   "name": "Rally",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 10.0,
+   "radius": 8.0,
+   "description": "Gain armor, empower Barrier Shield and provide extra health to nearby allies."
+  },
+  {
+   "hero": "Cassidy",
+   "name": "Deadeye",
+   "damage": 600.0,
+   "sustained": true,
+   "unrankable": false,
+   "detail": "150 per second (during warning) / 300 per second (remaining duration)",
+   "duration": 2.0,
+   "radius": null,
+   "description": "Face off against your enemies. Press {{key|ultimate}} to lock on, then {{key|ultimate}} or {{key|primary fire}} to fire."
+  },
+  {
+   "hero": "D.Mon",
+   "name": "Limit Break",
+   "damage": 125.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "125",
+   "duration": 3.0,
+   "radius": null,
+   "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
+  },
+  {
+   "hero": "Domina",
+   "name": "Panopticon",
+   "damage": 300.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "75 (piercing hit) / 300 - 100 (barrier health-based implosion)",
+   "duration": 5.0,
+   "radius": null,
+   "description": "Fire a hard-light barrier that imprisons enemies and detonates on expiration."
+  },
+  {
+   "hero": "Doomfist",
+   "name": "Meteor Strike",
+   "damage": 300.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "300 (inner sphere) / 100 – 50 (outer sphere)",
+   "duration": 4.0,
+   "radius": 2.0,
+   "description": "Press {{key|ultimate}} to leap up into the air. Move the targeting circle, then press {{key|primary fire}} to strike the targeted area."
+  },
+  {
+   "hero": "D.Va",
+   "name": "Self-Destruct",
+   "damage": 1000.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "1000 - 100",
+   "duration": 3.0,
+   "radius": 6.0,
+   "description": "Eject and overload your mech, causing it to explode after a short time."
+  },
+  {
+   "hero": "Echo",
+   "name": "Duplicate",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 15.0,
+   "radius": null,
+   "description": "Become a copy of the targeted hero. They cannot swap heroes for the duration."
+  },
+  {
+   "hero": "Emre",
+   "name": "Override Protocol",
+   "damage": 175.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "45 (light round direct hit) / 30 - 9 (light round area of effect) / 175 (heavy round direct hit) / 140 - 70 (heavy round area of effect)",
+   "duration": 8.8,
+   "radius": 1.0,
+   "description": "An override initiates, transforming you into a living weapon."
+  },
+  {
+   "hero": "Freja",
+   "name": "Bola Shot",
+   "damage": 100.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "25 (direct hit) / 75 (over time) / 100 - 60 (explosion, enemy) / 50 - 30 (explosion, self)",
+   "duration": 1.4,
+   "radius": 2.0,
+   "description": "Fire an explosive bola. Hitting an enemy wraps them up and pulls in other nearby enemies."
+  },
+  {
+   "hero": "Genji",
+   "name": "Dragonblade",
+   "damage": 110.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "110",
+   "duration": 6.0,
+   "radius": null,
+   "description": "Unsheathe a deadly melee weapon."
+  },
+  {
+   "hero": "Hanzo",
+   "name": "Dragonstrike",
+   "damage": 200.0,
+   "sustained": true,
+   "unrankable": false,
+   "detail": "125 (initial arrow) / 200 per second (outer) / 400 per second (inner)",
+   "duration": 0.5,
+   "radius": 4.0,
+   "description": "Launch a deadly Dragon Spirit that devastates enemies it passes through."
+  },
+  {
+   "hero": "Hazard",
+   "name": "Downpour",
+   "damage": 90.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "90 over 0.3 seconds",
+   "duration": 2.8,
+   "radius": null,
+   "description": "Rain down a torrent of spikes, Immobilizing enemies."
+  },
+  {
+   "hero": "Illari",
+   "name": "Captive Sun",
+   "damage": 160.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "5 (direct hit) / 50 (splash) / 160 - 120 (Sunstruck explosion)",
+   "duration": 5.2,
+   "radius": 10.0,
+   "description": "Fire an explosive ball of solar energy. Enemies hit are slowed and explode after taking significant damage."
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Catnapper",
+   "damage": 25.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "25",
+   "duration": 1.5,
+   "radius": 6.0,
+   "description": "Dive towards a ground location, knocking down enemies and tethering the nearest one to you."
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Rampage",
+   "damage": 90.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "40 impact / 90 over 4.5 seconds",
+   "duration": 4.5,
+   "radius": 5.0,
+   "description": "Charge foward. Wounds enemies, dealing damage over time and preventing them from being healed."
+  },
+  {
+   "hero": "Junkrat",
+   "name": "RIP-Tire",
+   "damage": 600.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "600 - 60",
+   "duration": 10.0,
+   "radius": 10.0,
+   "description": "Drive and detonate an exploding tire."
+  },
+  {
+   "hero": "Juno",
+   "name": "Orbital Ray",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 8.0,
+   "radius": 8.0,
+   "description": "Call down a ray that travels forward, healing allies and increasing their damage."
+  },
+  {
+   "hero": "Kiriko",
+   "name": "Kitsune Rush",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 8.0,
+   "radius": null,
+   "description": "Summon a fox spirit that rushes forward, accelerating the movement, attack speed, and cooldowns of allies that follow its path."
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Tree of Life",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 15.0,
+   "radius": 12.0,
+   "description": "Place a tree that instantly heals allies upon sprouting and continues healing periodically as it lives."
+  },
+  {
+   "hero": "Lúcio",
+   "name": "Sound Barrier",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 5.0,
+   "radius": 30.0,
+   "description": "Create temporary extra health for nearby allies."
+  },
+  {
+   "hero": "Mauga",
+   "name": "Cage Fight",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 8.0,
+   "radius": 7.2,
+   "description": "Deploy a barrier that traps yourself and enemies. Automatically reloads Mauga's Chainguns at the start of the ultimate."
+  },
+  {
+   "hero": "Mei",
+   "name": "Blizzard",
+   "damage": 85.0,
+   "sustained": true,
+   "unrankable": false,
+   "detail": "20 per second",
+   "duration": 4.25,
+   "radius": 10.0,
+   "description": "Launch a weather control drone that freezes enemies in a wide area."
+  },
+  {
+   "hero": "Mercy",
+   "name": "Valkyrie",
+   "damage": 30.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "Chain-damage boost (30% per target)",
+   "duration": 15.0,
+   "radius": null,
+   "description": "Gain the ability to fly. Abilities are enhanced."
+  },
+  {
+   "hero": "Mizuki",
+   "name": "Kekkai Sanctuary",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 6.0,
+   "radius": null,
+   "description": "Create a sanctuary that heals allies within and absorbs enemy projectiles that pass through it."
+  },
+  {
+   "hero": "Moira",
+   "name": "Coalescence",
+   "damage": 680.0,
+   "sustained": true,
+   "unrankable": false,
+   "detail": "85 per second",
+   "duration": 8.0,
+   "radius": null,
+   "description": "Fire a beam that heals allies and damages enemies."
+  },
+  {
+   "hero": "Orisa",
+   "name": "Terra Surge",
+   "damage": 72.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "18.8/s (periodic damage) / 72 - 500 (release)",
+   "duration": 0.75,
+   "radius": 10.5,
+   "description": "Sweep in enemies and anchor down, gaining the effects of Fortify and charging up a surge of damage. Use Primary Fire to unleash the surge early."
+  },
+  {
+   "hero": "Pharah",
+   "name": "Barrage",
+   "damage": 25.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "10 (direct hit) / 25 – 7.5 (splash, enemy) / 12.5 – 3.75 (splash, self)",
+   "duration": 2.5,
+   "radius": 0.5,
+   "description": "Hover in place and launch a continuous volley of mini-rockets."
+  },
+  {
+   "hero": "Ramattra",
+   "name": "Annihilation",
+   "damage": 105.0,
+   "sustained": true,
+   "unrankable": false,
+   "detail": "35 per second",
+   "duration": 3.0,
+   "radius": 13.0,
+   "description": "Enter Nemesis Form and create a deadly swarm that lashes out at nearby enemies, persisting longer when damaging enemies."
+  },
+  {
+   "hero": "Reaper",
+   "name": "Death Blossom",
+   "damage": 185.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "185/s per enemy",
+   "duration": 3.0,
+   "radius": 8.0,
+   "description": "Damage all nearby enemies."
+  },
+  {
+   "hero": "Reinhardt",
+   "name": "Earthshatter",
+   "damage": 200.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "50 (base) / 200 (critical)",
+   "duration": 3.0,
+   "radius": 1.5,
+   "description": "Knock down all enemies in front of you."
+  },
+  {
+   "hero": "Roadhog",
+   "name": "Whole Hog",
+   "damage": null,
+   "sustained": false,
+   "unrankable": true,
+   "detail": "7 – 2.1",
+   "duration": 7.5,
+   "radius": null,
+   "description": "Damage and knock back enemies in front of you."
+  },
+  {
+   "hero": "Shion",
+   "name": "Satsuriku Spree",
+   "damage": 180.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "180 - 90",
+   "duration": 6.0,
+   "radius": 5.0,
+   "description": "Rush forward 3 times in a storm of gunfire."
+  },
+  {
+   "hero": "Sierra",
+   "name": "Trailblazer",
+   "damage": 180.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "180 - 72 (area of effect)",
+   "duration": 1.0,
+   "radius": 1.0,
+   "description": "Deploy a drone that flies forward and drops explosives."
+  },
+  {
+   "hero": "Sigma",
+   "name": "Gravitic Flux",
+   "damage": 50.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "50 (lift) / 50% max HP (slam)",
+   "duration": 5.0,
+   "radius": 8.0,
+   "description": "Manipulate gravity to lift enemies into the air and slam them back down."
+  },
+  {
+   "hero": "Sojourn",
+   "name": "Overclock",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 8.0,
+   "radius": null,
+   "description": "Railgun energy auto-charges for a short duration."
+  },
+  {
+   "hero": "Soldier: 76",
+   "name": "Tactical Visor",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 6.0,
+   "radius": null,
+   "description": "Automatically aims your weapon at targets in view."
+  },
+  {
+   "hero": "Sombra",
+   "name": "EMP",
+   "damage": 25.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "25% of current health",
+   "duration": 8.0,
+   "radius": 15.0,
+   "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you."
+  },
+  {
+   "hero": "Symmetra",
+   "name": "Photon Barrier",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 12.0,
+   "radius": null,
+   "description": "Deploy a massive energy barrier."
+  },
+  {
+   "hero": "Torbjörn",
+   "name": "Molten Core",
+   "damage": 1045.0,
+   "sustained": true,
+   "unrankable": false,
+   "detail": "25 (impact) / 190 per second (pools, base) / +100 (pools, bonus against armor)",
+   "duration": 5.5,
+   "radius": 2.4,
+   "description": "Create pools of molten slag that damage enemies. Deals additional damage to armor."
+  },
+  {
+   "hero": "Tracer",
+   "name": "Pulse Bomb",
+   "damage": 350.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "5 (stick) / 350 - 70 (explosion, enemy) / 175 - 35 (explosion, self)",
+   "duration": 1.0,
+   "radius": 2.0,
+   "description": "Throw out a powerful sticky explosive."
+  },
+  {
+   "hero": "Vendetta",
+   "name": "Sundering Blade",
+   "damage": 400.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "100/50 (direct/indirect stage 1) / 200/100 (direct/indirect stage 2) / 400/200 (direct/indirect stage 3)",
+   "duration": 1.0,
+   "radius": 2.1,
+   "description": "Cleave through most defenses, dealing severe damage to enemies in front of you."
+  },
+  {
+   "hero": "Venture",
+   "name": "Tectonic Shock",
+   "damage": 130.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "130",
+   "duration": 7.0,
+   "radius": 25.0,
+   "description": "Send out damaging shockwaves."
+  },
+  {
+   "hero": "Widowmaker",
+   "name": "Infra-Sight",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 15.0,
+   "radius": null,
+   "description": "Provide your team with a view of the enemy's location."
+  },
+  {
+   "hero": "Winston",
+   "name": "Primal Rage",
+   "damage": 50.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "50 (melee)",
+   "duration": 10.0,
+   "radius": null,
+   "description": "Gain immense health, but you can only leap and punch enemies."
+  },
+  {
+   "hero": "Wrecking Ball",
+   "name": "Minefield",
+   "damage": 165.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "165",
+   "duration": 16.0,
+   "radius": 1.5,
+   "description": "Deploy a massive field of proximity mines."
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Tidal Blast",
+   "damage": 100.0,
+   "sustained": false,
+   "unrankable": false,
+   "detail": "100",
+   "duration": 3.5,
+   "radius": 7.5,
+   "description": "Protect an ally or yourself with water that detonates after a short duration. The explosion knocks down enemies and massively heals the host target."
+  },
+  {
+   "hero": "Zarya",
+   "name": "Graviton Surge",
+   "damage": 20.0,
+   "sustained": true,
+   "unrankable": false,
+   "detail": "5 (impact) / 5 per second (over time)",
+   "duration": 4.0,
+   "radius": 7.0,
+   "description": "Launch a gravity well that pulls enemies to it."
+  },
+  {
+   "hero": "Zenyatta",
+   "name": "Transcendence",
+   "damage": null,
+   "sustained": false,
+   "unrankable": false,
+   "detail": null,
+   "duration": 6.0,
+   "radius": 10.0,
+   "description": "Become invulnerable, move faster, and heal nearby allies."
+  }
+ ],
+ "healing": [
+  {
+   "hero": "Ana",
+   "name": "Biotic Rifle",
+   "kind": "weapon",
+   "healPerShot": 75.0,
+   "healPerSecond": 93.75,
+   "fireRate": 1.25,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "statedHps": true,
+   "detail": "75 over 0.59 seconds"
+  },
+  {
+   "hero": "Ana",
+   "name": "Zoom (ADS)",
+   "kind": "weapon",
+   "healPerShot": 75.0,
+   "healPerSecond": 93.75,
+   "fireRate": 1.25,
+   "ammo": 15.0,
+   "reloadTime": 1.5,
+   "statedHps": true,
+   "detail": "75 over 0.59 seconds"
+  },
+  {
+   "hero": "Ana",
+   "name": "Biotic Grenade",
+   "kind": "weapon",
+   "healPerShot": 90.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "90"
+  },
+  {
+   "hero": "Ana",
+   "name": "Biotic Bounce",
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "60"
+  },
+  {
+   "hero": "Ana",
+   "name": "Nano Boost",
+   "kind": "ultimate",
+   "healPerShot": 250.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "250"
+  },
+  {
+   "hero": "Anran",
+   "name": "Dancing Blaze",
+   "kind": "weapon",
+   "healPerShot": 50.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "50 (initial target) / 25 (subsequent targets)"
+  },
+  {
+   "hero": "Anran",
+   "name": "Hungering Blaze",
+   "kind": "weapon",
+   "healPerShot": 25.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "25 → 50 per subsequent enemy hit"
+  },
+  {
+   "hero": "Baptiste",
+   "name": "Biotic Launcher Alt Fire",
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": 66.66,
+   "fireRate": 1.11,
+   "ammo": 10.0,
+   "reloadTime": 1.5,
+   "statedHps": true,
+   "detail": "30 (direct hit) / 60 (splash, ally)"
+  },
+  {
+   "hero": "Baptiste",
+   "name": "Regenerative Burst",
+   "kind": "weapon",
+   "healPerShot": 50.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "50 (instant, >50% max HP) / 100 (instant, <50% max HP) / 50 over 4 seconds (HoT)"
+  },
+  {
+   "hero": "Baptiste",
+   "name": "Immortality Field",
+   "kind": "weapon",
+   "healPerShot": 20.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "Any deficit from 20% HP"
+  },
+  {
+   "hero": "Baptiste",
+   "name": "Automated Healing",
+   "kind": "weapon",
+   "healPerShot": 40.0,
+   "healPerSecond": null,
+   "fireRate": 1.33,
+   "ammo": 3.0,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "40"
+  },
+  {
+   "hero": "Bastion",
+   "name": "Self-Repair",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 90.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "90 per second"
+  },
+  {
+   "hero": "Bastion",
+   "name": "Self-Repair (old)",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 90.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "90 per second"
+  },
+  {
+   "hero": "Brigitte",
+   "name": "Inspire",
+   "kind": "weapon",
+   "healPerShot": 12.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "12 (instant) / 11.25 per second"
+  },
+  {
+   "hero": "Brigitte",
+   "name": "Repair Pack",
+   "kind": "weapon",
+   "healPerShot": 25.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "25 (instantly) / 100 over 2 seconds (over time)"
+  },
+  {
+   "hero": "Cassidy",
+   "name": "Rollin' Round-Up",
+   "kind": "weapon",
+   "healPerShot": 15.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "15 per bullet"
+  },
+  {
+   "hero": "Domina",
+   "name": "Reconstruction",
+   "kind": "weapon",
+   "healPerShot": 75.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "75% of ability damage dealt"
+  },
+  {
+   "hero": "Doomfist",
+   "name": "Meteor Strike",
+   "kind": "ultimate",
+   "healPerShot": null,
+   "healPerSecond": 90.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "90 per second (while targeting)"
+  },
+  {
+   "hero": "Emre",
+   "name": "Altered Vitals",
+   "kind": "weapon",
+   "healPerShot": 30.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30"
+  },
+  {
+   "hero": "Emre",
+   "name": "Siphon Blaster",
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": null,
+   "fireRate": 4.8,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "60% of damage dealt"
+  },
+  {
+   "hero": "Freja",
+   "name": "Aerial Recovery",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 30.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30 per second"
+  },
+  {
+   "hero": "Genji",
+   "name": "Dragon's Thirst",
+   "kind": "weapon",
+   "healPerShot": 30.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30% of damage dealt"
+  },
+  {
+   "hero": "Genji",
+   "name": "Meditation",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 50.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "50 per second"
+  },
+  {
+   "hero": "Hazard",
+   "name": "Anarchic Zeal",
+   "kind": "weapon",
+   "healPerShot": 40.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "40% of damage dealt"
+  },
+  {
+   "hero": "Illari",
+   "name": "Solar Rifle Alt Fire",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 115.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": true,
+   "detail": "115 per second"
+  },
+  {
+   "hero": "Illari",
+   "name": "Healing Pylon",
+   "kind": "weapon",
+   "healPerShot": 40.0,
+   "healPerSecond": null,
+   "fireRate": 1.25,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "40 over 0.45 seconds (allies) / 20 over 0.45 seconds (self)"
+  },
+  {
+   "hero": "Illari",
+   "name": "Solar Flare",
+   "kind": "weapon",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100"
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Biotic Pawjectiles",
+   "kind": "weapon",
+   "healPerShot": 27.0,
+   "healPerSecond": null,
+   "fireRate": 4.48,
+   "ammo": 24.0,
+   "reloadTime": 1.25,
+   "statedHps": false,
+   "detail": "27 (per volley)"
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Lifeline",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 25.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "25 per second (ally)"
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Purr",
+   "kind": "weapon",
+   "healPerShot": 30.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30 (per pulse, allies) / 22.5 (per pulse, self)"
+  },
+  {
+   "hero": "Jetpack Cat",
+   "name": "Catnapper",
+   "kind": "ultimate",
+   "healPerShot": null,
+   "healPerSecond": 30.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30 per second (self)"
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Adrenaline Rush",
+   "kind": "weapon",
+   "healPerShot": 250.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "250% of wound damage dealt"
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Jagged Blade",
+   "kind": "weapon",
+   "healPerShot": 75.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "75 over 3 seconds (direct hit) / 37.5 over 3 seconds (recall/melee)"
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Carnage",
+   "kind": "weapon",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100 over 3 seconds"
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Savage Satiation",
+   "kind": "weapon",
+   "healPerShot": 0.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "0 → 100% of damage dealt (impact)"
+  },
+  {
+   "hero": "Junker Queen",
+   "name": "Rampage",
+   "kind": "ultimate",
+   "healPerShot": 225.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "225 over 4.5 seconds"
+  },
+  {
+   "hero": "Juno",
+   "name": "Mediblaster",
+   "kind": "weapon",
+   "healPerShot": 6.0,
+   "healPerSecond": 93.02,
+   "fireRate": 1.29,
+   "ammo": 180.0,
+   "reloadTime": 1.5,
+   "statedHps": true,
+   "detail": "6 - 1.8 (per round) / 72 - 21.6 (per burst)"
+  },
+  {
+   "hero": "Juno",
+   "name": "Pulsar Torpedoes",
+   "kind": "weapon",
+   "healPerShot": 85.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "85 (direct) / 50 (over time)"
+  },
+  {
+   "hero": "Juno",
+   "name": "Orbital Ray",
+   "kind": "ultimate",
+   "healPerShot": null,
+   "healPerSecond": 85.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "85 per second"
+  },
+  {
+   "hero": "Kiriko",
+   "name": "Healing Ofuda",
+   "kind": "weapon",
+   "healPerShot": 12.0,
+   "healPerSecond": 168.0,
+   "fireRate": 6.67,
+   "ammo": 10.0,
+   "reloadTime": 0.9,
+   "statedHps": true,
+   "detail": "12 (per talisman) / 24 (per burst)"
+  },
+  {
+   "hero": "Kiriko",
+   "name": "Protection Suzu",
+   "kind": "weapon",
+   "healPerShot": 80.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "80"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Healing Blossom",
+   "kind": "weapon",
+   "healPerShot": 90.0,
+   "healPerSecond": 60.300000000000004,
+   "fireRate": 0.67,
+   "ammo": 16.0,
+   "reloadTime": 1.75,
+   "statedHps": true,
+   "detail": "90 over 0.3 seconds (max charge) / 10 over 0.3 seconds (min charge)"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Rejuvenating Dash",
+   "kind": "weapon",
+   "healPerShot": 55.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "55"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Life Grip",
+   "kind": "weapon",
+   "healPerShot": 75.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "75 (ally)"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Petal Protection",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 20.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "20 per second"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Parting Gift",
+   "kind": "weapon",
+   "healPerShot": 250.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "Ally: 250 / Enemy: 75"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Life Cycle",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 10.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "10 HP per second (passively while alive) / 250 HP (upon death)"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Lifeweaving",
+   "kind": "weapon",
+   "healPerShot": 80.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "80 → 110 over 0.3 seconds (max charge) / 10 → 40 over 0.3 seconds (min charge)"
+  },
+  {
+   "hero": "Lifeweaver",
+   "name": "Tree of Life",
+   "kind": "ultimate",
+   "healPerShot": 150.0,
+   "healPerSecond": null,
+   "fireRate": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "150 (instant) / 90 per pulse"
+  },
+  {
+   "hero": "Lúcio",
+   "name": "Crossfade",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 20.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "20 per second (allies) / 12 per second (self)"
+  },
+  {
+   "hero": "Lúcio",
+   "name": "Amp It Up",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 56.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "56 per second"
+  },
+  {
+   "hero": "Mauga",
+   "name": "Cardiac Overdrive",
+   "kind": "weapon",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100% of damage dealt (self) / 50% of damage dealt (allies)"
+  },
+  {
+   "hero": "Mauga",
+   "name": "Two Hearts",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 20.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "20 per second"
+  },
+  {
+   "hero": "Mei",
+   "name": "Cryo-Freeze",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 62.5,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "62.5 per second"
+  },
+  {
+   "hero": "Mei",
+   "name": "Skating Rink",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 50.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "50 per second"
+  },
+  {
+   "hero": "Mercy",
+   "name": "Caduceus Staff",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 60.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": true,
+   "detail": "55 per second"
+  },
+  {
+   "hero": "Mercy",
+   "name": "Flash Heal",
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "60 (default) / 120 (low health)"
+  },
+  {
+   "hero": "Mercy",
+   "name": "Double Dose",
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "60 → 50 (default) / 120 → 100 (low health)"
+  },
+  {
+   "hero": "Mercy",
+   "name": "Valkyrie",
+   "kind": "ultimate",
+   "healPerShot": null,
+   "healPerSecond": 65.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "65 per second per target"
+  },
+  {
+   "hero": "Mizuki",
+   "name": "Remedy Aura",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 14.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "14 - 3.5 per second (self) / 20 - 5 per second (allies)"
+  },
+  {
+   "hero": "Mizuki",
+   "name": "Healing Kasa",
+   "kind": "weapon",
+   "healPerShot": 90.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "90 (1st bounce) / 70 (2nd bounce) / 50 (3rd bounce) / 30 (self)"
+  },
+  {
+   "hero": "Mizuki",
+   "name": "Resonant Return",
+   "kind": "weapon",
+   "healPerShot": 90.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "90 → 100 (1st bounce) / 70 → 90 (2nd bounce) / 50 → 80 (3rd bounce) / 70 (4th bounce) / 40 (self-healing)"
+  },
+  {
+   "hero": "Mizuki",
+   "name": "Kekkai Sanctuary",
+   "kind": "ultimate",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100 (instant) / 40 per second"
+  },
+  {
+   "hero": "Moira",
+   "name": "Biotic Grasp",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 80.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": true,
+   "detail": "80 per second (impact) / 17 per second (over time)"
+  },
+  {
+   "hero": "Moira",
+   "name": "Biotic Grasp Alt Fire",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 30.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30 per second (self)"
+  },
+  {
+   "hero": "Moira",
+   "name": "Biotic Orb",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 75.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "75 per second, up to 300"
+  },
+  {
+   "hero": "Moira",
+   "name": "Destruction's Divide",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 140.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "140 → 182 per second (allies) / 55 → 71.5 per second (self)"
+  },
+  {
+   "hero": "Moira",
+   "name": "Coalescence",
+   "kind": "ultimate",
+   "healPerShot": null,
+   "healPerSecond": 140.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "140 per second (allies) / 55 per second (self)"
+  },
+  {
+   "hero": "Orisa",
+   "name": "Defense Protocol",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 100.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100 per second"
+  },
+  {
+   "hero": "Ramattra",
+   "name": "Nanite Repair",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 100.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100 per second"
+  },
+  {
+   "hero": "Reaper",
+   "name": "The Reaping",
+   "kind": "weapon",
+   "healPerShot": 30.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30% of damage dealt"
+  },
+  {
+   "hero": "Reaper",
+   "name": "Soul Reaving",
+   "kind": "weapon",
+   "healPerShot": 50.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "50"
+  },
+  {
+   "hero": "Roadhog",
+   "name": "Take a Breather",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 150.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "150 per second / 450 total"
+  },
+  {
+   "hero": "Roadhog",
+   "name": "Hogdrogen Exposure",
+   "kind": "weapon",
+   "healPerShot": 75.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "75/s"
+  },
+  {
+   "hero": "Shion",
+   "name": "Refuel",
+   "kind": "weapon",
+   "healPerShot": 50.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "50 (instant) / 20 (per second)"
+  },
+  {
+   "hero": "Sierra",
+   "name": "Medi-Drone",
+   "kind": "weapon",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100"
+  },
+  {
+   "hero": "Soldier: 76",
+   "name": "Biotic Field",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 40.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "40 per second"
+  },
+  {
+   "hero": "Soldier: 76",
+   "name": "Stim Pack",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 30.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "30 per second"
+  },
+  {
+   "hero": "Sombra",
+   "name": "White Hat",
+   "kind": "weapon",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100 over 2 seconds"
+  },
+  {
+   "hero": "Torbjörn",
+   "name": "Forge Hammer",
+   "kind": "weapon",
+   "healPerShot": 50.0,
+   "healPerSecond": null,
+   "fireRate": 1.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "50 (to Torbjörn's turret)"
+  },
+  {
+   "hero": "Vendetta",
+   "name": "Siphoning Strike",
+   "kind": "weapon",
+   "healPerShot": 40.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "40% of damage dealt"
+  },
+  {
+   "hero": "Winston",
+   "name": "Revitalizing Barrier",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 35.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "35 per second"
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Restorative Stream",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 25.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": true,
+   "detail": "20 per second (passive) / 55 per second (bonus manual healing)"
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Guardian Wave",
+   "kind": "weapon",
+   "healPerShot": 80.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "80"
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Balance",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 20.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "20 → {{#expr: 20*1.3}} per second"
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Ebb and Flow",
+   "kind": "weapon",
+   "healPerShot": 80.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "80"
+  },
+  {
+   "hero": "Wuyang",
+   "name": "Tidal Blast",
+   "kind": "ultimate",
+   "healPerShot": 250.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "250"
+  },
+  {
+   "hero": "Zenyatta",
+   "name": "Orb of Harmony",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 35.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "35 health per second"
+  },
+  {
+   "hero": "Zenyatta",
+   "name": "Discordant Repair",
+   "kind": "weapon",
+   "healPerShot": 9.75,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "9.75 (bodyshot, per orb) / 19.5 (headshot, per orb)"
+  },
+  {
+   "hero": "Zenyatta",
+   "name": "Dual Harmony",
+   "kind": "weapon",
+   "healPerShot": null,
+   "healPerSecond": 35.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "35 → 24.5 per second"
+  },
+  {
+   "hero": "Zenyatta",
+   "name": "Duality",
+   "kind": "weapon",
+   "healPerShot": 40.0,
+   "healPerSecond": null,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "40% of damage dealt"
+  },
+  {
+   "hero": "Zenyatta",
+   "name": "Transcendence",
+   "kind": "ultimate",
+   "healPerShot": null,
+   "healPerSecond": 400.0,
+   "fireRate": null,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "400 health per second"
+  }
+ ],
+ "stadiumItems": [
+  {
+   "name": "Compensator",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Plasma Converter",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Lifesteal",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Weapon Grease",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Ammo Reserves",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Max Ammo",
+     "value": 20.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Frenzy Amplifier",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [],
+   "description": "Eliminations grant 10% Attack Speed and 15% Move Speed for 3s."
+  },
+  {
+   "name": "Stratosphere Beacon",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Damage to airborne targets above 3m deals 10 bonus damage and slows the enemy by 25% for 3s (15s Cooldown)"
+  },
+  {
+   "name": "Aftermarket Firing Pin",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Advanced Nanobiotics",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "After healing an ally, gain 10% Attack Speed for 3s."
+  },
+  {
+   "name": "Emergency Chip",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Once per life, when you are below 150 Life, gain 15% Weapon Lifesteal and 50 Overhealth for 5s"
+  },
+  {
+   "name": "Shieldbuster",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 5.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "After dealing damage to Shields or Armor, gain 15% Attack Speed for 1s."
+  },
+  {
+   "name": "Stockpile",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Technoleech",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 4500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Icy Coolant",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 5500.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Talon Modification Module",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Rare",
+   "cost": 6500.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Aerial Distresser",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Weapon damage to airborne enemies deal 30% bonus damage over 3s."
+  },
+  {
+   "name": "Salvaged Slugs",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "Dealing Weapon Damage to Barriers or Deployables has a 60% chance to restore 1 ammo. If ammo cannot be restored, instead restore Life equal to 20% of damage dealt."
+  },
+  {
+   "name": "Volskaya Ordnance",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "Deal 6% increase Weapon Damage for every 100 Bonus Max Life the target has, up to 30%."
+  },
+  {
+   "name": "Codebreaker",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Ignore 50% of Armor's damage reduction."
+  },
+  {
+   "name": "Commander's Clip",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "When you use an ability or Gadget, restore 10% of your Max Ammo."
+  },
+  {
+   "name": "Weapon Jammer",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Dealing Weapon Damage negates 10% of the target's bonus Attack Speed and increases your Attack Speed by 10% for 2s."
+  },
+  {
+   "name": "Amari's Antidote",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While healing an ally below 50% Life with your weapon, deal 15% increased Weapon Healing."
+  },
+  {
+   "name": "Booster Jets",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Attack Speed",
+     "value": 20.0,
+     "percent": true,
+     "simulated": "attackSpeed"
+    }
+   ],
+   "description": "When you use an ability or Gadget, gain 10% Move Speed for 2s."
+  },
+  {
+   "name": "El-Sa'ka Suppressor",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Critical Hits apply 35% Healing Reduction to the target for 2s."
+  },
+  {
+   "name": "Hardlight Accelerator",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "When you use an ability or Gadget, gain 5% Weapon Power for 3s, stacking up to 3 times."
+  },
+  {
+   "name": "The Closer",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 13000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 20.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Deal 10% increased damage to enemies below 30% Life."
+  },
+  {
+   "name": "Eye of the Spider",
+   "hero": "All heroes",
+   "category": "Weapon",
+   "rarity": "Epic",
+   "cost": 14500.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 20.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "Critical Hits reveal the target for 3s."
+  },
+  {
+   "name": "Charged Plating",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "After you spend your Ultimate Charge, gain 25 Armor and 10% Ability Power for the rest of the round."
+  },
+  {
+   "name": "Power Playbook",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Shady Spectacles",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Ability Lifesteal",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Winning Attitude",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you die, gain 15% Ultimate Charge."
+  },
+  {
+   "name": "Custom Stock",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Biolight Overflow",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you spend your Ultimate Charge, cleanse yourself and grant nearby allies 75 Overhealth for 3s."
+  },
+  {
+   "name": "Energized Bracers",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Junker Whatchamajig",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Skyline Nanites",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Ability Lifesteal",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Ability damage to airborne enemies deal 25% bonus damage over 2s"
+  },
+  {
+   "name": "Wrist Wraps",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Multi-Tool",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 4500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Vitality Amplifier",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 5000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While above 50% Life gain 10% Ability Power.\nOtherwise, gain 15% Ability Lifesteal and abilities refresh 10% faster."
+  },
+  {
+   "name": "Nano Cola",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Rare",
+   "cost": 5500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Sonic Recharger",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Passive Life Regeneration can overheal up to 100."
+  },
+  {
+   "name": "Gadget Maximizer",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Catalytic Crystal",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 15.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Ability Damage and Healing grants 20% more Ultimate Charge."
+  },
+  {
+   "name": "Superflexor",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you deal Weapon Damage or Healing, gain 5% Ability Power for 3s, stacking up to 5 times."
+  },
+  {
+   "name": "Three-Tap Tommygun",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "After using an ability or Gadget, your next 3 instances of Weapon Damage deals additional damage equal to 3% of the target's current Life over 3s.\n(0.5s Cooldown)."
+  },
+  {
+   "name": "Cybervenom",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Dealing Ability damage applies 35% healing reduction for 2s."
+  },
+  {
+   "name": "Liquid Nitrogen",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Dealing Ability Damage slows the target's Move Speed by 10% and their bonus Move Speed by 15% for 3s."
+  },
+  {
+   "name": "Lumérico Fusion Drive",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability or Gadget, restore 50 Armor or Shields over 3s."
+  },
+  {
+   "name": "Mark of the Kitsune",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability or Gadget, your next instance of Weapon Damage or Healing deals {{Ability_Power|25}} bonus damage or healing."
+  },
+  {
+   "name": "Iridescent Iris",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 20.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "After spending your Ultimate Charge, gain 100 Overhealth for 3s."
+  },
+  {
+   "name": "Champion's Kit",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 14500.0,
+   "buffs": [
+    {
+     "stat": "Ability Power",
+     "value": 35.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Electrolytes",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "At the start of the round and every time you respawn, gain 30% Move Speed for 10s while out of combat and 100 Overhealth."
+  },
+  {
+   "name": "Field Rations",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While on the Objective, restore 8 Life every 1s."
+  },
+  {
+   "name": "Adrenaline Shot",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Health Packs grant 20% Move Speed for 5s and 50 Overhealth."
+  },
+  {
+   "name": "Armored Vest",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Exo Springs",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Holding [Crouch] for up to 0.75 seconds increases the height of your next jump by up to 250%.\n(15s cooldown)"
+  },
+  {
+   "name": "First Aid Kit",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Reduce the time before your Life begins regenerating by 33%."
+  },
+  {
+   "name": "Reflex Coating",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you are stunned, slept, hindered or anti-healed, gain 50 Overhealth for 2s."
+  },
+  {
+   "name": "Siphon Gloves",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "[Quick Melee] damage heals for 25 Life."
+  },
+  {
+   "name": "Ballistic Buffer",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "After taking damage from an Airborne target above 5m, gain 75 overhealth for 3s (8s cooldown)"
+  },
+  {
+   "name": "Cushioned Padding",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When affected by Stun, Sleep, or Hinder, restore 10% of your max Life over 3s."
+  },
+  {
+   "name": "Iron Eyes",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Vishkar Condensor",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Convert 150 Health into Shields."
+  },
+  {
+   "name": "Bloodbound",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "The last enemy to deal a final blow to you is Revealed to you when nearby. Deal 15% more damage to them and take 15% reduced damage from them."
+  },
+  {
+   "name": "Ironclad Exhaust Ports",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability or Gadget, gain 25 Overhealth for 3s."
+  },
+  {
+   "name": "Repulsion Greaves",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "After taking damage from an enemy within 5m, knockback all enemies within 6m and gain 75 Overhealth for 3s. (15s Cooldown)."
+  },
+  {
+   "name": "Vital-E-Tee",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Convert 100 Health into Armor."
+  },
+  {
+   "name": "Meka Z-Series",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Rare",
+   "cost": 5000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": ""
+  },
+  {
+   "name": "Divine Intervention",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you are Stunned or take more than 125 pre-mitigation damage at once, gain Overhealth equal to 25% of damage taken for 3s and start regenerating your Shields."
+  },
+  {
+   "name": "Sundering Vial",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Damage reduces the enemy's existing Overhealth by 35% and applies 35% Overhealth reduction for 5s. (3s Cooldown)."
+  },
+  {
+   "name": "Overdrive Core",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Once per life, if you take damage that would reduce you below 30% Max Life, first gain 150 decaying Overhealth."
+  },
+  {
+   "name": "Reinforced Titanium",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9500.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While you have Shields, gain 5% Ability Damage Reduction. Reduce the time before your Shields begins regenerating by 33%."
+  },
+  {
+   "name": "Gloomgauntlet",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "[Melee] damage grants 10% Move Speed and restores 5% of Max Life over 2s."
+  },
+  {
+   "name": "Martian Mender",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Restore 3% of your Life every 1s."
+  },
+  {
+   "name": "Phantasmic Flux",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Weapon Power",
+     "value": 10.0,
+     "percent": true,
+     "simulated": "weaponPower"
+    }
+   ],
+   "description": "While at full Life, Lifesteal grants up to 50 Overhealth."
+  },
+  {
+   "name": "Rüstung von Wilhelm",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While below 30% Life, gain 10% Damage Reduction."
+  },
+  {
+   "name": "Ogundimu Reduction Field",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 10500.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you take damage, gain 0.5% damage reduction for 1s, stacking up to 20 times."
+  },
+  {
+   "name": "Crusader Hydraulics",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When an enemy deals Weapon Damage to your Armor, reduce their Attack Speed by 10% for 3s."
+  },
+  {
+   "name": "Nebula Conduit",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Prevent 15% of incoming damage and instead take that prevented damage over 3s."
+  },
+  {
+   "name": "Vanadium Injection",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "While at 100% Ultimate Charge, gain:\n:{{Life}} 50 Health\n:{{Weapon_Power}} 10% Weapon Power\n:{{Ability_Power}} 10% Ability Power\n:{{Attack_Speed}} 10% Attack Speed\n:{{Cooldown_Reduction}} 10% Cooldown Reduction\n:{{Move_Speed}} 10% Move Speed"
+  },
+  {
+   "name": "Aura Repellant",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Knockback all enemies within 8m."
+  },
+  {
+   "name": "Barrier Snippet",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain 50 Overhealth for 3s."
+  },
+  {
+   "name": "Feathered Soles",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain 25% Move Speed for 5s. Dealing damage removes this bonus."
+  },
+  {
+   "name": "Med Kit",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Restore 20 Life every 1s for 10s. Taking damage removes this bonus."
+  },
+  {
+   "name": "Dashing Skates",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 3750.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Dash a short distance."
+  },
+  {
+   "name": "Field Support",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Place a Biotic Field at your location that restores 40 Life every 1s for 5s."
+  },
+  {
+   "name": "Siphon Snippet",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Knockback and apply 35% Healing Reduction for 5s to all enemies within 8m. Gain 25 Overhealth for each enemy hit."
+  },
+  {
+   "name": "Necrotic Repellant",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Knockback, Hinder and slow all enemies within 8m for 1s."
+  },
+  {
+   "name": "Vortex Vial",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Place a slowing Vortex that pulls enemies downward at your location for 2.5s."
+  },
+  {
+   "name": "Kitsune Charm",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 11000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Cleanse yourself of most negative effects, restore 75 Life, and gain Invulnerability and 75% Move Speed for 0.65s."
+  },
+  {
+   "name": "Colossus Core",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Armor",
+     "value": 50.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain Unstoppable, 10% Damage Reduction, 25% Max Life, and grow in size, but deal 25% reduced damage and healing for 3s."
+  },
+  {
+   "name": "Jet Skates",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Dash a short distance."
+  },
+  {
+   "name": "Super Serum",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Increase your total Attack Speed by 50% but deal 15% reduced Weapon Damage and Healing for 5s. Reload all your Ammo."
+  },
+  {
+   "name": "Refresher",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Epic",
+   "cost": 12000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "Reduce all Ability cooldowns by 8s."
+  },
+  {
+   "name": "Heartbeat Sensor",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1500.0,
+   "buffs": [
+    {
+     "stat": "Move Speed",
+     "value": 5.0,
+     "percent": true,
+     "simulated": null
+    }
+   ],
+   "description": "Enemies below 30% Life are Revealed to you."
+  },
+  {
+   "name": "Running Shoes",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Common",
+   "cost": 1000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 10.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "At the start of the round and when you respawn while not in Overtime, gain 30% Move Speed for 10s while out of combat."
+  },
+  {
+   "name": "Geneticist's Vial",
+   "hero": "All heroes",
+   "category": "Survival",
+   "rarity": "Epic",
+   "cost": 9000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "The first time you would die each round, revive instead with 250 Life after 3s."
+  },
+  {
+   "name": "Biotech Maximizer",
+   "hero": "All heroes",
+   "category": "Ability",
+   "rarity": "Epic",
+   "cost": 10000.0,
+   "buffs": [
+    {
+     "stat": "Health",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "When you use an ability that heals, reduce its cooldown by 5% for each unique ally it heals."
+  },
+  {
+   "name": "Kitsune Snippet",
+   "hero": "All heroes",
+   "category": "Gadget",
+   "rarity": "Rare",
+   "cost": 4000.0,
+   "buffs": [
+    {
+     "stat": "Shields",
+     "value": 25.0,
+     "percent": false,
+     "simulated": null
+    }
+   ],
+   "description": "On Use: Gain 50 Overhealth and 25% Move Speed for 3s. If you are debuffed, gain an additional 100 Overhealth."
+  }
+ ]
+}
