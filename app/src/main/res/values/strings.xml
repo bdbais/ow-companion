@@ -204,6 +204,10 @@
     <string name="meta_role_all">All roles</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Pick %2$.1f%%  ·  Win %3$.1f%%</string>
     <string name="meta_row_detail_no_bans">Pick %1$.1f%%  ·  Win %2$.1f%%</string>
+    <string name="meta_tier">Rank</string>
+    <string name="meta_map">Map</string>
+    <string name="meta_map_all">Every map</string>
+    <string name="meta_slice_note">Per map and per rank, these come from the OverFast API rather than Blizzard\'s own page, which carries both filters and ignores them. Ban rates are not published for a slice, so that column is not shown.</string>
     <string name="meta_offline">This is the one screen that needs a connection. The rest of the app works offline because a weapon\'s numbers and a patch that already happened do not change; which heroes are being banned changes every week, so it is fetched rather than shipped.</string>
     <string name="meta_retry">Try again</string>
     <string name="meta_open_source">Open the official page</string>

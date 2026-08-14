@@ -1219,6 +1219,64 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Ban %1$.1f%%  ·  Wybór %2$.1f%%  ·  Wygrane %3$.1f%%",
         tr="Ban %1$.1f%%  ·  Seçim %2$.1f%%  ·  Kazanma %3$.1f%%",
     ),
+    # Rank and map, back on the screen after a source turned up that honours them.
+    "meta_tier": t(
+        es="Rango", pt="Patente", fr="Rang", de="Rang", ja="ランク", ko="티어",
+        zhCN="段位", zhTW="段位", ru="Ранг", uk="Ранг", sv="Rang", ar="الرتبة",
+        pl="Ranga", tr="Rütbe",
+    ),
+    "meta_map": t(
+        es="Mapa", pt="Mapa", fr="Carte", de="Karte", ja="マップ", ko="전장",
+        zhCN="地图", zhTW="地圖", ru="Карта", uk="Карта", sv="Karta", ar="الخريطة",
+        pl="Mapa", tr="Harita",
+    ),
+    "meta_map_all": t(
+        es="Todos los mapas", pt="Todos os mapas", fr="Toutes les cartes",
+        de="Alle Karten", ja="すべてのマップ", ko="모든 전장",
+        zhCN="所有地图", zhTW="所有地圖", ru="Все карты", uk="Усі карти",
+        sv="Alla kartor", ar="كل الخرائط", pl="Wszystkie mapy", tr="Tüm haritalar",
+    ),
+    "meta_slice_note": t(
+        es="Por mapa y por rango, estos números vienen de la API de OverFast y no de la "
+           "página de Blizzard, que lleva ambos filtros y los ignora. Para una porción no "
+           "se publican baneos, así que esa columna no aparece.",
+        pt="Por mapa e por patente, estes números vêm da API do OverFast e não da página da "
+           "Blizzard, que leva os dois filtros e os ignora. Para um recorte não são "
+           "publicados banimentos, então essa coluna não aparece.",
+        fr="Par carte et par rang, ces chiffres viennent de l\\'API OverFast et non de la "
+           "page de Blizzard, qui porte les deux filtres et les ignore. Pour une tranche, "
+           "les bans ne sont pas publiés : cette colonne n\\'apparaît donc pas.",
+        de="Nach Karte und nach Rang kommen diese Zahlen von der OverFast-API statt von "
+           "Blizzards eigener Seite, die beide Filter mitführt und beide ignoriert. Für "
+           "einen Ausschnitt werden keine Bannraten veröffentlicht, also fehlt die Spalte.",
+        ja="マップ別・ランク別の数字は、両方のフィルターを持ちながら無視する Blizzard のページ"
+           "ではなく OverFast API から取っています。絞り込んだ範囲の BAN 率は公開されていない"
+           "ため、その列は表示されません。",
+        ko="전장별·티어별 수치는 두 필터를 갖고도 무시하는 Blizzard 페이지가 아니라 OverFast "
+           "API에서 가져옵니다. 좁힌 범위의 밴 비율은 공개되지 않아 그 열은 표시하지 않습니다.",
+        zhCN="按地图和按段位的数字来自 OverFast API，而不是暴雪自己那个带着两个筛选却忽略它们的"
+             "页面。切片没有公布禁用率，所以不显示那一列。",
+        zhTW="按地圖和按段位的數字來自 OverFast API，而不是暴雪自己那個帶著兩個篩選卻忽略它們的"
+             "頁面。切片沒有公布禁用率，所以不顯示那一欄。",
+        ru="По карте и по рангу эти числа берутся из API OverFast, а не со страницы "
+           "Blizzard, которая несёт оба фильтра и оба игнорирует. Для среза баны не "
+           "публикуются, поэтому этого столбца нет.",
+        uk="За картою та за рангом ці числа беруться з API OverFast, а не зі сторінки "
+           "Blizzard, яка несе обидва фільтри й обидва ігнорує. Для зрізу бани не "
+           "публікуються, тож цього стовпця немає.",
+        sv="Per karta och per rang kommer siffrorna från OverFast-API:t i stället för "
+           "Blizzards egen sida, som bär båda filtren och struntar i dem. För ett urval "
+           "publiceras inga bans, så den kolumnen visas inte.",
+        ar="حسب الخريطة وحسب الرتبة تأتي هذه الأرقام من واجهة OverFast لا من صفحة Blizzard "
+           "التي تحمل المرشِّحين وتتجاهلهما. لا تُنشر نسب الحظر لشريحة، لذا لا يظهر ذلك "
+           "العمود.",
+        pl="Według mapy i rangi te liczby pochodzą z API OverFast, a nie ze strony "
+           "Blizzarda, która niesie oba filtry i oba ignoruje. Dla wycinka nie publikuje "
+           "się banów, więc tej kolumny nie ma.",
+        tr="Haritaya ve rütbeye göre bu sayılar, iki filtreyi de taşıyıp ikisini de yok "
+           "sayan Blizzard sayfasından değil OverFast API\\'sinden geliyor. Bir dilim için "
+           "ban oranları yayımlanmıyor, bu yüzden o sütun görünmüyor.",
+    ),
     # The same line for a season with no bans in it, where Blizzard still publishes the
     # column and fills it with zeroes for every hero in the game.
     "meta_row_detail_no_bans": t(

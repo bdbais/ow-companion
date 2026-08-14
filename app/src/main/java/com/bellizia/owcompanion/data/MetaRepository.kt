@@ -46,7 +46,11 @@ class MetaRepository {
         val queue: String = "1",
         val role: String = "All",
         val map: String = "all-maps",
-    )
+    ) {
+        /** Whether this asks for a slice Blizzard's own page will not cut. */
+        val isSliced: Boolean
+            get() = (map != ALL_MAPS || tier != ALL_TIERS) && queue == COMPETITIVE
+    }
 
     sealed interface Result {
         data class Loaded(val heroes: List<HeroRate>) : Result
@@ -55,7 +59,11 @@ class MetaRepository {
 
     suspend fun rates(filters: Filters): Result = withContext(Dispatchers.IO) {
         runCatching {
-            if (filters.region == WORLD) worldwide(filters) else parse(fetch(url(filters)))
+            when {
+                filters.isSliced -> sliced(filters)
+                filters.region == WORLD -> worldwide(filters)
+                else -> parse(fetch(url(filters)))
+            }
         }.fold(
             onSuccess = { heroes ->
                 if (heroes.isEmpty()) Result.Failed("the page carried no rates")
@@ -85,6 +93,58 @@ class MetaRepository {
     }
 
 
+    /**
+     * One map, or one rank, which Blizzard's own page will not give.
+     *
+     * Their page carries `map` and `tier` in its query string and ignores both - every map
+     * returns the same table - which is why those two controls were taken out of this screen
+     * once. The OverFast API does honour them, and the numbers hold up to the obvious checks:
+     * pick rates sum to five hundred per cent whatever slice is asked for, because a team is
+     * five heroes, and the shape of the differences is the shape somebody who plays the game
+     * would predict - Ana at eleven per cent in Bronze and thirty-two in Grandmaster.
+     *
+     * It gives a pick rate and a win rate and nothing else, so a slice has no ban figures.
+     * That is not hidden: with every ban at zero the screen drops the column and the sort on
+     * its own, which is the same thing it does in a season without bans.
+     *
+     * Two requests rather than one. The names, portraits and roles still come from Blizzard's
+     * unfiltered table, because OverFast returns a hero key and two numbers.
+     */
+    private suspend fun sliced(filters: Filters): List<HeroRate> = coroutineScope {
+        val whole = async { parse(fetch(url(filters.copy(map = ALL_MAPS, tier = ALL_TIERS)))) }
+        val slice = async { fetchSlice(filters) }
+        val known = whole.await()
+        val numbers = slice.await()
+        if (numbers.isEmpty()) return@coroutineScope emptyList()
+
+        known.mapNotNull { hero ->
+            numbers[hero.slug]?.let { (pick, win) ->
+                hero.copy(ban = 0.0, pick = pick, win = win)
+            }
+        }
+    }
+
+    private fun fetchSlice(filters: Filters): Map<String, Pair<Double, Double>> {
+        val url = buildString {
+            append(OVERFAST).append("/heroes/stats")
+            append("?platform=").append(if (filters.input == "PC") "pc" else "console")
+            append("&gamemode=competitive")
+            // Their API has no worldwide either, and averaging three slices of a slice is a
+            // stretch too far - Europe is the same default the rest of the screen uses.
+            append("&region=").append(
+                if (filters.region == WORLD) "europe" else filters.region.lowercase(),
+            )
+            if (filters.map != ALL_MAPS) append("&map=").append(filters.map)
+            if (filters.tier != ALL_TIERS) {
+                append("&competitive_division=").append(filters.tier.lowercase())
+            }
+        }
+        val rows = runCatching {
+            json.decodeFromString(ListSerializer(StatRow.serializer()), fetch(url))
+        }.getOrElse { return emptyMap() }
+        return rows.associate { it.hero to (it.pickrate to it.winrate) }
+    }
+
     private fun fetch(url: String): String {
         val connection = (URL(url).openConnection() as HttpURLConnection).apply {
             connectTimeout = 15_000
@@ -100,6 +160,14 @@ class MetaRepository {
             connection.disconnect()
         }
     }
+
+    /** What OverFast returns per hero: a key and two numbers. */
+    @Serializable
+    private data class StatRow(
+        val hero: String = "",
+        val pickrate: Double = 0.0,
+        val winrate: Double = 0.0,
+    )
 
     @Serializable
     private data class Row(
@@ -136,6 +204,15 @@ class MetaRepository {
 
         /** The value that stands for every region at once; not one the site knows. */
         const val WORLD = "World"
+
+        /** Where a slice by map or by rank comes from, since Blizzard's own page will not cut one. */
+        private const val OVERFAST = "https://overfast-api.tekrop.fr"
+
+        const val ALL_MAPS = "all-maps"
+        const val ALL_TIERS = "All"
+
+        /** Ranks exist in one queue, so a slice by rank only means anything there. */
+        private const val COMPETITIVE = "1"
 
         /** The regions the site does know, and the ones "World" is built from. */
         val REGIONS = listOf("Europe", "Americas", "Asia")

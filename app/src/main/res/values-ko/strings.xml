@@ -149,6 +149,10 @@
     <string name="meta_role">역할</string>
     <string name="meta_role_all">전체 역할</string>
     <string name="meta_row_detail">밴 %1$.1f%%  ·  픽 %2$.1f%%  ·  승률 %3$.1f%%</string>
+    <string name="meta_tier">티어</string>
+    <string name="meta_map">전장</string>
+    <string name="meta_map_all">모든 전장</string>
+    <string name="meta_slice_note">전장별·티어별 수치는 두 필터를 갖고도 무시하는 Blizzard 페이지가 아니라 OverFast API에서 가져옵니다. 좁힌 범위의 밴 비율은 공개되지 않아 그 열은 표시하지 않습니다.</string>
     <string name="meta_row_detail_no_bans">픽 %1$.1f%%  ·  승률 %2$.1f%%</string>
     <string name="meta_offline">연결이 필요한 화면은 여기뿐입니다. 무기 수치와 이미 적용된 패치는 변하지 않으므로 나머지 화면은 오프라인으로 동작합니다. 하지만 밴되는 영웅은 매주 바뀌므로 이 정보만은 내장하지 않고 받아옵니다.</string>
     <string name="meta_retry">다시 시도</string>

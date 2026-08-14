@@ -149,6 +149,10 @@
     <string name="meta_role">Rol</string>
     <string name="meta_role_all">Todos los roles</string>
     <string name="meta_row_detail">Baneo %1$.1f%%  ·  Elección %2$.1f%%  ·  Victoria %3$.1f%%</string>
+    <string name="meta_tier">Rango</string>
+    <string name="meta_map">Mapa</string>
+    <string name="meta_map_all">Todos los mapas</string>
+    <string name="meta_slice_note">Por mapa y por rango, estos números vienen de la API de OverFast y no de la página de Blizzard, que lleva ambos filtros y los ignora. Para una porción no se publican baneos, así que esa columna no aparece.</string>
     <string name="meta_row_detail_no_bans">Elección %1$.1f%%  ·  Victoria %2$.1f%%</string>
     <string name="meta_offline">Esta es la única pantalla que necesita conexión. El resto de la app funciona sin ella porque los números de un arma y un parche que ya salió no cambian; qué héroes se banean cambia cada semana, así que se descarga en vez de viajar dentro de la app.</string>
     <string name="meta_retry">Reintentar</string>

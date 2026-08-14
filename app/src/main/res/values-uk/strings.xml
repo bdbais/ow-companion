@@ -149,6 +149,10 @@
     <string name="meta_role">Роль</string>
     <string name="meta_role_all">Усі ролі</string>
     <string name="meta_row_detail">Бан %1$.1f%%  ·  Пік %2$.1f%%  ·  Перемоги %3$.1f%%</string>
+    <string name="meta_tier">Ранг</string>
+    <string name="meta_map">Карта</string>
+    <string name="meta_map_all">Усі карти</string>
+    <string name="meta_slice_note">За картою та за рангом ці числа беруться з API OverFast, а не зі сторінки Blizzard, яка несе обидва фільтри й обидва ігнорує. Для зрізу бани не публікуються, тож цього стовпця немає.</string>
     <string name="meta_row_detail_no_bans">Пік %1$.1f%%  ·  Перемоги %2$.1f%%</string>
     <string name="meta_offline">Це єдиний екран, якому потрібна мережа. Решта застосунку працює без неї: числа зброї та вже випущений патч не змінюються, а от те, яких героїв банять, змінюється щотижня, тож ці дані завантажуються, а не лежать усередині.</string>
     <string name="meta_retry">Повторити</string>

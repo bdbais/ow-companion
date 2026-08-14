@@ -149,6 +149,10 @@
     <string name="meta_role">الدور</string>
     <string name="meta_role_all">كل الأدوار</string>
     <string name="meta_row_detail">حظر %1$.1f%%  ·  اختيار %2$.1f%%  ·  فوز %3$.1f%%</string>
+    <string name="meta_tier">الرتبة</string>
+    <string name="meta_map">الخريطة</string>
+    <string name="meta_map_all">كل الخرائط</string>
+    <string name="meta_slice_note">حسب الخريطة وحسب الرتبة تأتي هذه الأرقام من واجهة OverFast لا من صفحة Blizzard التي تحمل المرشِّحين وتتجاهلهما. لا تُنشر نسب الحظر لشريحة، لذا لا يظهر ذلك العمود.</string>
     <string name="meta_row_detail_no_bans">اختيار %1$.1f%%  ·  فوز %2$.1f%%</string>
     <string name="meta_offline">هذه هي الشاشة الوحيدة التي تحتاج إلى اتصال. باقي التطبيق يعمل بدونه لأن أرقام السلاح والتحديث الذي صدر بالفعل لا تتغير، أما الأبطال الذين يُحظرون فيتغيرون كل أسبوع، لذا تُجلب هذه البيانات بدل تضمينها.</string>
     <string name="meta_retry">أعد المحاولة</string>

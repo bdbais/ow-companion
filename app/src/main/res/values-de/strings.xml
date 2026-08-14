@@ -149,6 +149,10 @@
     <string name="meta_role">Rolle</string>
     <string name="meta_role_all">Alle Rollen</string>
     <string name="meta_row_detail">Bann %1$.1f%%  ·  Wahl %2$.1f%%  ·  Sieg %3$.1f%%</string>
+    <string name="meta_tier">Rang</string>
+    <string name="meta_map">Karte</string>
+    <string name="meta_map_all">Alle Karten</string>
+    <string name="meta_slice_note">Nach Karte und nach Rang kommen diese Zahlen von der OverFast-API statt von Blizzards eigener Seite, die beide Filter mitführt und beide ignoriert. Für einen Ausschnitt werden keine Bannraten veröffentlicht, also fehlt die Spalte.</string>
     <string name="meta_row_detail_no_bans">Wahl %1$.1f%%  ·  Sieg %2$.1f%%</string>
     <string name="meta_offline">Dies ist der einzige Bildschirm, der eine Verbindung braucht. Der Rest der App kommt ohne aus, denn die Werte einer Waffe und ein bereits erschienener Patch ändern sich nicht; welche Helden gebannt werden, ändert sich wöchentlich, also wird das geladen statt mitgeliefert.</string>
     <string name="meta_retry">Erneut versuchen</string>

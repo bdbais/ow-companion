@@ -149,6 +149,10 @@
     <string name="meta_role">Rôle</string>
     <string name="meta_role_all">Tous les rôles</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Choix %2$.1f%%  ·  Victoire %3$.1f%%</string>
+    <string name="meta_tier">Rang</string>
+    <string name="meta_map">Carte</string>
+    <string name="meta_map_all">Toutes les cartes</string>
+    <string name="meta_slice_note">Par carte et par rang, ces chiffres viennent de l\'API OverFast et non de la page de Blizzard, qui porte les deux filtres et les ignore. Pour une tranche, les bans ne sont pas publiés : cette colonne n\'apparaît donc pas.</string>
     <string name="meta_row_detail_no_bans">Choix %1$.1f%%  ·  Victoire %2$.1f%%</string>
     <string name="meta_offline">C\'est le seul écran qui a besoin d\'une connexion. Le reste de l\'appli fonctionne sans, parce que les chiffres d\'une arme et un correctif déjà sorti ne changent pas ; les héros bannis, eux, changent chaque semaine, donc ces données sont téléchargées plutôt qu\'embarquées.</string>
     <string name="meta_retry">Réessayer</string>

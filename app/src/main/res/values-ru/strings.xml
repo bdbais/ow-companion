@@ -149,6 +149,10 @@
     <string name="meta_role">Роль</string>
     <string name="meta_role_all">Все роли</string>
     <string name="meta_row_detail">Бан %1$.1f%%  ·  Пик %2$.1f%%  ·  Победы %3$.1f%%</string>
+    <string name="meta_tier">Ранг</string>
+    <string name="meta_map">Карта</string>
+    <string name="meta_map_all">Все карты</string>
+    <string name="meta_slice_note">По карте и по рангу эти числа берутся из API OverFast, а не со страницы Blizzard, которая несёт оба фильтра и оба игнорирует. Для среза баны не публикуются, поэтому этого столбца нет.</string>
     <string name="meta_row_detail_no_bans">Пик %1$.1f%%  ·  Победы %2$.1f%%</string>
     <string name="meta_offline">Это единственный экран, которому нужна сеть. Остальное приложение работает без неё: числа оружия и уже вышедший патч не меняются, а вот то, каких героев банят, меняется каждую неделю, поэтому эти данные загружаются, а не лежат внутри.</string>
     <string name="meta_retry">Повторить</string>

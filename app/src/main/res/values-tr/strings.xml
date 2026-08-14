@@ -149,6 +149,10 @@
     <string name="meta_role">Rol</string>
     <string name="meta_role_all">Tüm roller</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Seçim %2$.1f%%  ·  Kazanma %3$.1f%%</string>
+    <string name="meta_tier">Rütbe</string>
+    <string name="meta_map">Harita</string>
+    <string name="meta_map_all">Tüm haritalar</string>
+    <string name="meta_slice_note">Haritaya ve rütbeye göre bu sayılar, iki filtreyi de taşıyıp ikisini de yok sayan Blizzard sayfasından değil OverFast API\'sinden geliyor. Bir dilim için ban oranları yayımlanmıyor, bu yüzden o sütun görünmüyor.</string>
     <string name="meta_row_detail_no_bans">Seçim %1$.1f%%  ·  Kazanma %2$.1f%%</string>
     <string name="meta_offline">Bağlantı gerektiren tek ekran budur. Uygulamanın geri kalanı bağlantısız çalışır, çünkü bir silahın sayıları ve çıkmış bir yama değişmez; hangi kahramanların banlandığı ise her hafta değişir, bu yüzden bu veri gömülmek yerine indirilir.</string>
     <string name="meta_retry">Yeniden dene</string>

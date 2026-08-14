@@ -239,6 +239,64 @@ private fun MetaFilters(state: MetaUiState, viewModel: MetaViewModel) {
                     )
                 }
             }
+            // Rank and map were taken out of here once, because Blizzard's page carries both
+            // in its query string and ignores both. They are back because a source that does
+            // honour them turned up - and with it, the answer to the question this screen
+            // could not answer: who is actually picked on Busan, and at what rank.
+            ChipRow(stringResource(R.string.meta_tier)) {
+                MetaTier.entries.forEach { tier ->
+                    FilterChip(
+                        selected = state.filters.tier == tier.value,
+                        onClick = { viewModel.tier(tier) },
+                        label = { Text(stringResource(tier.labelRes)) },
+                    )
+                }
+            }
+            MapPicker(state = state, viewModel = viewModel)
+            if (state.filters.isSliced) {
+                Text(
+                    text = stringResource(R.string.meta_slice_note),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Which map, out of fifty-eight.
+ *
+ * A row of chips for that many is a scrolling strip nobody reads to the end of, so it is a
+ * menu, grouped the way the game groups them.
+ */
+@Composable
+private fun MapPicker(state: MetaUiState, viewModel: MetaViewModel) {
+    var open by remember { mutableStateOf(false) }
+    val chosen = state.map
+
+    Column(modifier = Modifier.padding(top = 8.dp)) {
+        Text(
+            text = stringResource(R.string.meta_map),
+            style = MaterialTheme.typography.labelSmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        OutlinedButton(onClick = { open = true }, modifier = Modifier.padding(top = 2.dp)) {
+            Text(chosen?.label ?: stringResource(R.string.meta_map_all))
+            Icon(Icons.Filled.ArrowDropDown, contentDescription = null)
+        }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.meta_map_all)) },
+                onClick = { viewModel.map(null); open = false },
+            )
+            MetaMaps.forEach { option ->
+                DropdownMenuItem(
+                    text = { Text(option.label) },
+                    onClick = { viewModel.map(option); open = false },
+                )
+            }
         }
     }
 }

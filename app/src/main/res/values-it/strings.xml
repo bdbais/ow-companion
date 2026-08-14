@@ -200,6 +200,10 @@
     <string name="meta_filters_hide">Nascondi i filtri</string>
     <string name="meta_row_detail">Ban %1$.1f%%  ·  Scelta %2$.1f%%  ·  Vittorie %3$.1f%%</string>
     <string name="meta_row_detail_no_bans">Scelta %1$.1f%%  ·  Vittorie %2$.1f%%</string>
+    <string name="meta_tier">Grado</string>
+    <string name="meta_map">Mappa</string>
+    <string name="meta_map_all">Tutte le mappe</string>
+    <string name="meta_slice_note">Per mappa e per grado i numeri vengono dall\'API OverFast invece che dalla pagina di Blizzard, che porta entrambi i filtri e li ignora. Per una fetta non vengono pubblicati i ban, quindi quella colonna non compare.</string>
     <string name="meta_offline">Questa è l\'unica schermata che ha bisogno della rete. Il resto dell\'app funziona senza, perché i numeri di un\'arma e una patch già uscita non cambiano; quali eroi vengono bannati cambia ogni settimana, quindi questo dato viene scaricato invece che incluso.</string>
     <string name="meta_retry">Riprova</string>
     <string name="meta_open_source">Apri la pagina ufficiale</string>
