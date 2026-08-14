@@ -11,14 +11,39 @@ import androidx.compose.ui.platform.LocalContext
 import com.bellizia.owcompanion.data.NamesRepository
 
 /**
- * The game's own word for something, wherever the app has the English one.
+ * The game's own words, and a way back to the dataset's spelling.
  *
+ * Two maps rather than one, because the strings arriving here do not all agree on case:
+ * Blizzard's rates table shouts "D.MON" where the wiki writes "D.Mon", and an exact lookup
+ * misses that, showing a shouted name on one screen and a translated one on every other.
+ * The second map is keyed on the lowercase form and remembers the spelling the dataset uses,
+ * so a name that is not translated still comes out looking like itself.
+ */
+class Names(private val exact: Map<String, String>) {
+
+    private val loose: Map<String, Pair<String, String>> =
+        exact.entries.associate { (english, translated) ->
+            english.lowercase() to (english to translated)
+        }
+
+    operator fun get(text: String): String {
+        exact[text]?.let { return it }
+        val (canonical, translated) = loose[text.lowercase()] ?: return text
+        // Translated where there is one; otherwise at least the spelling the app uses.
+        return translated.ifBlank { canonical }
+    }
+
+    companion object {
+        val Empty = Names(emptyMap())
+    }
+}
+
+/**
  * Provided once around the whole app rather than looked up per screen, because the answer
  * depends only on the current locale and every screen that shows a hero, an ability, a perk
  * or a Stadium item wants the same map.
  */
-val LocalNames: ProvidableCompositionLocal<Map<String, String>> =
-    staticCompositionLocalOf { emptyMap() }
+val LocalNames: ProvidableCompositionLocal<Names> = staticCompositionLocalOf { Names.Empty }
 
 /**
  * Loads the names for whatever language is in force and hands them down.
@@ -36,8 +61,8 @@ fun ProvideNames(content: @Composable () -> Unit) {
     // case where the right-hand side is a suspend call, which is the third time in this
     // codebase, and at error severity it fails the whole lint run.
     @Suppress("ProduceStateDoesNotAssignValue")
-    val names by produceState(initialValue = emptyMap<String, String>(), locale) {
-        value = NamesRepository(context).forLocale(locale)
+    val names by produceState(initialValue = Names.Empty, locale) {
+        value = Names(NamesRepository(context).forLocale(locale))
     }
 
     CompositionLocalProvider(LocalNames provides names, content = content)
@@ -45,7 +70,4 @@ fun ProvideNames(content: @Composable () -> Unit) {
 
 /** The translated form, or the English one when there is no translation for it. */
 @Composable
-fun localised(english: String?): String {
-    val text = english.orEmpty()
-    return LocalNames.current[text] ?: text
-}
+fun localised(english: String?): String = LocalNames.current[english.orEmpty()]

@@ -61,10 +61,20 @@ def pairs(english: dict, other: dict) -> dict[str, str]:
         if left and right and left != right:
             found[left] = right
 
-    # Name, the sentence under it, and where they are from. Role and sub-role are machine
+    # The hero's name is kept even when it does not change, which the rest are not.
+    #
+    # It is the one string other sources shout back at the app: Blizzard's rates table
+    # writes "D.MON" where everything else writes "D.Mon", and the lookup is what puts that
+    # right - but only if the name is in the map to be found. Fifty-three identities per
+    # language cost nothing against eighteen thousand real translations.
+    name = english.get("name")
+    if name:
+        found[name] = other.get("name") or name
+
+    # The sentence under the portrait and where they are from. Role and sub-role are machine
     # keys that come back in English whatever locale is asked for, and the app has its own
     # translations for those already.
-    for field in ("name", "description", "location"):
+    for field in ("description", "location"):
         add(english.get(field), other.get(field))
 
     for field in ("abilities", "stadium_powers"):
