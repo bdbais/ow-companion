@@ -158,7 +158,7 @@
     <string name="meta_offline">연결이 필요한 화면은 여기뿐입니다. 무기 수치와 이미 적용된 패치는 변하지 않으므로 나머지 화면은 오프라인으로 동작합니다. 하지만 밴되는 영웅은 매주 바뀌므로 이 정보만은 내장하지 않고 받아옵니다.</string>
     <string name="meta_retry">다시 시도</string>
     <string name="meta_open_source">공식 페이지 열기</string>
-    <string name="meta_credit">Blizzard가 overwatch.blizzard.com에 공개하는 수치입니다. 영웅당 한 줄, 지역별로만 나뉩니다. 그쪽 페이지에는 맵·티어·대기열 필터가 있지만 모두 같은 숫자를 돌려주기에, 이 앱은 아무것도 바꾸지 못할 조작을 더는 보여주지 않습니다. 그래서 맵별 승률도, 조합별 승률도 없습니다. Blizzard가 둘 다 공개하지 않고, 개별 영웅 승률을 곱하는 것은 숫자를 찾는 게 아니라 만들어내는 일입니다. 이 가운데 무엇도 휴대폰에 저장되지 않습니다.</string>
+    <string name="meta_credit">밴 비율은 overwatch.blizzard.com의 Blizzard에서 가져오며, 영웅당 한 줄에 지역별로만 나뉩니다. 그 페이지에는 전장과 티어 필터도 있지만 무엇을 골라도 같은 숫자를 돌려줍니다. 여기서 전장이나 티어를 고르면 대신 OverFast API에 묻습니다. 이쪽은 실제로 답하지만 밴 비율은 공개하지 않습니다. 조합별 승률은 여전히 없습니다. 아무도 공개하지 않으며, 영웅별 수치를 곱하는 것은 찾는 게 아니라 지어내는 일입니다. 어느 것도 휴대폰에 저장되지 않습니다.</string>
     <string name="wiki_matchups">상성</string>
     <string name="wiki_matchups_note">이 영웅을 플레이하는 입장에서 위키가 작성한 내용입니다. 편집자가 상성을 평가한 경우 그 표현을 그대로 보여줍니다. 평가가 없는 항목은 애초에 평가되지 않은 것이며, 임의로 판정을 추론하지 않았습니다. 초상화를 누르면 해당 영웅이 열립니다.</string>
     <string name="wiki_matchup_risk">위험도 %1$s</string>

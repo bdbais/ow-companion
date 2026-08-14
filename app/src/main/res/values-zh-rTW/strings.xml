@@ -158,7 +158,7 @@
     <string name="meta_offline">這是唯一需要連線的頁面。武器數值和已經發布的更新不會改變，所以其他頁面都能離線使用；但被禁用的英雄每週都在變，因此這部分是下載而非內建的。</string>
     <string name="meta_retry">重試</string>
     <string name="meta_open_source">開啟官方頁面</string>
-    <string name="meta_credit">數據由暴雪發布在 overwatch.blizzard.com，每位英雄一列，只按大區拆分。他們的頁面提供地圖、牌位和佇列篩選，但全都回傳相同的數字，所以本應用不再顯示什麼都不會改變的控制項。這也意味著沒有分地圖勝率，也沒有陣容勝率：暴雪兩者都不公布，而把單英雄勝率相乘只會造出一個數字，而不是找到它。這些內容都不會保存在你的手機上。</string>
+    <string name="meta_credit">禁用率來自 overwatch.blizzard.com 的暴雪，每個英雄一行，只按地區拆分——他們的頁面也提供地圖和段位篩選，但無論怎麼選都回傳同樣的數字。在這裡選地圖或段位改為詢問 OverFast API，它確實會回答，但不公布禁用率。按陣容的勝率依然沒有：沒人公布，把單個英雄的比率相乘是編造而不是求得。這些都不會存在你的手機上。</string>
     <string name="wiki_matchups">對位</string>
     <string name="wiki_matchups_note">由維基以使用該英雄的視角撰寫。編輯給出評級的對位，原文照錄；沒有評級的項目本來就沒有被評過，我們也沒有代為推斷結論。點擊頭像可開啟該英雄。</string>
     <string name="wiki_matchup_risk">%1$s 風險</string>

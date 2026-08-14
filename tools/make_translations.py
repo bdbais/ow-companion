@@ -1336,21 +1336,103 @@ TRANSLATIONS: dict[str, dict] = {
         uk="Відкрити офіційну сторінку", sv="Öppna den officiella sidan",
         ar="افتح الصفحة الرسمية", pl="Otwórz oficjalną stronę", tr="Resmî sayfayı aç",
     ),
+    # Rewritten when map and rank came back: the old wording said this app no longer shows
+    # controls that would change nothing, on a screen that now shows two that do.
     "meta_credit": t(
-        es="Cifras publicadas por Blizzard en overwatch.blizzard.com, una fila por héroe y desglosadas solo por región. Su página ofrece filtros de mapa, rango y cola; todos devuelven los mismos números, así que esta app ya no muestra controles que no cambiarían nada. Eso significa también que no hay porcentaje de victorias por mapa ni por composición de equipo: Blizzard no publica ninguno de los dos, y multiplicar tasas de héroes sueltos inventaría una cifra en vez de encontrarla. Nada de esto se guarda en tu teléfono.",
-        pt="Números publicados pela Blizzard em overwatch.blizzard.com, uma linha por herói e separados só por região. A página deles oferece filtros de mapa, elo e fila; todos devolvem os mesmos números, então este app não mostra mais controles que não mudariam nada. Isso também significa nenhuma taxa de vitória por mapa nem por composição de time: a Blizzard não publica nenhuma das duas, e multiplicar taxas de heróis avulsos inventaria um número em vez de achá-lo. Nada disso fica guardado no seu telefone.",
-        fr="Chiffres publiés par Blizzard sur overwatch.blizzard.com, une ligne par héros et ventilés par région uniquement. Leur page propose des filtres de carte, de rang et de file ; tous renvoient les mêmes nombres, donc cette application n'affiche plus de commandes qui ne changeraient rien. Cela veut dire aussi aucun taux de victoire par carte ni par composition d'équipe : Blizzard ne publie ni l'un ni l'autre, et multiplier des taux de héros isolés inventerait un chiffre au lieu de le trouver. Rien de tout cela n'est conservé sur votre téléphone.",
-        de="Zahlen von Blizzard auf overwatch.blizzard.com, eine Zeile pro Held und nur nach Region aufgeschlüsselt. Ihre Seite bietet Filter für Karte, Rang und Warteschlange; alle liefern dieselben Zahlen, deshalb zeigt diese App keine Bedienelemente mehr, die nichts ändern würden. Das heißt auch: keine Siegrate pro Karte und keine pro Teamzusammenstellung. Blizzard veröffentlicht beides nicht, und einzelne Heldenraten miteinander zu multiplizieren würde eine Zahl erfinden statt sie zu finden. Nichts davon wird auf deinem Telefon gespeichert.",
-        ja="Blizzard が overwatch.blizzard.com で公開している数値です。ヒーローごとに1行、地域別だけの内訳です。先方のページにはマップ・ランク・キューの絞り込みがありますが、どれも同じ数字を返すため、このアプリでは何も変わらない操作を出すのをやめました。つまりマップ別の勝率も、編成別の勝率もありません。Blizzard はどちらも公開しておらず、単体の勝率を掛け合わせても数字を見つけるのではなく作り出すだけです。これらは端末に保存されません。",
-        ko="Blizzard가 overwatch.blizzard.com에 공개하는 수치입니다. 영웅당 한 줄, 지역별로만 나뉩니다. 그쪽 페이지에는 맵·티어·대기열 필터가 있지만 모두 같은 숫자를 돌려주기에, 이 앱은 아무것도 바꾸지 못할 조작을 더는 보여주지 않습니다. 그래서 맵별 승률도, 조합별 승률도 없습니다. Blizzard가 둘 다 공개하지 않고, 개별 영웅 승률을 곱하는 것은 숫자를 찾는 게 아니라 만들어내는 일입니다. 이 가운데 무엇도 휴대폰에 저장되지 않습니다.",
-        zhCN="数据由暴雪发布在 overwatch.blizzard.com，每位英雄一行，只按大区拆分。他们的页面提供地图、段位和队列筛选，但全都返回相同的数字，所以本应用不再显示什么都不会改变的控件。这也意味着没有分地图胜率，也没有阵容胜率：暴雪两者都不公布，而把单英雄胜率相乘只会造出一个数字，而不是找到它。这些内容都不会保存在你的手机上。",
-        zhTW="數據由暴雪發布在 overwatch.blizzard.com，每位英雄一列，只按大區拆分。他們的頁面提供地圖、牌位和佇列篩選，但全都回傳相同的數字，所以本應用不再顯示什麼都不會改變的控制項。這也意味著沒有分地圖勝率，也沒有陣容勝率：暴雪兩者都不公布，而把單英雄勝率相乘只會造出一個數字，而不是找到它。這些內容都不會保存在你的手機上。",
-        ru="Цифры публикует Blizzard на overwatch.blizzard.com: одна строка на героя, разбивка только по регионам. На их странице есть фильтры по карте, рангу и очереди, но все они возвращают одни и те же числа, поэтому приложение больше не показывает элементы, которые ничего не меняют. Значит, нет ни процента побед по картам, ни по составам: Blizzard не публикует ни того, ни другого, а перемножение одиночных показателей выдумало бы цифру, а не нашло её. Ничего из этого на телефоне не хранится.",
-        uk="Цифри публікує Blizzard на overwatch.blizzard.com: один рядок на героя, розбивка лише за регіонами. На їхній сторінці є фільтри за картою, рангом і чергою, але всі повертають ті самі числа, тож застосунок більше не показує елементів, які нічого не змінюють. Отже, немає ні відсотка перемог за картами, ні за складами: Blizzard не публікує жодного, а перемноження поодиноких показників вигадало б цифру, а не знайшло її. Нічого з цього на телефоні не зберігається.",
-        sv="Siffror publicerade av Blizzard på overwatch.blizzard.com, en rad per hjälte och uppdelade endast på region. Deras sida erbjuder filter för karta, rank och kö; alla ger samma siffror, så den här appen visar inte längre kontroller som inte skulle ändra något. Det betyder också ingen vinstfrekvens per karta och ingen per lagkomposition: Blizzard publicerar varken det ena eller det andra, och att multiplicera enskilda hjältars siffror skulle hitta på ett tal snarare än att finna det. Inget av detta sparas på din telefon.",
-        ar="أرقام تنشرها Blizzard على overwatch.blizzard.com، صف واحد لكل بطل ومقسّمة حسب المنطقة فقط. صفحتهم تعرض مرشّحات للخريطة والرتبة وقائمة الانتظار، لكنها جميعًا تعيد الأرقام نفسها، لذا لم يعد هذا التطبيق يعرض أدوات لا تغيّر شيئًا. وهذا يعني أيضًا: لا نسبة فوز لكل خريطة ولا لكل تشكيلة فريق. Blizzard لا تنشر أيًّا منهما، وضرب نسب الأبطال المفردة ببعضها يخترع رقمًا بدل أن يجده. لا يُحفظ أي من ذلك على هاتفك.",
-        pl="Liczby publikowane przez Blizzarda na overwatch.blizzard.com, jeden wiersz na bohatera i podział tylko według regionu. Ich strona oferuje filtry mapy, rangi i kolejki; wszystkie zwracają te same liczby, więc ta aplikacja nie pokazuje już elementów, które niczego by nie zmieniły. Oznacza to też brak odsetka zwycięstw na mapę i na skład drużyny: Blizzard nie publikuje żadnego z nich, a mnożenie wyników pojedynczych bohaterów wymyśliłoby liczbę zamiast ją znaleźć. Nic z tego nie jest zapisywane na telefonie.",
-        tr="Blizzard'ın overwatch.blizzard.com'da yayımladığı rakamlar: kahraman başına bir satır ve yalnızca bölgeye göre ayrılmış. Sayfalarında harita, seviye ve sıra için filtreler var ama hepsi aynı sayıları döndürüyor; bu yüzden bu uygulama artık hiçbir şeyi değiştirmeyecek denetimleri göstermiyor. Bu ayrıca şu demek: harita başına da takım dizilimi başına da kazanma oranı yok. Blizzard ikisini de yayımlamıyor ve tek tek kahraman oranlarını çarpmak bir sayıyı bulmak değil uydurmak olurdu. Bunların hiçbiri telefonunda saklanmıyor.",
+        es="Los baneos vienen de Blizzard en overwatch.blizzard.com, una fila por héroe y "
+           "desglosada solo por región: su página ofrece también filtros de mapa y rango, "
+           "pero devuelve los mismos números se elija lo que se elija. Elegir aquí un mapa "
+           "o un rango consulta en cambio la API de OverFast, que sí responde a esos "
+           "filtros y que no publica baneos. Sigue sin haber porcentaje de victorias por "
+           "composición de equipo: nadie lo publica, y multiplicar entre sí las tasas de "
+           "héroes sueltos inventaría una cifra en vez de encontrarla. Nada de esto se "
+           "guarda en tu teléfono.",
+        pt="Os banimentos vêm da Blizzard em overwatch.blizzard.com, uma linha por herói e "
+           "separada apenas por região: a página deles também oferece filtros de mapa e "
+           "patente, mas devolve os mesmos números seja qual for. Escolher aqui um mapa ou "
+           "uma patente consulta a API do OverFast, que responde a esses filtros e que não "
+           "publica banimentos. Continua não havendo vitória por composição de equipe: "
+           "ninguém publica, e multiplicar as taxas de heróis isolados inventaria um número "
+           "em vez de encontrá-lo. Nada disso é guardado no seu telefone.",
+        fr="Les bans viennent de Blizzard sur overwatch.blizzard.com, une ligne par héros et "
+           "ventilée par région seulement : leur page propose aussi des filtres de carte et "
+           "de rang, mais renvoie les mêmes chiffres quel que soit le choix. Choisir ici une "
+           "carte ou un rang interroge l\\'API OverFast, qui y répond vraiment et qui ne "
+           "publie pas de bans. Il n\\'y a toujours pas de taux de victoire par composition "
+           "d\\'équipe : personne ne le publie, et multiplier entre eux les taux de héros "
+           "isolés inventerait un chiffre au lieu de le trouver. Rien de tout cela n\\'est "
+           "conservé sur votre téléphone.",
+        de="Bannraten kommen von Blizzard auf overwatch.blizzard.com, eine Zeile je Held und "
+           "nur nach Region aufgeschlüsselt - ihre Seite bietet auch Filter für Karte und "
+           "Rang, liefert aber dieselben Zahlen, was man auch wählt. Wer hier eine Karte "
+           "oder einen Rang wählt, fragt stattdessen die OverFast-API, die darauf wirklich "
+           "antwortet und die keine Bannraten veröffentlicht. Eine Siegrate je "
+           "Teamzusammenstellung gibt es weiterhin nicht: niemand veröffentlicht sie, und "
+           "Einzelheldenraten miteinander zu multiplizieren erfände eine Zahl, statt sie zu "
+           "finden. Nichts davon wird auf dem Telefon gespeichert.",
+        ja="BAN 率は overwatch.blizzard.com の Blizzard から、ヒーローごとに一行、地域別のみで"
+           "出ています。同ページにはマップとランクの絞り込みもありますが、何を選んでも同じ数字が"
+           "返ります。ここでマップやランクを選ぶと代わりに OverFast API に問い合わせます。"
+           "こちらは実際に答えますが、BAN 率は公開していません。編成ごとの勝率は相変わらず"
+           "ありません。誰も公開しておらず、単体の数字を掛け合わせるのは求めることではなく"
+           "でっち上げることです。いずれも端末には保存されません。",
+        ko="밴 비율은 overwatch.blizzard.com의 Blizzard에서 가져오며, 영웅당 한 줄에 지역별로만 "
+           "나뉩니다. 그 페이지에는 전장과 티어 필터도 있지만 무엇을 골라도 같은 숫자를 "
+           "돌려줍니다. 여기서 전장이나 티어를 고르면 대신 OverFast API에 묻습니다. 이쪽은 "
+           "실제로 답하지만 밴 비율은 공개하지 않습니다. 조합별 승률은 여전히 없습니다. 아무도 "
+           "공개하지 않으며, 영웅별 수치를 곱하는 것은 찾는 게 아니라 지어내는 일입니다. 어느 "
+           "것도 휴대폰에 저장되지 않습니다.",
+        zhCN="禁用率来自 overwatch.blizzard.com 的暴雪，每个英雄一行，只按地区拆分——他们的页面"
+             "也提供地图和段位筛选，但无论怎么选都返回同样的数字。在这里选地图或段位改为询问 "
+             "OverFast API，它确实会回答，但不公布禁用率。按阵容的胜率依然没有：没人公布，"
+             "把单个英雄的比率相乘是编造而不是求得。这些都不会存在你的手机上。",
+        zhTW="禁用率來自 overwatch.blizzard.com 的暴雪，每個英雄一行，只按地區拆分——他們的頁面"
+             "也提供地圖和段位篩選，但無論怎麼選都回傳同樣的數字。在這裡選地圖或段位改為詢問 "
+             "OverFast API，它確實會回答，但不公布禁用率。按陣容的勝率依然沒有：沒人公布，"
+             "把單個英雄的比率相乘是編造而不是求得。這些都不會存在你的手機上。",
+        ru="Баны берутся у Blizzard на overwatch.blizzard.com: строка на героя, разбивка "
+           "только по регионам. На их странице есть и фильтры по карте и рангу, но она "
+           "возвращает одни и те же числа, что ни выбери. Выбор карты или ранга здесь "
+           "обращается к API OverFast, который на них действительно отвечает и который "
+           "банов не публикует. Победности по составу команды по-прежнему нет: её никто не "
+           "публикует, а перемножать показатели отдельных героев значит выдумать число, а "
+           "не найти его. Ничего из этого на телефоне не хранится.",
+        uk="Бани беруться в Blizzard на overwatch.blizzard.com: рядок на героя, розбивка "
+           "лише за регіонами. На їхній сторінці є й фільтри за картою та рангом, але вона "
+           "повертає ті самі числа, хоч що вибери. Вибір карти чи рангу тут звертається до "
+           "API OverFast, який на них справді відповідає і який банів не публікує. "
+           "Перемоги за складом команди досі немає: її ніхто не публікує, а перемножувати "
+           "показники окремих героїв означає вигадати число, а не знайти його. Нічого з "
+           "цього на телефоні не зберігається.",
+        sv="Bannsiffrorna kommer från Blizzard på overwatch.blizzard.com, en rad per hjälte "
+           "och uppdelad bara på region - deras sida erbjuder filter för karta och rang "
+           "också, men ger samma siffror vad man än väljer. Att välja karta eller rang här "
+           "frågar i stället OverFast-API:t, som faktiskt svarar och som inte publicerar "
+           "bans. Vinstandel per lagsammansättning finns fortfarande inte: ingen publicerar "
+           "den, och att multiplicera enskilda hjältars siffror vore att hitta på ett tal i "
+           "stället för att finna det. Inget av detta sparas på telefonen.",
+        ar="نسب الحظر تأتي من Blizzard على overwatch.blizzard.com، سطر لكل بطل ومقسّمة حسب "
+           "المنطقة فقط؛ صفحتهم تقدّم مرشِّحات للخريطة والرتبة أيضًا لكنها تعيد الأرقام "
+           "نفسها مهما اخترت. اختيار خريطة أو رتبة هنا يسأل واجهة OverFast بدلًا من ذلك، "
+           "وهي تجيب فعلًا ولا تنشر نسب الحظر. ولا تزال نسبة الفوز حسب تشكيلة الفريق غير "
+           "موجودة: لا أحد ينشرها، وضرب نسب الأبطال المنفردين ببعضها اختلاق لرقم لا عثور "
+           "عليه. لا يُحفظ أي من هذا على هاتفك.",
+        pl="Bany pochodzą od Blizzarda z overwatch.blizzard.com, wiersz na bohatera i "
+           "podział tylko według regionu - ich strona oferuje też filtry mapy i rangi, ale "
+           "zwraca te same liczby, cokolwiek się wybierze. Wybranie tu mapy albo rangi pyta "
+           "zamiast tego API OverFast, które naprawdę na nie odpowiada i które banów nie "
+           "publikuje. Wygranych według składu drużyny nadal nie ma: nikt ich nie "
+           "publikuje, a mnożenie przez siebie wyników pojedynczych bohaterów byłoby "
+           "wymyśleniem liczby, a nie znalezieniem jej. Nic z tego nie jest zapisywane na "
+           "telefonie.",
+        tr="Ban oranları overwatch.blizzard.com\\'daki Blizzard\\'dan geliyor; kahraman "
+           "başına bir satır ve yalnızca bölgeye göre ayrılmış. Sayfalarında harita ve "
+           "rütbe filtreleri de var ama ne seçilirse seçilsin aynı sayıları döndürüyor. "
+           "Burada bir harita ya da rütbe seçmek bunun yerine OverFast API\\'sine soruyor; "
+           "o gerçekten yanıtlıyor ama ban oranı yayımlamıyor. Takım dizilimine göre "
+           "kazanma oranı hâlâ yok: kimse yayımlamıyor ve tek tek kahraman oranlarını "
+           "çarpmak bir sayıyı bulmak değil uydurmak olurdu. Bunların hiçbiri telefonunda "
+           "saklanmıyor.",
     ),
     # --- match-ups -------------------------------------------------------------------
     "wiki_matchups": t(
