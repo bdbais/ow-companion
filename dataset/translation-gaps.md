@@ -1,7 +1,7 @@
 # Translation gaps
 
-**None.** As of version 1.7.6 every one of the fifteen languages carries all 351
-translatable strings.
+**None.** Every one of the fifteen languages carries all 360 translatable strings, plurals
+included. It has been that way since 1.7.6, when the count was 351.
 
 | language | missing |
 |---|---|
@@ -48,8 +48,31 @@ A string that should not be translated at all — the app's name, a Twitch handl
 label on the tactics board — is marked `translatable="false"` in `values/strings.xml` rather
 than copied into fifteen files.
 
+## Plurals
+
+Three strings count something and are `<plurals>` rather than `<string>`: a build's items,
+a duel's shots, and the ultimates left out of a ranking. The generator emits them from its
+own table, and each language gets the quantities it actually uses — one form for Japanese,
+Korean, Chinese and Turkish, two for most of Europe, four for Russian, Ukrainian and Polish.
+Arabic needs six, and its phrase is written so the count governs nothing rather than guessed
+at.
+
+Everything else that carries a number carries two of them ("%1$d of %2$d spent"), and an
+Android plural agrees with one quantity, so those stay plain strings permanently.
+
 ## What is still English
 
-Hero, weapon, ability and Stadium item **names**. They come from the dataset, which is built
-from the English wiki, so a Korean player gets a Korean interface around English hero names.
-Fixing that needs a localised data source rather than a bigger table.
+Hero, weapon, ability and Stadium item names used to be, all of them. Blizzard publish the
+roster per locale and `tools/fetch_names.py` collects it, so ten of the fifteen languages now
+get the game's own words for heroes, abilities, perks and Stadium powers — names and
+descriptions both.
+
+What is left:
+
+- **Simplified Chinese, Ukrainian, Swedish, Arabic and Turkish.** Blizzard do not publish the
+  game in them, so there is no official source and nothing on this end can invent one.
+- **The Stadium armoury**, in every language. Those item names are not in any locale Blizzard
+  serve — the per-hero powers are, the generic items are not.
+
+Both are contributed by hand in `dataset/names-contributed.json`, which wins over anything
+collected, accepts partial work, and is pointed at from the About screen.

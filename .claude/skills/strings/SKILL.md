@@ -35,10 +35,15 @@ file and then run. Never with `sed`, `-c`, or a heredoc.
 `values-<lang>/strings.xml` holds the translations; a key missing from a language falls back
 to English at runtime, so a partial translation is a normal state rather than a broken one.
 
-Hero, weapon, ability and Stadium item **names are not translated** — they come from the
-dataset, which is built from the English wiki. Ordinary words that arrive from the dataset,
-like `Weapon`, `Common` or a role, *are* translated: map them through the `vocab_*` keys
-rather than showing the raw value.
+Hero, weapon, ability and Stadium item names do **not** belong in `strings.xml`. They come
+from the dataset and are translated at the point of use: wrap them in `localised(...)` from
+`ui/common/Names.kt`, which looks the English string up in what `tools/fetch_names.py`
+collected from Blizzard and falls back to English when a language has no entry. Adding one
+to a string table instead would translate it in one place and leave it English in the six
+others — which is exactly what happened, and had to be undone.
+
+Ordinary words that arrive from the dataset, like `Weapon`, `Common` or a role, are not
+names: map those through the `vocab_*` keys.
 
 A string reachable in only one language — anything behind the seven-tap panel — is marked
 `translatable="false"` rather than translated into fourteen languages that can never show it.
@@ -48,6 +53,26 @@ A string reachable in only one language — anything behind the seven-tap panel 
 `%1$s`, `%2$d` and so on. A literal per-cent sign is `%%` **only in a string that takes
 arguments**; in a string with none, `%%` is displayed literally as two characters. That
 shipped once, reading "0%% monitor distance" on screen.
+
+## Counting something
+
+A string with a number and a noun in it needs `<plurals>`, not `<string>` — "1 items" and
+"1 shots" both shipped. `pluralStringResource(R.plurals.x, count, count)` takes the count
+twice: once to pick the form, once to fill `%1$d`.
+
+Two rules make it work across fifteen languages:
+
+- **A plural agrees with one quantity.** A string carrying two numbers — "%1$d of %2$d
+  spent" — cannot become one, however wrong it reads. Twelve strings are in that position
+  and stay as they are.
+- **Give a language the quantities it uses, not the ones CLDR lists.** Japanese, Korean,
+  Chinese and Turkish need one form; most of Europe two; Russian, Ukrainian and Polish four.
+  Android *rejects* a plural that omits a quantity its language uses, so an entry is
+  all-or-nothing per language.
+
+Arabic needs six forms with intricate agreement. Rather than guess them, its phrase is
+written so the count governs nothing — "the items: 5" instead of "5 items" — which is
+correct for every number. Do the same rather than inventing inflections you cannot check.
 
 ## Accents
 
@@ -93,5 +118,6 @@ for d in sorted(p.name for p in RES.iterdir() if p.name.startswith('values-')):
 "
 ```
 
-The current gap is recorded in `dataset/translation-gaps.md`: Italian complete, the other
-fourteen missing about 130 each.
+The gap is recorded in `dataset/translation-gaps.md`, and it is currently **zero**: all
+fifteen languages carry all 360 translatable strings. It was 130 missing per language once,
+which is why the file exists; do not close it by copying English into fourteen files.

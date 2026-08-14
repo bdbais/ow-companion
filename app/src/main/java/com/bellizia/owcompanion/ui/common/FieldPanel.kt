@@ -25,6 +25,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -74,8 +75,9 @@ internal fun FieldPanel(onDismiss: () -> Unit) {
     val context = LocalContext.current
     val model = remember { FieldModel(seed = System.nanoTime()) }
 
-    var dx by remember { mutableStateOf(0f) }
-    var dy by remember { mutableStateOf(0f) }
+    // Written every frame while a finger is down, and a boxed Float allocates on each write.
+    var dx by remember { mutableFloatStateOf(0f) }
+    var dy by remember { mutableFloatStateOf(0f) }
     var primary by remember { mutableStateOf(false) }
     var secondary by remember { mutableStateOf(false) }
     var charging by remember { mutableStateOf(false) }
