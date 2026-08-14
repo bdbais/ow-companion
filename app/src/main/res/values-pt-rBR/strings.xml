@@ -106,7 +106,6 @@
     <string name="build_clone">Duplicar</string>
     <string name="build_delete">Excluir</string>
     <string name="build_none">Ainda não há builds salvas para este herói.</string>
-    <string name="build_item_count">%1$d itens</string>
     <string name="build_cancel">Cancelar</string>
     <string name="build_confirm">Salvar</string>
     <string name="about_translators_title">Tradutores voluntários</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow e Barlow Condensed de Jeremy Tribby, licença Open Font.</string>
     <string name="about_updated">Atualizado para a versão %1$d. Reinicie o app para carregá-la.</string>
     <string name="ultimate_damage">%1$s de dano</string>
-    <string name="ultimate_no_damage">%1$d supremas não causam dano e ficam de fora.</string>
     <string name="ultimate_footer">Ordenadas pelo dano que um único uso pode causar. Uma suprema é um pico, não fogo sustentado, então isto não é um número de dano por segundo.</string>
     <string name="healing_footer">Cura por segundo, recarga incluída. Um aliado sendo curado não está desviando, então isto é aritmética e não simulação.</string>
     <string name="ultimate_duration">ao longo de %1$s s</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Morre.</string>
     <string name="duel_stalemate">Não acontece nada. O dano e a cura se anulam.</string>
     <string name="duel_outhealed">Não morre. Continuar atirando não vai mudar isso.</string>
-    <string name="duel_shots">%1$d tiros, se todos acertarem e nada curar.</string>
     <string name="duel_shots_head">%1$d tiros, ou %2$d na cabeça, se todos acertarem e nada curar.</string>
     <string name="duel_rates">%1$d de dano por segundo contra %2$d de cura.</string>
     <string name="duel_seconds">Morre em %1$.1f segundos contra essa cura.</string>
@@ -361,4 +358,16 @@
     <string name="wiki_breakpoints">Tiros para matar</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">À queima-roupa, com todos os projéteis acertando. Uma coluna por reserva de vida e não por herói, porque todos os de 225 morrem com a mesma conta. Este é o número que decide um duelo: não o dano por segundo, mas se caem com dois tiros ou três.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d itens</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d tiro, se acertar e nada curar.</item>
+        <item quantity="other">%1$d tiros, se todos acertarem e nada curar.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d suprema não causa dano e fica de fora.</item>
+        <item quantity="other">%1$d supremas não causam dano e ficam de fora.</item>
+    </plurals>
 </resources>

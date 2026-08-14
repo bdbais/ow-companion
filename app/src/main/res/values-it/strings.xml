@@ -122,7 +122,10 @@
     <string name="rank_weapons">Armi</string>
     <string name="rank_ultimates">Ultimate</string>
     <string name="ultimate_damage">%1$s danni</string>
-    <string name="ultimate_no_damage">%1$d ultimate non fanno danno e restano fuori.</string>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d ultimate non fa danno e resta fuori.</item>
+        <item quantity="other">%1$d ultimate non fanno danno e restano fuori.</item>
+    </plurals>
     <string name="ultimate_footer">Ordinate per il danno di una singola attivazione. Un\'ultimate è un colpo secco, non fuoco sostenuto, quindi non è un valore di danno al secondo.</string>
     <string name="rank_healing">Cura</string>
     <string name="healing_footer">Cura al secondo, ricarica inclusa. Un alleato che viene curato non schiva, quindi qui il calcolo e aritmetico, non simulato.</string>
@@ -154,7 +157,10 @@
     <string name="stat_weapon_lifesteal">Furto vita arma</string>
     <string name="stat_ability_lifesteal">Furto vita abilità</string>
     <string name="stat_max_ammo">Munizioni max</string>
-    <string name="build_item_count">%1$d oggetti</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d oggetto</item>
+        <item quantity="other">%1$d oggetti</item>
+    </plurals>
     <string name="stadium_footer_v2">Le statistiche sono esatte per ogni oggetto. Il valore di danno viene da una simulazione completa, ma ci entrano solo Weapon Power e Attack Speed: il modello non sa calcolare quanto valgano potenza delle abilità o cooldown, quindi una build costruita su quelli qui viene sottostimata.</string>
     <string name="language_title">Lingua</string>
     <string name="language_system">Segui il telefono</string>
@@ -373,7 +379,10 @@
     <string name="duel_kills">Muore.</string>
     <string name="duel_stalemate">Non si smuove niente. Danno e cura si annullano.</string>
     <string name="duel_outhealed">Non muore. Continuare a sparare non lo cambia.</string>
-    <string name="duel_shots">%1$d colpi, se vanno tutti a segno e niente cura.</string>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d colpo, se va a segno e niente cura.</item>
+        <item quantity="other">%1$d colpi, se vanno tutti a segno e niente cura.</item>
+    </plurals>
     <string name="duel_shots_head">%1$d colpi, o %2$d alla testa, se vanno tutti a segno e niente cura.</string>
     <string name="duel_rates">%1$d danni al secondo contro %2$d di cura.</string>
     <string name="duel_seconds">Muore in %1$.1f secondi contro quella cura.</string>

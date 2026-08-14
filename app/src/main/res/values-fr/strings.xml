@@ -106,7 +106,6 @@
     <string name="build_clone">Dupliquer</string>
     <string name="build_delete">Supprimer</string>
     <string name="build_none">Aucune build enregistrée pour ce héros.</string>
-    <string name="build_item_count">%1$d objets</string>
     <string name="build_cancel">Annuler</string>
     <string name="build_confirm">Enregistrer</string>
     <string name="about_translators_title">Traducteurs bénévoles</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow et Barlow Condensed par Jeremy Tribby, licence Open Font.</string>
     <string name="about_updated">Mis à jour vers la version %1$d. Redémarrez l\'application pour la charger.</string>
     <string name="ultimate_damage">%1$s de dégâts</string>
-    <string name="ultimate_no_damage">%1$d ultimes n\'infligent aucun dégât et sont écartées.</string>
     <string name="ultimate_footer">Classées par les dégâts qu\'une seule utilisation peut infliger. Une ultime est un pic, pas un tir soutenu : ce n\'est donc pas un chiffre de dégâts par seconde.</string>
     <string name="healing_footer">Soins par seconde, rechargement compris. Un allié qu\'on soigne n\'esquive pas : c\'est donc de l\'arithmétique et non une simulation.</string>
     <string name="ultimate_duration">sur %1$s s</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Il meurt.</string>
     <string name="duel_stalemate">Rien ne bouge. Les dégâts et les soins s\'annulent.</string>
     <string name="duel_outhealed">Il ne meurt pas. Continuer à tirer n\'y changera rien.</string>
-    <string name="duel_shots">%1$d tirs, si tous touchent et que rien ne soigne.</string>
     <string name="duel_shots_head">%1$d tirs, ou %2$d à la tête, si tous touchent et que rien ne soigne.</string>
     <string name="duel_rates">%1$d dégâts par seconde contre %2$d de soins.</string>
     <string name="duel_seconds">Mort en %1$.1f secondes face à ces soins.</string>
@@ -361,4 +358,16 @@
     <string name="wiki_breakpoints">Tirs pour tuer</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">À bout portant, tous les plombs dedans. Une colonne par réserve de vie plutôt que par héros, parce que tous ceux à 225 tombent au même compte. C\'est le nombre qui décide un duel : pas les dégâts par seconde, mais s\'ils meurent en deux tirs ou en trois.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d objet</item>
+        <item quantity="other">%1$d objets</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d tir, s\'il touche et que rien ne soigne.</item>
+        <item quantity="other">%1$d tirs, si tous touchent et que rien ne soigne.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d ultime n\'inflige aucun dégât et est écartée.</item>
+        <item quantity="other">%1$d ultimes n\'infligent aucun dégât et sont écartées.</item>
+    </plurals>
 </resources>

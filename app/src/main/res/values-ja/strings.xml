@@ -106,7 +106,6 @@
     <string name="build_clone">複製</string>
     <string name="build_delete">削除</string>
     <string name="build_none">このヒーローの保存済みビルドはまだありません。</string>
-    <string name="build_item_count">アイテム %1$d 個</string>
     <string name="build_cancel">キャンセル</string>
     <string name="build_confirm">保存</string>
     <string name="about_translators_title">翻訳ボランティア</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow および Barlow Condensed、Jeremy Tribby 作、Open Font ライセンス。</string>
     <string name="about_updated">バージョン %1$d に更新しました。読み込むにはアプリを再起動してください。</string>
     <string name="ultimate_damage">%1$s ダメージ</string>
-    <string name="ultimate_no_damage">%1$d 件のアルティメットはダメージを与えないため除外しています。</string>
     <string name="ultimate_footer">一度の発動で与えられるダメージ順です。アルティメットは持続射撃ではなく瞬間火力なので、毎秒ダメージの数値ではありません。</string>
     <string name="healing_footer">リロードを含む毎秒回復量。回復を受けている味方は回避していないので、これはシミュレーションではなく計算です。</string>
     <string name="ultimate_duration">%1$s 秒かけて</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">倒せます。</string>
     <string name="duel_stalemate">決着がつきません。ダメージと回復が釣り合っています。</string>
     <string name="duel_outhealed">倒せません。撃ち続けても変わりません。</string>
-    <string name="duel_shots">%1$d 発。すべて命中して、何も回復しない場合。</string>
     <string name="duel_shots_head">%1$d 発、ヘッドショットなら %2$d 発。すべて命中して、何も回復しない場合。</string>
     <string name="duel_rates">毎秒 %1$d ダメージ対 %2$d 回復。</string>
     <string name="duel_seconds">その回復量に対して %1$.1f 秒で倒れます。</string>
@@ -361,4 +358,13 @@
     <string name="wiki_breakpoints">必要弾数</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">ゼロ距離、すべて命中した場合。ヒーロー別ではなく体力別に一列です。225 の相手はみな同じ発数で倒れるからです。決闘を決めるのはこの数字で、毎秒ダメージではありません。二発で倒れるか三発か、それだけです。</string>
+    <plurals name="build_item_count">
+        <item quantity="other">アイテム %1$d 個</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="other">%1$d 発。すべて命中して、何も回復しない場合。</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="other">%1$d 件のアルティメットはダメージを与えないため除外しています。</item>
+    </plurals>
 </resources>

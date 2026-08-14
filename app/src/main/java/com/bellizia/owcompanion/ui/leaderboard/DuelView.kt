@@ -21,6 +21,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.R
@@ -277,7 +278,7 @@ private fun Verdict(outcome: Duel.Outcome) {
                 text = if (head != null && head < body) {
                     stringResource(R.string.duel_shots_head, body, head)
                 } else {
-                    stringResource(R.string.duel_shots, body)
+                    pluralStringResource(R.plurals.duel_shots, body, body)
                 },
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 6.dp),

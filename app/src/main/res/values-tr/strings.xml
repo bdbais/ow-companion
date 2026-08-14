@@ -106,7 +106,6 @@
     <string name="build_clone">Çoğalt</string>
     <string name="build_delete">Sil</string>
     <string name="build_none">Bu kahraman için henüz kayıtlı yapı yok.</string>
-    <string name="build_item_count">%1$d eşya</string>
     <string name="build_cancel">İptal</string>
     <string name="build_confirm">Kaydet</string>
     <string name="about_translators_title">Gönüllü çevirmenler</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Jeremy Tribby tarafından Barlow ve Barlow Condensed, Open Font lisansı.</string>
     <string name="about_updated">%1$d sürümüne güncellendi. Yüklemek için uygulamayı yeniden başlatın.</string>
     <string name="ultimate_damage">%1$s hasar</string>
-    <string name="ultimate_no_damage">%1$d ultimate hasar vermiyor ve listeye alınmadı.</string>
     <string name="ultimate_footer">Tek bir kullanımın verebileceği hasara göre sıralandı. Ultimate sürekli ateş değil ani bir patlamadır, dolayısıyla bu saniyelik hasar değeri değildir.</string>
     <string name="healing_footer">Şarjör doldurma dahil saniyelik iyileştirme. İyileştirilen bir takım arkadaşı kaçınmıyor, dolayısıyla bu simülasyon değil aritmetik.</string>
     <string name="ultimate_duration">%1$s sn boyunca</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Ölür.</string>
     <string name="duel_stalemate">Bir şey değişmiyor. Hasar ve iyileştirme birbirini götürüyor.</string>
     <string name="duel_outhealed">Ölmüyor. Daha uzun ateş etmek bunu değiştirmez.</string>
-    <string name="duel_shots">%1$d atış, hepsi isabet ederse ve kimse iyileştirmezse.</string>
     <string name="duel_shots_head">%1$d atış, kafadan %2$d. Hepsi isabet ederse ve kimse iyileştirmezse.</string>
     <string name="duel_rates">Saniyede %1$d hasara karşı %2$d iyileştirme.</string>
     <string name="duel_seconds">Bu iyileştirmeye karşı %1$.1f saniyede ölür.</string>
@@ -361,4 +358,16 @@
     <string name="wiki_breakpoints">Öldürmek için atış</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">Dip dibe, her saçma isabet ederek. Kahraman başına değil can havuzu başına bir sütun, çünkü 225 canı olanların hepsi aynı sayıda düşüyor. Bir düelloyu belirleyen bu sayıdır, saniyedeki hasar değil: iki atışta mı ölüyor, üçte mi.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d eşya</item>
+        <item quantity="other">%1$d eşya</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d atış, isabet ederse ve kimse iyileştirmezse.</item>
+        <item quantity="other">%1$d atış, hepsi isabet ederse ve kimse iyileştirmezse.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d ultimate hasar vermiyor ve listeye alınmadı.</item>
+        <item quantity="other">%1$d ultimate hasar vermiyor ve listeye alınmadı.</item>
+    </plurals>
 </resources>

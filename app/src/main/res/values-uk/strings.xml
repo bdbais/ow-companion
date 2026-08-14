@@ -106,7 +106,6 @@
     <string name="build_clone">Дублювати</string>
     <string name="build_delete">Видалити</string>
     <string name="build_none">Для цього героя ще немає збережених збірок.</string>
-    <string name="build_item_count">предметів: %1$d</string>
     <string name="build_cancel">Скасувати</string>
     <string name="build_confirm">Зберегти</string>
     <string name="about_translators_title">Перекладачі-волонтери</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow і Barlow Condensed, Jeremy Tribby, ліцензія Open Font.</string>
     <string name="about_updated">Оновлено до версії %1$d. Перезапустіть застосунок, щоб її завантажити.</string>
     <string name="ultimate_damage">шкода %1$s</string>
-    <string name="ultimate_no_damage">%1$d ультимативних здібностей не завдають шкоди й не показані.</string>
     <string name="ultimate_footer">Упорядковано за шкодою від одного застосування. Ультимативна здібність — це сплеск, а не безперервний вогонь, тож це не шкода за секунду.</string>
     <string name="healing_footer">Зцілення за секунду, із перезарядкою. Союзник, якого лікують, не ухиляється, тож це арифметика, а не симуляція.</string>
     <string name="ultimate_duration">протягом %1$s с</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Помирає.</string>
     <string name="duel_stalemate">Нічого не вирішується: шкода й лікування врівноважені.</string>
     <string name="duel_outhealed">Не помирає. Стріляти довше цього не змінить.</string>
-    <string name="duel_shots">%1$d пострілів, якщо всі влучають і ніхто не лікує.</string>
     <string name="duel_shots_head">%1$d пострілів, або %2$d у голову, якщо всі влучають і ніхто не лікує.</string>
     <string name="duel_rates">%1$d шкоди за секунду проти %2$d лікування.</string>
     <string name="duel_seconds">Помирає за %1$.1f с за такого лікування.</string>
@@ -361,4 +358,22 @@
     <string name="wiki_breakpoints">Пострілів до вбивства</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">Впритул, усі влучання в ціль. Стовпець на запас здоров\'я, а не на героя: усі з 225 гинуть від того самого числа. Дуель вирішує саме воно, а не шкода за секунду — з двох пострілів чи з трьох.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d предмет</item>
+        <item quantity="few">%1$d предмети</item>
+        <item quantity="many">%1$d предметів</item>
+        <item quantity="other">%1$d предметів</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d постріл, якщо він влучає і ніхто не лікує.</item>
+        <item quantity="few">%1$d постріли, якщо всі влучають і ніхто не лікує.</item>
+        <item quantity="many">%1$d пострілів, якщо всі влучають і ніхто не лікує.</item>
+        <item quantity="other">%1$d пострілів, якщо всі влучають і ніхто не лікує.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d ультимативна здібність не завдає шкоди й не показана.</item>
+        <item quantity="few">%1$d ультимативні здібності не завдають шкоди й не показані.</item>
+        <item quantity="many">%1$d ультимативних здібностей не завдають шкоди й не показані.</item>
+        <item quantity="other">%1$d ультимативних здібностей не завдають шкоди й не показані.</item>
+    </plurals>
 </resources>

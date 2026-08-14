@@ -106,7 +106,6 @@
     <string name="build_clone">Duplikuj</string>
     <string name="build_delete">Usuń</string>
     <string name="build_none">Brak zapisanych buildów dla tego bohatera.</string>
-    <string name="build_item_count">%1$d przedmiotów</string>
     <string name="build_cancel">Anuluj</string>
     <string name="build_confirm">Zapisz</string>
     <string name="about_translators_title">Tłumacze-ochotnicy</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow i Barlow Condensed autorstwa Jeremy\'ego Tribby\'ego, licencja Open Font.</string>
     <string name="about_updated">Zaktualizowano do wersji %1$d. Uruchom aplikację ponownie, aby ją wczytać.</string>
     <string name="ultimate_damage">%1$s obrażeń</string>
-    <string name="ultimate_no_damage">%1$d superumiejętności nie zadaje obrażeń i zostaje pominiętych.</string>
     <string name="ultimate_footer">Uszeregowane według obrażeń z jednego użycia. Superumiejętność to wybuch, a nie ciągły ogień, więc to nie jest liczba obrażeń na sekundę.</string>
     <string name="healing_footer">Leczenie na sekundę, z przeładowaniem. Leczony sojusznik nie uniki, więc to arytmetyka, a nie symulacja.</string>
     <string name="ultimate_duration">przez %1$s s</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Ginie.</string>
     <string name="duel_stalemate">Nic z tego. Obrażenia i leczenie się znoszą.</string>
     <string name="duel_outhealed">Nie ginie. Dłuższe strzelanie tego nie zmieni.</string>
-    <string name="duel_shots">%1$d strzałów, jeśli każdy trafi i nic nie leczy.</string>
     <string name="duel_shots_head">%1$d strzałów, albo %2$d w głowę, jeśli każdy trafi i nic nie leczy.</string>
     <string name="duel_rates">%1$d obrażeń na sekundę przeciw %2$d leczenia.</string>
     <string name="duel_seconds">Ginie w %1$.1f s przy takim leczeniu.</string>
@@ -361,4 +358,22 @@
     <string name="wiki_breakpoints">Strzały do zabicia</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">Z bliska, każdy śrut w celu. Kolumna na pulę zdrowia, a nie na bohatera, bo wszyscy z 225 giną przy tej samej liczbie. To ta liczba rozstrzyga pojedynek, nie obrażenia na sekundę: dwa strzały czy trzy.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d przedmiot</item>
+        <item quantity="few">%1$d przedmioty</item>
+        <item quantity="many">%1$d przedmiotów</item>
+        <item quantity="other">%1$d przedmiotów</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d strzał, jeśli trafi i nic nie leczy.</item>
+        <item quantity="few">%1$d strzały, jeśli każdy trafi i nic nie leczy.</item>
+        <item quantity="many">%1$d strzałów, jeśli każdy trafi i nic nie leczy.</item>
+        <item quantity="other">%1$d strzałów, jeśli każdy trafi i nic nie leczy.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d superumiejętność nie zadaje obrażeń i zostaje pominięta.</item>
+        <item quantity="few">%1$d superumiejętności nie zadają obrażeń i zostają pominięte.</item>
+        <item quantity="many">%1$d superumiejętności nie zadaje obrażeń i zostaje pominiętych.</item>
+        <item quantity="other">%1$d superumiejętności nie zadaje obrażeń i zostaje pominiętych.</item>
+    </plurals>
 </resources>

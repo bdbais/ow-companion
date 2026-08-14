@@ -784,12 +784,6 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Brak zapisanych buildów dla tego bohatera.",
         tr="Bu kahraman için henüz kayıtlı yapı yok.",
     ),
-    "build_item_count": t(
-        es="%1$d objetos", pt="%1$d itens", fr="%1$d objets", de="%1$d Gegenstände",
-        ja="アイテム %1$d 個", ko="아이템 %1$d개", zhCN="%1$d 件物品",
-        zhTW="%1$d 件物品", ru="предметов: %1$d", uk="предметів: %1$d",
-        sv="%1$d föremål", ar="%1$d عنصر", pl="%1$d przedmiotów", tr="%1$d eşya",
-    ),
     "build_cancel": t(
         es="Cancelar", pt="Cancelar", fr="Annuler", de="Abbrechen", ja="キャンセル",
         ko="취소", zhCN="取消", zhTW="取消", ru="Отмена", uk="Скасувати",
@@ -1891,22 +1885,6 @@ TRANSLATIONS: dict[str, dict] = {
         ar="ضرر %1$s",
         pl="%1$s obrażeń",
         tr="%1$s hasar",
-    ),
-    "ultimate_no_damage": t(
-        es="%1$d definitivas no hacen daño y se quedan fuera.",
-        pt="%1$d supremas não causam dano e ficam de fora.",
-        fr="%1$d ultimes n'infligent aucun dégât et sont écartées.",
-        de="%1$d Ultimates richten keinen Schaden an und bleiben außen vor.",
-        ja="%1$d 件のアルティメットはダメージを与えないため除外しています。",
-        ko="%1$d개의 궁극기는 피해를 주지 않아 제외했습니다.",
-        zhCN="%1$d 个终极技能不造成伤害，已略去。",
-        zhTW="%1$d 個終極技能不造成傷害，已略去。",
-        ru="%1$d ульт не наносят урона и не показаны.",
-        uk="%1$d ультимативних здібностей не завдають шкоди й не показані.",
-        sv="%1$d ultimates gör ingen skada och är utelämnade.",
-        ar="%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.",
-        pl="%1$d superumiejętności nie zadaje obrażeń i zostaje pominiętych.",
-        tr="%1$d ultimate hasar vermiyor ve listeye alınmadı.",
     ),
     "ultimate_footer": t(
         es="Ordenadas por el daño que puede hacer un solo uso. Una definitiva es un estallido y no fuego sostenido, así que esto no es una cifra de daño por segundo.",
@@ -4260,22 +4238,6 @@ TRANSLATIONS: dict[str, dict] = {
         pl="Nie ginie. Dłuższe strzelanie tego nie zmieni.",
         tr="Ölmüyor. Daha uzun ateş etmek bunu değiştirmez.",
     ),
-    "duel_shots": t(
-        es="%1$d disparos, si todos aciertan y nada cura.",
-        pt="%1$d tiros, se todos acertarem e nada curar.",
-        fr="%1$d tirs, si tous touchent et que rien ne soigne.",
-        de="%1$d Schüsse, wenn jeder trifft und nichts heilt.",
-        ja="%1$d 発。すべて命中して、何も回復しない場合。",
-        ko="%1$d발. 전부 맞고 아무것도 치유하지 않을 때.",
-        zhCN="%1$d 发，前提是全中且没有治疗。",
-        zhTW="%1$d 發，前提是全中且沒有治療。",
-        ru="%1$d выстрелов, если все попадают и никто не лечит.",
-        uk="%1$d пострілів, якщо всі влучають і ніхто не лікує.",
-        sv="%1$d skott, om varje träffar och inget läker.",
-        ar="%1$d طلقة، إن أصابت كلها ولم يعالجه أحد.",
-        pl="%1$d strzałów, jeśli każdy trafi i nic nie leczy.",
-        tr="%1$d atış, hepsi isabet ederse ve kimse iyileştirmezse.",
-    ),
     "duel_shots_head": t(
         es="%1$d disparos, o %2$d a la cabeza, si todos aciertan y nada cura.",
         pt="%1$d tiros, ou %2$d na cabeça, se todos acertarem e nada curar.",
@@ -4407,6 +4369,192 @@ TRANSLATIONS: dict[str, dict] = {
 }
 
 
+def p(**kwargs) -> dict:
+    """One quantity-dependent string, per language, as {CLDR quantity: text}."""
+    return kwargs
+
+
+# Strings whose noun changes with the number in front of it.
+#
+# Only three, and deliberately: most counted strings in this app carry two numbers at once
+# ("%1$d of %2$d spent", "%1$d weapons · %2$d ms"), and an Android plural agrees with one
+# quantity, so those cannot become plurals however wrong they read.
+#
+# What each language gets is what can be written correctly rather than what CLDR permits:
+#
+#   - Japanese, Korean and both Chinese have no plural at all, so `other` alone is complete.
+#   - Turkish does not inflect a noun after a numeral, so `other` alone is complete too.
+#   - Spanish, Portuguese, French and German take one and other.
+#   - Swedish takes both, and for some nouns they are the same word: `föremål` does not
+#     change in the plural. Written out anyway, because Android requires the form to exist
+#     even where the language does not distinguish it.
+#   - Russian, Ukrainian and Polish take one, few and many, and are written out here.
+#   - Arabic needs all six, and its agreement rules are intricate enough that guessing them
+#     would be worse than not translating. Instead the phrase is rebuilt so the count does
+#     not govern anything - "the items: 5" rather than "5 items" - which is a normal
+#     localisation move and correct for every number. A native speaker who wants the
+#     natural forms instead is exactly who names-contributed.json is for.
+#
+# Android insists that a plural define every quantity its language uses, so an entry here is
+# all-or-nothing per language: a language absent from an entry falls back to English, which
+# is why none of them are.
+PLURALS: dict[str, dict] = {
+    "build_item_count": p(
+        es={"one": "%1$d objeto", "other": "%1$d objetos"},
+        pt={"one": "%1$d item", "other": "%1$d itens"},
+        fr={"one": "%1$d objet", "other": "%1$d objets"},
+        de={"one": "%1$d Gegenstand", "other": "%1$d Gegenstände"},
+        ja={"other": "アイテム %1$d 個"},
+        ko={"other": "아이템 %1$d개"},
+        zhCN={"other": "%1$d 件物品"},
+        zhTW={"other": "%1$d 件物品"},
+        ru={
+            "one": "%1$d предмет",
+            "few": "%1$d предмета",
+            "many": "%1$d предметов",
+            "other": "%1$d предметов",
+        },
+        uk={
+            "one": "%1$d предмет",
+            "few": "%1$d предмети",
+            "many": "%1$d предметів",
+            "other": "%1$d предметів",
+        },
+        sv={"one": "%1$d föremål", "other": "%1$d föremål"},
+        ar={
+            "zero": "العناصر: %1$d",
+            "one": "العناصر: %1$d",
+            "two": "العناصر: %1$d",
+            "few": "العناصر: %1$d",
+            "many": "العناصر: %1$d",
+            "other": "العناصر: %1$d",
+        },
+        pl={
+            "one": "%1$d przedmiot",
+            "few": "%1$d przedmioty",
+            "many": "%1$d przedmiotów",
+            "other": "%1$d przedmiotów",
+        },
+        tr={"one": "%1$d eşya", "other": "%1$d eşya"},
+    ),
+    "duel_shots": p(
+        es={
+            "one": "%1$d disparo, si acierta y nada cura.",
+            "other": "%1$d disparos, si todos aciertan y nada cura.",
+        },
+        pt={
+            "one": "%1$d tiro, se acertar e nada curar.",
+            "other": "%1$d tiros, se todos acertarem e nada curar.",
+        },
+        fr={
+            "one": "%1$d tir, s\\'il touche et que rien ne soigne.",
+            "other": "%1$d tirs, si tous touchent et que rien ne soigne.",
+        },
+        de={
+            "one": "%1$d Schuss, wenn er trifft und nichts heilt.",
+            "other": "%1$d Schüsse, wenn jeder trifft und nichts heilt.",
+        },
+        ja={"other": "%1$d 発。すべて命中して、何も回復しない場合。"},
+        ko={"other": "%1$d발. 전부 맞고 아무것도 치유하지 않을 때."},
+        zhCN={"other": "%1$d 发，前提是全中且没有治疗。"},
+        zhTW={"other": "%1$d 發，前提是全中且沒有治療。"},
+        ru={
+            "one": "%1$d выстрел, если он попадает и никто не лечит.",
+            "few": "%1$d выстрела, если все попадают и никто не лечит.",
+            "many": "%1$d выстрелов, если все попадают и никто не лечит.",
+            "other": "%1$d выстрелов, если все попадают и никто не лечит.",
+        },
+        uk={
+            "one": "%1$d постріл, якщо він влучає і ніхто не лікує.",
+            "few": "%1$d постріли, якщо всі влучають і ніхто не лікує.",
+            "many": "%1$d пострілів, якщо всі влучають і ніхто не лікує.",
+            "other": "%1$d пострілів, якщо всі влучають і ніхто не лікує.",
+        },
+        sv={
+            "one": "%1$d skott, om det träffar och inget läker.",
+            "other": "%1$d skott, om varje träffar och inget läker.",
+        },
+        ar={
+            "zero": "الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.",
+            "one": "الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.",
+            "two": "الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.",
+            "few": "الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.",
+            "many": "الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.",
+            "other": "الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.",
+        },
+        pl={
+            "one": "%1$d strzał, jeśli trafi i nic nie leczy.",
+            "few": "%1$d strzały, jeśli każdy trafi i nic nie leczy.",
+            "many": "%1$d strzałów, jeśli każdy trafi i nic nie leczy.",
+            "other": "%1$d strzałów, jeśli każdy trafi i nic nie leczy.",
+        },
+        tr={
+            "one": "%1$d atış, isabet ederse ve kimse iyileştirmezse.",
+            "other": "%1$d atış, hepsi isabet ederse ve kimse iyileştirmezse.",
+        },
+    ),
+    "ultimate_no_damage": p(
+        es={
+            "one": "%1$d definitiva no hace daño y se queda fuera.",
+            "other": "%1$d definitivas no hacen daño y se quedan fuera.",
+        },
+        pt={
+            "one": "%1$d suprema não causa dano e fica de fora.",
+            "other": "%1$d supremas não causam dano e ficam de fora.",
+        },
+        fr={
+            "one": "%1$d ultime n\\'inflige aucun dégât et est écartée.",
+            "other": "%1$d ultimes n\\'infligent aucun dégât et sont écartées.",
+        },
+        de={
+            "one": "%1$d Ultimate richtet keinen Schaden an und bleibt außen vor.",
+            "other": "%1$d Ultimates richten keinen Schaden an und bleiben außen vor.",
+        },
+        ja={"other": "%1$d 件のアルティメットはダメージを与えないため除外しています。"},
+        ko={"other": "%1$d개의 궁극기는 피해를 주지 않아 제외했습니다."},
+        zhCN={"other": "%1$d 个终极技能不造成伤害，已略去。"},
+        zhTW={"other": "%1$d 個終極技能不造成傷害，已略去。"},
+        ru={
+            "one": "%1$d ульта не наносит урона и не показана.",
+            "few": "%1$d ульты не наносят урона и не показаны.",
+            "many": "%1$d ульт не наносят урона и не показаны.",
+            "other": "%1$d ульт не наносят урона и не показаны.",
+        },
+        uk={
+            "one": "%1$d ультимативна здібність не завдає шкоди й не показана.",
+            "few": "%1$d ультимативні здібності не завдають шкоди й не показані.",
+            "many": "%1$d ультимативних здібностей не завдають шкоди й не показані.",
+            "other": "%1$d ультимативних здібностей не завдають шкоди й не показані.",
+        },
+        sv={
+            "one": "%1$d ultimate gör ingen skada och är utelämnad.",
+            "other": "%1$d ultimates gör ingen skada och är utelämnade.",
+        },
+        ar={
+            "zero": "%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.",
+            "one": "%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.",
+            "two": "%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.",
+            "few": "%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.",
+            "many": "%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.",
+            "other": "%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.",
+        },
+        pl={
+            "one": "%1$d superumiejętność nie zadaje obrażeń i zostaje pominięta.",
+            "few": "%1$d superumiejętności nie zadają obrażeń i zostają pominięte.",
+            "many": "%1$d superumiejętności nie zadaje obrażeń i zostaje pominiętych.",
+            "other": "%1$d superumiejętności nie zadaje obrażeń i zostaje pominiętych.",
+        },
+        tr={
+            "one": "%1$d ultimate hasar vermiyor ve listeye alınmadı.",
+            "other": "%1$d ultimate hasar vermiyor ve listeye alınmadı.",
+        },
+    ),
+}
+
+# The order Android expects, and the order a reader of the generated file can scan.
+QUANTITIES = ("zero", "one", "two", "few", "many", "other")
+
+
 def translatable_keys(xml: str) -> set[str]:
     """Keys a locale is expected to carry.
 
@@ -4414,11 +4562,13 @@ def translatable_keys(xml: str) -> set[str]:
     own name, a Twitch handle, the "t1" label on the tactics board. Counting those as
     missing made this script report a gap in every language that could never be closed.
     """
-    return {
+    plain = {
         m.group(1)
         for m in re.finditer(r'<string name="([^"]+)"([^>]*)>', xml)
         if 'translatable="false"' not in m.group(2)
     }
+    # Plurals count too, or every language reads as short by however many there are.
+    return plain | set(re.findall(r'<plurals name="([^"]+)"', xml))
 
 
 def escape(value: str) -> str:
@@ -4441,6 +4591,21 @@ def write_locale(qualifier: str, key: str) -> int:
             continue
         lines.append(f'    <string name="{name}">{escape(value)}</string>')
         count += 1
+
+    for name, langs in PLURALS.items():
+        forms = langs.get(key)
+        if not forms:
+            continue
+        lines.append(f'    <plurals name="{name}">')
+        for quantity in QUANTITIES:
+            text = forms.get(quantity)
+            if text:
+                lines.append(
+                    f'        <item quantity="{quantity}">{escape(text)}</item>'
+                )
+        lines.append("    </plurals>")
+        count += 1
+
     lines.append("</resources>")
 
     directory = RES / f"values-{qualifier}"
@@ -4467,8 +4632,9 @@ def main() -> int:
     # original language would be a step down - but it is counted out loud.
     hand_written = RES / "values-it" / "strings.xml"
     if hand_written.exists():
-        italian_keys = set(
-            re.findall(r'<string name="([^"]+)"', hand_written.read_text(encoding="utf-8"))
+        italian = hand_written.read_text(encoding="utf-8")
+        italian_keys = set(re.findall(r'<string name="([^"]+)"', italian)) | set(
+            re.findall(r'<plurals name="([^"]+)"', italian)
         )
         missing = sorted(translatable_keys(english) - italian_keys)
         if missing:

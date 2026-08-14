@@ -45,6 +45,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -313,8 +314,9 @@ private fun UltimateList(state: LeaderboardUiState) {
         }
         item {
             Text(
-                text = stringResource(
-                    R.string.ultimate_no_damage,
+                text = pluralStringResource(
+                    R.plurals.ultimate_no_damage,
+                    state.ultimatesWithoutDamage,
                     state.ultimatesWithoutDamage,
                 ) + "\n" + stringResource(R.string.ultimate_footer),
                 style = MaterialTheme.typography.labelSmall,

@@ -106,7 +106,6 @@
     <string name="build_clone">Duplicera</string>
     <string name="build_delete">Radera</string>
     <string name="build_none">Inga sparade builds för den här hjälten än.</string>
-    <string name="build_item_count">%1$d föremål</string>
     <string name="build_cancel">Avbryt</string>
     <string name="build_confirm">Spara</string>
     <string name="about_translators_title">Frivilliga översättare</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow och Barlow Condensed av Jeremy Tribby, Open Font License.</string>
     <string name="about_updated">Uppdaterad till version %1$d. Starta om appen för att läsa in den.</string>
     <string name="ultimate_damage">%1$s i skada</string>
-    <string name="ultimate_no_damage">%1$d ultimates gör ingen skada och är utelämnade.</string>
     <string name="ultimate_footer">Rangordnade efter skadan en enda användning kan göra. En ultimate är ett utbrott, inte uthållig eld, så det här är inte ett mått på skada per sekund.</string>
     <string name="healing_footer">Läkning per sekund, omladdning inräknad. En lagkamrat som blir läkt undviker inget, så det här är räkning snarare än simulering.</string>
     <string name="ultimate_duration">under %1$s s</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Det dör.</string>
     <string name="duel_stalemate">Inget ger vika. Skadan och läkningen tar ut varandra.</string>
     <string name="duel_outhealed">Det dör inte. Att skjuta längre ändrar inte det.</string>
-    <string name="duel_shots">%1$d skott, om varje träffar och inget läker.</string>
     <string name="duel_shots_head">%1$d skott, eller %2$d i huvudet, om varje träffar och inget läker.</string>
     <string name="duel_rates">%1$d skada per sekund mot %2$d läkning.</string>
     <string name="duel_seconds">Död på %1$.1f sekunder mot den läkningen.</string>
@@ -361,4 +358,16 @@
     <string name="wiki_breakpoints">Skott till kill</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">På nära håll, varje hagel i mål. En kolumn per livpool i stället för per hjälte, för alla med 225 faller på samma antal. Det är siffran som avgör en duell: inte skada per sekund, utan om de dör på två skott eller tre.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d föremål</item>
+        <item quantity="other">%1$d föremål</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d skott, om det träffar och inget läker.</item>
+        <item quantity="other">%1$d skott, om varje träffar och inget läker.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d ultimate gör ingen skada och är utelämnad.</item>
+        <item quantity="other">%1$d ultimates gör ingen skada och är utelämnade.</item>
+    </plurals>
 </resources>

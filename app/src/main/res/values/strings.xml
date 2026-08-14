@@ -130,7 +130,10 @@
     <string name="rank_weapons">Weapons</string>
     <string name="rank_ultimates">Ultimates</string>
     <string name="ultimate_damage">%1$s damage</string>
-    <string name="ultimate_no_damage">%1$d ultimates deal no damage and are left out.</string>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d ultimate deals no damage and is left out.</item>
+        <item quantity="other">%1$d ultimates deal no damage and are left out.</item>
+    </plurals>
     <string name="ultimate_footer">Ranked by the damage one cast can deal. An ultimate is burst, not sustained fire, so this is not a damage-per-second figure.</string>
     <string name="rank_healing">Healing</string>
     <string name="healing_footer">Healing per second, reload included. An ally being healed is not dodging, so this is arithmetic rather than simulated.</string>
@@ -162,7 +165,10 @@
     <string name="stat_weapon_lifesteal">Weapon lifesteal</string>
     <string name="stat_ability_lifesteal">Ability lifesteal</string>
     <string name="stat_max_ammo">Max ammo</string>
-    <string name="build_item_count">%1$d items</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d item</item>
+        <item quantity="other">%1$d items</item>
+    </plurals>
     <string name="stadium_footer_v2">Stats are exact for every item. The damage figure is a full simulation, but only Weapon Power and Attack Speed feed into it - the model cannot compute what ability power or cooldowns are worth, so a build that leans on those will be undersold here.</string>
     <string name="language_title">Language</string>
     <string name="language_system">Follow the phone</string>
@@ -365,7 +371,10 @@
     <string name="duel_kills">It dies.</string>
     <string name="duel_stalemate">Nothing gives. The damage and the healing cancel out.</string>
     <string name="duel_outhealed">It does not die. Firing longer will not change that.</string>
-    <string name="duel_shots">%1$d shots, if every one lands and nothing heals.</string>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d shot, if it lands and nothing heals.</item>
+        <item quantity="other">%1$d shots, if every one lands and nothing heals.</item>
+    </plurals>
     <string name="duel_shots_head">%1$d shots, or %2$d to the head, if every one lands and nothing heals.</string>
     <string name="duel_rates">%1$d damage a second against %2$d healing.</string>
     <string name="duel_seconds">Dead in %1$.1f seconds against that healing.</string>

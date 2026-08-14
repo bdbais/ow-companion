@@ -106,7 +106,6 @@
     <string name="build_clone">Duplicar</string>
     <string name="build_delete">Eliminar</string>
     <string name="build_none">Todavía no hay builds guardadas para este héroe.</string>
-    <string name="build_item_count">%1$d objetos</string>
     <string name="build_cancel">Cancelar</string>
     <string name="build_confirm">Guardar</string>
     <string name="about_translators_title">Traductores voluntarios</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow y Barlow Condensed de Jeremy Tribby, licencia Open Font.</string>
     <string name="about_updated">Actualizado a la versión %1$d. Reinicia la app para cargarla.</string>
     <string name="ultimate_damage">%1$s de daño</string>
-    <string name="ultimate_no_damage">%1$d definitivas no hacen daño y se quedan fuera.</string>
     <string name="ultimate_footer">Ordenadas por el daño que puede hacer un solo uso. Una definitiva es un estallido y no fuego sostenido, así que esto no es una cifra de daño por segundo.</string>
     <string name="healing_footer">Sanación por segundo, recarga incluida. Un aliado al que están curando no está esquivando, así que esto es aritmética y no una simulación.</string>
     <string name="ultimate_duration">durante %1$s s</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Muere.</string>
     <string name="duel_stalemate">No pasa nada. El daño y la curación se anulan.</string>
     <string name="duel_outhealed">No muere. Seguir disparando no lo va a cambiar.</string>
-    <string name="duel_shots">%1$d disparos, si todos aciertan y nada cura.</string>
     <string name="duel_shots_head">%1$d disparos, o %2$d a la cabeza, si todos aciertan y nada cura.</string>
     <string name="duel_rates">%1$d de daño por segundo contra %2$d de curación.</string>
     <string name="duel_seconds">Muere en %1$.1f segundos contra esa curación.</string>
@@ -361,4 +358,16 @@
     <string name="wiki_breakpoints">Disparos para matar</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">A bocajarro, con todos los perdigones dentro. Una columna por reserva de vida y no por héroe, porque todos los de 225 mueren con la misma cuenta. Este es el número que decide un duelo: no el daño por segundo, sino si caen con dos disparos o con tres.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d objeto</item>
+        <item quantity="other">%1$d objetos</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d disparo, si acierta y nada cura.</item>
+        <item quantity="other">%1$d disparos, si todos aciertan y nada cura.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d definitiva no hace daño y se queda fuera.</item>
+        <item quantity="other">%1$d definitivas no hacen daño y se quedan fuera.</item>
+    </plurals>
 </resources>

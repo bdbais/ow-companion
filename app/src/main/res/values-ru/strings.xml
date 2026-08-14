@@ -106,7 +106,6 @@
     <string name="build_clone">Дублировать</string>
     <string name="build_delete">Удалить</string>
     <string name="build_none">Для этого героя ещё нет сохранённых сборок.</string>
-    <string name="build_item_count">предметов: %1$d</string>
     <string name="build_cancel">Отмена</string>
     <string name="build_confirm">Сохранить</string>
     <string name="about_translators_title">Переводчики-волонтёры</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow и Barlow Condensed, Jeremy Tribby, лицензия Open Font.</string>
     <string name="about_updated">Обновлено до версии %1$d. Перезапустите приложение, чтобы её загрузить.</string>
     <string name="ultimate_damage">урон %1$s</string>
-    <string name="ultimate_no_damage">%1$d ульт не наносят урона и не показаны.</string>
     <string name="ultimate_footer">Отсортировано по урону от одного применения. Ульта — это всплеск, а не непрерывный огонь, так что это не урон в секунду.</string>
     <string name="healing_footer">Исцеление в секунду, с учётом перезарядки. Союзник, которого лечат, не уклоняется, так что это арифметика, а не симуляция.</string>
     <string name="ultimate_duration">за %1$s с</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">Умирает.</string>
     <string name="duel_stalemate">Ничего не решается: урон и лечение уравновешены.</string>
     <string name="duel_outhealed">Не умирает. Стрелять дольше это не изменит.</string>
-    <string name="duel_shots">%1$d выстрелов, если все попадают и никто не лечит.</string>
     <string name="duel_shots_head">%1$d выстрелов, или %2$d в голову, если все попадают и никто не лечит.</string>
     <string name="duel_rates">%1$d урона в секунду против %2$d лечения.</string>
     <string name="duel_seconds">Умирает за %1$.1f с при таком лечении.</string>
@@ -361,4 +358,22 @@
     <string name="wiki_breakpoints">Выстрелов до убийства</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">В упор, все попадания в цель. Столбец на запас здоровья, а не на героя: все с 225 умирают от одного и того же числа. Дуэль решает именно оно, а не урон в секунду — с двух выстрелов или с трёх.</string>
+    <plurals name="build_item_count">
+        <item quantity="one">%1$d предмет</item>
+        <item quantity="few">%1$d предмета</item>
+        <item quantity="many">%1$d предметов</item>
+        <item quantity="other">%1$d предметов</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="one">%1$d выстрел, если он попадает и никто не лечит.</item>
+        <item quantity="few">%1$d выстрела, если все попадают и никто не лечит.</item>
+        <item quantity="many">%1$d выстрелов, если все попадают и никто не лечит.</item>
+        <item quantity="other">%1$d выстрелов, если все попадают и никто не лечит.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="one">%1$d ульта не наносит урона и не показана.</item>
+        <item quantity="few">%1$d ульты не наносят урона и не показаны.</item>
+        <item quantity="many">%1$d ульт не наносят урона и не показаны.</item>
+        <item quantity="other">%1$d ульт не наносят урона и не показаны.</item>
+    </plurals>
 </resources>

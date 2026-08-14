@@ -106,7 +106,6 @@
     <string name="build_clone">複製</string>
     <string name="build_delete">刪除</string>
     <string name="build_none">這位英雄還沒有儲存的配裝。</string>
-    <string name="build_item_count">%1$d 件物品</string>
     <string name="build_cancel">取消</string>
     <string name="build_confirm">儲存</string>
     <string name="about_translators_title">志願翻譯</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">Barlow 與 Barlow Condensed，作者 Jeremy Tribby，Open Font 授權。</string>
     <string name="about_updated">已更新至版本 %1$d。重新啟動應用即可載入。</string>
     <string name="ultimate_damage">%1$s 傷害</string>
-    <string name="ultimate_no_damage">%1$d 個終極技能不造成傷害，已略去。</string>
     <string name="ultimate_footer">依一次施放能造成的傷害排序。終極技能是爆發而非持續射擊，所以這不是每秒傷害。</string>
     <string name="healing_footer">每秒治療量，已計入裝填時間。被治療的隊友並沒有在閃避，所以這是算術而非模擬。</string>
     <string name="ultimate_duration">持續 %1$s 秒</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">能打死。</string>
     <string name="duel_stalemate">打不動。傷害和治療互相抵消。</string>
     <string name="duel_outhealed">打不死。一直打下去也不會變。</string>
-    <string name="duel_shots">%1$d 發，前提是全中且沒有治療。</string>
     <string name="duel_shots_head">%1$d 發，爆頭則 %2$d 發，前提是全中且沒有治療。</string>
     <string name="duel_rates">每秒 %1$d 傷害對 %2$d 治療。</string>
     <string name="duel_seconds">面對這份治療，%1$.1f 秒後死亡。</string>
@@ -361,4 +358,13 @@
     <string name="wiki_breakpoints">擊殺所需槍數</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">貼臉、全部命中的情況。按血量分欄而不是按英雄，因為 225 血的都死在同一個數上。決定一次對槍的是這個數字，不是每秒傷害：兩發倒還是三發倒。</string>
+    <plurals name="build_item_count">
+        <item quantity="other">%1$d 件物品</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="other">%1$d 發，前提是全中且沒有治療。</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="other">%1$d 個終極技能不造成傷害，已略去。</item>
+    </plurals>
 </resources>

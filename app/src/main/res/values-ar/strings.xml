@@ -106,7 +106,6 @@
     <string name="build_clone">تكرار</string>
     <string name="build_delete">حذف</string>
     <string name="build_none">لا توجد تجهيزات محفوظة لهذا البطل بعد.</string>
-    <string name="build_item_count">%1$d عنصر</string>
     <string name="build_cancel">إلغاء</string>
     <string name="build_confirm">حفظ</string>
     <string name="about_translators_title">مترجمون متطوعون</string>
@@ -204,7 +203,6 @@
     <string name="about_fonts">خطا Barlow وBarlow Condensed من تصميم Jeremy Tribby، برخصة Open Font.</string>
     <string name="about_updated">جرى التحديث إلى الإصدار %1$d. أعد تشغيل التطبيق لتحميله.</string>
     <string name="ultimate_damage">ضرر %1$s</string>
-    <string name="ultimate_no_damage">%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.</string>
     <string name="ultimate_footer">مرتّبة حسب الضرر الذي تُحدثه استخدامة واحدة. القدرة النهائية دفعة مفاجئة لا إطلاقًا متواصلًا، فهذا ليس رقم ضرر في الثانية.</string>
     <string name="healing_footer">الشفاء في الثانية، مع احتساب إعادة التعبئة. الحليف الذي يُشفى لا يتفادى شيئًا، فهذا حساب لا محاكاة.</string>
     <string name="ultimate_duration">على مدى %1$s ث</string>
@@ -352,7 +350,6 @@
     <string name="duel_kills">يموت.</string>
     <string name="duel_stalemate">لا شيء يحسم. الضرر والشفاء يلغي أحدهما الآخر.</string>
     <string name="duel_outhealed">لا يموت. الاستمرار في إطلاق النار لن يغيّر ذلك.</string>
-    <string name="duel_shots">%1$d طلقة، إن أصابت كلها ولم يعالجه أحد.</string>
     <string name="duel_shots_head">%1$d طلقة، أو %2$d في الرأس، إن أصابت كلها ولم يعالجه أحد.</string>
     <string name="duel_rates">%1$d ضرر في الثانية مقابل %2$d شفاء.</string>
     <string name="duel_seconds">يموت خلال %1$.1f ثانية أمام هذا الشفاء.</string>
@@ -361,4 +358,28 @@
     <string name="wiki_breakpoints">طلقات حتى القتل</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">من مسافة لاصقة، وكل الطلقات تصيب. عمود لكل قدر من الصحة لا لكل بطل، لأن كل من لديه 225 يسقط بالعدد نفسه. هذا هو الرقم الذي يحسم المبارزة، لا الضرر في الثانية: أيسقط بطلقتين أم بثلاث.</string>
+    <plurals name="build_item_count">
+        <item quantity="zero">العناصر: %1$d</item>
+        <item quantity="one">العناصر: %1$d</item>
+        <item quantity="two">العناصر: %1$d</item>
+        <item quantity="few">العناصر: %1$d</item>
+        <item quantity="many">العناصر: %1$d</item>
+        <item quantity="other">العناصر: %1$d</item>
+    </plurals>
+    <plurals name="duel_shots">
+        <item quantity="zero">الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.</item>
+        <item quantity="one">الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.</item>
+        <item quantity="two">الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.</item>
+        <item quantity="few">الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.</item>
+        <item quantity="many">الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.</item>
+        <item quantity="other">الطلقات: %1$d، إن أصابت كلها ولم يعالجه أحد.</item>
+    </plurals>
+    <plurals name="ultimate_no_damage">
+        <item quantity="zero">%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.</item>
+        <item quantity="one">%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.</item>
+        <item quantity="two">%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.</item>
+        <item quantity="few">%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.</item>
+        <item quantity="many">%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.</item>
+        <item quantity="other">%1$d من القدرات النهائية لا تُحدث ضررًا، وقد استُبعدت.</item>
+    </plurals>
 </resources>
