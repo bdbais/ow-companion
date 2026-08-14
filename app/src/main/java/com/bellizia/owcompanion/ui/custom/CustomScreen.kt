@@ -106,7 +106,7 @@ fun CustomScreen(
                         ) {
                             state.weaponsForHero.forEach { weapon ->
                                 Chip(
-                                    label = weapon.name,
+                                    label = localised(weapon.name),
                                     selected = weapon.name == state.selectedWeapon,
                                     onClick = { viewModel.selectWeapon(weapon.name) },
                                 )

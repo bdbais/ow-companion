@@ -298,8 +298,8 @@ private fun UltimateList(state: LeaderboardUiState) {
             val color = parseHeroColor(entry.hero?.color, MaterialTheme.colorScheme.primary)
             RankRow(
                 rank = entry.rank,
-                hero = entry.ultimate.hero,
-                subtitle = entry.ultimate.name,
+                hero = localised(entry.ultimate.hero),
+                subtitle = localised(entry.ultimate.name),
                 detail = buildString {
                     entry.ultimate.detail?.let { append(it) }
                     entry.ultimate.duration?.let {
@@ -391,8 +391,8 @@ private fun HealingList(state: LeaderboardUiState) {
             val color = parseHeroColor(entry.hero?.color, MaterialTheme.colorScheme.primary)
             RankRow(
                 rank = entry.rank,
-                hero = entry.source.hero,
-                subtitle = entry.source.name,
+                hero = localised(entry.source.hero),
+                subtitle = localised(entry.source.name),
                 detail = entry.source.detail.orEmpty(),
                 value = "%.0f".format(entry.healingPerSecond),
                 unit = "hps",
@@ -518,13 +518,13 @@ private fun LeaderboardCard(entry: LeaderboardEntry) {
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = peak.spec.hero,
+                    text = localised(peak.spec.hero),
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Text(
-                    text = peak.spec.name,
+                    text = localised(peak.spec.name),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     maxLines = 1,

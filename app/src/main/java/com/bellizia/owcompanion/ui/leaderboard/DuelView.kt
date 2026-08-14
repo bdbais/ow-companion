@@ -25,6 +25,7 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.sim.Breakpoints
 import com.bellizia.owcompanion.sim.Crosshair
 import com.bellizia.owcompanion.sim.SelfHeal
@@ -137,7 +138,7 @@ internal fun DuelView(state: LeaderboardUiState) {
                             selected = index == attacker,
                             onClick = { attacker = index },
                             label = {
-                                Text("${option.hero} · ${option.name}", style = MaterialTheme.typography.labelSmall)
+                                Text("${localised(option.hero)} · ${localised(option.name)}", style = MaterialTheme.typography.labelSmall)
                             },
                         )
                     }
@@ -151,7 +152,7 @@ internal fun DuelView(state: LeaderboardUiState) {
                             // index would silently point at somebody else's ability.
                             onClick = { target = index; healer = 0 },
                             label = {
-                                Text("${option.name} · ${option.total}", style = MaterialTheme.typography.labelSmall)
+                                Text("${localised(option.name)} · ${option.total}", style = MaterialTheme.typography.labelSmall)
                             },
                         )
                     }
@@ -231,7 +232,7 @@ internal fun DuelView(state: LeaderboardUiState) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(row.weapon.hero, style = MaterialTheme.typography.titleSmall)
                         Text(
-                            text = row.weapon.name,
+                            text = localised(row.weapon.name),
                             style = MaterialTheme.typography.labelSmall,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
