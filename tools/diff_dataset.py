@@ -18,6 +18,19 @@ from pathlib import Path
 # (dpsPeriodAdd) or descriptive (mousebutton), and reporting it would only add noise.
 WEAPON_FIELDS = ("fireRate", "ammo", "reloadTime", "spread", "velocity", "pellets", "critFactor")
 
+# Fields that only some kinds of row carry, compared when either side has one. A cooldown is
+# every bit the balance change a damage figure is - a patch moved one from seven seconds to
+# eight and this said nothing, because nothing here had ever read a cooldown.
+EXTRA_FIELDS = (
+    "healPerSecond",
+    "healPerShot",
+    "cooldown",
+    "damagePerSecond",
+    "castTime",
+    "duration",
+    "detail",
+)
+
 
 def load(path: Path) -> dict:
     with path.open(encoding="utf-8") as handle:
@@ -110,11 +123,31 @@ def compare_rows(old: list[dict], new: list[dict], label: str, lines: list[str])
         if changed(old_max, new_max):
             lines.append(f"~ {hero} - {name}: max range {number(old_max)} -> {number(new_max)}")
 
-        for field in WEAPON_FIELDS + ("healPerSecond", "healPerShot"):
+        for field in WEAPON_FIELDS + EXTRA_FIELDS:
             if field in was or field in now:
                 a, b = was.get(field), now.get(field)
                 if changed(a, b):
                     lines.append(f"~ {hero} - {name}: {field} {number(a)} -> {number(b)}")
+
+
+def abilities_of(data: dict) -> list[dict]:
+    """Every hero's abilities, flattened so they can be compared like anything else.
+
+    They live inside each hero rather than in a list of their own, which is why nothing was
+    reading them: a regeneration that gave a new hero's ability a damage figure for the first
+    time reported "No change", because an ability is neither a weapon nor an ultimate.
+
+    Perks are folded in from `extraAbilities` and marked as such, so a perk and an ability
+    that share a name do not overwrite one another.
+    """
+    rows: list[dict] = []
+    for hero in data.get("wiki", []):
+        name = hero.get("name", "")
+        for ability in hero.get("abilities") or []:
+            rows.append({**ability, "hero": name, "kind": "ability"})
+        for extra in hero.get("extraAbilities") or []:
+            rows.append({**extra, "hero": name, "kind": extra.get("kind") or "extra"})
+    return rows
 
 
 def compare(old: dict, new: dict) -> list[str]:
@@ -139,6 +172,7 @@ def compare(old: dict, new: dict) -> list[str]:
     compare_rows(old.get("weapons", []), new.get("weapons", []), "weapon", lines)
     compare_rows(old.get("ultimates", []), new.get("ultimates", []), "ultimate", lines)
     compare_rows(old.get("healing", []), new.get("healing", []), "healing", lines)
+    compare_rows(abilities_of(old), abilities_of(new), "ability", lines)
 
     def patch_count(data: dict) -> int:
         return sum(len(hero.get("patches", [])) for hero in data.get("wiki", []))
@@ -160,13 +194,13 @@ def main() -> int:
     lines = compare(load(Path(args[0])), load(Path(args[1])))
 
     if not lines:
-        # Deliberately specific: this compares weapons, ultimates, healing, hero stats and
-        # the patch count. Match-ups, perks and the wiki prose are not read here, so saying
-        # "identical" flatly would claim more than was checked.
+        # Deliberately specific, and said the same way in both modes: this compares weapons,
+        # ultimates, healing, abilities, hero stats and the patch count. Match-ups and the
+        # wiki prose are not read here, so a flat "identical" would claim more than was
+        # checked. The short version of that sentence used to be the plain-text one, and it
+        # is exactly how a regeneration that changed an ability passed for a no-op.
         print(
-            "No change."
-            if not markdown
-            else "No change to weapons, ultimates, healing, hero stats or patch counts."
+            "No change to weapons, ultimates, healing, abilities, hero stats or patch counts."
         )
         return 0
 
