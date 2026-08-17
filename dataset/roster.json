@@ -54,7 +54,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/9240cd64cc8ef58df9acbf55204ab1b5d8578f743fda5931f0dbccbd75ab841b.png",
    "wikiTitle": "Cassidy",
-   "wikiBytes": 99300
+   "wikiBytes": 98572
   },
   {
    "key": "dmon",
@@ -62,7 +62,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a46c60b8562fdbd0b8308396d0808f7606fba208bc67cccf3f82fe56d2c73b9d.png",
    "wikiTitle": "D.Mon",
-   "wikiBytes": 12445
+   "wikiBytes": 14548
   },
   {
    "key": "domina",
@@ -70,7 +70,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1161c112292c56c052c0ae711792fcde06e3251b98bc9709e582dd7585b5dcd6.png",
    "wikiTitle": "Domina",
-   "wikiBytes": 37330
+   "wikiBytes": 37262
   },
   {
    "key": "doomfist",
@@ -150,7 +150,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/03a184cd0de27091e0099ac22635ad9615a8f6997881a5c25cc5f2444764f729.png",
    "wikiTitle": "Jetpack Cat",
-   "wikiBytes": 57516
+   "wikiBytes": 58600
   },
   {
    "key": "junker-queen",
@@ -294,7 +294,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/070481cf871590a2b45a51d1335f9fe3d65eb4e4d361ecdd998b34fae2ed65d5.png",
    "wikiTitle": "Shion",
-   "wikiBytes": 28859
+   "wikiBytes": 28850
   },
   {
    "key": "sierra",
@@ -302,7 +302,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/4bfd3d8b95844231115cb5bf4db03344c71bc3e865189c52403b2dc51438e63a.png",
    "wikiTitle": "Sierra",
-   "wikiBytes": 25732
+   "wikiBytes": 25698
   },
   {
    "key": "sigma",

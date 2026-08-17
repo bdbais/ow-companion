@@ -205,7 +205,7 @@
   },
   {
    "hero": "Cassidy",
-   "name": "Bang Bang",
+   "name": "Two Flashbangs",
    "kind": "perk",
    "damage": 75.0,
    "damagePerSecond": null,
@@ -273,12 +273,12 @@
    "hero": "D.Mon",
    "name": "Focused Fusion",
    "kind": "perk",
-   "damage": 15.0,
+   "damage": 16.0,
    "damagePerSecond": null,
    "cooldown": null,
    "castTime": null,
    "lines": [
-    "15 → 42"
+    "16 → 45"
    ],
    "uncertain": false
   },
@@ -619,19 +619,6 @@
    "castTime": null,
    "lines": [
     "30"
-   ],
-   "uncertain": false
-  },
-  {
-   "hero": "Jetpack Cat",
-   "name": "Headbutt",
-   "kind": "perk",
-   "damage": 50.0,
-   "damagePerSecond": null,
-   "cooldown": null,
-   "castTime": null,
-   "lines": [
-    "50"
    ],
    "uncertain": false
   },

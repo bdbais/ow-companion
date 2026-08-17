@@ -146,27 +146,27 @@
   },
   {
    "hero": "Cassidy",
-   "name": "Bang Bang",
+   "name": "Two Flashbangs",
    "tier": "minor",
-   "description": "Cassidy throws a second Flashbang that travels farther, but both Flashbangs deal 40% reduced damage."
+   "description": "Cassidy throws a second Flashbang"
   },
   {
    "hero": "Cassidy",
    "name": "Giddy Up",
    "tier": "minor",
-   "description": "After using Combat Roll, Cassidy gains a 60% movement speed boost that decays over 1.5 seconds."
+   "description": "Roll and move faster"
   },
   {
    "hero": "Cassidy",
    "name": "Rollin' Round-Up",
    "tier": "major",
-   "description": "Combat Roll also heals 15 health for each bullet reloaded."
+   "description": "Roll and Heal"
   },
   {
    "hero": "Cassidy",
    "name": "Silver Bullet",
    "tier": "major",
-   "description": "Peacekeeper's secondary fire is replaced with a piercing shot that inflicts bleeding. Combat Roll and Deadeye reset its cooldown."
+   "description": "Hold right click... Shoot"
   },
   {
    "hero": "D.Mon",
@@ -446,9 +446,9 @@
   },
   {
    "hero": "Jetpack Cat",
-   "name": "Headbutt",
+   "name": "Purrfect Form",
    "tier": "major",
-   "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough, dealing 50 damage on impact."
+   "description": "Each pulse of Purr contains 3 waves."
   },
   {
    "hero": "Jetpack Cat",
