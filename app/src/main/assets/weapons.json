@@ -1244,7 +1244,7 @@
    "dpsPeriodAdd": 0.0
   },
   {
-   "name": "Peacekeeper",
+   "name": "Gun",
    "hero": "Cassidy",
    "perk": null,
    "baseWeapon": null,
@@ -1275,7 +1275,7 @@
    "dpsPeriodAdd": 0.25
   },
   {
-   "name": "Fan the Hammer",
+   "name": "Same Gun",
    "hero": "Cassidy",
    "perk": null,
    "baseWeapon": null,
@@ -5025,14 +5025,14 @@
   },
   {
    "hero": "Cassidy",
-   "name": "Deadeye",
+   "name": "Emote",
    "damage": 600.0,
    "sustained": true,
    "unrankable": false,
    "detail": "150 per second (during warning) / 300 per second (remaining duration)",
    "duration": 2.0,
    "radius": null,
-   "description": "Face off against your enemies. Press {{key|ultimate}} to lock on, then {{key|ultimate}} or {{key|primary fire}} to fire."
+   "description": "Stand... Shoot"
   },
   {
    "hero": "D.Mon",

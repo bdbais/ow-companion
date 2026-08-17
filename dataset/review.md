@@ -10,7 +10,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 { "weapons": { "Ana|Biotic Rifle": { "fireRate": 1.25, "reviewed": true } } }
 ```
 
-## Field-level warnings on weapons that are otherwise usable (69)
+## Field-level warnings on weapons that are otherwise usable (67)
 
 - **Anran — Zhuque Fans** `damage`: derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet — `22 (per shot)`
 - **Anran — Fan the Flames** `beam`: beam weapons need their tick rate filled in by hand
@@ -18,8 +18,6 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Baptiste — Biotic Launcher Alt Fire** `required`: missing damage
 - **Bastion — Configuration: Assault (Lindholm Explosives)** `damage`: derived from the wiki's stated 186 dps: 50.0 -> 140.0 per pellet — `50 (direct hit bonus)`
 - **Brigitte — Rocket Flail** `damage`: derived from the wiki's stated 75 dps: 45.0 -> 75.0 per pellet — `45`
-- **D.Mon — Plasma Saber** `required`: missing fireRate
-- **D.Mon — Portable Fusion Repeater** `required`: missing fireRate
 - **Domina — Photon Magnum** `damage`: damage is stated as a rate, not per shot — `60 (over time)`
 - **Domina — Photon Magnum** `beam`: beam weapons need their tick rate filled in by hand
 - **Domina — Photon Magnum** `required`: missing damage, fireRate

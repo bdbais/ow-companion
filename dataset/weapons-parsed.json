@@ -359,7 +359,7 @@
    "complete": true
   },
   {
-   "name": "Peacekeeper",
+   "name": "Gun",
    "hero": "Cassidy",
    "perk": null,
    "baseWeapon": null,
@@ -391,7 +391,7 @@
    "complete": true
   },
   {
-   "name": "Fan the Hammer",
+   "name": "Same Gun",
    "hero": "Cassidy",
    "perk": null,
    "baseWeapon": null,
@@ -443,14 +443,14 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": null,
-   "shotTime": null,
+   "fireRate": 2.0,
+   "shotTime": 0.5,
    "ammo": null,
    "reloadTime": null,
    "critFactor": 2.0,
-   "dpsPeriodBase": null,
+   "dpsPeriodBase": 0.5,
    "dpsPeriodAdd": 0.0,
-   "complete": false
+   "complete": true
   },
   {
    "name": "Portable Fusion Repeater",
@@ -467,18 +467,21 @@
     "dpshot": [
      12.0
     ],
-    "falloff": null
+    "falloff": [
+     30.0,
+     40.0
+    ]
    },
    "spread": null,
    "velocity": null,
-   "fireRate": null,
-   "shotTime": null,
+   "fireRate": 8.0,
+   "shotTime": 0.125,
    "ammo": 30.0,
    "reloadTime": null,
    "critFactor": 2.0,
-   "dpsPeriodBase": null,
+   "dpsPeriodBase": 0.125,
    "dpsPeriodAdd": 0.0,
-   "complete": false
+   "complete": true
   },
   {
    "name": "Photon Magnum",

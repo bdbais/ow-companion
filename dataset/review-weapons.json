@@ -43,20 +43,6 @@
    "raw": "45"
   },
   {
-   "hero": "D.Mon",
-   "weapon": "Plasma Saber",
-   "field": "required",
-   "reason": "missing fireRate",
-   "raw": ""
-  },
-  {
-   "hero": "D.Mon",
-   "weapon": "Portable Fusion Repeater",
-   "field": "required",
-   "reason": "missing fireRate",
-   "raw": ""
-  },
-  {
    "hero": "Domina",
    "weapon": "Photon Magnum",
    "field": "damage",

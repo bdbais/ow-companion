@@ -7765,7 +7765,7 @@
     },
     {
      "hero": "Cassidy",
-     "name": "Bang Bang",
+     "name": "Two Flashbangs",
      "kind": "perk",
      "damage": 75.0,
      "damagePerSecond": null,
@@ -7795,24 +7795,24 @@
    "heroNumber": null,
    "perks": [
     {
-     "name": "Bang Bang",
+     "name": "Two Flashbangs",
      "tier": "minor",
-     "description": "Cassidy throws a second Flashbang that travels farther, but both Flashbangs deal 40% reduced damage."
+     "description": "Cassidy throws a second Flashbang"
     },
     {
      "name": "Giddy Up",
      "tier": "minor",
-     "description": "After using Combat Roll, Cassidy gains a 60% movement speed boost that decays over 1.5 seconds."
+     "description": "Roll and move faster"
     },
     {
      "name": "Rollin' Round-Up",
      "tier": "major",
-     "description": "Combat Roll also heals 15 health for each bullet reloaded."
+     "description": "Roll and Heal"
     },
     {
      "name": "Silver Bullet",
      "tier": "major",
-     "description": "Peacekeeper's secondary fire is replaced with a piercing shot that inflicts bleeding. Combat Roll and Deadeye reset its cooldown."
+     "description": "Hold right click... Shoot"
     }
    ],
    "patches": [
@@ -9721,12 +9721,12 @@
      "hero": "D.Mon",
      "name": "Focused Fusion",
      "kind": "perk",
-     "damage": 15.0,
+     "damage": 16.0,
      "damagePerSecond": null,
      "cooldown": null,
      "castTime": null,
      "lines": [
-      "15 → 42"
+      "16 → 45"
      ],
      "uncertain": false
     }
@@ -9755,7 +9755,166 @@
      "description": "Fusion Repeater fires stronger shots with no spread at a slower rate"
     }
    ],
-   "patches": [],
+   "patches": [
+    {
+     "date": "2026-08-14",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed a bug with Portable Fusion Repeater that could result in hits failing to register."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed a bug with Limit Break not correctly granting Overhealth for targets hit."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed in a previous update - Resolved an issue that prevented Overhealth from being applied when Limit Break was activated."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed a bug where Toggle Propulsors did not work on console platforms."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed an issue with being damaged from the front with while Power Barrier was deployed."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Adjusted the height of the mech head hitbox to be more flush with the model."
+      },
+      {
+       "ability": "Surging Strike",
+       "text": "Cast Time reduced from 0.15 to 0.05 seconds."
+      },
+      {
+       "ability": "Surging Strike",
+       "text": "Recovery reduced from 0.25 to 0.15 seconds."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Cast Time reduced from 0.3 to 0.2 seconds."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Recovery Time reduced from 0.5 to 0.2 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Surging Strike",
+       "stat": "Cast Time",
+       "from": 0.15,
+       "to": 0.05,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Surging Strike",
+       "stat": "Recovery",
+       "from": 0.25,
+       "to": 0.15,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Cast Time",
+       "from": 0.3,
+       "to": 0.2,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Recovery Time",
+       "from": 0.5,
+       "to": 0.2,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
+     "date": "2026-08-12",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Plasma Saber",
+       "text": "Damage increased from 60 to 65."
+      },
+      {
+       "ability": "Propulsors",
+       "text": "Fuel drain rate reduced from 40 to 25."
+      },
+      {
+       "ability": "Propulsors",
+       "text": "Fuel regen rate increased from 15 to 22.5."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Damage increased from 15 to 16."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Cooldown reduced from 6 to 4 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Plasma Saber",
+       "stat": "Damage",
+       "from": 60.0,
+       "to": 65.0,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Propulsors",
+       "stat": "Fuel drain rate",
+       "from": 40.0,
+       "to": 25.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Damage",
+       "from": 15.0,
+       "to": 16.0,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Cooldown",
+       "from": 6.0,
+       "to": 4.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Hero Updates",
+       "text": "Roster Updates"
+      },
+      {
+       "ability": "Hero Updates",
+       "text": "Added D.Mon to the Tank roster (Subrole: Stalwart)."
+      }
+     ],
+     "stats": [],
+     "comments": []
+    }
+   ],
    "matchups": []
   },
   {
@@ -20773,19 +20932,6 @@
    "extraAbilities": [
     {
      "hero": "Jetpack Cat",
-     "name": "Headbutt",
-     "kind": "perk",
-     "damage": 50.0,
-     "damagePerSecond": null,
-     "cooldown": null,
-     "castTime": null,
-     "lines": [
-      "50"
-     ],
-     "uncertain": false
-    },
-    {
-     "hero": "Jetpack Cat",
      "name": "Claws Out",
      "kind": "perk",
      "damage": 40.0,
@@ -20812,9 +20958,9 @@
      "description": "Gain up to 50 shield health while carrying another hero."
     },
     {
-     "name": "Headbutt",
+     "name": "Purrfect Form",
      "tier": "major",
-     "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough, dealing 50 damage on impact."
+     "description": "Each pulse of Purr contains 3 waves."
     },
     {
      "name": "Claws Out",
@@ -20823,6 +20969,94 @@
     }
    ],
    "patches": [
+    {
+     "date": "2026-08-14",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "General",
+       "text": "Base movement speed reduced from 6 to 5.5 meters per second."
+      },
+      {
+       "ability": "Purr",
+       "text": "Self healing penalty increased from 25% to 40%."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "General",
+       "stat": "Base movement speed",
+       "from": 6.0,
+       "to": 5.5,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Purr",
+       "stat": "Self healing penalty",
+       "from": 25.0,
+       "to": 40.0,
+       "unit": "%",
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "General",
+       "text": "Ultimate cost increased by 7%."
+      },
+      {
+       "ability": "General",
+       "text": "Base movement speed increased from 5.5 to 6 meters per second."
+      },
+      {
+       "ability": "General",
+       "text": "Air acceleration increased from 7.7 to 9.5."
+      },
+      {
+       "ability": "Headbutt (Major Perk)",
+       "text": "Removed."
+      },
+      {
+       "ability": "Purrfect Form (Major Perk)",
+       "text": "New"
+      },
+      {
+       "ability": "Purrfect Form (Major Perk)",
+       "text": "Each pulse of Purr contains 3 waves."
+      },
+      {
+       "ability": "Lifeline",
+       "text": "Movement speed bonus reduced from 40% to 30%."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "General",
+       "stat": "Base movement speed",
+       "from": 5.5,
+       "to": 6.0,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Lifeline",
+       "stat": "Movement speed bonus",
+       "from": 40.0,
+       "to": 30.0,
+       "unit": "%",
+       "direction": "nerf"
+      }
+     ],
+     "comments": [
+      "These changes are intended to make Jetpack Cat's movement more responsive while keeping Lifeline movement speeds similar to before. Frenetic Flight movement speeds remain unchanged."
+     ]
+    },
     {
      "date": "2026-06-16",
      "mode": "owpvp",
