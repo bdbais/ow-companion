@@ -278,7 +278,7 @@
     <string name="comics_read">Read</string>
     <string name="comics_make">Make one</string>
     <string name="comics_official_title">The official comics</string>
-    <string name="comics_official_body">Blizzard publish the comics and short stories on their own site. This opens the gallery there, in your language where the story exists in it.</string>
+    <string name="comics_official_body">Blizzard publish the comics on their own site. This opens their gallery straight at the comics, in your language where the story exists in it. Each one can be read on the page or downloaded as a PDF, and a few also link to a narrated version on YouTube.</string>
     <string name="comics_official_english">Blizzard don\'t publish the stories in this language, so the gallery opens in English.</string>
     <string name="comics_official_open">Open the gallery</string>
     <string name="comics_official_note">Nothing is copied into this app. The stories are Blizzard\'s, and the honest thing a fan project can do is point at them rather than keep its own out-of-date list.</string>

@@ -241,7 +241,7 @@
     <string name="comics_read">اقرأ</string>
     <string name="comics_make">اصنع واحدة</string>
     <string name="comics_official_title">القصص المصورة الرسمية</string>
-    <string name="comics_official_body">تنشر Blizzard القصص المصورة والقصص القصيرة على موقعها. هذا يفتح المعرض هناك، بلغتك إن كانت القصة متوفرة بها.</string>
+    <string name="comics_official_body">تنشر Blizzard القصص المصورة على موقعها. هذا يفتح معرضها مباشرة عند القصص المصورة، بلغتك إن كانت القصة متوفرة بها. يمكن قراءة كل واحدة على الصفحة أو تنزيلها بصيغة PDF، وبعضها يقود أيضاً إلى نسخة مروية على YouTube.</string>
     <string name="comics_official_english">لا تنشر Blizzard القصص بهذه اللغة، لذا يُفتح المعرض بالإنجليزية.</string>
     <string name="comics_official_open">افتح المعرض</string>
     <string name="comics_official_note">لا شيء منسوخ هنا. القصص ملك لـ Blizzard، والأمر النزيه الذي يمكن لمشروع من المعجبين فعله هو الإشارة إليها بدل الاحتفاظ بقائمة خاصة تتقادم.</string>

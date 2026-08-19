@@ -241,7 +241,7 @@
     <string name="comics_read">Läs</string>
     <string name="comics_make">Gör en</string>
     <string name="comics_official_title">De officiella serierna</string>
-    <string name="comics_official_body">Blizzard publicerar serierna och novellerna på sin egen sajt. Det här öppnar galleriet där, på ditt språk när berättelsen finns på det.</string>
+    <string name="comics_official_body">Blizzard publicerar serierna på sin egen sajt. Det här öppnar deras galleri direkt på serierna, på ditt språk när berättelsen finns på det. Var och en går att läsa på sidan eller ladda ner som PDF, och några länkar dessutom till en uppläst version på YouTube.</string>
     <string name="comics_official_english">Blizzard publicerar inte berättelserna på det här språket, så galleriet öppnas på engelska.</string>
     <string name="comics_official_open">Öppna galleriet</string>
     <string name="comics_official_note">Inget är kopierat hit in. Berättelserna är Blizzards, och det ärliga ett fanprojekt kan göra är att peka på dem i stället för att hålla en egen lista som åldras.</string>

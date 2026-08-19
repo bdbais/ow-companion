@@ -241,7 +241,7 @@
     <string name="comics_read">Читать</string>
     <string name="comics_make">Создать свой</string>
     <string name="comics_official_title">Официальные комиксы</string>
-    <string name="comics_official_body">Blizzard публикует комиксы и рассказы на своём сайте. Отсюда открывается их галерея — на вашем языке, если история на нём существует.</string>
+    <string name="comics_official_body">Blizzard публикует комиксы на своём сайте. Отсюда их галерея открывается сразу на комиксах — на вашем языке, если история на нём существует. Каждый можно прочитать на странице или скачать в PDF, а некоторые ведут ещё и к озвученной версии на YouTube.</string>
     <string name="comics_official_english">Blizzard не публикует истории на этом языке, поэтому галерея откроется на английском.</string>
     <string name="comics_official_open">Открыть галерею</string>
     <string name="comics_official_note">Здесь ничего не скопировано. Истории принадлежат Blizzard, и честное, что может сделать фанатский проект, — указать на них, а не держать свой список, который устареет.</string>

@@ -10,11 +10,15 @@ import com.bellizia.owcompanion.data.NamesRepository
  * thing to do with them is send people to the source rather than copy it - which is also the
  * only reading of the Fan Content Policy that a fan project should be relying on.
  *
- * The gallery is the only address worth linking. There is no per-category landing page:
- * `/media/comics/` and `/media/comic/` both answer 404, and the filters on the gallery are
- * applied in the page rather than in the URL. Individual stories do have stable addresses,
- * but a bundled list of them is a list that goes stale, and a comics section that quietly
- * stops matching what Blizzard publish is worse than one that always opens the real thing.
+ * The gallery is the only address worth linking. There is no per-category landing page -
+ * `/media/comics/` and `/media/comic/` both answer 404 - but the gallery does read a
+ * `#tab=` fragment, and that matters: opened plain it lists everything, and everything is
+ * 470 screenshots against 130 comics, so somebody who asked for comics lands in a wall of
+ * wallpapers. With the fragment the page opens on the comics and shows nothing else.
+ *
+ * Individual stories have stable addresses too, but a bundled list of them is a list that
+ * goes stale, and a comics section that quietly stops matching what Blizzard publish is
+ * worse than one that always opens the real thing.
  */
 object OfficialComics {
 
@@ -41,11 +45,20 @@ object OfficialComics {
 
     private const val FALLBACK = "en-us"
 
+    /**
+     * Selects the gallery's comics tab.
+     *
+     * Read by the page's own script rather than by the server, which is the good case here:
+     * if Blizzard ever rename it, the page still loads and simply shows everything, where a
+     * made-up path would have given a 404.
+     */
+    private const val COMICS_TAB = "#tab=comics"
+
     /** Whether Blizzard publish the stories in this reader's language at all. */
     fun published(locale: Locale): Boolean = NamesRepository.key(locale) in LOCALES
 
     fun gallery(locale: Locale): String {
         val tag = LOCALES[NamesRepository.key(locale)] ?: FALLBACK
-        return "https://overwatch.blizzard.com/$tag/media/"
+        return "https://overwatch.blizzard.com/$tag/media/$COMICS_TAB"
     }
 }

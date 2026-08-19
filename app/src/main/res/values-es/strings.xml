@@ -241,7 +241,7 @@
     <string name="comics_read">Leer</string>
     <string name="comics_make">Crear uno</string>
     <string name="comics_official_title">Los cómics oficiales</string>
-    <string name="comics_official_body">Blizzard publica los cómics y los relatos en su propio sitio. Esto abre la galería allí, en tu idioma cuando la historia también existe en él.</string>
+    <string name="comics_official_body">Blizzard publica los cómics en su propio sitio. Esto abre su galería directamente en los cómics, en tu idioma cuando la historia también existe en él. Cada uno se lee en la página o se descarga en PDF, y algunos enlazan además a una versión narrada en YouTube.</string>
     <string name="comics_official_english">Blizzard no publica los relatos en este idioma, así que la galería se abre en inglés.</string>
     <string name="comics_official_open">Abrir la galería</string>
     <string name="comics_official_note">Aquí dentro no se copia nada. Las historias son de Blizzard, y lo honesto que puede hacer un proyecto de fans es señalarlas en vez de mantener su propia lista que envejece.</string>

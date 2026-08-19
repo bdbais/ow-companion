@@ -241,7 +241,7 @@
     <string name="comics_read">阅读</string>
     <string name="comics_make">自己做一个</string>
     <string name="comics_official_title">官方漫画</string>
-    <string name="comics_official_body">漫画和短篇故事发布在暴雪自己的网站上。这里会打开那个图库，如果该语言版本存在，就用你的语言显示。</string>
+    <string name="comics_official_body">漫画发布在暴雪自己的网站上。这里会直接打开他们图库的漫画分类，如果该语言版本存在，就用你的语言显示。每篇都能在页面上阅读或下载 PDF，少数还会链接到 YouTube 上的朗读版。</string>
     <string name="comics_official_english">暴雪没有以这种语言发布这些故事，所以图库会以英语打开。</string>
     <string name="comics_official_open">打开图库</string>
     <string name="comics_official_note">这里没有复制任何内容。故事属于暴雪，一个粉丝项目能做的诚实之事，是指向它们，而不是自己维护一份会过时的清单。</string>

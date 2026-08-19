@@ -241,7 +241,7 @@
     <string name="comics_read">읽기</string>
     <string name="comics_make">만들기</string>
     <string name="comics_official_title">공식 만화</string>
-    <string name="comics_official_body">만화와 단편은 블리자드 공식 사이트에 실려 있습니다. 여기서 그 갤러리를 엽니다. 해당 언어판이 있으면 여러분의 언어로 열립니다.</string>
+    <string name="comics_official_body">만화는 블리자드 공식 사이트에 실려 있습니다. 여기서 그 갤러리를 만화 목록으로 바로 엽니다. 해당 언어판이 있으면 여러분의 언어로 열립니다. 각 작품은 페이지에서 읽거나 PDF로 받을 수 있고, 일부는 유튜브의 내레이션 버전으로도 이어집니다.</string>
     <string name="comics_official_english">이 언어로는 이야기가 공개되지 않아 갤러리가 영어로 열립니다.</string>
     <string name="comics_official_open">갤러리 열기</string>
     <string name="comics_official_note">여기에는 아무것도 복제하지 않았습니다. 이야기는 블리자드의 것이고, 팬 프로젝트가 정직하게 할 수 있는 일은 낡아가는 자체 목록을 두는 대신 그쪽을 가리키는 것입니다.</string>

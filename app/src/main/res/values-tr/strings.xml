@@ -241,7 +241,7 @@
     <string name="comics_read">Oku</string>
     <string name="comics_make">Kendin yap</string>
     <string name="comics_official_title">Resmi çizgi romanlar</string>
-    <string name="comics_official_body">Blizzard çizgi romanları ve öyküleri kendi sitesinde yayımlıyor. Bu, oradaki galeriyi açar; öykü o dilde varsa senin dilinde açılır.</string>
+    <string name="comics_official_body">Blizzard çizgi romanları kendi sitesinde yayımlıyor. Bu, galerilerini doğrudan çizgi romanlarda açar; öykü o dilde varsa senin dilinde açılır. Her biri sayfada okunabilir ya da PDF olarak indirilebilir, birkaçı ayrıca YouTube\'daki seslendirilmiş sürüme de bağlanır.</string>
     <string name="comics_official_english">Blizzard öyküleri bu dilde yayımlamıyor, bu yüzden galeri İngilizce açılır.</string>
     <string name="comics_official_open">Galeriyi aç</string>
     <string name="comics_official_note">Burada hiçbir şey kopyalanmadı. Öyküler Blizzard\'ın, ve bir hayran projesinin yapabileceği dürüst şey, eskiyen kendi listesini tutmak yerine onlara işaret etmektir.</string>

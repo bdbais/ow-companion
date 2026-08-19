@@ -241,7 +241,7 @@
     <string name="comics_read">Lire</string>
     <string name="comics_make">En créer une</string>
     <string name="comics_official_title">Les BD officielles</string>
-    <string name="comics_official_body">Blizzard publie les BD et les nouvelles sur son propre site. Ceci ouvre la galerie là-bas, dans votre langue lorsque l\'histoire y existe aussi.</string>
+    <string name="comics_official_body">Blizzard publie les BD sur son propre site. Ceci ouvre leur galerie directement sur les BD, dans votre langue lorsque l\'histoire y existe aussi. Chacune se lit sur la page ou se télécharge en PDF, et quelques-unes renvoient en plus à une version narrée sur YouTube.</string>
     <string name="comics_official_english">Blizzard ne publie pas les histoires dans cette langue, la galerie s\'ouvre donc en anglais.</string>
     <string name="comics_official_open">Ouvrir la galerie</string>
     <string name="comics_official_note">Rien n\'est copié ici. Les histoires appartiennent à Blizzard, et ce qu\'un projet de fans peut faire d\'honnête, c\'est y renvoyer plutôt que de tenir sa propre liste qui vieillit.</string>

@@ -241,7 +241,7 @@
     <string name="comics_read">読む</string>
     <string name="comics_make">作る</string>
     <string name="comics_official_title">公式コミック</string>
-    <string name="comics_official_body">コミックと短編はBlizzardの公式サイトで公開されています。ここからそのギャラリーを開きます。その言語版がある場合はあなたの言語で表示されます。</string>
+    <string name="comics_official_body">コミックはBlizzardの公式サイトで公開されています。ここからそのギャラリーをコミックの一覧で直接開きます。その言語版があればあなたの言語で表示されます。各作品はページ上で読めるほかPDFでも入手でき、一部はYouTubeのナレーション版へのリンクもあります。</string>
     <string name="comics_official_english">この言語ではストーリーが公開されていないため、ギャラリーは英語で開きます。</string>
     <string name="comics_official_open">ギャラリーを開く</string>
     <string name="comics_official_note">ここには何も複製していません。物語はBlizzardのものであり、ファンによる企画が誠実にできることは、古びていく独自の一覧を抱えるのではなく、そちらを指し示すことです。</string>
