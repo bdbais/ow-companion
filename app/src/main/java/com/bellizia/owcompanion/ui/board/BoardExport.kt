@@ -9,13 +9,12 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.pdf.PdfDocument
-import android.media.MediaCodec
-import android.media.MediaCodecInfo
-import android.media.MediaFormat
-import android.media.MediaMuxer
 import android.net.Uri
 import androidx.core.content.FileProvider
 import com.bellizia.owcompanion.data.WikiRepository
+import com.bellizia.owcompanion.ui.common.FrameVideo
+import com.bellizia.owcompanion.ui.common.exportName
+import com.bellizia.owcompanion.ui.common.Portraits
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -55,90 +54,16 @@ object BoardExport {
     /**
      * One clip, each phase held for a couple of seconds.
      *
-     * Encoded a frame at a time rather than through a Surface: at two seconds a phase there
-     * is nothing to gain from the fast path, and this way the same drawing code produces the
-     * video and the PDF, so they cannot drift apart.
+     * The encoder lives in [FrameVideo] because the comic strip wants the identical thing.
+     * What stays here is the only part that is about a board: which frame to draw.
      */
     suspend fun toVideo(context: Context, board: Board): Uri = withContext(Dispatchers.IO) {
         val file = outputFile(context, board, "mp4")
-        val format = MediaFormat.createVideoFormat(MediaFormat.MIMETYPE_VIDEO_AVC, WIDTH, HEIGHT).apply {
-            setInteger(
-                MediaFormat.KEY_COLOR_FORMAT,
-                MediaCodecInfo.CodecCapabilities.COLOR_FormatYUV420Flexible,
-            )
-            setInteger(MediaFormat.KEY_BIT_RATE, 4_000_000)
-            setInteger(MediaFormat.KEY_FRAME_RATE, FRAME_RATE)
-            setInteger(MediaFormat.KEY_I_FRAME_INTERVAL, 1)
+        FrameVideo.write(file, WIDTH, HEIGHT, board.frames.size, FRAME_SECONDS) { canvas, index ->
+            draw(context, canvas, board, board.frames[index], index)
         }
-
-        val codec = MediaCodec.createEncoderByType(MediaFormat.MIMETYPE_VIDEO_AVC)
-        codec.configure(format, null, null, MediaCodec.CONFIGURE_FLAG_ENCODE)
-        codec.start()
-
-        val muxer = MediaMuxer(file.absolutePath, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4)
-        var track = -1
-        var started = false
-        val info = MediaCodec.BufferInfo()
-        var presentation = 0L
-
-        fun drain(endOfStream: Boolean) {
-            while (true) {
-                val index = codec.dequeueOutputBuffer(info, if (endOfStream) 10_000 else 0)
-                when {
-                    index == MediaCodec.INFO_TRY_AGAIN_LATER -> if (!endOfStream) return
-                    index == MediaCodec.INFO_OUTPUT_FORMAT_CHANGED -> {
-                        track = muxer.addTrack(codec.outputFormat)
-                        muxer.start()
-                        started = true
-                    }
-                    index >= 0 -> {
-                        val buffer = codec.getOutputBuffer(index)
-                        if (buffer != null && info.size > 0 && started &&
-                            info.flags and MediaCodec.BUFFER_FLAG_CODEC_CONFIG == 0
-                        ) {
-                            muxer.writeSampleData(track, buffer, info)
-                        }
-                        codec.releaseOutputBuffer(index, false)
-                        if (info.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM != 0) return
-                    }
-                }
-            }
-        }
-
-        val bitmap = Bitmap.createBitmap(WIDTH, HEIGHT, Bitmap.Config.ARGB_8888)
-        board.frames.forEachIndexed { index, frame ->
-            draw(context, Canvas(bitmap), board, frame, index)
-            val yuv = toYuv420(bitmap)
-            repeat(FRAME_SECONDS * FRAME_RATE) {
-                val input = codec.dequeueInputBuffer(10_000)
-                if (input >= 0) {
-                    codec.getInputBuffer(input)?.apply {
-                        clear()
-                        put(yuv)
-                    }
-                    codec.queueInputBuffer(input, 0, yuv.size, presentation, 0)
-                    presentation += 1_000_000L / FRAME_RATE
-                }
-                drain(false)
-            }
-        }
-
-        val input = codec.dequeueInputBuffer(10_000)
-        if (input >= 0) {
-            codec.queueInputBuffer(input, 0, 0, presentation, MediaCodec.BUFFER_FLAG_END_OF_STREAM)
-        }
-        drain(true)
-
-        codec.stop()
-        codec.release()
-        if (started) muxer.stop()
-        muxer.release()
-        bitmap.recycle()
-
         share(context, file)
     }
-
-    private const val FRAME_RATE = 15
 
     /** The one drawing routine, so the page and the video always agree. */
     private fun draw(context: Context, canvas: Canvas, board: Board, frame: Frame, index: Int) {
@@ -207,7 +132,7 @@ object BoardExport {
         frame.tokens.forEach { token ->
             val cx = token.x * WIDTH
             val cy = token.y * HEIGHT
-            portrait(context, token.portrait)?.let { face ->
+            Portraits.of(context, token.portrait)?.let { face ->
                 val clip = canvas.save()
                 canvas.clipRect(cx - TOKEN / 2, cy - TOKEN / 2, cx + TOKEN / 2, cy + TOKEN / 2)
                 canvas.drawBitmap(
@@ -235,62 +160,10 @@ object BoardExport {
         }
     }
 
-    private val faces = mutableMapOf<String, Bitmap?>()
-
-    private fun portrait(context: Context, name: String?): Bitmap? {
-        if (name == null) return null
-        return faces.getOrPut(name) {
-            runCatching {
-                context.assets.open("heroes/$name").use(BitmapFactory::decodeStream)
-            }.getOrNull()
-        }
-    }
-
-    /** ARGB to the planar YUV the encoder wants. */
-    private fun toYuv420(bitmap: Bitmap): ByteArray {
-        val pixels = IntArray(WIDTH * HEIGHT)
-        bitmap.getPixels(pixels, 0, WIDTH, 0, 0, WIDTH, HEIGHT)
-        val out = ByteArray(WIDTH * HEIGHT * 3 / 2)
-        var uv = WIDTH * HEIGHT
-        for (y in 0 until HEIGHT) {
-            for (x in 0 until WIDTH) {
-                val p = pixels[y * WIDTH + x]
-                val r = (p shr 16) and 0xFF
-                val g = (p shr 8) and 0xFF
-                val b = p and 0xFF
-                out[y * WIDTH + x] = ((66 * r + 129 * g + 25 * b + 128 shr 8) + 16).toByte()
-                if (y % 2 == 0 && x % 2 == 0) {
-                    out[uv++] = ((-38 * r - 74 * g + 112 * b + 128 shr 8) + 128).toByte()
-                    out[uv++] = ((112 * r - 94 * g - 18 * b + 128 shr 8) + 128).toByte()
-                }
-            }
-        }
-        return out
-    }
-
-    /**
-     * The exported file, named after the plan.
-     *
-     * Letters and digits in any script survive; everything else becomes a dash. The rule
-     * used to be `[^A-Za-z0-9-]`, which is fine for a plan called "Busan attack" and throws
-     * away the whole of one called 釜山の攻め or Атака на Пусан - the app speaks fifteen
-     * languages and five of them write in none of those characters. Kotlin's letter test is
-     * Unicode-aware, so it keeps what a filename can legally hold.
-     *
-     * A name that survives as nothing but dashes falls back to "board", which is what
-     * happens to a plan titled entirely in punctuation and is better than a file called
-     * "-----".
-     */
+    /** The exported file, named after the plan. The rule itself lives in [exportName]. */
     private fun outputFile(context: Context, board: Board, extension: String): File {
         val directory = File(context.cacheDir, "boards").apply { mkdirs() }
-        val cleaned = board.name
-            .map { if (it.isLetterOrDigit() || it == '-') it else '-' }
-            .joinToString("")
-            // A run of them collapses: "Busan / attack" is one separator, not three.
-            .replace(Regex("-{2,}"), "-")
-            .trim('-')
-        val name = cleaned.ifBlank { "board" }
-        return File(directory, "$name.$extension")
+        return File(directory, "${exportName(board.name)}.$extension")
     }
 
     private fun share(context: Context, file: File): Uri =
