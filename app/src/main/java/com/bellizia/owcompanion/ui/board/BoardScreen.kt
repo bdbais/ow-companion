@@ -20,6 +20,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
@@ -81,6 +83,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.ui.common.isLandscape
 import com.bellizia.owcompanion.ui.common.localised
 import com.bellizia.owcompanion.data.WikiRepository
 
@@ -180,7 +183,17 @@ fun BoardScreen(
         ActivityResultContracts.PickVisualMedia(),
     ) { uri -> uri?.let { viewModel.setBackground(it.toString()) } }
 
-    Column(modifier = modifier.fillMaxSize().padding(8.dp)) {
+    // In landscape the fields and control rows alone are taller than the screen, so the
+    // board - the one thing this tab is for - was handed nothing and vanished. There it
+    // scrolls with a board of fixed shape; in portrait it still takes whatever is left,
+    // which is what makes it big on the device people actually plan on.
+    val landscape = isLandscape()
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .then(if (landscape) Modifier.verticalScroll(rememberScrollState()) else Modifier)
+            .padding(8.dp),
+    ) {
         SavedBoards(state = state, viewModel = viewModel)
         FrameStrip(state = state, viewModel = viewModel)
 
@@ -195,7 +208,11 @@ fun BoardScreen(
         BoardSurface(
             state = state,
             viewModel = viewModel,
-            modifier = Modifier.fillMaxWidth().weight(1f),
+            modifier = if (landscape) {
+                Modifier.fillMaxWidth().aspectRatio(16f / 9f)
+            } else {
+                Modifier.fillMaxWidth().weight(1f)
+            },
         )
 
         // Two rows: what you are placing, then what you do with the result. Seven controls
@@ -455,6 +472,13 @@ private fun BoardSurface(
                 val line = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.18f)
                 Canvas(modifier = Modifier.fillMaxSize()) {
                     val step = this.size.minDimension / 10f
+                    // A zero step never advances the loop, so the grid draws for ever and
+                    // the app stops responding - not a slow frame, a hang that survives
+                    // pressing "Wait". It happens in landscape: this surface takes what is
+                    // left after the fields and control rows above and below it, and on a
+                    // short screen what is left is nothing at all. Guarding the draw is
+                    // half the fix; the other half is not handing it a zero-height box.
+                    if (step <= 0f) return@Canvas
                     var x = step
                     while (x < this.size.width) {
                         drawLine(line, Offset(x, 0f), Offset(x, this.size.height))
