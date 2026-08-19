@@ -28,6 +28,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BarChart
 import androidx.compose.material.icons.filled.Dashboard
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material.icons.filled.Groups
 import androidx.compose.material.icons.filled.Info
@@ -51,6 +52,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import com.bellizia.owcompanion.ui.about.AboutScreen
 import com.bellizia.owcompanion.ui.board.BoardScreen
+import com.bellizia.owcompanion.ui.comics.ComicsScreen
 import com.bellizia.owcompanion.ui.chart.ChartScreen
 import com.bellizia.owcompanion.ui.stadium.StadiumScreen
 import com.bellizia.owcompanion.ui.leaderboard.LeaderboardScreen
@@ -81,6 +83,7 @@ private enum class Section(val labelRes: Int) {
     Wiki(R.string.tab_wiki),
     Stadium(R.string.tab_stadium),
     Board(R.string.tab_board),
+    Comics(R.string.tab_comics),
     Meta(R.string.tab_meta),
     About(R.string.tab_about),
 }
@@ -127,6 +130,7 @@ private fun AppRoot() {
                                     Section.Wiki -> Icons.Filled.Groups
                                     Section.Stadium -> Icons.Filled.Stadium
                                     Section.Board -> Icons.Filled.Dashboard
+                                    Section.Comics -> Icons.AutoMirrored.Filled.MenuBook
                                     Section.Meta -> Icons.Filled.Whatshot
                                     Section.About -> Icons.Filled.Info
                                 },
@@ -153,6 +157,7 @@ private fun AppRoot() {
                 Section.Wiki -> WikiScreen()
                 Section.Stadium -> StadiumScreen()
                 Section.Board -> BoardScreen()
+                Section.Comics -> ComicsScreen()
                 Section.Meta -> MetaTab()
                 Section.About -> AboutScreen()
             }

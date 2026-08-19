@@ -274,6 +274,39 @@
     <string name="rank_combos_note">The whole opening each hero has on one target: every ability once, a melee, then the hardest single shot — one second for a beam. Best case, assuming everything lands and nothing repeats.</string>
     <!-- Tactics board -->
     <string name="tab_board">Board</string>
+    <string name="tab_comics">Comics</string>
+    <string name="comics_read">Read</string>
+    <string name="comics_make">Make one</string>
+    <string name="comics_official_title">The official comics</string>
+    <string name="comics_official_body">Blizzard publish the comics and short stories on their own site. This opens the gallery there, in your language where the story exists in it.</string>
+    <string name="comics_official_english">Blizzard don\'t publish the stories in this language, so the gallery opens in English.</string>
+    <string name="comics_official_open">Open the gallery</string>
+    <string name="comics_official_note">Nothing is copied into this app. The stories are Blizzard\'s, and the honest thing a fan project can do is point at them rather than keep its own out-of-date list.</string>
+    <string name="comics_name_hint">Name this strip</string>
+    <string name="comics_panel">Panel %1$d</string>
+    <string name="comics_add_panel">Add a panel</string>
+    <string name="comics_remove_panel">Remove this panel</string>
+    <string name="comics_hint">Tap a hero to put them in the panel. Tap what is in it to select, drag to move.</string>
+    <string name="comics_cast">Cast</string>
+    <string name="comics_saved">Saved strips</string>
+    <string name="comics_remove_saved">Delete this strip</string>
+    <string name="comics_add_line">Add</string>
+    <string name="comics_line_hint">What they say</string>
+    <string name="comics_remove_line">Remove these words</string>
+    <string name="comics_remove_actor">Take them out of the panel</string>
+    <string name="comics_smaller">Smaller</string>
+    <string name="comics_bigger">Bigger</string>
+    <string name="comics_flip">Turn them round</string>
+    <string name="comics_background">Load a picture</string>
+    <string name="comics_save">Save</string>
+    <string name="comics_new">New</string>
+    <string name="comics_export_png">Share as an image</string>
+    <string name="comics_export_pdf">Share as a PDF</string>
+    <string name="comics_export_video">Share as a clip</string>
+    <string name="comics_balloon_speech">Says</string>
+    <string name="comics_balloon_thought">Thinks</string>
+    <string name="comics_balloon_shout">Shouts</string>
+    <string name="comics_balloon_caption">Caption</string>
     <!-- A phase marker on the tactics board: "t" for time, then the number. -->
     <string name="board_frame" translatable="false">t%1$d</string>
     <string name="board_add_frame">Add a phase</string>
