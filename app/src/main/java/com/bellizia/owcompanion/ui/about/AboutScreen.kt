@@ -48,6 +48,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.bellizia.owcompanion.BuildConfig
 import com.bellizia.owcompanion.R
+import com.bellizia.owcompanion.data.AiArt
 import com.bellizia.owcompanion.data.DatasetRepository
 import com.bellizia.owcompanion.data.DatasetUpdater
 import com.bellizia.owcompanion.data.Feedback
@@ -218,6 +219,9 @@ fun AboutScreen(
             Paragraph(R.string.about_data_wiki)
             Paragraph(R.string.about_data_overfast)
             Paragraph(R.string.about_data_owdmgchart)
+            // Credited by name from AiArt, so the screen cannot go on thanking a service
+            // the app has stopped using.
+            Paragraph(stringResource(R.string.about_data_ai, AiArt.CREDIT))
         }
 
         var count by rememberSaveable { mutableIntStateOf(0) }
@@ -365,9 +369,12 @@ private fun Section(
 }
 
 @Composable
-private fun Paragraph(textRes: Int) {
+private fun Paragraph(textRes: Int) = Paragraph(stringResource(textRes))
+
+@Composable
+private fun Paragraph(text: String) {
     Text(
-        text = stringResource(textRes),
+        text = text,
         style = MaterialTheme.typography.bodySmall,
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         modifier = Modifier.padding(bottom = 6.dp),

@@ -31,3 +31,23 @@ internal fun InputStream.readTextCapped(maxBytes: Int): String {
     }
     return out.toString("UTF-8")
 }
+
+/**
+ * The same ceiling, for a response that is not text.
+ *
+ * Images arrive from a third-party generator over which this app has no control at all, so
+ * the size of what it sends is exactly the sort of thing to bound before allocating it.
+ */
+internal fun InputStream.readBytesCapped(maxBytes: Int): ByteArray {
+    val out = ByteArrayOutputStream()
+    val buffer = ByteArray(16 * 1024)
+    while (true) {
+        val read = read(buffer)
+        if (read < 0) break
+        if (out.size() + read > maxBytes) {
+            throw IOException("response exceeded $maxBytes bytes")
+        }
+        out.write(buffer, 0, read)
+    }
+    return out.toByteArray()
+}

@@ -237,6 +237,30 @@
     <string name="wiki_combo_total">合计，约 %1$.1f 秒的施放时间</string>
     <string name="rank_combos">连招</string>
     <string name="rank_combos_note">每名英雄对单一目标能打出的完整起手：每个技能各一次、一次近战，再接最强的一发——光束算一秒。最理想情况，假定全部命中且没有重复使用。</string>
+    <string name="about_data_ai">漫画工坊里生成的图像来自 %1$s，免费且无需账号。你不主动要求，就不会生成任何东西。</string>
+    <string name="comics_generate">生成</string>
+    <string name="comics_generate_title">画点什么</string>
+    <string name="comics_generate_note">图像由免费服务 pollinations.ai 按需生成，放进这一格。人物是匿名剪影，场景是虚构的：从不请求任何英雄或真实地图。</string>
+    <string name="comics_generate_figures">人物</string>
+    <string name="comics_generate_scenes">场景</string>
+    <string name="comics_generate_working">正在多画几张，好让你有得挑…</string>
+    <string name="comics_generate_none">这次一张都没成。再试一次，或者换个姿势。</string>
+    <string name="comics_pose_running">奔跑</string>
+    <string name="comics_pose_aiming">瞄准</string>
+    <string name="comics_pose_standing">站立</string>
+    <string name="comics_pose_leaping">跳跃</string>
+    <string name="comics_pose_crouching">蹲下</string>
+    <string name="comics_pose_cheering">欢呼</string>
+    <string name="comics_pose_fallen">倒地</string>
+    <string name="comics_pose_pointing">指向</string>
+    <string name="comics_scene_street">街道</string>
+    <string name="comics_scene_courtyard">庭院</string>
+    <string name="comics_scene_rooftop">屋顶</string>
+    <string name="comics_scene_factory">工厂</string>
+    <string name="comics_scene_temple">神殿</string>
+    <string name="comics_scene_snow">雪原</string>
+    <string name="comics_scene_desert">沙漠</string>
+    <string name="comics_scene_lab">实验室</string>
     <string name="tab_comics">漫画</string>
     <string name="comics_read">阅读</string>
     <string name="comics_make">自己做一个</string>
@@ -397,6 +421,9 @@
     <string name="wiki_breakpoints">击杀所需枪数</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">贴脸、全部命中的情况。按血量分列而不是按英雄，因为 225 血的都死在同一个数上。决定一次对枪的是这个数字，不是每秒伤害：两发倒还是三发倒。</string>
+    <plurals name="comics_generate_done">
+        <item quantity="other">有 %1$d 张成了。点一张就能用。</item>
+    </plurals>
     <plurals name="timeline_change_count">
         <item quantity="other">%1$d 项改动</item>
     </plurals>

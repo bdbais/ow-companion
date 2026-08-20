@@ -95,6 +95,10 @@ object ComicPainter {
     }
 
     private fun actor(context: Context, canvas: Canvas, actor: Actor, w: Float, h: Float) {
+        if (actor.figure != null) {
+            figure(canvas, actor, w, h)
+            return
+        }
         val face = Portraits.of(context, actor.portrait) ?: return
         val size = h * 0.42f * actor.scale
         val cx = actor.x * w
@@ -124,6 +128,34 @@ object ComicPainter {
             color = INK
         }
         canvas.drawOval(target, ring)
+    }
+
+    /**
+     * A generated silhouette, drawn whole and standing on its position.
+     *
+     * No ring and no circle: it is already a shape rather than a photograph, and the
+     * position is where its feet are rather than where its middle is, because that is how
+     * anybody places a figure in a scene.
+     */
+    private fun figure(canvas: Canvas, actor: Actor, w: Float, h: Float) {
+        val cut = Cutouts.of(actor.figure ?: return) ?: return
+        val tall = h * 0.62f * actor.scale
+        val wide = tall * cut.width / cut.height
+        val cx = actor.x * w
+        val feet = actor.y * h
+        val target = RectF(cx - wide / 2, feet - tall, cx + wide / 2, feet)
+
+        val saved = canvas.save()
+        if (actor.flipped) {
+            canvas.concat(Matrix().apply { setScale(-1f, 1f, cx, feet) })
+        }
+        canvas.drawBitmap(
+            cut,
+            Rect(0, 0, cut.width, cut.height),
+            target,
+            Paint(Paint.FILTER_BITMAP_FLAG),
+        )
+        canvas.restoreToCount(saved)
     }
 
     private fun balloon(canvas: Canvas, line: Line, actors: List<Actor>, w: Float, h: Float) {

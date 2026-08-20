@@ -37,6 +37,11 @@ data class Line(
  * `scale` is a multiplier on a size that is itself a fraction of the panel, so a character
  * keeps its proportions at any export size. `flipped` mirrors the portrait horizontally,
  * which is the cheapest way to make two heroes face each other rather than both stare right.
+ *
+ * Two kinds share this shape. A hero has a `portrait` - Blizzard's own artwork from the
+ * assets - and is drawn as a round token, because a head in a ring is what that picture is.
+ * A generated figure has a `figure` file instead and is drawn whole, because a silhouette
+ * cropped to a circle would be a pair of shoulders. Exactly one of the two is ever set.
  */
 @Serializable
 data class Actor(
@@ -44,6 +49,8 @@ data class Actor(
     val heroKey: String,
     val heroName: String,
     val portrait: String?,
+    /** File holding a generated cut-out, for figures that are not heroes. */
+    val figure: String? = null,
     val x: Float = 0.5f,
     val y: Float = 0.6f,
     val scale: Float = 1f,

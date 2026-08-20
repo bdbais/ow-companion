@@ -237,6 +237,30 @@
     <string name="wiki_combo_total">合計、およそ %1$.1f 秒の発動時間で</string>
     <string name="rank_combos">コンボ</string>
     <string name="rank_combos_note">各ヒーローが一つの対象に対して持つ先手のすべて。各アビリティを一度ずつ、近接攻撃、そして最も強い一撃——ビームなら一秒。すべて当たり、何も繰り返さないと仮定した最良の場合です。</string>
+    <string name="about_data_ai">コミック工房で生成した画像は %1$s によるもので、無料・アカウント不要です。頼まないかぎり何も生成されません。</string>
+    <string name="comics_generate">生成</string>
+    <string name="comics_generate_title">何か描く</string>
+    <string name="comics_generate_note">画像は無料サービスのpollinations.aiが都度生成し、このコマに入ります。人物は匿名のシルエット、場所は架空です。ヒーローや実在のマップを指定することはありません。</string>
+    <string name="comics_generate_figures">人物</string>
+    <string name="comics_generate_scenes">場所</string>
+    <string name="comics_generate_working">選べるように何枚か描いています…</string>
+    <string name="comics_generate_none">今回はどれもうまくいきませんでした。もう一度試すか、別のポーズにしてみてください。</string>
+    <string name="comics_pose_running">走る</string>
+    <string name="comics_pose_aiming">狙う</string>
+    <string name="comics_pose_standing">立つ</string>
+    <string name="comics_pose_leaping">跳ぶ</string>
+    <string name="comics_pose_crouching">かがむ</string>
+    <string name="comics_pose_cheering">喜ぶ</string>
+    <string name="comics_pose_fallen">倒れる</string>
+    <string name="comics_pose_pointing">指さす</string>
+    <string name="comics_scene_street">通り</string>
+    <string name="comics_scene_courtyard">中庭</string>
+    <string name="comics_scene_rooftop">屋上</string>
+    <string name="comics_scene_factory">工場</string>
+    <string name="comics_scene_temple">寺院</string>
+    <string name="comics_scene_snow">雪</string>
+    <string name="comics_scene_desert">砂漠</string>
+    <string name="comics_scene_lab">研究所</string>
     <string name="tab_comics">コミック</string>
     <string name="comics_read">読む</string>
     <string name="comics_make">作る</string>
@@ -397,6 +421,9 @@
     <string name="wiki_breakpoints">必要弾数</string>
     <string name="wiki_breakpoints_head">%1$d</string>
     <string name="wiki_breakpoints_note">ゼロ距離、すべて命中した場合。ヒーロー別ではなく体力別に一列です。225 の相手はみな同じ発数で倒れるからです。決闘を決めるのはこの数字で、毎秒ダメージではありません。二発で倒れるか三発か、それだけです。</string>
+    <plurals name="comics_generate_done">
+        <item quantity="other">%1$d 枚うまくいきました。タップして使えます。</item>
+    </plurals>
     <plurals name="timeline_change_count">
         <item quantity="other">%1$d 件の変更</item>
     </plurals>

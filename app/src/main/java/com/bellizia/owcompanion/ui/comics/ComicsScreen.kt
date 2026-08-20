@@ -29,6 +29,11 @@ import androidx.compose.material.icons.filled.OpenInNew
 import androidx.compose.material.icons.filled.ZoomIn
 import androidx.compose.material.icons.filled.ZoomOut
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import com.bellizia.owcompanion.data.AiArt
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -176,6 +181,7 @@ private fun Workshop(viewModel: ComicViewModel) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     val context = LocalContext.current
     var sharing by remember { mutableStateOf<Share?>(null) }
+    var generating by rememberSaveable { mutableStateOf(false) }
 
     // Started from a side effect so the buttons can go flat while it runs: encoding a
     // six-panel clip takes seconds, and a button that still looks idle gets pressed twice.
@@ -257,6 +263,9 @@ private fun Workshop(viewModel: ComicViewModel) {
             horizontalArrangement = Arrangement.spacedBy(6.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
+            TextButton(onClick = { generating = true }) {
+                Text(stringResource(R.string.comics_generate))
+            }
             TextButton(onClick = {
                 pickImage.launch(
                     androidx.activity.result.PickVisualMediaRequest(
@@ -288,7 +297,179 @@ private fun Workshop(viewModel: ComicViewModel) {
         HeroPicker(state, viewModel)
         SavedStrips(state, viewModel)
     }
+
+    if (generating || state.studio != null) {
+        StudioSheet(
+            state = state,
+            viewModel = viewModel,
+            onDismiss = {
+                generating = false
+                viewModel.closeStudio()
+            },
+        )
+    }
 }
+
+/**
+ * Ask for pictures, look at what came back, keep one.
+ *
+ * Deliberately a gallery rather than a single result. Figures come back usable about half
+ * the time - measured, not assumed - so a button that produced exactly one picture would
+ * hand somebody an unreadable shape every other press. Several at once turns that from a
+ * defect into the ordinary business of choosing, and the sheet says plainly how many
+ * survived rather than pretending the rejected ones never happened.
+ */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun StudioSheet(
+    state: ComicUiState,
+    viewModel: ComicViewModel,
+    onDismiss: () -> Unit,
+) {
+    val studio = state.studio
+    ModalBottomSheet(onDismissRequest = onDismiss) {
+        Column(modifier = Modifier.padding(horizontal = 16.dp).padding(bottom = 24.dp)) {
+            Text(
+                text = stringResource(R.string.comics_generate_title),
+                style = MaterialTheme.typography.titleMedium,
+            )
+            Text(
+                text = stringResource(R.string.comics_generate_note),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 4.dp, bottom = 10.dp),
+            )
+
+            Text(
+                text = stringResource(R.string.comics_generate_figures),
+                style = MaterialTheme.typography.titleSmall,
+            )
+            LazyRow(modifier = Modifier.padding(vertical = 6.dp)) {
+                items(AiArt.Pose.entries) { pose ->
+                    OutlinedButton(
+                        onClick = { viewModel.generate(Studio.Kind.Figure, pose.prompt) },
+                        modifier = Modifier.padding(end = 6.dp),
+                    ) {
+                        Text(
+                            stringResource(pose.label),
+                            style = MaterialTheme.typography.labelSmall,
+                        )
+                    }
+                }
+            }
+
+            Text(
+                text = stringResource(R.string.comics_generate_scenes),
+                style = MaterialTheme.typography.titleSmall,
+            )
+            LazyRow(modifier = Modifier.padding(vertical = 6.dp)) {
+                items(AiArt.Scene.entries) { scene ->
+                    OutlinedButton(
+                        onClick = { viewModel.generate(Studio.Kind.Scene, scene.prompt) },
+                        modifier = Modifier.padding(end = 6.dp),
+                    ) {
+                        Text(
+                            stringResource(scene.label),
+                            style = MaterialTheme.typography.labelSmall,
+                        )
+                    }
+                }
+            }
+
+            if (studio != null) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.padding(top = 10.dp),
+                ) {
+                    if (!studio.done) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(16.dp),
+                            strokeWidth = 2.dp,
+                        )
+                    }
+                    Text(
+                        text = if (studio.done) {
+                            pluralStringResource(
+                                R.plurals.comics_generate_done,
+                                studio.ready.size,
+                                studio.ready.size,
+                            )
+                        } else {
+                            stringResource(R.string.comics_generate_working)
+                        },
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(start = 8.dp),
+                    )
+                }
+
+                LazyRow(modifier = Modifier.padding(top = 8.dp)) {
+                    items(studio.ready) { path ->
+                        Box(
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                                .size(
+                                    width = if (studio.kind == Studio.Kind.Scene) 180.dp else 120.dp,
+                                    height = 120.dp,
+                                )
+                                .clip(RoundedCornerShape(8.dp))
+                                .background(MaterialTheme.colorScheme.surfaceVariant)
+                                .pointerInput(path) {
+                                    detectTapGestures {
+                                        if (studio.kind == Studio.Kind.Scene) {
+                                            viewModel.useScene(path)
+                                        } else {
+                                            viewModel.addFigure(path)
+                                        }
+                                        onDismiss()
+                                    }
+                                },
+                        ) {
+                            AsyncImage(
+                                model = path,
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize(),
+                            )
+                        }
+                    }
+                }
+
+                if (studio.done && studio.ready.isEmpty()) {
+                    Text(
+                        text = stringResource(R.string.comics_generate_none),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(top = 8.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+private val AiArt.Pose.label: Int
+    get() = when (this) {
+        AiArt.Pose.Running -> R.string.comics_pose_running
+        AiArt.Pose.Aiming -> R.string.comics_pose_aiming
+        AiArt.Pose.Standing -> R.string.comics_pose_standing
+        AiArt.Pose.Leaping -> R.string.comics_pose_leaping
+        AiArt.Pose.Crouching -> R.string.comics_pose_crouching
+        AiArt.Pose.Cheering -> R.string.comics_pose_cheering
+        AiArt.Pose.Fallen -> R.string.comics_pose_fallen
+        AiArt.Pose.Pointing -> R.string.comics_pose_pointing
+    }
+
+private val AiArt.Scene.label: Int
+    get() = when (this) {
+        AiArt.Scene.Street -> R.string.comics_scene_street
+        AiArt.Scene.Courtyard -> R.string.comics_scene_courtyard
+        AiArt.Scene.Rooftop -> R.string.comics_scene_rooftop
+        AiArt.Scene.Factory -> R.string.comics_scene_factory
+        AiArt.Scene.Temple -> R.string.comics_scene_temple
+        AiArt.Scene.Snow -> R.string.comics_scene_snow
+        AiArt.Scene.Desert -> R.string.comics_scene_desert
+        AiArt.Scene.Lab -> R.string.comics_scene_lab
+    }
 
 /** The panels, in order, with the one being worked on marked. */
 @Composable
