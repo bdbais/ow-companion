@@ -49,7 +49,7 @@ class ReleaseChecker(private val context: Context) {
                 tag == dismissed() -> null
                 else -> Release(
                     version = normalise(tag),
-                    url = latest.url.ifBlank { RELEASES },
+                    url = trustedUrl(latest.url),
                     needsReinstall = requiresReinstall(latest.body),
                 )
             }
@@ -91,7 +91,7 @@ class ReleaseChecker(private val context: Context) {
         }
         val body = try {
             if (connection.responseCode !in 200..299) return null
-            connection.inputStream.bufferedReader().use { it.readText() }
+            connection.inputStream.use { it.readTextCapped(MAX_BODY_BYTES) }
         } finally {
             connection.disconnect()
         }
@@ -136,7 +136,7 @@ class ReleaseChecker(private val context: Context) {
         }
         val body = try {
             if (connection.responseCode !in 200..299) return null
-            connection.inputStream.bufferedReader().use { it.readText() }
+            connection.inputStream.use { it.readTextCapped(MAX_BODY_BYTES) }
         } finally {
             connection.disconnect()
         }
@@ -150,7 +150,26 @@ class ReleaseChecker(private val context: Context) {
         private const val KEY_DOWNLOADS = "downloads_total"
         private const val KEY_DOWNLOADS_AT = "downloads_fetched_at"
         private const val CACHE_MILLIS = 6 * 60 * 60 * 1000L
-        const val RELEASES = "https://github.com/bdbais/ow-companion/releases"
+        private const val REPO = "https://github.com/bdbais/ow-companion"
+        const val RELEASES = "$REPO/releases"
+
+        /**
+         * Two release lists with a hundred entries each fit in a fraction of this; anything
+         * bigger is not a release list.
+         */
+        private const val MAX_BODY_BYTES = 2_000_000
+
+        /**
+         * The banner opens this project's own pages and nothing else.
+         *
+         * The address arrives in the API response. Today GitHub only ever puts the release's
+         * own page there, but the banner is a UI element that says "an update exists - tap
+         * to get it", and what it opens should be pinned by this app rather than by whatever
+         * the response contains. Anything unexpected falls back to the releases page, which
+         * is always right.
+         */
+        internal fun trustedUrl(candidate: String): String =
+            candidate.takeIf { it == REPO || it.startsWith("$REPO/") } ?: RELEASES
         private const val API =
             "https://api.github.com/repos/bdbais/ow-companion/releases/latest"
 

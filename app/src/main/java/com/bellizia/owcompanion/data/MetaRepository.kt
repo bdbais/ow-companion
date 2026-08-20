@@ -155,7 +155,7 @@ class MetaRepository {
         }
         return try {
             if (connection.responseCode !in 200..299) error("HTTP ${connection.responseCode}")
-            connection.inputStream.bufferedReader().use { it.readText() }
+            connection.inputStream.use { it.readTextCapped(12_000_000) }
         } finally {
             connection.disconnect()
         }

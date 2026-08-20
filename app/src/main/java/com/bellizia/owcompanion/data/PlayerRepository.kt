@@ -358,7 +358,7 @@ class PlayerRepository(private val context: Context) {
             // screen can only say which if the two arrive differently.
             if (code == 404) throw NoSuchPlayer()
             if (code !in 200..299) error("HTTP $code")
-            connection.inputStream.bufferedReader().use { it.readText() }
+            connection.inputStream.use { it.readTextCapped(8_000_000) }
         } finally {
             connection.disconnect()
         }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Everything this app talks to - GitHub, OverFast, Blizzard - is HTTPS, so cleartext is
+     refused outright. The platform already defaults to this at this targetSdk; stating it
+     here makes the guarantee survive a future manifest edit or library override, and makes
+     the policy visible instead of implied. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

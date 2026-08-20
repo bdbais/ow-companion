@@ -68,8 +68,7 @@ class DatasetUpdater(private val context: Context) {
         }
     }
 
-    private fun resolve(base: String, path: String): String =
-        if (path.startsWith("http")) path else "$base/${path.trimStart('/')}"
+    private fun resolve(base: String, path: String): String = resolveRelative(base, path)
 
     private fun get(url: String): String {
         val connection = (URL(url).openConnection() as HttpURLConnection).apply {
@@ -81,7 +80,7 @@ class DatasetUpdater(private val context: Context) {
             if (connection.responseCode !in 200..299) {
                 throw IllegalStateException("HTTP ${connection.responseCode}")
             }
-            return connection.inputStream.bufferedReader().use { it.readText() }
+            return connection.inputStream.use { it.readTextCapped(MAX_BODY_BYTES) }
         } finally {
             connection.disconnect()
         }
@@ -95,6 +94,25 @@ class DatasetUpdater(private val context: Context) {
     }
 
     companion object {
+        /** The bundled wiki is 2.7 MB; ten times that is growth, anything past it is not. */
+        private const val MAX_BODY_BYTES = 32_000_000
+
+        /**
+         * The manifest names files; it does not choose servers.
+         *
+         * It used to accept absolute URLs, which meant anyone able to edit one small JSON
+         * file on the published branch could point the download at any host they liked. The
+         * files sit next to the manifest, so a relative name is all a legitimate manifest
+         * has ever needed - and an absolute one is refused, the update fails visibly, and
+         * the app keeps the data it already has.
+         */
+        internal fun resolveRelative(base: String, path: String): String {
+            require(!path.startsWith("http") && "://" !in path) {
+                "manifest paths must be relative, got: $path"
+            }
+            return "$base/${path.trimStart('/')}"
+        }
+
         const val DOWNLOADED_WEAPONS = "weapons.json"
         const val DOWNLOADED_WIKI = "wiki.json"
         private const val VERSION_MARKER = "dataset-version"

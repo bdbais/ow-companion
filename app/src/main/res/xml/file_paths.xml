@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Exports live in the cache and are handed to other apps by content URI, so nothing is
-     written where another app could read it without being given it. -->
+     written where another app could read it without being given it. Each exporter has its
+     own directory and its own entry: when the comics exporter was added without one, its
+     share failed inside a runCatching and the share sheet silently never appeared. -->
 <paths>
     <cache-path name="boards" path="boards/" />
+    <cache-path name="comics" path="comics/" />
 </paths>
