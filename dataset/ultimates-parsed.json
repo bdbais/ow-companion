@@ -68,14 +68,14 @@
   },
   {
    "hero": "Cassidy",
-   "name": "Deadeye",
+   "name": "Emote",
    "damage": 600.0,
    "sustained": true,
    "unrankable": false,
    "detail": "150 per second (during warning) / 300 per second (remaining duration)",
    "duration": 2.0,
    "radius": null,
-   "description": "Face off against your enemies. Press {{key|ultimate}} to lock on, then {{key|ultimate}} or {{key|primary fire}} to fire."
+   "description": "Stand... Shoot"
   },
   {
    "hero": "D.Mon",

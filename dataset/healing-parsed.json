@@ -1066,7 +1066,7 @@
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "9.75 (bodyshot, per orb) / 19.5 (headshot, per orb)"
+   "detail": "9.75 (bodyshot, per orb) / 19.5 (headshot, per orb) / 11.7 (Snap Kick, per orb)"
   },
   {
    "hero": "Zenyatta",
