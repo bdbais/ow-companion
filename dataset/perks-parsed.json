@@ -446,9 +446,9 @@
   },
   {
    "hero": "Jetpack Cat",
-   "name": "Headbutt",
+   "name": "Purrfect Form",
    "tier": "major",
-   "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough, dealing 50 damage on impact."
+   "description": "Each pulse of Purr contains 3 waves."
   },
   {
    "hero": "Jetpack Cat",
@@ -1058,9 +1058,9 @@
   },
   {
    "hero": "Tracer",
-   "name": "Chronal Dash",
+   "name": "Temporal Regen",
    "tier": "minor",
-   "description": "Blink distance increased by 20%."
+   "description": "Passive health regeneration triggers 50% faster."
   },
   {
    "hero": "Tracer",
