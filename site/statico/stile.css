@@ -1,0 +1,148 @@
+/* -----------------------------------------------------------------------------
+   OW Companion — foglio di stile del sito vetrina.
+
+   I colori sono quelli dell'app, non una tavolozza nuova: il blu notte dei
+   pannelli e l'arancio con cui il gioco marca tutto quello su cui si può agire.
+   Chi arriva qui dopo aver visto l'app deve riconoscerla.
+----------------------------------------------------------------------------- */
+
+:root {
+    --fondo:       #0B1017;
+    --pannello:    #121A26;
+    --pannello-su: #18222F;
+    --arancio:     #F99E1A;
+    --testo:       #E8EDF4;
+    --testo-tenue: #9AA7B8;
+    --bordo:       #223044;
+
+    --larghezza: 940px;
+    --passo: clamp(1rem, 2.4vw, 1.8rem);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--testo);
+    font: 17px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+h1, h2 {
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+a { color: var(--arancio); }
+
+.dentro {
+    max-width: var(--larghezza);
+    margin: 0 auto;
+    padding: 0 var(--passo);
+}
+
+/* --------------------------------------------------------------- intestazione */
+
+header {
+    /* La sfumatura fa da orizzonte: sotto è pannello, sopra è cielo notturno. */
+    background: linear-gradient(180deg, #16202E 0%, var(--fondo) 100%);
+    border-bottom: 1px solid var(--bordo);
+    padding: clamp(3rem, 9vw, 6rem) 0 clamp(2.5rem, 6vw, 4rem);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    color: var(--arancio);
+}
+
+.sottotitolo {
+    font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+    color: var(--testo);
+    margin: 0.6rem auto 1.2rem;
+    max-width: 34ch;
+}
+
+.minuta {
+    color: var(--testo-tenue);
+    font-size: 0.92rem;
+    margin: 0.5rem 0;
+}
+
+/* ---------------------------------------------------------------- i due tasti */
+
+.tasto {
+    display: inline-block;
+    margin: 1.4rem 0.4rem 0.4rem;
+    padding: 0.85rem 1.6rem;
+    border: 1px solid var(--arancio);
+    border-radius: 6px;
+    color: var(--arancio);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.tasto:hover,
+.tasto:focus-visible { background: rgba(249, 158, 26, 0.12); }
+
+/* Uno solo è pieno: se ce ne sono due accesi allo stesso modo, non è più chiaro
+   quale sia la cosa da fare. */
+.scarica {
+    background: var(--arancio);
+    color: #101722;
+}
+
+.scarica:hover,
+.scarica:focus-visible {
+    background: #ffb340;
+    color: #101722;
+}
+
+/* ------------------------------------------------------------------- sezioni */
+
+section { padding: clamp(2.2rem, 6vw, 3.6rem) 0; }
+
+.alterna { background: var(--pannello); }
+
+section h2 {
+    font-size: clamp(1.3rem, 3.4vw, 1.8rem);
+    margin: 0 0 0.8rem;
+}
+
+section p { margin: 0 0 0.9rem; max-width: 68ch; }
+
+.elenco {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 68ch;
+}
+
+.elenco li {
+    padding: 0.7rem 0 0.7rem 1.1rem;
+    border-bottom: 1px solid var(--bordo);
+    /* La barretta arancione a sinistra fa da elenco puntato senza pallini, che a
+       questa dimensione di testo sparivano. */
+    border-left: 3px solid var(--arancio);
+    padding-left: 1rem;
+    margin-bottom: 0.4rem;
+    background: var(--pannello-su);
+    border-radius: 0 4px 4px 0;
+}
+
+.alterna .elenco li { background: var(--pannello-su); }
+
+/* -------------------------------------------------------------------- chiusa */
+
+footer {
+    border-top: 1px solid var(--bordo);
+    padding: 2.2rem 0 3rem;
+    text-align: center;
+}
+
+/* Su schermo stretto i tasti vanno a capo da soli e restano larghi da toccare. */
+@media (max-width: 480px) {
+    .tasto { display: block; margin: 0.6rem 0; }
+}

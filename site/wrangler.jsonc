@@ -1,0 +1,30 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "owcompanion-sito",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-01",
+
+  // L'indirizzo vero. Con custom_domain wrangler crea da sé il record DNS sulla
+  // zona bais.info, come per mcmonitor e minestrat.
+  "routes": [{ "pattern": "owcompanion.bais.info", "custom_domain": true }],
+
+  // Spenti tutti e due, o wrangler accende un secondo indirizzo *.workers.dev con
+  // la stessa pagina. Il dominio vero è un Custom Domain e resta agganciato lo
+  // stesso: «No targets deployed» in coda al deploy non vuol dire che il sito è giù.
+  "workers_dev": false,
+  "preview_urls": false,
+
+  "assets": {
+    "directory": "./statico",
+    "binding": "ASSETS",
+
+    // Senza questo il Worker non gira affatto sulla home: quando esiste un file
+    // che corrisponde all'indirizzo, Cloudflare lo serve direttamente e il codice
+    // non viene nemmeno chiamato. Si vedeva bene dal sintomo - /apk funzionava
+    // (non è un file) mentre la pagina restava coi segnaposto.
+    // Solo la pagina: il CSS non ha niente da sostituire e resta sulla via veloce.
+    "run_worker_first": ["/", "/index.html"]
+  },
+
+  "observability": { "enabled": true }
+}
