@@ -273,12 +273,12 @@
    "hero": "D.Mon",
    "name": "Focused Fusion",
    "kind": "perk",
-   "damage": 15.0,
+   "damage": 16.0,
    "damagePerSecond": null,
    "cooldown": null,
    "castTime": null,
    "lines": [
-    "15 → 42"
+    "16 → 45"
    ],
    "uncertain": false
   },
@@ -624,19 +624,6 @@
   },
   {
    "hero": "Jetpack Cat",
-   "name": "Headbutt",
-   "kind": "perk",
-   "damage": 50.0,
-   "damagePerSecond": null,
-   "cooldown": null,
-   "castTime": null,
-   "lines": [
-    "50"
-   ],
-   "uncertain": false
-  },
-  {
-   "hero": "Jetpack Cat",
    "name": "Claws Out",
    "kind": "perk",
    "damage": 40.0,
@@ -696,7 +683,7 @@
    "kind": "ability",
    "damage": 120.0,
    "damagePerSecond": null,
-   "cooldown": 8.0,
+   "cooldown": 7.0,
    "castTime": 0.128,
    "lines": [
     "120 – 55"
@@ -875,6 +862,19 @@
     "5.3 (subsequent hits)"
    ],
    "uncertain": true
+  },
+  {
+   "hero": "Orisa",
+   "name": "Heavy Javelin",
+   "kind": "perk",
+   "damage": 125.0,
+   "damagePerSecond": null,
+   "cooldown": null,
+   "castTime": null,
+   "lines": [
+    "40 → 55 (wall impact)"
+   ],
+   "uncertain": false
   },
   {
    "hero": "Pharah",
@@ -1061,7 +1061,7 @@
    "kind": "ability",
    "damage": 100.0,
    "damagePerSecond": null,
-   "cooldown": 8.5,
+   "cooldown": 7.0,
    "castTime": 0.73,
    "lines": [
     "100 (inner shockwave)",

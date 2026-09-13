@@ -43,20 +43,6 @@
    "raw": "45"
   },
   {
-   "hero": "D.Mon",
-   "weapon": "Plasma Saber",
-   "field": "required",
-   "reason": "missing fireRate",
-   "raw": ""
-  },
-  {
-   "hero": "D.Mon",
-   "weapon": "Portable Fusion Repeater",
-   "field": "required",
-   "reason": "missing fireRate",
-   "raw": ""
-  },
-  {
    "hero": "Domina",
    "weapon": "Photon Magnum",
    "field": "damage",
@@ -145,28 +131,28 @@
    "weapon": "Incendiary Chaingun",
    "field": "falloff",
    "reason": "falloff differs by condition, took the first",
-   "raw": "30 - 40 meters / 15 - 20 meters (simultaneous fire)"
+   "raw": "30 - 40 meters / 10 - 20 meters (simultaneous fire)"
   },
   {
    "hero": "Mauga",
    "weapon": "Incendiary Chaingun",
    "field": "spread",
    "reason": "blooming spread needs a spreadingAmmoRange",
-   "raw": "1 degree (base) / 1.5 degrees (max) / 4 degrees (simultaneous fire)"
+   "raw": "1 degree (base) / 1.5 degrees (max) / 5 degrees (simultaneous fire)"
   },
   {
    "hero": "Mauga",
    "weapon": "Volatile Chaingun",
    "field": "falloff",
    "reason": "falloff differs by condition, took the first",
-   "raw": "30 - 40 meters / 15 - 20 meters (simultaneous fire)"
+   "raw": "30 - 40 meters / 10 - 20 meters (simultaneous fire)"
   },
   {
    "hero": "Mauga",
    "weapon": "Volatile Chaingun",
    "field": "spread",
    "reason": "blooming spread needs a spreadingAmmoRange",
-   "raw": "1 degree (base) / 1.5 degrees (max) / 4 degrees (simultaneous fire)"
+   "raw": "1 degree (base) / 1.5 degrees (max) / 5 degrees (simultaneous fire)"
   },
   {
    "hero": "Mei",

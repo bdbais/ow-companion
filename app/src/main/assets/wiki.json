@@ -9721,12 +9721,12 @@
      "hero": "D.Mon",
      "name": "Focused Fusion",
      "kind": "perk",
-     "damage": 15.0,
+     "damage": 16.0,
      "damagePerSecond": null,
      "cooldown": null,
      "castTime": null,
      "lines": [
-      "15 → 42"
+      "16 → 45"
      ],
      "uncertain": false
     }
@@ -9755,7 +9755,166 @@
      "description": "Fusion Repeater fires stronger shots with no spread at a slower rate"
     }
    ],
-   "patches": [],
+   "patches": [
+    {
+     "date": "2026-08-14",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed a bug with Portable Fusion Repeater that could result in hits failing to register."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed a bug with Limit Break not correctly granting Overhealth for targets hit."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed in a previous update - Resolved an issue that prevented Overhealth from being applied when Limit Break was activated."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed a bug where Toggle Propulsors did not work on console platforms."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Fixed an issue with being damaged from the front with while Power Barrier was deployed."
+      },
+      {
+       "ability": "Hitbox Changes",
+       "text": "Adjusted the height of the mech head hitbox to be more flush with the model."
+      },
+      {
+       "ability": "Surging Strike",
+       "text": "Cast Time reduced from 0.15 to 0.05 seconds."
+      },
+      {
+       "ability": "Surging Strike",
+       "text": "Recovery reduced from 0.25 to 0.15 seconds."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Cast Time reduced from 0.3 to 0.2 seconds."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Recovery Time reduced from 0.5 to 0.2 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Surging Strike",
+       "stat": "Cast Time",
+       "from": 0.15,
+       "to": 0.05,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Surging Strike",
+       "stat": "Recovery",
+       "from": 0.25,
+       "to": 0.15,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Cast Time",
+       "from": 0.3,
+       "to": 0.2,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Recovery Time",
+       "from": 0.5,
+       "to": 0.2,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
+     "date": "2026-08-12",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Plasma Saber",
+       "text": "Damage increased from 60 to 65."
+      },
+      {
+       "ability": "Propulsors",
+       "text": "Fuel drain rate reduced from 40 to 25."
+      },
+      {
+       "ability": "Propulsors",
+       "text": "Fuel regen rate increased from 15 to 22.5."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Damage increased from 15 to 16."
+      },
+      {
+       "ability": "Fusion Repeater",
+       "text": "Cooldown reduced from 6 to 4 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Plasma Saber",
+       "stat": "Damage",
+       "from": 60.0,
+       "to": 65.0,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Propulsors",
+       "stat": "Fuel drain rate",
+       "from": 40.0,
+       "to": 25.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Damage",
+       "from": 15.0,
+       "to": 16.0,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Fusion Repeater",
+       "stat": "Cooldown",
+       "from": 6.0,
+       "to": 4.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Hero Updates",
+       "text": "Roster Updates"
+      },
+      {
+       "ability": "Hero Updates",
+       "text": "Added D.Mon to the Tank roster (Subrole: Stalwart)."
+      }
+     ],
+     "stats": [],
+     "comments": []
+    }
+   ],
    "matchups": []
   },
   {
@@ -20773,19 +20932,6 @@
    "extraAbilities": [
     {
      "hero": "Jetpack Cat",
-     "name": "Headbutt",
-     "kind": "perk",
-     "damage": 50.0,
-     "damagePerSecond": null,
-     "cooldown": null,
-     "castTime": null,
-     "lines": [
-      "50"
-     ],
-     "uncertain": false
-    },
-    {
-     "hero": "Jetpack Cat",
      "name": "Claws Out",
      "kind": "perk",
      "damage": 40.0,
@@ -20812,9 +20958,9 @@
      "description": "Gain up to 50 shield health while carrying another hero."
     },
     {
-     "name": "Headbutt",
+     "name": "Purrfect Form",
      "tier": "major",
-     "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough, dealing 50 damage on impact."
+     "description": "Each pulse of Purr contains 3 waves."
     },
     {
      "name": "Claws Out",
@@ -20823,6 +20969,94 @@
     }
    ],
    "patches": [
+    {
+     "date": "2026-08-14",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "General",
+       "text": "Base movement speed reduced from 6 to 5.5 meters per second."
+      },
+      {
+       "ability": "Purr",
+       "text": "Self healing penalty increased from 25% to 40%."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "General",
+       "stat": "Base movement speed",
+       "from": 6.0,
+       "to": 5.5,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Purr",
+       "stat": "Self healing penalty",
+       "from": 25.0,
+       "to": 40.0,
+       "unit": "%",
+       "direction": "buff"
+      }
+     ],
+     "comments": []
+    },
+    {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "General",
+       "text": "Ultimate cost increased by 7%."
+      },
+      {
+       "ability": "General",
+       "text": "Base movement speed increased from 5.5 to 6 meters per second."
+      },
+      {
+       "ability": "General",
+       "text": "Air acceleration increased from 7.7 to 9.5."
+      },
+      {
+       "ability": "Headbutt (Major Perk)",
+       "text": "Removed."
+      },
+      {
+       "ability": "Purrfect Form (Major Perk)",
+       "text": "New"
+      },
+      {
+       "ability": "Purrfect Form (Major Perk)",
+       "text": "Each pulse of Purr contains 3 waves."
+      },
+      {
+       "ability": "Lifeline",
+       "text": "Movement speed bonus reduced from 40% to 30%."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "General",
+       "stat": "Base movement speed",
+       "from": 5.5,
+       "to": 6.0,
+       "unit": null,
+       "direction": "buff"
+      },
+      {
+       "ability": "Lifeline",
+       "stat": "Movement speed bonus",
+       "from": 40.0,
+       "to": 30.0,
+       "unit": "%",
+       "direction": "nerf"
+      }
+     ],
+     "comments": [
+      "These changes are intended to make Jetpack Cat's movement more responsive while keeping Lifeline movement speeds similar to before. Frenetic Flight movement speeds remain unchanged."
+     ]
+    },
     {
      "date": "2026-06-16",
      "mode": "owpvp",
@@ -23069,7 +23303,7 @@
      "description": "Throw a knockback mine with LSHIFT then detonate it with ABILITY 1.",
      "icon": "ability_junkrat_1.png",
      "damage": 120.0,
-     "cooldown": 8.0,
+     "cooldown": 7.0,
      "castTime": 0.128,
      "damageLines": [
       "120 – 55"
@@ -34375,6 +34609,45 @@
    ],
    "patches": [
     {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Quickstep (Major Perk)",
+       "text": "Movement speed gained reduced from 25% to 20%."
+      },
+      {
+       "ability": "Binding Chain",
+       "text": "Projectile size reduced from 0.35 to 0.3."
+      },
+      {
+       "ability": "Katashiro Return",
+       "text": "Cooldown increased from 11 to 12 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Quickstep (Major Perk)",
+       "stat": "Movement speed gained",
+       "from": 25.0,
+       "to": 20.0,
+       "unit": "%",
+       "direction": "nerf"
+      },
+      {
+       "ability": "Katashiro Return",
+       "stat": "Cooldown",
+       "from": 11.0,
+       "to": 12.0,
+       "unit": null,
+       "direction": "nerf"
+      }
+     ],
+     "comments": [
+      "Mizuki's mobility uptime has increased significantly following recent changes to Katashiro Return's duration and cooldown. While the increased duration has improved its usability, the cooldown is being partially reverted to reduce overall uptime. Binding Chain's projectile size is also being reduced to make its powerful hinder effect require more precise aim."
+     ]
+    },
+    {
      "date": "2026-06-16",
      "mode": "owpvp",
      "changes": [
@@ -36061,7 +36334,21 @@
      "icon": "ability_orisa_4.png"
     }
    ],
-   "extraAbilities": [],
+   "extraAbilities": [
+    {
+     "hero": "Orisa",
+     "name": "Heavy Javelin",
+     "kind": "perk",
+     "damage": 125.0,
+     "damagePerSecond": null,
+     "cooldown": null,
+     "castTime": null,
+     "lines": [
+      "40 → 55 (wall impact)"
+     ],
+     "uncertain": false
+    }
+   ],
    "releaseDate": "2017-03-21",
    "heroNumber": 24,
    "perks": [
@@ -36076,9 +36363,9 @@
      "description": "While Fortify is active, Orisa has no movement speed reduction and no heat generation."
     },
     {
-     "name": "Charged Javelin",
+     "name": "Heavy Javelin",
      "tier": "major",
-     "description": "Energy Javelin can be charged to increase projectile speed and knockback. Pierces enemies at full power."
+     "description": "Energy Javelin's knockback is increased by 25% and its wall impact damage is increased by 15."
     },
     {
      "name": "Protective Barrier",
@@ -36087,6 +36374,26 @@
     }
    ],
    "patches": [
+    {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Charged Javelin (Major Perk)",
+       "text": "Removed."
+      },
+      {
+       "ability": "Heavy Javelin (Major Perk)",
+       "text": "New"
+      },
+      {
+       "ability": "Heavy Javelin (Major Perk)",
+       "text": "Energy Javelin's knockback is increased by 25% and its wall impact damage is increased by 15."
+      }
+     ],
+     "stats": [],
+     "comments": []
+    },
     {
      "date": "2026-02-10",
      "mode": "owpvp",
@@ -46103,7 +46410,7 @@
      "description": "Throw a charge that creates a shockwave on impact.",
      "icon": "ability_sierra_2.png",
      "damage": 100.0,
-     "cooldown": 8.5,
+     "cooldown": 7.0,
      "castTime": 0.73,
      "damageLines": [
       "100 (inner shockwave)",
@@ -53577,7 +53884,7 @@
     {
      "name": "Anchor Bolts",
      "tier": "major",
-     "description": "Deploy Turret's throw range is increased by 50% and it can now attach to walls and ceilings."
+     "description": "Deploy Turret's throw range is increased by 25% and it can now attach to walls and ceilings."
     },
     {
      "name": "Overloaded Turret",
@@ -54936,9 +55243,9 @@
    "heroNumber": null,
    "perks": [
     {
-     "name": "Chronal Dash",
+     "name": "Temporal Regen",
      "tier": "minor",
-     "description": "Blink distance increased by 20%."
+     "description": "Passive health regeneration triggers 50% faster."
     },
     {
      "name": "Kinetic Reload",
@@ -54957,6 +55264,41 @@
     }
    ],
    "patches": [
+    {
+     "date": "2026-08-11",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Chronal Dash (Minor Perk)",
+       "text": "Removed."
+      },
+      {
+       "ability": "Temporal Regen (Minor Perk)",
+       "text": "New"
+      },
+      {
+       "ability": "Temporal Regen (Minor Perk)",
+       "text": "Passive health regeneration triggers 50% faster."
+      },
+      {
+       "ability": "Recall",
+       "text": "Cooldown reduced from 13 to 12 seconds."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Recall",
+       "stat": "Cooldown",
+       "from": 13.0,
+       "to": 12.0,
+       "unit": null,
+       "direction": "buff"
+      }
+     ],
+     "comments": [
+      "While Tracer's damage has landed in an effective spot following recent adjustments, reducing Recall's cooldown allows her to disengage more frequently."
+     ]
+    },
     {
      "date": "2026-06-16",
      "mode": "owpvp",
@@ -59826,7 +60168,7 @@
     {
      "name": "Adaptive Barrier",
      "tier": "major",
-     "description": "Adaptive Shield generates a 1.5 second barrier on activation."
+     "description": "Adaptive Shield generates a 1 second barrier on activation."
     }
    ],
    "patches": [

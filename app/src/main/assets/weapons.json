@@ -1595,7 +1595,7 @@
    ],
    "damage": {
     "dpshot": [
-     30.0
+     28.0
     ],
     "falloff": null
    },
@@ -1798,7 +1798,7 @@
    ],
    "damage": {
     "dpshot": [
-     27.0
+     24.0
     ],
     "falloff": null,
     "maxRange": 40.0
@@ -2488,7 +2488,7 @@
    ],
    "damage": {
     "dpshot": [
-     9.0
+     8.5
     ],
     "falloff": null
    },
@@ -2496,7 +2496,7 @@
     "maxAngle": 3.0,
     "minAngle": 0.5
    },
-   "velocity": 85.0,
+   "velocity": 120.0,
    "fireRate": 10.89,
    "shotTime": 0.09182736455463728,
    "ammo": 40.0,
@@ -2818,7 +2818,7 @@
     ]
    },
    "spread": {
-    "angle": 4.5
+    "angle": 4.0
    },
    "velocity": 120.0,
    "fireRate": 1.43,
@@ -5654,13 +5654,13 @@
    "hero": "Baptiste",
    "name": "Immortality Field",
    "kind": "weapon",
-   "healPerShot": 20.0,
+   "healPerShot": 25.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "Any deficit from 20% HP"
+   "detail": "Any deficit from 25% HP"
   },
   {
    "hero": "Baptiste",
@@ -5870,13 +5870,13 @@
    "hero": "Jetpack Cat",
    "name": "Biotic Pawjectiles",
    "kind": "weapon",
-   "healPerShot": 27.0,
+   "healPerShot": 24.0,
    "healPerSecond": null,
    "fireRate": 4.48,
    "ammo": 24.0,
    "reloadTime": 1.25,
    "statedHps": false,
-   "detail": "27 (per volley)"
+   "detail": "24 (per volley)"
   },
   {
    "hero": "Jetpack Cat",
@@ -5900,7 +5900,7 @@
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "30 (per pulse, allies) / 22.5 (per pulse, self)"
+   "detail": "30 (per pulse, allies) / 18 (per pulse, self)"
   },
   {
    "hero": "Jetpack Cat",
@@ -6608,7 +6608,7 @@
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "9.75 (bodyshot, per orb) / 19.5 (headshot, per orb)"
+   "detail": "9.75 (bodyshot, per orb) / 19.5 (headshot, per orb) / 11.7 (Snap Kick, per orb)"
   },
   {
    "hero": "Zenyatta",

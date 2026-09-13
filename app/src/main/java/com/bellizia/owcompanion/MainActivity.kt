@@ -16,6 +16,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.bellizia.owcompanion.data.DatasetSync
 import com.bellizia.owcompanion.data.ReleaseChecker
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -181,6 +182,22 @@ private fun UpdateBanner() {
 
     LaunchedEffect(Unit) {
         release = ReleaseChecker(context).newerRelease()
+    }
+
+    // I dati degli eroi si aggiornano da soli, e in silenzio.
+    //
+    // Sono due aggiornamenti diversi e vanno trattati diversamente. Una versione
+    // nuova dell'app la deve installare una persona, quindi si chiede. I numeri
+    // degli eroi no: sono la stessa app con dati piu' recenti, e chiedere il
+    // permesso di correggere un danno sbagliato sarebbe solo un fastidio.
+    //
+    // Prima stava solo dietro un pulsante nella schermata Info, dove non lo
+    // premeva nessuno: chi non ci passava restava coi numeri del giorno in cui
+    // aveva installato. Ora parte all'avvio, costa una richiesta di poche
+    // centinaia di byte quando non c'e' niente di nuovo, e il file grosso arriva
+    // solo quando il dataset e' davvero cambiato.
+    LaunchedEffect(Unit) {
+        DatasetSync.run(context)
     }
 
     val newer = release ?: return

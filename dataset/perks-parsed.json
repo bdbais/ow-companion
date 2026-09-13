@@ -446,9 +446,9 @@
   },
   {
    "hero": "Jetpack Cat",
-   "name": "Headbutt",
+   "name": "Purrfect Form",
    "tier": "major",
-   "description": "Frenetic Flight can knockback an enemy on impact when flying fast enough, dealing 50 damage on impact."
+   "description": "Each pulse of Purr contains 3 waves."
   },
   {
    "hero": "Jetpack Cat",
@@ -734,9 +734,9 @@
   },
   {
    "hero": "Orisa",
-   "name": "Charged Javelin",
+   "name": "Heavy Javelin",
    "tier": "major",
-   "description": "Energy Javelin can be charged to increase projectile speed and knockback. Pierces enemies at full power."
+   "description": "Energy Javelin's knockback is increased by 25% and its wall impact damage is increased by 15."
   },
   {
    "hero": "Orisa",
@@ -1048,7 +1048,7 @@
    "hero": "Torbjörn",
    "name": "Anchor Bolts",
    "tier": "major",
-   "description": "Deploy Turret's throw range is increased by 50% and it can now attach to walls and ceilings."
+   "description": "Deploy Turret's throw range is increased by 25% and it can now attach to walls and ceilings."
   },
   {
    "hero": "Torbjörn",
@@ -1058,9 +1058,9 @@
   },
   {
    "hero": "Tracer",
-   "name": "Chronal Dash",
+   "name": "Temporal Regen",
    "tier": "minor",
-   "description": "Blink distance increased by 20%."
+   "description": "Passive health regeneration triggers 50% faster."
   },
   {
    "hero": "Tracer",
@@ -1198,7 +1198,7 @@
    "hero": "Wrecking Ball",
    "name": "Adaptive Barrier",
    "tier": "major",
-   "description": "Adaptive Shield generates a 1.5 second barrier on activation."
+   "description": "Adaptive Shield generates a 1 second barrier on activation."
   },
   {
    "hero": "Wuyang",
