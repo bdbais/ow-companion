@@ -95,6 +95,15 @@ private fun Translators() {
     }
 }
 
+/**
+ * Dove vanno le offerte.
+ *
+ * L'app resta gratuita e senza pubblicita' qualunque cosa succeda qui: la sezione dice
+ * « se ti e' utile » e non « sblocca », perche' non c'e' niente da sbloccare. Un progetto
+ * che chiede e insieme toglie qualcosa a chi non paga sarebbe un'altra cosa.
+ */
+private const val DONATE = "https://paypal.me/bellizia"
+
 /** Where a contributed translation goes, which is one file and not a build system. */
 private const val TRANSLATIONS_FILE =
     "https://github.com/bdbais/ow-companion/blob/master/dataset/names-contributed.json"
@@ -222,6 +231,18 @@ fun AboutScreen(
             // Credited by name from AiArt, so the screen cannot go on thanking a service
             // the app has stopped using.
             Paragraph(stringResource(R.string.about_data_ai, AiArt.CREDIT))
+        }
+
+        val context = LocalContext.current
+        Section(R.string.about_donate_title) {
+            Paragraph(R.string.about_donate)
+            TextButton(
+                onClick = {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(DONATE))
+                    runCatching { context.startActivity(intent) }
+                },
+                contentPadding = PaddingValues(horizontal = 4.dp, vertical = 2.dp),
+            ) { Text(stringResource(R.string.about_donate_open)) }
         }
 
         var count by rememberSaveable { mutableIntStateOf(0) }

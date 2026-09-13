@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">الإجمالي، خلال %1$.1f ث تقريبًا من التنفيذ</string>
     <string name="rank_combos">التركيبات</string>
     <string name="rank_combos_note">كامل الافتتاحية التي يملكها كل بطل على هدف واحد: كل قدرة مرة، ضربة التحام، ثم أقوى طلقة مفردة — ثانية واحدة إن كان شعاعًا. أفضل الحالات، بافتراض أن كل شيء يصيب وأن شيئًا لا يتكرر.</string>
+    <string name="about_donate_title">إن كان مفيداً لك</string>
+    <string name="about_donate">هذا التطبيق مجاني وسيبقى كذلك: بلا إعلانات، ولا شيء يُفتح بالدفع، ولا شيء يُجمع عنك. يُصنع في وقت الفراغ، والتبرع يساعد على مواصلة تخصيصه. لا يتغير شيء في التطبيق في الحالتين.</string>
+    <string name="about_donate_open">تبرّع</string>
     <string name="about_data_ai">الصور المولَّدة في ورشة القصص المصورة تأتي من %1$s، مجاناً ودون حساب. لا يُولَّد شيء ما لم تطلبه.</string>
     <string name="comics_generate">ولّد</string>
     <string name="comics_generate_title">ارسم شيئاً</string>

@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">Gesamt, über etwa %1$.1f s Wirkzeit</string>
     <string name="rank_combos">Combos</string>
     <string name="rank_combos_note">Die gesamte Eröffnung, die jeder Held gegen ein Ziel hat: jede Fähigkeit einmal, ein Nahkampfschlag, dann der stärkste Einzelschuss — bei einem Strahl eine Sekunde. Bestfall, unter der Annahme, dass alles trifft und sich nichts wiederholt.</string>
+    <string name="about_donate_title">Wenn sie dir nützt</string>
+    <string name="about_donate">Diese App ist kostenlos und bleibt es: keine Werbung, nichts freizuschalten, nichts über dich gesammelt. Sie entsteht in der Freizeit, und eine Spende hilft, weiter welche hineinzustecken. In der App ändert sich so oder so nichts.</string>
+    <string name="about_donate_open">Etwas geben</string>
     <string name="about_data_ai">Die im Comic-Werkraum erzeugten Bilder kommen von %1$s, kostenlos und ohne Konto. Erzeugt wird nur, worum du bittest.</string>
     <string name="comics_generate">Erzeugen</string>
     <string name="comics_generate_title">Etwas zeichnen</string>

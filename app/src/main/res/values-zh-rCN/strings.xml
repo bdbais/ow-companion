@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">合计，约 %1$.1f 秒的施放时间</string>
     <string name="rank_combos">连招</string>
     <string name="rank_combos_note">每名英雄对单一目标能打出的完整起手：每个技能各一次、一次近战，再接最强的一发——光束算一秒。最理想情况，假定全部命中且没有重复使用。</string>
+    <string name="about_donate_title">如果它对你有用</string>
+    <string name="about_donate">这个应用是免费的，而且会一直免费：没有广告，没有需要解锁的东西，也不收集关于你的任何信息。它是利用业余时间做的，一点心意有助于继续投入时间。无论如何，应用本身都不会有任何变化。</string>
+    <string name="about_donate_open">表示一点心意</string>
     <string name="about_data_ai">漫画工坊里生成的图像来自 %1$s，免费且无需账号。你不主动要求，就不会生成任何东西。</string>
     <string name="comics_generate">生成</string>
     <string name="comics_generate_title">画点什么</string>

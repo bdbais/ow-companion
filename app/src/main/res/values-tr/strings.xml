@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">Toplam, yaklaşık %1$.1f sn\'lik kullanım boyunca</string>
     <string name="rank_combos">Kombolar</string>
     <string name="rank_combos_note">Her kahramanın tek bir hedefe karşı açabileceği bütün seri: her yetenek birer kez, bir yakın dövüş, ardından en sert tek atış — ışın için bir saniye. Her şeyin isabet ettiği ve hiçbir şeyin tekrarlanmadığı en iyi durum.</string>
+    <string name="about_donate_title">İşine yarıyorsa</string>
+    <string name="about_donate">Bu uygulama ücretsiz ve öyle kalacak: reklam yok, kilidi açılacak bir şey yok, senin hakkında toplanan bir şey yok. Boş zamanda yapılıyor ve bir katkı o zamanı ayırmayı sürdürmeye yardım eder. Her durumda uygulamada hiçbir şey değişmez.</string>
+    <string name="about_donate_open">Katkıda bulun</string>
     <string name="about_data_ai">Çizgi roman atölyesinde üretilen görseller %1$s üzerinden gelir; ücretsiz ve hesapsız. Sen istemedikçe hiçbir şey üretilmez.</string>
     <string name="comics_generate">Üret</string>
     <string name="comics_generate_title">Bir şey çiz</string>

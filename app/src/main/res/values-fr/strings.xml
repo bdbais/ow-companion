@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">Total, sur environ %1$.1f s d\'incantation</string>
     <string name="rank_combos">Combos</string>
     <string name="rank_combos_note">Toute l\'ouverture dont dispose chaque héros sur une cible : chaque capacité une fois, un corps à corps, puis le tir le plus fort — une seconde pour un rayon. Au mieux, en supposant que tout touche et que rien ne se répète.</string>
+    <string name="about_donate_title">Si elle vous est utile</string>
+    <string name="about_donate">Cette app est gratuite et le restera : pas de publicité, rien à débloquer, rien de collecté sur vous. Elle est faite sur le temps libre, et un don aide à continuer d\'y en consacrer. Rien ne change dans l\'app dans un cas comme dans l\'autre.</string>
+    <string name="about_donate_open">Faire un don</string>
     <string name="about_data_ai">Les images créées dans l\'atelier BD viennent de %1$s, gratuit et sans compte. Rien n\'est généré sans que vous le demandiez.</string>
     <string name="comics_generate">Générer</string>
     <string name="comics_generate_title">Dessiner quelque chose</string>

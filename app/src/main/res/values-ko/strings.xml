@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">합계, 약 %1$.1f초의 시전 시간</string>
     <string name="rank_combos">연계</string>
     <string name="rank_combos_note">각 영웅이 한 대상에게 걸 수 있는 선공 전체: 각 기술을 한 번씩, 근접 공격, 그다음 가장 강한 한 방 — 광선이면 1초. 전부 적중하고 아무것도 반복하지 않는다는 최상의 경우입니다.</string>
+    <string name="about_donate_title">도움이 되었다면</string>
+    <string name="about_donate">이 앱은 무료이고 앞으로도 무료입니다. 광고도, 잠금 해제할 것도, 여러분에 대해 수집하는 것도 없습니다. 여가 시간에 만들고 있으며, 후원은 그 시간을 이어가는 데 도움이 됩니다. 어느 쪽이든 앱에서 달라지는 것은 없습니다.</string>
+    <string name="about_donate_open">후원하기</string>
     <string name="about_data_ai">만화 작업실에서 생성한 이미지는 %1$s에서 오며, 무료이고 계정이 필요 없습니다. 요청하지 않으면 아무것도 생성되지 않습니다.</string>
     <string name="comics_generate">생성</string>
     <string name="comics_generate_title">무언가 그리기</string>

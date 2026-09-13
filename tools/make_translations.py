@@ -2530,6 +2530,36 @@ TRANSLATIONS: dict[str, dict] = {
     ),
     # Arabic wants the short word here: "القصص المصورة" is the correct name for the medium
     # and is elided to "القصص ا..." in a tab that has to share a row with seven others.
+    "about_donate_title": t(
+        es="Si te resulta útil", pt="Se te for útil", fr="Si elle vous est utile",
+        de="Wenn sie dir nützt", ja="役に立ったなら", ko="도움이 되었다면",
+        zhCN="如果它对你有用", zhTW="如果它對你有用",
+        ru="Если она вам полезна", uk="Якщо вона вам корисна",
+        sv="Om den är till nytta", ar="إن كان مفيداً لك",
+        pl="Jeśli ci się przydaje", tr="İşine yarıyorsa",
+    ),
+    "about_donate": t(
+        es="Esta app es gratuita y seguirá siéndolo: sin publicidad, nada que desbloquear, nada recogido sobre ti. Está hecha en el tiempo libre, y una aportación ayuda a seguir dedicándoselo. En la app no cambia nada en ningún caso.",
+        pt="Este app é gratuito e continuará sendo: sem anúncios, nada para desbloquear, nada recolhido sobre você. É feito no tempo livre, e uma contribuição ajuda a continuar dedicando-o. No app não muda nada de qualquer forma.",
+        fr="Cette app est gratuite et le restera : pas de publicité, rien à débloquer, rien de collecté sur vous. Elle est faite sur le temps libre, et un don aide à continuer d'y en consacrer. Rien ne change dans l'app dans un cas comme dans l'autre.",
+        de="Diese App ist kostenlos und bleibt es: keine Werbung, nichts freizuschalten, nichts über dich gesammelt. Sie entsteht in der Freizeit, und eine Spende hilft, weiter welche hineinzustecken. In der App ändert sich so oder so nichts.",
+        ja="このアプリは無料で、これからも無料です。広告なし、解除するものもなし、あなたについて集めるものもなし。空き時間で作っています。寄付はその時間を続ける助けになりますが、アプリの中身はどちらでも変わりません。",
+        ko="이 앱은 무료이고 앞으로도 무료입니다. 광고도, 잠금 해제할 것도, 여러분에 대해 수집하는 것도 없습니다. 여가 시간에 만들고 있으며, 후원은 그 시간을 이어가는 데 도움이 됩니다. 어느 쪽이든 앱에서 달라지는 것은 없습니다.",
+        zhCN="这个应用是免费的，而且会一直免费：没有广告，没有需要解锁的东西，也不收集关于你的任何信息。它是利用业余时间做的，一点心意有助于继续投入时间。无论如何，应用本身都不会有任何变化。",
+        zhTW="這個應用程式是免費的，而且會一直免費：沒有廣告，沒有需要解鎖的東西，也不收集關於你的任何資訊。它是利用業餘時間做的，一點心意有助於繼續投入時間。無論如何，應用程式本身都不會有任何變化。",
+        ru="Это приложение бесплатное и таким останется: без рекламы, без платных функций, без сбора данных о вас. Оно делается в свободное время, и пожертвование помогает его и дальше на это тратить. В приложении в любом случае ничего не меняется.",
+        uk="Цей застосунок безкоштовний і таким залишиться: без реклами, без платних функцій, без збору даних про вас. Він робиться у вільний час, і внесок допомагає й далі його на це витрачати. У застосунку в будь-якому разі нічого не змінюється.",
+        sv="Appen är gratis och förblir gratis: ingen reklam, inget att låsa upp, inget som samlas in om dig. Den görs på fritiden, och en gåva hjälper till att fortsätta lägga tid på den. I appen ändras ingenting hur som helst.",
+        ar="هذا التطبيق مجاني وسيبقى كذلك: بلا إعلانات، ولا شيء يُفتح بالدفع، ولا شيء يُجمع عنك. يُصنع في وقت الفراغ، والتبرع يساعد على مواصلة تخصيصه. لا يتغير شيء في التطبيق في الحالتين.",
+        pl="Ta aplikacja jest darmowa i taka zostanie: bez reklam, bez niczego do odblokowania, bez zbierania danych o tobie. Powstaje w wolnym czasie, a wsparcie pomaga dalej go na nią poświęcać. W aplikacji i tak nic się nie zmienia.",
+        tr="Bu uygulama ücretsiz ve öyle kalacak: reklam yok, kilidi açılacak bir şey yok, senin hakkında toplanan bir şey yok. Boş zamanda yapılıyor ve bir katkı o zamanı ayırmayı sürdürmeye yardım eder. Her durumda uygulamada hiçbir şey değişmez.",
+    ),
+    "about_donate_open": t(
+        es="Aportar algo", pt="Contribuir", fr="Faire un don", de="Etwas geben",
+        ja="寄付する", ko="후원하기", zhCN="表示一点心意", zhTW="表示一點心意",
+        ru="Поддержать", uk="Підтримати", sv="Ge något", ar="تبرّع",
+        pl="Wesprzyj", tr="Katkıda bulun",
+    ),
     "about_data_ai": t(
         es="Las imágenes generadas en el taller de cómics vienen de %1$s, gratis y sin cuenta. No se genera nada si no lo pides tú.",
         pt="As imagens geradas na oficina de quadrinhos vêm de %1$s, grátis e sem conta. Nada é gerado a menos que você peça.",

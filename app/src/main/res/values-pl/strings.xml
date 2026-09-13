@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">Razem, przez około %1$.1f s rzucania</string>
     <string name="rank_combos">Kombinacje</string>
     <string name="rank_combos_note">Całe otwarcie, jakie każdy bohater ma na jeden cel: każda umiejętność raz, cios wręcz, potem najmocniejszy pojedynczy strzał — dla wiązki jedna sekunda. Najlepszy przypadek, przy założeniu, że wszystko trafia i nic się nie powtarza.</string>
+    <string name="about_donate_title">Jeśli ci się przydaje</string>
+    <string name="about_donate">Ta aplikacja jest darmowa i taka zostanie: bez reklam, bez niczego do odblokowania, bez zbierania danych o tobie. Powstaje w wolnym czasie, a wsparcie pomaga dalej go na nią poświęcać. W aplikacji i tak nic się nie zmienia.</string>
+    <string name="about_donate_open">Wesprzyj</string>
     <string name="about_data_ai">Obrazy tworzone w warsztacie komiksowym pochodzą z %1$s, za darmo i bez konta. Nic nie powstaje, dopóki o to nie poprosisz.</string>
     <string name="comics_generate">Wygeneruj</string>
     <string name="comics_generate_title">Narysuj coś</string>

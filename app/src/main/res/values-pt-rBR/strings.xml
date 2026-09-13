@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">Total, em cerca de %1$.1f s de conjuração</string>
     <string name="rank_combos">Combos</string>
     <string name="rank_combos_note">A abertura inteira que cada herói tem contra um alvo: cada habilidade uma vez, um corpo a corpo, depois o tiro mais forte — um segundo no caso de um raio. No melhor cenário, supondo que tudo acerta e nada se repete.</string>
+    <string name="about_donate_title">Se te for útil</string>
+    <string name="about_donate">Este app é gratuito e continuará sendo: sem anúncios, nada para desbloquear, nada recolhido sobre você. É feito no tempo livre, e uma contribuição ajuda a continuar dedicando-o. No app não muda nada de qualquer forma.</string>
+    <string name="about_donate_open">Contribuir</string>
     <string name="about_data_ai">As imagens geradas na oficina de quadrinhos vêm de %1$s, grátis e sem conta. Nada é gerado a menos que você peça.</string>
     <string name="comics_generate">Gerar</string>
     <string name="comics_generate_title">Desenhe algo</string>

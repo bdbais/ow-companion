@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">Total, en unos %1$.1f s de lanzamiento</string>
     <string name="rank_combos">Combos</string>
     <string name="rank_combos_note">La apertura entera de cada héroe sobre un objetivo: cada habilidad una vez, un cuerpo a cuerpo y después el disparo más fuerte, o un segundo si es un rayo. En el mejor de los casos, dando por hecho que todo impacta y que nada se repite.</string>
+    <string name="about_donate_title">Si te resulta útil</string>
+    <string name="about_donate">Esta app es gratuita y seguirá siéndolo: sin publicidad, nada que desbloquear, nada recogido sobre ti. Está hecha en el tiempo libre, y una aportación ayuda a seguir dedicándoselo. En la app no cambia nada en ningún caso.</string>
+    <string name="about_donate_open">Aportar algo</string>
     <string name="about_data_ai">Las imágenes generadas en el taller de cómics vienen de %1$s, gratis y sin cuenta. No se genera nada si no lo pides tú.</string>
     <string name="comics_generate">Generar</string>
     <string name="comics_generate_title">Dibuja algo</string>

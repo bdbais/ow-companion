@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">合計、およそ %1$.1f 秒の発動時間で</string>
     <string name="rank_combos">コンボ</string>
     <string name="rank_combos_note">各ヒーローが一つの対象に対して持つ先手のすべて。各アビリティを一度ずつ、近接攻撃、そして最も強い一撃——ビームなら一秒。すべて当たり、何も繰り返さないと仮定した最良の場合です。</string>
+    <string name="about_donate_title">役に立ったなら</string>
+    <string name="about_donate">このアプリは無料で、これからも無料です。広告なし、解除するものもなし、あなたについて集めるものもなし。空き時間で作っています。寄付はその時間を続ける助けになりますが、アプリの中身はどちらでも変わりません。</string>
+    <string name="about_donate_open">寄付する</string>
     <string name="about_data_ai">コミック工房で生成した画像は %1$s によるもので、無料・アカウント不要です。頼まないかぎり何も生成されません。</string>
     <string name="comics_generate">生成</string>
     <string name="comics_generate_title">何か描く</string>

@@ -237,6 +237,9 @@
     <string name="wiki_combo_total">Totalt, över ungefär %1$.1f s användning</string>
     <string name="rank_combos">Kombinationer</string>
     <string name="rank_combos_note">Hela öppningen varje hjälte har mot ett mål: varje förmåga en gång, ett närstridsslag, sedan det hårdaste enskilda skottet — en sekund för en stråle. Bästa fall, förutsatt att allt träffar och inget upprepas.</string>
+    <string name="about_donate_title">Om den är till nytta</string>
+    <string name="about_donate">Appen är gratis och förblir gratis: ingen reklam, inget att låsa upp, inget som samlas in om dig. Den görs på fritiden, och en gåva hjälper till att fortsätta lägga tid på den. I appen ändras ingenting hur som helst.</string>
+    <string name="about_donate_open">Ge något</string>
     <string name="about_data_ai">Bilderna som skapas i seriverkstaden kommer från %1$s, gratis och utan konto. Inget skapas om du inte ber om det.</string>
     <string name="comics_generate">Skapa</string>
     <string name="comics_generate_title">Rita något</string>
