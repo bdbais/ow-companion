@@ -17711,6 +17711,65 @@
    "hero": "Kiriko",
    "patches": [
     {
+     "date": "2026-09-08",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Healing Ofuda",
+       "text": "Projectile travel speed reduced from 24 to 18 meters per second."
+      },
+      {
+       "ability": "Healing Ofuda",
+       "text": "Maximum seeking range reduced from 35 to 30 meters."
+      },
+      {
+       "ability": "Protection Suzu",
+       "text": "Phased out invulnerability duration reduced from 0.65 to 0.5 seconds."
+      },
+      {
+       "ability": "Protection Suzu",
+       "text": "Explosion radius reduced from 5 to 4 meters."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Healing Ofuda",
+       "stat": "Projectile travel speed",
+       "from": 24.0,
+       "to": 18.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Healing Ofuda",
+       "stat": "Maximum seeking range",
+       "from": 35.0,
+       "to": 30.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Protection Suzu",
+       "stat": "Phased out invulnerability duration",
+       "from": 0.65,
+       "to": 0.5,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Protection Suzu",
+       "stat": "Explosion radius",
+       "from": 5.0,
+       "to": 4.0,
+       "unit": null,
+       "direction": "nerf"
+      }
+     ],
+     "comments": [
+      "Kiriko has become highly effective as a healer while retaining the utility and mobility of her kit. We're reducing the speed and range of Healing Ofuda to lower her healing consistency at longer distances. Protection Suzu is also being adjusted to reduce the effectiveness of its invulnerability and require more precise use."
+     ]
+    },
+    {
      "date": "2026-07-14",
      "mode": "owpvp",
      "changes": [
