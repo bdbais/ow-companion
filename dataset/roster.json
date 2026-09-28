@@ -46,7 +46,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/795fba91376d87d441a7f359ae12a3175dfa95825ccc4414cc6b95b129fc4cb0.png",
    "wikiTitle": "Brigitte",
-   "wikiBytes": 84677
+   "wikiBytes": 84805
   },
   {
    "key": "cassidy",
@@ -62,7 +62,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a46c60b8562fdbd0b8308396d0808f7606fba208bc67cccf3f82fe56d2c73b9d.png",
    "wikiTitle": "D.Mon",
-   "wikiBytes": 14812
+   "wikiBytes": 14854
   },
   {
    "key": "domina",
@@ -86,7 +86,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/df5a5532862d9292634fb3dc0e51a4705aa601de65e5e815513ccc663d84de56.png",
    "wikiTitle": "D.Va",
-   "wikiBytes": 128350
+   "wikiBytes": 128349
   },
   {
    "key": "echo",
@@ -102,7 +102,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c51e2f698138861c0e3b6cfab3c3ca9d67fd709be175e7c397aa6f2649712a30.png",
    "wikiTitle": "Emre",
-   "wikiBytes": 34296
+   "wikiBytes": 34307
   },
   {
    "key": "freja",
@@ -110,7 +110,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/811963897c352d9f178bec882d94bd0281074feee7c429c5145b6b8ea8ebe862.png",
    "wikiTitle": "Freja",
-   "wikiBytes": 33156
+   "wikiBytes": 33167
   },
   {
    "key": "genji",
@@ -182,7 +182,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/408603fe037e8576078eaac5eab2fb251489ced4003b11f5f522776d43d0b83d.png",
    "wikiTitle": "Kiriko",
-   "wikiBytes": 69830
+   "wikiBytes": 70493
   },
   {
    "key": "lifeweaver",
@@ -334,7 +334,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/47727b02a16e3bd7b2447d86ae1edf11587bc320b2aecb4f2f16a7ca4ad4e8a0.png",
    "wikiTitle": "Sombra",
-   "wikiBytes": 112842
+   "wikiBytes": 112952
   },
   {
    "key": "symmetra",
