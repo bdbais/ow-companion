@@ -43,6 +43,27 @@
    "raw": "45"
   },
   {
+   "hero": "Doctrine",
+   "weapon": "Eternal Scepter",
+   "field": "falloff",
+   "reason": "falloff differs by condition, took the first",
+   "raw": "30 - 50m (base) / 40 - 60m (infused)"
+  },
+  {
+   "hero": "Doctrine",
+   "weapon": "Infuse",
+   "field": "type",
+   "reason": "no shot type given, assumed a linear projectile",
+   "raw": ""
+  },
+  {
+   "hero": "Doctrine",
+   "weapon": "Infuse",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
    "hero": "Domina",
    "weapon": "Photon Magnum",
    "field": "damage",
@@ -244,6 +265,13 @@
    "field": "damage",
    "reason": "derived from the wiki's stated 150 dps: 40.0 -> 120.0 per pellet",
    "raw": "40 (direct hit)"
+  },
+  {
+   "hero": "Roadhog",
+   "weapon": "Scrap Gun",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 203 dps: 4.2 -> 10.2 per pellet",
+   "raw": "4.25 – 1.275 (per pellet)"
   },
   {
    "hero": "Roadhog",

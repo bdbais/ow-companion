@@ -98,9 +98,9 @@
    "color": "#be736e",
    "role": "support",
    "portrait": "portrait_brigitte.png",
-   "health": 200,
+   "health": 175,
    "shields": 0,
-   "armor": 50,
+   "armor": 75,
    "abilities": [
     "Rocket Flail",
     "Repair Pack",
@@ -132,9 +132,9 @@
    "color": "#cc9795",
    "role": "tank",
    "portrait": "portrait_dmon.png",
-   "health": 325,
+   "health": 425,
    "shields": 0,
-   "armor": 325,
+   "armor": 275,
    "abilities": [
     "Plasma Saber ",
     "Portable Fusion Repeater",
@@ -143,8 +143,25 @@
     "Fusion Repeater",
     "Propulsors",
     "Eject!",
-    "Limit Break ",
+    "Limit Break",
     "Call Mech"
+   ]
+  },
+  {
+   "key": "doctrine",
+   "name": "Doctrine",
+   "color": "#bc5d6b",
+   "role": "support",
+   "portrait": "portrait_doctrine.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Eternal Scepter",
+    "Infuse",
+    "Invigorating Drones",
+    "Shrouded Momentum",
+    "Deliverance"
    ]
   },
   {
@@ -187,7 +204,7 @@
    "color": "#ed93c7",
    "role": "tank",
    "portrait": "portrait_dva.png",
-   "health": 325,
+   "health": 350,
    "shields": 0,
    "armor": 325,
    "abilities": [
@@ -623,6 +640,7 @@
    "armor": 0,
    "abilities": [
     "Scrap Gun",
+    "Trash Compactor",
     "Chain Hook",
     "Take a Breather",
     "Whole Hog"
@@ -669,7 +687,7 @@
    "role": "tank",
    "portrait": "portrait_sigma.png",
    "health": 350,
-   "shields": 275,
+   "shields": 250,
    "armor": 0,
    "abilities": [
     "Hyperspheres",
@@ -716,16 +734,16 @@
    "key": "sombra",
    "name": "Sombra",
    "color": "#7359ba",
-   "role": "damage",
+   "role": "support",
    "portrait": "portrait_sombra.png",
    "health": 225,
    "shields": 0,
    "armor": 0,
    "abilities": [
     "Machine Pistol",
-    "Hack",
+    "Hotfix",
+    "Cyberspace",
     "Translocator",
-    "Virus",
     "EMP"
    ]
   },
@@ -1367,6 +1385,37 @@
    "critFactor": 2.0,
    "dpsPeriodBase": 0.128,
    "dpsPeriodAdd": 0.05
+  },
+  {
+   "name": "Eternal Scepter",
+   "hero": "Doctrine",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0,
+     18.0
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.8,
+   "shotTime": 0.5555555555555556,
+   "ammo": 18.0,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5555555555555556,
+   "dpsPeriodAdd": 0.0
   },
   {
    "name": "Photon Magnum",
@@ -2387,29 +2436,29 @@
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
-    25.0
+    16.0
    ],
    "damage": {
     "dpshot": [
-     7.0,
-     2.1
+     10.156500000000001,
+     3.04695
     ],
     "falloff": [
-     30.0,
-     50.0
+     20.0,
+     35.0
     ]
    },
    "spread": {
-    "angle": 8.0
+    "angle": 6.0
    },
-   "velocity": 80.0,
+   "velocity": 100.0,
    "fireRate": 1.25,
    "shotTime": 0.8,
-   "ammo": 6.0,
+   "ammo": 12.0,
    "reloadTime": 1.75,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.8,
-   "dpsPeriodAdd": 0.2916666666666667
+   "dpsPeriodAdd": 0.14583333333333334
   },
   {
    "name": "Scrap Gun Alt Fire",
@@ -2642,16 +2691,16 @@
    ],
    "damage": {
     "dpshot": [
-     8.0,
-     2.4
+     7.0,
+     2.1
     ],
     "falloff": [
-     15.0,
+     20.0,
      35.0
     ]
    },
    "spread": {
-    "angle": 2.3
+    "angle": 2.0
    },
    "velocity": null,
    "fireRate": 20.0,
@@ -3762,6 +3811,32 @@
   {
    "name": "Quick Melee",
    "hero": "D.Mon",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Doctrine",
    "mousebutton": null,
    "type": "melee",
    "behavior": "standard",
@@ -5046,6 +5121,17 @@
    "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   },
   {
+   "hero": "Doctrine",
+   "name": "Deliverance",
+   "damage": null,
+   "sustained": false,
+   "unrankable": true,
+   "detail": "5 (per drone)",
+   "duration": 6.0,
+   "radius": 12.0,
+   "description": "Launch a swarm of drones that reduces enemy maximum health and grants allies overhealth."
+  },
+  {
    "hero": "Domina",
    "name": "Panopticon",
    "damage": 300.0,
@@ -5114,10 +5200,10 @@
   {
    "hero": "Genji",
    "name": "Dragonblade",
-   "damage": 110.0,
+   "damage": 100.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "110",
+   "detail": "100",
    "duration": 6.0,
    "radius": null,
    "description": "Unsheathe a deadly melee weapon."
@@ -5228,7 +5314,7 @@
    "sustained": false,
    "unrankable": false,
    "detail": null,
-   "duration": 5.0,
+   "duration": 6.0,
    "radius": 30.0,
    "description": "Create temporary extra health for nearby allies."
   },
@@ -5411,10 +5497,10 @@
   {
    "hero": "Sombra",
    "name": "EMP",
-   "damage": 25.0,
+   "damage": 20.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "25% of current health",
+   "detail": "20% of current health",
    "duration": 8.0,
    "radius": 15.0,
    "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you."
@@ -5735,16 +5821,52 @@
    "detail": "15 per bullet"
   },
   {
+   "hero": "Doctrine",
+   "name": "Eternal Scepter",
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": null,
+   "fireRate": 1.8,
+   "ammo": 18.0,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "60 - 18 (base) / 120 - 36 (infused)"
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Invigorating Drones",
+   "kind": "weapon",
+   "healPerShot": 120.0,
+   "healPerSecond": null,
+   "fireRate": 30.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "120 (over time)"
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Deliverance",
+   "kind": "ultimate",
+   "healPerShot": 5.0,
+   "healPerSecond": null,
+   "fireRate": 5.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "5 (per drone)"
+  },
+  {
    "hero": "Domina",
    "name": "Reconstruction",
    "kind": "weapon",
-   "healPerShot": 75.0,
+   "healPerShot": 100.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "75% of ability damage dealt"
+   "detail": "100% of ability damage dealt"
   },
   {
    "hero": "Doomfist",
@@ -6411,24 +6533,24 @@
    "name": "Take a Breather",
    "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 150.0,
+   "healPerSecond": 200.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "150 per second / 450 total"
+   "detail": "200 per second / 400 total"
   },
   {
    "hero": "Roadhog",
    "name": "Hogdrogen Exposure",
    "kind": "weapon",
-   "healPerShot": 75.0,
+   "healPerShot": 100.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "75/s"
+   "detail": "100/s"
   },
   {
    "hero": "Shion",

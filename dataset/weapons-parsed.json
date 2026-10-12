@@ -486,6 +486,64 @@
    "complete": true
   },
   {
+   "name": "Eternal Scepter",
+   "hero": "Doctrine",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     60.0,
+     18.0
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.8,
+   "shotTime": 0.5555555555555556,
+   "ammo": 18.0,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.5555555555555556,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Infuse",
+   "hero": "Doctrine",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
    "name": "Photon Magnum",
    "hero": "Domina",
    "perk": null,
@@ -1674,29 +1732,29 @@
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
-    25.0
+    16.0
    ],
    "damage": {
     "dpshot": [
-     7.0,
-     2.1
+     10.156500000000001,
+     3.04695
     ],
     "falloff": [
-     30.0,
-     50.0
+     20.0,
+     35.0
     ]
    },
    "spread": {
-    "angle": 8.0
+    "angle": 6.0
    },
-   "velocity": 80.0,
+   "velocity": 100.0,
    "fireRate": 1.25,
    "shotTime": 0.8,
-   "ammo": 6.0,
+   "ammo": 12.0,
    "reloadTime": 1.75,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.8,
-   "dpsPeriodAdd": 0.2916666666666667,
+   "dpsPeriodAdd": 0.14583333333333334,
    "complete": true
   },
   {
@@ -1928,16 +1986,16 @@
    ],
    "damage": {
     "dpshot": [
-     8.0,
-     2.4
+     7.0,
+     2.1
     ],
     "falloff": [
-     15.0,
+     20.0,
      35.0
     ]
    },
    "spread": {
-    "angle": 2.3
+    "angle": 2.0
    },
    "velocity": null,
    "fireRate": 20.0,

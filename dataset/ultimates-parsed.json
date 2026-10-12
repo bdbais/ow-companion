@@ -89,6 +89,17 @@
    "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   },
   {
+   "hero": "Doctrine",
+   "name": "Deliverance",
+   "damage": null,
+   "sustained": false,
+   "unrankable": true,
+   "detail": "5 (per drone)",
+   "duration": 6.0,
+   "radius": 12.0,
+   "description": "Launch a swarm of drones that reduces enemy maximum health and grants allies overhealth."
+  },
+  {
    "hero": "Domina",
    "name": "Panopticon",
    "damage": 300.0,
@@ -157,10 +168,10 @@
   {
    "hero": "Genji",
    "name": "Dragonblade",
-   "damage": 110.0,
+   "damage": 100.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "110",
+   "detail": "100",
    "duration": 6.0,
    "radius": null,
    "description": "Unsheathe a deadly melee weapon."
@@ -271,7 +282,7 @@
    "sustained": false,
    "unrankable": false,
    "detail": null,
-   "duration": 5.0,
+   "duration": 6.0,
    "radius": 30.0,
    "description": "Create temporary extra health for nearby allies."
   },
@@ -454,10 +465,10 @@
   {
    "hero": "Sombra",
    "name": "EMP",
-   "damage": 25.0,
+   "damage": 20.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "25% of current health",
+   "detail": "20% of current health",
    "duration": 8.0,
    "radius": 15.0,
    "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you."

@@ -193,16 +193,52 @@
    "detail": "15 per bullet"
   },
   {
+   "hero": "Doctrine",
+   "name": "Eternal Scepter",
+   "kind": "weapon",
+   "healPerShot": 60.0,
+   "healPerSecond": null,
+   "fireRate": 1.8,
+   "ammo": 18.0,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "60 - 18 (base) / 120 - 36 (infused)"
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Invigorating Drones",
+   "kind": "weapon",
+   "healPerShot": 120.0,
+   "healPerSecond": null,
+   "fireRate": 30.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "120 (over time)"
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Deliverance",
+   "kind": "ultimate",
+   "healPerShot": 5.0,
+   "healPerSecond": null,
+   "fireRate": 5.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "5 (per drone)"
+  },
+  {
    "hero": "Domina",
    "name": "Reconstruction",
    "kind": "weapon",
-   "healPerShot": 75.0,
+   "healPerShot": 100.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "75% of ability damage dealt"
+   "detail": "100% of ability damage dealt"
   },
   {
    "hero": "Doomfist",
@@ -869,24 +905,24 @@
    "name": "Take a Breather",
    "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 150.0,
+   "healPerSecond": 200.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "150 per second / 450 total"
+   "detail": "200 per second / 400 total"
   },
   {
    "hero": "Roadhog",
    "name": "Hogdrogen Exposure",
    "kind": "weapon",
-   "healPerShot": 75.0,
+   "healPerShot": 100.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "75/s"
+   "detail": "100/s"
   },
   {
    "hero": "Shion",

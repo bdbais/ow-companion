@@ -38,7 +38,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/4ede795c2a681aaccfa72d0c901cba0cb8a2c292fd6a97b2ba9faed161c2d184.png",
    "wikiTitle": "Bastion",
-   "wikiBytes": 86848
+   "wikiBytes": 86847
   },
   {
    "key": "brigitte",
@@ -46,7 +46,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/795fba91376d87d441a7f359ae12a3175dfa95825ccc4414cc6b95b129fc4cb0.png",
    "wikiTitle": "Brigitte",
-   "wikiBytes": 84677
+   "wikiBytes": 84805
   },
   {
    "key": "cassidy",
@@ -54,7 +54,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/9240cd64cc8ef58df9acbf55204ab1b5d8578f743fda5931f0dbccbd75ab841b.png",
    "wikiTitle": "Cassidy",
-   "wikiBytes": 99380
+   "wikiBytes": 99424
   },
   {
    "key": "dmon",
@@ -62,7 +62,15 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a46c60b8562fdbd0b8308396d0808f7606fba208bc67cccf3f82fe56d2c73b9d.png",
    "wikiTitle": "D.Mon",
-   "wikiBytes": 14812
+   "wikiBytes": 14860
+  },
+  {
+   "key": "doctrine",
+   "name": "Doctrine",
+   "role": "support",
+   "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2492a15c575c12314907d0d77501ec337b4d56796bc7f03e5dfb50d415612bae.png",
+   "wikiTitle": "Doctrine",
+   "wikiBytes": 6843
   },
   {
    "key": "domina",
@@ -70,7 +78,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/1161c112292c56c052c0ae711792fcde06e3251b98bc9709e582dd7585b5dcd6.png",
    "wikiTitle": "Domina",
-   "wikiBytes": 37324
+   "wikiBytes": 37325
   },
   {
    "key": "doomfist",
@@ -78,7 +86,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/ff5c54f43ad253c7faeda9c4ed31d42582ea6b19205d197866f3dd0c0aa14c16.png",
    "wikiTitle": "Doomfist",
-   "wikiBytes": 180335
+   "wikiBytes": 180363
   },
   {
    "key": "dva",
@@ -86,7 +94,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/df5a5532862d9292634fb3dc0e51a4705aa601de65e5e815513ccc663d84de56.png",
    "wikiTitle": "D.Va",
-   "wikiBytes": 128350
+   "wikiBytes": 128349
   },
   {
    "key": "echo",
@@ -102,7 +110,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c51e2f698138861c0e3b6cfab3c3ca9d67fd709be175e7c397aa6f2649712a30.png",
    "wikiTitle": "Emre",
-   "wikiBytes": 34296
+   "wikiBytes": 34306
   },
   {
    "key": "freja",
@@ -110,7 +118,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/811963897c352d9f178bec882d94bd0281074feee7c429c5145b6b8ea8ebe862.png",
    "wikiTitle": "Freja",
-   "wikiBytes": 33156
+   "wikiBytes": 33167
   },
   {
    "key": "genji",
@@ -118,7 +126,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/156b12c20b1aea872c1eeb5bb37a7de1047b2ab30ecefd0663a8925badde1ea8.png",
    "wikiTitle": "Genji",
-   "wikiBytes": 86313
+   "wikiBytes": 86310
   },
   {
    "key": "hanzo",
@@ -150,7 +158,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/03a184cd0de27091e0099ac22635ad9615a8f6997881a5c25cc5f2444764f729.png",
    "wikiTitle": "Jetpack Cat",
-   "wikiBytes": 58615
+   "wikiBytes": 58515
   },
   {
    "key": "junker-queen",
@@ -182,7 +190,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/408603fe037e8576078eaac5eab2fb251489ced4003b11f5f522776d43d0b83d.png",
    "wikiTitle": "Kiriko",
-   "wikiBytes": 69830
+   "wikiBytes": 70496
   },
   {
    "key": "lifeweaver",
@@ -198,7 +206,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/040bb13f5123ab93faad2f95627ba184608aef4b2469a4d3003859c7087df044.png",
    "wikiTitle": "Lúcio",
-   "wikiBytes": 64364
+   "wikiBytes": 64391
   },
   {
    "key": "mauga",
@@ -230,7 +238,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a9733c2367e0cbd70b9316fd2e1e17028653ec56d0051ea6ff098531dc4f99fc.png",
    "wikiTitle": "Mizuki",
-   "wikiBytes": 39291
+   "wikiBytes": 39294
   },
   {
    "key": "moira",
@@ -286,7 +294,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/89ddf07e4b619ed96169042e296a1b8856d102746f35add88284b44a9a5a6a03.png",
    "wikiTitle": "Roadhog",
-   "wikiBytes": 103413
+   "wikiBytes": 103382
   },
   {
    "key": "shion",
@@ -310,7 +318,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/a4c032fa466c9a6d9c6974747635d7ef910027f91cd58892af0c899db565f92d.png",
    "wikiTitle": "Sigma",
-   "wikiBytes": 87427
+   "wikiBytes": 87434
   },
   {
    "key": "sojourn",
@@ -331,10 +339,10 @@
   {
    "key": "sombra",
    "name": "Sombra",
-   "role": "damage",
+   "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/47727b02a16e3bd7b2447d86ae1edf11587bc320b2aecb4f2f16a7ca4ad4e8a0.png",
    "wikiTitle": "Sombra",
-   "wikiBytes": 112842
+   "wikiBytes": 112801
   },
   {
    "key": "symmetra",
@@ -374,7 +382,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/dcab9123f5f55df22e54d4e797de43c71b917e0149dd059a7fd6136f48464cd0.png",
    "wikiTitle": "Venture",
-   "wikiBytes": 41136
+   "wikiBytes": 41210
   },
   {
    "key": "widowmaker",
@@ -406,7 +414,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/4959500b495b35c0908be2abda56b53f2601b2c5cc39a1cfde8df1bffd38d66d.png",
    "wikiTitle": "Wuyang",
-   "wikiBytes": 86772
+   "wikiBytes": 86942
   },
   {
    "key": "zarya",
@@ -422,7 +430,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/7d1546b1541a8afc39353f9337a408d6275a141b0432b7e560ef61579996b0fc.png",
    "wikiTitle": "Zenyatta",
-   "wikiBytes": 76014
+   "wikiBytes": 76002
   }
  ],
  "missing": []

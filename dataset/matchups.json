@@ -2160,6 +2160,11 @@
    "matchups": []
   },
   {
+   "key": "doctrine",
+   "hero": "Doctrine",
+   "matchups": []
+  },
+  {
    "key": "domina",
    "hero": "Domina",
    "matchups": [
@@ -2927,7 +2932,7 @@
      "opponent": "Hazard",
      "key": "hazard",
      "role": "tank",
-     "matchup": "Against a Hazard, you've got a tricky game ahead of you. At close range, Hazard's Bonespur can quickly burst down your health with enough headshots, but he's only got so much ammo, so be sure to use Defense Matrix to mitigate as much of his damage as you can. His Spike Guard can save him in sticky situations and stop a lot of your damage, but not all of it, so if he's very low keep, be sure to keep firing through it, but otherwise you can Defense Matrix the shots from it. He's an agile tank, who'll chase you down if your low enough, so try avoid running in a single direction, and use Boosters flexible mobility to move around so he can't easily catch you. If he dives one of your allies, Defense Matrix his damage to prevent him securing a kill. If he uses Jagged Wall to block you off, use your Boosters to fly over it to stay in your teammates view, and if he blocks an ally off, use your infinite ammo and missles to burst the wall down so they can fall back safely.",
+     "matchup": "Against a Hazard, you've got a tricky game ahead of you. At close range, Hazard's Bonespur can quickly burst down your health with enough headshots, but he's only got so much ammo, so be sure to use Defense Matrix to mitigate as much of his damage as you can. His Spike Guard can save him in sticky situations and stop a lot of your damage, but not all of it, so if he's very low keep, be sure to keep firing through it, but otherwise you can Defense Matrix the shots from it. He's an agile tank who'll chase you down if your low enough, so try avoid running in a single direction, and use Boosters flexible mobility to move around so he can't easily catch you. If he dives one of your allies, Defense Matrix his damage to prevent him securing a kill. If he uses Jagged Wall to block you off, use your Boosters to fly over it to stay in your teammates view, and if he blocks an ally off, use your infinite ammo and missles to burst the wall down so they can fall back safely.",
      "synergy": "As a teammate, Hazard and D.Va can be a deadly duo. He can use his Jagged Wall to block off an enemy, allowing you both to quickly mow them down before they can escape. Be wary of your team though, as Hazard lacks any defensive abilities to protect his teammates, usually putting himself between them and the opponent. If someone does get past him, it's up to you to protect them and prevent him from dying. Also, his Downpour ultimate can set up a great Self-Destruct, as it prevents opponents from escaping its radius.",
      "rating": null,
      "stance": null,
