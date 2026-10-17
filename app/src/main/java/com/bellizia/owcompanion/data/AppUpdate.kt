@@ -89,6 +89,9 @@ object AppUpdate {
                 clearOthers(app, keep = target)
                 if (!isIntact(target, apk)) {
                     if (!download) return@launch
+                    // Straight away, not once the server answers: otherwise the banner shows
+                    // the metered-network offer to download for the second that takes.
+                    _state.value = State.Downloading(release.version, 0)
                     download(apk, target, release.version)
                 }
                 checkArchive(app, target)
@@ -173,7 +176,6 @@ object AppUpdate {
         }
         try {
             if (connection.responseCode !in 200..299) throw IOException("HTTP ${connection.responseCode}")
-            _state.value = State.Downloading(version, 0)
             var written = 0L
             connection.inputStream.use { input ->
                 part.outputStream().use { output ->

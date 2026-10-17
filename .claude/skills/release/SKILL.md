@@ -80,6 +80,11 @@ cp app/build/outputs/apk/release/app-release.apk "$SCRATCH/ow-companion-vX.Y.Z.a
 gh release create vX.Y.Z "$SCRATCH/ow-companion-vX.Y.Z.apk" --title "vX.Y.Z — short phrase" --notes "..."
 ```
 
+Attach **exactly one** `.apk`. Since v1.14.0 the app downloads and installs updates by
+itself, and it only does so when the release has a single APK served from this repository
+with a SHA-256 stated by GitHub (`ReleaseChecker.apkOf`). Two APKs, or none, and every
+installed copy falls back to sending the reader to the release page in the browser.
+
 Notes are for players, not for the changelog: say what is different and why it was worth
 doing. Name whoever reported the bug.
 
