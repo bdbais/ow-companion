@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">이 버전은 새 키로 서명되어 있어서 Android가 기존 앱 위에 설치하지 않습니다. 이유는 알려주지 않고 앱이 설치되지 않았다고만 표시됩니다.\n\n먼저 새 파일을 내려받고, 그다음 이 버전을 삭제하고, 마지막으로 내려받은 파일을 설치하세요. 내려받기 전에 삭제하면 앱도, 앱을 받을 페이지도 남지 않습니다.\n\n저장한 보드와 설정은 삭제하면 사라지니, 보관하고 싶은 작전은 미리 PDF로 내보내세요.\n\n이번 한 번뿐입니다. 다음 업데이트부터는 다시 정상적으로 설치됩니다.</string>
     <string name="update_reinstall_uninstall">이 버전 삭제</string>
     <string name="update_reinstall_later">나중에</string>
+    <string name="update_downloading">버전 %1$s 다운로드 중… %2$d%%</string>
+    <string name="update_download">다운로드 (%1$d MB)</string>
+    <string name="update_ready_banner">버전 %1$s 준비 완료: 앱을 다시 시작해야 합니다</string>
+    <string name="update_install">다시 시작하고 업데이트</string>
+    <string name="update_ready_title">버전 %1$s 준비 완료</string>
+    <string name="update_ready_body">업데이트를 다운로드하고 확인했습니다. 설치하면 앱이 닫힙니다. Android가 끝나면 다시 열어 주세요. 보드와 설정은 그대로 유지됩니다.
+
+처음에는 OW Companion이 앱을 설치해도 되는지 Android가 묻습니다. 이 권한은 자체 업데이트에만 사용됩니다.</string>
+    <string name="update_installing">버전 %1$s 설치 중…</string>
+    <string name="update_failed">여기서 버전 %1$s을(를) 다운로드하지 못했습니다</string>
     <string name="chart_section_fire_mode">사격 방식</string>
     <string name="fire_primary">기본 공격</string>
     <string name="fire_secondary">보조 공격</string>

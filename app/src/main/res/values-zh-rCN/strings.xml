@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">这一版用新的密钥签名，所以 Android 不会把它装在你现有的版本上，只会说应用未安装，却不说为什么。\n\n请先下载新文件，再卸载这一版，最后安装下载好的文件。先卸载再下载，你会既没有应用，也找不到取回它的页面。\n\n卸载后保存的战术板和设置不会保留，想留下的方案请先导出成 PDF。\n\n只有这一次，之后的更新会恢复正常安装。</string>
     <string name="update_reinstall_uninstall">卸载这一版</string>
     <string name="update_reinstall_later">以后再说</string>
+    <string name="update_downloading">正在下载版本 %1$s… %2$d%%</string>
+    <string name="update_download">下载 (%1$d MB)</string>
+    <string name="update_ready_banner">版本 %1$s 已就绪：需要重启应用</string>
+    <string name="update_install">重启并更新</string>
+    <string name="update_ready_title">版本 %1$s 已就绪</string>
+    <string name="update_ready_body">更新已下载并校验。安装时应用会关闭：Android 完成后请重新打开。战术板和设置都会保留。
+
+第一次安装时，Android 会询问是否允许 OW Companion 安装应用。该权限只用于它自己的更新。</string>
+    <string name="update_installing">正在安装版本 %1$s…</string>
+    <string name="update_failed">无法在此下载版本 %1$s</string>
     <string name="chart_section_fire_mode">开火方式</string>
     <string name="fire_primary">主要攻击</string>
     <string name="fire_secondary">次要攻击</string>

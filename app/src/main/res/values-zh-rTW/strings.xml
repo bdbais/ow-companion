@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">這一版用新的金鑰簽章，所以 Android 不會裝在你現有的版本上，只會說應用程式未安裝，卻不說為什麼。\n\n請先下載新檔案，再解除安裝這一版，最後安裝下載好的檔案。先解除安裝再下載，你會既沒有應用程式，也找不到取回它的頁面。\n\n解除安裝後儲存的戰術板和設定不會保留，想留下的計畫請先匯出成 PDF。\n\n只有這一次，之後的更新會恢復正常安裝。</string>
     <string name="update_reinstall_uninstall">解除安裝這一版</string>
     <string name="update_reinstall_later">之後再說</string>
+    <string name="update_downloading">正在下載版本 %1$s… %2$d%%</string>
+    <string name="update_download">下載 (%1$d MB)</string>
+    <string name="update_ready_banner">版本 %1$s 已就緒：需要重新啟動應用程式</string>
+    <string name="update_install">重新啟動並更新</string>
+    <string name="update_ready_title">版本 %1$s 已就緒</string>
+    <string name="update_ready_body">更新已下載並驗證。安裝時應用程式會關閉：Android 完成後請重新開啟。戰術板與設定都會保留。
+
+第一次安裝時，Android 會詢問是否允許 OW Companion 安裝應用程式。此權限只用於它自己的更新。</string>
+    <string name="update_installing">正在安裝版本 %1$s…</string>
+    <string name="update_failed">無法在此下載版本 %1$s</string>
     <string name="chart_section_fire_mode">開火方式</string>
     <string name="fire_primary">主要攻擊</string>
     <string name="fire_secondary">次要攻擊</string>

@@ -37,7 +37,15 @@ class ReleaseChecker(private val context: Context) {
          * bare "App not installed" with no idea why.
          */
         val needsReinstall: Boolean = false,
+        /**
+         * The APK attached to the release, when there is exactly one and it can be trusted to
+         * be fetched by the app itself. Null sends the reader to the release page instead.
+         */
+        val apk: Apk? = null,
     )
+
+    /** Where the new build is, how big it is, and what its bytes must hash to. */
+    data class Apk(val url: String, val size: Long, val sha256: String)
 
     /** The newer release, or null when there is nothing worth saying. */
     suspend fun newerRelease(): Release? = withContext(Dispatchers.IO) {
@@ -51,6 +59,7 @@ class ReleaseChecker(private val context: Context) {
                     version = normalise(tag),
                     url = trustedUrl(latest.url),
                     needsReinstall = requiresReinstall(latest.body),
+                    apk = apkOf(latest.assets),
                 )
             }
         }.getOrNull()
@@ -125,6 +134,15 @@ class ReleaseChecker(private val context: Context) {
         val body: String = "",
         val draft: Boolean = false,
         val prerelease: Boolean = false,
+        val assets: List<ReleaseFile> = emptyList(),
+    )
+
+    @Serializable
+    internal data class ReleaseFile(
+        val name: String = "",
+        @SerialName("browser_download_url") val url: String = "",
+        val size: Long = 0,
+        val digest: String? = null,
     )
 
     private fun fetchLatest(): LatestRelease? {
@@ -170,6 +188,34 @@ class ReleaseChecker(private val context: Context) {
          */
         internal fun trustedUrl(candidate: String): String =
             candidate.takeIf { it == REPO || it.startsWith("$REPO/") } ?: RELEASES
+
+        /**
+         * The one APK of a release, or null when it cannot be fetched safely.
+         *
+         * Three things are required, and missing any of them means the old behaviour - the
+         * release page in the browser - rather than a download the app cannot vouch for. The
+         * file must be served from this project's own release downloads, so the response
+         * cannot point the app at someone else's file. GitHub must state its SHA-256, so the
+         * bytes that arrive can be checked against what was uploaded. And there must be
+         * exactly one APK, so the app never has to guess which one is meant.
+         *
+         * None of this is what stops a forged build: Android refuses to install an update not
+         * signed with the key of the app already installed. This is what stops a corrupted or
+         * substituted download from reaching that point at all.
+         */
+        internal fun apkOf(files: List<ReleaseFile>): Apk? {
+            val apk = files.filter { it.name.endsWith(".apk", ignoreCase = true) }.singleOrNull()
+                ?: return null
+            if (!apk.url.startsWith(DOWNLOADS)) return null
+            if (apk.size !in 1..MAX_APK_BYTES) return null
+            val sha = apk.digest?.removePrefix("sha256:")?.lowercase() ?: return null
+            if (!SHA256.matches(sha)) return null
+            return Apk(apk.url, apk.size, sha)
+        }
+
+        private const val DOWNLOADS = "$REPO/releases/download/"
+        internal const val MAX_APK_BYTES = 150L * 1024 * 1024
+        private val SHA256 = Regex("[0-9a-f]{64}")
         private const val API =
             "https://api.github.com/repos/bdbais/ow-companion/releases/latest"
 

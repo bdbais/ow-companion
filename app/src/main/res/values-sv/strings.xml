@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">Den här versionen är signerad med en ny nyckel, så Android installerar den inte ovanpå den du har: den säger bara att appen inte installerades, utan att säga varför.\n\nLadda ner den nya filen först, avinstallera sedan den här versionen och installera först därefter det du laddat ner. Avinstallerar du före nedladdningen står du utan app och utan sidan att hämta den från.\n\nSparade tavlor och inställningar överlever inte avinstallationen, så exportera som PDF det du vill behålla först.\n\nDet är en engångsgrej. Uppdateringar efter den här installeras som vanligt igen.</string>
     <string name="update_reinstall_uninstall">Avinstallera den här versionen</string>
     <string name="update_reinstall_later">Inte nu</string>
+    <string name="update_downloading">Laddar ner version %1$s… %2$d%%</string>
+    <string name="update_download">Ladda ner (%1$d MB)</string>
+    <string name="update_ready_banner">Version %1$s är klar: appen behöver startas om</string>
+    <string name="update_install">Starta om och uppdatera</string>
+    <string name="update_ready_title">Version %1$s är klar</string>
+    <string name="update_ready_body">Uppdateringen har laddats ner och kontrollerats. När den installeras stängs appen: öppna den igen när Android är klart. Taktiktavlor och inställningar finns kvar.
+
+Första gången frågar Android om OW Companion får installera appar. Behörigheten används bara för appens egna uppdateringar.</string>
+    <string name="update_installing">Installerar version %1$s…</string>
+    <string name="update_failed">Version %1$s kunde inte laddas ner här</string>
     <string name="chart_section_fire_mode">Eldläge</string>
     <string name="fire_primary">Primär</string>
     <string name="fire_secondary">Sekundär</string>

@@ -233,6 +233,14 @@
     <string name="update_reinstall_body">This version is signed with a new key, so Android will not install it over the copy you have: it would just say the app was not installed, without saying why.\n\nDownload the new file first, then uninstall this one, then install what you downloaded. Uninstalling before the download leaves you with no app and nowhere to get it from.\n\nSaved boards and settings do not survive the uninstall, so export any plan you want to keep as a PDF first.\n\nIt is a one-off. Updates after this one install normally again.</string>
     <string name="update_reinstall_uninstall">Uninstall this version</string>
     <string name="update_reinstall_later">Not now</string>
+    <string name="update_downloading">Downloading version %1$s… %2$d%%</string>
+    <string name="update_download">Download (%1$d MB)</string>
+    <string name="update_ready_banner">Version %1$s is ready: the app needs to restart</string>
+    <string name="update_install">Restart and update</string>
+    <string name="update_ready_title">Version %1$s is ready</string>
+    <string name="update_ready_body">The update has been downloaded and checked. Installing it closes the app: open it again once Android has finished. Boards and settings stay as they are.\n\nThe first time, Android asks whether OW Companion may install apps. That permission is only used for its own updates.</string>
+    <string name="update_installing">Installing version %1$s…</string>
+    <string name="update_failed">Version %1$s could not be downloaded here</string>
     <string name="chart_with_perk">with %1$s</string>
     <string name="chart_section_fire_mode">Fire mode</string>
     <string name="fire_primary">Primary</string>

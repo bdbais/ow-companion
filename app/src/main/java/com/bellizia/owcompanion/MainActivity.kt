@@ -17,6 +17,10 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.data.DatasetSync
+import com.bellizia.owcompanion.data.AppUpdate
+import androidx.compose.material3.LinearProgressIndicator
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.saveable.rememberSaveable
 import com.bellizia.owcompanion.data.ReleaseChecker
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -179,9 +183,19 @@ private fun UpdateBanner() {
     val context = LocalContext.current
     var release by remember { mutableStateOf<ReleaseChecker.Release?>(null) }
     var explaining by remember { mutableStateOf(false) }
+    val update by AppUpdate.state.collectAsState()
 
     LaunchedEffect(Unit) {
-        release = ReleaseChecker(context).newerRelease()
+        val found = ReleaseChecker(context).newerRelease()
+        release = found
+        when {
+            // Nothing newer, which is also the state right after an update went in.
+            found == null -> AppUpdate.tidy(context)
+            // A changed key cannot go in over this copy, and a release without a checkable
+            // APK cannot be fetched safely: both keep the release page.
+            found.needsReinstall || found.apk == null -> Unit
+            else -> AppUpdate.prepare(context, found, download = !AppUpdate.isMetered(context))
+        }
     }
 
     // I dati degli eroi si aggiornano da soli, e in silenzio.
@@ -209,6 +223,18 @@ private fun UpdateBanner() {
         Unit
     }
 
+    // Installing closes the app, so it is asked rather than done: once, when the file is
+    // ready, and after that from the banner whenever the reader chooses.
+    var announced by rememberSaveable(newer.version) { mutableStateOf(false) }
+    val ready = update as? AppUpdate.State.Ready
+    if (ready != null && !announced) {
+        RestartDialog(
+            version = ready.version,
+            onInstall = { announced = true; AppUpdate.install(context, ready.version) },
+            onLater = { announced = true },
+        )
+    }
+
     // An update that changes the signing key cannot be installed over this one, and Android
     // says so with "App not installed" and nothing else. Explaining it before the reader
     // meets that message is the whole point of the extra tap.
@@ -231,58 +257,119 @@ private fun UpdateBanner() {
         )
     }
 
-    Surface(
-        color = if (newer.needsReinstall) {
-            MaterialTheme.colorScheme.tertiaryContainer
-        } else {
-            MaterialTheme.colorScheme.primaryContainer
-        },
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .statusBarsPadding()
-                .padding(start = 16.dp, end = 4.dp, top = 4.dp, bottom = 4.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = stringResource(
-                    if (newer.needsReinstall) R.string.update_available_reinstall
-                    else R.string.update_available,
-                    newer.version,
-                ),
-                style = MaterialTheme.typography.bodySmall,
-                color = if (newer.needsReinstall) {
-                    MaterialTheme.colorScheme.onTertiaryContainer
-                } else {
-                    MaterialTheme.colorScheme.onPrimaryContainer
-                },
-                modifier = Modifier.weight(1f),
-            )
-            TextButton(onClick = { if (newer.needsReinstall) explaining = true else open() }) {
-                Text(
-                    stringResource(
-                        if (newer.needsReinstall) R.string.update_reinstall_how
-                        else R.string.update_open,
-                    ),
-                )
+    val apk = newer.apk
+    val inApp = !newer.needsReinstall && apk != null
+    val message: String
+    val action: Pair<String, () -> Unit>?
+    when {
+        newer.needsReinstall -> {
+            message = stringResource(R.string.update_available_reinstall, newer.version)
+            action = stringResource(R.string.update_reinstall_how) to { explaining = true }
+        }
+        apk == null -> {
+            message = stringResource(R.string.update_available, newer.version)
+            action = stringResource(R.string.update_open) to open
+        }
+        else -> when (val state = update) {
+            is AppUpdate.State.Downloading -> {
+                message = stringResource(R.string.update_downloading, state.version, state.percent)
+                action = null
             }
-            IconButton(onClick = {
-                ReleaseChecker(context).dismiss(newer.version)
-                release = null
-            }) {
-                Icon(
-                    imageVector = Icons.Filled.Close,
-                    contentDescription = stringResource(R.string.update_dismiss),
-                    tint = if (newer.needsReinstall) {
-                        MaterialTheme.colorScheme.onTertiaryContainer
-                    } else {
-                        MaterialTheme.colorScheme.onPrimaryContainer
-                    },
+            is AppUpdate.State.Ready -> {
+                message = stringResource(R.string.update_ready_banner, state.version)
+                action = stringResource(R.string.update_install) to {
+                    AppUpdate.install(context, state.version)
+                }
+            }
+            is AppUpdate.State.Installing -> {
+                message = stringResource(R.string.update_installing, state.version)
+                action = null
+            }
+            is AppUpdate.State.Failed -> {
+                message = stringResource(R.string.update_failed, state.version)
+                action = stringResource(R.string.update_open) to open
+            }
+            AppUpdate.State.Idle -> {
+                // Only reached on a metered connection: the download waits for a tap.
+                val megabytes = ((apk.size + 999_999) / 1_000_000).toInt()
+                message = stringResource(R.string.update_available, newer.version)
+                action = stringResource(R.string.update_download, megabytes) to {
+                    AppUpdate.prepare(context, newer, download = true)
+                }
+            }
+        }
+    }
+
+    val container = if (newer.needsReinstall) {
+        MaterialTheme.colorScheme.tertiaryContainer
+    } else {
+        MaterialTheme.colorScheme.primaryContainer
+    }
+    val content = if (newer.needsReinstall) {
+        MaterialTheme.colorScheme.onTertiaryContainer
+    } else {
+        MaterialTheme.colorScheme.onPrimaryContainer
+    }
+
+    Surface(color = container) {
+        Column(modifier = Modifier.fillMaxWidth().statusBarsPadding()) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 16.dp, end = 4.dp, top = 4.dp, bottom = 4.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = message,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = content,
+                    modifier = Modifier.weight(1f),
+                )
+                if (action != null) {
+                    TextButton(onClick = action.second) { Text(action.first) }
+                }
+                IconButton(onClick = {
+                    ReleaseChecker(context).dismiss(newer.version)
+                    AppUpdate.forget(context)
+                    release = null
+                }) {
+                    Icon(
+                        imageVector = Icons.Filled.Close,
+                        contentDescription = stringResource(R.string.update_dismiss),
+                        tint = content,
+                    )
+                }
+            }
+            val downloading = update as? AppUpdate.State.Downloading
+            if (inApp && downloading != null) {
+                LinearProgressIndicator(
+                    progress = { downloading.percent / 100f },
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
     }
+}
+
+/**
+ * The one question an update has to ask: installing closes the app.
+ *
+ * Said before it happens, because an app that vanishes mid-use reads as a crash. It also says
+ * the boards survive, which is the thing anyone who has drawn one wants to know.
+ */
+@Composable
+private fun RestartDialog(version: String, onInstall: () -> Unit, onLater: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onLater,
+        title = { Text(stringResource(R.string.update_ready_title, version)) },
+        text = { Text(stringResource(R.string.update_ready_body)) },
+        confirmButton = {
+            TextButton(onClick = onInstall) { Text(stringResource(R.string.update_install)) }
+        },
+        dismissButton = {
+            TextButton(onClick = onLater) { Text(stringResource(R.string.update_reinstall_later)) }
+        },
+    )
 }
 
 /**

@@ -1,6 +1,7 @@
 package com.bellizia.owcompanion.data
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Assert.assertThrows
 import org.junit.Test
 import java.io.ByteArrayInputStream
@@ -79,5 +80,42 @@ class UpdateSafetyTest {
         val exact = ByteArray(32 * 1024) { 'a'.code.toByte() }
         val read = ByteArrayInputStream(exact).readTextCapped(32 * 1024)
         assertEquals(32 * 1024, read.length)
+    }
+
+    private val sha = "516afee8cb83da47160de209d79a1e50746fba1a4a5ba4f9d420eb1cebaf0b08"
+    private val own = "https://github.com/bdbais/ow-companion/releases/download/v1.13.0/ow-companion-v1.13.0.apk"
+
+    private fun file(
+        url: String = own,
+        name: String = "ow-companion-v1.13.0.apk",
+        size: Long = 37_212_609,
+        digest: String? = "sha256:$sha",
+    ) = ReleaseChecker.ReleaseFile(name = name, url = url, size = size, digest = digest)
+
+    @Test
+    fun `the app downloads an update only from this project's own releases`() {
+        assertEquals(ReleaseChecker.Apk(own, 37_212_609, sha), ReleaseChecker.apkOf(listOf(file())))
+        // Same file name, someone else's repository.
+        assertNull(ReleaseChecker.apkOf(listOf(file(url = own.replace("bdbais", "attacker")))))
+        // The repository's address as a prefix of a longer host.
+        assertNull(ReleaseChecker.apkOf(listOf(file(url = "https://github.com/bdbais/ow-companion.evil/x.apk"))))
+        assertNull(ReleaseChecker.apkOf(listOf(file(url = own.replace("https", "http")))))
+    }
+
+    @Test
+    fun `without a stated hash there is nothing to check the download against`() {
+        assertNull(ReleaseChecker.apkOf(listOf(file(digest = null))))
+        assertNull(ReleaseChecker.apkOf(listOf(file(digest = "md5:0123"))))
+        assertNull(ReleaseChecker.apkOf(listOf(file(digest = "sha256:short"))))
+    }
+
+    @Test
+    fun `two APKs or none means the release page, not a guess`() {
+        assertNull(ReleaseChecker.apkOf(emptyList()))
+        assertNull(ReleaseChecker.apkOf(listOf(file(), file(name = "other.apk"))))
+        // Notes or checksums beside the one APK do not make it ambiguous.
+        assertEquals(sha, ReleaseChecker.apkOf(listOf(file(), file(name = "SHA256SUMS.txt")))?.sha256)
+        assertNull(ReleaseChecker.apkOf(listOf(file(size = 0))))
+        assertNull(ReleaseChecker.apkOf(listOf(file(size = ReleaseChecker.MAX_APK_BYTES + 1))))
     }
 }

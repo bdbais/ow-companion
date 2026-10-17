@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">このバージョンは新しい鍵で署名されているため、Android は今あるものに上書きできません。理由を告げずに「アプリをインストールできませんでした」とだけ表示されます。\n\nまず新しいファイルをダウンロードし、次にこのバージョンをアンインストールし、最後にダウンロードしたものをインストールしてください。先にアンインストールすると、アプリも入手先のページも手元から消えます。\n\n保存したボードと設定はアンインストールで消えるので、取っておきたい作戦は先に PDF に書き出してください。\n\n今回だけです。次からの更新はこれまでどおりインストールできます。</string>
     <string name="update_reinstall_uninstall">このバージョンをアンインストール</string>
     <string name="update_reinstall_later">あとで</string>
+    <string name="update_downloading">バージョン %1$s をダウンロード中… %2$d%%</string>
+    <string name="update_download">ダウンロード (%1$d MB)</string>
+    <string name="update_ready_banner">バージョン %1$s の準備ができました。アプリの再起動が必要です</string>
+    <string name="update_install">再起動して更新</string>
+    <string name="update_ready_title">バージョン %1$s の準備ができました</string>
+    <string name="update_ready_body">アップデートをダウンロードして確認しました。インストールするとアプリが閉じます。Android の処理が終わったら、もう一度開いてください。ボードと設定はそのまま残ります。
+
+初回は、OW Companion にアプリのインストールを許可するか Android が確認します。この権限は自身のアップデートにのみ使われます。</string>
+    <string name="update_installing">バージョン %1$s をインストール中…</string>
+    <string name="update_failed">ここではバージョン %1$s をダウンロードできませんでした</string>
     <string name="chart_section_fire_mode">射撃モード</string>
     <string name="fire_primary">通常攻撃</string>
     <string name="fire_secondary">サブ攻撃</string>

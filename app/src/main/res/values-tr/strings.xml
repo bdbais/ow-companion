@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">Bu sürüm yeni bir anahtarla imzalandı, bu yüzden Android onu elinizdekinin üzerine kurmaz: yalnızca uygulamanın kurulmadığını söyler, nedenini söylemez.\n\nÖnce yeni dosyayı indirin, sonra bu sürümü kaldırın, en son da indirdiğinizi kurun. İndirmeden önce kaldırırsanız ne uygulama kalır ne de onu alacağınız sayfa.\n\nKayıtlı tahtalar ve ayarlar kaldırma işlemini atlatamaz, saklamak istediğiniz planları önce PDF olarak dışa aktarın.\n\nBu bir kerelik. Bundan sonraki güncellemeler yine normal şekilde kurulur.</string>
     <string name="update_reinstall_uninstall">Bu sürümü kaldır</string>
     <string name="update_reinstall_later">Şimdi değil</string>
+    <string name="update_downloading">Sürüm %1$s indiriliyor… %%%2$d</string>
+    <string name="update_download">İndir (%1$d MB)</string>
+    <string name="update_ready_banner">Sürüm %1$s hazır: uygulamanın yeniden başlatılması gerekiyor</string>
+    <string name="update_install">Yeniden başlat ve güncelle</string>
+    <string name="update_ready_title">Sürüm %1$s hazır</string>
+    <string name="update_ready_body">Güncelleme indirildi ve doğrulandı. Kurulum sırasında uygulama kapanır: Android işini bitirince yeniden açın. Taktik tahtaları ve ayarlar olduğu gibi kalır.
+
+İlk seferde Android, OW Companion\'ın uygulama yükleyip yükleyemeyeceğini sorar. Bu izin yalnızca kendi güncellemeleri için kullanılır.</string>
+    <string name="update_installing">Sürüm %1$s yükleniyor…</string>
+    <string name="update_failed">Sürüm %1$s burada indirilemedi</string>
     <string name="chart_section_fire_mode">Ateş modu</string>
     <string name="fire_primary">Birincil</string>
     <string name="fire_secondary">İkincil</string>

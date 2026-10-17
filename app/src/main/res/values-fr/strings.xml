@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">Cette version est signée avec une nouvelle clé, donc Android ne l\'installera pas par-dessus celle que vous avez : il dirait seulement que l\'application n\'a pas été installée, sans dire pourquoi.\n\nTéléchargez d\'abord le nouveau fichier, puis désinstallez cette version, puis installez ce que vous avez téléchargé. Désinstaller avant de télécharger vous laisse sans application et sans la page où la trouver.\n\nLes tableaux enregistrés et les réglages ne survivent pas à la désinstallation : exportez en PDF les plans que vous voulez garder.\n\nC\'est une seule fois. Les mises à jour suivantes s\'installent de nouveau normalement.</string>
     <string name="update_reinstall_uninstall">Désinstaller cette version</string>
     <string name="update_reinstall_later">Pas maintenant</string>
+    <string name="update_downloading">Téléchargement de la version %1$s… %2$d%%</string>
+    <string name="update_download">Télécharger (%1$d Mo)</string>
+    <string name="update_ready_banner">La version %1$s est prête : l\'appli doit redémarrer</string>
+    <string name="update_install">Redémarrer et mettre à jour</string>
+    <string name="update_ready_title">La version %1$s est prête</string>
+    <string name="update_ready_body">La mise à jour a été téléchargée et vérifiée. L\'installer ferme l\'appli : rouvrez-la quand Android a terminé. Les tableaux et les réglages restent tels quels.
+
+La première fois, Android demande si OW Companion peut installer des applis. Cette autorisation ne sert qu\'à ses propres mises à jour.</string>
+    <string name="update_installing">Installation de la version %1$s…</string>
+    <string name="update_failed">Impossible de télécharger ici la version %1$s</string>
     <string name="chart_section_fire_mode">Mode de tir</string>
     <string name="fire_primary">Principal</string>
     <string name="fire_secondary">Secondaire</string>

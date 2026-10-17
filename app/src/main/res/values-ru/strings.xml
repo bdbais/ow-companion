@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">Эта версия подписана новым ключом, поэтому Android не поставит её поверх той, что у вас есть: он просто скажет, что приложение не установлено, и не объяснит почему.\n\nСначала скачайте новый файл, затем удалите эту версию и только потом установите скачанное. Если удалить до загрузки, вы останетесь без приложения и без страницы, откуда его взять.\n\nСохранённые доски и настройки удаления не переживут, так что заранее выгрузите в PDF те планы, которые хотите сохранить.\n\nЭто один раз. Следующие обновления снова будут ставиться как обычно.</string>
     <string name="update_reinstall_uninstall">Удалить эту версию</string>
     <string name="update_reinstall_later">Не сейчас</string>
+    <string name="update_downloading">Загрузка версии %1$s… %2$d%%</string>
+    <string name="update_download">Скачать (%1$d МБ)</string>
+    <string name="update_ready_banner">Версия %1$s готова: нужно перезапустить приложение</string>
+    <string name="update_install">Перезапустить и обновить</string>
+    <string name="update_ready_title">Версия %1$s готова</string>
+    <string name="update_ready_body">Обновление загружено и проверено. При установке приложение закроется: откройте его снова, когда Android закончит. Доски и настройки сохранятся.
+
+В первый раз Android спросит, можно ли OW Companion устанавливать приложения. Это разрешение нужно только для его собственных обновлений.</string>
+    <string name="update_installing">Установка версии %1$s…</string>
+    <string name="update_failed">Не удалось загрузить здесь версию %1$s</string>
     <string name="chart_section_fire_mode">Режим огня</string>
     <string name="fire_primary">Основной</string>
     <string name="fire_secondary">Альтернативный</string>

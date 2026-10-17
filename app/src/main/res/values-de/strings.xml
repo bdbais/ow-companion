@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">Diese Version ist mit einem neuen Schlüssel signiert, also installiert Android sie nicht über die vorhandene: es würde nur sagen, die App sei nicht installiert worden, ohne zu sagen warum.\n\nLade zuerst die neue Datei herunter, deinstalliere dann diese Version und installiere erst danach das Heruntergeladene. Wer vor dem Download deinstalliert, steht ohne App und ohne die Seite da, von der sie kommt.\n\nGespeicherte Tafeln und Einstellungen überleben die Deinstallation nicht, exportiere also vorher als PDF, was du behalten willst.\n\nEs passiert nur dieses eine Mal. Spätere Updates installieren sich wieder normal.</string>
     <string name="update_reinstall_uninstall">Diese Version deinstallieren</string>
     <string name="update_reinstall_later">Jetzt nicht</string>
+    <string name="update_downloading">Version %1$s wird geladen… %2$d%%</string>
+    <string name="update_download">Laden (%1$d MB)</string>
+    <string name="update_ready_banner">Version %1$s ist bereit: Die App muss neu starten</string>
+    <string name="update_install">Neu starten und aktualisieren</string>
+    <string name="update_ready_title">Version %1$s ist bereit</string>
+    <string name="update_ready_body">Das Update wurde geladen und geprüft. Beim Installieren schließt sich die App: Öffne sie wieder, wenn Android fertig ist. Taktiktafeln und Einstellungen bleiben erhalten.
+
+Beim ersten Mal fragt Android, ob OW Companion Apps installieren darf. Diese Berechtigung dient nur den eigenen Updates.</string>
+    <string name="update_installing">Version %1$s wird installiert…</string>
+    <string name="update_failed">Version %1$s konnte hier nicht geladen werden</string>
     <string name="chart_section_fire_mode">Feuermodus</string>
     <string name="fire_primary">Primär</string>
     <string name="fire_secondary">Sekundär</string>

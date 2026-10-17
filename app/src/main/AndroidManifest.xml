@@ -4,6 +4,10 @@
     <!-- Used only for the optional dataset refresh; the app is fully usable offline. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- The app installs its own updates, fetched from this project's GitHub releases. -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- Lets every update after the first go in without a confirmation screen (Android 12+). -->
+    <uses-permission android:name="android.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION" />
 
     <!-- Backup stays on, on purpose: the app stores no secrets - saved boards, comic strips
          and preferences are the whole of it - and switching phones should not delete the
@@ -46,6 +50,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+        <receiver
+            android:name=".data.InstallResultReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>

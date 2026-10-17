@@ -173,6 +173,16 @@
     <string name="update_reinstall_body">Esta versão é assinada com uma chave nova, então o Android não a instala por cima da que você tem: diria apenas que o app não foi instalado, sem explicar o motivo.\n\nBaixe primeiro o arquivo novo, depois desinstale esta versão e só então instale o que baixou. Se desinstalar antes de baixar, você fica sem o app e sem a página de onde tirá-lo.\n\nAs lousas salvas e as configurações não sobrevivem à desinstalação, então exporte antes em PDF os planos que quiser guardar.\n\nÉ só desta vez. As próximas atualizações voltam a instalar normalmente.</string>
     <string name="update_reinstall_uninstall">Desinstalar esta versão</string>
     <string name="update_reinstall_later">Agora não</string>
+    <string name="update_downloading">Baixando a versão %1$s… %2$d%%</string>
+    <string name="update_download">Baixar (%1$d MB)</string>
+    <string name="update_ready_banner">A versão %1$s está pronta: o app precisa reiniciar</string>
+    <string name="update_install">Reiniciar e atualizar</string>
+    <string name="update_ready_title">A versão %1$s está pronta</string>
+    <string name="update_ready_body">A atualização foi baixada e verificada. Ao instalá-la o app fecha: abra-o de novo quando o Android terminar. Quadros e configurações continuam como estão.
+
+Na primeira vez, o Android pergunta se o OW Companion pode instalar apps. Essa permissão só é usada para as próprias atualizações.</string>
+    <string name="update_installing">Instalando a versão %1$s…</string>
+    <string name="update_failed">Não foi possível baixar aqui a versão %1$s</string>
     <string name="chart_section_fire_mode">Modo de disparo</string>
     <string name="fire_primary">Primário</string>
     <string name="fire_secondary">Secundário</string>
