@@ -18,6 +18,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.bellizia.owcompanion.data.DatasetSync
 import com.bellizia.owcompanion.data.AppUpdate
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -326,7 +328,12 @@ private fun UpdateBanner() {
                     modifier = Modifier.weight(1f),
                 )
                 if (action != null) {
-                    TextButton(onClick = action.second) { Text(action.first) }
+                    // The theme's accent on a container of the same accent is unreadable:
+                    // the button takes the banner's own text colour instead.
+                    TextButton(
+                        onClick = action.second,
+                        colors = ButtonDefaults.textButtonColors(contentColor = content),
+                    ) { Text(action.first, fontWeight = FontWeight.Bold) }
                 }
                 IconButton(onClick = {
                     ReleaseChecker(context).dismiss(newer.version)
