@@ -535,6 +535,16 @@
    "image": "watchpoint-gibraltar.webp"
   },
   {
+   "key": "watchpoint-grimsvotn",
+   "name": "Watchpoint: Grimsvotn",
+   "modes": [
+    "escort"
+   ],
+   "location": "Iceland",
+   "country": "IS",
+   "image": null
+  },
+  {
    "key": "workshop-chamber",
    "name": "Workshop Chamber",
    "modes": [

@@ -193,6 +193,30 @@
    "description": "Fusion Repeater fires stronger shots with no spread at a slower rate"
   },
   {
+   "hero": "Doctrine",
+   "name": "Saving Grace",
+   "tier": "minor",
+   "description": "Invigorating Drones heal for 40 health when applied."
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Sanguine Siphon",
+   "tier": "minor",
+   "description": "Heal for 50% of damage dealt with Infused Eternal Scepter."
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Transfusion",
+   "tier": "major",
+   "description": "Reduce Infuse's cooldown from damage and healing dealt."
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Cost of Life",
+   "tier": "major",
+   "description": "Sacrifice 25 maximum health. Eternal Scepter healing is increased by 20%."
+  },
+  {
    "hero": "Domina",
    "name": "Efficient Design",
    "tier": "minor",
@@ -586,7 +610,7 @@
    "hero": "Lúcio",
    "name": "Beat Drop",
    "tier": "minor",
-   "description": "Amp It Up is active during Sound Barrier."
+   "description": "Amp It Up is now active for 4 seconds after casting Sound Barrier."
   },
   {
    "hero": "Lúcio",
@@ -844,7 +868,7 @@
    "hero": "Roadhog",
    "name": "Scrap Hook",
    "tier": "minor",
-   "description": "Chain Hook hits reload 2 ammo."
+   "description": "Chain Hook hits reload 4 ammo."
   },
   {
    "hero": "Roadhog",

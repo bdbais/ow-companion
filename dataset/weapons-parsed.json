@@ -486,6 +486,64 @@
    "complete": true
   },
   {
+   "name": "Eternal Scepter",
+   "hero": "Doctrine",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     55.0,
+     17.0
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.5,
+   "shotTime": 0.6666666666666666,
+   "ammo": 18.0,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodAdd": 0.0,
+   "complete": true
+  },
+  {
+   "name": "Infuse",
+   "hero": "Doctrine",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M2",
+   "type": "linear projectile",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": null,
+    "falloff": null
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": null,
+   "shotTime": null,
+   "ammo": null,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": null,
+   "dpsPeriodAdd": 0.0,
+   "complete": false
+  },
+  {
    "name": "Photon Magnum",
    "hero": "Domina",
    "perk": null,
@@ -1081,7 +1139,7 @@
     "falloff": null
    },
    "spread": null,
-   "velocity": 30.0,
+   "velocity": 18.0,
    "fireRate": 6.67,
    "shotTime": 0.14992503748125938,
    "ammo": 5.0,
@@ -1674,61 +1732,59 @@
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
-    25.0
+    16.0
    ],
    "damage": {
     "dpshot": [
-     7.0,
-     2.1
+     10.156500000000001,
+     3.04695
     ],
     "falloff": [
-     30.0,
-     50.0
+     20.0,
+     35.0
     ]
    },
    "spread": {
-    "angle": 8.0
+    "angle": 6.0
    },
-   "velocity": 80.0,
+   "velocity": 100.0,
    "fireRate": 1.25,
    "shotTime": 0.8,
-   "ammo": 6.0,
+   "ammo": 12.0,
    "reloadTime": 1.75,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.8,
-   "dpsPeriodAdd": 0.2916666666666667,
+   "dpsPeriodAdd": 0.14583333333333334,
    "complete": true
   },
   {
-   "name": "Scrap Gun Alt Fire",
+   "name": "Trash Compactor",
    "hero": "Roadhog",
    "perk": null,
    "baseWeapon": null,
    "mousebutton": "M2",
-   "type": "projectile shotgun",
+   "type": "linear projectile",
    "behavior": "standard",
    "pellets": [
     1.0
    ],
    "damage": {
     "dpshot": [
-     162.504,
-     48.7512
+     85.0,
+     210.0
     ],
     "falloff": null
    },
-   "spread": {
-    "angle": 8.0
-   },
-   "velocity": 60.0,
-   "fireRate": 1.25,
-   "shotTime": 0.8,
+   "spread": null,
+   "velocity": 50.0,
+   "fireRate": null,
+   "shotTime": null,
    "ammo": 6.0,
    "reloadTime": 1.75,
-   "critFactor": 2.0,
-   "dpsPeriodBase": 0.8,
+   "critFactor": 1.0,
+   "dpsPeriodBase": null,
    "dpsPeriodAdd": 0.2916666666666667,
-   "complete": true
+   "complete": false
   },
   {
    "name": "Kira Pistols",
@@ -1784,12 +1840,12 @@
     "minAngle": 0.5
    },
    "velocity": 120.0,
-   "fireRate": 10.89,
-   "shotTime": 0.09182736455463728,
+   "fireRate": 11.0,
+   "shotTime": 0.09090909090909091,
    "ammo": 40.0,
    "reloadTime": null,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.09182736455463728,
+   "dpsPeriodBase": 0.09090909090909091,
    "dpsPeriodAdd": 0.0,
    "complete": true
   },
@@ -1928,16 +1984,16 @@
    ],
    "damage": {
     "dpshot": [
-     8.0,
-     2.4
+     6.5,
+     1.95
     ],
     "falloff": [
-     15.0,
+     20.0,
      35.0
     ]
    },
    "spread": {
-    "angle": 2.3
+    "angle": 2.0
    },
    "velocity": null,
    "fireRate": 20.0,

@@ -98,9 +98,9 @@
    "color": "#be736e",
    "role": "support",
    "portrait": "portrait_brigitte.png",
-   "health": 200,
+   "health": 175,
    "shields": 0,
-   "armor": 50,
+   "armor": 75,
    "abilities": [
     "Rocket Flail",
     "Repair Pack",
@@ -132,9 +132,9 @@
    "color": "#cc9795",
    "role": "tank",
    "portrait": "portrait_dmon.png",
-   "health": 325,
+   "health": 425,
    "shields": 0,
-   "armor": 325,
+   "armor": 275,
    "abilities": [
     "Plasma Saber ",
     "Portable Fusion Repeater",
@@ -143,8 +143,25 @@
     "Fusion Repeater",
     "Propulsors",
     "Eject!",
-    "Limit Break ",
+    "Limit Break",
     "Call Mech"
+   ]
+  },
+  {
+   "key": "doctrine",
+   "name": "Doctrine",
+   "color": "#bc5d6b",
+   "role": "support",
+   "portrait": "portrait_doctrine.png",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "abilities": [
+    "Eternal Scepter",
+    "Infuse",
+    "Invigorating Drones",
+    "Shrouded Momentum",
+    "Deliverance"
    ]
   },
   {
@@ -187,7 +204,7 @@
    "color": "#ed93c7",
    "role": "tank",
    "portrait": "portrait_dva.png",
-   "health": 325,
+   "health": 350,
    "shields": 0,
    "armor": 325,
    "abilities": [
@@ -623,6 +640,7 @@
    "armor": 0,
    "abilities": [
     "Scrap Gun",
+    "Trash Compactor",
     "Chain Hook",
     "Take a Breather",
     "Whole Hog"
@@ -669,7 +687,7 @@
    "role": "tank",
    "portrait": "portrait_sigma.png",
    "health": 350,
-   "shields": 275,
+   "shields": 250,
    "armor": 0,
    "abilities": [
     "Hyperspheres",
@@ -716,16 +734,16 @@
    "key": "sombra",
    "name": "Sombra",
    "color": "#7359ba",
-   "role": "damage",
+   "role": "support",
    "portrait": "portrait_sombra.png",
    "health": 225,
    "shields": 0,
    "armor": 0,
    "abilities": [
     "Machine Pistol",
-    "Hack",
+    "Hotfix",
+    "Cyberspace",
     "Translocator",
-    "Virus",
     "EMP"
    ]
   },
@@ -1367,6 +1385,37 @@
    "critFactor": 2.0,
    "dpsPeriodBase": 0.128,
    "dpsPeriodAdd": 0.05
+  },
+  {
+   "name": "Eternal Scepter",
+   "hero": "Doctrine",
+   "perk": null,
+   "baseWeapon": null,
+   "mousebutton": "M1",
+   "type": "hitscan",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     55.0,
+     17.0
+    ],
+    "falloff": [
+     30.0,
+     50.0
+    ]
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.5,
+   "shotTime": 0.6666666666666666,
+   "ammo": 18.0,
+   "reloadTime": null,
+   "critFactor": 2.0,
+   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodAdd": 0.0
   },
   {
    "name": "Photon Magnum",
@@ -2387,62 +2436,29 @@
    "type": "projectile shotgun",
    "behavior": "standard",
    "pellets": [
-    25.0
+    16.0
    ],
    "damage": {
     "dpshot": [
-     7.0,
-     2.1
+     10.156500000000001,
+     3.04695
     ],
     "falloff": [
-     30.0,
-     50.0
+     20.0,
+     35.0
     ]
    },
    "spread": {
-    "angle": 8.0
+    "angle": 6.0
    },
-   "velocity": 80.0,
+   "velocity": 100.0,
    "fireRate": 1.25,
    "shotTime": 0.8,
-   "ammo": 6.0,
+   "ammo": 12.0,
    "reloadTime": 1.75,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.8,
-   "dpsPeriodAdd": 0.2916666666666667
-  },
-  {
-   "name": "Scrap Gun Alt Fire",
-   "hero": "Roadhog",
-   "perk": null,
-   "baseWeapon": null,
-   "mousebutton": "M2",
-   "type": "projectile shotgun",
-   "behavior": "standard",
-   "pellets": [
-    1.0
-   ],
-   "damage": {
-    "dpshot": [
-     162.504,
-     48.7512
-    ],
-    "falloff": [
-     30.0,
-     50.0
-    ]
-   },
-   "spread": {
-    "angle": 8.0
-   },
-   "velocity": 60.0,
-   "fireRate": 1.25,
-   "shotTime": 0.8,
-   "ammo": 6.0,
-   "reloadTime": 1.75,
-   "critFactor": 2.0,
-   "dpsPeriodBase": 0.8,
-   "dpsPeriodAdd": 0.2916666666666667
+   "dpsPeriodAdd": 0.14583333333333334
   },
   {
    "name": "Kira Pistols",
@@ -2497,12 +2513,12 @@
     "minAngle": 0.5
    },
    "velocity": 120.0,
-   "fireRate": 10.89,
-   "shotTime": 0.09182736455463728,
+   "fireRate": 11.0,
+   "shotTime": 0.09090909090909091,
    "ammo": 40.0,
    "reloadTime": null,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.09182736455463728,
+   "dpsPeriodBase": 0.09090909090909091,
    "dpsPeriodAdd": 0.0
   },
   {
@@ -2642,16 +2658,16 @@
    ],
    "damage": {
     "dpshot": [
-     8.0,
-     2.4
+     6.5,
+     1.95
     ],
     "falloff": [
-     15.0,
+     20.0,
      35.0
     ]
    },
    "spread": {
-    "angle": 2.3
+    "angle": 2.0
    },
    "velocity": null,
    "fireRate": 20.0,
@@ -3762,6 +3778,32 @@
   {
    "name": "Quick Melee",
    "hero": "D.Mon",
+   "mousebutton": null,
+   "type": "melee",
+   "behavior": "standard",
+   "pellets": [
+    1.0
+   ],
+   "damage": {
+    "dpshot": [
+     40.0
+    ],
+    "falloff": null,
+    "maxRange": 2.5
+   },
+   "spread": null,
+   "velocity": null,
+   "fireRate": 1.0,
+   "shotTime": 1.0,
+   "ammo": null,
+   "reloadTime": 0.0,
+   "critFactor": 1.0,
+   "dpsPeriodBase": 1.0,
+   "dpsPeriodAdd": 0.0
+  },
+  {
+   "name": "Quick Melee",
+   "hero": "Doctrine",
    "mousebutton": null,
    "type": "melee",
    "behavior": "standard",
@@ -5046,6 +5088,17 @@
    "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies"
   },
   {
+   "hero": "Doctrine",
+   "name": "Deliverance",
+   "damage": null,
+   "sustained": false,
+   "unrankable": true,
+   "detail": "5 (per drone)",
+   "duration": 6.0,
+   "radius": 12.0,
+   "description": "Launch a swarm of drones that reduces enemy maximum health and grants allies overhealth."
+  },
+  {
    "hero": "Domina",
    "name": "Panopticon",
    "damage": 300.0,
@@ -5114,10 +5167,10 @@
   {
    "hero": "Genji",
    "name": "Dragonblade",
-   "damage": 110.0,
+   "damage": 100.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "110",
+   "detail": "100",
    "duration": 6.0,
    "radius": null,
    "description": "Unsheathe a deadly melee weapon."
@@ -5228,7 +5281,7 @@
    "sustained": false,
    "unrankable": false,
    "detail": null,
-   "duration": 5.0,
+   "duration": 6.0,
    "radius": 30.0,
    "description": "Create temporary extra health for nearby allies."
   },
@@ -5411,10 +5464,10 @@
   {
    "hero": "Sombra",
    "name": "EMP",
-   "damage": 25.0,
+   "damage": 20.0,
    "sustained": false,
    "unrankable": false,
-   "detail": "25% of current health",
+   "detail": "20% of current health",
    "duration": 8.0,
    "radius": 15.0,
    "description": "Deal damage to all nearby enemies based on their current health, hacking them and destroying barriers around you."
@@ -5735,16 +5788,52 @@
    "detail": "15 per bullet"
   },
   {
+   "hero": "Doctrine",
+   "name": "Eternal Scepter",
+   "kind": "weapon",
+   "healPerShot": 55.0,
+   "healPerSecond": null,
+   "fireRate": 1.5,
+   "ammo": 18.0,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "55 - 17 (base) / 120 - 36 (infused)"
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Invigorating Drones",
+   "kind": "weapon",
+   "healPerShot": 100.0,
+   "healPerSecond": null,
+   "fireRate": 30.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "100 (over time)"
+  },
+  {
+   "hero": "Doctrine",
+   "name": "Deliverance",
+   "kind": "ultimate",
+   "healPerShot": 5.0,
+   "healPerSecond": null,
+   "fireRate": 5.0,
+   "ammo": null,
+   "reloadTime": null,
+   "statedHps": false,
+   "detail": "5 (per drone)"
+  },
+  {
    "hero": "Domina",
    "name": "Reconstruction",
    "kind": "weapon",
-   "healPerShot": 75.0,
+   "healPerShot": 100.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "75% of ability damage dealt"
+   "detail": "100% of ability damage dealt"
   },
   {
    "hero": "Doomfist",
@@ -6020,7 +6109,7 @@
    "ammo": 10.0,
    "reloadTime": 0.9,
    "statedHps": true,
-   "detail": "12 (per talisman) / 24 (per burst)"
+   "detail": "12 (per ofuda) / 120 (per volley)"
   },
   {
    "hero": "Kiriko",
@@ -6411,24 +6500,24 @@
    "name": "Take a Breather",
    "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 150.0,
+   "healPerSecond": 200.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "150 per second / 450 total"
+   "detail": "200 per second / 500 total"
   },
   {
    "hero": "Roadhog",
    "name": "Hogdrogen Exposure",
    "kind": "weapon",
-   "healPerShot": 75.0,
+   "healPerShot": 100.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "75/s"
+   "detail": "100/s"
   },
   {
    "hero": "Shion",
@@ -14324,9 +14413,9 @@
    "location": "Gothenburg, Sweden (formerly), Watchpoint: Gibraltar",
    "age": 25,
    "birthday": "Sep 22",
-   "health": 200,
+   "health": 175,
    "shields": 0,
-   "armor": 50,
+   "armor": 75,
    "totalHitpoints": 250,
    "portrait": "portrait_brigitte.png",
    "abilities": [
@@ -17854,10 +17943,10 @@
    "location": "MEKA Base, Busan, Korea",
    "age": 28,
    "birthday": "Apr 21",
-   "health": 325,
+   "health": 425,
    "shields": 0,
-   "armor": 325,
-   "totalHitpoints": 650,
+   "armor": 275,
+   "totalHitpoints": 700,
    "portrait": "portrait_dmon.png",
    "abilities": [
     {
@@ -17917,7 +18006,7 @@
      "icon": "ability_dmon_6.png"
     },
     {
-     "name": "Limit Break ",
+     "name": "Limit Break",
      "description": "Unleash a sweeping slash that grants self overhealth and amplifies damage taken by enemies.",
      "icon": "ability_dmon_7.png"
     },
@@ -18129,6 +18218,93 @@
    "matchups": []
   },
   {
+   "key": "doctrine",
+   "name": "Doctrine",
+   "color": "#bc5d6b",
+   "role": "support",
+   "subrole": "survivor",
+   "description": "A cyberneticist turned supervillain, Doctrine uses his fleet of life-draining drones to decree destiny.",
+   "location": "Watchpoint: Grímsvötn",
+   "age": 77,
+   "birthday": "Oct 20",
+   "health": 250,
+   "shields": 0,
+   "armor": 0,
+   "totalHitpoints": 250,
+   "portrait": "portrait_doctrine.png",
+   "abilities": [
+    {
+     "name": "Eternal Scepter",
+     "description": "Mid-range weapon that heals allies and damages enemies.  Infused: Fires a larger piercing blast.",
+     "icon": "ability_doctrine_0.png"
+    },
+    {
+     "name": "Infuse",
+     "description": "Add a powerful effect to your next ability.",
+     "icon": "ability_doctrine_1.png"
+    },
+    {
+     "name": "Invigorating Drones",
+     "description": "Deploy drones to an ally, granting attack speed and healing.  Infused: Also deploy drones to yourself.",
+     "icon": "ability_doctrine_2.png"
+    },
+    {
+     "name": "Shrouded Momentum",
+     "description": "Rush horizontally with damage reduction.  Infused: Gain free-flight.",
+     "icon": "ability_doctrine_3.png"
+    },
+    {
+     "name": "Deliverance",
+     "description": "Launch a swarm of drones that reduces enemy maximum health and grants allies overhealth.",
+     "icon": "ability_doctrine_4.png"
+    }
+   ],
+   "extraAbilities": [],
+   "releaseDate": "2026-10-06",
+   "heroNumber": 54,
+   "perks": [
+    {
+     "name": "Saving Grace",
+     "tier": "minor",
+     "description": "Invigorating Drones heal for 40 health when applied."
+    },
+    {
+     "name": "Sanguine Siphon",
+     "tier": "minor",
+     "description": "Heal for 50% of damage dealt with Infused Eternal Scepter."
+    },
+    {
+     "name": "Transfusion",
+     "tier": "major",
+     "description": "Reduce Infuse's cooldown from damage and healing dealt."
+    },
+    {
+     "name": "Cost of Life",
+     "tier": "major",
+     "description": "Sacrifice 25 maximum health. Eternal Scepter healing is increased by 20%."
+    }
+   ],
+   "patches": [
+    {
+     "date": "2026-09-12",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Hero Updates",
+       "text": "Roster Updates"
+      },
+      {
+       "ability": "Hero Updates",
+       "text": "Added Doctrine in a playable trial weekend (disabled in ranked games)."
+      }
+     ],
+     "stats": [],
+     "comments": []
+    }
+   ],
+   "matchups": []
+  },
+  {
    "key": "domina",
    "name": "Domina",
    "color": "#b88361",
@@ -18172,7 +18348,7 @@
      "description": "Project an explosive crystal and reactivate to detonate it.",
      "icon": "ability_domina_3.png",
      "damage": 100.0,
-     "cooldown": 8.0,
+     "cooldown": 7.0,
      "castTime": 0.2,
      "damageLines": [
       "50 (over time)",
@@ -20532,10 +20708,10 @@
    "location": "MEKA Base, Busan, South Korea (formerly), Watchpoint: Gibraltar",
    "age": 21,
    "birthday": "Jun 22",
-   "health": 325,
+   "health": 350,
    "shields": 0,
    "armor": 325,
-   "totalHitpoints": 650,
+   "totalHitpoints": 675,
    "portrait": "portrait_dva.png",
    "abilities": [
     {
@@ -22205,7 +22381,7 @@
      "opponent": "Hazard",
      "key": "hazard",
      "role": "tank",
-     "matchup": "Against a Hazard, you've got a tricky game ahead of you. At close range, Hazard's Bonespur can quickly burst down your health with enough headshots, but he's only got so much ammo, so be sure to use Defense Matrix to mitigate as much of his damage as you can. His Spike Guard can save him in sticky situations and stop a lot of your damage, but not all of it, so if he's very low keep, be sure to keep firing through it, but otherwise you can Defense Matrix the shots from it. He's an agile tank, who'll chase you down if your low enough, so try avoid running in a single direction, and use Boosters flexible mobility to move around so he can't easily catch you. If he dives one of your allies, Defense Matrix his damage to prevent him securing a kill. If he uses Jagged Wall to block you off, use your Boosters to fly over it to stay in your teammates view, and if he blocks an ally off, use your infinite ammo and missles to burst the wall down so they can fall back safely.",
+     "matchup": "Against a Hazard, you've got a tricky game ahead of you. At close range, Hazard's Bonespur can quickly burst down your health with enough headshots, but he's only got so much ammo, so be sure to use Defense Matrix to mitigate as much of his damage as you can. His Spike Guard can save him in sticky situations and stop a lot of your damage, but not all of it, so if he's very low keep, be sure to keep firing through it, but otherwise you can Defense Matrix the shots from it. He's an agile tank who'll chase you down if your low enough, so try avoid running in a single direction, and use Boosters flexible mobility to move around so he can't easily catch you. If he dives one of your allies, Defense Matrix his damage to prevent him securing a kill. If he uses Jagged Wall to block you off, use your Boosters to fly over it to stay in your teammates view, and if he blocks an ally off, use your infinite ammo and missles to burst the wall down so they can fall back safely.",
      "synergy": "As a teammate, Hazard and D.Va can be a deadly duo. He can use his Jagged Wall to block off an enemy, allowing you both to quickly mow them down before they can escape. Be wary of your team though, as Hazard lacks any defensive abilities to protect his teammates, usually putting himself between them and the opponent. If someone does get past him, it's up to you to protect them and prevent him from dying. Also, his Downpour ultimate can set up a great Self-Destruct, as it prevents opponents from escaping its radius.",
      "rating": null,
      "stance": null,
@@ -23734,7 +23910,7 @@
      "description": "Throw a grenade that detonates shortly after bouncing.",
      "icon": "ability_emre_1.png",
      "damage": 110.0,
-     "cooldown": 10.0,
+     "cooldown": 9.0,
      "castTime": 0.0,
      "damageLines": [
       "110 - 55 (area of effect)"
@@ -24707,11 +24883,11 @@
      "name": "Swift Strike",
      "description": "Rapidly dash forward and inflict damage on enemies. Eliminations reset the cooldown.",
      "icon": "ability_genji_2.png",
-     "damage": 50.0,
+     "damage": 60.0,
      "cooldown": 8.0,
      "castTime": null,
      "damageLines": [
-      "50"
+      "60"
      ],
      "damageUncertain": false
     },
@@ -34033,6 +34209,65 @@
    ],
    "patches": [
     {
+     "date": "2026-09-08",
+     "mode": "owpvp",
+     "changes": [
+      {
+       "ability": "Healing Ofuda",
+       "text": "Projectile travel speed reduced from 24 to 18 meters per second."
+      },
+      {
+       "ability": "Healing Ofuda",
+       "text": "Maximum seeking range reduced from 35 to 30 meters."
+      },
+      {
+       "ability": "Protection Suzu",
+       "text": "Phased out invulnerability duration reduced from 0.65 to 0.5 seconds."
+      },
+      {
+       "ability": "Protection Suzu",
+       "text": "Explosion radius reduced from 5 to 4 meters."
+      }
+     ],
+     "stats": [
+      {
+       "ability": "Healing Ofuda",
+       "stat": "Projectile travel speed",
+       "from": 24.0,
+       "to": 18.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Healing Ofuda",
+       "stat": "Maximum seeking range",
+       "from": 35.0,
+       "to": 30.0,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Protection Suzu",
+       "stat": "Phased out invulnerability duration",
+       "from": 0.65,
+       "to": 0.5,
+       "unit": null,
+       "direction": "nerf"
+      },
+      {
+       "ability": "Protection Suzu",
+       "stat": "Explosion radius",
+       "from": 5.0,
+       "to": 4.0,
+       "unit": null,
+       "direction": "nerf"
+      }
+     ],
+     "comments": [
+      "Kiriko has become highly effective as a healer while retaining the utility and mobility of her kit. We're reducing the speed and range of Healing Ofuda to lower her healing consistency at longer distances. Protection Suzu is also being adjusted to reduce the effectiveness of its invulnerability and require more precise use."
+     ]
+    },
+    {
      "date": "2026-07-14",
      "mode": "owpvp",
      "changes": [
@@ -36889,7 +37124,7 @@
     {
      "name": "Beat Drop",
      "tier": "minor",
-     "description": "Amp It Up is active during Sound Barrier."
+     "description": "Amp It Up is now active for 4 seconds after casting Sound Barrier."
     },
     {
      "name": "Noise Violation",
@@ -52308,15 +52543,20 @@
    "abilities": [
     {
      "name": "Scrap Gun",
-     "description": "Short-range spread weapon.  Medium-range projectile that explodes into the weapon's short-range primary fire.",
+     "description": "Short-range shotgun that fires in two bursts.",
      "icon": "ability_roadhog_0.png"
     },
     {
+     "name": "Trash Compactor",
+     "description": "Absorb enemy projectiles, compacting them into an explosive ball of scrap.",
+     "icon": "ability_roadhog_1.png"
+    },
+    {
      "name": "Chain Hook",
-     "description": "Drag a targeted enemy to you.",
-     "icon": "ability_roadhog_1.png",
+     "description": "Drag a targeted enemy towards you.",
+     "icon": "ability_roadhog_2.png",
      "damage": 25.0,
-     "cooldown": 7.0,
+     "cooldown": 6.0,
      "castTime": 0.1,
      "damageLines": [
       "25"
@@ -52326,12 +52566,12 @@
     {
      "name": "Take a Breather",
      "description": "Heal yourself and reduce damage taken.",
-     "icon": "ability_roadhog_2.png"
+     "icon": "ability_roadhog_3.png"
     },
     {
      "name": "Whole Hog",
      "description": "Damage and knock back enemies in front of you.",
-     "icon": "ability_roadhog_3.png"
+     "icon": "ability_roadhog_4.png"
     }
    ],
    "extraAbilities": [],
@@ -52341,7 +52581,7 @@
     {
      "name": "Scrap Hook",
      "tier": "minor",
-     "description": "Chain Hook hits reload 2 ammo."
+     "description": "Chain Hook hits reload 4 ammo."
     },
     {
      "name": "Shrapnel Launcher",
@@ -54917,9 +55157,9 @@
    "age": 64,
    "birthday": "Mar 15",
    "health": 350,
-   "shields": 275,
+   "shields": 250,
    "armor": 0,
-   "totalHitpoints": 625,
+   "totalHitpoints": 600,
    "portrait": "portrait_sigma.png",
    "abilities": [
     {
@@ -58443,8 +58683,8 @@
    "key": "sombra",
    "name": "Sombra",
    "color": "#7359ba",
-   "role": "damage",
-   "subrole": "recon",
+   "role": "support",
+   "subrole": "tactician",
    "description": "One of the world's most notorious hackers, Sombra uses information to manipulate those in power.",
    "location": "Dorado, Mexico",
    "age": 32,
@@ -58461,28 +58701,19 @@
      "icon": "ability_sombra_0.png"
     },
     {
-     "name": "Hack",
-     "description": "Hold to hack. Hacked enemies cannot use abilities and can be seen through walls. Hacked health packs spawn faster and can't be used by enemies. Taking damage interrupts the hack attempt.",
+     "name": "Hotfix",
+     "description": "Heal an ally over time for a set amount of health. Can also freely hack health packs and most enemy deployables.",
      "icon": "ability_sombra_1.png"
+    },
+    {
+     "name": "Cyberspace",
+     "description": "Launch a projectile that explodes on impact, creating a zone that weakens enemies and heals allies.",
+     "icon": "ability_sombra_2.png"
     },
     {
      "name": "Translocator",
      "description": "Throw a beacon and teleport to it. Become stealthed for a short duration after teleporting.",
-     "icon": "ability_sombra_2.png"
-    },
-    {
-     "name": "Virus",
-     "description": "Infect enemies with a projectile that deals damage over time. Virus damages hacked enemies at a faster rate.",
-     "icon": "ability_sombra_3.png",
-     "damage": 75.0,
-     "cooldown": 6.0,
-     "castTime": 0.06,
-     "damageLines": [
-      "35 (impact, normal)",
-      "70 (impact, hacked)",
-      "75 (DoT)"
-     ],
-     "damageUncertain": true
+     "icon": "ability_sombra_3.png"
     },
     {
      "name": "EMP",
@@ -58490,7 +58721,23 @@
      "icon": "ability_sombra_4.png"
     }
    ],
-   "extraAbilities": [],
+   "extraAbilities": [
+    {
+     "hero": "Sombra",
+     "name": "Virus",
+     "kind": "ability",
+     "damage": 75.0,
+     "damagePerSecond": null,
+     "cooldown": 6.0,
+     "castTime": 0.06,
+     "lines": [
+      "35 (impact, normal)",
+      "70 (impact, hacked)",
+      "75 (DoT)"
+     ],
+     "uncertain": true
+    }
+   ],
    "releaseDate": "2016-11-15",
    "heroNumber": 23,
    "perks": [

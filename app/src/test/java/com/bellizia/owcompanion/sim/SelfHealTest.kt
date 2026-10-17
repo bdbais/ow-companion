@@ -16,8 +16,8 @@ class SelfHealTest {
     @Test
     fun `a flat rate ignores what the hero is dealing`() {
         val breather = SelfHeal.forHero("Roadhog").first()
-        assertEquals(150.0, SelfHeal.rateOf(breather, ownDamagePerSecond = 0.0), 1e-9)
-        assertEquals(150.0, SelfHeal.rateOf(breather, ownDamagePerSecond = 400.0), 1e-9)
+        assertEquals(200.0, SelfHeal.rateOf(breather, ownDamagePerSecond = 0.0), 1e-9)
+        assertEquals(200.0, SelfHeal.rateOf(breather, ownDamagePerSecond = 400.0), 1e-9)
     }
 
     @Test

@@ -302,7 +302,7 @@
    "kind": "ability",
    "damage": 100.0,
    "damagePerSecond": null,
-   "cooldown": 8.0,
+   "cooldown": 7.0,
    "castTime": 0.2,
    "lines": [
     "50 (over time)",
@@ -443,7 +443,7 @@
    "kind": "ability",
    "damage": 110.0,
    "damagePerSecond": null,
-   "cooldown": 10.0,
+   "cooldown": 9.0,
    "castTime": 0.0,
    "lines": [
     "110 - 55 (area of effect)"
@@ -467,12 +467,12 @@
    "hero": "Genji",
    "name": "Swift Strike",
    "kind": "ability",
-   "damage": 50.0,
+   "damage": 60.0,
    "damagePerSecond": null,
    "cooldown": 8.0,
    "castTime": null,
    "lines": [
-    "50"
+    "60"
    ],
    "uncertain": false
   },
@@ -1005,7 +1005,7 @@
    "kind": "ability",
    "damage": 25.0,
    "damagePerSecond": null,
-   "cooldown": 7.0,
+   "cooldown": 6.0,
    "castTime": 0.1,
    "lines": [
     "25"

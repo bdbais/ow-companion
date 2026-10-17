@@ -43,6 +43,27 @@
    "raw": "45"
   },
   {
+   "hero": "Doctrine",
+   "weapon": "Eternal Scepter",
+   "field": "falloff",
+   "reason": "falloff differs by condition, took the first",
+   "raw": "30 - 50m (base) / 40 - 60m (infused)"
+  },
+  {
+   "hero": "Doctrine",
+   "weapon": "Infuse",
+   "field": "type",
+   "reason": "no shot type given, assumed a linear projectile",
+   "raw": ""
+  },
+  {
+   "hero": "Doctrine",
+   "weapon": "Infuse",
+   "field": "required",
+   "reason": "missing damage, fireRate",
+   "raw": ""
+  },
+  {
    "hero": "Domina",
    "weapon": "Photon Magnum",
    "field": "damage",
@@ -247,24 +268,31 @@
   },
   {
    "hero": "Roadhog",
-   "weapon": "Scrap Gun Alt Fire",
+   "weapon": "Scrap Gun",
+   "field": "damage",
+   "reason": "derived from the wiki's stated 203 dps: 4.2 -> 10.2 per pellet",
+   "raw": "4.25 – 1.275 (per pellet)"
+  },
+  {
+   "hero": "Roadhog",
+   "weapon": "Trash Compactor",
    "field": "falloff",
    "reason": "falloff differs by condition, took the first",
    "raw": "None (pre-detonation) / 24 - 39 meters (post-detonation)"
   },
   {
    "hero": "Roadhog",
-   "weapon": "Scrap Gun Alt Fire",
+   "weapon": "Trash Compactor",
    "field": "falloff",
    "reason": "damage is a near/far pair but no falloff range was found",
    "raw": "None (pre-detonation)\n24 - 39 meters (post-detonation)"
   },
   {
    "hero": "Roadhog",
-   "weapon": "Scrap Gun Alt Fire",
-   "field": "damage",
-   "reason": "derived from the wiki's stated 203 dps: 7.0 -> 162.5 per pellet",
-   "raw": "50 (pre-detonation)"
+   "weapon": "Trash Compactor",
+   "field": "required",
+   "reason": "missing fireRate",
+   "raw": ""
   },
   {
    "hero": "Sierra",

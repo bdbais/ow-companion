@@ -54,7 +54,7 @@ sealed interface SelfHeal {
          */
         val All: List<SelfHeal> = listOf(
             // Flat rates, straight from the wiki's heal field.
-            PerSecond("Roadhog", "Take a Breather", 150.0),
+            PerSecond("Roadhog", "Take a Breather", 200.0),
             PerSecond("Ramattra", "Nanite Repair", 100.0),
             PerSecond("Bastion", "Self-Repair", 90.0),
             PerSecond("Mei", "Cryo-Freeze", 62.5),

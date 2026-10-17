@@ -10,7 +10,12 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 { "weapons": { "Ana|Biotic Rifle": { "fireRate": 1.25, "reviewed": true } } }
 ```
 
-## Field-level warnings on weapons that are otherwise usable (67)
+## Weapons excluded from the chart until corrected (2)
+
+- **Doctrine — Infuse** no shot type given, assumed a linear projectile, missing damage, fireRate
+- **Roadhog — Trash Compactor** falloff differs by condition, took the first, damage is a near/far pair but no falloff range was found, missing fireRate
+
+## Field-level warnings on weapons that are otherwise usable (66)
 
 - **Anran — Zhuque Fans** `damage`: derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet — `22 (per shot)`
 - **Anran — Fan the Flames** `beam`: beam weapons need their tick rate filled in by hand
@@ -18,6 +23,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Baptiste — Biotic Launcher Alt Fire** `required`: missing damage
 - **Bastion — Configuration: Assault (Lindholm Explosives)** `damage`: derived from the wiki's stated 186 dps: 50.0 -> 140.0 per pellet — `50 (direct hit bonus)`
 - **Brigitte — Rocket Flail** `damage`: derived from the wiki's stated 75 dps: 45.0 -> 75.0 per pellet — `45`
+- **Doctrine — Eternal Scepter** `falloff`: falloff differs by condition, took the first — `30 - 50m (base) / 40 - 60m (infused)`
 - **Domina — Photon Magnum** `damage`: damage is stated as a rate, not per shot — `60 (over time)`
 - **Domina — Photon Magnum** `beam`: beam weapons need their tick rate filled in by hand
 - **Domina — Photon Magnum** `required`: missing damage, fireRate
@@ -47,10 +53,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Moira — Biotic Grasp Alt Fire** `required`: missing damage, fireRate
 - **Orisa — Augmented Fusion Driver** `reload`: several reload values, took the first — `3 seconds (cooldown after overheat) / 1.9 seconds (recharge from full heat)`
 - **Pharah — Rocket Launcher** `damage`: derived from the wiki's stated 150 dps: 40.0 -> 120.0 per pellet — `40 (direct hit)`
-- **Roadhog — Scrap Gun Alt Fire** `falloff`: falloff differs by condition, took the first — `None (pre-detonation) / 24 - 39 meters (post-detonation)`
-- **Roadhog — Scrap Gun Alt Fire** `falloff`: damage is a near/far pair but no falloff range was found — `None (pre-detonation)
-24 - 39 meters (post-detonation)`
-- **Roadhog — Scrap Gun Alt Fire** `damage`: derived from the wiki's stated 203 dps: 7.0 -> 162.5 per pellet — `50 (pre-detonation)`
+- **Roadhog — Scrap Gun** `damage`: derived from the wiki's stated 203 dps: 4.2 -> 10.2 per pellet — `4.25 – 1.275 (per pellet)`
 - **Sierra — Helix Rifle** `spread`: blooming spread needs a spreadingAmmoRange — `3 degrees (max) / 0.5 degrees (min)`
 - **Sigma — Hyperspheres** `damage`: derived from the wiki's stated 73 dps: 20.0 -> 54.7 per pellet — `20 (direct hit bonus)`
 - **Sojourn — Railgun** `spread`: several spread values, took the first — `1.6 degrees (vertical, max) / 0.64 degrees (horizontal, max)`
@@ -81,10 +84,11 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - **Zarya — Particle Cannon Alt Fire** `reload`: reload of 1.50 s implies 54 dps overall, but the wiki states 40 — `1.5 seconds`
 - **Zenyatta — Orb of Destruction Alt Fire** `damage`: derived from the wiki's stated 78 dps: 50.0 -> 77.6 per pellet — `50 per orb`
 
-## Hero colours derived from a portrait (faces skew these towards skin tone) (21)
+## Hero colours derived from a portrait (faces skew these towards skin tone) (22)
 
 - Anran
 - D.Mon
+- Doctrine
 - Domina
 - Emre
 - Freja
@@ -104,3 +108,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 - Vendetta
 - Venture
 - Wuyang
+
+## Overrides that no longer match any weapon (1)
+
+- Roadhog|Scrap Gun Alt Fire
