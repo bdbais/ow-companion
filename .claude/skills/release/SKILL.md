@@ -69,7 +69,7 @@ MSG
 git push -q origin master
 ```
 
-If this is rejected, the weekly dataset workflow has committed ahead of you:
+If this is rejected, the daily dataset workflow (06:00 Rome) has committed ahead of you:
 `git pull --rebase -q origin master` then push again. Releasing before the push succeeds
 tags a commit nobody else has.
 
