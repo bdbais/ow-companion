@@ -4,8 +4,8 @@
    "hero": "Anran",
    "weapon": "Zhuque Fans",
    "field": "damage",
-   "reason": "derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet",
-   "raw": "22 (per shot)"
+   "reason": "derived from the wiki's stated 80 dps: 24.0 -> 48.0 per pellet",
+   "raw": "24 (per shot)"
   },
   {
    "hero": "Anran",

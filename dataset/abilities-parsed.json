@@ -17,12 +17,12 @@
    "hero": "Ana",
    "name": "Biotic Grenade",
    "kind": "ability",
-   "damage": 90.0,
+   "damage": 60.0,
    "damagePerSecond": null,
    "cooldown": 12.0,
    "castTime": 0.69,
    "lines": [
-    "90"
+    "60"
    ],
    "uncertain": false
   },
@@ -229,19 +229,6 @@
     "50 (bleed)"
    ],
    "uncertain": true
-  },
-  {
-   "hero": "D.Mon",
-   "name": "Propulsors",
-   "kind": "ability",
-   "damage": 15.0,
-   "damagePerSecond": null,
-   "cooldown": 1.0,
-   "castTime": null,
-   "lines": [
-    "15"
-   ],
-   "uncertain": false
   },
   {
    "hero": "D.Mon",
@@ -656,7 +643,7 @@
    "kind": "ability",
    "damage": 105.0,
    "damagePerSecond": null,
-   "cooldown": 9.0,
+   "cooldown": 7.0,
    "castTime": 1.0,
    "lines": [
     "105 (impact)",

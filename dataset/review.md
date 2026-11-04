@@ -17,7 +17,7 @@ An override is keyed by `"Hero|Weapon name"` and merges over the parsed weapon:
 
 ## Field-level warnings on weapons that are otherwise usable (66)
 
-- **Anran — Zhuque Fans** `damage`: derived from the wiki's stated 73 dps: 22.0 -> 44.0 per pellet — `22 (per shot)`
+- **Anran — Zhuque Fans** `damage`: derived from the wiki's stated 80 dps: 24.0 -> 48.0 per pellet — `24 (per shot)`
 - **Anran — Fan the Flames** `beam`: beam weapons need their tick rate filled in by hand
 - **Ashe — Take Aim (ADS)** `reload`: reload of 2.90 s implies 83 dps overall, but the wiki states 41 — `0.5 seconds (initial animation)`
 - **Baptiste — Biotic Launcher Alt Fire** `required`: missing damage

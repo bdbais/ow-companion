@@ -184,7 +184,7 @@
    "hero": "D.Mon",
    "name": "Overstrike",
    "tier": "major",
-   "description": "Surging Strike gains 150% lifesteal"
+   "description": "Surging Strike gains 125% lifesteal"
   },
   {
    "hero": "D.Mon",
@@ -1198,7 +1198,7 @@
    "hero": "Winston",
    "name": "Revitalizing Barrier",
    "tier": "major",
-   "description": "Barrier Projector heals allies within it for 35 health per second."
+   "description": "Barrier Projector heals allies within it for 30 health per second."
   },
   {
    "hero": "Wrecking Ball",

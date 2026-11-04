@@ -37,11 +37,11 @@
      "name": "Biotic Grenade",
      "description": "Throws a grenade that heals and increases healing on allies, while damaging and preventing healing on enemies.",
      "icon": "ability_ana_2.png",
-     "damage": 90.0,
+     "damage": 60.0,
      "cooldown": 12.0,
      "castTime": 0.69,
      "damageLines": [
-      "90"
+      "60"
      ],
      "damageUncertain": false
     },
@@ -9691,14 +9691,7 @@
     {
      "name": "Propulsors",
      "description": "Consume fuel to surge in any horizontal direction.",
-     "icon": "ability_dmon_5.png",
-     "damage": 15.0,
-     "cooldown": 1.0,
-     "castTime": null,
-     "damageLines": [
-      "15"
-     ],
-     "damageUncertain": false
+     "icon": "ability_dmon_5.png"
     },
     {
      "name": "Eject!",
@@ -9747,7 +9740,7 @@
     {
      "name": "Overstrike",
      "tier": "major",
-     "description": "Surging Strike gains 150% lifesteal"
+     "description": "Surging Strike gains 125% lifesteal"
     },
     {
      "name": "Focused Fusion",
@@ -21956,7 +21949,7 @@
      "description": "Wound all enemies in front of you, dealing damage over time and reducing the cooldown for each enemy hit.",
      "icon": "ability_junker-queen_2.png",
      "damage": 105.0,
-     "cooldown": 9.0,
+     "cooldown": 7.0,
      "castTime": 1.0,
      "damageLines": [
       "105 (impact)",
@@ -58942,7 +58935,7 @@
     {
      "name": "Revitalizing Barrier",
      "tier": "major",
-     "description": "Barrier Projector heals allies within it for 35 health per second."
+     "description": "Barrier Projector heals allies within it for 30 health per second."
     }
    ],
    "patches": [

@@ -69,7 +69,7 @@
    ],
    "damage": {
     "dpshot": [
-     43.992081583683266
+     47.991361727654464
     ],
     "falloff": null
    },
@@ -508,12 +508,12 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.5,
-   "shotTime": 0.6666666666666666,
+   "fireRate": 1.54,
+   "shotTime": 0.6493506493506493,
    "ammo": 18.0,
    "reloadTime": null,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodBase": 0.6493506493506493,
    "dpsPeriodAdd": 0.0,
    "complete": true
   },
@@ -962,12 +962,12 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.11,
-   "shotTime": 0.9009009009009008,
+   "fireRate": 1.21,
+   "shotTime": 0.8264462809917356,
    "ammo": 14.0,
    "reloadTime": 1.5,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.9009009009009008,
+   "dpsPeriodBase": 0.8264462809917356,
    "dpsPeriodAdd": 0.10714285714285714,
    "complete": true
   },
@@ -1626,11 +1626,11 @@
    "velocity": 80.0,
    "fireRate": 25.0,
    "shotTime": 0.04,
-   "ammo": 100.0,
+   "ammo": 125.0,
    "reloadTime": 1.0,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.04,
-   "dpsPeriodAdd": 0.01,
+   "dpsPeriodAdd": 0.008,
    "complete": true
   },
   {

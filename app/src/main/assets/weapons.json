@@ -1000,7 +1000,7 @@
    ],
    "damage": {
     "dpshot": [
-     43.992081583683266
+     47.991361727654464
     ],
     "falloff": null
    },
@@ -1409,12 +1409,12 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.5,
-   "shotTime": 0.6666666666666666,
+   "fireRate": 1.54,
+   "shotTime": 0.6493506493506493,
    "ammo": 18.0,
    "reloadTime": null,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.6666666666666666,
+   "dpsPeriodBase": 0.6493506493506493,
    "dpsPeriodAdd": 0.0
   },
   {
@@ -1826,12 +1826,12 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.11,
-   "shotTime": 0.9009009009009008,
+   "fireRate": 1.21,
+   "shotTime": 0.8264462809917356,
    "ammo": 14.0,
    "reloadTime": 1.5,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.9009009009009008,
+   "dpsPeriodBase": 0.8264462809917356,
    "dpsPeriodAdd": 0.10714285714285714
   },
   {
@@ -2332,11 +2332,11 @@
    "velocity": 80.0,
    "fireRate": 25.0,
    "shotTime": 0.04,
-   "ammo": 100.0,
+   "ammo": 125.0,
    "reloadTime": 1.0,
    "critFactor": 2.0,
    "dpsPeriodBase": 0.04,
-   "dpsPeriodAdd": 0.01
+   "dpsPeriodAdd": 0.008
   },
   {
    "name": "Pummel",
@@ -5755,13 +5755,13 @@
    "hero": "Brigitte",
    "name": "Inspire",
    "kind": "weapon",
-   "healPerShot": 12.0,
+   "healPerShot": 15.0,
    "healPerSecond": null,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "12 (instant) / 11.25 per second"
+   "detail": "15(instant) / 11.25 per second"
   },
   {
    "hero": "Brigitte",
@@ -5793,11 +5793,11 @@
    "kind": "weapon",
    "healPerShot": 55.0,
    "healPerSecond": null,
-   "fireRate": 1.5,
+   "fireRate": 1.54,
    "ammo": 18.0,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "55 - 17 (base) / 120 - 36 (infused)"
+   "detail": "55 - 17 (base) / 110 - 33 (infused)"
   },
   {
    "hero": "Doctrine",
@@ -5935,13 +5935,13 @@
    "hero": "Illari",
    "name": "Healing Pylon",
    "kind": "weapon",
-   "healPerShot": 40.0,
+   "healPerShot": 50.0,
    "healPerSecond": null,
    "fireRate": 1.25,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "40 over 0.45 seconds (allies) / 20 over 0.45 seconds (self)"
+   "detail": "50 over 0.45 seconds (allies) / 25 over 0.45 seconds (self)"
   },
   {
    "hero": "Illari",
@@ -6608,12 +6608,12 @@
    "name": "Revitalizing Barrier",
    "kind": "weapon",
    "healPerShot": null,
-   "healPerSecond": 35.0,
+   "healPerSecond": 30.0,
    "fireRate": null,
    "ammo": null,
    "reloadTime": null,
    "statedHps": false,
-   "detail": "35 per second"
+   "detail": "30 per second"
   },
   {
    "hero": "Wuyang",
