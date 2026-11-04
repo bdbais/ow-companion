@@ -1,0 +1,7 @@
+{
+  "version": 31,
+  "weapons": "weapons.json",
+  "wiki": "wiki.json",
+  "publishedAt": "2026-11-04T13:01:30Z",
+  "commit": "7ead93968dab98fee1b118a91ac5fb4ece62410b"
+}
