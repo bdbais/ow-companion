@@ -36,3 +36,6 @@ dataset/field/
 # La cache di wrangler contiene identificativo e nome dell'account.
 site/.wrangler/
 site/node_modules/
+
+# Local scheduler log
+/tools/schedule/refresh-dataset.log
