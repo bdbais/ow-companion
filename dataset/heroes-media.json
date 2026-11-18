@@ -295,9 +295,14 @@
      "icon": "ability_cassidy_1.png"
     },
     {
+     "name": "Flashbang",
+     "description": "Hinder enemies in front of you, slowing them and disabling movement abilities.",
+     "icon": "ability_cassidy_2.png"
+    },
+    {
      "name": "Deadeye",
      "description": "Face off against your enemies. Press Q to lock on, then Q or ABILITY 3 to fire.",
-     "icon": "ability_cassidy_2.png"
+     "icon": "ability_cassidy_3.png"
     }
    ]
   },

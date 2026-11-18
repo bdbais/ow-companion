@@ -1844,6 +1844,72 @@
    ],
    "matchups": [
     {
+     "opponent": "D.Va",
+     "key": "dva",
+     "role": "tank",
+     "matchup": "Although D.Va has high burst damage and mobility, an Anran can easily take her down; most of Anran's attacks bypass Defense Matrix, and Ignition's burning effect completely ignores armor's damage mitigation. These plus Anran's higher agility and ability to self-heal make soloing a D.Va surprisingly easy.",
+     "synergy": "Both D.Va and Anran are able to dive in and apply high pressure with little consequence, making a tag team of the two especially deadly for the opponent.",
+     "rating": "Very good",
+     "stance": null,
+     "priority": null,
+     "risk": null
+    },
+    {
+     "opponent": "Domina",
+     "key": "domina",
+     "role": "tank",
+     "matchup": "Domina has no mobility at all, so an Anran can easily get close enough to attack. Once Ignited, Domina is fairly easy to take down; what makes this matchup a bit more difficult is Domina's Reconstruction passive, which allows her to self-heal if she hits you with attacks, so recognizing when a Domina is about to trigger an ability can be valuable. Important note: Anran's Dancing Blaze will not cleanse a Panopticon barrier, but you can avoid the damage if you cast Dancing Blaze right before the explosion goes off.",
+     "synergy": "Domina is meant to stay as far from the enemy as possible, while Anran thrives with more targets in her proximity. While a Domina can send in a Crystal Charge to help an Anran's dive, the two will rarely stand side-by-side in a team fight.",
+     "rating": "Good",
+     "stance": null,
+     "priority": null,
+     "risk": null
+    },
+    {
+     "opponent": "Doomfist",
+     "key": "doomfist",
+     "role": "tank",
+     "matchup": "With lower base HP and no direct healing, Doomfist might seem like an easy target for Anran. However, his mobility is more powerful than Anran's, and his Power Block is able to reduce most of Anran's damage to bug bites. Off cooldowns, Doomfist is easier to fight, but a few well-placed shots with his Hand Cannon can force an Anran to retreat or use Dancing Blaze to heal, by which time Rocket Punch will likely be available again.",
+     "synergy": "While they are both heroes that tend to flank for close-range combat on squishies, they have very different fighting styles and would not necessarily complement each other if they teamed up for a dive (e.g., a Rocket Punch pushing the target out of range of Dancing Blaze, denying Anran her healing).",
+     "rating": "Poor",
+     "stance": null,
+     "priority": null,
+     "risk": null
+    },
+    {
+     "opponent": "Hazard",
+     "key": "hazard",
+     "role": "tank",
+     "matchup": "While Anran can deal out enough damage to make a Hazard worry, with the right terrain, Hazard can send the stress right back: A well-placed Jagged Wall can force Anran to play around it, while Hazard can climb right over. If Anran gets too close, Hazard can also use Violent Leap to reopen the distance, or Spike Guard to make Anran back off. Also, an Anran hit by Downpour is easy pickings if the Hazard chooses to target her.",
+     "synergy": "Due to both heroes' versatility, an Anran-Hazard duo can be pretty solid. Hazard can wall off and corner clusters of enemies, which Anran can then cleanly dispose of with Dancing Blaze and a few blasts of Fan the Flames. Any targets that escape can also be easily chased down, as both heroes have comparable mobility.",
+     "rating": "Fair",
+     "stance": null,
+     "priority": null,
+     "risk": null
+    },
+    {
+     "opponent": "Junker Queen",
+     "key": "junker-queen",
+     "role": "tank",
+     "matchup": "When soloing a Junker Queen as Anran, your realistic options are to dodge all her attacks or run away. Junker Queen has self-healing to rival Anran's, and her Commanding Shout can turn the tide if she happens to be getting low, providing Overhealth and extra speed. The best you can hope for as Anran if you are determined to take down a Junker Queen is that she uses up all her abilities, opening up the opportunity for you to relentlessly bombard her with Fan the Flames.",
+     "synergy": "Because both heroes use 'over time' effects that bypass Armor, they can output threatening damage when coordinating their attacks; the main issue is that Anran is faster than Junker Queen, so for maximum effect, the Anran would need to hold back a little and fight with the Queen rather than end up alone in the enemy backline.",
+     "rating": "Poor",
+     "stance": null,
+     "priority": null,
+     "risk": null
+    },
+    {
+     "opponent": "Mauga",
+     "key": "mauga",
+     "role": "tank",
+     "matchup": "Although Mauga has a very large hitbox, he also has very high sustainability, with high health, Overhealth, lifesteal, and damage mitigation. He is also able to give Anran a taste of her own flaming medicine with enough hits. Your only escape from death versus a Mauga is Dancing Blaze, but once that's on cooldown, it's just a matter of time before the Mauga figures out where you are and finishes you off. Plus, if you happen to burn him low enough, he can just run away faster than you can follow. (Cage Fight is often certain death for an Anran, too.)",
+     "synergy": "Like Junker Queen, assuming they fight together, Mauga and Anran can easily cook an entire team together, fast and extra-rare. Because Anran's Fan the Flames can amplify Mauga's Incendiary Chaingun's burn affect, the enemy is likely to find itself spontaneously combusting once a fight breaks out. With both having AoE damage & healing and high mobility, the two can keep up with and support each other in just about every situation.",
+     "rating": "Poor",
+     "stance": null,
+     "priority": null,
+     "risk": null
+    },
+    {
      "opponent": "Anran",
      "key": "anran",
      "role": "damage",
@@ -7744,25 +7810,24 @@
      "icon": "ability_cassidy_1.png"
     },
     {
+     "name": "Flashbang",
+     "description": "Hinder enemies in front of you, slowing them and disabling movement abilities.",
+     "icon": "ability_cassidy_2.png",
+     "damage": 75.0,
+     "cooldown": 12.0,
+     "castTime": 0.13,
+     "damageLines": [
+      "75"
+     ],
+     "damageUncertain": false
+    },
+    {
      "name": "Deadeye",
      "description": "Face off against your enemies. Press Q to lock on, then Q or ABILITY 3 to fire.",
-     "icon": "ability_cassidy_2.png"
+     "icon": "ability_cassidy_3.png"
     }
    ],
    "extraAbilities": [
-    {
-     "hero": "Cassidy",
-     "name": "Flashbang",
-     "kind": "ability",
-     "damage": 75.0,
-     "damagePerSecond": null,
-     "cooldown": 12.0,
-     "castTime": 0.13,
-     "lines": [
-      "75"
-     ],
-     "uncertain": false
-    },
     {
      "hero": "Cassidy",
      "name": "Bang Bang",

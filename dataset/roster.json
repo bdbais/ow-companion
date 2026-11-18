@@ -14,7 +14,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2c38b41d79a1ce9a08b9ad8eb7edf3ff819bd448af16a5815be8c7fdb7203aa0.png",
    "wikiTitle": "Anran",
-   "wikiBytes": 49039
+   "wikiBytes": 54389
   },
   {
    "key": "ashe",
@@ -46,7 +46,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/795fba91376d87d441a7f359ae12a3175dfa95825ccc4414cc6b95b129fc4cb0.png",
    "wikiTitle": "Brigitte",
-   "wikiBytes": 84616
+   "wikiBytes": 84655
   },
   {
    "key": "cassidy",
@@ -70,7 +70,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/2492a15c575c12314907d0d77501ec337b4d56796bc7f03e5dfb50d415612bae.png",
    "wikiTitle": "Doctrine",
-   "wikiBytes": 7361
+   "wikiBytes": 7434
   },
   {
    "key": "domina",
@@ -110,7 +110,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/c51e2f698138861c0e3b6cfab3c3ca9d67fd709be175e7c397aa6f2649712a30.png",
    "wikiTitle": "Emre",
-   "wikiBytes": 34306
+   "wikiBytes": 34297
   },
   {
    "key": "freja",
@@ -150,7 +150,7 @@
    "role": "support",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/ce42d1455e03e79f321345fea84b27a8918b5db8bd7ab9b2ca9e569606ede9e4.png",
    "wikiTitle": "Illari",
-   "wikiBytes": 67875
+   "wikiBytes": 67879
   },
   {
    "key": "jetpack-cat",
@@ -366,7 +366,7 @@
    "role": "damage",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/4504f6f15cb3feaa92ecd38e01dcf751cb5abdac2e0bb52d0555727e53277502.png",
    "wikiTitle": "Tracer",
-   "wikiBytes": 68876
+   "wikiBytes": 68901
   },
   {
    "key": "vendetta",
@@ -398,7 +398,7 @@
    "role": "tank",
    "portrait": "https://d15f34w2p8l1cc.cloudfront.net/overwatch/46a10db3aa908c590ddc4e7606376a88143d1f1306ecfbea043263040f9529a5.png",
    "wikiTitle": "Winston",
-   "wikiBytes": 77380
+   "wikiBytes": 77381
   },
   {
    "key": "wrecking-ball",
