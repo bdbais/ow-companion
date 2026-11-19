@@ -2420,12 +2420,12 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.04,
-   "shotTime": 0.9615384615384615,
+   "fireRate": 1.05,
+   "shotTime": 0.9523809523809523,
    "ammo": null,
    "reloadTime": null,
    "critFactor": 1.0,
-   "dpsPeriodBase": 0.9615384615384615,
+   "dpsPeriodBase": 0.9523809523809523,
    "dpsPeriodAdd": 0.0
   },
   {
@@ -2955,12 +2955,12 @@
    },
    "spread": null,
    "velocity": null,
-   "fireRate": 1.18,
-   "shotTime": 0.8474576271186441,
+   "fireRate": 1.42,
+   "shotTime": 0.7042253521126761,
    "ammo": null,
    "reloadTime": null,
    "critFactor": 2.0,
-   "dpsPeriodBase": 0.8474576271186441,
+   "dpsPeriodBase": 0.7042253521126761,
    "dpsPeriodAdd": 0.0
   },
   {
